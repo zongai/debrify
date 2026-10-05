@@ -1345,6 +1345,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
       onToggleTvKeyboard: _toggleTvKeyboard,
       textBrightnessLabel: textBrightnessLabel(_textBrightness),
       onOpenTextBrightness: _openTextBrightnessPage,
+      languageLabel: AppLocaleController.instance.labelForPreference(
+        AppLocaleController.instance.preference,
+      ),
+      onOpenLanguage: _openLanguageSettings,
       launchAnimationLabel: launchIdentLabel(_launchAnimation),
       onOpenLaunchAnimation: _openLaunchAnimationPage,
       tvUiScalePercent: _tvUiScalePercent,
@@ -1477,6 +1481,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
       showIptvAppearance: _iptvAppearanceSearchable,
       textBrightnessLabel: textBrightnessLabel(_textBrightness),
       onOpenTextBrightness: _openTextBrightnessPage,
+      languageLabel: AppLocaleController.instance.labelForPreference(
+        AppLocaleController.instance.preference,
+      ),
+      onOpenLanguage: _openLanguageSettings,
       launchAnimationLabel: launchIdentLabel(_launchAnimation),
       onOpenLaunchAnimation: _openLaunchAnimationPage,
       iptvStyleLabel: iptvStyleLabel(_iptvStyle),
@@ -7643,6 +7651,8 @@ class _SettingsLayout extends StatelessWidget {
   final Future<void> Function() onOpenDebrifyTvStyle;
   final String textBrightnessLabel;
   final Future<void> Function() onOpenTextBrightness;
+  final String languageLabel;
+  final Future<void> Function() onOpenLanguage;
   final String launchAnimationLabel;
   final Future<void> Function() onOpenLaunchAnimation;
   final String iptvStyleLabel;
@@ -7736,6 +7746,8 @@ class _SettingsLayout extends StatelessWidget {
     required this.onOpenDebrifyTvStyle,
     required this.textBrightnessLabel,
     required this.onOpenTextBrightness,
+    required this.languageLabel,
+    required this.onOpenLanguage,
     required this.launchAnimationLabel,
     required this.onOpenLaunchAnimation,
     required this.iptvStyleLabel,
@@ -7951,6 +7963,11 @@ class _SettingsLayout extends StatelessWidget {
               title: 'Theme',
               blurb: 'Colour, focus, and motion. Applies everywhere.',
               children: [
+                SettingsTile.spec(
+                  SettingsRows.language,
+                  subtitle: languageLabel,
+                  onTap: onOpenLanguage,
+                ),
                 SettingsTile.spec(
                   SettingsRows.textBrightness,
                   subtitle: textBrightnessLabel,
