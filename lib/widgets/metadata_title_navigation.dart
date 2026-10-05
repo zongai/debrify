@@ -34,7 +34,7 @@ Future<void> openMetadataTitle(
   messenger?.removeCurrentSnackBar();
   final notice = messenger?.showSnackBar(
     SnackBar(
-      content: Text('Loading title…'),
+      content: Text(AppLocalizations.of(context).t('Loading title…')),
       duration: Duration(seconds: 4),
     ),
   );

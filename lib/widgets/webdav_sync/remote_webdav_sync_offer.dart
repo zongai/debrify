@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 
 import '../../models/webdav_item.dart';
 import '../../services/webdav_protocol_client.dart';
@@ -60,7 +62,7 @@ Future<void> offerRemoteWebDavSync(
         actions: [
           TextButton(
             onPressed: () => Navigator.of(dialogContext).pop(),
-            child: const Text('Not now'),
+            child: Text(AppLocalizations.of(context).t('Not now')),
           ),
         ],
       ),
@@ -95,7 +97,7 @@ Future<void> offerRemoteWebDavSync(
               actions: [
                 TextButton(
                   onPressed: () => Navigator.of(dialogContext).pop(false),
-                  child: Text('Cancel'),
+                  child: Text(AppLocalizations.of(context).t('Cancel')),
                 ),
                 FilledButton(
                   onPressed: () => Navigator.of(dialogContext).pop(true),

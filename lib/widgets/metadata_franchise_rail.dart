@@ -102,7 +102,7 @@ class _MetadataFranchiseRailState extends State<MetadataFranchiseRail> {
     if (_failed) {
       return TextButton(
         onPressed: _load,
-        child: const Text('Could not load franchise. Retry'),
+        child: Text(AppLocalizations.of(context).t('Could not load franchise. Retry')),
       );
     }
     final data = _data;

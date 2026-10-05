@@ -7,6 +7,8 @@ import 'package:file_picker/file_picker.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
+import '../l10n/app_localizations.dart';
+
 import 'package:flutter/services.dart';
 import 'package:http/http.dart' as http;
 import 'package:collection/collection.dart';
@@ -8316,7 +8318,7 @@ class _DebrifyTVScreenState extends State<DebrifyTVScreen> {
               onPressed: _isBusy
                   ? null
                   : () => _handleTopMenuAction(_DebrifyTvTopMenuAction.import),
-              child: Text('Import'),
+              child: Text(AppLocalizations.of(context).t('Import')),
             ),
             MenuItemButton(
               style: itemStyle,
@@ -8332,7 +8334,7 @@ class _DebrifyTVScreenState extends State<DebrifyTVScreen> {
               onPressed: _isBusy
                   ? null
                   : () => _handleTopMenuAction(_DebrifyTvTopMenuAction.add),
-              child: Text('Add Channel'),
+              child: Text(AppLocalizations.of(context).t('Add Channel')),
             ),
             MenuItemButton(
               style: itemStyle,
@@ -8341,14 +8343,14 @@ class _DebrifyTVScreenState extends State<DebrifyTVScreen> {
                   ? null
                   : () =>
                         _handleTopMenuAction(_DebrifyTvTopMenuAction.deleteAll),
-              child: Text('Delete All'),
+              child: Text(AppLocalizations.of(context).t('Delete All')),
             ),
             MenuItemButton(
               style: itemStyle,
               leadingIcon: Icon(Icons.settings_rounded),
               onPressed: () =>
                   _handleTopMenuAction(_DebrifyTvTopMenuAction.settings),
-              child: Text('Settings'),
+              child: Text(AppLocalizations.of(context).t('Settings')),
             ),
           ],
           builder: (context, controller, child) {
@@ -8985,7 +8987,7 @@ class _DebrifyTVScreenState extends State<DebrifyTVScreen> {
                         children: [
                           Icon(Icons.edit_rounded, size: 18),
                           SizedBox(width: 12),
-                          Text('Edit'),
+                          Text(AppLocalizations.of(context).t('Edit')),
                         ],
                       ),
                     ),
@@ -9005,7 +9007,7 @@ class _DebrifyTVScreenState extends State<DebrifyTVScreen> {
                         children: [
                           Icon(Icons.delete_outline_rounded, size: 18),
                           SizedBox(width: 12),
-                          Text('Delete'),
+                          Text(AppLocalizations.of(context).t('Delete')),
                         ],
                       ),
                     ),

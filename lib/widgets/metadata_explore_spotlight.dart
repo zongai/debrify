@@ -605,7 +605,7 @@ class _MetadataExploreSpotlightState extends State<MetadataExploreSpotlight> {
                             if (watch)
                               OutlinedButton(
                                 onPressed: () => _jump(_watchKey, 'watch'),
-                                child: const Text('Where to watch'),
+                                child: Text(AppLocalizations.of(context).t('Where to watch')),
                               ),
                             if (widget.preferences.features.contains(
                               MetadataFeature.discovery,

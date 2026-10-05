@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 import '../../models/playlist_view_mode.dart';
 import '../../services/lemmy_service.dart';
 import '../../services/youtube_service.dart';
@@ -271,7 +273,7 @@ class LemmyResultsViewState extends State<LemmyResultsView> {
                 child: CircularProgressIndicator(strokeWidth: 2),
               ),
               SizedBox(width: 12),
-              Text('Loading video...'),
+              Text(AppLocalizations.of(context).t('Loading video...')),
             ],
           ),
           duration: Duration(seconds: 4),
@@ -306,7 +308,7 @@ class LemmyResultsViewState extends State<LemmyResultsView> {
                   child: CircularProgressIndicator(strokeWidth: 2),
                 ),
                 SizedBox(width: 12),
-                Text('Loading video...'),
+                Text(AppLocalizations.of(context).t('Loading video...')),
               ],
             ),
             duration: Duration(seconds: 2),
@@ -415,7 +417,7 @@ class LemmyResultsViewState extends State<LemmyResultsView> {
 
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Added to downloads')),
+        SnackBar(content: Text(AppLocalizations.of(context).t('Added to downloads'))),
       );
     } catch (e) {
       if (!mounted) return;
@@ -493,7 +495,7 @@ class LemmyResultsViewState extends State<LemmyResultsView> {
             FilledButton.icon(
               onPressed: _performSearch,
               icon: const Icon(Icons.refresh),
-              label: const Text('Retry'),
+              label: Text(AppLocalizations.of(context).t('Retry')),
             ),
           ],
         ),

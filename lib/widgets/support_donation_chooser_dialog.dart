@@ -162,7 +162,7 @@ class _SupportDonationChooserDialogState
             TextButton(
               focusNode: _closeFocusNode,
               onPressed: () => Navigator.of(context).pop(),
-              child: const Text('Close'),
+              child: Text(AppLocalizations.of(context).t('Close')),
             ),
           ],
         ),

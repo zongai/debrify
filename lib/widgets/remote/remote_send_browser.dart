@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 import '../../theme/app_theme_scope.dart';
 
 enum RemoteSendGroup { addons, channels, setup, webDavSync }
@@ -130,7 +132,7 @@ class _RemoteSendBrowserState extends State<RemoteSendBrowser> {
                       ? null
                       : () => setState(() => _group = null),
                   icon: const Icon(Icons.arrow_back),
-                  label: Text('Send'),
+                  label: Text(AppLocalizations.of(context).t('Send')),
                 ),
               ),
               Text(
@@ -155,13 +157,13 @@ class _RemoteSendBrowserState extends State<RemoteSendBrowser> {
                     onPressed: (widget.busy || widget.loading)
                         ? null
                         : () => widget.basket.select(visible.map((c) => c.id)),
-                    child: Text('Select all'),
+                    child: Text(AppLocalizations.of(context).t('Select all')),
                   ),
                   TextButton(
                     onPressed: (widget.busy || widget.loading)
                         ? null
                         : () => widget.basket.remove(visible.map((c) => c.id)),
-                    child: Text('Clear selection'),
+                    child: Text(AppLocalizations.of(context).t('Clear selection')),
                   ),
                 ],
               ),
@@ -239,7 +241,7 @@ class _RemoteSendBrowserState extends State<RemoteSendBrowser> {
               Text(widget.error!, style: TextStyle(color: app.core.tx)),
               TextButton(
                 onPressed: widget.busy ? null : widget.onRetry,
-                child: Text('Try again'),
+                child: Text(AppLocalizations.of(context).t('Try again')),
               ),
             ],
             const SizedBox(height: 20),

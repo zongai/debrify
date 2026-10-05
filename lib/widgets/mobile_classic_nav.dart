@@ -170,7 +170,7 @@ class MobileClassicNav extends StatelessWidget {
                       if (context.mounted) _openEditSheet(context);
                     },
                     icon: const Icon(Icons.edit_rounded, size: 14),
-                    label: const Text('Edit bar'),
+                    label: Text(AppLocalizations.of(context).t('Edit bar')),
                     style: TextButton.styleFrom(
                       foregroundColor: app.shell.navLabel,
                       textStyle: const TextStyle(
@@ -334,7 +334,7 @@ class MobileClassicNav extends StatelessWidget {
                           ),
                           visualDensity: VisualDensity.compact,
                         ),
-                        child: const Text('Done'),
+                        child: Text(AppLocalizations.of(context).t('Done')),
                       ),
                     ],
                   ),

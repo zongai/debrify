@@ -3,6 +3,8 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 import 'package:flutter/services.dart';
 
 import '../../services/remote_control/remote_constants.dart';
@@ -104,7 +106,7 @@ class _RemotePairingPanelState extends State<RemotePairingPanel> {
           TextButton(
             autofocus: true,
             onPressed: widget.gate.cancel,
-            child: Text('Cancel'),
+            child: Text(AppLocalizations.of(context).t('Cancel')),
           ),
         ],
       ),
@@ -304,12 +306,12 @@ class _PairingCodeEntryDialogState extends State<_PairingCodeEntryDialog> {
         TextButton(
           focusNode: _cancelFocus,
           onPressed: () => Navigator.of(context).pop(null),
-          child: Text('Cancel'),
+          child: Text(AppLocalizations.of(context).t('Cancel')),
         ),
         FilledButton(
           focusNode: _confirmFocus,
           onPressed: _controller.text.length == 6 ? _submit : null,
-          child: Text('Confirm'),
+          child: Text(AppLocalizations.of(context).t('Confirm')),
         ),
       ],
     );
@@ -394,7 +396,7 @@ Future<void> showLegacyBlockedDialog(BuildContext context, String tvName) {
         FilledButton(
           autofocus: true,
           onPressed: () => Navigator.of(dialogContext).pop(),
-          child: Text('OK'),
+          child: Text(AppLocalizations.of(context).t('OK')),
         ),
       ],
     ),
@@ -425,7 +427,7 @@ Future<bool?> showTvIdentityMismatchDialog(
         FilledButton(
           autofocus: true,
           onPressed: () => Navigator.of(dialogContext).pop(false),
-          child: Text('Cancel'),
+          child: Text(AppLocalizations.of(context).t('Cancel')),
         ),
         TextButton(
           onPressed: () => Navigator.of(dialogContext).pop(true),
@@ -454,7 +456,7 @@ Future<void> showTvIdentityChangedDialog(BuildContext context, String tvName) {
         FilledButton(
           autofocus: true,
           onPressed: () => Navigator.of(dialogContext).pop(),
-          child: Text('OK'),
+          child: Text(AppLocalizations.of(context).t('OK')),
         ),
       ],
     ),
@@ -997,7 +999,7 @@ class _PairedDevicesDialogState extends State<_PairedDevicesDialog> {
         FilledButton(
           autofocus: true,
           onPressed: () => Navigator.of(context).pop(),
-          child: Text('Done'),
+          child: Text(AppLocalizations.of(context).t('Done')),
         ),
       ],
     );

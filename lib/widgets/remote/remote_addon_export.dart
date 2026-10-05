@@ -4,6 +4,8 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 import 'package:flutter/services.dart';
 
 import '../../models/stremio_addon.dart';
@@ -193,7 +195,7 @@ class _RemoteAddonExportState extends State<RemoteAddonExport> {
         TextButton.icon(
           onPressed: widget.onBack,
           icon: Icon(Icons.arrow_back, size: 18),
-          label: Text('Back to menu'),
+          label: Text(AppLocalizations.of(context).t('Back to menu')),
           style: TextButton.styleFrom(
             foregroundColor: Colors.white.withValues(alpha: 0.7),
           ),

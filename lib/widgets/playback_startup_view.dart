@@ -198,7 +198,7 @@ class PlaybackStartupView extends StatelessWidget {
                               actions: [
                                 TextButton(
                                   onPressed: () => Navigator.pop(context),
-                                  child: const Text('Close'),
+                                  child: Text(AppLocalizations.of(context).t('Close')),
                                 ),
                               ],
                             ),

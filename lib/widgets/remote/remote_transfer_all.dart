@@ -4,6 +4,8 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 import 'package:flutter/services.dart';
 
 import '../../models/stremio_addon.dart';
@@ -1409,7 +1411,7 @@ class _RemoteTransferAllState extends State<RemoteTransferAll> {
             actions: [
               TextButton(
                 onPressed: () => Navigator.pop(context, false),
-                child: Text('Cancel'),
+                child: Text(AppLocalizations.of(context).t('Cancel')),
               ),
               FilledButton(
                 onPressed: () => Navigator.pop(context, true),
@@ -1434,7 +1436,7 @@ class _RemoteTransferAllState extends State<RemoteTransferAll> {
           child: TextButton.icon(
             onPressed: busy ? null : widget.onBack,
             icon: Icon(Icons.arrow_back),
-            label: Text('Send'),
+            label: Text(AppLocalizations.of(context).t('Send')),
           ),
         ),
         Text(
@@ -1460,7 +1462,7 @@ class _RemoteTransferAllState extends State<RemoteTransferAll> {
             Text(_inventoryError!),
             TextButton(
               onPressed: busy ? null : _loadBundle,
-              child: Text('Try again'),
+              child: Text(AppLocalizations.of(context).t('Try again')),
             ),
           ],
           RadioGroup<bool>(

@@ -167,11 +167,11 @@ import '../../l10n/app_localizations.dart';
 //         actions: [
 //           TextButton(
 //             onPressed: () => Navigator.of(context).pop(false),
-//             child: const Text('Cancel'),
+//             child: Text(AppLocalizations.of(context).t('Cancel')),
 //           ),
 //           FilledButton(
 //             onPressed: () => Navigator.of(context).pop(true),
-//             child: const Text('Remove'),
+//             child: Text(AppLocalizations.of(context).t('Remove')),
 //           ),
 //         ],
 //       ),

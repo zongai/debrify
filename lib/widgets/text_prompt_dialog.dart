@@ -81,7 +81,7 @@ class _TextPromptDialogState extends State<TextPromptDialog> {
       actions: [
         TextButton(
           onPressed: () => Navigator.of(context).pop(),
-          child: const Text('Cancel'),
+          child: Text(AppLocalizations.of(context).t('Cancel')),
         ),
         TextButton(onPressed: _submit, child: Text(widget.action)),
       ],

@@ -1536,7 +1536,7 @@ class _IptvSettingsPageState extends State<IptvSettingsPage>
             ListTile(
               leading: Icon(Icons.delete_outline_rounded, color: t.danger),
               title: Text('Delete', style: TextStyle(color: t.danger)),
-              subtitle: const Text('The channels themselves are kept'),
+              subtitle: Text(AppLocalizations.of(context).t('The channels themselves are kept')),
               onTap: () => Navigator.of(context).pop('delete'),
             ),
             const SizedBox(height: 8),

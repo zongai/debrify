@@ -4,6 +4,8 @@ import 'dart:typed_data';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 import 'package:flutter/services.dart';
 
 import '../../models/profiles/profile_policy.dart';
@@ -143,7 +145,7 @@ class _RemoteControlScreenState extends State<RemoteControlScreen> {
               appBar: AppBar(
                 backgroundColor: app.core.ground,
                 foregroundColor: app.core.tx,
-                title: Text('Remote'),
+                title: Text(AppLocalizations.of(context).t('Remote')),
                 actions: [
                   TextButton(
                     onPressed: busy ? null : _receiveInstead,
@@ -176,7 +178,7 @@ class _RemoteControlScreenState extends State<RemoteControlScreen> {
                                   await state.disconnect();
                                   await _connectSafely(state.rescan);
                                 },
-                          child: Text('Change'),
+                          child: Text(AppLocalizations.of(context).t('Change')),
                         ),
                       ),
                       Padding(
@@ -187,11 +189,11 @@ class _RemoteControlScreenState extends State<RemoteControlScreen> {
                               child: _activeView != 'navigate'
                                   ? FilledButton(
                                       onPressed: busy ? null : _closeView,
-                                      child: Text('Send'),
+                                      child: Text(AppLocalizations.of(context).t('Send')),
                                     )
                                   : OutlinedButton(
                                       onPressed: busy ? null : _closeView,
-                                      child: Text('Send'),
+                                      child: Text(AppLocalizations.of(context).t('Send')),
                                     ),
                             ),
                             const SizedBox(width: 10),
@@ -524,7 +526,7 @@ class _RemoteControlScreenState extends State<RemoteControlScreen> {
               style: FilledButton.styleFrom(
                 backgroundColor: AppThemeScope.of(context).core.tx,
               ),
-              child: Text('Connect'),
+              child: Text(AppLocalizations.of(context).t('Connect')),
             ),
           ],
         );
@@ -857,7 +859,7 @@ class _RemoteControlScreenState extends State<RemoteControlScreen> {
                   );
                 },
                 icon: Icon(Icons.arrow_back, size: 20),
-                label: Text('Back'),
+                label: Text(AppLocalizations.of(context).t('Back')),
                 style: OutlinedButton.styleFrom(
                   foregroundColor: AppThemeScope.of(context).core.tx,
                   side: BorderSide(

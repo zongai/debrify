@@ -111,7 +111,7 @@ Future<void> showChannelCreatedShareDialog(
           TextButton(
             autofocus: true,
             onPressed: () => Navigator.of(context).pop(),
-            child: const Text('Close'),
+            child: Text(AppLocalizations.of(context).t('Close')),
           ),
         ],
       );

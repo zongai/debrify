@@ -24,7 +24,7 @@ Future<int?> showRecordingLimitPicker(BuildContext context) async {
   final picked = await showDialog<int>(
     context: context,
     builder: (dialogContext) => SimpleDialog(
-      title: const Text('Simultaneous recordings'),
+      title: Text(AppLocalizations.of(context).t('Simultaneous recordings')),
       children: [
         Padding(
           padding: const EdgeInsets.fromLTRB(24, 0, 24, 10),
@@ -198,7 +198,7 @@ Future<_ConflictChoice> _showConflictDialog(
           TextButton(
             onPressed: () =>
                 Navigator.of(dialogContext).pop(_ConflictChoice.cancel),
-            child: const Text('Cancel'),
+            child: Text(AppLocalizations.of(context).t('Cancel')),
           ),
           if (offerManage)
             TextButton(

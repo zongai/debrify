@@ -674,7 +674,7 @@ import '../../l10n/app_localizations.dart';
 //                         children: [
 //                           TextButton(
 //                             onPressed: () => Navigator.of(dialogContext).pop(),
-//                             child: const Text('Close'),
+//                             child: Text(AppLocalizations.of(context).t('Close')),
 //                           ),
 //                           const SizedBox(width: 8),
 //                           FilledButton.icon(

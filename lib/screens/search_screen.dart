@@ -41,6 +41,8 @@ import 'package:flutter/foundation.dart'
     show ValueListenable, listEquals, visibleForTesting;
 import 'package:flutter/material.dart';
 
+import '../l10n/app_localizations.dart';
+
 import '../models/custom_series_identity.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -4462,7 +4464,7 @@ class _SearchScreenState extends State<SearchScreen>
     } on ResourceAuthorizationException {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('IPTV is unavailable. Please retry or sign in.'),
+          SnackBar(content: Text(AppLocalizations.of(context).t('IPTV is unavailable. Please retry or sign in.')),
           ),
         );
       }
@@ -4643,16 +4645,16 @@ class _SearchScreenState extends State<SearchScreen>
     final remove = await showDialog<bool>(
       context: context,
       builder: (dialogContext) => AlertDialog(
-        title: Text('Series unavailable'),
+        title: Text(AppLocalizations.of(context).t('Series unavailable')),
         content: Text('$message\n\nRemove it from My Watchlist?'),
         actions: [
           TextButton(
             onPressed: () => Navigator.of(dialogContext).pop(false),
-            child: Text('Keep'),
+            child: Text(AppLocalizations.of(context).t('Keep')),
           ),
           FilledButton(
             onPressed: () => Navigator.of(dialogContext).pop(true),
-            child: Text('Remove'),
+            child: Text(AppLocalizations.of(context).t('Remove')),
           ),
         ],
       ),
@@ -4668,7 +4670,7 @@ class _SearchScreenState extends State<SearchScreen>
       ScaffoldMessenger.of(context)
         ..hideCurrentSnackBar()
         ..showSnackBar(
-          SnackBar(content: Text('Removed from My Watchlist')),
+          SnackBar(content: Text(AppLocalizations.of(context).t('Removed from My Watchlist'))),
         );
     } catch (_) {
       if (!mounted) return;
@@ -4966,19 +4968,19 @@ class _SearchScreenState extends State<SearchScreen>
     final confirmed = await showDialog<bool>(
       context: context,
       builder: (dialogContext) => AlertDialog(
-        title: Text('Delete?'),
+        title: Text(AppLocalizations.of(context).t('Delete?')),
         content: Text('Remove "$title" from your playlist?'),
         actions: [
           TextButton(
             onPressed: () => Navigator.of(dialogContext).pop(false),
-            child: Text('Cancel'),
+            child: Text(AppLocalizations.of(context).t('Cancel')),
           ),
           FilledButton(
             style: FilledButton.styleFrom(
               backgroundColor: AppThemeScope.of(dialogContext).home.danger,
             ),
             onPressed: () => Navigator.of(dialogContext).pop(true),
-            child: Text('Delete'),
+            child: Text(AppLocalizations.of(context).t('Delete')),
           ),
         ],
       ),
@@ -12808,7 +12810,7 @@ class _SearchScreenState extends State<SearchScreen>
             ),
             ListTile(
               leading: Icon(Icons.copy_rounded, color: Color(0xFFF59E0B)),
-              title: Text('Copy link'),
+              title: Text(AppLocalizations.of(context).t('Copy link')),
               onTap: () async {
                 DialogTapGuard.markKeyAction();
                 Navigator.of(sheetCtx).pop();
@@ -12822,7 +12824,7 @@ class _SearchScreenState extends State<SearchScreen>
                   Icons.download_rounded,
                   color: Color(0xFF60A5FA),
                 ),
-                title: Text('Download to device'),
+                title: Text(AppLocalizations.of(context).t('Download to device')),
                 onTap: () {
                   DialogTapGuard.markKeyAction();
                   Navigator.of(sheetCtx).pop();
@@ -13259,7 +13261,7 @@ class _SearchScreenState extends State<SearchScreen>
             }
 
             return AlertDialog(
-              title: Text('Filter by source'),
+              title: Text(AppLocalizations.of(context).t('Filter by source')),
               content: SizedBox(
                 width: double.maxFinite,
                 child: SingleChildScrollView(
@@ -13275,7 +13277,7 @@ class _SearchScreenState extends State<SearchScreen>
               actions: [
                 TextButton(
                   onPressed: () => Navigator.of(dialogCtx).pop(),
-                  child: Text('Done'),
+                  child: Text(AppLocalizations.of(context).t('Done')),
                 ),
               ],
             );
@@ -13322,7 +13324,7 @@ class _SearchScreenState extends State<SearchScreen>
             final dirEnabled = _kwSort != 'relevance';
             return AlertDialog(
               backgroundColor: scheme.surfaceContainerHigh,
-              title: Text('Sort by'),
+              title: Text(AppLocalizations.of(context).t('Sort by')),
               content: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
@@ -13339,7 +13341,7 @@ class _SearchScreenState extends State<SearchScreen>
                       padding: const EdgeInsets.symmetric(horizontal: 16),
                       child: Row(
                         children: [
-                          Expanded(child: Text('Direction')),
+                          Expanded(child: Text(AppLocalizations.of(context).t('Direction'))),
                           ToggleButtons(
                             isSelected: [!_kwSortAsc, _kwSortAsc],
                             onPressed: dirEnabled
@@ -13364,7 +13366,7 @@ class _SearchScreenState extends State<SearchScreen>
               actions: [
                 TextButton(
                   onPressed: () => Navigator.of(dialogCtx).pop(),
-                  child: Text('Done'),
+                  child: Text(AppLocalizations.of(context).t('Done')),
                 ),
               ],
             );
@@ -13479,11 +13481,11 @@ class _SearchScreenState extends State<SearchScreen>
         context: context,
         builder: (dialogContext) => AlertDialog(
           title: Text(item.name),
-          content: Text('The addon configuration for this series is unavailable. Your local history is still saved.'),
+          content: Text(AppLocalizations.of(context).t('The addon configuration for this series is unavailable. Your local history is still saved.')),
           actions: [
-            TextButton(onPressed: () => Navigator.pop(dialogContext, false), child: Text('Close')),
+            TextButton(onPressed: () => Navigator.pop(dialogContext, false), child: Text(AppLocalizations.of(context).t('Close'))),
             if (_cwIds.contains(item.imdbId))
-              TextButton(onPressed: () => Navigator.pop(dialogContext, true), child: Text('Remove from Continue Watching')),
+              TextButton(onPressed: () => Navigator.pop(dialogContext, true), child: Text(AppLocalizations.of(context).t('Remove from Continue Watching'))),
           ],
         ),
       );
@@ -20849,7 +20851,7 @@ class _SearchScreenState extends State<SearchScreen>
                 autofocus: widget.isTelevision,
                 onPressed: onRetry,
                 icon: const Icon(Icons.refresh),
-                label: Text('Try again'),
+                label: Text(AppLocalizations.of(context).t('Try again')),
               ),
             ],
           ],

@@ -588,7 +588,7 @@ class _TVMazeSearchDialogState extends State<TVMazeSearchDialog> {
                             borderRadius: app.shape.br(8),
                           ),
                         ),
-                        child: const Text('Cancel'),
+                        child: Text(AppLocalizations.of(context).t('Cancel')),
                       );
                     },
                   ),

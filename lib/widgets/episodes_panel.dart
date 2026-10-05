@@ -2051,7 +2051,7 @@ class EpisodesPanelState extends State<EpisodesPanel> {
                     initialEpisode: widget.initialEpisode,
                   ),
                   icon: const Icon(Icons.refresh_rounded),
-                  label: const Text('Retry'),
+                  label: Text(AppLocalizations.of(context).t('Retry')),
                 ),
                 // No torrent-search fallback exists for direct-source shows —
                 // Retry is the only honest offer there.

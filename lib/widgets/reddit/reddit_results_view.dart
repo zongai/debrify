@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 import '../../models/playlist_view_mode.dart';
 import '../../services/reddit_service.dart';
 import '../../services/reddit_embed_resolver_service.dart';
@@ -321,7 +323,7 @@ class RedditResultsViewState extends State<RedditResultsView> {
                   child: CircularProgressIndicator(strokeWidth: 2),
                 ),
                 SizedBox(width: 12),
-                Text('Loading video...'),
+                Text(AppLocalizations.of(context).t('Loading video...')),
               ],
             ),
             duration: Duration(seconds: 2),
@@ -412,7 +414,7 @@ class RedditResultsViewState extends State<RedditResultsView> {
 
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Added to downloads')),
+        SnackBar(content: Text(AppLocalizations.of(context).t('Added to downloads'))),
       );
     } catch (e) {
       if (!mounted) return;
@@ -501,7 +503,7 @@ class RedditResultsViewState extends State<RedditResultsView> {
             FilledButton.icon(
               onPressed: _performSearch,
               icon: const Icon(Icons.refresh),
-              label: const Text('Retry'),
+              label: Text(AppLocalizations.of(context).t('Retry')),
             ),
           ],
         ),

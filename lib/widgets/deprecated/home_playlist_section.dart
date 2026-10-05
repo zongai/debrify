@@ -318,19 +318,19 @@ import '../../l10n/app_localizations.dart';
 //     final confirmed = await showDialog<bool>(
 //       context: context,
 //       builder: (context) => AlertDialog(
-//         title: const Text('Delete?'),
+//         title: Text(AppLocalizations.of(context).t('Delete?')),
 //         content: Text('Remove "$title" from your playlist?'),
 //         actions: [
 //           TextButton(
 //             onPressed: () => Navigator.of(context).pop(false),
-//             child: const Text('Cancel'),
+//             child: Text(AppLocalizations.of(context).t('Cancel')),
 //           ),
 //           FilledButton(
 //             style: FilledButton.styleFrom(
 //               backgroundColor: HomeTheme.danger,
 //             ),
 //             onPressed: () => Navigator.of(context).pop(true),
-//             child: const Text('Delete'),
+//             child: Text(AppLocalizations.of(context).t('Delete')),
 //           ),
 //         ],
 //       ),

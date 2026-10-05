@@ -850,7 +850,7 @@ class DetailEpisodesStatus extends StatelessWidget {
                     ),
                     onPressed: onRetry,
                     icon: const Icon(Icons.refresh_rounded, size: 18),
-                    label: const Text('Retry'),
+                    label: Text(AppLocalizations.of(context).t('Retry')),
                   ),
                   if (onSearchForSources != null)
                     OutlinedButton.icon(

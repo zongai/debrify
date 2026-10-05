@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../l10n/app_localizations.dart';
+
 import '../models/stremio_addon.dart';
 import '../models/tracking_source.dart';
 import '../services/series_progress_reset_service.dart';
@@ -27,7 +29,7 @@ Future<void> showClearProviderProgressDialog(
       actions: [
         TextButton(
           onPressed: () => Navigator.pop(ctx, false),
-          child: const Text('Cancel'),
+          child: Text(AppLocalizations.of(context).t('Cancel')),
         ),
         TextButton(
           onPressed: () => Navigator.pop(ctx, true),
@@ -48,7 +50,7 @@ Future<void> showClearProviderProgressDialog(
           children: [
             CircularProgressIndicator(),
             SizedBox(width: 20),
-            Expanded(child: Text('Clearing watch progress…')),
+            Expanded(child: Text(AppLocalizations.of(context).t('Clearing watch progress…'))),
           ],
         ),
       ),

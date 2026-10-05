@@ -269,7 +269,7 @@ class _TorrentFiltersSheetState extends State<TorrentFiltersSheet> {
                         },
                         child: TextButton(
                           onPressed: _hasSelection ? _clearAll : null,
-                          child: const Text('Clear'),
+                          child: Text(AppLocalizations.of(context).t('Clear')),
                         ),
                       ),
                       Focus(

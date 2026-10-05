@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 import '../../models/playlist_view_mode.dart';
 import '../../models/stremio_subtitle.dart';
 import '../../models/torrent.dart';
@@ -200,7 +202,7 @@ class YoutubeResultsViewState extends State<YoutubeResultsView>
                 child: CircularProgressIndicator(strokeWidth: 2),
               ),
               SizedBox(width: 12),
-              Text('Loading video...'),
+              Text(AppLocalizations.of(context).t('Loading video...')),
             ],
           ),
           duration: Duration(seconds: 4),
@@ -229,7 +231,7 @@ class YoutubeResultsViewState extends State<YoutubeResultsView>
     final playUrl = streams?.playUrl;
     if (playUrl == null || playUrl.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Could not load this video')),
+        SnackBar(content: Text(AppLocalizations.of(context).t('Could not load this video'))),
       );
       return;
     }
@@ -310,7 +312,7 @@ class YoutubeResultsViewState extends State<YoutubeResultsView>
     final downloadUrl = streams?.downloadUrl;
     if (downloadUrl == null || downloadUrl.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('No downloadable stream found')),
+        SnackBar(content: Text(AppLocalizations.of(context).t('No downloadable stream found'))),
       );
       return;
     }
@@ -421,7 +423,7 @@ class YoutubeResultsViewState extends State<YoutubeResultsView>
                 backgroundColor: app.seeAll.accent,
               ),
               icon: const Icon(Icons.refresh),
-              label: const Text('Retry'),
+              label: Text(AppLocalizations.of(context).t('Retry')),
             ),
           ],
         ),

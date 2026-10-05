@@ -127,7 +127,7 @@ class _ImportedLaunchAnimationsState extends State<ImportedLaunchAnimations> {
         final choice = await showDialog<String>(
           context: context,
           builder: (context) => SimpleDialog(
-            title: const Text('Choose an animation'),
+            title: Text(AppLocalizations.of(context).t('Choose an animation')),
             children: [
               for (final animation in package.animations)
                 SimpleDialogOption(
@@ -191,7 +191,7 @@ class _ImportedLaunchAnimationsState extends State<ImportedLaunchAnimations> {
             final confirmed = await showDialog<bool>(
               context: context,
               builder: (context) => AlertDialog(
-                title: const Text('Reset animation library?'),
+                title: Text(AppLocalizations.of(context).t('Reset animation library?')),
                 content: const Text(
                   'Installed animations will need to be imported again. Your built-in animations are unaffected.',
                 ),
@@ -308,7 +308,7 @@ class _ImportedLaunchDetailState extends State<ImportedLaunchDetail> {
                     ),
                     onPressed: _saving ? null : _remove,
                     icon: const Icon(Icons.delete_outline),
-                    label: const Text('Remove animation'),
+                    label: Text(AppLocalizations.of(context).t('Remove animation')),
                   ),
                   FilledButton(
                     onPressed: !_ready || _saving ? null : _use,
