@@ -9777,6 +9777,7 @@ class AndroidTvTorrentPlayerActivity : AppCompatActivity() {
             iptvNextButton,
             playerView.findViewById<View>(R.id.debrify_controls_right_divider),
             iptvGuideButton,
+            stremioSourceBadge,
             iptvJumpButton,
             iptvRecordButton,
             nightModeButton,
@@ -14603,6 +14604,33 @@ class AndroidTvTorrentPlayerActivity : AppCompatActivity() {
         }
         currentStremioSourceIndex = iptvStremioCandidateIndex
         setupStremioSources()
+        updateIptvStreamSourcesChrome()
+    }
+
+    /** Show Sources on the live IPTV dock only when this channel has
+     *  alternate stream URLs — never on Discover/movie playback. */
+    private fun updateIptvStreamSourcesChrome() {
+        val show = isIptvMode && stremioSources.size > 1
+        stremioSourceBadge?.visibility = if (show) View.VISIBLE else View.GONE
+        stremioSourceBadge?.isFocusable = show
+        stremioSourceBadge?.isFocusableInTouchMode = show
+        if (show) {
+            stremioSourceBadgeText?.text = "Streams"
+            stremioSourceBadge?.setOnClickListener {
+                hideControlsMenu()
+                unifiedMenu?.hide()
+                sourceBrowser?.show()
+            }
+            // OTT dock Sources button (when the OTT skin is installed).
+            ottSourcesButton?.visibility = View.VISIBLE
+            ottSourcesButton?.setOnClickListener {
+                hideControlsMenu()
+                unifiedMenu?.hide()
+                sourceBrowser?.show()
+            }
+        } else if (isIptvMode) {
+            ottSourcesButton?.visibility = View.GONE
+        }
     }
 
     private fun iptvQualityFromLabel(label: String): String {
@@ -14622,6 +14650,7 @@ class AndroidTvTorrentPlayerActivity : AppCompatActivity() {
         stremioSources.clear()
         currentStremioSourceIndex = 0
         stremioSourceBadge?.visibility = View.GONE
+        if (isIptvMode) ottSourcesButton?.visibility = View.GONE
     }
 
     /**

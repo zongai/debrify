@@ -55,6 +55,63 @@ class IptvChannelNormalizer {
   }
 
   /// Lowercase, collapse spaces, drop common quality / mirror suffixes.
+
+  /// Keep every list row, but attach peer URLs that share the same normalized
+  /// name as alternate [IptvSource]s. Used at player launch so Streams works
+  /// even when the catalog still stores one URL per row.
+  static List<IptvChannel> expandPeerSources(List<IptvChannel> channels) {
+    if (channels.length <= 1) return channels;
+    return [
+      for (final channel in channels) expandPeersFor(channel, channels),
+    ];
+  }
+
+  static IptvChannel expandPeersFor(
+    IptvChannel channel,
+    List<IptvChannel> peers,
+  ) {
+    if (channel.hasMultipleSources) return channel;
+    final key = normalizeName(channel.name);
+    if (key.isEmpty) return channel;
+    final seen = <String>{};
+    final sources = <IptvSource>[];
+    for (final s in channel.sources) {
+      if (seen.add(s.url)) sources.add(s);
+    }
+    for (final peer in peers) {
+      if (identical(peer, channel)) continue;
+      if (normalizeName(peer.name) != key) continue;
+      for (final s in peer.sources) {
+        if (!seen.add(s.url)) continue;
+        final host = Uri.tryParse(s.url)?.host;
+        sources.add(
+          IptvSource(
+            url: s.url,
+            label: s.label ??
+                (host != null && host.isNotEmpty
+                    ? 'Source ${sources.length + 1} · $host'
+                    : 'Source ${sources.length + 1}'),
+            httpHeaders: s.httpHeaders,
+          ),
+        );
+      }
+    }
+    if (sources.length <= 1) return channel;
+    final primary = sources.first;
+    return IptvChannel(
+      channelNumber: channel.channelNumber,
+      name: channel.name,
+      url: primary.url,
+      logoUrl: channel.logoUrl,
+      group: channel.group,
+      duration: channel.duration,
+      contentType: channel.contentType,
+      attributes: channel.attributes,
+      httpHeaders: primary.httpHeaders,
+      sources: sources,
+    );
+  }
+
   static String normalizeName(String raw) {
     var s = raw.trim().toLowerCase();
     s = s.replaceAll(RegExp(r'\s+'), ' ');

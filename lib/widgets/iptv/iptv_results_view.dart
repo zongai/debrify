@@ -31,6 +31,7 @@ import '../../services/iptv_load_phase.dart';
 import '../../services/iptv_catalog_db.dart';
 import '../../services/iptv_catalog_refresh_service.dart';
 import '../../services/iptv_service.dart';
+import '../../services/iptv_channel_normalizer.dart';
 import '../../services/main_page_bridge.dart';
 import '../../services/stremio_iptv_service.dart';
 import '../../services/stremio_service.dart';
@@ -4529,12 +4530,15 @@ class IptvResultsViewState extends State<IptvResultsView>
       channelIndex -= lo;
     }
     final launchSource = _selectedPlaylist;
-    final playerChannels = launchSource == null
-        ? channels
+    var playerChannels = launchSource == null
+        ? List<IptvChannel>.from(channels)
         : [
             for (final item in channels)
               _playerChannelWithOrigin(item, launchSource),
           ];
+    // Attach alternate stream URLs before the player opens so Streams is
+    // available on the IPTV chrome (not Discover / VOD Sources).
+    playerChannels = IptvChannelNormalizer.expandPeerSources(playerChannels);
     if (!mounted) return;
     // Last gate before the player exists. Everything above may have taken
     // seconds (Stremio ladder, catalog page, watch record).

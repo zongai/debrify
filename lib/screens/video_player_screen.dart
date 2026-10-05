@@ -1056,6 +1056,15 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen>
   /// right-hand one was painted from launch state a zap never refreshed.
   bool get _iptvZapBannerOwnsIdentity => _currentIptvChannel?.isLive == true;
 
+  /// Streams switch is IPTV-live only — never on Discover / movie Sources.
+  bool get _canShowIptvStreamSources {
+    final ch = _currentIptvChannel;
+    return _iptvZapBannerOwnsIdentity &&
+        ch != null &&
+        ch.hasMultipleSources;
+  }
+
+
   /// The in-player IPTV guide look, read once at launch (see
   /// [PlayerGuideStyle]). Classic keeps every legacy paint path verbatim.
   PlayerGuideStyle _playerGuideStyle = PlayerGuideStyle.classic;
@@ -13266,8 +13275,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen>
         _effectiveSources != null &&
         _effectiveSources!.isNotEmpty &&
         (_effectiveResolver != null || widget.resolveSourceToPlaylist != null);
-    final hasIptvStreamSources =
-        _currentIptvChannel?.hasMultipleSources == true;
+    final hasIptvStreamSources = _canShowIptvStreamSources;
     final hasGuide =
         (_channelEntries.isNotEmpty && widget.requestChannelById != null) ||
         _hasStremioTvGuide;
@@ -15840,14 +15848,10 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen>
                                                   null)
                                       ? _showSourceSheetOverlay
                                       : null,
-                                  hasIptvStreamSources:
-                                      _currentIptvChannel?.hasMultipleSources ==
-                                      true,
-                                  onShowIptvStreamSources:
-                                      _currentIptvChannel?.hasMultipleSources ==
-                                              true
-                                          ? _showIptvSourceSheetOverlay
-                                          : null,
+                                  hasIptvStreamSources: _canShowIptvStreamSources,
+                                  onShowIptvStreamSources: _canShowIptvStreamSources
+                                      ? _showIptvSourceSheetOverlay
+                                      : null,
                                   showPipButton: PipService.isOwner(this),
                                   onPip: PipService.isOwner(this)
                                       ? _enterPip

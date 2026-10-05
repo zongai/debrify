@@ -20,6 +20,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
 import '../models/iptv_playlist.dart';
+import 'iptv_channel_normalizer.dart';
 import '../screens/video_player/player_pip_route.dart';
 import '../models/movie_collection.dart';
 import '../models/torrent.dart';
@@ -3501,7 +3502,9 @@ class VideoPlayerLauncher {
   /// Launch IPTV playlist on Android TV using existing launchTorrentPlayback bridge
   static Future<bool> _launchIptvOnAndroidTv(VideoPlayerLaunchArgs args) async {
     try {
-      final channels = args.iptvChannels!;
+      final channels = IptvChannelNormalizer.expandPeerSources(
+        args.iptvChannels!,
+      );
       final startIndex = args.iptvStartIndex ?? 0;
 
       // The source's FULL category list (provider order). Only fall back to
