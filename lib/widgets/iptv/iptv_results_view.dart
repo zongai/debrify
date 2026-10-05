@@ -3475,6 +3475,8 @@ class IptvResultsViewState extends State<IptvResultsView>
         'source_playlist_id': _playerOriginPlaylistId(channel, source),
       },
       httpHeaders: channel.httpHeaders,
+      // Keep multi-source mirrors so the in-player Sources control works.
+      sources: channel.sources,
     );
   }
 
