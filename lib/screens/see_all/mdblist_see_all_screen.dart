@@ -1052,7 +1052,7 @@ class _MdblistSeeAllScreenState extends State<MdblistSeeAllScreen> {
                       StremioDropdownOption('movie', 'Movies'),
                       StremioDropdownOption('series', 'Series'),
                     ]
-                  : const [
+                  : [
                       StremioDropdownOption('all', AppLocalizations.of(context).t('All')),
                       StremioDropdownOption('movie', 'Movies'),
                       StremioDropdownOption('series', 'Series'),
