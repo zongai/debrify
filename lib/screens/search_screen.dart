@@ -327,6 +327,7 @@ const String _discSimkl = 'simkl';
 const String _discTmdb = 'tmdb';
 const String _discJellyfin = 'jellyfin';
 const String _discEmby = 'emby';
+const String _discPlex = 'plex';
 const String _discMdblist = 'mdblist';
 const String _discAddonPrefix = 'a:';
 
@@ -18251,6 +18252,7 @@ class _SearchScreenState extends State<SearchScreen>
         landing == _discTmdb ||
         landing == _discJellyfin ||
         landing == _discEmby ||
+        landing == _discPlex ||
         (kMdblistEnabled && landing == _discMdblist);
 
     // Search→MDBList handoff is a stronger, explicit navigation intent. For
@@ -18330,7 +18332,8 @@ class _SearchScreenState extends State<SearchScreen>
     // two-pane layout.
     if (!widget.isTelevision ||
         _discSource == _discJellyfin ||
-        _discSource == _discEmby) {
+        _discSource == _discEmby ||
+        _discSource == _discPlex) {
       return panel;
     }
     return LayoutBuilder(
@@ -18739,7 +18742,7 @@ class _SearchScreenState extends State<SearchScreen>
     }
     _discFocused.value = null;
     _discShown.value = null;
-    if (source == _discJellyfin || source == _discEmby) {
+    if (source == _discJellyfin || source == _discEmby || source == _discPlex) {
       _discTrailerStreams.value = null;
       _discTrailerMeta.value = null;
       _discTrailerLoading.value = false;
@@ -18777,6 +18780,7 @@ class _SearchScreenState extends State<SearchScreen>
         const StremioDropdownOption(_discSimkl, 'Simkl'),
         const StremioDropdownOption(_discJellyfin, 'Jellyfin'),
         const StremioDropdownOption(_discEmby, 'Emby'),
+        const StremioDropdownOption(_discPlex, 'Plex'),
         if (_metadataFeaturePolicy?.features.contains(MetadataFeature.discovery) ==
             true)
           const StremioDropdownOption(_discTmdb, 'TMDB'),
@@ -18795,12 +18799,20 @@ class _SearchScreenState extends State<SearchScreen>
       onSelected: _selectDiscoverSource,
     );
 
-    if (_discSource == _discJellyfin || _discSource == _discEmby) {
+    if (_discSource == _discJellyfin ||
+        _discSource == _discEmby ||
+        _discSource == _discPlex) {
+      final MediaServerKind kind;
+      if (_discSource == _discJellyfin) {
+        kind = MediaServerKind.jellyfin;
+      } else if (_discSource == _discEmby) {
+        kind = MediaServerKind.emby;
+      } else {
+        kind = MediaServerKind.plex;
+      }
       return MediaServerLibraryPanel(
         key: ValueKey(_discSource),
-        kind: _discSource == _discJellyfin
-            ? MediaServerKind.jellyfin
-            : MediaServerKind.emby,
+        kind: kind,
         leading: source,
         isTelevision: widget.isTelevision,
       );
