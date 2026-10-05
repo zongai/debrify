@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+
+import '../../../l10n/app_localizations.dart';
 import '../../../utils/tv_reveal.dart';
 import 'package:flutter/services.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -1061,6 +1063,8 @@ class SettingsSectionLabel extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final label = AppLocalizations.of(context).t(title);
+
     final app = AppThemeScope.of(context);
     final spotlight = app.id == 'spotlight';
     return Padding(
@@ -1748,6 +1752,8 @@ class SettingsSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
+
     final app = AppThemeScope.of(context);
     final t = app.settings;
     // The `settingsGroup` family, and the reason it is capped to fill-or-rule:
@@ -1763,12 +1769,12 @@ class SettingsSection extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        if (title.isNotEmpty) SettingsSectionLabel(title, color: accentColor),
+        if (title.isNotEmpty) SettingsSectionLabel(l10n.t(title), color: accentColor),
         if (blurb != null)
           Padding(
             padding: const EdgeInsets.only(left: 2, bottom: 10, right: 8),
             child: Text(
-              blurb!,
+              l10n.t(blurb!),
               style: TextStyle(fontSize: 12, height: 1.4, color: t.dim),
             ),
           ),
@@ -2098,6 +2104,8 @@ class _SettingsTileState extends State<SettingsTile> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
+
     final app = AppThemeScope.of(context);
     final t = app.settings;
     final spotlight = app.id == 'spotlight';
@@ -2173,7 +2181,7 @@ class _SettingsTileState extends State<SettingsTile> {
                           children: [
                             Flexible(
                               child: Text(
-                                widget.title,
+                                l10n.t(widget.title),
                                 maxLines: 1,
                                 overflow: TextOverflow.ellipsis,
                                 style: TextStyle(
@@ -2215,7 +2223,7 @@ class _SettingsTileState extends State<SettingsTile> {
                         ),
                         const SizedBox(height: 3),
                         Text(
-                          widget.subtitle,
+                          l10n.t(widget.subtitle),
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
                           style: TextStyle(
@@ -2318,6 +2326,8 @@ class _SettingsToggleTileState extends State<SettingsToggleTile> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
+
     final app = AppThemeScope.of(context);
     final t = app.settings;
     final spotlight = app.id == 'spotlight';
@@ -2384,7 +2394,7 @@ class _SettingsToggleTileState extends State<SettingsToggleTile> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        widget.title,
+                        l10n.t(widget.title),
                         style: TextStyle(
                           fontSize: 14,
                           fontWeight: FontWeight.w700,
@@ -2395,7 +2405,7 @@ class _SettingsToggleTileState extends State<SettingsToggleTile> {
                       ),
                       const SizedBox(height: 3),
                       Text(
-                        widget.subtitle,
+                        l10n.t(widget.subtitle),
                         maxLines: widget.subtitleMaxLines,
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(

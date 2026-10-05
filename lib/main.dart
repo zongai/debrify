@@ -2878,7 +2878,7 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
   }
 
   void _trackCurrentTab() {
-    final title = _titles[_selectedIndex];
+    final title = AppLocalizations.of(context).t(_titles[_selectedIndex]);
     AnalyticsService.trackInBackground('tab_opened', <String, Object?>{
       'tab': title,
       'tab_index': _selectedIndex,
@@ -3754,7 +3754,7 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
                                       _icons[index],
                                       _sidebarConfiguration.labelForTab(
                                         index,
-                                        _titles[index],
+                                        AppLocalizations.of(context).t(_titles[index]),
                                       ),
                                       section: _navSectionForIndex(index),
                                     ),
@@ -4014,7 +4014,7 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
                                   _icons[index],
                                   _sidebarConfiguration.labelForTab(
                                     index,
-                                    _titles[index],
+                                    AppLocalizations.of(context).t(_titles[index]),
                                   ),
                                   _navSectionForIndex(index),
                                 ),
@@ -4045,7 +4045,7 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
                                   _icons[index],
                                   _sidebarConfiguration.labelForTab(
                                     index,
-                                    _titles[index],
+                                    AppLocalizations.of(context).t(_titles[index]),
                                   ),
                                   _navSectionForIndex(index),
                                 ),
@@ -4070,7 +4070,7 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
                             for (final index in nonTvIndices)
                               MobileNavItem(
                                 _icons[index],
-                                _titles[index],
+                                AppLocalizations.of(context).t(_titles[index]),
                                 section: _navSectionForIndex(index),
                               ),
                           ],

@@ -2,6 +2,8 @@ import 'playback_settings_section.dart';
 import 'tv_collection_list_style_page.dart';
 import '../../widgets/collections/tmdb_attribution.dart';
 import 'package:flutter/material.dart';
+
+import '../../l10n/app_localizations.dart';
 import '../../utils/tv_reveal.dart';
 import 'package:flutter/services.dart';
 
@@ -878,7 +880,7 @@ class _SettingsTvLayoutState extends State<SettingsTvLayout> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        _kCategories[selected].label.toUpperCase(),
+                        AppLocalizations.of(context).t(_kCategories[selected].label).toUpperCase(),
                         style: TextStyle(
                           fontFamily: 'JetBrainsMono',
                           fontSize: 9,
@@ -893,7 +895,7 @@ class _SettingsTvLayoutState extends State<SettingsTvLayout> {
                       ),
                       const SizedBox(height: 10),
                       Text(
-                        _kCategories[selected].title,
+                        AppLocalizations.of(context).t(_kCategories[selected].title),
                         style: const TextStyle(
                           fontSize: 28,
                           height: 1.06,
@@ -1196,8 +1198,8 @@ class _SettingsTvLayoutState extends State<SettingsTvLayout> {
                 SettingsTile(
                   key: ValueKey('playback-category-${section.name}'),
                   icon: section.icon,
-                  title: section.label,
-                  subtitle: section.description,
+                  title: AppLocalizations.of(context).t(section.label),
+                  subtitle: AppLocalizations.of(context).t(section.description),
                   onTap: () => widget.onOpenPlaybackSection(section),
                   focusNode: _paneNodes[section.index],
                 ),
@@ -1689,7 +1691,7 @@ class _RailItemState extends State<_RailItem> {
                             mainAxisSize: MainAxisSize.min,
                             children: [
                               Text(
-                                widget.category.label,
+                                AppLocalizations.of(context).t(widget.category.label),
                                 maxLines: 1,
                                 overflow: TextOverflow.ellipsis,
                                 style: TextStyle(
