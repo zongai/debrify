@@ -280,8 +280,9 @@ class _MediaServerSettingsPageState extends State<MediaServerSettingsPage> {
 }
 
 class _MediaServerConnectPage extends StatefulWidget {
-  const _MediaServerConnectPage({this.resource});
+  const _MediaServerConnectPage({this.resource, this.initialKind});
   final ConnectionResource? resource;
+  final MediaServerKind? initialKind;
   @override
   State<_MediaServerConnectPage> createState() =>
       _MediaServerConnectPageState();
@@ -306,6 +307,8 @@ class _MediaServerConnectPageState extends State<_MediaServerConnectPage> {
       _kind = MediaServerKind.emby;
     } else if (label == 'Plex') {
       _kind = MediaServerKind.plex;
+    } else if (widget.initialKind != null) {
+      _kind = widget.initialKind!;
     }
     _token.addListener(() {
       if (mounted) setState(() {});

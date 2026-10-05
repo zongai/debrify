@@ -97,7 +97,8 @@ class AppLocalizations {
   String get couldNotSaveConnection => _s('couldNotSaveConnection');
   String get couldNotLoadMediaServers => _s('couldNotLoadMediaServers');
   String get testConnection => _s('testConnection');
-  String get disconnectServerConfirm => _s('disconnectServerConfirm');
+  String disconnectServerConfirm(String name) =>
+      _s('disconnectServerConfirm').replaceAll('{name}', name);
   String get connectionUnavailable => _s('connectionUnavailable');
   String get connectionSuccessful => _s('connectionSuccessful');
   String get plexLinkButton => _s('plexLinkButton');
@@ -619,7 +620,6 @@ const _phraseTables = <String, Map<String, String>>{
     'Premiumize': 'Premiumize',
     'AllDebrid': 'AllDebrid',
     'PikPak': 'PikPak',
-    'Jellyfin, Emby & Plex': 'Jellyfin、Emby 与 Plex',
     'WebDAV': 'WebDAV',
     'Trakt': 'Trakt',
     'Simkl': 'Simkl',
@@ -632,12 +632,9 @@ const _phraseTables = <String, Map<String, String>>{
     'Open straight into a live channel when the app starts': '应用启动时直接进入直播频道',
     'IPTV continue watching': 'IPTV 继续观看',
     'Track the movies and series you start on IPTV': '记录你在 IPTV 上开始观看的电影与剧集',
-    'Addons': '插件',
     'Stremio addons and torrent search engines': 'Stremio 插件与种子搜索引擎',
     'Stremio TV': 'Stremio TV',
     'Rotation, quality, provider and playback for Stremio TV': 'Stremio TV 的轮换、画质、提供方与播放',
-    'Playlist': '播放列表',
-    'Cloud': '云盘',
     'See what is ready, what needs attention, and where playback will go.': '查看就绪状态、需关注项与播放去向。',
     'Choose how tracking works, then connect each watch-history service.': '选择追踪方式，并连接各观看历史服务。',
     'Arrange the home screen and choose the navigation that fits this device.': '安排主屏幕并选择适合本设备的导航。',
@@ -1580,7 +1577,6 @@ const _phraseTables = <String, Map<String, String>>{
     'Conflict': '冲突',
     'Too many requests': '请求过于频繁',
     'Service unavailable': '服务不可用',
-    'Don\'t ask again': '不再询问',
     'IMDb': 'IMDb',
     'Debrify': 'Debrify',
     'Year': '年',
