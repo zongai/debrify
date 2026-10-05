@@ -93,6 +93,13 @@ class AppLocalizations {
   String disconnectServerConfirm(String name) =>
       _s('disconnectServerConfirm').replaceAll('{name}', name);
   String get watchProgressSync => _s('watchProgressSync');
+  String get plexLinkButton => _s('plexLinkButton');
+  String get plexLinkTitle => _s('plexLinkTitle');
+  String get plexLinkInstructions => _s('plexLinkInstructions');
+  String get plexLinkWaiting => _s('plexLinkWaiting');
+  String get plexLinkExpired => _s('plexLinkExpired');
+  String get plexLinkCancelled => _s('plexLinkCancelled');
+  String get plexLinkOpenUrl => _s('plexLinkOpenUrl');
   String get watchProgressSyncBlurb => _s('watchProgressSyncBlurb');
 
   // --- Settings sections (high traffic) ---
@@ -177,6 +184,13 @@ const _tables = <String, Map<String, String>>{
         'Could not save the connection. Check profile permissions and try again.',
     'disconnectServerConfirm': 'Disconnect {name}?',
     'watchProgressSync': 'Sync watch progress from server',
+    'plexLinkButton': 'Sign in at plex.tv/link',
+    'plexLinkTitle': 'Link Plex',
+    'plexLinkInstructions': 'Open https://www.plex.tv/link on any device and enter this code:',
+    'plexLinkWaiting': 'Waiting for approval…',
+    'plexLinkExpired': 'This code expired. Start again.',
+    'plexLinkCancelled': 'Sign-in cancelled.',
+    'plexLinkOpenUrl': 'Open plex.tv/link',
     'watchProgressSyncBlurb':
         'Import resume positions and played status from the media server when available.',
     'appearance': 'Appearance',
@@ -231,6 +245,13 @@ const _tables = <String, Map<String, String>>{
     'couldNotSaveConnection': '无法保存连接。请检查配置权限后重试。',
     'disconnectServerConfirm': '断开 {name}？',
     'watchProgressSync': '从服务器同步观看进度',
+    'plexLinkButton': '通过 plex.tv/link 登录',
+    'plexLinkTitle': '关联 Plex',
+    'plexLinkInstructions': '在任意设备打开 https://www.plex.tv/link 并输入以下代码：',
+    'plexLinkWaiting': '等待授权…',
+    'plexLinkExpired': '代码已过期，请重试。',
+    'plexLinkCancelled': '已取消登录。',
+    'plexLinkOpenUrl': '打开 plex.tv/link',
     'watchProgressSyncBlurb': '在可用时从媒体服务器导入续播位置与已看状态。',
     'appearance': '外观',
     'accountsAndServices': '账号与服务',
@@ -284,6 +305,13 @@ const _tables = <String, Map<String, String>>{
     'couldNotSaveConnection': '接続を保存できませんでした。プロフィール権限を確認して再試行してください。',
     'disconnectServerConfirm': '{name} を切断しますか？',
     'watchProgressSync': 'サーバーから視聴進度を同期',
+    'plexLinkButton': 'plex.tv/link でサインイン',
+    'plexLinkTitle': 'Plex をリンク',
+    'plexLinkInstructions': '任意の端末で https://www.plex.tv/link を開き、次のコードを入力してください：',
+    'plexLinkWaiting': '承認を待っています…',
+    'plexLinkExpired': 'コードの有効期限が切れました。やり直してください。',
+    'plexLinkCancelled': 'サインインをキャンセルしました。',
+    'plexLinkOpenUrl': 'plex.tv/link を開く',
     'watchProgressSyncBlurb': '可能であればメディアサーバーから再開位置と視聴済み状態を取り込みます。',
     'appearance': '外観',
     'accountsAndServices': 'アカウントとサービス',

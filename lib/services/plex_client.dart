@@ -190,6 +190,270 @@ class PlexClient {
     );
   }
 
+
+  // ---------------------------------------------------------------------------
+  // plex.tv/link PIN login (same flow as plex-for-kodi PinLogin)
+  // ---------------------------------------------------------------------------
+
+  /// Create a PIN for https://www.plex.tv/link
+  ///
+  /// Mirrors plexnet `PinLogin._init`: POST https://plex.tv/pins.xml (and the
+  /// modern JSON equivalent) with X-Plex client headers. Returns the short
+  /// code the user types on the link page and the pin id used for polling.
+  Future<PlexPinSession> createPin({
+    required String deviceId,
+    Future<void> Function()? authorize,
+  }) async {
+    await authorize?.call();
+    // Prefer the v2 JSON API; fall back to classic XML used by plex-for-kodi.
+    try {
+      return await _createPinV2(deviceId: deviceId);
+    } catch (_) {
+      return _createPinXml(deviceId: deviceId);
+    }
+  }
+
+  Future<PlexPinSession> _createPinV2({required String deviceId}) async {
+    final uri = Uri.parse('$_plexTv/api/v2/pins').replace(
+      queryParameters: {'strong': 'true'},
+    );
+    final request = http.Request('POST', uri)
+      ..followRedirects = false
+      ..headers.addAll({
+        ...headers(deviceId: deviceId, json: true),
+        'Content-Type': 'application/json',
+      });
+    final response = await _send(request);
+    if (response.statusCode != 201 &&
+        (response.statusCode < 200 || response.statusCode >= 300)) {
+      throw MediaServerException(
+        'Could not start Plex link sign-in (HTTP ${response.statusCode}).',
+      );
+    }
+    final body = jsonDecode(utf8.decode(response.bodyBytes));
+    if (body is! Map) {
+      throw const MediaServerException('Plex returned an invalid PIN response.');
+    }
+    final id = body['id']?.toString();
+    final code = body['code']?.toString();
+    if (id == null || id.isEmpty || code == null || code.isEmpty) {
+      throw const MediaServerException('Plex returned an incomplete PIN.');
+    }
+    return PlexPinSession(id: id, code: code);
+  }
+
+  Future<PlexPinSession> _createPinXml({required String deviceId}) async {
+    final uri = Uri.parse('$_plexTv/pins.xml');
+    final request = http.Request('POST', uri)
+      ..followRedirects = false
+      ..headers.addAll(headers(deviceId: deviceId, json: false));
+    final response = await _send(request);
+    if (response.statusCode != 201 &&
+        (response.statusCode < 200 || response.statusCode >= 300)) {
+      throw MediaServerException(
+        'Could not start Plex link sign-in (HTTP ${response.statusCode}).',
+      );
+    }
+    final xml = utf8.decode(response.bodyBytes);
+    final id = _xmlTag(xml, 'id');
+    final code = _xmlTag(xml, 'code');
+    if (id == null || code == null) {
+      throw const MediaServerException('Plex returned an incomplete PIN.');
+    }
+    return PlexPinSession(id: id, code: code);
+  }
+
+  /// Poll until the user completes https://www.plex.tv/link or [timeout] elapses.
+  ///
+  /// Mirrors plexnet `PinLogin._poll` (1s interval, ~5 minute window).
+  Future<String?> pollPinToken({
+    required PlexPinSession session,
+    required String deviceId,
+    Duration timeout = const Duration(minutes: 5),
+    Duration interval = const Duration(seconds: 1),
+    Future<void> Function()? authorize,
+    bool Function()? isCancelled,
+  }) async {
+    final deadline = DateTime.now().add(timeout);
+    while (DateTime.now().isBefore(deadline)) {
+      if (isCancelled?.call() == true) return null;
+      await authorize?.call();
+      try {
+        final token = await _readPinToken(
+          session: session,
+          deviceId: deviceId,
+        );
+        if (token != null && token.isNotEmpty) return token;
+      } on MediaServerException {
+        // Network blip — keep polling like plex-for-kodi.
+      }
+      await Future<void>.delayed(interval);
+    }
+    return null;
+  }
+
+  Future<String?> _readPinToken({
+    required PlexPinSession session,
+    required String deviceId,
+  }) async {
+    // v2 JSON
+    try {
+      final uri = Uri.parse('$_plexTv/api/v2/pins/${session.id}');
+      final request = http.Request('GET', uri)
+        ..followRedirects = false
+        ..headers.addAll(headers(deviceId: deviceId, json: true));
+      final response = await _send(request);
+      if (response.statusCode == 404 || response.statusCode == 410) {
+        throw const MediaServerException('This Plex link code has expired.');
+      }
+      if (response.statusCode >= 200 && response.statusCode < 300) {
+        final body = jsonDecode(utf8.decode(response.bodyBytes));
+        if (body is Map) {
+          final token = body['authToken'] as String? ??
+              body['auth_token'] as String?;
+          if (token != null && token.isNotEmpty) return token;
+        }
+        return null;
+      }
+    } catch (e) {
+      if (e is MediaServerException && e.message.contains('expired')) rethrow;
+    }
+
+    // Classic XML (plex-for-kodi)
+    final uri = Uri.parse('$_plexTv/pins/${session.id}.xml');
+    final request = http.Request('GET', uri)
+      ..followRedirects = false
+      ..headers.addAll(headers(deviceId: deviceId, json: false));
+    final response = await _send(request);
+    if (response.statusCode == 404 || response.statusCode == 410) {
+      throw const MediaServerException('This Plex link code has expired.');
+    }
+    if (response.statusCode < 200 || response.statusCode >= 300) {
+      return null;
+    }
+    final xml = utf8.decode(response.bodyBytes);
+    final token = _xmlTag(xml, 'auth_token');
+    if (token != null && token.isNotEmpty) return token;
+    return null;
+  }
+
+  /// List PMS resources visible to this plex.tv token (`/pms/resources`).
+  Future<List<PlexServerResource>> listServers({
+    required String token,
+    required String deviceId,
+    Future<void> Function()? authorize,
+  }) async {
+    await authorize?.call();
+    final uri = Uri.parse('$_plexTv/api/v2/resources').replace(
+      queryParameters: {
+        'includeHttps': '1',
+        'includeRelay': '1',
+      },
+    );
+    final request = http.Request('GET', uri)
+      ..followRedirects = false
+      ..headers.addAll(headers(deviceId: deviceId, token: token, json: true));
+    final response = await _send(request);
+    if (response.statusCode < 200 || response.statusCode >= 300) {
+      // Fall back to classic XML resources.
+      return _listServersXml(token: token, deviceId: deviceId);
+    }
+    final body = jsonDecode(utf8.decode(response.bodyBytes));
+    if (body is! List) {
+      return _listServersXml(token: token, deviceId: deviceId);
+    }
+    final out = <PlexServerResource>[];
+    for (final row in body) {
+      if (row is! Map) continue;
+      final provides = row['provides']?.toString() ?? '';
+      final product = row['product']?.toString() ?? '';
+      if (!provides.contains('server') && product != 'Plex Media Server') {
+        continue;
+      }
+      final name = row['name']?.toString() ?? 'Plex Server';
+      final clientId = row['clientIdentifier']?.toString() ?? '';
+      final accessToken = row['accessToken'] as String? ?? token;
+      final connections = row['connections'];
+      if (connections is! List) continue;
+      final uris = <String>[];
+      for (final c in connections) {
+        if (c is! Map) continue;
+        final u = c['uri']?.toString();
+        if (u != null && u.isNotEmpty) uris.add(u);
+      }
+      if (uris.isEmpty) continue;
+      out.add(PlexServerResource(
+        name: name,
+        clientIdentifier: clientId,
+        accessToken: accessToken,
+        uris: uris,
+      ));
+    }
+    return out;
+  }
+
+  Future<List<PlexServerResource>> _listServersXml({
+    required String token,
+    required String deviceId,
+  }) async {
+    // Classic plex.tv resource lists (XML).
+    for (final path in ['api/resources', 'pms/resources']) {
+      final u = Uri.parse('$_plexTv/$path').replace(
+        queryParameters: {'includeHttps': '1'},
+      );
+      final request = http.Request('GET', u)
+        ..followRedirects = false
+        ..headers.addAll(headers(deviceId: deviceId, token: token, json: false));
+      final response = await _send(request);
+      if (response.statusCode < 200 || response.statusCode >= 300) continue;
+      final xml = utf8.decode(response.bodyBytes);
+      // Very light parse: Device or Server nodes with Connection uri=
+      final out = <PlexServerResource>[];
+      // Split on Device tags when present
+      final devices = RegExp(
+        r'<(Device|Server)\s([^>]*)>(.*?)</\1>',
+        dotAll: true,
+      ).allMatches(xml);
+      for (final m in devices) {
+        final attrs = m.group(2) ?? '';
+        final inner = m.group(3) ?? '';
+        final provides = _xmlAttr(attrs, 'provides') ?? '';
+        final product = _xmlAttr(attrs, 'product') ?? '';
+        if (!provides.contains('server') && product != 'Plex Media Server') {
+          continue;
+        }
+        final name = _xmlAttr(attrs, 'name') ?? 'Plex Server';
+        final clientId = _xmlAttr(attrs, 'clientIdentifier') ?? '';
+        final accessToken = _xmlAttr(attrs, 'accessToken') ?? token;
+        final uris = <String>[];
+        for (final cm in RegExp(r'<Connection\s([^>]+)/?>').allMatches(inner)) {
+          final uriVal = _xmlAttr(cm.group(1) ?? '', 'uri');
+          if (uriVal != null && uriVal.isNotEmpty) uris.add(uriVal);
+        }
+        if (uris.isEmpty) continue;
+        out.add(PlexServerResource(
+          name: name,
+          clientIdentifier: clientId,
+          accessToken: accessToken,
+          uris: uris,
+        ));
+      }
+      if (out.isNotEmpty) return out;
+    }
+    return const [];
+  }
+
+  static String? _xmlTag(String xml, String tag) {
+    final m = RegExp('<$tag>([^<]*)</$tag>').firstMatch(xml);
+    final value = m?.group(1)?.trim();
+    return (value == null || value.isEmpty) ? null : value;
+  }
+
+  static String? _xmlAttr(String attrs, String name) {
+    final m = RegExp('$name="([^"]*)"').firstMatch(attrs);
+    return m?.group(1);
+  }
+
   /// Verify [token] against PMS identity + library access and build an account.
   Future<MediaServerAccount> _accountFromToken({
     required String baseUrl,
@@ -941,5 +1205,38 @@ class PlexClient {
     } on http.ClientException catch (e) {
       throw MediaServerException('Could not reach the Plex server: $e');
     }
+  }
+}
+
+
+/// PIN created for https://www.plex.tv/link (plex-for-kodi PinLogin).
+class PlexPinSession {
+  const PlexPinSession({required this.id, required this.code});
+  final String id;
+  final String code;
+}
+
+/// A PMS discovered via plex.tv resources for the signed-in account.
+class PlexServerResource {
+  const PlexServerResource({
+    required this.name,
+    required this.clientIdentifier,
+    required this.accessToken,
+    required this.uris,
+  });
+  final String name;
+  final String clientIdentifier;
+  final String accessToken;
+  final List<String> uris;
+
+  /// Prefer local-looking http URLs, then any https, then first.
+  String get preferredUri {
+    for (final u in uris) {
+      if (u.startsWith('http://') && !u.contains('plex.direct')) return u;
+    }
+    for (final u in uris) {
+      if (u.startsWith('https://')) return u;
+    }
+    return uris.first;
   }
 }

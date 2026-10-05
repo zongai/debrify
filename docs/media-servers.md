@@ -8,7 +8,12 @@ Use **Test connection**, **Reconnect**, or **Disconnect** on an existing connect
 
 ## Plex-specific notes
 
-**Token login (recommended):** paste a Plex **X-Plex-Token** with the PMS URL.
+**Link device (recommended):** Settings → Connect → **Sign in at plex.tv/link**.
+Debrify shows a short code (same flow as [plex-for-kodi](https://github.com/pannal/plex-for-kodi) `PinLogin`):
+open https://www.plex.tv/link, enter the code, then the app polls until plex.tv
+returns an auth token and discovers your servers.
+
+**Token login:** paste a Plex **X-Plex-Token** with the PMS URL.
 No plex.tv password is sent. Tokens can come from Plex Web (account →
 authorized devices), PMS, or another client that already holds a valid token.
 The app only stores the token (encrypted in the profile resource registry).

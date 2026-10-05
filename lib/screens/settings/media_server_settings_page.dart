@@ -1,4 +1,7 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../l10n/app_localizations.dart';
 
@@ -6,6 +9,7 @@ import '../../models/media_server.dart';
 import '../../models/profiles/connection_resource.dart';
 import '../../models/profiles/profile_policy.dart';
 import '../../services/media_server_service.dart';
+import '../../services/plex_client.dart';
 import '../../services/media_server_watch_sync.dart';
 import '../../services/profiles/profile_collection_resource_facade.dart';
 import '../../services/profiles/profile_runtime.dart';
@@ -303,7 +307,113 @@ class _MediaServerConnectPageState extends State<_MediaServerConnectPage> {
     super.dispose();
   }
 
+  Future<void> _linkPlex() async {
+    if (_busy) return;
+    setState(() {
+      _busy = true;
+      _error = null;
+    });
+    final deviceId = List.generate(
+      24,
+      (_) => Random.secure().nextInt(256).toRadixString(16).padLeft(2, '0'),
+    ).join();
+    final client = PlexClient();
+    var cancelled = false;
+    try {
+      final session = await client.createPin(deviceId: deviceId);
+      if (!mounted) return;
+      // Show PIN dialog and poll until the user finishes plex.tv/link.
+      final token = await showDialog<String>(
+        context: context,
+        barrierDismissible: false,
+        builder: (dialogContext) {
+          return _PlexLinkDialog(
+            session: session,
+            deviceId: deviceId,
+            client: client,
+            onCancel: () => cancelled = true,
+          );
+        },
+      );
+      if (!mounted) return;
+      if (token == null || token.isEmpty) {
+        setState(() {
+          _busy = false;
+          _error = cancelled
+              ? null
+              : AppLocalizations.of(context).plexLinkCancelled;
+        });
+        return;
+      }
+
+      // Discover servers; prefer explicit URL when the user filled one.
+      var baseUrl = _url.text.trim();
+      var accessToken = token;
+      if (baseUrl.isEmpty) {
+        final servers = await client.listServers(
+          token: token,
+          deviceId: deviceId,
+        );
+        if (servers.isEmpty) {
+          setState(() {
+            _busy = false;
+            _error =
+                'No Plex servers found. Enter a server URL and try again, or claim the server on plex.tv.';
+          });
+          return;
+        }
+        if (servers.length == 1) {
+          baseUrl = servers.first.preferredUri;
+          accessToken = servers.first.accessToken;
+        } else if (mounted) {
+          final chosen = await showDialog<PlexServerResource>(
+            context: context,
+            builder: (ctx) => SimpleDialog(
+              title: Text(AppLocalizations.of(context).plexLinkTitle),
+              children: [
+                for (final s in servers)
+                  SimpleDialogOption(
+                    onPressed: () => Navigator.pop(ctx, s),
+                    child: Text('${s.name}\n${s.preferredUri}'),
+                  ),
+              ],
+            ),
+          );
+          if (chosen == null) {
+            setState(() => _busy = false);
+            return;
+          }
+          baseUrl = chosen.preferredUri;
+          accessToken = chosen.accessToken;
+        }
+      }
+
+      await MediaServerService.connect(
+        kind: MediaServerKind.plex,
+        label: _label.text.isEmpty ? 'Plex' : _label.text,
+        baseUrl: baseUrl,
+        username: '',
+        password: '',
+        token: accessToken,
+        replaceId: widget.resource?.id,
+      );
+      if (mounted) Navigator.pop(context);
+    } catch (error) {
+      if (mounted) {
+        setState(() {
+          _error = error is MediaServerException
+              ? error.message
+              : AppLocalizations.of(context).couldNotSaveConnection;
+        });
+      }
+    } finally {
+      client.close();
+      if (mounted) setState(() => _busy = false);
+    }
+  }
+
   Future<void> _connect() async {
+
     if (_busy) return;
     final url = _url.text.trim();
     final token = _token.text.trim();
@@ -358,7 +468,7 @@ class _MediaServerConnectPageState extends State<_MediaServerConnectPage> {
       children: [
         DropdownButtonFormField<MediaServerKind>(
           initialValue: _kind,
-          decoration: const InputDecoration(labelText: AppLocalizations.of(context).serverType),
+          decoration: InputDecoration(labelText: AppLocalizations.of(context).serverType),
           items: [
             for (final kind in MediaServerKind.values)
               DropdownMenuItem(value: kind, child: Text(kind.label)),
@@ -441,6 +551,24 @@ class _MediaServerConnectPageState extends State<_MediaServerConnectPage> {
               style: TextStyle(color: Theme.of(context).colorScheme.error),
             ),
           ),
+        if (_kind == MediaServerKind.plex) ...[
+          const SizedBox(height: 8),
+          FilledButton.icon(
+            onPressed: _busy ? null : _linkPlex,
+            icon: const Icon(Icons.link),
+            label: Text(
+              _busy
+                  ? AppLocalizations.of(context).connecting
+                  : AppLocalizations.of(context).plexLinkButton,
+            ),
+          ),
+          const SizedBox(height: 12),
+          Text(
+            AppLocalizations.of(context).plexLinkInstructions,
+            style: Theme.of(context).textTheme.bodySmall,
+          ),
+          const SizedBox(height: 16),
+        ],
         const SizedBox(height: 24),
         FilledButton(
           onPressed: _busy ? null : _connect,
