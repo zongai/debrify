@@ -3256,7 +3256,7 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
       case 13: // IPTV
         return BrowseScreen(
           tabIndex: 13,
-          hintText: 'Search channels...',
+          hintText: AppLocalizations.of(context).t('Search channels...'),
           // Submit-only: the in-page channel filter runs a full-scan COUNT on
           // the UI isolate, so filter on the search key press, not on every
           // keystroke — one scan per deliberate search, no per-keystroke storm.

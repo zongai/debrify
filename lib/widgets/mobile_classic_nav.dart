@@ -152,7 +152,7 @@ class MobileClassicNav extends StatelessWidget {
               Row(
                 children: [
                   Text(
-                    'ALL OF DEBRIFY',
+                    AppLocalizations.of(context).t('ALL OF DEBRIFY'),
                     style: TextStyle(
                       fontSize: 11,
                       fontWeight: FontWeight.w800,
@@ -602,7 +602,7 @@ class _RemoteRow extends StatelessWidget {
             ),
             const SizedBox(width: 10),
             const Text(
-              'Remote control',
+              AppLocalizations.of(context).t('Remote control'),
               style: TextStyle(fontSize: 12.5, fontWeight: FontWeight.w700),
             ),
             const Spacer(),

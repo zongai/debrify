@@ -3,6 +3,8 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 import 'package:flutter/services.dart';
 
 import '../../models/stremio_addon.dart';
@@ -1040,7 +1042,7 @@ class _MdblistSeeAllScreenState extends State<MdblistSeeAllScreen> {
             ),
             ..._buildViewControls(),
             StremioDropdown<String>(
-              label: 'Show',
+              label: AppLocalizations.of(context).t('Show'),
               value: _show,
               isTelevision: widget.isTelevision,
               quiet: _quiet,
@@ -1051,7 +1053,7 @@ class _MdblistSeeAllScreenState extends State<MdblistSeeAllScreen> {
                       StremioDropdownOption('series', 'Series'),
                     ]
                   : const [
-                      StremioDropdownOption('all', 'All'),
+                      StremioDropdownOption('all', AppLocalizations.of(context).t('All')),
                       StremioDropdownOption('movie', 'Movies'),
                       StremioDropdownOption('series', 'Series'),
                     ],
@@ -1059,7 +1061,7 @@ class _MdblistSeeAllScreenState extends State<MdblistSeeAllScreen> {
             ),
             if (_isCatalog)
               StremioDropdown<String>(
-                label: 'Sort',
+                label: AppLocalizations.of(context).t('Sort'),
                 value: _catalogDraft.sort,
                 isTelevision: widget.isTelevision,
                 quiet: _quiet,
@@ -1083,13 +1085,13 @@ class _MdblistSeeAllScreenState extends State<MdblistSeeAllScreen> {
               )
             else
               StremioDropdown<_Sort>(
-                label: 'Sort',
+                label: AppLocalizations.of(context).t('Sort'),
                 value: _sort,
                 isTelevision: widget.isTelevision,
                 quiet: _quiet,
                 focusNode: _sortNode,
                 options: const [
-                  StremioDropdownOption(_Sort.natural, 'Default'),
+                  StremioDropdownOption(_Sort.natural, AppLocalizations.of(context).t('Default')),
                   StremioDropdownOption(_Sort.az, 'A–Z'),
                   StremioDropdownOption(_Sort.za, 'Z–A'),
                   StremioDropdownOption(_Sort.newest, 'Newest Activity'),
@@ -1179,7 +1181,7 @@ class _MdblistSeeAllScreenState extends State<MdblistSeeAllScreen> {
         ),
         if (_selected != null)
           StremioDropdown<MdblistDiscoverChoice>(
-            label: 'List',
+            label: AppLocalizations.of(context).t('List'),
             value: _selected!,
             isTelevision: widget.isTelevision,
             quiet: _quiet,
@@ -1228,7 +1230,7 @@ class _MdblistSeeAllScreenState extends State<MdblistSeeAllScreen> {
           focusNode: _filtersNode,
           onPressed: _openCatalogFilters,
           icon: Icon(Icons.tune_rounded, size: 16),
-          label: Text('Filters'),
+          label: Text(AppLocalizations.of(context).t('Filters')),
         ),
       if (_isCatalog)
         FilledButton.icon(
@@ -1454,7 +1456,7 @@ class _MdblistSeeAllScreenState extends State<MdblistSeeAllScreen> {
     }
     if (_group == MdblistDiscoverGroup.library &&
         _libraryView == MdblistLibraryView.continueWatching) {
-      return 'Nothing to continue yet';
+      return AppLocalizations.of(context).t('Nothing to continue yet');
     }
     return 'Nothing in ${_activeLabel()}';
   }

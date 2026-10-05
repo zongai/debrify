@@ -589,7 +589,7 @@ class _CatalogSeeAllScreenState extends State<CatalogSeeAllScreen> {
                 onSelected: (g) => _onGenreChanged(g.isEmpty ? null : g),
               ),
             StremioDropdown<String>(
-              label: 'Sort',
+              label: AppLocalizations.of(context).t('Sort'),
               value: _sort,
               isTelevision: widget.isTelevision,
               quiet: _quiet,

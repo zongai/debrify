@@ -3,6 +3,8 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 
 import '../../models/stremio_addon.dart';
 import '../../services/analytics_service.dart';
@@ -398,39 +400,39 @@ class _ContinueWatchingSeeAllScreenState
               : null,
           buildChips: () => [
             StremioDropdown<String>(
-              label: 'Show',
+              label: AppLocalizations.of(context).t('Show'),
               value: _category,
               isTelevision: widget.isTelevision,
               quiet: _quiet,
               focusNode: _catNode,
               options: [
-                StremioDropdownOption('all', 'All'),
+                StremioDropdownOption('all', AppLocalizations.of(context).t('All')),
                 StremioDropdownOption('movie', 'Movies'),
                 StremioDropdownOption('series', 'Series'),
               ],
               onSelected: (v) => _setFilter(() => _category = v),
             ),
             StremioDropdown<_CwSort>(
-              label: 'Sort',
+              label: AppLocalizations.of(context).t('Sort'),
               value: _sort,
               isTelevision: widget.isTelevision,
               quiet: _quiet,
               focusNode: _sortNode,
               options: const [
-                StremioDropdownOption(_CwSort.lastWatched, 'Last Watched'),
+                StremioDropdownOption(_CwSort.lastWatched, AppLocalizations.of(context).t('Last Watched')),
                 StremioDropdownOption(_CwSort.az, 'A–Z'),
                 StremioDropdownOption(_CwSort.za, 'Z–A'),
               ],
               onSelected: _setSort,
             ),
             StremioDropdown<String>(
-              label: 'State',
+              label: AppLocalizations.of(context).t('State'),
               value: _watch,
               isTelevision: widget.isTelevision,
               quiet: _quiet,
               focusNode: _watchNode,
               options: const [
-                StremioDropdownOption('all', 'All'),
+                StremioDropdownOption('all', AppLocalizations.of(context).t('All')),
                 StremioDropdownOption('watched', 'Watched'),
                 StremioDropdownOption('unwatched', 'Unwatched'),
               ],
@@ -459,7 +461,7 @@ class _ContinueWatchingSeeAllScreenState
               const SizedBox(height: 14),
               Text(
                 _items.isEmpty
-                    ? 'Nothing to continue yet'
+                    ? AppLocalizations.of(context).t('Nothing to continue yet')
                     : 'Nothing matches these filters',
                 textAlign: TextAlign.center,
                 style: TextStyle(

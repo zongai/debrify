@@ -3,6 +3,8 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 
 import '../../models/stremio_addon.dart';
 import '../../services/analytics_service.dart';
@@ -493,7 +495,7 @@ class _SimklSeeAllScreenState extends State<SimklSeeAllScreen> {
               : null,
           buildChips: () => [
             StremioDropdown<SimklSeeAllList>(
-              label: 'List',
+              label: AppLocalizations.of(context).t('List'),
               value: _list,
               isTelevision: widget.isTelevision,
               quiet: _quiet,
@@ -505,26 +507,26 @@ class _SimklSeeAllScreenState extends State<SimklSeeAllScreen> {
               onSelected: _onPrimary,
             ),
             StremioDropdown<String>(
-              label: 'Show',
+              label: AppLocalizations.of(context).t('Show'),
               value: _category,
               isTelevision: widget.isTelevision,
               quiet: _quiet,
               focusNode: _catNode,
               options: [
-                StremioDropdownOption('all', 'All'),
+                StremioDropdownOption('all', AppLocalizations.of(context).t('All')),
                 StremioDropdownOption('movie', 'Movies'),
                 StremioDropdownOption('series', 'Series'),
               ],
               onSelected: (v) => _setFilter(() => _category = v),
             ),
             StremioDropdown<_Sort>(
-              label: 'Sort',
+              label: AppLocalizations.of(context).t('Sort'),
               value: _effectiveSort,
               isTelevision: widget.isTelevision,
               quiet: _quiet,
               focusNode: _sortNode,
               options: [
-                const StremioDropdownOption(_Sort.natural, 'Default'),
+                StremioDropdownOption(_Sort.natural, AppLocalizations.of(context).t('Default')),
                 const StremioDropdownOption(_Sort.az, 'A–Z'),
                 const StremioDropdownOption(_Sort.za, 'Z–A'),
                 const StremioDropdownOption(
@@ -608,7 +610,7 @@ class _SimklSeeAllScreenState extends State<SimklSeeAllScreen> {
   String _emptyMessage() {
     if (_error) return "Couldn't load ${_list.label} from Simkl";
     if (_items.isEmpty) {
-      if (_isCw) return 'Nothing to continue yet';
+      if (_isCw) return AppLocalizations.of(context).t('Nothing to continue yet');
       if (_list.isPublic) return 'No ${_list.label} titles right now';
       return 'Nothing in your ${_list.label}';
     }

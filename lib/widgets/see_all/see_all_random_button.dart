@@ -122,7 +122,7 @@ class _SeeAllRandomButtonState extends State<SeeAllRandomButton> {
           _leadingIcon(16, app.fade(app.seeAll.accent2, dim)),
           const SizedBox(width: 8),
           Text(
-            'Random',
+            AppLocalizations.of(context).t('Random'),
             style: TextStyle(
               color: app.fade(app.core.tx, dim),
               fontSize: 13,

@@ -2,6 +2,8 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 import 'package:flutter/services.dart';
 import '../../models/iptv_playlist.dart';
 import '../../theme/app_theme_scope.dart';
@@ -394,7 +396,7 @@ class _PlaylistDropdownState extends State<_PlaylistDropdown> {
               const SizedBox(width: 6),
               Flexible(
                 child: Text(
-                  widget.selectedPlaylist?.name ?? 'Select Playlist',
+                  widget.selectedPlaylist?.name ?? AppLocalizations.of(context).t('Select Playlist'),
                   style: theme.textTheme.bodyMedium?.copyWith(
                     color: colorScheme.onSurface,
                   ),
@@ -553,7 +555,7 @@ class _CategoryDropdownState extends State<_CategoryDropdown> {
               const SizedBox(width: 6),
               Flexible(
                 child: Text(
-                  widget.selectedCategory ?? 'All Categories',
+                  widget.selectedCategory ?? AppLocalizations.of(context).t('All Categories'),
                   style: theme.textTheme.bodyMedium?.copyWith(
                     color: colorScheme.onSurface,
                   ),
@@ -880,7 +882,7 @@ class _PlaylistPickerSheetState extends State<_PlaylistPickerSheet> {
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16),
                   child: Text(
-                    'Select Playlist',
+                    AppLocalizations.of(context).t('Select Playlist'),
                     style: theme.textTheme.titleMedium?.copyWith(
                       fontWeight: FontWeight.bold,
                     ),
@@ -919,9 +921,9 @@ class _PlaylistPickerSheetState extends State<_PlaylistPickerSheet> {
                       focusNode: index < _focusNodes.length
                           ? _focusNodes[index]
                           : null,
-                      label: playlist.name,
+                      label: AppLocalizations.of(context).t(playlist.name),
                       subtitle: playlist.isFavorites
-                          ? 'Your starred channels'
+                          ? AppLocalizations.of(context).t('Your starred channels')
                           : playlist.isCustomList
                           ? 'Your list'
                           : playlist.isXtreamCodes
@@ -956,7 +958,7 @@ class _PlaylistPickerSheetState extends State<_PlaylistPickerSheet> {
                   const Divider(),
                   _FocusablePickerTile(
                     focusNode: _focusNodes.isNotEmpty ? _focusNodes.last : null,
-                    label: 'Add Playlist',
+                    label: AppLocalizations.of(context).t('Add Playlist'),
                     icon: Icons.add,
                     isSelected: false,
                     onTap: () {
@@ -1119,7 +1121,7 @@ class _CategoryPickerSheetState extends State<_CategoryPickerSheet> {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Text(
-                    'Select Category',
+                    AppLocalizations.of(context).t('Select Category'),
                     style: theme.textTheme.titleMedium?.copyWith(
                       fontWeight: FontWeight.bold,
                     ),
@@ -1130,7 +1132,7 @@ class _CategoryPickerSheetState extends State<_CategoryPickerSheet> {
                     Padding(
                       padding: const EdgeInsets.only(top: 2),
                       child: Text(
-                        'Long-press (or hold OK on) a category for options',
+                        AppLocalizations.of(context).t('Long-press (or hold OK on) a category for options'),
                         style: theme.textTheme.bodySmall?.copyWith(
                           color: colorScheme.onSurfaceVariant,
                         ),
@@ -1154,7 +1156,7 @@ class _CategoryPickerSheetState extends State<_CategoryPickerSheet> {
                         Navigator.of(context).pop(const _CategoryChoice(''));
                     return _FocusablePickerTile(
                       focusNode: _nodeFor(0),
-                      label: 'All Categories',
+                      label: AppLocalizations.of(context).t('All Categories'),
                       icon: widget.selectedCategory == null
                           ? Icons.check_circle
                           : Icons.folder_outlined,
@@ -1206,7 +1208,7 @@ class _CategoryPickerSheetState extends State<_CategoryPickerSheet> {
                     const SizedBox(width: 6),
                     Flexible(
                       child: Text(
-                        'Tap the menu (or long-press) for category options',
+                        AppLocalizations.of(context).t('Tap the menu (or long-press) for category options'),
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(

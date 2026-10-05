@@ -18766,7 +18766,7 @@ class _SearchScreenState extends State<SearchScreen>
 
   Widget _buildDiscoverPanel() {
     final source = StremioDropdown<String>(
-      label: 'Source',
+      label: AppLocalizations.of(context).t('Source'),
       value: _discSource,
       isTelevision: widget.isTelevision,
       // TV: a quiet violet segment leading the filter line — the row's identity

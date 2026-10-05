@@ -133,8 +133,8 @@ class _SeeAllFilterBarState extends State<SeeAllFilterBar> {
                         Icon(Icons.tune_rounded,
                             size: 18, color: app.core.tx.withValues(alpha: 0xB3 / 0xFF)),
                         const SizedBox(width: 8),
-                        const Text(
-                          'Filters',
+                        Text(
+                          AppLocalizations.of(context).t('Filters')),
                           style: TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.w700,
@@ -299,8 +299,8 @@ class _FiltersButtonState extends State<_FiltersButton> {
             children: [
               Icon(Icons.tune_rounded, size: 16, color: app.core.tx.withValues(alpha: 0xB3 / 0xFF)),
               const SizedBox(width: 8),
-              const Text(
-                'Filters',
+              Text(
+                AppLocalizations.of(context).t('Filters')),
                 style: TextStyle(
                   fontSize: 13,
                   fontWeight: FontWeight.w700,

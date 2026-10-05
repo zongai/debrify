@@ -3,6 +3,8 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 
 import '../../models/stremio_addon.dart';
 import '../../services/analytics_service.dart';
@@ -661,7 +663,7 @@ class _TraktSeeAllScreenState extends State<TraktSeeAllScreen> {
               : null,
           buildChips: () => [
             StremioDropdown<String>(
-              label: 'List',
+              label: AppLocalizations.of(context).t('List'),
               value: _primaryKey,
               isTelevision: widget.isTelevision,
               quiet: _quiet,
@@ -690,20 +692,20 @@ class _TraktSeeAllScreenState extends State<TraktSeeAllScreen> {
                 onSelected: _setList,
               ),
             StremioDropdown<String>(
-              label: 'Show',
+              label: AppLocalizations.of(context).t('Show'),
               value: _category,
               isTelevision: widget.isTelevision,
               quiet: _quiet,
               focusNode: _catNode,
               options: [
-                StremioDropdownOption('all', 'All'),
+                StremioDropdownOption('all', AppLocalizations.of(context).t('All')),
                 StremioDropdownOption('movie', 'Movies'),
                 StremioDropdownOption('series', 'Series'),
               ],
               onSelected: (v) => _setFilter(() => _category = v),
             ),
             StremioDropdown<_Sort>(
-              label: 'Sort',
+              label: AppLocalizations.of(context).t('Sort'),
               value: _effectiveSort,
               isTelevision: widget.isTelevision,
               quiet: _quiet,
@@ -711,7 +713,7 @@ class _TraktSeeAllScreenState extends State<TraktSeeAllScreen> {
               options: [
                 StremioDropdownOption(
                   _Sort.natural,
-                  _isCw ? 'Last Watched' : 'Default',
+                  _isCw ? AppLocalizations.of(context).t('Last Watched') : AppLocalizations.of(context).t('Default'),
                 ),
                 const StremioDropdownOption(_Sort.az, 'A–Z'),
                 const StremioDropdownOption(_Sort.za, 'Z–A'),
@@ -738,13 +740,13 @@ class _TraktSeeAllScreenState extends State<TraktSeeAllScreen> {
             ),
             if (_showState)
               StremioDropdown<String>(
-                label: 'State',
+                label: AppLocalizations.of(context).t('State'),
                 value: _watch,
                 isTelevision: widget.isTelevision,
                 quiet: _quiet,
                 focusNode: _watchNode,
                 options: const [
-                  StremioDropdownOption('all', 'All'),
+                  StremioDropdownOption('all', AppLocalizations.of(context).t('All')),
                   StremioDropdownOption('watched', 'Watched'),
                   StremioDropdownOption('unwatched', 'Unwatched'),
                 ],
@@ -814,7 +816,7 @@ class _TraktSeeAllScreenState extends State<TraktSeeAllScreen> {
     if (_error) return "Couldn't load ${_list.label} from Trakt";
     // Distinguish "the list is empty" from "filters hid everything".
     if (_items.isEmpty) {
-      if (_isCw) return 'Nothing to continue yet';
+      if (_isCw) return AppLocalizations.of(context).t('Nothing to continue yet');
       if (_isPublicList) return 'No ${_list.label} titles right now';
       if (!_list.isBuiltin) return '"${_list.label}" is empty';
       return 'Nothing in your ${_list.label}';
