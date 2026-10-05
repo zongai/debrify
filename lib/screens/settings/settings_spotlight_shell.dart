@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 
 import '../../services/main_page_bridge.dart';
 import '../../theme/app_focus.dart';
@@ -331,7 +333,7 @@ class _SettingsSpotlightShellState extends State<SettingsSpotlightShell> {
             ),
             const Spacer(),
             IconButton(
-              tooltip: 'Search settings',
+              tooltip: AppLocalizations.of(context).t('Search settings'),
               onPressed: widget.onOpenSearch,
               icon: const Icon(Icons.search_rounded),
             ),
@@ -358,7 +360,7 @@ class SettingsRootHeader extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          'YOUR SPACE',
+          AppLocalizations.of(context).t('YOUR SPACE'),
           style: TextStyle(
             fontFamily: 'JetBrainsMono',
             fontSize: compact ? 8.5 : 9.5,
@@ -369,7 +371,7 @@ class SettingsRootHeader extends StatelessWidget {
         ),
         SizedBox(height: compact ? 9 : 11),
         Text(
-          'Settings',
+          AppLocalizations.of(context).t('Settings'),
           style: TextStyle(
             fontSize: compact ? 25 : 30,
             height: 1,
@@ -379,7 +381,9 @@ class SettingsRootHeader extends StatelessWidget {
         ),
         const SizedBox(height: 8),
         Text(
-          'Services, screens and playback—tuned in one place.',
+          AppLocalizations.of(context).t(
+            'Services, screens and playback—tuned in one place.',
+          ),
           style: TextStyle(
             fontSize: compact ? 10.5 : 12,
             height: 1.45,
@@ -407,7 +411,7 @@ class _SettingsCategoryHeading extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          definition.eyebrow.toUpperCase(),
+          AppLocalizations.of(context).t(definition.eyebrow).toUpperCase(),
           style: TextStyle(
             fontFamily: 'JetBrainsMono',
             fontSize: 9,
@@ -419,8 +423,7 @@ class _SettingsCategoryHeading extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 10),
-        Text(
-          definition.title,
+        Text(AppLocalizations.of(context).t(definition.title),
           style: TextStyle(
             fontSize: compact ? 25 : 29,
             height: 1.06,
@@ -432,7 +435,7 @@ class _SettingsCategoryHeading extends StatelessWidget {
         ConstrainedBox(
           constraints: const BoxConstraints(maxWidth: 660),
           child: Text(
-            definition.description,
+            AppLocalizations.of(context).t(definition.description),
             style: TextStyle(
               fontSize: compact ? 11.5 : 12.5,
               height: 1.48,
@@ -511,7 +514,7 @@ class _SettingsSpotlightSearchButtonState
                 const SizedBox(width: 11),
                 Expanded(
                   child: Text(
-                    'Search settings',
+                    AppLocalizations.of(context).t('Search settings'),
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                     style: TextStyle(
@@ -523,7 +526,7 @@ class _SettingsSpotlightSearchButtonState
                 ),
                 if (!widget.compact)
                   Text(
-                    'FIND ANYTHING',
+                    AppLocalizations.of(context).t('FIND ANYTHING'),
                     style: TextStyle(
                       fontFamily: 'JetBrainsMono',
                       fontSize: 7.5,
@@ -637,7 +640,7 @@ class _SettingsRailItemState extends State<_SettingsRailItem> {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       Text(
-                        widget.definition.label,
+                        AppLocalizations.of(context).t(widget.definition.label),
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(
@@ -648,7 +651,7 @@ class _SettingsRailItemState extends State<_SettingsRailItem> {
                       ),
                       const SizedBox(height: 2),
                       Text(
-                        widget.definition.subtitle,
+                        AppLocalizations.of(context).t(widget.definition.subtitle),
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(
@@ -798,7 +801,7 @@ class _SettingsCategoryCardState extends State<_SettingsCategoryCard> {
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
       Text(
-        widget.definition.label,
+        AppLocalizations.of(context).t(widget.definition.label),
         maxLines: 1,
         overflow: TextOverflow.ellipsis,
         style: TextStyle(
@@ -809,7 +812,7 @@ class _SettingsCategoryCardState extends State<_SettingsCategoryCard> {
       ),
       const SizedBox(height: 4),
       Text(
-        widget.definition.subtitle,
+        AppLocalizations.of(context).t(widget.definition.subtitle),
         maxLines: 2,
         overflow: TextOverflow.ellipsis,
         style: TextStyle(
@@ -957,7 +960,7 @@ class _SettingsSpotlightSummaryCardState
                     const SizedBox(width: 8),
                     Expanded(
                       child: Text(
-                        widget.eyebrow.toUpperCase(),
+                        AppLocalizations.of(context).t(widget.eyebrow).toUpperCase(),
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(
@@ -975,7 +978,7 @@ class _SettingsSpotlightSummaryCardState
                 ),
                 const SizedBox(height: 12),
                 Text(
-                  widget.title,
+                  AppLocalizations.of(context).t(widget.title),
                   style: TextStyle(
                     fontSize: 17,
                     fontWeight: FontWeight.w700,
@@ -984,7 +987,7 @@ class _SettingsSpotlightSummaryCardState
                 ),
                 const SizedBox(height: 6),
                 Text(
-                  widget.subtitle,
+                  AppLocalizations.of(context).t(widget.subtitle),
                   style: TextStyle(
                     fontSize: 10.5,
                     height: 1.45,
@@ -1004,7 +1007,7 @@ class _SettingsSpotlightSummaryCardState
                     borderRadius: app.shape.br(18),
                   ),
                   child: Text(
-                    widget.actionLabel,
+                    AppLocalizations.of(context).t(widget.actionLabel),
                     style: TextStyle(
                       fontSize: 10,
                       fontWeight: FontWeight.w700,

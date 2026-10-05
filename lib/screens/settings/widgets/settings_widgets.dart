@@ -1655,7 +1655,7 @@ class _ConnectionCardState extends State<ConnectionCard> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              info.title,
+                              AppLocalizations.of(context).t(info.title),
                               maxLines: 1,
                               overflow: TextOverflow.ellipsis,
                               style: TextStyle(
@@ -1668,7 +1668,7 @@ class _ConnectionCardState extends State<ConnectionCard> {
                             ),
                             const SizedBox(height: 3),
                             Text(
-                              info.caption,
+                              AppLocalizations.of(context).t(info.caption),
                               maxLines: 1,
                               overflow: TextOverflow.ellipsis,
                               style: TextStyle(
