@@ -6,9 +6,10 @@ import 'package:flutter/widgets.dart';
 /// Add a key to every locale map below when introducing a new string.
 /// System / Material strings still come from [MaterialLocalizations].
 class AppLocalizations {
-  AppLocalizations(this.locale);
+  AppLocalizations._(this.locale, this._t);
 
   final Locale locale;
+  final Map<String, String> _t;
 
   static const supportedLocales = <Locale>[
     Locale('en'),
@@ -39,10 +40,6 @@ class AppLocalizations {
     }
     return AppLocalizations._(const Locale('en'), _tables['en']!);
   }
-
-  AppLocalizations._(this.locale, this._t);
-
-  final Map<String, String> _t;
 
   String _s(String key) => _t[key] ?? _tables['en']![key] ?? key;
 

@@ -570,6 +570,7 @@ class IptvCatalogDb {
   static const _columnMigrationSql = [
     'ALTER TABLE channels ADD COLUMN channel_number INTEGER',
     'ALTER TABLE channels ADD COLUMN manual_position INTEGER',
+    'ALTER TABLE channels ADD COLUMN sources_json TEXT',
   ];
 
   /// Index DDL that depends on metadata-only columns must run after the
@@ -668,13 +669,6 @@ class IptvCatalogDb {
 
   static final WebDavSyncMonotonicStamp _monotonicStamp =
       WebDavSyncMonotonicStamp();
-
-    try {
-      db.execute('ALTER TABLE channels ADD COLUMN sources_json TEXT');
-    } catch (_) {
-      // Column already present.
-    }
-
 
   /// Stamp time for a user catalog mutation; strictly increasing per clock so
   /// a backwards clock step cannot reuse a stamp for a different mutation.

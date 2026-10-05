@@ -184,7 +184,7 @@ class _MediaServerSettingsPageState extends State<MediaServerSettingsPage> {
         : ListView(
             padding: const EdgeInsets.all(24),
             children: [
-              const Text(
+              Text(
                 AppLocalizations.of(context).mediaServersBlurb,
               ),
               const SizedBox(height: 12),
@@ -577,4 +577,126 @@ class _MediaServerConnectPageState extends State<_MediaServerConnectPage> {
       ],
     ),
   );
+}
+
+
+/// PIN dialog for https://www.plex.tv/link (aligned with plex-for-kodi PinLogin).
+class _PlexLinkDialog extends StatefulWidget {
+  const _PlexLinkDialog({
+    required this.session,
+    required this.deviceId,
+    required this.client,
+    required this.onCancel,
+  });
+
+  final PlexPinSession session;
+  final String deviceId;
+  final PlexClient client;
+  final VoidCallback onCancel;
+
+  @override
+  State<_PlexLinkDialog> createState() => _PlexLinkDialogState();
+}
+
+class _PlexLinkDialogState extends State<_PlexLinkDialog> {
+  bool _cancelled = false;
+  String? _error;
+  bool _polling = true;
+
+  @override
+  void initState() {
+    super.initState();
+    _poll();
+  }
+
+  Future<void> _poll() async {
+    try {
+      final token = await widget.client.pollPinToken(
+        session: widget.session,
+        deviceId: widget.deviceId,
+        isCancelled: () => _cancelled,
+      );
+      if (!mounted || _cancelled) return;
+      if (token != null && token.isNotEmpty) {
+        Navigator.of(context).pop(token);
+        return;
+      }
+      setState(() {
+        _polling = false;
+        _error = AppLocalizations.of(context).plexLinkExpired;
+      });
+    } catch (e) {
+      if (!mounted || _cancelled) return;
+      setState(() {
+        _polling = false;
+        _error = e is MediaServerException
+            ? e.message
+            : AppLocalizations.of(context).plexLinkExpired;
+      });
+    }
+  }
+
+  Future<void> _openLink() async {
+    final uri = Uri.parse('https://www.plex.tv/link');
+    await launchUrl(uri, mode: LaunchMode.externalApplication);
+  }
+
+  void _cancel() {
+    _cancelled = true;
+    widget.onCancel();
+    Navigator.of(context).pop();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
+    final theme = Theme.of(context);
+    return AlertDialog(
+      title: Text(l10n.plexLinkTitle),
+      content: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(l10n.plexLinkInstructions),
+          const SizedBox(height: 16),
+          SelectableText(
+            widget.session.code,
+            style: theme.textTheme.headlineMedium?.copyWith(
+              letterSpacing: 4,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          const SizedBox(height: 16),
+          if (_polling) ...[
+            Row(
+              children: [
+                const SizedBox(
+                  width: 18,
+                  height: 18,
+                  child: CircularProgressIndicator(strokeWidth: 2),
+                ),
+                const SizedBox(width: 12),
+                Expanded(child: Text(l10n.plexLinkWaiting)),
+              ],
+            ),
+          ],
+          if (_error != null)
+            Text(
+              _error!,
+              style: TextStyle(color: theme.colorScheme.error),
+            ),
+        ],
+      ),
+      actions: [
+        TextButton(
+          onPressed: _openLink,
+          child: Text(l10n.plexLinkOpenUrl),
+        ),
+        TextButton(
+          onPressed: _cancel,
+          child: Text(l10n.cancel),
+        ),
+      ],
+    );
+  }
 }
