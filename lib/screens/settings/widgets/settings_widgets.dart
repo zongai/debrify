@@ -1700,7 +1700,7 @@ class _ConnectionCardState extends State<ConnectionCard> {
                       ),
                       const SizedBox(width: 7),
                       Text(
-                        info.status,
+                        AppLocalizations.of(context).t(info.status),
                         style: TextStyle(
                           fontSize: 11.5,
                           fontWeight: FontWeight.w700,
