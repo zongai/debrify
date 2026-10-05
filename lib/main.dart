@@ -9,6 +9,7 @@ import 'dart:ui' show AppExitResponse, PointerDeviceKind;
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:intl/intl.dart';
@@ -83,6 +84,8 @@ import 'services/main_page_bridge.dart';
 import 'services/profiles/profile_policy_guard.dart';
 import 'theme/app_surfaces.dart';
 import 'theme/app_theme_controller.dart';
+import 'l10n/app_locale_controller.dart';
+import 'l10n/app_localizations.dart';
 import 'theme/idle_dim.dart';
 import 'theme/ui_feedback.dart';
 import 'theme/app_texture.dart';
@@ -673,6 +676,7 @@ Future<void> _continueApplicationStartup() async {
   // Warms the app theme AFTER the preset (it is an input), for the same
   // reason: the controller's memoized ThemeData is read in the first build.
   await _bestEffortStartupStep('app-theme-warm', AppThemeController.warm);
+  await _bestEffortStartupStep('app-locale-warm', AppLocaleController.instance.load);
   // From here the system-bar owner is the authority — it re-applies on every
   // active-surface or theme change (the _initOrientation call below remains
   // the pre-warm default and matches the legacy style anyway).
@@ -1023,6 +1027,7 @@ class _DebrifyAppState extends State<DebrifyApp> {
     // ThemeData/AppTheme pair, so this rebuild only ever READS them — the
     // recompute happened once, inside the controller, when the change fired.
     AppThemeController.instance.addListener(_onAppThemeChanged);
+    AppLocaleController.instance.addListener(_onAppLocaleChanged);
   }
 
   void _onTextBrightnessChanged() {
@@ -1033,10 +1038,15 @@ class _DebrifyAppState extends State<DebrifyApp> {
     if (mounted) setState(() {});
   }
 
+  void _onAppLocaleChanged() {
+    if (mounted) setState(() {});
+  }
+
   @override
   void dispose() {
     TextBrightnessController.notifier.removeListener(_onTextBrightnessChanged);
     AppThemeController.instance.removeListener(_onAppThemeChanged);
+    AppLocaleController.instance.removeListener(_onAppLocaleChanged);
     super.dispose();
   }
 
@@ -1253,6 +1263,14 @@ class _DebrifyAppState extends State<DebrifyApp> {
           PointerDeviceKind.stylus,
         },
       ),
+      locale: AppLocaleController.instance.locale,
+      supportedLocales: AppLocalizations.supportedLocales,
+      localizationsDelegates: const [
+        AppLocalizations.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
       // Memoized in AppThemeController — under `legacy` this is byte-for-byte
       // the theme the app has always shipped (the construction moved verbatim
       // into theme/app_theme_adapter.dart, Text Brightness pass included).

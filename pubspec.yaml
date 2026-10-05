@@ -28,6 +28,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_localizations:
+    sdk: flutter
 
   # Runtime Siri Remote tuning. The tvOS engine supplies the native input
   # plugin; this package exposes its thresholds to Dart and is inert elsewhere.

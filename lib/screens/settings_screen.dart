@@ -131,6 +131,8 @@ import 'settings/mdblist_settings_page.dart';
 import 'settings/tracking_settings_page.dart';
 import 'settings/webdav_settings_page.dart';
 import 'settings/media_server_settings_page.dart';
+import 'settings/language_settings_page.dart';
+import '../l10n/app_locale_controller.dart';
 import '../services/media_server_service.dart';
 import 'settings/stremio_tv_settings_page.dart';
 import '../widgets/remote/remote_role_picker_screen.dart';
@@ -1896,6 +1898,24 @@ class _SettingsScreenState extends State<SettingsScreen> {
       // dropping 'Home & Display'/'Live TV & DVR' from these entries would
       // break exact old-category searches.
       // Ungated — every platform has text. Lands on the picker.
+      nav(
+        SettingsRows.language,
+        'Appearance',
+        _openLanguageSettings,
+        subtitle: AppLocaleController.instance.labelForPreference(
+          AppLocaleController.instance.preference,
+        ),
+        keywords: const [
+          'language',
+          'locale',
+          'i18n',
+          'translation',
+          '中文',
+          'english',
+          '日本語',
+          'system',
+        ],
+      ),
       nav(
         SettingsRows.textBrightness,
         'Appearance',
@@ -4989,6 +5009,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
     if (loggedOut == true) {
       _focusFirstCard();
     }
+  }
+
+  Future<void> _openLanguageSettings() async {
+    await pushSettingsPage(context, const LanguageSettingsPage());
   }
 
   Future<void> _openMediaServerSettings() async {

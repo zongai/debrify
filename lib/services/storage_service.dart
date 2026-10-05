@@ -1095,6 +1095,23 @@ class StorageService {
     );
   }
 
+
+  static const String _appLanguageKey = 'app_language';
+
+  /// UI language preference: `system` (default) or a language code (`en`, `zh`, `ja`).
+  static Future<String> getAppLanguage() async {
+    final prefs = await ProfilePreferences.instance();
+    final raw = prefs.getString(_appLanguageKey);
+    if (raw == null || raw.trim().isEmpty) return 'system';
+    return raw.trim().toLowerCase();
+  }
+
+  static Future<void> setAppLanguage(String code) async {
+    final prefs = await ProfilePreferences.instance();
+    final value = code.trim().isEmpty ? 'system' : code.trim().toLowerCase();
+    await prefs.setString(_appLanguageKey, value);
+  }
+
   static const String _tvHomeStyleKey = 'tv_home_style';
 
   /// Every shipping TV Home layout. 'canvas' is the product default;

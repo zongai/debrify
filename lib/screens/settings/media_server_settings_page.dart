@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 import '../../models/media_server.dart';
 import '../../models/profiles/connection_resource.dart';
 import '../../models/profiles/profile_policy.dart';
@@ -46,7 +48,7 @@ class _MediaServerSettingsPageState extends State<MediaServerSettingsPage> {
       if (mounted) {
         setState(() {
           _loading = false;
-          _error = 'Could not load media servers. Please retry.';
+          _error = AppLocalizations.of(context).couldNotLoadMediaServers;
         });
       }
     }
@@ -85,7 +87,7 @@ class _MediaServerSettingsPageState extends State<MediaServerSettingsPage> {
       if (mounted) {
         ScaffoldMessenger.of(
           context,
-        ).showSnackBar(const SnackBar(content: Text('Connection successful')));
+        ).showSnackBar(SnackBar(content: Text(AppLocalizations.of(context).connectionSuccessful)));
       }
     } catch (error) {
       if (mounted) {
@@ -94,7 +96,7 @@ class _MediaServerSettingsPageState extends State<MediaServerSettingsPage> {
             content: Text(
               error is MediaServerException
                   ? error.message
-                  : 'Connection unavailable. Check profile permissions or reconnect.',
+                  : AppLocalizations.of(context).connectionUnavailable,
             ),
           ),
         );
@@ -128,7 +130,7 @@ class _MediaServerSettingsPageState extends State<MediaServerSettingsPage> {
     final confirmed = await showDialog<bool>(
       context: context,
       builder: (context) => AlertDialog(
-        title: Text('Disconnect ${resource.label}?'),
+        title: Text(AppLocalizations.of(context).disconnectServerConfirm(resource.label)),
         content: Text(
           borrowers > 0
               ? 'This will remove access for you and $borrowers other profile(s). Your server files will not be deleted.'
@@ -137,7 +139,7 @@ class _MediaServerSettingsPageState extends State<MediaServerSettingsPage> {
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context, false),
-            child: const Text('Cancel'),
+            child: Text(AppLocalizations.of(context).cancel),
           ),
           FilledButton(
             onPressed: () => Navigator.pop(context, true),
@@ -172,14 +174,14 @@ class _MediaServerSettingsPageState extends State<MediaServerSettingsPage> {
 
   @override
   Widget build(BuildContext context) => SettingsPageScaffold(
-    title: 'Jellyfin, Emby & Plex',
+    title: AppLocalizations.of(context).mediaServersTitle,
     body: _loading
         ? const Center(child: CircularProgressIndicator())
         : ListView(
             padding: const EdgeInsets.all(24),
             children: [
               const Text(
-                'Connect a media server to show its movies and episodes in Sources. Files play directly in Debrify; watch progress is saved in Debrify.',
+                AppLocalizations.of(context).mediaServersBlurb,
               ),
               const SizedBox(height: 12),
               const Text(
@@ -198,7 +200,7 @@ class _MediaServerSettingsPageState extends State<MediaServerSettingsPage> {
               const SizedBox(height: 24),
               if (_error != null) ...[
                 Text(_error!),
-                TextButton(onPressed: _load, child: const Text('Retry')),
+                TextButton(onPressed: _load, child: Text(AppLocalizations.of(context).retry)),
               ],
               if (!ProfileCollectionResourceFacade.active)
                 const Text(
@@ -227,17 +229,17 @@ class _MediaServerSettingsPageState extends State<MediaServerSettingsPage> {
                               onPressed: _busy || resource.secretPending
                                   ? null
                                   : () => _test(resource),
-                              child: const Text('Test connection'),
+                              child: Text(AppLocalizations.of(context).testConnection),
                             ),
                             if (resource.ownerProfileId ==
                                 ProfileRuntime.scope.value?.profileId)
                               TextButton(
                                 onPressed: _busy ? null : () => _edit(resource),
-                                child: const Text('Reconnect'),
+                                child: Text(AppLocalizations.of(context).reconnect),
                               ),
                             TextButton(
                               onPressed: _busy ? null : () => _remove(resource),
-                              child: const Text('Disconnect'),
+                              child: Text(AppLocalizations.of(context).disconnect),
                             ),
                           ],
                         ),
@@ -251,7 +253,7 @@ class _MediaServerSettingsPageState extends State<MediaServerSettingsPage> {
                     ? null
                     : () => _edit(),
                 icon: const Icon(Icons.add),
-                label: const Text('Connect server'),
+                label: Text(AppLocalizations.of(context).connectServer),
               ),
             ],
           ),
@@ -307,14 +309,14 @@ class _MediaServerConnectPageState extends State<_MediaServerConnectPage> {
     final token = _token.text.trim();
     final isPlexToken = _kind == MediaServerKind.plex && token.isNotEmpty;
     if (url.isEmpty) {
-      setState(() => _error = 'Enter the server URL.');
+      setState(() => _error = AppLocalizations.of(context).enterServerUrl);
       return;
     }
     if (!isPlexToken && _user.text.trim().isEmpty) {
       setState(
         () => _error = _kind == MediaServerKind.plex
-            ? 'Enter a Plex token, or a username and password.'
-            : 'Enter the server URL and username.',
+            ? AppLocalizations.of(context).enterPlexTokenOrCredentials
+            : AppLocalizations.of(context).enterUrlAndUsername,
       );
       return;
     }
@@ -338,7 +340,7 @@ class _MediaServerConnectPageState extends State<_MediaServerConnectPage> {
         setState(
           () => _error = error is MediaServerException
               ? error.message
-              : 'Could not save the connection. Check profile permissions and try again.',
+              : AppLocalizations.of(context).couldNotSaveConnection,
         );
       }
     } finally {
@@ -349,14 +351,14 @@ class _MediaServerConnectPageState extends State<_MediaServerConnectPage> {
   @override
   Widget build(BuildContext context) => SettingsPageScaffold(
     title: widget.resource == null
-        ? 'Connect media server'
-        : 'Reconnect media server',
+        ? AppLocalizations.of(context).connectMediaServer
+        : AppLocalizations.of(context).reconnectMediaServer,
     body: ListView(
       padding: const EdgeInsets.all(24),
       children: [
         DropdownButtonFormField<MediaServerKind>(
           initialValue: _kind,
-          decoration: const InputDecoration(labelText: 'Server type'),
+          decoration: const InputDecoration(labelText: AppLocalizations.of(context).serverType),
           items: [
             for (final kind in MediaServerKind.values)
               DropdownMenuItem(value: kind, child: Text(kind.label)),
@@ -372,14 +374,14 @@ class _MediaServerConnectPageState extends State<_MediaServerConnectPage> {
           TvTextField(
             controller: _label,
             enabled: !_busy,
-            labelText: 'Display name (optional)',
+            labelText: AppLocalizations.of(context).displayNameOptional,
           ),
           const SizedBox(height: 16),
         ],
         TvTextField(
           controller: _url,
           enabled: !_busy,
-          labelText: 'Server URL',
+          labelText: AppLocalizations.of(context).serverUrl,
           hintText: _kind == MediaServerKind.plex
               ? 'http://192.168.1.10:32400'
               : 'https://media.example.com',
@@ -390,45 +392,45 @@ class _MediaServerConnectPageState extends State<_MediaServerConnectPage> {
           TvTextField(
             controller: _token,
             enabled: !_busy,
-            labelText: 'Plex token (recommended)',
-            hintText: 'X-Plex-Token value',
+            labelText: AppLocalizations.of(context).plexTokenRecommended,
+            hintText: AppLocalizations.of(context).plexTokenHint,
             obscureText: true,
           ),
           const SizedBox(height: 8),
           Text(
-            'Paste a server or account token. When a token is set, username and password are ignored.',
+            AppLocalizations.of(context).plexTokenHelp,
             style: Theme.of(context).textTheme.bodySmall,
           ),
           const SizedBox(height: 16),
           TvTextField(
             controller: _user,
             enabled: !_busy && _token.text.trim().isEmpty,
-            labelText: 'Username (optional if token set)',
+            labelText: AppLocalizations.of(context).usernameOptionalIfToken,
           ),
           const SizedBox(height: 16),
           TvTextField(
             controller: _password,
             enabled: !_busy && _token.text.trim().isEmpty,
-            labelText: 'Password (optional if token set)',
+            labelText: AppLocalizations.of(context).passwordOptionalIfToken,
             obscureText: true,
           ),
           const SizedBox(height: 16),
           Text(
-            'Token-only: no plex.tv password is sent. Find a token in Plex Web (authorized devices) or from an existing client. HTTPS is recommended outside your home network. Only the token is stored.',
+            AppLocalizations.of(context).plexTokenOnlyHelp,
             style: Theme.of(context).textTheme.bodySmall,
           ),
         ] else ...[
-          TvTextField(controller: _user, enabled: !_busy, labelText: 'Username'),
+          TvTextField(controller: _user, enabled: !_busy, labelText: AppLocalizations.of(context).username),
           const SizedBox(height: 16),
           TvTextField(
             controller: _password,
             enabled: !_busy,
-            labelText: 'Password',
+            labelText: AppLocalizations.of(context).password,
             obscureText: true,
           ),
           const SizedBox(height: 16),
-          const Text(
-            'Use a server user with access to the libraries you want to play. HTTPS is recommended outside your home network. Only the sign-in token is saved, not your password.',
+          Text(
+            AppLocalizations.of(context).jellyfinEmbyConnectHelp,
           ),
         ],
         if (_error != null)
@@ -442,7 +444,7 @@ class _MediaServerConnectPageState extends State<_MediaServerConnectPage> {
         const SizedBox(height: 24),
         FilledButton(
           onPressed: _busy ? null : _connect,
-          child: Text(_busy ? 'Connecting…' : 'Connect'),
+          child: Text(_busy ? AppLocalizations.of(context).connecting : AppLocalizations.of(context).connect),
         ),
       ],
     ),

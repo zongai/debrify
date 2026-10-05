@@ -147,6 +147,12 @@ abstract final class SettingsRows {
     title: 'Navigation',
     subtitle: 'Classic bottom bar or floating button',
   );
+
+  static const language = SettingsRowContent(
+    icon: Icons.language_rounded,
+    title: 'Language',
+    subtitle: 'App interface language',
+  );
   static const searchSettings = SettingsRowContent(
     icon: Icons.search_rounded,
     title: 'Engines',
