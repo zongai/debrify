@@ -190,7 +190,7 @@ class _SidebarCustomizationPageState extends State<SidebarCustomizationPage> {
       context: context,
       builder: (dialogContext) => AlertDialog(
         title: Text(AppLocalizations.of(context).t('Reset sidebar?')),
-        content: const Text(
+        content: Text(
           'This restores the original order and every default name on both '
           'TV and desktop.',
         ),
@@ -279,7 +279,7 @@ class _SidebarCustomizationPageState extends State<SidebarCustomizationPage> {
   @override
   Widget build(BuildContext context) {
     if (_loading) {
-      return const SettingsPageScaffold(
+      return SettingsPageScaffold(
         title: AppLocalizations.of(context).t('Sidebar Items'),
         body: Center(child: CircularProgressIndicator()),
       );
@@ -311,7 +311,7 @@ class _SidebarCustomizationPageState extends State<SidebarCustomizationPage> {
                   key: SidebarCustomizationPage.resetKey,
                   focusNode: _resetNode,
                   onPressed: _configuration.isDefault ? null : _reset,
-                  icon: const Icon(Icons.restart_alt_rounded),
+                  icon: Icon(Icons.restart_alt_rounded),
                   label: Text(AppLocalizations.of(context).t('Restore default order and names')),
                 ),
               ),
@@ -327,7 +327,7 @@ class _SidebarCustomizationPageState extends State<SidebarCustomizationPage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                const Padding(
+                Padding(
                   padding: EdgeInsets.fromLTRB(16, 12, 16, 0),
                   child: SettingsPageHeader(
                     icon: Icons.low_priority_rounded,
@@ -645,7 +645,7 @@ class _SidebarLabelDialogState extends State<_SidebarLabelDialog> {
           TextButton(
             onPressed: () => Navigator.of(
               context,
-            ).pop<_SidebarLabelEdit>(const _SidebarLabelReset()),
+            ).pop<_SidebarLabelEdit>(_SidebarLabelReset()),
             child: Text(AppLocalizations.of(context).t('Use default')),
           ),
         TextButton(

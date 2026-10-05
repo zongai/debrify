@@ -164,7 +164,7 @@ class _SyncStepperOverlayState extends State<SyncStepperOverlay> {
 
   Widget _buildPill(bool onTv) {
     final content = Container(
-      padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 13),
+      padding: EdgeInsets.symmetric(horizontal: 22, vertical: 13),
       decoration: BoxDecoration(
         color: PlatformUtil.isAndroidTvCached
             ? const Color(0xF5101012)
@@ -231,7 +231,7 @@ class _SyncStepperOverlayState extends State<SyncStepperOverlay> {
           if (!onTv) ...[
             const SizedBox(width: 16),
             _TextPillButton(label: AppLocalizations.of(context).t('Reset'), onTap: () => widget.onOffsetChanged(0)),
-            const SizedBox(width: 8),
+            SizedBox(width: 8),
             _TextPillButton(label: AppLocalizations.of(context).t('Done'), onTap: widget.onDismiss, solid: true),
           ],
         ],

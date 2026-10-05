@@ -162,7 +162,7 @@ class IptvCwRouter {
     }
     if (origin == null) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
+        SnackBar(
           content: Text("This series' provider is no longer available"),
         ),
       );

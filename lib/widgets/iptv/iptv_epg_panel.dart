@@ -774,7 +774,7 @@ class IptvSchedulePane extends StatelessWidget {
             return KeyEventResult.ignored;
           },
           child: Padding(
-            padding: const EdgeInsets.fromLTRB(10, 14, 24, 0),
+            padding: EdgeInsets.fromLTRB(10, 14, 24, 0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [

@@ -303,7 +303,7 @@ class _ChannelGuideState extends State<ChannelGuide>
 
   Widget _buildSearchBar() {
     return Container(
-      padding: const EdgeInsets.fromLTRB(16, 12, 16, 12),
+      padding: EdgeInsets.fromLTRB(16, 12, 16, 12),
       child: TvTextField(
         controller: _searchController,
         focusNode: _searchFocusNode,

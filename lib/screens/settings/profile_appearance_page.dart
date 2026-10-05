@@ -102,7 +102,7 @@ class _ProfileAppearancePageState extends State<ProfileAppearancePage> {
     } catch (_) {
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Top Shelf setting could not be changed')),
+        SnackBar(content: Text('Top Shelf setting could not be changed')),
       );
     }
   }

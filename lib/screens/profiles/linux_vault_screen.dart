@@ -115,7 +115,7 @@ class _LinuxVaultScreenState extends State<LinuxVaultScreen> {
                       obscureText: _obscure,
                       enabled: !_busy,
                       onSubmitted: (_) => _submit(),
-                      decoration: const InputDecoration(
+                      decoration: InputDecoration(
                         labelText: 'Confirm passphrase',
                       ),
                     ),

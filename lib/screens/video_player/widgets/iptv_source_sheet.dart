@@ -97,7 +97,7 @@ class _IptvSourceSheetState extends State<IptvSourceSheet> {
                 child: Container(
                   margin: EdgeInsets.fromLTRB(12, 0, 12, 12 + bottom),
                   decoration: BoxDecoration(
-                    color: const Color(0xFF141418),
+                    color: Color(0xFF141418),
                     borderRadius: BorderRadius.circular(16),
                     border: Border.all(color: Colors.white12),
                   ),

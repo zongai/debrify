@@ -52,7 +52,7 @@ class ProfileGateStyle {
       label: 'Portrait Wall',
       blurb: 'Tall posters, colour-washed room',
     ),
-    (id: classic, label: AppLocalizations.of(context).t('Classic'), blurb: 'The original card grid'),
+    (id: classic, label: 'Classic', blurb: 'The original card grid'),
   ];
 
   static String labelFor(String id) => options
@@ -448,7 +448,7 @@ class _ManageChip extends StatelessWidget {
         side: BorderSide(color: Colors.white.withValues(alpha: .22)),
       ),
       onPressed: onPressed,
-      icon: const Icon(Icons.manage_accounts_rounded, size: 18),
+      icon: Icon(Icons.manage_accounts_rounded, size: 18),
       label: Text(AppLocalizations.of(context).t('Manage profiles')),
     ),
   );

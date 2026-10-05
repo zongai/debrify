@@ -185,12 +185,12 @@ class _PremiumizeSettingsPageState extends State<PremiumizeSettingsPage> {
       final confirmed = await showDialog<bool>(
         context: context,
         builder: (context) => AlertDialog(
-          title: const Text('Hide Premiumize?'),
+          title: Text('Hide Premiumize?'),
           content: SingleChildScrollView(
             child: Column(
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: const [
+              children: [
                 Text(
                   'This will hide the Premiumize tab from navigation.',
                   style: TextStyle(fontWeight: FontWeight.w500),
@@ -278,7 +278,7 @@ class _PremiumizeSettingsPageState extends State<PremiumizeSettingsPage> {
   Widget build(BuildContext context) {
     final t = AppThemeScope.of(context).settings;
     if (_loading) {
-      return const SettingsPageScaffold(
+      return SettingsPageScaffold(
         title: AppLocalizations.of(context).t('Premiumize Settings'),
         body: Center(child: CircularProgressIndicator()),
       );
@@ -289,7 +289,7 @@ class _PremiumizeSettingsPageState extends State<PremiumizeSettingsPage> {
     return SettingsPageScaffold(
       title: AppLocalizations.of(context).t('Premiumize Settings'),
       body: ListView(
-        padding: const EdgeInsets.all(16),
+        padding: EdgeInsets.all(16),
         children: [
           Center(
             child: ConstrainedBox(
@@ -479,7 +479,7 @@ class _PremiumizeSettingsPageState extends State<PremiumizeSettingsPage> {
                                     ] else ...[
                                       if (_savedApiKey != null) ...[
                                         Container(
-                                          padding: const EdgeInsets.all(12),
+                                          padding: EdgeInsets.all(12),
                                           decoration: BoxDecoration(
                                             color: t.panel2,
                                             borderRadius: BorderRadius.circular(
@@ -545,7 +545,7 @@ class _PremiumizeSettingsPageState extends State<PremiumizeSettingsPage> {
                                                     }
                                                   });
                                             },
-                                            icon: const Icon(Icons.add),
+                                            icon: Icon(Icons.add),
                                             label: Text(AppLocalizations.of(context).t('Add API Key')),
                                           ),
                                         ),

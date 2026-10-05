@@ -88,7 +88,7 @@ class _ManageProfilesScreenState extends State<ManageProfilesScreen> {
           if (profile.isEnabled)
             ListTile(
               autofocus: true,
-              leading: const Icon(Icons.edit_rounded),
+              leading: Icon(Icons.edit_rounded),
               title: Text(AppLocalizations.of(context).t('Edit')),
               onTap: () => Navigator.of(dialogContext).pop('edit'),
             ),
@@ -103,7 +103,7 @@ class _ManageProfilesScreenState extends State<ManageProfilesScreen> {
             onTap: () => Navigator.of(dialogContext).pop('toggle'),
           ),
           ListTile(
-            leading: const Icon(Icons.delete_outline_rounded),
+            leading: Icon(Icons.delete_outline_rounded),
             title: Text(AppLocalizations.of(context).t('Delete')),
             onTap: () => Navigator.of(dialogContext).pop('delete'),
           ),
@@ -138,7 +138,7 @@ class _ManageProfilesScreenState extends State<ManageProfilesScreen> {
     } catch (_) {
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Profile editor session expired')),
+        SnackBar(content: Text('Profile editor session expired')),
       );
     }
   }
@@ -219,7 +219,7 @@ class _ManageProfilesScreenState extends State<ManageProfilesScreen> {
           IconButton(
             tooltip: 'Privacy-safe diagnostics',
             onPressed: profiles == null ? null : _showDiagnostics,
-            icon: const Icon(Icons.health_and_safety_outlined),
+            icon: Icon(Icons.health_and_safety_outlined),
           ),
           // DEV-ONLY, delete with lib/{services,screens}/profiles/dev/.
           // kProfileAudit is a compile-time const defaulting to false, so a
@@ -230,7 +230,7 @@ class _ManageProfilesScreenState extends State<ManageProfilesScreen> {
             IconButton(
               tooltip: AppLocalizations.of(context).t('Profile data'),
               onPressed: profiles == null ? null : _openProfileData,
-              icon: const Icon(Icons.data_object_rounded),
+              icon: Icon(Icons.data_object_rounded),
             ),
         ],
       ),
@@ -280,7 +280,7 @@ class _ManageProfilesScreenState extends State<ManageProfilesScreen> {
                         // weren't focusable at all). On TV the row itself
                         // opens an action dialog instead.
                         trailing: PlatformUtil.isTelevision
-                            ? const Icon(Icons.more_horiz_rounded)
+                            ? Icon(Icons.more_horiz_rounded)
                             : PopupMenuButton<String>(
                                 onSelected: _runProfileAction(profile),
                                 itemBuilder: (_) => [
@@ -295,7 +295,7 @@ class _ManageProfilesScreenState extends State<ManageProfilesScreen> {
                                       profile.isEnabled ? 'Disable' : 'Enable',
                                     ),
                                   ),
-                                  const PopupMenuItem(
+                                  PopupMenuItem(
                                     value: 'delete',
                                     child: Text(AppLocalizations.of(context).t('Delete')),
                                   ),

@@ -266,7 +266,7 @@ class SpotlightShell extends StatelessWidget {
                             return KeyEventResult.ignored;
                           },
                           child: IconButton(
-                            key: const ValueKey('spotlight-search-trigger'),
+                            key: ValueKey('spotlight-search-trigger'),
                             tooltip: AppLocalizations.of(context).t('Search channels'),
                             onPressed: onOpenSearch,
                             icon: const Icon(Icons.search_rounded),

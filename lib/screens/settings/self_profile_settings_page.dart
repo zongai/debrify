@@ -279,7 +279,7 @@ class _SelfProfileSettingsPageState extends State<SelfProfileSettingsPage> {
     final confirmed = await showDialog<bool>(
       context: context,
       builder: (dialogContext) => AlertDialog(
-        title: const Text('Remove PIN protection?'),
+        title: Text('Remove PIN protection?'),
         content: const Text(
           'Anyone using this device will be able to open this profile.',
         ),
@@ -419,7 +419,7 @@ class _SelfProfileSettingsPageState extends State<SelfProfileSettingsPage> {
       body: _loadError != null
           ? Center(child: Text(_loadError!))
           : SingleChildScrollView(
-              padding: const EdgeInsets.fromLTRB(16, 16, 16, 32),
+              padding: EdgeInsets.fromLTRB(16, 16, 16, 32),
               child: Center(
                 child: ConstrainedBox(
                   constraints: const BoxConstraints(maxWidth: 780),
@@ -445,7 +445,7 @@ class _SelfProfileSettingsPageState extends State<SelfProfileSettingsPage> {
                               inputFormatters: [
                                 LengthLimitingTextInputFormatter(40),
                               ],
-                              decoration: const InputDecoration(
+                              decoration: InputDecoration(
                                 labelText: AppLocalizations.of(context).t('Name'),
                               ),
                             ),

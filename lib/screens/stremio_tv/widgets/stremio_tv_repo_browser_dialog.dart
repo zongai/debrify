@@ -461,7 +461,7 @@ class _StremioTvRepoBrowserDialogState
     final confirmed = await showDialog<bool>(
       context: context,
       builder: (ctx) => AlertDialog(
-        title: const Text('Remove Repository'),
+        title: Text('Remove Repository'),
         content: Text('Remove "$label" from saved repos?'),
         actions: [
           TextButton(
@@ -561,7 +561,7 @@ class _StremioTvRepoBrowserDialogState
           borderRadius: app.shape.br(20),
         ),
         child: Padding(
-          padding: const EdgeInsets.all(20),
+          padding: EdgeInsets.all(20),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -587,7 +587,7 @@ class _StremioTvRepoBrowserDialogState
                   ),
                 ],
               ),
-              const SizedBox(height: 12),
+              SizedBox(height: 12),
 
               // ── URL input ──
               Row(
@@ -717,7 +717,7 @@ class _StremioTvRepoBrowserDialogState
         index < _repoFocusNodes.length ? _repoFocusNodes[index] : null;
 
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 2),
+      padding: EdgeInsets.symmetric(vertical: 2),
       child: Material(
         color: expanded
             ? theme.colorScheme.primaryContainer.withValues(alpha: 0.25)

@@ -117,7 +117,7 @@ class EnginesStep extends StatelessWidget {
           children: [
             OnboardFocusable(
               controller: focusController,
-              cell: const OnboardCell(0, 0),
+              cell: OnboardCell(0, 0),
               onActivate: onRetry,
               shape: ParallaxShape.pill,
               radius: BorderRadius.circular(18),

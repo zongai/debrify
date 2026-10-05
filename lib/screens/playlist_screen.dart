@@ -270,7 +270,7 @@ class _PlaylistScreenState extends State<PlaylistScreen> {
           borderRadius: app.shape.br(18),
           side: BorderSide(color: app.fade(app.core.tx, 0.08)),
         ),
-        title: const Text(
+        title: Text(
           'Remove from playlist?',
           style: TextStyle(fontWeight: FontWeight.w700),
         ),
@@ -293,7 +293,7 @@ class _PlaylistScreenState extends State<PlaylistScreen> {
             style: TextButton.styleFrom(
               // Netflix red, and NOT playlist.destructive (#FF6B6B) — no token
               // carries this value, so substituting one would move the pixel.
-              foregroundColor: const Color(0xFFE50914),
+              foregroundColor: Color(0xFFE50914),
               padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 10),
             ),
             child: Text(AppLocalizations.of(context).t('Remove')),
@@ -321,7 +321,7 @@ class _PlaylistScreenState extends State<PlaylistScreen> {
         if (!mounted) return;
         ScaffoldMessenger.of(
           context,
-        ).showSnackBar(const SnackBar(content: Text('Removed from playlist')));
+        ).showSnackBar(SnackBar(content: Text('Removed from playlist')));
 
         // Set focus restoration flags BEFORE refresh
         // Only restore focus if there will be items remaining after deletion
@@ -371,7 +371,7 @@ class _PlaylistScreenState extends State<PlaylistScreen> {
           borderRadius: app.shape.br(18),
           side: BorderSide(color: app.fade(app.core.tx, 0.08)),
         ),
-        title: const Text(
+        title: Text(
           'Clear watch progress?',
           style: TextStyle(fontWeight: FontWeight.w700),
         ),
@@ -394,7 +394,7 @@ class _PlaylistScreenState extends State<PlaylistScreen> {
             style: TextButton.styleFrom(
               // Same value as the Fix Metadata chip's Colors.orange.
               foregroundColor: app.playlist.warning,
-              padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 10),
+              padding: EdgeInsets.symmetric(horizontal: 18, vertical: 10),
             ),
             child: Text(AppLocalizations.of(context).t('Clear Progress')),
           ),
@@ -408,7 +408,7 @@ class _PlaylistScreenState extends State<PlaylistScreen> {
       if (!mounted) return;
       ScaffoldMessenger.of(
         context,
-      ).showSnackBar(const SnackBar(content: Text('Watch progress cleared')));
+      ).showSnackBar(SnackBar(content: Text('Watch progress cleared')));
       await _refresh();
     }
   }

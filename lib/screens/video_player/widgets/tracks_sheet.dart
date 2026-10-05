@@ -277,7 +277,7 @@ class TracksSheet {
 
             return Container(
               height: sheetHeight,
-              decoration: const BoxDecoration(
+              decoration: BoxDecoration(
                 color: Color(0xFF141414),
                 borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
               ),
@@ -1247,7 +1247,7 @@ class _StyleTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      padding: const EdgeInsets.symmetric(horizontal: 20),
+      padding: EdgeInsets.symmetric(horizontal: 20),
       child: Column(
         children: [
           // Preview
@@ -1521,7 +1521,7 @@ class _StyleTab extends StatelessWidget {
                   .loadAll();
               onStyleChanged(newSettings);
             },
-            icon: const Icon(Icons.refresh_rounded, size: 18),
+            icon: Icon(Icons.refresh_rounded, size: 18),
             label: Text(AppLocalizations.of(context).t('Reset to Defaults')),
             style: TextButton.styleFrom(
               foregroundColor: Colors.white60,

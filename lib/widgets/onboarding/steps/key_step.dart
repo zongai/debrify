@@ -63,7 +63,7 @@ class KeyStep extends StatefulWidget {
       children: [
         OnboardFocusable(
           controller: focusController,
-          cell: const OnboardCell(2, 0),
+          cell: OnboardCell(2, 0),
           onActivate: onSkip,
           enabled: !validating,
           shape: ParallaxShape.pill,
@@ -186,13 +186,13 @@ class _KeyStepState extends State<KeyStep> {
       );
       if (!opened && mounted) {
         ScaffoldMessenger.maybeOf(context)?.showSnackBar(
-          const SnackBar(content: Text('Could not open that page.')),
+          SnackBar(content: Text('Could not open that page.')),
         );
       }
     } catch (_) {
       if (!mounted) return;
       ScaffoldMessenger.maybeOf(context)?.showSnackBar(
-        const SnackBar(content: Text('Could not open that page.')),
+        SnackBar(content: Text('Could not open that page.')),
       );
     }
   }
@@ -286,7 +286,7 @@ class _KeyStepState extends State<KeyStep> {
     final parsed = parseOnboardingKey(widget.controller.text);
     final length = parsed.key.length;
     return ConstrainedBox(
-      constraints: const BoxConstraints(maxWidth: 720),
+      constraints: BoxConstraints(maxWidth: 720),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -396,7 +396,7 @@ class _KeyStepState extends State<KeyStep> {
     final firstRow = <Widget>[
       _MethodChip(
         controller: widget.focusController,
-        cell: const OnboardCell(0, 0),
+        cell: OnboardCell(0, 0),
         icon: Icons.keyboard_rounded,
         label: 'Type it',
         selected: true,

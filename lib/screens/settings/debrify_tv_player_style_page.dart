@@ -124,7 +124,7 @@ class _DebrifyTvPlayerStylePageState extends State<DebrifyTvPlayerStylePage> {
   Widget build(BuildContext context) {
     final t = AppThemeScope.of(context).settings;
     if (_loading) {
-      return const SettingsPageScaffold(
+      return SettingsPageScaffold(
         title: AppLocalizations.of(context).t('Debrify TV Player'),
         body: Center(child: CircularProgressIndicator()),
       );
@@ -133,7 +133,7 @@ class _DebrifyTvPlayerStylePageState extends State<DebrifyTvPlayerStylePage> {
     return SettingsPageScaffold(
       title: AppLocalizations.of(context).t('Debrify TV Player'),
       body: SingleChildScrollView(
-        padding: const EdgeInsets.all(16),
+        padding: EdgeInsets.all(16),
         child: Center(
           child: ConstrainedBox(
             constraints: const BoxConstraints(maxWidth: kSettingsMaxWidth),

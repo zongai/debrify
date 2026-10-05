@@ -84,7 +84,7 @@ class _LooksPageState extends State<LooksPage> {
     return SettingsPageScaffold(
       title: AppLocalizations.of(context).t('Looks'),
       body: SingleChildScrollView(
-        padding: const EdgeInsets.all(16),
+        padding: EdgeInsets.all(16),
         child: Center(
           child: ConstrainedBox(
             constraints: const BoxConstraints(maxWidth: kSettingsMaxWidth),
@@ -131,7 +131,7 @@ class _LooksPageState extends State<LooksPage> {
                           trailing: look.id == active?.id
                               ? Icon(Icons.check_rounded,
                                   size: 20, color: app.settings.accent2)
-                              : const SizedBox.shrink(),
+                              : SizedBox.shrink(),
                           onTap: () => _apply(look),
                         ),
                     ],

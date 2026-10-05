@@ -654,7 +654,7 @@ class _TraktCalendarScreenState extends State<TraktCalendarScreen> {
                   },
                 ),
               ),
-              const SizedBox(width: 8),
+              SizedBox(width: 8),
               Expanded(
                 child: _SelectorField(
                   label: AppLocalizations.of(context).t('Month'),
@@ -818,7 +818,7 @@ class _TraktCalendarScreenState extends State<TraktCalendarScreen> {
                     },
                   ),
                 ),
-                const SizedBox(width: 10),
+                SizedBox(width: 10),
                 Expanded(
                   child: _SelectorField(
                     label: AppLocalizations.of(context).t('Month'),

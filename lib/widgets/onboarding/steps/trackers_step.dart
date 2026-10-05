@@ -172,7 +172,7 @@ class TrackersStep extends StatelessWidget {
                     ),
                   ),
                 ),
-                const SizedBox(height: 8),
+                SizedBox(height: 8),
                 const Text(
                   'Create or copy the key from mdblist.com/preferences.',
                   style: TextStyle(fontSize: 11),
@@ -219,7 +219,7 @@ class TrackersStep extends StatelessWidget {
                       if (dialogContext.mounted) Navigator.pop(dialogContext);
                     },
               child: saving
-                  ? const SizedBox(
+                  ? SizedBox(
                       width: 18,
                       height: 18,
                       child: CircularProgressIndicator(strokeWidth: 2),

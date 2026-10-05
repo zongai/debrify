@@ -138,7 +138,7 @@ class _RemoteSendWorkspaceState extends State<RemoteSendWorkspace> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text('To ${device.deviceName}'),
-                      const SizedBox(height: 14),
+                      SizedBox(height: 14),
                       for (final choice in choices)
                         Padding(
                           padding: const EdgeInsets.only(bottom: 6),
@@ -154,7 +154,7 @@ class _RemoteSendWorkspaceState extends State<RemoteSendWorkspace> {
                           obscureText: true,
                           autocorrect: false,
                           enableSuggestions: false,
-                          decoration: const InputDecoration(
+                          decoration: InputDecoration(
                             labelText: 'PikPak password',
                           ),
                           onChanged: (_) => update(() {}),
@@ -265,7 +265,7 @@ class _RemoteSendWorkspaceState extends State<RemoteSendWorkspace> {
     } catch (_) {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
+          SnackBar(
             content: Text(
               'Transfer could not finish. Check the receiving device and retry.',
             ),

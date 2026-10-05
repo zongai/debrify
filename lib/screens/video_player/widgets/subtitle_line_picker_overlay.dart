@@ -255,7 +255,7 @@ class _SubtitleLinePickerOverlayState extends State<SubtitleLinePickerOverlay> {
 
   Widget _buildHeader() {
     return Padding(
-      padding: const EdgeInsets.fromLTRB(24, 26, 18, 10),
+      padding: EdgeInsets.fromLTRB(24, 26, 18, 10),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -279,7 +279,7 @@ class _SubtitleLinePickerOverlayState extends State<SubtitleLinePickerOverlay> {
                       : _ink,
                   fontSize: 14,
                   fontWeight: FontWeight.w700,
-                  fontFeatures: const [FontFeature.tabularFigures()],
+                  fontFeatures: [FontFeature.tabularFigures()],
                 ),
               ),
             ],
@@ -295,13 +295,13 @@ class _SubtitleLinePickerOverlayState extends State<SubtitleLinePickerOverlay> {
               ),
               const SizedBox(width: 6),
               _headerButton(label: AppLocalizations.of(context).t('Reset'), onTap: _resetOffset),
-              const SizedBox(width: 6),
+              SizedBox(width: 6),
               if (_highlightedIndex >= 0)
                 _headerButton(
                   label: AppLocalizations.of(context).t('Now'),
                   onTap: () => _scrollToIndex(_highlightedIndex),
                 ),
-              const Spacer(),
+              Spacer(),
               _headerButton(label: AppLocalizations.of(context).t('Done'), onTap: widget.onDismiss, solid: true),
             ],
           ),

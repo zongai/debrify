@@ -507,7 +507,7 @@ class _MetadataBrowsePageState extends State<MetadataBrowsePage> {
             ),
       child: Padding(
         padding: quiet
-            ? const EdgeInsets.fromLTRB(24, 16, 24, 10)
+            ? EdgeInsets.fromLTRB(24, 16, 24, 10)
             : const EdgeInsets.fromLTRB(24, 10, 24, 12),
         child: SeeAllFilterBar(
           isTelevision: widget.isTelevision,
@@ -638,7 +638,7 @@ class _MetadataBrowsePageState extends State<MetadataBrowsePage> {
   Widget _buildStandalone() => Scaffold(
     appBar: AppBar(title: Text(widget.title)),
     body: _profileChanged
-        ? const Center(
+        ? Center(
             child: Text(
               'Profile changed. Go back to browse your current profile.',
             ),
@@ -660,7 +660,7 @@ class _MetadataBrowsePageState extends State<MetadataBrowsePage> {
                     children: [
                       DropdownButton<String>(
                         value: _type,
-                        items: const [
+                        items: [
                           DropdownMenuItem(
                             value: 'movie',
                             child: Text(AppLocalizations.of(context).t('Movies')),
@@ -771,7 +771,7 @@ class _MetadataTitleTileState extends State<_MetadataTitleTile> {
     } catch (_) {
       if (mounted && scope == ProfileRuntime.scope.value) {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
+          SnackBar(
             content: Text('Could not open this title. Try again.'),
           ),
         );

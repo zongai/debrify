@@ -315,7 +315,7 @@ class _EpisodeTileState extends State<EpisodeTile> {
       fit: StackFit.expand,
       children: [
         // Light vignette so the play glyph + badge read on any still.
-        const DecoratedBox(
+        DecoratedBox(
           decoration: BoxDecoration(
             gradient: RadialGradient(
               radius: 0.9,

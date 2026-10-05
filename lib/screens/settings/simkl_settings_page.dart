@@ -286,7 +286,7 @@ class _SimklSettingsPageState extends State<SimklSettingsPage> {
     final app = AppThemeScope.of(context);
     final t = app.settings;
     if (_loading) {
-      return const SettingsPageScaffold(
+      return SettingsPageScaffold(
         title: AppLocalizations.of(context).t('Simkl Settings'),
         body: Center(child: CircularProgressIndicator()),
       );
@@ -301,7 +301,7 @@ class _SimklSettingsPageState extends State<SimklSettingsPage> {
     return SettingsPageScaffold(
       title: AppLocalizations.of(context).t('Simkl Settings'),
       body: ListView(
-        padding: const EdgeInsets.all(16),
+        padding: EdgeInsets.all(16),
         children: [
           Center(
             child: ConstrainedBox(
@@ -505,7 +505,7 @@ class _SimklSettingsPageState extends State<SimklSettingsPage> {
               launchUrl(Uri.parse(url), mode: LaunchMode.externalApplication);
             },
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+              padding: EdgeInsets.symmetric(horizontal: 6, vertical: 2),
               child: Text(
                 'Go to ${_verificationUrl ?? 'https://simkl.com/pin'}',
                 style: TextStyle(

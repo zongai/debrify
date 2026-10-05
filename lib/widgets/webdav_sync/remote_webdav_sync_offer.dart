@@ -86,7 +86,7 @@ Future<void> offerRemoteWebDavSync(
             context: context,
             barrierDismissible: false,
             builder: (dialogContext) => AlertDialog(
-              title: const Text('Use sync data from this account?'),
+              title: Text('Use sync data from this account?'),
               content: const Text(
                 'Existing profiles and connections on this '
                 'device, including the configuration just imported, will be '
@@ -141,7 +141,7 @@ Future<void> offerRemoteWebDavSync(
     debugPrint('Remote WebDAV sync setup failed (${error.runtimeType})');
     if (context.mounted) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
+        SnackBar(
           content: Text(
             'Server credentials saved. Configure WebDAV Sync from an unlocked Admin profile in Sync & Migrate.',
           ),

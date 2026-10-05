@@ -355,7 +355,7 @@ class StyledDock extends StatelessWidget {
         gradient: LinearGradient(
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
-          colors: [palette.scrim, const Color(0x00040610)],
+          colors: [palette.scrim, Color(0x00040610)],
         ),
       ),
       child: SafeArea(
@@ -551,10 +551,10 @@ class StyledDock extends StatelessWidget {
             final promoted = tools.take(count).toList();
             return Row(
               children: [
-                ..._transport(),
+                ..._transport(context),
                 Expanded(
                   child: ShaderMask(
-                    shaderCallback: (rect) => const LinearGradient(
+                    shaderCallback: (rect) => LinearGradient(
                       begin: Alignment.centerLeft,
                       end: Alignment.centerRight,
                       colors: [Color(0x00000000), Color(0xFF000000)],
@@ -611,7 +611,7 @@ class StyledDock extends StatelessWidget {
       children: [
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: _transport(),
+          children: _transport(context),
         ),
         SizedBox(height: metrics.gap),
         if (!hideSeekbar) _scrubber(context),
@@ -685,7 +685,7 @@ class StyledDock extends StatelessWidget {
       children: [
         Row(
           children: [
-            ..._transport(),
+            ..._transport(context),
             if (onVolumeChanged != null) ...[
               SizedBox(width: metrics.gap),
               _volume(context),
@@ -700,7 +700,7 @@ class StyledDock extends StatelessWidget {
               // does not fit is cut at the LEFT. Without a fade that reads as
               // a rendering fault rather than "there is more".
               child: ShaderMask(
-                shaderCallback: (rect) => const LinearGradient(
+                shaderCallback: (rect) => LinearGradient(
                   begin: Alignment.centerLeft,
                   end: Alignment.centerRight,
                   colors: [Color(0x00000000), Color(0xFF000000)],
@@ -837,7 +837,7 @@ class StyledDock extends StatelessWidget {
     );
   }
 
-  List<Widget> _transport() {
+  List<Widget> _transport(BuildContext context) {
     return [
       if (hasPrevious && onPrevious != null) ...[
         DockTransportButton(

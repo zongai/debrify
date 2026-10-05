@@ -289,7 +289,7 @@ class RedditResultsViewState extends State<RedditResultsView> {
 
       if (post == null) {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('No random video found — try again')),
+          SnackBar(content: Text('No random video found — try again')),
         );
         return;
       }
@@ -313,7 +313,7 @@ class RedditResultsViewState extends State<RedditResultsView> {
       // Show loading indicator
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
+          SnackBar(
             content: Row(
               children: [
                 SizedBox(
@@ -341,7 +341,7 @@ class RedditResultsViewState extends State<RedditResultsView> {
     if (playUrl == null) {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('No playable video found')),
+          SnackBar(content: Text('No playable video found')),
         );
       }
       return;
@@ -365,7 +365,7 @@ class RedditResultsViewState extends State<RedditResultsView> {
     if (downloadUrl == null && post.isRedgifs) {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
+          SnackBar(
             content: Row(
               children: [
                 SizedBox(
@@ -391,7 +391,7 @@ class RedditResultsViewState extends State<RedditResultsView> {
     if (downloadUrl == null) {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('No downloadable video found')),
+          SnackBar(content: Text('No downloadable video found')),
         );
       }
       return;
@@ -413,7 +413,7 @@ class RedditResultsViewState extends State<RedditResultsView> {
 
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Added to downloads')),
+        SnackBar(content: Text('Added to downloads')),
       );
     } catch (e) {
       if (!mounted) return;

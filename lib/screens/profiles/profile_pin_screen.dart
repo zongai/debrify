@@ -156,7 +156,7 @@ class _ProfilePinScreenState extends State<ProfilePinScreen> {
           }
 
           return AlertDialog(
-            title: const Text('Recover profile'),
+            title: Text('Recover profile'),
             content: Column(
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -750,7 +750,7 @@ class _RoundBackButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => IconButton(
-    key: const Key('profile-pin-cancel'),
+    key: Key('profile-pin-cancel'),
     tooltip: AppLocalizations.of(context).t('Back'),
     onPressed: onPressed,
     style: IconButton.styleFrom(

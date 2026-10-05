@@ -1117,7 +1117,7 @@ class IptvChannelSheetState extends State<IptvChannelSheet>
             width: compact ? 34 : 40,
             height: compact ? 34 : 40,
             decoration: BoxDecoration(
-              gradient: const LinearGradient(
+              gradient: LinearGradient(
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
                 colors: [_accent, _accentAlt],
@@ -1504,7 +1504,7 @@ class IptvChannelSheetState extends State<IptvChannelSheet>
     final console = t != null && widget.style == PlayerGuideStyle.console;
 
     return Padding(
-      padding: const EdgeInsets.fromLTRB(20, 0, 20, 10),
+      padding: EdgeInsets.fromLTRB(20, 0, 20, 10),
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 200),
         decoration: BoxDecoration(
@@ -1554,7 +1554,7 @@ class IptvChannelSheetState extends State<IptvChannelSheet>
               fontWeight: FontWeight.w400,
             ),
             prefixIcon: AnimatedSwitcher(
-              duration: const Duration(milliseconds: 200),
+              duration: Duration(milliseconds: 200),
               child: Icon(
                 hasQuery ? Icons.filter_list_rounded : Icons.search_rounded,
                 key: ValueKey(hasQuery),
@@ -1737,7 +1737,7 @@ class IptvChannelSheetState extends State<IptvChannelSheet>
                 upperLabels: console,
               ),
             ),
-            const SizedBox(width: 7),
+            SizedBox(width: 7),
             _FilterChip(
               icon: Icons.favorite_rounded,
               label: AppLocalizations.of(context).t('Saved'),
@@ -1894,8 +1894,7 @@ class IptvChannelSheetState extends State<IptvChannelSheet>
     if (Platform.isAndroid && !await LiveRecordingService.ensureEngineReady()) {
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text(AppLocalizations.of(context).t('Storage access is needed to save recordings')),
+        SnackBar(content: Text(AppLocalizations.of(context).t('Storage access is needed to save recordings')),
         ),
       );
       return;
@@ -1969,7 +1968,7 @@ class IptvChannelSheetState extends State<IptvChannelSheet>
       // outright — offer the grant right here.
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: const Text(
+          content: Text(
             'Allow "Alarms & reminders" for Debrify to schedule recordings',
           ),
           action: SnackBarAction(
@@ -2056,7 +2055,7 @@ class IptvChannelSheetState extends State<IptvChannelSheet>
                 size: 32,
               ),
             ),
-            const SizedBox(height: 16),
+            SizedBox(height: 16),
             Text(
               pending ? 'Search all channels' : 'No channels found',
               style: TextStyle(
@@ -2538,7 +2537,7 @@ class _CategoryPickerDialogState extends State<_CategoryPickerDialog> {
       // Dialogs need an opaque surface — the token panel's over-video alpha
       // is flattened here.
       backgroundColor: t == null
-          ? const Color(0xFF14141C)
+          ? Color(0xFF14141C)
           : t.panel.withAlpha(0xFF),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(18),
@@ -3211,7 +3210,7 @@ class _ChannelTile extends StatelessWidget {
             ? IptvFocusBracketsPainter(t!.accent)
             : null,
         child: AnimatedContainer(
-          duration: const Duration(milliseconds: 150),
+          duration: Duration(milliseconds: 150),
           curve: Curves.easeOutCubic,
           margin: const EdgeInsets.symmetric(vertical: 2, horizontal: 4),
           padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
@@ -3245,7 +3244,7 @@ class _ChannelTile extends StatelessWidget {
                     fontFamily: _console && t!.monoFamily.isNotEmpty
                         ? t.monoFamily
                         : null,
-                    fontFeatures: const [FontFeature.tabularFigures()],
+                    fontFeatures: [FontFeature.tabularFigures()],
                   ),
                 ),
               ),

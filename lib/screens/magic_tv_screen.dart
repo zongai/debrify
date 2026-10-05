@@ -2159,7 +2159,7 @@ class _DebrifyTVScreenState extends State<DebrifyTVScreen> {
                       keyboardGround: app.youtube.keyboardPanel,
                       keyboardInk: app.core.tx,
                       keyboardInkOnAccent: app.inkOn(app.settings.accent),
-                      decoration: const InputDecoration(
+                      decoration: InputDecoration(
                         labelText: 'Channel name',
                         prefixIcon: Icon(Icons.label_rounded),
                       ),
@@ -2215,7 +2215,7 @@ class _DebrifyTVScreenState extends State<DebrifyTVScreen> {
                           child: TvTextField(
                             controller: keywordInputController,
                             focusNode: channelKeywordFocus,
-                            decoration: const InputDecoration(
+                            decoration: InputDecoration(
                               hintText: 'Add keyword',
                               prefixIcon: Icon(Icons.add_rounded),
                             ),
@@ -2281,7 +2281,7 @@ class _DebrifyTVScreenState extends State<DebrifyTVScreen> {
                         ),
                       ],
                     ),
-                    const SizedBox(height: 18),
+                    SizedBox(height: 18),
                     DebrifyTvDialogSection(
                       label: 'Channel settings',
                       child: SwitchRow(
@@ -2297,7 +2297,7 @@ class _DebrifyTVScreenState extends State<DebrifyTVScreen> {
                       ),
                     ),
                     if (error != null) ...[
-                      const SizedBox(height: 16),
+                      SizedBox(height: 16),
                       Text(
                         error!,
                         style: const TextStyle(color: Colors.redAccent),
@@ -3263,7 +3263,7 @@ class _DebrifyTVScreenState extends State<DebrifyTVScreen> {
                     focusNode: urlFocusNode,
                     keyboardType: TextInputType.url,
                   ),
-                  const SizedBox(height: 14),
+                  SizedBox(height: 14),
                   Text(
                     'Supported: .zip · .yaml · .txt · .debrify',
                     style: TextStyle(
@@ -3495,7 +3495,7 @@ class _DebrifyTVScreenState extends State<DebrifyTVScreen> {
               if (hasSuccess) ...[
                 Text(
                   'Imported ${persisted.successes.length} channel${persisted.successes.length == 1 ? '' : 's'}.',
-                  style: const TextStyle(fontWeight: FontWeight.w600),
+                  style: TextStyle(fontWeight: FontWeight.w600),
                 ),
                 const SizedBox(height: 8),
                 ...persisted.successes.map(
@@ -3639,7 +3639,7 @@ class _DebrifyTVScreenState extends State<DebrifyTVScreen> {
           subtitle: message,
           icon: icon,
           maxWidth: 580,
-          child: const SizedBox.shrink(),
+          child: SizedBox.shrink(),
           actions: [
             DebrifyTvDialogButton(
               autofocus: true,
@@ -3748,7 +3748,7 @@ class _DebrifyTVScreenState extends State<DebrifyTVScreen> {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 Container(
-                  padding: const EdgeInsets.all(18),
+                  padding: EdgeInsets.all(18),
                   decoration: BoxDecoration(
                     color: tv.dialogDeep.withValues(alpha: .72),
                     borderRadius: app.shape.br(16),
@@ -4489,7 +4489,7 @@ class _DebrifyTVScreenState extends State<DebrifyTVScreen> {
         if (!mounted) return;
         _log('❌ Real Debrid API key not found - please add it in Settings');
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
+          SnackBar(
             content: Text(
               'Please add your Real Debrid API key in Settings first!',
             ),
@@ -4939,7 +4939,7 @@ class _DebrifyTVScreenState extends State<DebrifyTVScreen> {
           _status = 'No results found. Try different keywords.';
         });
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
+          SnackBar(
             content: Text(
               'No results found. Try different keywords or check your internet connection.',
             ),
@@ -4974,7 +4974,7 @@ class _DebrifyTVScreenState extends State<DebrifyTVScreen> {
     if (apiKey == null || apiKey.isEmpty) {
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
+        SnackBar(
           content: Text(
             'Please add your Real Debrid API key in Settings first!',
           ),
@@ -5110,7 +5110,7 @@ class _DebrifyTVScreenState extends State<DebrifyTVScreen> {
           });
           MainPageBridge.notifyAutoLaunchFailed('No playable streams found');
           ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(
+            SnackBar(
               content: Text(
                 'No playable streams found. Try different keywords or check your internet connection.',
               ),
@@ -7842,7 +7842,7 @@ class _DebrifyTVScreenState extends State<DebrifyTVScreen> {
     if (apiKey == null || apiKey.isEmpty) {
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
+        SnackBar(
           content: Text(
             'Please add your Real Debrid API key in Settings first!',
           ),
@@ -7917,7 +7917,7 @@ class _DebrifyTVScreenState extends State<DebrifyTVScreen> {
             _status = 'No playable torrents found. Try different keywords.';
           });
           ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(
+            SnackBar(
               content: Text(
                 'All torrents failed to process. Try different keywords or check your internet connection.',
               ),
@@ -8299,7 +8299,7 @@ class _DebrifyTVScreenState extends State<DebrifyTVScreen> {
           controller: _channelMenuController,
           style: MenuStyle(
             backgroundColor: WidgetStatePropertyAll(tv.noticeBg),
-            surfaceTintColor: const WidgetStatePropertyAll(Colors.transparent),
+            surfaceTintColor: WidgetStatePropertyAll(Colors.transparent),
             elevation: const WidgetStatePropertyAll(18),
             padding: const WidgetStatePropertyAll(EdgeInsets.all(8)),
             shape: WidgetStatePropertyAll(
@@ -8321,7 +8321,7 @@ class _DebrifyTVScreenState extends State<DebrifyTVScreen> {
             ),
             MenuItemButton(
               style: itemStyle,
-              leadingIcon: const Icon(Icons.folder_zip_rounded),
+              leadingIcon: Icon(Icons.folder_zip_rounded),
               onPressed: _isBusy || _channels.isEmpty
                   ? null
                   : () => _handleTopMenuAction(_DebrifyTvTopMenuAction.export),
@@ -8337,7 +8337,7 @@ class _DebrifyTVScreenState extends State<DebrifyTVScreen> {
             ),
             MenuItemButton(
               style: itemStyle,
-              leadingIcon: const Icon(Icons.delete_outline_rounded),
+              leadingIcon: Icon(Icons.delete_outline_rounded),
               onPressed: _isBusy || _channels.isEmpty
                   ? null
                   : () =>
@@ -8346,7 +8346,7 @@ class _DebrifyTVScreenState extends State<DebrifyTVScreen> {
             ),
             MenuItemButton(
               style: itemStyle,
-              leadingIcon: const Icon(Icons.settings_rounded),
+              leadingIcon: Icon(Icons.settings_rounded),
               onPressed: () =>
                   _handleTopMenuAction(_DebrifyTvTopMenuAction.settings),
               child: Text(AppLocalizations.of(context).t('Settings')),
@@ -8679,7 +8679,7 @@ class _DebrifyTVScreenState extends State<DebrifyTVScreen> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Icon(Icons.tv_rounded, size: 120, color: app.core.tx.withAlpha(51)),
-          const SizedBox(height: 24),
+          SizedBox(height: 24),
           Text(
             'No channels yet',
             style: TextStyle(
@@ -8883,7 +8883,7 @@ class _DebrifyTVScreenState extends State<DebrifyTVScreen> {
               children: [
                 // Channel number badge
                 Container(
-                  padding: const EdgeInsets.symmetric(
+                  padding: EdgeInsets.symmetric(
                     horizontal: 12,
                     vertical: 6,
                   ),
@@ -8971,7 +8971,7 @@ class _DebrifyTVScreenState extends State<DebrifyTVScreen> {
                             size: 18,
                             color: tv.favorite,
                           ),
-                          const SizedBox(width: 12),
+                          SizedBox(width: 12),
                           Text(
                             isFavorited
                                 ? 'Remove Favorite'
@@ -8990,7 +8990,7 @@ class _DebrifyTVScreenState extends State<DebrifyTVScreen> {
                         ],
                       ),
                     ),
-                    const PopupMenuItem(
+                    PopupMenuItem(
                       value: 'share',
                       child: Row(
                         children: [
@@ -9074,7 +9074,7 @@ class _DebrifyTVScreenState extends State<DebrifyTVScreen> {
                   _handleShareChannelAsMagnet(channel);
                 },
               ),
-              const SizedBox(height: 10),
+              SizedBox(height: 10),
               DebrifyTvDialogOptionCard(
                 icon: Icons.delete_outline_rounded,
                 title: AppLocalizations.of(context).t('Delete channel'),
@@ -9225,7 +9225,7 @@ class _DebrifyTVScreenState extends State<DebrifyTVScreen> {
     }
 
     return ConstrainedBox(
-      constraints: const BoxConstraints(maxWidth: 900),
+      constraints: BoxConstraints(maxWidth: 900),
       child: Container(
         decoration: BoxDecoration(
           color: tv.fillWeak.withValues(alpha: .55),
@@ -9298,7 +9298,7 @@ class _DebrifyTVScreenState extends State<DebrifyTVScreen> {
                 },
               ),
             ],
-            const SizedBox(height: 16),
+            SizedBox(height: 16),
             // Kept LAST (above Reset) on purpose: these are ~14 focusable
             // chips, and placing them higher would push every existing switch
             // that many extra D-pad presses away on TV.
@@ -9363,7 +9363,7 @@ class _DebrifyTVScreenState extends State<DebrifyTVScreen> {
                 }
 
                 ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(
+                  SnackBar(
                     content: Text('Reset to defaults successful'),
                     backgroundColor: Colors.green,
                     duration: Duration(seconds: 2),
@@ -9419,7 +9419,7 @@ class _DebrifyTVScreenState extends State<DebrifyTVScreen> {
                     keyboardGround: app.youtube.keyboardPanel,
                     keyboardInk: app.core.tx,
                     keyboardInkOnAccent: app.inkOn(app.settings.accent),
-                    decoration: const InputDecoration(
+                    decoration: InputDecoration(
                       labelText: AppLocalizations.of(context).t('Keywords'),
                       hintText: 'Comma separated keywords',
                     ),
@@ -9441,7 +9441,7 @@ class _DebrifyTVScreenState extends State<DebrifyTVScreen> {
                       }
                     },
                   ),
-                  const SizedBox(height: 12),
+                  SizedBox(height: 12),
                   SwitchRow(
                     title: AppLocalizations.of(context).t('Avoid NSFW content'),
                     subtitle: _viewerForcesNsfw
@@ -9455,7 +9455,7 @@ class _DebrifyTVScreenState extends State<DebrifyTVScreen> {
                     },
                   ),
                   if (error != null) ...[
-                    const SizedBox(height: 8),
+                    SizedBox(height: 8),
                     Text(
                       error!,
                       style: const TextStyle(color: Colors.redAccent),

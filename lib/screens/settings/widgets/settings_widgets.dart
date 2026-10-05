@@ -764,7 +764,7 @@ class SettingsPageScaffold extends StatelessWidget {
   final PreferredSizeWidget? appBarBottom;
   final bool? resizeToAvoidBottomInset;
 
-  const SettingsPageScaffold({
+  SettingsPageScaffold({
     super.key,
     required this.title,
     required this.body,
@@ -1742,7 +1742,7 @@ class SettingsSection extends StatelessWidget {
   /// style rows being the case that prompted it.
   final String? blurb;
 
-  const SettingsSection({
+  SettingsSection({
     super.key,
     required this.title,
     required this.children,
@@ -2018,7 +2018,7 @@ class SettingsTile extends StatefulWidget {
   /// Lets a parent (e.g. the TV two-pane rail) drive focus onto this row.
   final FocusNode? focusNode;
 
-  const SettingsTile({
+  SettingsTile({
     super.key,
     required this.icon,
     required this.title,
@@ -2560,7 +2560,7 @@ class SettingsSelectDropdown extends StatelessWidget {
           // color for it on focus, which would blank the panel fill. Focus
           // is carried by the themed focusedBorder instead.
           icon: Icon(Icons.keyboard_arrow_down_rounded, color: t.dim),
-          decoration: const InputDecoration(),
+          decoration: InputDecoration(),
           // Explicit color (not inherit): the dropdown renders its menu items
           // with this style directly, outside the page's DefaultTextStyle.
           style: TextStyle(

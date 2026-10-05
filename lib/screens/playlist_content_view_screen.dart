@@ -1123,7 +1123,7 @@ class _PlaylistContentViewScreenState extends State<PlaylistContentViewScreen> {
           // A MODAL ground, which is why it is cloud.dialogSurface and not
           // playlist.card — legacy spells both #1E293B.
           backgroundColor: app.cloud.dialogSurface,
-          content: const Row(
+          content: Row(
             children: [
               CircularProgressIndicator(),
               SizedBox(width: 16),
@@ -1518,7 +1518,7 @@ class _PlaylistContentViewScreenState extends State<PlaylistContentViewScreen> {
       appBar: AppBar(
         leading: IconButton(
           focusNode: _backButtonFocusNode,
-          icon: const Icon(Icons.arrow_back),
+          icon: Icon(Icons.arrow_back),
           onPressed: _navigateUp,
         ),
         actions: [
@@ -1569,7 +1569,7 @@ class _PlaylistContentViewScreenState extends State<PlaylistContentViewScreen> {
     if (_errorMessage != null) {
       return Center(
         child: Padding(
-          padding: const EdgeInsets.all(16.0),
+          padding: EdgeInsets.all(16.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -1592,7 +1592,7 @@ class _PlaylistContentViewScreenState extends State<PlaylistContentViewScreen> {
     }
 
     if (_currentViewNodes == null || _currentViewNodes!.isEmpty) {
-      return const Center(child: Text(AppLocalizations.of(context).t('No files found')));
+      return Center(child: Text(AppLocalizations.of(context).t('No files found')));
     }
 
     // For Series Arrange mode, show OTT-style view
@@ -3386,7 +3386,7 @@ class _PlaylistContentViewScreenState extends State<PlaylistContentViewScreen> {
           // A MODAL ground, which is why it is cloud.dialogSurface and not
           // playlist.card — legacy spells both #1E293B.
           backgroundColor: app.cloud.dialogSurface,
-          content: const Row(
+          content: Row(
             children: [
               CircularProgressIndicator(),
               SizedBox(width: 16),

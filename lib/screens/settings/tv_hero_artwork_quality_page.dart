@@ -94,7 +94,7 @@ class _TvHeroArtworkQualityPageState extends State<TvHeroArtworkQualityPage> {
     return SettingsPageScaffold(
       title: AppLocalizations.of(context).t('Hero Artwork Quality'),
       body: SingleChildScrollView(
-        padding: const EdgeInsets.all(16),
+        padding: EdgeInsets.all(16),
         child: Center(
           child: ConstrainedBox(
             constraints: const BoxConstraints(maxWidth: kSettingsMaxWidth),

@@ -63,7 +63,7 @@ class _ThemeLabPageState extends State<ThemeLabPage> {
     return SettingsPageScaffold(
       title: AppLocalizations.of(context).t('Theme Lab'),
       body: ListView(
-        padding: const EdgeInsets.fromLTRB(16, 8, 16, 40),
+        padding: EdgeInsets.fromLTRB(16, 8, 16, 40),
         children: [
           const SettingsPageHeader(
             icon: Icons.science_rounded,

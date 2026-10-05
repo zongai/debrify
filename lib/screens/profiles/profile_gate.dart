@@ -326,7 +326,7 @@ class _ProfileGateState extends State<ProfileGate> with WidgetsBindingObserver {
     await _openPicker();
     if (!mounted) return false;
     ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(content: Text('Profile no longer available')),
+      SnackBar(content: Text('Profile no longer available')),
     );
     return false;
   }
@@ -398,7 +398,7 @@ class _ProfileGateState extends State<ProfileGate> with WidgetsBindingObserver {
     try {
       if (profile.pinResetRequired) {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
+          SnackBar(
             content: Text('An Admin must reset this profile PIN.'),
           ),
         );
@@ -416,13 +416,13 @@ class _ProfileGateState extends State<ProfileGate> with WidgetsBindingObserver {
       debugPrint('Profile activation was revoked (${error.runtimeType})');
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Could not switch profile. Try again.')),
+        SnackBar(content: Text('Could not switch profile. Try again.')),
       );
     } on StateError catch (error) {
       debugPrint('Profile activation failed (${error.runtimeType})');
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Could not switch profile. Try again.')),
+        SnackBar(content: Text('Could not switch profile. Try again.')),
       );
     }
   }
@@ -500,7 +500,7 @@ class _ProfileGateState extends State<ProfileGate> with WidgetsBindingObserver {
     final result = await _pins!.verifyRecoveryCode(target.id, code);
     if (result == ProfileRecoveryResult.cleared && mounted) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
+        SnackBar(
           content: Text(
             'PIN removed. Set a new one (and a new recovery code) in '
             'Manage Profiles.',
@@ -580,7 +580,7 @@ class _ProfileGateState extends State<ProfileGate> with WidgetsBindingObserver {
       ProfileLockController.instance.lock();
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Profile management is not authorized')),
+        SnackBar(content: Text('Profile management is not authorized')),
       );
     }
   }

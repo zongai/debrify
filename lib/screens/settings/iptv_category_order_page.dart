@@ -158,7 +158,7 @@ class _IptvCategoryOrderPageState extends State<IptvCategoryOrderPage> {
         _saving = true;
       });
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
+        SnackBar(
           content: Text('The active profile changed. Nothing was saved.'),
         ),
       );
@@ -363,7 +363,7 @@ class _IptvCategoryOrderPageState extends State<IptvCategoryOrderPage> {
       if (!mounted) return;
       setState(() => _saving = false);
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
+        SnackBar(
           content: Text('Couldn\'t save category order. Try again.'),
         ),
       );

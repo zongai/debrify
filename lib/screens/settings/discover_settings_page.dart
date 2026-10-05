@@ -203,7 +203,7 @@ class _DiscoverSettingsPageState extends State<DiscoverSettingsPage> {
   @override
   Widget build(BuildContext context) {
     if (_loading) {
-      return const SettingsPageScaffold(
+      return SettingsPageScaffold(
         title: AppLocalizations.of(context).t('Discover'),
         body: Center(child: CircularProgressIndicator()),
       );
@@ -212,7 +212,7 @@ class _DiscoverSettingsPageState extends State<DiscoverSettingsPage> {
     return SettingsPageScaffold(
       title: AppLocalizations.of(context).t('Discover'),
       body: SingleChildScrollView(
-        padding: const EdgeInsets.all(16),
+        padding: EdgeInsets.all(16),
         child: Center(
           child: ConstrainedBox(
             constraints: const BoxConstraints(maxWidth: kSettingsMaxWidth),
@@ -224,7 +224,7 @@ class _DiscoverSettingsPageState extends State<DiscoverSettingsPage> {
                   title: AppLocalizations.of(context).t('Discover'),
                   subtitle: 'Choose what appears when you open Discover',
                 ),
-                const SizedBox(height: 24),
+                SizedBox(height: 24),
                 SettingsSection(
                   title: 'What should it display by default?',
                   children: [
@@ -244,7 +244,7 @@ class _DiscoverSettingsPageState extends State<DiscoverSettingsPage> {
                   title: AppLocalizations.of(context).t('Poster cards'),
                   children: [
                     SettingsToggleTile(
-                      key: const ValueKey('discover-show-type-tags'),
+                      key: ValueKey('discover-show-type-tags'),
                       icon: Icons.local_offer_outlined,
                       title: AppLocalizations.of(context).t('Show Movie/Series tags'),
                       subtitle: AppLocalizations.of(context).t('Display the content type on each poster'),
@@ -252,7 +252,7 @@ class _DiscoverSettingsPageState extends State<DiscoverSettingsPage> {
                       onChanged: _setShowTypeTags,
                     ),
                     SettingsToggleTile(
-                      key: const ValueKey('discover-show-ratings'),
+                      key: ValueKey('discover-show-ratings'),
                       icon: Icons.star_outline_rounded,
                       title: AppLocalizations.of(context).t('Show ratings'),
                       subtitle: AppLocalizations.of(context).t('Display available ratings on posters'),
@@ -260,7 +260,7 @@ class _DiscoverSettingsPageState extends State<DiscoverSettingsPage> {
                       onChanged: _setShowRatings,
                     ),
                     SettingsToggleTile(
-                      key: const ValueKey('discover-show-titles'),
+                      key: ValueKey('discover-show-titles'),
                       icon: Icons.title_rounded,
                       title: AppLocalizations.of(context).t('Show titles'),
                       subtitle:

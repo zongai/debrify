@@ -55,7 +55,7 @@ class SleepTimerSheet {
       // episode" straight off the bottom. Scroll-controlled plus a scrollable
       // body keeps every choice reachable on a phone in landscape.
       isScrollControlled: true,
-      shape: const RoundedRectangleBorder(
+      shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
       ),
       builder: (context) {

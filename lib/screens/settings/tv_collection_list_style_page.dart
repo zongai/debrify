@@ -79,7 +79,7 @@ class _TvCollectionListStylePageState extends State<TvCollectionListStylePage> {
     } catch (_) {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
+          SnackBar(
             content: Text('Could not save this style. Please try again.'),
           ),
         );
@@ -100,7 +100,7 @@ class _TvCollectionListStylePageState extends State<TvCollectionListStylePage> {
     body: _failed
         ? SettingsLoadError(onRetry: _load)
         : _style == null
-        ? const Center(child: CircularProgressIndicator())
+        ? Center(child: CircularProgressIndicator())
         : SingleChildScrollView(
             padding: const EdgeInsets.all(24),
             child: Center(

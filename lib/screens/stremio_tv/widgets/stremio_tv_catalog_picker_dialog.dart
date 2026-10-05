@@ -184,8 +184,7 @@ class _StremioTvCatalogPickerDialogState
     final name = _nameController.text.trim();
     if (name.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text(AppLocalizations.of(context).t('Channel name cannot be empty')),
+        SnackBar(content: Text(AppLocalizations.of(context).t('Channel name cannot be empty')),
           backgroundColor: Colors.orange,
         ),
       );
@@ -469,7 +468,7 @@ class _StremioTvCatalogPickerDialogState
                                       });
                                       _searchFocusNode.requestFocus();
                                     },
-                              icon: const Icon(Icons.close_rounded),
+                              icon: Icon(Icons.close_rounded),
                               tooltip: AppLocalizations.of(context).t('Clear search'),
                             ),
                     ),
@@ -535,7 +534,7 @@ class _StremioTvCatalogPickerDialogState
               ),
               if (filteredIndices.isEmpty)
                 Padding(
-                  padding: const EdgeInsets.only(top: 12),
+                  padding: EdgeInsets.only(top: 12),
                   child: Text(
                     'No matching channels found.',
                     style: theme.textTheme.bodyMedium?.copyWith(
@@ -628,7 +627,7 @@ class _StremioTvCatalogPickerDialogState
                     _createConfirmFocusNode.requestFocus();
                   }
                 },
-                decoration: const InputDecoration(
+                decoration: InputDecoration(
                   labelText: 'Channel name',
                   hintText: 'My Weekend Picks',
                   border: OutlineInputBorder(),

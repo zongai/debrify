@@ -795,7 +795,7 @@ class _MergedDetailScreenState extends State<MergedDetailScreen>
       if (!mounted) return;
       setState(() => _inMyWatchlist = !next);
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Couldn\'t update My Watchlist')),
+        SnackBar(content: Text('Couldn\'t update My Watchlist')),
       );
     }
   }
@@ -1355,7 +1355,7 @@ class _MergedDetailScreenState extends State<MergedDetailScreen>
     setState(() => _trailerLoading = true);
     if (mounted) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
+        SnackBar(
           content: Row(
             children: [
               SizedBox(
@@ -1396,7 +1396,7 @@ class _MergedDetailScreenState extends State<MergedDetailScreen>
     if (playUrl == null || playUrl.isEmpty) {
       ScaffoldMessenger.of(
         context,
-      ).showSnackBar(const SnackBar(content: Text('Couldn\'t load trailer')));
+      ).showSnackBar(SnackBar(content: Text('Couldn\'t load trailer')));
       return;
     }
 
@@ -1614,7 +1614,7 @@ class _MergedDetailScreenState extends State<MergedDetailScreen>
                   ignoring: _trailerForeground,
                   child: AnimatedOpacity(
                     opacity: _trailerForeground ? 0 : 1,
-                    duration: const Duration(milliseconds: 420),
+                    duration: Duration(milliseconds: 420),
                     curve: Curves.easeInOut,
                     child: Stack(
                       fit: StackFit.expand,
@@ -1704,7 +1704,7 @@ class _MergedDetailScreenState extends State<MergedDetailScreen>
                                         color ?? Colors.transparent,
                                         Colors.transparent,
                                       ],
-                                      stops: const [0.0, 0.7],
+                                      stops: [0.0, 0.7],
                                     ),
                                   ),
                                 ),
@@ -3117,7 +3117,7 @@ class _MergedDetailScreenState extends State<MergedDetailScreen>
         Align(
           alignment: Alignment.centerLeft,
           child: Padding(
-            padding: const EdgeInsets.fromLTRB(10, 4, 16, 4),
+            padding: EdgeInsets.fromLTRB(10, 4, 16, 4),
             child: TextButton.icon(
               onPressed: _openDetailsSheet,
               icon: Icon(Icons.info_outline_rounded, size: 18),

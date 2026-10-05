@@ -74,7 +74,7 @@ class _TrackingSettingsPageState extends State<TrackingSettingsPage> {
     });
     if (fellBack || values[6] as bool) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
+        SnackBar(
           content: Text(
             'Your selected progress tracker is disconnected. Using Smart.',
           ),
@@ -181,7 +181,7 @@ class _TrackingSettingsPageState extends State<TrackingSettingsPage> {
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
         child: DropdownButtonFormField<WatchProgressSource>(
           initialValue: _progress,
-          decoration: const InputDecoration(
+          decoration: InputDecoration(
             labelText: 'Progress source',
             border: OutlineInputBorder(),
           ),

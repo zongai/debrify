@@ -172,7 +172,7 @@ class _IptvListNameDialogState extends State<_IptvListNameDialog> {
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderRadius: app.shape.br(12),
-                      borderSide: const BorderSide(color: _accent, width: 2),
+                      borderSide: BorderSide(color: _accent, width: 2),
                     ),
                   ),
                   onDownArrow: () => _confirmNode.requestFocus(),

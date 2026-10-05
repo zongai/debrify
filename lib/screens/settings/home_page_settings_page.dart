@@ -527,7 +527,7 @@ class _HomePageSettingsPageState extends State<HomePageSettingsPage> {
   @override
   Widget build(BuildContext context) {
     if (_loading) {
-      return const SettingsPageScaffold(
+      return SettingsPageScaffold(
         title: AppLocalizations.of(context).t('Home Page Settings'),
         body: Center(child: CircularProgressIndicator()),
       );
@@ -536,7 +536,7 @@ class _HomePageSettingsPageState extends State<HomePageSettingsPage> {
     return SettingsPageScaffold(
       title: AppLocalizations.of(context).t('Home Page Settings'),
       body: SingleChildScrollView(
-        padding: const EdgeInsets.all(16),
+        padding: EdgeInsets.all(16),
         child: Center(
           child: ConstrainedBox(
             constraints: const BoxConstraints(maxWidth: kSettingsMaxWidth),
@@ -548,7 +548,7 @@ class _HomePageSettingsPageState extends State<HomePageSettingsPage> {
                   title: AppLocalizations.of(context).t('Home Screen'),
                   subtitle: 'Layout, rows, and what shows when the app opens',
                 ),
-                const SizedBox(height: 24),
+                SizedBox(height: 24),
 
                 // Everything about the home screen lives HERE — including the
                 // TV layout picker, so "how does my home look" is one page.
@@ -624,7 +624,7 @@ class _HomePageSettingsPageState extends State<HomePageSettingsPage> {
                           child: DropdownButtonFormField<String>(
                             isExpanded: true,
                             initialValue: _homeAnimationStyle,
-                            decoration: const InputDecoration(
+                            decoration: InputDecoration(
                               labelText: 'Animation',
                               prefixIcon: Icon(Icons.landscape_rounded),
                             ),
@@ -725,7 +725,7 @@ class _HomePageSettingsPageState extends State<HomePageSettingsPage> {
                       ),
                     ),
                   ),
-                  const SizedBox(height: 16),
+                  SizedBox(height: 16),
                 ],
 
                 // Provider cards toggle
@@ -951,7 +951,7 @@ class _HomePageSettingsPageState extends State<HomePageSettingsPage> {
                           child: DropdownButtonFormField<int>(
                             isExpanded: true,
                             value: _ambientTrailerVolume,
-                            decoration: const InputDecoration(
+                            decoration: InputDecoration(
                               labelText: 'Trailer volume',
                               prefixIcon: Icon(Icons.tune_rounded),
                             ),

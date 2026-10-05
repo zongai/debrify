@@ -279,7 +279,7 @@ class _TraktSettingsPageState extends State<TraktSettingsPage> {
     final app = AppThemeScope.of(context);
     final t = app.settings;
     if (_loading) {
-      return const SettingsPageScaffold(
+      return SettingsPageScaffold(
         title: AppLocalizations.of(context).t('Trakt Settings'),
         body: Center(child: CircularProgressIndicator()),
       );
@@ -288,7 +288,7 @@ class _TraktSettingsPageState extends State<TraktSettingsPage> {
     return SettingsPageScaffold(
       title: AppLocalizations.of(context).t('Trakt Settings'),
       body: ListView(
-        padding: const EdgeInsets.all(16),
+        padding: EdgeInsets.all(16),
         children: [
           Center(
             child: ConstrainedBox(
@@ -492,7 +492,7 @@ class _TraktSettingsPageState extends State<TraktSettingsPage> {
               launchUrl(Uri.parse(url), mode: LaunchMode.externalApplication);
             },
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+              padding: EdgeInsets.symmetric(horizontal: 6, vertical: 2),
               child: Text(
                 'Go to ${_verificationUrl ?? 'https://trakt.tv/activate'}',
                 style: TextStyle(

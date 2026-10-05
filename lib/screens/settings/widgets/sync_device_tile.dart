@@ -34,7 +34,7 @@ class _SyncDeviceNameDialogState extends State<SyncDeviceNameDialog> {
   @override
   Widget build(BuildContext context) => AlertDialog(
     scrollable: true,
-    title: const Text('Rename this device'),
+    title: Text('Rename this device'),
     content: SizedBox(
       width: 420,
       child: Column(
@@ -89,7 +89,7 @@ class SyncDeviceTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Container(
-    padding: const EdgeInsets.all(16),
+    padding: EdgeInsets.all(16),
     decoration: BoxDecoration(
       color: Theme.of(context).colorScheme.surfaceContainerLow,
       borderRadius: BorderRadius.circular(16),
@@ -161,7 +161,7 @@ class SyncDeviceTile extends StatelessWidget {
                     style: TextButton.styleFrom(
                       foregroundColor: Theme.of(context).colorScheme.error,
                     ),
-                    icon: const Icon(Icons.remove_circle_outline, size: 18),
+                    icon: Icon(Icons.remove_circle_outline, size: 18),
                     label: Text(AppLocalizations.of(context).t('Remove')),
                   ),
               ],
@@ -223,7 +223,7 @@ class _SyncDevicesDialogState extends State<SyncDevicesDialog> {
   Widget build(BuildContext context) {
     final now = widget.clock();
     return AlertDialog(
-      title: const Text('Connected devices'),
+      title: Text('Connected devices'),
       content: SizedBox(
         width: 520,
         child: ListView(

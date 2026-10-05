@@ -126,7 +126,7 @@ class _TvSidebarStylePageState extends State<TvSidebarStylePage> {
   Widget build(BuildContext context) {
     final t = AppThemeScope.of(context).settings;
     if (_loading) {
-      return const SettingsPageScaffold(
+      return SettingsPageScaffold(
         title: AppLocalizations.of(context).t('Sidebar Style'),
         body: Center(child: CircularProgressIndicator()),
       );
@@ -135,7 +135,7 @@ class _TvSidebarStylePageState extends State<TvSidebarStylePage> {
     return SettingsPageScaffold(
       title: AppLocalizations.of(context).t('Sidebar Style'),
       body: SingleChildScrollView(
-        padding: const EdgeInsets.all(16),
+        padding: EdgeInsets.all(16),
         child: Center(
           child: ConstrainedBox(
             constraints: const BoxConstraints(maxWidth: kSettingsMaxWidth),
@@ -147,7 +147,7 @@ class _TvSidebarStylePageState extends State<TvSidebarStylePage> {
                   title: AppLocalizations.of(context).t('Sidebar Style'),
                   subtitle: AppLocalizations.of(context).t('How the navigation rail looks on this TV'),
                 ),
-                const SizedBox(height: 24),
+                SizedBox(height: 24),
                 Focus(
                   focusNode: _firstCardMarker,
                   canRequestFocus: false,

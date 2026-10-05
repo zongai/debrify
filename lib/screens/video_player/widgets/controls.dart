@@ -451,7 +451,7 @@ class Controls extends StatelessWidget {
                   // to balance the back button when it's visible.
                   if (showPipButton && onPip != null)
                     IconButton(
-                      icon: const Icon(
+                      icon: Icon(
                         Icons.picture_in_picture_alt_rounded,
                         color: Colors.white,
                       ),
@@ -555,7 +555,7 @@ class Controls extends StatelessWidget {
                           // the panel. Other seekbar-less flows (Debrify TV)
                           // keep the spacing they have always had.
                           if (!(hideSeekbar && infoPanel != null))
-                            const SizedBox(height: 16),
+                            SizedBox(height: 16),
 
                           // Netflix-style control buttons row - responsive layout
                           SingleChildScrollView(

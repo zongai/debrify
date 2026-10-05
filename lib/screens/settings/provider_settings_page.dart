@@ -209,7 +209,7 @@ class _ProviderSettingsPageState extends State<ProviderSettingsPage> {
   @override
   Widget build(BuildContext context) {
     if (_loading) {
-      return const SettingsPageScaffold(
+      return SettingsPageScaffold(
         title: AppLocalizations.of(context).t('Default Provider'),
         body: Center(child: CircularProgressIndicator()),
       );
@@ -233,7 +233,7 @@ class _ProviderSettingsPageState extends State<ProviderSettingsPage> {
       body: FocusTraversalGroup(
         policy: OrderedTraversalPolicy(),
         child: SingleChildScrollView(
-          padding: const EdgeInsets.all(16),
+          padding: EdgeInsets.all(16),
           child: Center(
             child: ConstrainedBox(
               constraints: const BoxConstraints(maxWidth: kSettingsMaxWidth),

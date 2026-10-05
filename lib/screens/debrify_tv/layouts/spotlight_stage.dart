@@ -199,7 +199,7 @@ class SpotlightStage extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     for (var i = 0; i < s.sample.length && i < 4; i++) ...[
-                      if (i > 0) const SizedBox(width: 11),
+                      if (i > 0) SizedBox(width: 11),
                       Expanded(
                         child: _SamplePlate(
                           torrent: s.sample[i],
@@ -426,7 +426,7 @@ class _StatsBand extends StatelessWidget {
               caption: 'titles cached for this channel',
             ),
           ),
-          const SizedBox(width: 8),
+          SizedBox(width: 8),
           Expanded(
             child: _StatCard(
               label: 'At your quality',

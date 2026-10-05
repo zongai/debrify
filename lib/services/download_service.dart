@@ -1467,7 +1467,7 @@ class DownloadService {
         await StorageService.setBatteryOptimizationStatus('denied');
         if (context != null) {
           ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(
+            SnackBar(
               content: Text(
                 'You can enable background downloads later in Settings.',
               ),

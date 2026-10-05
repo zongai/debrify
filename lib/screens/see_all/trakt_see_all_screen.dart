@@ -645,7 +645,7 @@ class _TraktSeeAllScreenState extends State<TraktSeeAllScreen> {
       onKeyEvent: _handleFilterKeys,
       child: Padding(
         padding: _quiet
-            ? const EdgeInsets.fromLTRB(24, 16, 24, 10)
+            ? EdgeInsets.fromLTRB(24, 16, 24, 10)
             : const EdgeInsets.fromLTRB(24, 10, 24, 12),
         child: SeeAllFilterBar(
           isTelevision: widget.isTelevision,
@@ -671,7 +671,7 @@ class _TraktSeeAllScreenState extends State<TraktSeeAllScreen> {
                 for (final l in TraktSeeAllList.values)
                   StremioDropdownOption(_builtinKey(l), l.label),
                 if (_customLists.isNotEmpty)
-                  const StremioDropdownOption(_customGroupKey, 'Custom Lists'),
+                  StremioDropdownOption(_customGroupKey, 'Custom Lists'),
                 if (_likedLists.isNotEmpty)
                   const StremioDropdownOption(_likedGroupKey, 'Liked Lists'),
               ],
@@ -696,7 +696,7 @@ class _TraktSeeAllScreenState extends State<TraktSeeAllScreen> {
               isTelevision: widget.isTelevision,
               quiet: _quiet,
               focusNode: _catNode,
-              options: const [
+              options: [
                 StremioDropdownOption('all', 'All'),
                 StremioDropdownOption('movie', 'Movies'),
                 StremioDropdownOption('series', 'Series'),

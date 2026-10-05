@@ -164,7 +164,7 @@ class _SettingsSearchPageState extends State<SettingsSearchPage> {
                   // on TV; taps still work on phone.
                   : ExcludeFocus(
                       child: IconButton(
-                        icon: const Icon(Icons.close_rounded),
+                        icon: Icon(Icons.close_rounded),
                         tooltip: AppLocalizations.of(context).t('Clear'),
                         onPressed: () {
                           _controller.clear();

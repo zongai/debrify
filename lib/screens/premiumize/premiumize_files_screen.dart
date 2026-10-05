@@ -1110,7 +1110,7 @@ class _PremiumizeFilesScreenState extends State<PremiumizeFilesScreen> {
     final confirmed = await showDialog<bool>(
       context: context,
       builder: (context) => AlertDialog(
-        title: const Text('Delete Transfer'),
+        title: Text('Delete Transfer'),
         content: Text('Remove "${transfer.name}" from your transfers?'),
         actions: [
           TextButton(
@@ -1546,7 +1546,7 @@ class _PremiumizeFilesScreenState extends State<PremiumizeFilesScreen> {
                 },
                 child: IconButton(
                   focusNode: _backButtonFocusNode,
-                  icon: const Icon(Icons.arrow_back),
+                  icon: Icon(Icons.arrow_back),
                   onPressed: _handleBackNavigation,
                   tooltip: AppLocalizations.of(context).t('Back'),
                 ),
@@ -1555,7 +1555,7 @@ class _PremiumizeFilesScreenState extends State<PremiumizeFilesScreen> {
             // target) there's no folder-up back — offer a Back-to-hub instead.
             : (_isBrowsePush
                   ? IconButton(
-                      icon: const Icon(Icons.arrow_back),
+                      icon: Icon(Icons.arrow_back),
                       tooltip: AppLocalizations.of(context).t('Back'),
                       onPressed: () => Navigator.of(context).maybePop(),
                     )
@@ -1601,7 +1601,7 @@ class _PremiumizeFilesScreenState extends State<PremiumizeFilesScreen> {
           if (!widget.selectSourceMode)
             IconButton(
               focusNode: _addLinkButtonFocusNode,
-              icon: const Icon(Icons.add_link),
+              icon: Icon(Icons.add_link),
               onPressed: _isLoading ? null : _showAddLinkDialog,
               tooltip: 'Add to Premiumize',
               iconSize: iconSize,
@@ -1708,12 +1708,12 @@ class _PremiumizeFilesScreenState extends State<PremiumizeFilesScreen> {
             fillColor: theme.colorScheme.surfaceContainerHighest.withValues(
               alpha: 0.3,
             ),
-            contentPadding: const EdgeInsets.symmetric(
+            contentPadding: EdgeInsets.symmetric(
               horizontal: 12,
               vertical: 12,
             ),
           ),
-          items: const [
+          items: [
             DropdownMenuItem(value: _FolderViewMode.raw, child: Text(AppLocalizations.of(context).t('Raw'))),
             DropdownMenuItem(
               value: _FolderViewMode.sortedAZ,
@@ -1732,7 +1732,7 @@ class _PremiumizeFilesScreenState extends State<PremiumizeFilesScreen> {
     final theme = Theme.of(context);
     final count = _selectedIds.length;
     return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+      margin: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 6),
       decoration: BoxDecoration(
         color: theme.colorScheme.primary.withValues(alpha: 0.1),
@@ -2201,7 +2201,7 @@ class _PremiumizeFilesScreenState extends State<PremiumizeFilesScreen> {
         policy: OrderedTraversalPolicy(),
         child: Center(
           child: Padding(
-            padding: const EdgeInsets.all(32),
+            padding: EdgeInsets.all(32),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -2243,7 +2243,7 @@ class _PremiumizeFilesScreenState extends State<PremiumizeFilesScreen> {
         policy: OrderedTraversalPolicy(),
         child: Center(
           child: Padding(
-            padding: const EdgeInsets.all(32),
+            padding: EdgeInsets.all(32),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [

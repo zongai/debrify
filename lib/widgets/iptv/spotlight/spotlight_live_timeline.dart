@@ -1439,7 +1439,7 @@ class _SpotlightLiveTimelineState extends State<SpotlightLiveTimeline> {
                       onPressed: _jumpToNow,
                       style:
                           TextButton.styleFrom(
-                            minimumSize: const Size(44, 38),
+                            minimumSize: Size(44, 38),
                             padding: const EdgeInsets.symmetric(horizontal: 6),
                             foregroundColor: tokens.accent,
                           ).copyWith(

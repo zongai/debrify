@@ -311,7 +311,7 @@ class _CatalogItemDetailScreenState extends State<CatalogItemDetailScreen>
       if (!mounted) return;
       setState(() => _inMyWatchlist = !next);
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Couldn\'t update My Watchlist')),
+        SnackBar(content: Text('Couldn\'t update My Watchlist')),
       );
     }
   }

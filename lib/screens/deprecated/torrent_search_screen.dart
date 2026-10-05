@@ -610,7 +610,7 @@ import '../../l10n/app_localizations.dart';
 //                   policy: OrderedTraversalPolicy(),
 //                   child: Container(
 //                     decoration: BoxDecoration(
-//                       color: const Color(0xFF171B2D),
+//                       color: Color(0xFF171B2D),
 //                       borderRadius: BorderRadius.circular(20),
 //                       border: Border.all(
 //                         color: Colors.white.withValues(alpha: 0.08),
@@ -833,7 +833,7 @@ import '../../l10n/app_localizations.dart';
 //                                         color: activeProvider.color,
 //                                       ),
 //                                     ),
-//                                     const SizedBox(width: 10),
+//                                     SizedBox(width: 10),
 //                                     Expanded(
 //                                       child: DropdownButtonFormField<String>(
 //                                         value: selectedPostAction,
@@ -1626,7 +1626,7 @@ import '../../l10n/app_localizations.dart';
 //     } else {
 //       // No service configured
 //       ScaffoldMessenger.of(context).showSnackBar(
-//         const SnackBar(
+//         SnackBar(
 //           content: Text(
 //             'Please configure Real-Debrid, Torbox, Premiumize, AllDebrid, or PikPak in Settings',
 //           ),
@@ -1640,7 +1640,7 @@ import '../../l10n/app_localizations.dart';
 //     if (torrent.directUrl == null || torrent.directUrl!.isEmpty) {
 //       ScaffoldMessenger.of(
 //         context,
-//       ).showSnackBar(const SnackBar(content: Text('No stream URL available')));
+//       ).showSnackBar(SnackBar(content: Text('No stream URL available')));
 //       return;
 //     }
 // 
@@ -1674,7 +1674,7 @@ import '../../l10n/app_localizations.dart';
 //   Future<void> _openExternalStream(Torrent torrent) async {
 //     if (torrent.directUrl == null || torrent.directUrl!.isEmpty) {
 //       ScaffoldMessenger.of(context).showSnackBar(
-//         const SnackBar(content: Text('No external URL available')),
+//         SnackBar(content: Text('No external URL available')),
 //       );
 //       return;
 //     }
@@ -1683,7 +1683,7 @@ import '../../l10n/app_localizations.dart';
 //     if (uri == null) {
 //       ScaffoldMessenger.of(
 //         context,
-//       ).showSnackBar(const SnackBar(content: Text('Invalid URL')));
+//       ).showSnackBar(SnackBar(content: Text('Invalid URL')));
 //       return;
 //     }
 // 
@@ -1764,7 +1764,7 @@ import '../../l10n/app_localizations.dart';
 //     if (torrent.directUrl == null || torrent.directUrl!.isEmpty) {
 //       ScaffoldMessenger.of(
 //         context,
-//       ).showSnackBar(const SnackBar(content: Text('No stream URL available')));
+//       ).showSnackBar(SnackBar(content: Text('No stream URL available')));
 //       return;
 //     }
 // 
@@ -1895,7 +1895,7 @@ import '../../l10n/app_localizations.dart';
 //                           // Copy URL option
 //                           _DebridActionTile(
 //                             icon: Icons.copy_rounded,
-//                             color: const Color(0xFFF59E0B),
+//                             color: Color(0xFFF59E0B),
 //                             title: AppLocalizations.of(context).t('Copy URL'),
 //                             subtitle: 'Copy the stream URL to clipboard',
 //                             enabled: true,
@@ -1906,7 +1906,7 @@ import '../../l10n/app_localizations.dart';
 //                                 ClipboardData(text: torrent.directUrl!),
 //                               );
 //                               ScaffoldMessenger.of(context).showSnackBar(
-//                                 const SnackBar(
+//                                 SnackBar(
 //                                   content: Text(AppLocalizations.of(context).t('URL copied to clipboard')),
 //                                   duration: Duration(seconds: 2),
 //                                 ),
@@ -1916,7 +1916,7 @@ import '../../l10n/app_localizations.dart';
 //                           // Download option
 //                           _DebridActionTile(
 //                             icon: Icons.download_rounded,
-//                             color: const Color(0xFF4ADE80),
+//                             color: Color(0xFF4ADE80),
 //                             title: AppLocalizations.of(context).t('Download to device'),
 //                             subtitle: 'Download this file to your device',
 //                             enabled: true,
@@ -1926,7 +1926,7 @@ import '../../l10n/app_localizations.dart';
 // 
 //                               // Show resolving snackbar
 //                               ScaffoldMessenger.of(context).showSnackBar(
-//                                 const SnackBar(
+//                                 SnackBar(
 //                                   content: Row(
 //                                     children: [
 //                                       SizedBox(
@@ -4140,7 +4140,7 @@ import '../../l10n/app_localizations.dart';
 //       debridService = 'alldebrid';
 //     } else {
 //       ScaffoldMessenger.of(context).showSnackBar(
-//         const SnackBar(
+//         SnackBar(
 //           content: Text('Please configure a debrid provider in Settings'),
 //         ),
 //       );
@@ -4198,7 +4198,7 @@ import '../../l10n/app_localizations.dart';
 //         if (!mounted) return;
 //         // Don't bind uncached sources — they can't be played immediately
 //         ScaffoldMessenger.of(context).showSnackBar(
-//           const SnackBar(
+//           SnackBar(
 //             content: Text(
 //               'Torrent is not cached on Real-Debrid. Try another torrent.',
 //             ),
@@ -4335,7 +4335,7 @@ import '../../l10n/app_localizations.dart';
 //           // Don't bind uncached sources — they can't be played immediately
 //           if (!mounted) return;
 //           ScaffoldMessenger.of(context).showSnackBar(
-//             const SnackBar(
+//             SnackBar(
 //               content: Text(
 //                 'Torrent is not cached on Torbox. Try another torrent.',
 //               ),
@@ -4416,7 +4416,7 @@ import '../../l10n/app_localizations.dart';
 //         // Don't bind uncached sources — they can't be played immediately.
 //         if (!mounted) return;
 //         ScaffoldMessenger.of(context).showSnackBar(
-//           const SnackBar(
+//           SnackBar(
 //             content: Text(
 //               'Torrent is not cached on Premiumize. Try another torrent.',
 //             ),
@@ -4515,7 +4515,7 @@ import '../../l10n/app_localizations.dart';
 //       if (fileId.isEmpty) {
 //         if (mounted) {
 //           ScaffoldMessenger.of(context).showSnackBar(
-//             const SnackBar(
+//             SnackBar(
 //               content: Text('Could not get file ID from PikPak'),
 //               backgroundColor: Color(0xFFEF4444),
 //               duration: Duration(seconds: 3),
@@ -4939,7 +4939,7 @@ import '../../l10n/app_localizations.dart';
 // 
 //       if (chosen == null) {
 //         ScaffoldMessenger.of(context).showSnackBar(
-//           const SnackBar(
+//           SnackBar(
 //             content: Text('No playable episodes found for this series'),
 //             backgroundColor: Color(0xFFEF4444),
 //           ),
@@ -4969,7 +4969,7 @@ import '../../l10n/app_localizations.dart';
 //         '${selection.imdbId}: $e',
 //       );
 //       ScaffoldMessenger.of(context).showSnackBar(
-//         const SnackBar(
+//         SnackBar(
 //           content: Text('Failed to pick a random episode'),
 //           backgroundColor: Color(0xFFEF4444),
 //         ),
@@ -5051,7 +5051,7 @@ import '../../l10n/app_localizations.dart';
 // 
 //       if (chosen == null) {
 //         ScaffoldMessenger.of(context).showSnackBar(
-//           const SnackBar(
+//           SnackBar(
 //             content: Text('No playable episodes found for this series'),
 //             backgroundColor: Color(0xFFEF4444),
 //           ),
@@ -5081,7 +5081,7 @@ import '../../l10n/app_localizations.dart';
 //         '${item.effectiveImdbId ?? item.id}: $e',
 //       );
 //       ScaffoldMessenger.of(context).showSnackBar(
-//         const SnackBar(
+//         SnackBar(
 //           content: Text('Failed to pick a random episode'),
 //           backgroundColor: Color(0xFFEF4444),
 //         ),
@@ -5523,7 +5523,7 @@ import '../../l10n/app_localizations.dart';
 //       if (!mounted) return false;
 //       if (showUnavailableHint) {
 //         ScaffoldMessenger.of(context).showSnackBar(
-//           const SnackBar(
+//           SnackBar(
 //             content: Text(
 //               'Saved local source is no longer available. Falling back to search.',
 //             ),
@@ -5582,7 +5582,7 @@ import '../../l10n/app_localizations.dart';
 //       if (!mounted) return false;
 //       if (showUnavailableHint) {
 //         ScaffoldMessenger.of(context).showSnackBar(
-//           const SnackBar(
+//           SnackBar(
 //             content: Text(
 //               'Saved local folder is no longer available. Falling back to search.',
 //             ),
@@ -5605,7 +5605,7 @@ import '../../l10n/app_localizations.dart';
 //       if (!mounted) return false;
 //       if (showUnavailableHint) {
 //         ScaffoldMessenger.of(context).showSnackBar(
-//           const SnackBar(
+//           SnackBar(
 //             content: Text(
 //               'Saved local folder has no playable episodes. Falling back to search.',
 //             ),
@@ -5686,7 +5686,7 @@ import '../../l10n/app_localizations.dart';
 //       if (!mounted) return false;
 //       if (showUnavailableHint) {
 //         ScaffoldMessenger.of(context).showSnackBar(
-//           const SnackBar(
+//           SnackBar(
 //             content: Text(
 //               'Saved source is no longer available. Falling back to search.',
 //             ),
@@ -5809,7 +5809,7 @@ import '../../l10n/app_localizations.dart';
 //       if (!mounted) return false;
 //       if (showUnavailableHint) {
 //         ScaffoldMessenger.of(context).showSnackBar(
-//           const SnackBar(
+//           SnackBar(
 //             content: Text(
 //               'Saved source is no longer available. Falling back to search.',
 //             ),
@@ -5931,7 +5931,7 @@ import '../../l10n/app_localizations.dart';
 //       if (!mounted) return false;
 //       if (showUnavailableHint) {
 //         ScaffoldMessenger.of(context).showSnackBar(
-//           const SnackBar(
+//           SnackBar(
 //             content: Text(
 //               'Saved source is no longer available. Falling back to search.',
 //             ),
@@ -6030,7 +6030,7 @@ import '../../l10n/app_localizations.dart';
 //       if (!mounted) return false;
 //       if (showUnavailableHint) {
 //         ScaffoldMessenger.of(context).showSnackBar(
-//           const SnackBar(
+//           SnackBar(
 //             content: Text(
 //               'Saved source is no longer available. Falling back to search.',
 //             ),
@@ -6136,7 +6136,7 @@ import '../../l10n/app_localizations.dart';
 //       // Show a snackbar to inform user
 //       if (mounted) {
 //         ScaffoldMessenger.of(context).showSnackBar(
-//           const SnackBar(
+//           SnackBar(
 //             content: Text('No sources found for Quick Play'),
 //             duration: Duration(seconds: 2),
 //           ),
@@ -6664,7 +6664,7 @@ import '../../l10n/app_localizations.dart';
 //                       child: InkWell(
 //                         onTap: _showSeasonPickerDialog,
 //                         child: Container(
-//                           padding: const EdgeInsets.symmetric(
+//                           padding: EdgeInsets.symmetric(
 //                             horizontal: 10,
 //                             vertical: 8,
 //                           ),
@@ -9074,7 +9074,7 @@ import '../../l10n/app_localizations.dart';
 //         return FocusTraversalGroup(
 //           policy: OrderedTraversalPolicy(),
 //           child: AlertDialog(
-//             backgroundColor: const Color(0xFF0F172A),
+//             backgroundColor: Color(0xFF0F172A),
 //             shape: RoundedRectangleBorder(
 //               borderRadius: BorderRadius.circular(20),
 //               side: BorderSide(color: Colors.white.withValues(alpha: 0.08)),
@@ -9173,7 +9173,7 @@ import '../../l10n/app_localizations.dart';
 //                 semanticLabel: 'Cancel',
 //                 child: Text(AppLocalizations.of(context).t('Cancel')),
 //               ),
-//               const SizedBox(width: 8),
+//               SizedBox(width: 8),
 //               _DpadSafeButton(
 //                 onPressed: () => Navigator.of(dialogContext).pop(true),
 //                 filled: true,
@@ -9210,7 +9210,7 @@ import '../../l10n/app_localizations.dart';
 //     final result = await showDialog<String>(
 //       context: context,
 //       builder: (context) => AlertDialog(
-//         backgroundColor: const Color(0xFF0F172A),
+//         backgroundColor: Color(0xFF0F172A),
 //         shape: RoundedRectangleBorder(
 //           borderRadius: BorderRadius.circular(20),
 //           side: BorderSide(color: Colors.white.withValues(alpha: 0.08)),
@@ -9292,7 +9292,7 @@ import '../../l10n/app_localizations.dart';
 //               enabled: torboxEnabled,
 //               onTap: () => Navigator.of(context).pop('torbox'),
 //             ),
-//             const SizedBox(height: 8),
+//             SizedBox(height: 8),
 //             _buildBulkOptionTile(
 //               icon: Icons.cloud_rounded,
 //               color: const Color(0xFFE50914),
@@ -9303,7 +9303,7 @@ import '../../l10n/app_localizations.dart';
 //               enabled: rdEnabled,
 //               onTap: () => Navigator.of(context).pop('realdebrid'),
 //             ),
-//             const SizedBox(height: 8),
+//             SizedBox(height: 8),
 //             _buildBulkOptionTile(
 //               icon: Icons.folder_rounded,
 //               color: const Color(0xFF0088CC),
@@ -9312,7 +9312,7 @@ import '../../l10n/app_localizations.dart';
 //               enabled: _pikpakEnabled,
 //               onTap: () => Navigator.of(context).pop('pikpak'),
 //             ),
-//             const SizedBox(height: 8),
+//             SizedBox(height: 8),
 //             _buildBulkOptionTile(
 //               icon: Icons.workspace_premium_rounded,
 //               color: const Color(0xFFFB923C),
@@ -9323,7 +9323,7 @@ import '../../l10n/app_localizations.dart';
 //               enabled: premiumizeEnabled,
 //               onTap: () => Navigator.of(context).pop('premiumize'),
 //             ),
-//             const SizedBox(height: 8),
+//             SizedBox(height: 8),
 //             _buildBulkOptionTile(
 //               icon: Icons.all_inclusive_rounded,
 //               color: const Color(0xFF26A69A),
@@ -11370,7 +11370,7 @@ import '../../l10n/app_localizations.dart';
 //                             DialogTapGuard.markKeyAction();
 //                             Navigator.of(ctx).pop();
 //                           },
-//                           icon: const Icon(
+//                           icon: Icon(
 //                             Icons.close_rounded,
 //                             color: Colors.white54,
 //                           ),
@@ -11422,7 +11422,7 @@ import '../../l10n/app_localizations.dart';
 //                           ),
 //                           _DebridActionTile(
 //                             icon: Icons.download_rounded,
-//                             color: const Color(0xFF4ADE80),
+//                             color: Color(0xFF4ADE80),
 //                             title: AppLocalizations.of(context).t('Download to device'),
 //                             subtitle: 'Grab files from PikPak instantly.',
 //                             enabled: true,
@@ -11594,7 +11594,7 @@ import '../../l10n/app_localizations.dart';
 //       builder: (ctx) {
 //         return Dialog(
 //           backgroundColor: Colors.transparent,
-//           insetPadding: const EdgeInsets.symmetric(
+//           insetPadding: EdgeInsets.symmetric(
 //             horizontal: 20,
 //             vertical: 24,
 //           ),
@@ -11695,7 +11695,7 @@ import '../../l10n/app_localizations.dart';
 //                   ),
 //                   _DebridActionTile(
 //                     icon: Icons.download_rounded,
-//                     color: const Color(0xFF4ADE80),
+//                     color: Color(0xFF4ADE80),
 //                     title: AppLocalizations.of(context).t('Download to device'),
 //                     subtitle: 'Grab files from PikPak instantly.',
 //                     enabled: true,
@@ -11706,7 +11706,7 @@ import '../../l10n/app_localizations.dart';
 //                   ),
 //                   _DebridActionTile(
 //                     icon: Icons.playlist_add_rounded,
-//                     color: const Color(0xFFA78BFA),
+//                     color: Color(0xFFA78BFA),
 //                     title: AppLocalizations.of(context).t('Add to Playlist'),
 //                     subtitle: hasVideo
 //                         ? 'Save for later playback.'
@@ -12423,7 +12423,7 @@ import '../../l10n/app_localizations.dart';
 //       context: context,
 //       builder: (context) {
 //         return AlertDialog(
-//           backgroundColor: const Color(0xFF0F172A),
+//           backgroundColor: Color(0xFF0F172A),
 //           shape: RoundedRectangleBorder(
 //             borderRadius: BorderRadius.circular(18),
 //             side: BorderSide(color: Colors.white.withValues(alpha: 0.08)),
@@ -13751,7 +13751,7 @@ import '../../l10n/app_localizations.dart';
 //   void _showPremiumizeApiKeyMissingMessage() {
 //     if (!mounted) return;
 //     ScaffoldMessenger.of(context).showSnackBar(
-//       const SnackBar(
+//       SnackBar(
 //         content: Text('Please add your Premiumize API key in Settings first!'),
 //         backgroundColor: Color(0xFF1E293B),
 //         behavior: SnackBarBehavior.floating,
@@ -14112,7 +14112,7 @@ import '../../l10n/app_localizations.dart';
 //                           ),
 //                           _DebridActionTile(
 //                             icon: Icons.download_rounded,
-//                             color: const Color(0xFF4ADE80),
+//                             color: Color(0xFF4ADE80),
 //                             title: AppLocalizations.of(context).t('Download to device'),
 //                             subtitle: 'Grab files via Premiumize instantly.',
 //                             enabled: true,
@@ -14169,7 +14169,7 @@ import '../../l10n/app_localizations.dart';
 //                           ),
 //                           _DebridActionTile(
 //                             icon: Icons.folder_zip_rounded,
-//                             color: const Color(0xFFA78BFA),
+//                             color: Color(0xFFA78BFA),
 //                             title: AppLocalizations.of(context).t('Download as ZIP'),
 //                             subtitle: 'Transfer to cloud and download all files as a ZIP.',
 //                             enabled: true,
@@ -14635,7 +14635,7 @@ import '../../l10n/app_localizations.dart';
 //   void _showAllDebridApiKeyMissingMessage() {
 //     if (!mounted) return;
 //     ScaffoldMessenger.of(context).showSnackBar(
-//       const SnackBar(
+//       SnackBar(
 //         content: Text('Please add your AllDebrid API key in Settings first!'),
 //         backgroundColor: Color(0xFF1E293B),
 //         behavior: SnackBarBehavior.floating,
@@ -15028,7 +15028,7 @@ import '../../l10n/app_localizations.dart';
 //                           ),
 //                           _DebridActionTile(
 //                             icon: Icons.download_rounded,
-//                             color: const Color(0xFF4ADE80),
+//                             color: Color(0xFF4ADE80),
 //                             title: AppLocalizations.of(context).t('Download to device'),
 //                             subtitle: 'Grab files via AllDebrid.',
 //                             enabled: true,
@@ -15042,7 +15042,7 @@ import '../../l10n/app_localizations.dart';
 //                           if (hasVideo)
 //                             _DebridActionTile(
 //                               icon: Icons.playlist_add_rounded,
-//                               color: const Color(0xFFA78BFA),
+//                               color: Color(0xFFA78BFA),
 //                               title: AppLocalizations.of(context).t('Add to Playlist'),
 //                               subtitle: 'Save to your playlist for later.',
 //                               enabled: true,
@@ -15482,7 +15482,7 @@ import '../../l10n/app_localizations.dart';
 //       if (mounted && Navigator.of(context).canPop()) Navigator.of(context).pop();
 //       if (!mounted) return;
 //       ScaffoldMessenger.of(context).showSnackBar(
-//         const SnackBar(
+//         SnackBar(
 //           content: Text(
 //             'Torrent is not cached on AllDebrid. Try another torrent.',
 //           ),
@@ -15531,7 +15531,7 @@ import '../../l10n/app_localizations.dart';
 //       await AllDebridService.deleteMagnet(e.apiKey, e.magnetId);
 //       if (showUnavailableHint && mounted) {
 //         ScaffoldMessenger.of(context).showSnackBar(
-//           const SnackBar(
+//           SnackBar(
 //             content: Text(
 //               'Saved source is not ready on AllDebrid. Falling back to search.',
 //             ),
@@ -16258,7 +16258,7 @@ import '../../l10n/app_localizations.dart';
 //                             DialogTapGuard.markKeyAction();
 //                             Navigator.of(ctx).pop();
 //                           },
-//                           icon: const Icon(
+//                           icon: Icon(
 //                             Icons.close_rounded,
 //                             color: Colors.white54,
 //                           ),
@@ -16305,7 +16305,7 @@ import '../../l10n/app_localizations.dart';
 //                           ),
 //                           _DebridActionTile(
 //                             icon: Icons.download_rounded,
-//                             color: const Color(0xFF4ADE80),
+//                             color: Color(0xFF4ADE80),
 //                             title: AppLocalizations.of(context).t('Download to device'),
 //                             subtitle: 'Grab files via Torbox instantly.',
 //                             enabled: true,
@@ -16551,7 +16551,7 @@ import '../../l10n/app_localizations.dart';
 //                           );
 //                         },
 //                       ),
-//                       const SizedBox(height: 12),
+//                       SizedBox(height: 12),
 //                       // Option 2: Download as ZIP
 //                       _buildGlassOptionCard(
 //                         icon: Icons.folder_zip_rounded,
@@ -16717,7 +16717,7 @@ import '../../l10n/app_localizations.dart';
 //         await showDialog<bool>(
 //           context: context,
 //           builder: (context) => AlertDialog(
-//             title: const Text('Download Files'),
+//             title: Text('Download Files'),
 //             content: Column(
 //               mainAxisSize: MainAxisSize.min,
 //               crossAxisAlignment: CrossAxisAlignment.start,
@@ -16741,7 +16741,7 @@ import '../../l10n/app_localizations.dart';
 //                 onPressed: () => Navigator.of(context).pop(true),
 //                 filled: true,
 //                 autofocus: true,
-//                 child: const Row(
+//                 child: Row(
 //                   mainAxisSize: MainAxisSize.min,
 //                   children: [
 //                     Icon(Icons.download),
@@ -17728,7 +17728,7 @@ import '../../l10n/app_localizations.dart';
 //               child: Material(
 //                 color: Colors.transparent,
 //                 child: Container(
-//                   constraints: const BoxConstraints(maxWidth: 380),
+//                   constraints: BoxConstraints(maxWidth: 380),
 //                   decoration: BoxDecoration(
 //                     color: const Color(0xFF0B0F1A),
 //                     borderRadius: BorderRadius.circular(20),
@@ -17850,7 +17850,7 @@ import '../../l10n/app_localizations.dart';
 //                       ),
 //                       _DebridActionTile(
 //                         icon: Icons.file_download_outlined,
-//                         color: const Color(0xFF60A5FA),
+//                         color: Color(0xFF60A5FA),
 //                         title: AppLocalizations.of(context).t('Download to device'),
 //                         subtitle: isRarArchive
 //                             ? 'Download the RAR archive'
@@ -18148,7 +18148,7 @@ import '../../l10n/app_localizations.dart';
 //                 DropdownButtonFormField<String>(
 //                   value: selectedScreenType,
 //                   isExpanded: true,
-//                   decoration: const InputDecoration(
+//                   decoration: InputDecoration(
 //                     border: OutlineInputBorder(),
 //                     contentPadding: EdgeInsets.symmetric(
 //                       horizontal: 12,
@@ -18177,7 +18177,7 @@ import '../../l10n/app_localizations.dart';
 //                 DropdownButtonFormField<String>(
 //                   value: selectedStereoMode,
 //                   isExpanded: true,
-//                   decoration: const InputDecoration(
+//                   decoration: InputDecoration(
 //                     border: OutlineInputBorder(),
 //                     contentPadding: EdgeInsets.symmetric(
 //                       horizontal: 12,
@@ -18212,7 +18212,7 @@ import '../../l10n/app_localizations.dart';
 //                   DialogTapGuard.markKeyAction();
 //                   Navigator.of(context).pop(true);
 //                 },
-//                 icon: const Icon(Icons.play_arrow),
+//                 icon: Icon(Icons.play_arrow),
 //                 label: Text(AppLocalizations.of(context).t('Play')),
 //               ),
 //             ],
@@ -18281,7 +18281,7 @@ import '../../l10n/app_localizations.dart';
 // 
 //       if (mounted) {
 //         ScaffoldMessenger.of(context).showSnackBar(
-//           const SnackBar(
+//           SnackBar(
 //             content: Text(AppLocalizations.of(context).t('Launching DeoVR...')),
 //             duration: Duration(seconds: 2),
 //           ),
@@ -18496,7 +18496,7 @@ import '../../l10n/app_localizations.dart';
 //       showDialog(
 //         context: context,
 //         barrierDismissible: false,
-//         builder: (context) => const AlertDialog(
+//         builder: (context) => AlertDialog(
 //           backgroundColor: Color(0xFF1E293B),
 //           content: Row(
 //             children: [
@@ -19923,7 +19923,7 @@ import '../../l10n/app_localizations.dart';
 //     final torrentId = result['torrentId']?.toString();
 //     if (torrentId == null || torrentId.isEmpty) {
 //       ScaffoldMessenger.of(context).showSnackBar(
-//         const SnackBar(
+//         SnackBar(
 //           content: Text('Torrent ID not available'),
 //           backgroundColor: Color(0xFFEF4444),
 //         ),
@@ -19965,7 +19965,7 @@ import '../../l10n/app_localizations.dart';
 // 
 //       if (files.isEmpty) {
 //         ScaffoldMessenger.of(context).showSnackBar(
-//           const SnackBar(
+//           SnackBar(
 //             content: Text('No files found in torrent'),
 //             backgroundColor: Color(0xFFEF4444),
 //           ),
@@ -20044,7 +20044,7 @@ import '../../l10n/app_localizations.dart';
 //         await showDialog<bool>(
 //           context: context,
 //           builder: (context) => AlertDialog(
-//             title: const Text('Download Files'),
+//             title: Text('Download Files'),
 //             content: Column(
 //               mainAxisSize: MainAxisSize.min,
 //               crossAxisAlignment: CrossAxisAlignment.start,
@@ -20068,7 +20068,7 @@ import '../../l10n/app_localizations.dart';
 //                 onPressed: () => Navigator.of(context).pop(true),
 //                 filled: true,
 //                 autofocus: true,
-//                 child: const Row(
+//                 child: Row(
 //                   mainAxisSize: MainAxisSize.min,
 //                   children: [
 //                     Icon(Icons.download),
@@ -20173,7 +20173,7 @@ import '../../l10n/app_localizations.dart';
 //       );
 //     } else {
 //       ScaffoldMessenger.of(context).showSnackBar(
-//         const SnackBar(
+//         SnackBar(
 //           content: Text('Failed to queue any files for download'),
 //           backgroundColor: Color(0xFFEF4444),
 //         ),
@@ -20334,7 +20334,7 @@ import '../../l10n/app_localizations.dart';
 //               }
 //             },
 //           ),
-//           if (hasTorrentProviders) const SizedBox(width: 6),
+//           if (hasTorrentProviders) SizedBox(width: 6),
 //         ],
 //         // Torrent streams dropdown (only show if there are torrent providers)
 //         if (hasTorrentProviders)
@@ -21399,7 +21399,7 @@ import '../../l10n/app_localizations.dart';
 //                                   : 0;
 //                               return ListView.builder(
 //                                 controller: _resultsScrollController,
-//                                 padding: const EdgeInsets.only(bottom: 16),
+//                                 padding: EdgeInsets.only(bottom: 16),
 //                                 itemCount:
 //                                     _torrents.length +
 //                                     metadataRows +
@@ -23756,7 +23756,7 @@ import '../../l10n/app_localizations.dart';
 //                     if (url != null && url.isNotEmpty) {
 //                       Clipboard.setData(ClipboardData(text: url));
 //                       ScaffoldMessenger.of(context).showSnackBar(
-//                         const SnackBar(
+//                         SnackBar(
 //                           content: Text(AppLocalizations.of(context).t('URL copied to clipboard')),
 //                           duration: Duration(seconds: 2),
 //                         ),

@@ -310,7 +310,7 @@ class _SyncAndMigratePageState extends State<SyncAndMigratePage>
         context: context,
         builder: (dialogContext) => TvHeldKeyGuard(
           child: AlertDialog(
-            title: const Text('WebDAV Sync setup guide'),
+            title: Text('WebDAV Sync setup guide'),
             scrollable: true,
             content: SizedBox(
               width: 360,
@@ -469,7 +469,7 @@ class _SyncAndMigratePageState extends State<SyncAndMigratePage>
     final confirmed = await showSettingsDialog<bool>(
       context: context,
       builder: (dialogContext) => AlertDialog(
-        title: const Text('Forget WebDAV connection?'),
+        title: Text('Forget WebDAV connection?'),
         content: const Text(
           'Remove the saved connection from this device without contacting WebDAV. '
           'Your profiles and data stay here. You can then connect again.\n\n'
@@ -515,7 +515,7 @@ class _SyncAndMigratePageState extends State<SyncAndMigratePage>
       context: context,
       builder: (dialogContext) => AlertDialog(
         scrollable: true,
-        title: const Text('Log out of WebDAV sync?'),
+        title: Text('Log out of WebDAV sync?'),
         content: const Text(
           'This device will stop syncing and leave the connected devices list. '
           'Its saved sync login will be removed.\n\n'
@@ -553,7 +553,7 @@ class _SyncAndMigratePageState extends State<SyncAndMigratePage>
         _syncStateMessage = null;
       });
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
+        SnackBar(
           content: Text('Logged out. Your data is still on this device.'),
         ),
       );
@@ -770,7 +770,7 @@ class _SyncAndMigratePageState extends State<SyncAndMigratePage>
       if (!mounted) return;
       setState(() => _syncBinding = repaired);
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('WebDAV Sync credentials verified.')),
+        SnackBar(content: Text('WebDAV Sync credentials verified.')),
       );
       reloadAfterResume = true;
     } catch (error) {
@@ -835,7 +835,7 @@ class _SyncAndMigratePageState extends State<SyncAndMigratePage>
         barrierDismissible: false,
         builder: (dialogContext) => AlertDialog(
           scrollable: true,
-          title: const Text('Remove this device?'),
+          title: Text('Remove this device?'),
           content: const Text(
             'Delete this device’s sync files and remove its registration. '
             'Its local data stays intact. When the device next connects, it '
@@ -863,7 +863,7 @@ class _SyncAndMigratePageState extends State<SyncAndMigratePage>
       );
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
+        SnackBar(
           content: Text('Device removed. It must sign in again to rejoin.'),
         ),
       );
@@ -1024,7 +1024,7 @@ class _SyncAndMigratePageState extends State<SyncAndMigratePage>
                       ),
                     ),
                   ),
-                  const SizedBox(width: 8),
+                  SizedBox(width: 8),
                   Expanded(
                     child: Text(
                       _logoutPending
@@ -1098,7 +1098,7 @@ class _SyncAndMigratePageState extends State<SyncAndMigratePage>
           ],
         ),
         if (active && !_logoutPending) ...[
-          const SizedBox(height: 16),
+          SizedBox(height: 16),
           SettingsSection(
             title: AppLocalizations.of(context).t('Diagnostics'),
             children: [
@@ -1427,7 +1427,7 @@ final class _SyncCredentialDialogState extends State<_SyncCredentialDialog> {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      title: const Text('Verify sync credentials'),
+      title: Text('Verify sync credentials'),
       content: SizedBox(
         width: 420,
         child: Column(
@@ -1436,7 +1436,7 @@ final class _SyncCredentialDialogState extends State<_SyncCredentialDialog> {
             TvTextField(
               controller: _username,
               autofocus: true,
-              decoration: const InputDecoration(labelText: 'WebDAV username'),
+              decoration: InputDecoration(labelText: 'WebDAV username'),
               onChanged: (_) => setState(() {}),
             ),
             const SizedBox(height: 12),
@@ -1445,7 +1445,7 @@ final class _SyncCredentialDialogState extends State<_SyncCredentialDialog> {
               obscureText: true,
               textInputAction: TextInputAction.done,
               keyboardSubmitLabel: 'Verify',
-              decoration: const InputDecoration(labelText: 'WebDAV password'),
+              decoration: InputDecoration(labelText: 'WebDAV password'),
               onChanged: (_) => setState(() {}),
               onSubmitted: (_) => _submit(),
             ),

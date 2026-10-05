@@ -44,7 +44,7 @@ class ProfileRowActions {
     } catch (_) {
       if (!context.mounted) return false;
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Profile deletion is not authorized')),
+        SnackBar(content: Text('Profile deletion is not authorized')),
       );
       return false;
     }
@@ -115,7 +115,7 @@ class ProfileRowActions {
                     onChanged: (value) =>
                         setDialogState(() => retainPublicFiles = value == true),
                   ),
-                const Text(
+                Text(
                   '\nPrivate settings, history, and databases are deleted.',
                 ),
               ],
@@ -199,7 +199,7 @@ class ProfileRowActions {
       if (!context.mounted) return false;
       ScaffoldMessenger.of(
         context,
-      ).showSnackBar(const SnackBar(content: Text('Profile deletion failed')));
+      ).showSnackBar(SnackBar(content: Text('Profile deletion failed')));
       return false;
     }
   }
@@ -232,7 +232,7 @@ class ProfileRowActions {
     } catch (_) {
       if (!context.mounted) return false;
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Profile status could not be changed')),
+        SnackBar(content: Text('Profile status could not be changed')),
       );
       return false;
     }

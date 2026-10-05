@@ -259,7 +259,7 @@ class _FilterSettingsPageState extends State<FilterSettingsPage> {
   Widget build(BuildContext context) {
     final t = AppThemeScope.of(context).settings;
     if (_loading) {
-      return const SettingsPageScaffold(
+      return SettingsPageScaffold(
         title: AppLocalizations.of(context).t('Filters'),
         body: Center(child: CircularProgressIndicator()),
       );
@@ -309,7 +309,7 @@ class _FilterSettingsPageState extends State<FilterSettingsPage> {
       body: FocusTraversalGroup(
         policy: OrderedTraversalPolicy(),
         child: SingleChildScrollView(
-          padding: const EdgeInsets.all(16),
+          padding: EdgeInsets.all(16),
           child: Center(
             child: ConstrainedBox(
               constraints: const BoxConstraints(maxWidth: kSettingsMaxWidth),
@@ -328,7 +328,7 @@ class _FilterSettingsPageState extends State<FilterSettingsPage> {
                     subtitle: 'Filter by video resolution',
                     children: _buildQualityChips(),
                   ),
-                  const SizedBox(height: 20),
+                  SizedBox(height: 20),
                   _buildSection(
                     context,
                     title: 'Rip / Source',
@@ -342,7 +342,7 @@ class _FilterSettingsPageState extends State<FilterSettingsPage> {
                     subtitle: 'Filter by audio language',
                     children: _buildLanguageChips(),
                   ),
-                  const SizedBox(height: 20),
+                  SizedBox(height: 20),
                   _buildSection(
                     context,
                     title: 'Dynamic range',

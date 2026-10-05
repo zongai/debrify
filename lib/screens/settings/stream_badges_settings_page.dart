@@ -198,7 +198,7 @@ class _StreamBadgesSettingsPageState extends State<StreamBadgesSettingsPage> {
             children: [
               Text(_describe(s)),
               if (s.url != null) ...[
-                const SizedBox(height: 10),
+                SizedBox(height: 10),
                 Text(
                   s.url!,
                   maxLines: 2,
@@ -424,7 +424,7 @@ class _StreamBadgesSettingsPageState extends State<StreamBadgesSettingsPage> {
   @override
   Widget build(BuildContext context) {
     if (_loading) {
-      return const SettingsPageScaffold(
+      return SettingsPageScaffold(
         title: AppLocalizations.of(context).t('Stream badges'),
         body: Center(child: CircularProgressIndicator()),
       );
@@ -434,7 +434,7 @@ class _StreamBadgesSettingsPageState extends State<StreamBadgesSettingsPage> {
         title: AppLocalizations.of(context).t('Stream badges'),
         body: Center(
           child: Padding(
-            padding: const EdgeInsets.all(24),
+            padding: EdgeInsets.all(24),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
@@ -464,7 +464,7 @@ class _StreamBadgesSettingsPageState extends State<StreamBadgesSettingsPage> {
     return SettingsPageScaffold(
       title: AppLocalizations.of(context).t('Stream badges'),
       body: SingleChildScrollView(
-        padding: const EdgeInsets.all(16),
+        padding: EdgeInsets.all(16),
         child: Center(
           child: ConstrainedBox(
             constraints: const BoxConstraints(maxWidth: kSettingsMaxWidth),
@@ -478,7 +478,7 @@ class _StreamBadgesSettingsPageState extends State<StreamBadgesSettingsPage> {
                       'Label sources with chips from a Nuvio-style badges.json '
                       '— provider, format, resolution, HDR, audio, language',
                 ),
-                const SizedBox(height: 24),
+                SizedBox(height: 24),
                 ValueListenableBuilder<StreamBadgeMatcher>(
                   valueListenable: _service.matcher,
                   builder: (_, matcher, __) => ValueListenableBuilder<bool>(
@@ -558,7 +558,7 @@ class _StreamBadgesSettingsPageState extends State<StreamBadgesSettingsPage> {
                         onTap: () => _openSourceActions(s),
                       ),
                     if (_sources.isEmpty)
-                      const Padding(
+                      Padding(
                         padding: EdgeInsets.all(16),
                         child: Text(
                           'No rulesets yet.',

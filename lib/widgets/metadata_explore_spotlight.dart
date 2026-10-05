@@ -374,7 +374,7 @@ class _MetadataExploreSpotlightState extends State<MetadataExploreSpotlight> {
     } catch (_) {}
     if (!opened && mounted) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Could not open the browser.')),
+        SnackBar(content: Text('Could not open the browser.')),
       );
     }
   }

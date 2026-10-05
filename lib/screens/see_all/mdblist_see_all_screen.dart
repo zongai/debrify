@@ -681,7 +681,7 @@ class _MdblistSeeAllScreenState extends State<MdblistSeeAllScreen> {
                   DropdownButtonFormField<String>(
                     initialValue: draft.mediaType,
                     decoration: InputDecoration(labelText: AppLocalizations.of(context).t('Media type')),
-                    items: const [
+                    items: [
                       DropdownMenuItem(value: 'movie', child: Text(AppLocalizations.of(context).t('Movies'))),
                       DropdownMenuItem(value: 'show', child: Text(AppLocalizations.of(context).t('Series'))),
                     ],
@@ -693,31 +693,31 @@ class _MdblistSeeAllScreenState extends State<MdblistSeeAllScreen> {
                       }
                     },
                   ),
-                  const SizedBox(height: 10),
+                  SizedBox(height: 10),
                   TextField(
                     controller: genre,
-                    decoration: const InputDecoration(
+                    decoration: InputDecoration(
                       labelText: AppLocalizations.of(context).t('Genre'),
                       hintText: AppLocalizations.of(context).t('e.g. Horror'),
                     ),
                   ),
-                  const SizedBox(height: 10),
+                  SizedBox(height: 10),
                   Row(
                     children: [
                       Expanded(
                         child: TextField(
                           controller: releasedFrom,
-                          decoration: const InputDecoration(
+                          decoration: InputDecoration(
                             labelText: AppLocalizations.of(context).t('Released from'),
                             hintText: AppLocalizations.of(context).t('YYYY-MM-DD'),
                           ),
                         ),
                       ),
-                      const SizedBox(width: 12),
+                      SizedBox(width: 12),
                       Expanded(
                         child: TextField(
                           controller: releasedTo,
-                          decoration: const InputDecoration(
+                          decoration: InputDecoration(
                             labelText: 'Released to',
                             hintText: AppLocalizations.of(context).t('YYYY-MM-DD'),
                           ),
@@ -725,13 +725,13 @@ class _MdblistSeeAllScreenState extends State<MdblistSeeAllScreen> {
                       ),
                     ],
                   ),
-                  const SizedBox(height: 10),
+                  SizedBox(height: 10),
                   Row(
                     children: [
                       Expanded(
                         child: TextField(
                           controller: country,
-                          decoration: const InputDecoration(
+                          decoration: InputDecoration(
                             labelText: 'Country code',
                             hintText: 'US',
                           ),
@@ -741,7 +741,7 @@ class _MdblistSeeAllScreenState extends State<MdblistSeeAllScreen> {
                       Expanded(
                         child: TextField(
                           controller: language,
-                          decoration: const InputDecoration(
+                          decoration: InputDecoration(
                             labelText: 'Language code',
                             hintText: 'en',
                           ),
@@ -756,7 +756,7 @@ class _MdblistSeeAllScreenState extends State<MdblistSeeAllScreen> {
                         child: TextField(
                           controller: yearMin,
                           keyboardType: TextInputType.number,
-                          decoration: const InputDecoration(
+                          decoration: InputDecoration(
                             labelText: 'Year from',
                           ),
                         ),
@@ -766,7 +766,7 @@ class _MdblistSeeAllScreenState extends State<MdblistSeeAllScreen> {
                         child: TextField(
                           controller: yearMax,
                           keyboardType: TextInputType.number,
-                          decoration: const InputDecoration(
+                          decoration: InputDecoration(
                             labelText: 'Year to',
                           ),
                         ),
@@ -780,7 +780,7 @@ class _MdblistSeeAllScreenState extends State<MdblistSeeAllScreen> {
                         child: TextField(
                           controller: scoreMin,
                           keyboardType: TextInputType.number,
-                          decoration: const InputDecoration(
+                          decoration: InputDecoration(
                             labelText: 'Minimum score (0–100)',
                           ),
                         ),
@@ -790,7 +790,7 @@ class _MdblistSeeAllScreenState extends State<MdblistSeeAllScreen> {
                         child: TextField(
                           controller: scoreMax,
                           keyboardType: TextInputType.number,
-                          decoration: const InputDecoration(
+                          decoration: InputDecoration(
                             labelText: 'Maximum score (0–100)',
                           ),
                         ),
@@ -804,7 +804,7 @@ class _MdblistSeeAllScreenState extends State<MdblistSeeAllScreen> {
                         child: TextField(
                           controller: runtimeMin,
                           keyboardType: TextInputType.number,
-                          decoration: const InputDecoration(
+                          decoration: InputDecoration(
                             labelText: 'Minimum runtime',
                           ),
                         ),
@@ -814,7 +814,7 @@ class _MdblistSeeAllScreenState extends State<MdblistSeeAllScreen> {
                         child: TextField(
                           controller: runtimeMax,
                           keyboardType: TextInputType.number,
-                          decoration: const InputDecoration(
+                          decoration: InputDecoration(
                             labelText: 'Maximum runtime',
                           ),
                         ),
@@ -1017,7 +1017,7 @@ class _MdblistSeeAllScreenState extends State<MdblistSeeAllScreen> {
     onKeyEvent: _handleFilterKeys,
     child: Padding(
       padding: _quiet
-          ? const EdgeInsets.fromLTRB(24, 16, 24, 10)
+          ? EdgeInsets.fromLTRB(24, 16, 24, 10)
           : const EdgeInsets.fromLTRB(24, 10, 24, 12),
       child: SeeAllFilterBar(
         isTelevision: widget.isTelevision,
@@ -1047,7 +1047,7 @@ class _MdblistSeeAllScreenState extends State<MdblistSeeAllScreen> {
               quiet: _quiet,
               focusNode: _showNode,
               options: _isCatalog
-                  ? const [
+                  ? [
                       StremioDropdownOption('movie', 'Movies'),
                       StremioDropdownOption('series', 'Series'),
                     ]
@@ -1228,7 +1228,7 @@ class _MdblistSeeAllScreenState extends State<MdblistSeeAllScreen> {
         OutlinedButton.icon(
           focusNode: _filtersNode,
           onPressed: _openCatalogFilters,
-          icon: const Icon(Icons.tune_rounded, size: 16),
+          icon: Icon(Icons.tune_rounded, size: 16),
           label: Text(AppLocalizations.of(context).t('Filters')),
         ),
       if (_isCatalog)
@@ -1236,7 +1236,7 @@ class _MdblistSeeAllScreenState extends State<MdblistSeeAllScreen> {
           focusNode: _applyNode,
           onPressed: _catalogCanApply ? _applyCatalog : null,
           icon: _itemsLoading
-              ? const SizedBox.square(
+              ? SizedBox.square(
                   dimension: 14,
                   child: CircularProgressIndicator(strokeWidth: 2),
                 )

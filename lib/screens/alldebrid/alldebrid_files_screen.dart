@@ -700,7 +700,7 @@ class _AllDebridFilesScreenState extends State<AllDebridFilesScreen> {
             autofocus: true,
             maxLines: 3,
             minLines: 1,
-            decoration: const InputDecoration(
+            decoration: InputDecoration(
               hintText: AppLocalizations.of(context).t('Paste a magnet link or infohash'),
               border: OutlineInputBorder(),
             ),
@@ -837,7 +837,7 @@ class _AllDebridFilesScreenState extends State<AllDebridFilesScreen> {
             autofocus: true,
             maxLines: 3,
             minLines: 1,
-            decoration: const InputDecoration(
+            decoration: InputDecoration(
               hintText: AppLocalizations.of(context).t('Paste a download link'),
               border: OutlineInputBorder(),
             ),
@@ -1204,7 +1204,7 @@ class _AllDebridFilesScreenState extends State<AllDebridFilesScreen> {
           : AppBar(
               leading: IconButton(
                 focusNode: _backButtonFocusNode,
-                icon: const Icon(Icons.arrow_back),
+                icon: Icon(Icons.arrow_back),
                 onPressed: _navigateUp,
                 tooltip: AppLocalizations.of(context).t('Back'),
               ),
@@ -1287,7 +1287,7 @@ class _AllDebridFilesScreenState extends State<AllDebridFilesScreen> {
                     iconSize: iconSize,
                     padding: iconPadding,
                     constraints: iconConstraints,
-                    icon: const Icon(Icons.arrow_back),
+                    icon: Icon(Icons.arrow_back),
                     color: theme.colorScheme.onSurface,
                     visualDensity: VisualDensity.compact,
                   ),
@@ -1454,7 +1454,7 @@ class _AllDebridFilesScreenState extends State<AllDebridFilesScreen> {
     final theme = Theme.of(context);
     final count = _selectedIds.length;
     return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 16),
+      margin: EdgeInsets.symmetric(horizontal: 16),
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 6),
       decoration: BoxDecoration(
         color: theme.colorScheme.primary.withValues(alpha: 0.1),
@@ -1652,7 +1652,7 @@ class _AllDebridFilesScreenState extends State<AllDebridFilesScreen> {
     if (_error != null) {
       return Center(
         child: Padding(
-          padding: const EdgeInsets.all(32),
+          padding: EdgeInsets.all(32),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
@@ -1814,7 +1814,7 @@ class _AllDebridFilesScreenState extends State<AllDebridFilesScreen> {
     if (_linksError != null) {
       return Center(
         child: Padding(
-          padding: const EdgeInsets.all(32),
+          padding: EdgeInsets.all(32),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [

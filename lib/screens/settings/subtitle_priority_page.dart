@@ -89,7 +89,7 @@ class _SubtitlePriorityPageState extends State<SubtitlePriorityPage> {
       if (mounted) {
         setState(() => _saving = false);
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
+          SnackBar(
             content: Text('Could not save subtitle priority. Try again.'),
           ),
         );
@@ -147,7 +147,7 @@ class _SubtitlePriorityPageState extends State<SubtitlePriorityPage> {
       child: SettingsPageScaffold(
         title: AppLocalizations.of(context).t('Subtitle priority'),
         body: _loading
-            ? const Center(child: CircularProgressIndicator())
+            ? Center(child: CircularProgressIndicator())
             : SingleChildScrollView(
                 padding: const EdgeInsets.all(16),
                 child: Center(
@@ -218,7 +218,7 @@ class _SubtitlePriorityPageState extends State<SubtitlePriorityPage> {
                                   onTap: () => _select(id),
                                   borderRadius: BorderRadius.circular(12),
                                   child: Container(
-                                    padding: const EdgeInsets.all(16),
+                                    padding: EdgeInsets.all(16),
                                     decoration: BoxDecoration(
                                       color: t.panel,
                                       borderRadius: BorderRadius.circular(12),
@@ -253,7 +253,7 @@ class _SubtitlePriorityPageState extends State<SubtitlePriorityPage> {
                                                 _saving || _order.first == id
                                                 ? null
                                                 : () => _move(id, -1),
-                                            icon: const Icon(
+                                            icon: Icon(
                                               Icons.arrow_upward,
                                             ),
                                           ),
@@ -263,7 +263,7 @@ class _SubtitlePriorityPageState extends State<SubtitlePriorityPage> {
                                                 _saving || _order.last == id
                                                 ? null
                                                 : () => _move(id, 1),
-                                            icon: const Icon(
+                                            icon: Icon(
                                               Icons.arrow_downward,
                                             ),
                                           ),

@@ -799,7 +799,7 @@ class _WebDavFilesScreenState extends State<WebDavFilesScreen> {
               ),
             ),
           Expanded(child: _buildServerAndSearch(app)),
-          const SizedBox(width: 8),
+          SizedBox(width: 8),
           CallbackShortcuts(
             bindings: {
               const SingleActivator(LogicalKeyboardKey.arrowLeft):
@@ -1061,7 +1061,7 @@ class _WebDavFilesScreenState extends State<WebDavFilesScreen> {
       );
     }
     if (_items.isEmpty) {
-      return const Center(child: Text(AppLocalizations.of(context).t('No files found')));
+      return Center(child: Text(AppLocalizations.of(context).t('No files found')));
     }
     return _buildItemList();
   }

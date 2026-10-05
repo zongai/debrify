@@ -164,7 +164,7 @@ final class _WebDavSyncLoginScreenState extends State<WebDavSyncLoginScreen> {
     return SettingsPageScaffold(
       title: 'WebDAV Sync login',
       body: SingleChildScrollView(
-        padding: const EdgeInsets.all(16),
+        padding: EdgeInsets.all(16),
         child: Center(
           child: ConstrainedBox(
             constraints: const BoxConstraints(maxWidth: 560),
@@ -173,7 +173,7 @@ final class _WebDavSyncLoginScreenState extends State<WebDavSyncLoginScreen> {
               children: [
                 if (_isRepair) ...[
                   InputDecorator(
-                    decoration: const InputDecoration(
+                    decoration: InputDecoration(
                       labelText: 'WebDAV server',
                     ),
                     child: SelectableText(
@@ -190,8 +190,8 @@ final class _WebDavSyncLoginScreenState extends State<WebDavSyncLoginScreen> {
                   DropdownButtonFormField<WebDavSyncProviderPreset>(
                     key: const ValueKey('webdav-sync-provider'),
                     initialValue: _provider,
-                    decoration: const InputDecoration(labelText: 'Provider'),
-                    items: const [
+                    decoration: InputDecoration(labelText: 'Provider'),
+                    items: [
                       DropdownMenuItem(
                         value: WebDavSyncProviderPreset.koofr,
                         child: Text('Koofr'),
@@ -211,7 +211,7 @@ final class _WebDavSyncLoginScreenState extends State<WebDavSyncLoginScreen> {
                             });
                           },
                   ),
-                  const SizedBox(height: 16),
+                  SizedBox(height: 16),
                 ],
                 if (!_isRepair &&
                     _provider == WebDavSyncProviderPreset.koofr) ...[
@@ -227,7 +227,7 @@ final class _WebDavSyncLoginScreenState extends State<WebDavSyncLoginScreen> {
                     controller: _url,
                     enabled: !_connecting,
                     keyboardType: TextInputType.url,
-                    decoration: const InputDecoration(
+                    decoration: InputDecoration(
                       labelText: 'WebDAV server URL',
                       hintText: 'https://example.com/dav/',
                     ),

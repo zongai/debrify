@@ -58,7 +58,7 @@ class _ProfileRecoveryScreenState extends State<ProfileRecoveryScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(message),
-            const SizedBox(height: 16),
+            SizedBox(height: 16),
             TvTextField(
               controller: controller,
               obscureText: true,
@@ -217,7 +217,7 @@ class _ProfileRecoveryScreenState extends State<ProfileRecoveryScreen> {
     final confirmed = await showDialog<bool>(
       context: context,
       builder: (dialogContext) => AlertDialog(
-        title: const Text('Erase private app data?'),
+        title: Text('Erase private app data?'),
         content: const Text(
           'This removes profiles, credentials, settings, jobs, and private app data. Completed media files are retained. This cannot be undone.',
         ),

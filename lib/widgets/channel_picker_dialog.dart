@@ -135,8 +135,7 @@ class _ChannelPickerDialogState extends State<ChannelPickerDialog> {
 
     if (name.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text(AppLocalizations.of(context).t('Channel name cannot be empty')),
+        SnackBar(content: Text(AppLocalizations.of(context).t('Channel name cannot be empty')),
           backgroundColor: Colors.orange,
         ),
       );

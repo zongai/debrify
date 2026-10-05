@@ -37,7 +37,7 @@ Future<bool> resetProgressForRewatch(
   showDialog<void>(
     context: context,
     barrierDismissible: false,
-    builder: (_) => const PopScope(
+    builder: (_) => PopScope(
       canPop: false,
       child: AlertDialog(
         content: Row(

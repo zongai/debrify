@@ -2785,7 +2785,7 @@ class IptvResultsViewState extends State<IptvResultsView>
           if (!mounted || ticket != _loadTicket) return;
           if (!quiet && hasManualUrl) {
             ScaffoldMessenger.of(context).showSnackBar(
-              const SnackBar(
+              SnackBar(
                 content: Text(
                   'Couldn\'t load the TV guide — check the EPG URL.',
                 ),
@@ -4613,7 +4613,7 @@ class IptvResultsViewState extends State<IptvResultsView>
       if (origin == null) {
         if (mounted) {
           ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(
+            SnackBar(
               content: Text("This series' provider is no longer available"),
             ),
           );
@@ -5083,8 +5083,7 @@ class IptvResultsViewState extends State<IptvResultsView>
       // The probe is capped at 3s but still long enough that a silent button
       // reads as broken on a remote — say what's happening.
       messenger.showSnackBar(
-        const SnackBar(
-          content: Text(AppLocalizations.of(context).t('Checking channel…')),
+        SnackBar(content: Text(AppLocalizations.of(context).t('Checking channel…')),
           duration: Duration(seconds: 3),
         ),
       );
@@ -5112,8 +5111,7 @@ class IptvResultsViewState extends State<IptvResultsView>
       if (!await LiveRecordingService.ensureEngineReady()) {
         if (!mounted) return;
         messenger.showSnackBar(
-          const SnackBar(
-            content: Text(AppLocalizations.of(context).t('Storage access is needed to save recordings')),
+          SnackBar(content: Text(AppLocalizations.of(context).t('Storage access is needed to save recordings')),
           ),
         );
         return;
@@ -5449,7 +5447,7 @@ class IptvResultsViewState extends State<IptvResultsView>
                     setState(() => _settingsError = null);
                     unawaited(_loadSettings(forceReload: true));
                   },
-                  icon: const Icon(Icons.refresh),
+                  icon: Icon(Icons.refresh),
                   label: Text(AppLocalizations.of(context).t('Retry')),
                 ),
               ],
@@ -5563,7 +5561,7 @@ class IptvResultsViewState extends State<IptvResultsView>
   Widget _buildIosRecordingNotice() {
     final app = AppThemeScope.of(context);
     return Container(
-      margin: const EdgeInsets.fromLTRB(12, 8, 12, 2),
+      margin: EdgeInsets.fromLTRB(12, 8, 12, 2),
       padding: const EdgeInsets.fromLTRB(12, 8, 2, 8),
       decoration: BoxDecoration(
         color: app.iptv.surfaceTint,
@@ -6119,7 +6117,7 @@ class IptvResultsViewState extends State<IptvResultsView>
               focusNode: _spotlightPrimaryFocusNode,
               onPressed: primary.action,
               style: FilledButton.styleFrom(
-                minimumSize: const Size(44, 44),
+                minimumSize: Size(44, 44),
                 padding: const EdgeInsets.symmetric(horizontal: 10),
                 foregroundColor: t.focusInk,
                 backgroundColor: t.focusFill,
@@ -6621,7 +6619,7 @@ class IptvResultsViewState extends State<IptvResultsView>
         return TvHeldKeyGuard(
           child: Dialog(
             backgroundColor: IptvStyleTokens.spotlight.panel,
-            insetPadding: const EdgeInsets.all(16),
+            insetPadding: EdgeInsets.all(16),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(20),
               side: BorderSide(color: IptvStyleTokens.spotlight.hairline2),
@@ -7770,7 +7768,7 @@ class IptvResultsViewState extends State<IptvResultsView>
     if (_errorMessage != null && _allChannels.isEmpty) {
       return Center(
         child: Padding(
-          padding: const EdgeInsets.all(32),
+          padding: EdgeInsets.all(32),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [

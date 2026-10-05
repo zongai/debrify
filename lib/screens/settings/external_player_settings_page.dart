@@ -1339,8 +1339,7 @@ class _ExternalPlayerSettingsPageState
           !lowerName.endsWith('.otf')) {
         if (mounted) {
           ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(
-              content: Text(AppLocalizations.of(context).t('Please select a .ttf or .otf font file')),
+            SnackBar(content: Text(AppLocalizations.of(context).t('Please select a .ttf or .otf font file')),
             ),
           );
         }
@@ -2273,7 +2272,7 @@ class _ExternalPlayerSettingsPageState
     return [
       Card(
         child: Padding(
-          padding: const EdgeInsets.all(16),
+          padding: EdgeInsets.all(16),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -2321,7 +2320,7 @@ class _ExternalPlayerSettingsPageState
       ),
 
       if (_defaultPlayerMode == 'debrify') ...[
-        const SizedBox(height: 16),
+        SizedBox(height: 16),
         if (PlatformUtil.isPhone) ...[
           _defaultsCard(
             'When playback starts',
@@ -2350,7 +2349,7 @@ class _ExternalPlayerSettingsPageState
               ],
             ],
           ),
-          const SizedBox(height: 16),
+          SizedBox(height: 16),
         ],
         // Local completion is deliberately independent from tracker
         // scrobbling: Trakt and Simkl keep their own watched rules.
@@ -2383,7 +2382,7 @@ class _ExternalPlayerSettingsPageState
                   focusNode: _movieCompletionThresholdFocusNode,
                   isFocused: _movieCompletionThresholdFocused,
                 ),
-                const SizedBox(height: 12),
+                SizedBox(height: 12),
                 _buildSettingDropdown(
                   context,
                   label: AppLocalizations.of(context).t('Mark episodes watched at'),
@@ -2400,7 +2399,7 @@ class _ExternalPlayerSettingsPageState
           ),
         ),
 
-        const SizedBox(height: 16),
+        SizedBox(height: 16),
 
         // Community intro/outro timestamps. This belongs to the
         // built-in player because external players own their own UI
@@ -2433,7 +2432,7 @@ class _ExternalPlayerSettingsPageState
                   focusNode: _skipSegmentsEnabledFocusNode,
                   isFocused: _skipSegmentsEnabledFocused,
                 ),
-                const SizedBox(height: 12),
+                SizedBox(height: 12),
                 _buildDropdownSetting(
                   context,
                   label: AppLocalizations.of(context).t('Timestamp provider'),
@@ -2465,7 +2464,7 @@ class _ExternalPlayerSettingsPageState
         // gets them via the launch payload.
         Card(
           child: Padding(
-            padding: const EdgeInsets.all(16),
+            padding: EdgeInsets.all(16),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -2492,7 +2491,7 @@ class _ExternalPlayerSettingsPageState
                   focusNode: _netPatienceFocusNode,
                   isFocused: _netPatienceFocused,
                 ),
-                const SizedBox(height: 12),
+                SizedBox(height: 12),
                 _buildDropdownSetting(
                   context,
                   label: AppLocalizations.of(context).t('Stream buffer'),
@@ -2541,7 +2540,7 @@ class _ExternalPlayerSettingsPageState
             focusNode: _aspectFocusNode,
             isFocused: _aspectFocused,
           ),
-          const SizedBox(height: 12),
+          SizedBox(height: 12),
 
           if (_isAndroidTv || PlatformUtil.isTvOS) ...[
             _buildDropdownSetting(
@@ -2580,7 +2579,7 @@ class _ExternalPlayerSettingsPageState
                     : t.warning,
               ),
             ),
-            const SizedBox(height: 12),
+            SizedBox(height: 12),
           ],
 
           // Android TV only. A frozen picture with running
@@ -2622,7 +2621,7 @@ class _ExternalPlayerSettingsPageState
           // native Media3 + SurfaceView; Apple and desktop
           // platforms have different decoder APIs entirely.
           if (Platform.isAndroid && !_isAndroidTv) ...[
-            const SizedBox(height: 12),
+            SizedBox(height: 12),
             _buildDropdownSetting(
               context,
               label: AppLocalizations.of(context).t('Video renderer'),
@@ -2657,7 +2656,7 @@ class _ExternalPlayerSettingsPageState
           // anything it cannot — wrong colors on a
           // clean-reading format, most likely.
           if (PlatformUtil.isTvOS) ...[
-            const SizedBox(height: 4),
+            SizedBox(height: 4),
             _buildCheckboxTile(
               context,
               title: AppLocalizations.of(context).t('Force software video decoding'),
@@ -2694,7 +2693,7 @@ class _ExternalPlayerSettingsPageState
             focusNode: _defaultAudioLangFocusNode,
             isFocused: _defaultAudioLangFocused,
           ),
-          const SizedBox(height: 12),
+          SizedBox(height: 12),
 
           // System audio effects (Android only). Off by
           // default because enabling it switches the audio
@@ -2716,7 +2715,7 @@ class _ExternalPlayerSettingsPageState
             // Bitstream passthrough (AUDIO_FIDELITY_PLAN.md).
             // Opt-in: a route that misreports support plays
             // silence, and only the user knows their chain.
-            const SizedBox(height: 4),
+            SizedBox(height: 4),
             _buildCheckboxTile(
               context,
               title: AppLocalizations.of(context).t('Audio passthrough (AC3 · EAC3 · DTS core)'),
@@ -2735,7 +2734,7 @@ class _ExternalPlayerSettingsPageState
           // Apple multichannel LPCM (AUDIO_FIDELITY_PLAN.md).
           // Opt-in until AirPlay/spatial routes are proven.
           if (PlatformUtil.isTvOS || PlatformUtil.isIosMobile) ...[
-            const SizedBox(height: 4),
+            SizedBox(height: 4),
             _buildCheckboxTile(
               context,
               title: AppLocalizations.of(context).t('Multichannel audio (LPCM over HDMI)'),
@@ -2755,7 +2754,7 @@ class _ExternalPlayerSettingsPageState
           // let a reporter narrow an audio problem without
           // waiting on a custom build.
           if (PlatformUtil.isTvOS) ...[
-            const SizedBox(height: 4),
+            SizedBox(height: 4),
             _buildCheckboxTile(
               context,
               title: AppLocalizations.of(context).t('Force stereo audio'),
@@ -2769,7 +2768,7 @@ class _ExternalPlayerSettingsPageState
               focusNode: _tvosForceStereoFocusNode,
               isFocused: _tvosForceStereoFocused,
             ),
-            const SizedBox(height: 4),
+            SizedBox(height: 4),
             _buildCheckboxTile(
               context,
               title: AppLocalizations.of(context).t('Use the previous audio engine'),
@@ -2958,7 +2957,7 @@ class _ExternalPlayerSettingsPageState
           ),
         ],
       ),
-      const SizedBox(height: 16),
+      SizedBox(height: 16),
       _defaultsCard(
         'Subtitle defaults',
         'Preferred language and timing for the built-in player',
@@ -3023,7 +3022,7 @@ class _ExternalPlayerSettingsPageState
           ],
         ],
       ),
-      const SizedBox(height: 16),
+      SizedBox(height: 16),
       // Subtitle Appearance
       Card(
         child: Padding(
@@ -3054,7 +3053,7 @@ class _ExternalPlayerSettingsPageState
                 focusNode: _subtitleSizeFocusNode,
                 isFocused: _subtitleSizeFocused,
               ),
-              const SizedBox(height: 12),
+              SizedBox(height: 12),
 
               // Style
               _buildSettingDropdown(
@@ -3078,7 +3077,7 @@ class _ExternalPlayerSettingsPageState
                 focusNode: _subtitleColorFocusNode,
                 isFocused: _subtitleColorFocused,
               ),
-              const SizedBox(height: 12),
+              SizedBox(height: 12),
 
               // Background
               _buildSettingDropdown(
@@ -3374,7 +3373,7 @@ class _ExternalPlayerSettingsPageState
                     },
                   ),
                 ),
-                const SizedBox(height: 16),
+                SizedBox(height: 16),
                 Row(
                   children: [
                     Expanded(
@@ -3386,7 +3385,7 @@ class _ExternalPlayerSettingsPageState
                     ),
                     if (_iosCustomScheme != null &&
                         _iosCustomScheme!.isNotEmpty) ...[
-                      const SizedBox(width: 8),
+                      SizedBox(width: 8),
                       OutlinedButton(
                         onPressed: _clearIOSCustomScheme,
                         child: Text(AppLocalizations.of(context).t('Clear')),
@@ -3559,7 +3558,7 @@ class _ExternalPlayerSettingsPageState
                     },
                   ),
                 ),
-                const SizedBox(height: 16),
+                SizedBox(height: 16),
                 Row(
                   children: [
                     Expanded(
@@ -3571,7 +3570,7 @@ class _ExternalPlayerSettingsPageState
                     ),
                     if (_linuxCustomCommand != null &&
                         _linuxCustomCommand!.isNotEmpty) ...[
-                      const SizedBox(width: 8),
+                      SizedBox(width: 8),
                       OutlinedButton(
                         onPressed: _clearLinuxCustomCommand,
                         child: Text(AppLocalizations.of(context).t('Clear')),
@@ -3743,7 +3742,7 @@ class _ExternalPlayerSettingsPageState
                     },
                   ),
                 ),
-                const SizedBox(height: 16),
+                SizedBox(height: 16),
                 Row(
                   children: [
                     Expanded(
@@ -3755,7 +3754,7 @@ class _ExternalPlayerSettingsPageState
                     ),
                     if (_windowsCustomCommand != null &&
                         _windowsCustomCommand!.isNotEmpty) ...[
-                      const SizedBox(width: 8),
+                      SizedBox(width: 8),
                       OutlinedButton(
                         onPressed: _clearWindowsCustomCommand,
                         child: Text(AppLocalizations.of(context).t('Clear')),
@@ -3763,7 +3762,7 @@ class _ExternalPlayerSettingsPageState
                     ],
                   ],
                 ),
-                const SizedBox(height: 12),
+                SizedBox(height: 12),
                 Container(
                   padding: const EdgeInsets.all(12),
                   decoration: BoxDecoration(
@@ -4026,7 +4025,7 @@ class _ExternalPlayerSettingsPageState
                     },
                   ),
                 ),
-                const SizedBox(height: 16),
+                SizedBox(height: 16),
                 Row(
                   children: [
                     Expanded(
@@ -4046,7 +4045,7 @@ class _ExternalPlayerSettingsPageState
                     ],
                   ],
                 ),
-                const SizedBox(height: 12),
+                SizedBox(height: 12),
                 Container(
                   padding: const EdgeInsets.all(12),
                   decoration: BoxDecoration(
@@ -4157,7 +4156,7 @@ class _ExternalPlayerSettingsPageState
                       focusNode: _screenTypeFocusNode,
                       isFocused: _screenTypeFocused,
                     ),
-                    const SizedBox(height: 12),
+                    SizedBox(height: 12),
 
                     // Stereo Mode dropdown
                     _buildDropdownSetting(

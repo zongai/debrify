@@ -166,7 +166,7 @@ class _FolderEditorState extends State<_FolderEditor> {
   @override
   Widget build(BuildContext context) => Scaffold(
     appBar: AppBar(
-      title: const Text('Edit folder'),
+      title: Text('Edit folder'),
       actions: [TextButton(onPressed: _save, child: Text(AppLocalizations.of(context).t('Save')))],
     ),
     body: Form(
@@ -292,14 +292,14 @@ class _SourceEditorState extends State<_SourceEditor> {
     };
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Edit source'),
+        title: Text('Edit source'),
         actions: [TextButton(onPressed: _save, child: Text(AppLocalizations.of(context).t('Save')))],
       ),
       body: Form(
         key: _form,
         child: _EditorBody(
           key: ValueKey(_generation),
-          padding: const EdgeInsets.all(20),
+          padding: EdgeInsets.all(20),
           children: [
             DropdownButtonFormField<String>(
               initialValue: _provider,
@@ -327,7 +327,7 @@ class _SourceEditorState extends State<_SourceEditor> {
                 DropdownButtonFormField<String>(
                   initialValue: addon?.manifestId ?? addon?.id,
                   isExpanded: true,
-                  decoration: const InputDecoration(
+                  decoration: InputDecoration(
                     labelText: 'Installed addon',
                   ),
                   items: [
@@ -357,7 +357,7 @@ class _SourceEditorState extends State<_SourceEditor> {
               if (addon != null && addon.catalogs.any((c) => c.isBrowsable))
                 DropdownButtonFormField<String>(
                   isExpanded: true,
-                  decoration: const InputDecoration(
+                  decoration: InputDecoration(
                     labelText: 'Choose configured catalog',
                   ),
                   items: [
@@ -625,7 +625,7 @@ Widget _orderedTile<T>({
       contentPadding: EdgeInsets.zero,
       title: Text(title),
       onTap: onEdit,
-      trailing: const Icon(Icons.edit_outlined),
+      trailing: Icon(Icons.edit_outlined),
     ),
     Row(
       mainAxisAlignment: MainAxisAlignment.end,
@@ -639,7 +639,7 @@ Widget _orderedTile<T>({
                   values.insert(index - 1, item);
                   onChanged();
                 },
-          icon: const Icon(Icons.arrow_upward),
+          icon: Icon(Icons.arrow_upward),
         ),
         IconButton(
           tooltip: AppLocalizations.of(context).t('Move down'),
@@ -650,7 +650,7 @@ Widget _orderedTile<T>({
                   values.insert(index + 1, item);
                   onChanged();
                 },
-          icon: const Icon(Icons.arrow_downward),
+          icon: Icon(Icons.arrow_downward),
         ),
         IconButton(
           tooltip: AppLocalizations.of(context).t('Remove'),

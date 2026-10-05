@@ -121,7 +121,7 @@ class _DebrifyTvSettingsPageState extends State<DebrifyTvSettingsPage> {
   }
 
   Widget _buildHeader(BuildContext context) {
-    return const SettingsPageHeader(
+    return SettingsPageHeader(
       icon: Icons.tv_rounded,
       title: AppLocalizations.of(context).t('Debrify TV Configuration'),
       subtitle: AppLocalizations.of(context).t('Configure search engines and result limits'),
@@ -180,7 +180,7 @@ class _DebrifyTvSettingsPageState extends State<DebrifyTvSettingsPage> {
       width: double.infinity,
       child: OutlinedButton.icon(
         onPressed: () => _showResetConfirmation(context),
-        icon: const Icon(Icons.refresh),
+        icon: Icon(Icons.refresh),
         label: Text(AppLocalizations.of(context).t('Reset to Defaults')),
         // State-resolved accent border + lit fill so DPAD focus is
         // unmistakable on TV (default focus overlay is too faint).
@@ -219,7 +219,7 @@ class _DebrifyTvSettingsPageState extends State<DebrifyTvSettingsPage> {
       context: context,
       builder: (context) => AlertDialog(
         title: Text(AppLocalizations.of(context).t('Reset Settings')),
-        content: const Text(
+        content: Text(
           'Are you sure you want to reset all Debrify TV settings to their default values?',
         ),
         actions: [
@@ -308,7 +308,7 @@ class _DebrifyTvSettingsPageState extends State<DebrifyTvSettingsPage> {
 
     if (mounted) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Settings reset to defaults')),
+        SnackBar(content: Text('Settings reset to defaults')),
       );
     }
   }

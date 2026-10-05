@@ -253,7 +253,7 @@ class _ThemeTokensPageState extends State<ThemeTokensPage> {
     return SettingsPageScaffold(
       title: AppLocalizations.of(context).t('Advanced'),
       body: SingleChildScrollView(
-        padding: const EdgeInsets.all(16),
+        padding: EdgeInsets.all(16),
         child: Center(
           child: ConstrainedBox(
             constraints: const BoxConstraints(maxWidth: kSettingsMaxWidth),

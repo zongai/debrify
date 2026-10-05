@@ -170,7 +170,7 @@ class _RemoteAddonExportState extends State<RemoteAddonExport> {
       unawaited(_loadAddons());
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
+          SnackBar(
             content: Text('Failed to send addon'),
             backgroundColor: Color(0xFFEF4444),
             behavior: SnackBarBehavior.floating,
@@ -193,7 +193,7 @@ class _RemoteAddonExportState extends State<RemoteAddonExport> {
         // Back to menu button
         TextButton.icon(
           onPressed: widget.onBack,
-          icon: const Icon(Icons.arrow_back, size: 18),
+          icon: Icon(Icons.arrow_back, size: 18),
           label: Text(AppLocalizations.of(context).t('Back to menu')),
           style: TextButton.styleFrom(
             foregroundColor: Colors.white.withValues(alpha: 0.7),

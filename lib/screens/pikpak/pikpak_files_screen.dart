@@ -158,7 +158,7 @@ class _PikPakFilesScreenState extends State<PikPakFilesScreen> {
             _currentFolderId == null) {
           Navigator.of(context).pop();
           ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(
+            SnackBar(
               content: Text('Failed to open folder. Please try again.'),
               backgroundColor: Color(0xFFEF4444),
             ),
@@ -1164,7 +1164,7 @@ class _PikPakFilesScreenState extends State<PikPakFilesScreen> {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: const Text('Delete File'),
+        title: Text('Delete File'),
         content: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -1797,12 +1797,12 @@ class _PikPakFilesScreenState extends State<PikPakFilesScreen> {
             fillColor: theme.colorScheme.surfaceContainerHighest.withValues(
               alpha: 0.3,
             ),
-            contentPadding: const EdgeInsets.symmetric(
+            contentPadding: EdgeInsets.symmetric(
               horizontal: 12,
               vertical: 12,
             ),
           ),
-          items: const [
+          items: [
             DropdownMenuItem(value: _FolderViewMode.raw, child: Text(AppLocalizations.of(context).t('Raw'))),
             DropdownMenuItem(
               value: _FolderViewMode.sortedAZ,
@@ -2093,7 +2093,7 @@ class _PikPakFilesScreenState extends State<PikPakFilesScreen> {
       return CloudScaffold(
         appBar: AppBar(
           leading: IconButton(
-            icon: const Icon(Icons.arrow_back),
+            icon: Icon(Icons.arrow_back),
             onPressed: () => Navigator.of(context).pop(),
             tooltip: AppLocalizations.of(context).t('Back'),
           ),
@@ -2163,7 +2163,7 @@ class _PikPakFilesScreenState extends State<PikPakFilesScreen> {
                 },
                 child: IconButton(
                   focusNode: _backButtonFocusNode,
-                  icon: const Icon(Icons.arrow_back),
+                  icon: Icon(Icons.arrow_back),
                   onPressed: () => _handleBackNavigation(),
                   tooltip: AppLocalizations.of(context).t('Back'),
                 ),
@@ -2172,7 +2172,7 @@ class _PikPakFilesScreenState extends State<PikPakFilesScreen> {
             // target) there's no folder-up back — offer a Back-to-hub instead.
             : (_isBrowsePush
                   ? IconButton(
-                      icon: const Icon(Icons.arrow_back),
+                      icon: Icon(Icons.arrow_back),
                       tooltip: AppLocalizations.of(context).t('Back'),
                       onPressed: () => Navigator.of(context).maybePop(),
                     )
@@ -2189,7 +2189,7 @@ class _PikPakFilesScreenState extends State<PikPakFilesScreen> {
                   : _currentFolderName,
             ),
             if (_restrictedFolderId != null && !_isInVirtualFolder)
-              const Text(
+              Text(
                 'Restricted Access',
                 style: TextStyle(fontSize: 12, color: Colors.amber),
               ),
@@ -2240,7 +2240,7 @@ class _PikPakFilesScreenState extends State<PikPakFilesScreen> {
             ),
           IconButton(
             focusNode: _refreshButtonFocusNode,
-            icon: const Icon(Icons.refresh),
+            icon: Icon(Icons.refresh),
             onPressed: _isLoading ? null : _refreshFiles,
             tooltip: AppLocalizations.of(context).t('Refresh'),
             iconSize: actionIconSize,
@@ -2315,7 +2315,7 @@ class _PikPakFilesScreenState extends State<PikPakFilesScreen> {
                       isError: false,
                     );
                   },
-                  icon: const Icon(Icons.settings),
+                  icon: Icon(Icons.settings),
                   label: Text(AppLocalizations.of(context).t('Go to Settings')),
                   style: FilledButton.styleFrom().copyWith(
                     side: WidgetStateProperty.resolveWith((states) {
@@ -2337,7 +2337,7 @@ class _PikPakFilesScreenState extends State<PikPakFilesScreen> {
   Widget _buildError() {
     final app = AppThemeScope.of(context);
     return CloudScaffold(
-      appBar: AppBar(title: const Text('PikPak Files')),
+      appBar: AppBar(title: Text('PikPak Files')),
       body: FocusTraversalGroup(
         policy: OrderedTraversalPolicy(),
         child: Center(
@@ -2416,7 +2416,7 @@ class _PikPakFilesScreenState extends State<PikPakFilesScreen> {
     final theme = Theme.of(context);
     final count = _selectedFileIds.length;
     return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+      margin: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 6),
       decoration: BoxDecoration(
         color: theme.colorScheme.primary.withValues(alpha: 0.1),
@@ -3271,7 +3271,7 @@ class _PikPakFilesScreenState extends State<PikPakFilesScreen> {
                     Navigator.of(context).pop();
                   },
                   style: OutlinedButton.styleFrom(
-                    padding: const EdgeInsets.symmetric(vertical: 12),
+                    padding: EdgeInsets.symmetric(vertical: 12),
                     side: const BorderSide(color: Color(0xFF475569)),
                   ),
                   child: Text(AppLocalizations.of(context).t('Cancel')),

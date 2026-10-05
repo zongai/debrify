@@ -604,7 +604,7 @@ class _StremioTvLocalCatalogEditorDialogState
     final confirmed = await showDialog<bool>(
       context: context,
       builder: (ctx) => AlertDialog(
-        title: const Text('Remove Item'),
+        title: Text('Remove Item'),
         content: Text('Remove "$itemName" from this local channel?'),
         actions: [
           TextButton(
@@ -630,7 +630,7 @@ class _StremioTvLocalCatalogEditorDialogState
       _changed = true;
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
+        SnackBar(
           content: Text('Channel removed because it no longer has any items'),
           behavior: SnackBarBehavior.floating,
         ),
@@ -730,7 +730,7 @@ class _StremioTvLocalCatalogEditorDialogState
         : null;
 
     return Container(
-      padding: const EdgeInsets.all(12),
+      padding: EdgeInsets.all(12),
       decoration: BoxDecoration(
         borderRadius: app.shape.br(16),
         color: app.stremioTv.surfaceFill,
@@ -777,7 +777,7 @@ class _StremioTvLocalCatalogEditorDialogState
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 _buildPoster(item, false),
-                const SizedBox(width: 14),
+                SizedBox(width: 14),
                 Expanded(
                   child: _buildItemText(
                     theme,
@@ -950,7 +950,7 @@ class _StremioTvLocalCatalogEditorDialogState
                                 size: 22,
                                 color: theme.colorScheme.primary,
                               ),
-                              const SizedBox(width: 10),
+                              SizedBox(width: 10),
                               Expanded(
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -1306,7 +1306,7 @@ class _StremioTvLocalCatalogsDialogState
     final confirmed = await showDialog<bool>(
       context: context,
       builder: (ctx) => AlertDialog(
-        title: const Text('Delete Catalog'),
+        title: Text('Delete Catalog'),
         content: Text('Remove "$name" and all its items?'),
         actions: [
           TextButton(
@@ -1346,7 +1346,7 @@ class _StremioTvLocalCatalogsDialogState
           borderRadius: BorderRadius.circular(20),
         ),
         child: Padding(
-          padding: const EdgeInsets.all(20),
+          padding: EdgeInsets.all(20),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -1735,7 +1735,7 @@ class _ImportUrlDialogState extends State<_ImportUrlDialog> {
           focusNode: _importFocusNode,
           onPressed: _loading ? null : _import,
           child: _loading
-              ? const SizedBox(
+              ? SizedBox(
                   width: 16,
                   height: 16,
                   child: CircularProgressIndicator(strokeWidth: 2),
@@ -1922,7 +1922,7 @@ class _ImportJsonDialogState extends State<_ImportJsonDialog> {
                 hintText: 'Catalog name (required for Trakt lists)',
                 border: OutlineInputBorder(borderRadius: app.shape.br(12)),
                 isDense: true,
-                contentPadding: const EdgeInsets.symmetric(
+                contentPadding: EdgeInsets.symmetric(
                   horizontal: 12,
                   vertical: 10,
                 ),
@@ -1956,7 +1956,7 @@ class _ImportJsonDialogState extends State<_ImportJsonDialog> {
           focusNode: _importFocusNode,
           onPressed: _loading ? null : _import,
           child: _loading
-              ? const SizedBox(
+              ? SizedBox(
                   width: 16,
                   height: 16,
                   child: CircularProgressIndicator(strokeWidth: 2),
@@ -2359,14 +2359,14 @@ class _ImportTraktDialogState extends State<_ImportTraktDialog> {
     final theme = Theme.of(context);
 
     if (!_authChecked) {
-      return const AlertDialog(
+      return AlertDialog(
         content: Center(heightFactor: 1, child: CircularProgressIndicator()),
       );
     }
 
     if (!_authenticated) {
       return AlertDialog(
-        title: const Text('Import from Trakt'),
+        title: Text('Import from Trakt'),
         content: const Text('Sign in to Trakt first in Settings.'),
         actions: [
           TextButton(
@@ -2725,14 +2725,14 @@ class _ImportMdblistDialogState extends State<_ImportMdblistDialog> {
     final theme = Theme.of(context);
 
     if (!_checked) {
-      return const AlertDialog(
+      return AlertDialog(
         content: Center(heightFactor: 1, child: CircularProgressIndicator()),
       );
     }
 
     if (!_connected) {
       return AlertDialog(
-        title: const Text('Import from MDBList'),
+        title: Text('Import from MDBList'),
         content: const Text('Connect MDBList first in Settings.'),
         actions: [
           TextButton(
@@ -2744,7 +2744,7 @@ class _ImportMdblistDialogState extends State<_ImportMdblistDialog> {
     }
 
     return AlertDialog(
-      title: const Text('Import from MDBList'),
+      title: Text('Import from MDBList'),
       content: SizedBox(
         width: 400,
         child: Column(

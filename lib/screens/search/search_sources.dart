@@ -1308,7 +1308,7 @@ class _SourcesScreenState extends State<_SourcesScreen> {
             ),
             if (_canCopySource(t))
               ListTile(
-                leading: const Icon(
+                leading: Icon(
                   Icons.copy_rounded,
                   color: Color(0xFFF59E0B),
                 ),
@@ -1384,7 +1384,7 @@ class _SourcesScreenState extends State<_SourcesScreen> {
                 },
               ),
             ListTile(
-              leading: const Icon(Icons.copy_rounded, color: Color(0xFFF59E0B)),
+              leading: Icon(Icons.copy_rounded, color: Color(0xFFF59E0B)),
               title: Text(AppLocalizations.of(context).t('Copy link')),
               onTap: () async {
                 DialogTapGuard.markKeyAction();
@@ -1395,7 +1395,7 @@ class _SourcesScreenState extends State<_SourcesScreen> {
             if (ProfilePolicyGuard.allowsSync(ProfileFeature.downloads) &&
                 TorrentPlaybackService.supportsDirectStreamDownload(t))
               ListTile(
-                leading: const Icon(
+                leading: Icon(
                   Icons.download_rounded,
                   color: Color(0xFF60A5FA),
                 ),
@@ -2170,7 +2170,7 @@ class _SourcesScreenState extends State<_SourcesScreen> {
           for (final entry in _mediaServerMessages.entries)
             if (_sourceFilter == null || _sourceFilter == entry.key)
               Padding(
-                padding: const EdgeInsets.fromLTRB(12, 2, 12, 8),
+                padding: EdgeInsets.fromLTRB(12, 2, 12, 8),
                 child: Text(entry.value,
                     style: TextStyle(color: scheme.error, fontSize: 12)),
               ),
@@ -2201,7 +2201,7 @@ class _SourcesScreenState extends State<_SourcesScreen> {
                     unawaited(_runSearch());
                   },
                   itemBuilder: (_) => [
-                    const PopupMenuItem(value: 0, child: Text('All Seasons')),
+                    PopupMenuItem(value: 0, child: Text('All Seasons')),
                     for (final s in _seasonMenuNumbers())
                       PopupMenuItem(value: s, child: Text('Season $s')),
                   ],
@@ -2239,7 +2239,7 @@ class _SourcesScreenState extends State<_SourcesScreen> {
                   _sortBy = v;
                   _rebuildVisible();
                 },
-                itemBuilder: (_) => const [
+                itemBuilder: (_) => [
                   PopupMenuItem(value: 'source', child: Text('Addon order')),
                   PopupMenuItem(value: 'name', child: Text(AppLocalizations.of(context).t('Name'))),
                   PopupMenuItem(value: 'size', child: Text(AppLocalizations.of(context).t('Size'))),
@@ -2813,7 +2813,7 @@ class _SourcesScreenState extends State<_SourcesScreen> {
   /// Editable free-text search box shown at the top of the keyword-bind screen.
   Widget _keywordSearchField(ColorScheme scheme) {
     return Padding(
-      padding: const EdgeInsets.fromLTRB(12, 10, 12, 4),
+      padding: EdgeInsets.fromLTRB(12, 10, 12, 4),
       child: TvTextField(
         controller: _kwCtrl,
         textInputAction: TextInputAction.search,
@@ -3118,7 +3118,7 @@ class _SrcDialogShell extends StatelessWidget {
     final app = AppThemeScope.of(context);
     return Dialog(
       backgroundColor: Colors.transparent,
-      insetPadding: const EdgeInsets.symmetric(horizontal: 24, vertical: 24),
+      insetPadding: EdgeInsets.symmetric(horizontal: 24, vertical: 24),
       child: ConstrainedBox(
         constraints: const BoxConstraints(maxWidth: 440, maxHeight: 580),
         child: Container(

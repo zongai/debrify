@@ -63,7 +63,7 @@ class ProfilePickerScreen extends StatelessWidget {
                     ),
                   ),
                   if (onManage != null) ...[
-                    const SizedBox(height: 24),
+                    SizedBox(height: 24),
                     OutlinedButton.icon(
                       onPressed: onManage,
                       icon: const Icon(Icons.manage_accounts_rounded),

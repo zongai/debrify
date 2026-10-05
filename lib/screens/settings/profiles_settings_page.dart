@@ -140,7 +140,7 @@ class _ProfilesSettingsPageState extends State<ProfilesSettingsPage> {
     } catch (_) {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
+          SnackBar(
             content: Text('Could not change device unlock settings.'),
           ),
         );
@@ -208,7 +208,7 @@ class _ProfilesSettingsPageState extends State<ProfilesSettingsPage> {
         children: [
           ListTile(
             autofocus: true,
-            leading: const Icon(Icons.edit_rounded),
+            leading: Icon(Icons.edit_rounded),
             title: Text(AppLocalizations.of(context).t('Edit')),
             subtitle: const Text('Name, avatar, PIN, access'),
             onTap: () => Navigator.of(dialogContext).pop('edit'),
@@ -314,7 +314,7 @@ class _ProfilesSettingsPageState extends State<ProfilesSettingsPage> {
                 onSelected: (value) {
                   if (value == 'diagnostics') _showDiagnostics();
                 },
-                itemBuilder: (_) => const [
+                itemBuilder: (_) => [
                   PopupMenuItem(
                     value: 'diagnostics',
                     child: ListTile(
@@ -327,7 +327,7 @@ class _ProfilesSettingsPageState extends State<ProfilesSettingsPage> {
             ]
           : null,
       body: _loading
-          ? const Center(child: CircularProgressIndicator())
+          ? Center(child: CircularProgressIndicator())
           : SingleChildScrollView(
               padding: const EdgeInsets.fromLTRB(16, 16, 16, 32),
               child: Center(
@@ -403,7 +403,7 @@ class _ProfilesSettingsPageState extends State<ProfilesSettingsPage> {
     children: [
       _CurrentProfileIdentity(profile: active),
       SettingsTile(
-        key: const ValueKey('profiles-switch'),
+        key: ValueKey('profiles-switch'),
         focusNode: _firstActionFocus,
         icon: Icons.swap_horiz_rounded,
         title: AppLocalizations.of(context).t('Switch profile'),
@@ -450,7 +450,7 @@ class _ProfilesSettingsPageState extends State<ProfilesSettingsPage> {
           ),
         if (_mayManage)
           SettingsTile(
-            key: const ValueKey('profiles-create'),
+            key: ValueKey('profiles-create'),
             icon: Icons.person_add_alt_rounded,
             title: 'Create a profile',
             subtitle: AppLocalizations.of(context).t('Admin, Member or Kid'),

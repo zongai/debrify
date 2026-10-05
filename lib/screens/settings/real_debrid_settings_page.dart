@@ -240,7 +240,7 @@ class _RealDebridSettingsPageState extends State<RealDebridSettingsPage> {
       final confirmed = await showDialog<bool>(
         context: context,
         builder: (context) => AlertDialog(
-          title: const Text('Hide Real Debrid?'),
+          title: Text('Hide Real Debrid?'),
           content: SingleChildScrollView(
             child: Column(
               mainAxisSize: MainAxisSize.min,
@@ -322,7 +322,7 @@ class _RealDebridSettingsPageState extends State<RealDebridSettingsPage> {
   Widget build(BuildContext context) {
     final t = AppThemeScope.of(context).settings;
     if (_loading) {
-      return const SettingsPageScaffold(
+      return SettingsPageScaffold(
         title: 'Real Debrid Settings',
         body: Center(child: CircularProgressIndicator()),
       );
@@ -585,7 +585,7 @@ class _RealDebridSettingsPageState extends State<RealDebridSettingsPage> {
                                   ] else ...[
                                     if (_savedApiKey != null) ...[
                                       Container(
-                                        padding: const EdgeInsets.all(12),
+                                        padding: EdgeInsets.all(12),
                                         decoration: BoxDecoration(
                                           color: t.panel2,
                                           borderRadius: BorderRadius.circular(
@@ -632,7 +632,7 @@ class _RealDebridSettingsPageState extends State<RealDebridSettingsPage> {
                                           focusNode: _addApiKeyButtonFocusNode,
                                           onPressed: () =>
                                               _beginEditApiKey(prefill: false),
-                                          icon: const Icon(Icons.add),
+                                          icon: Icon(Icons.add),
                                           label: Text(AppLocalizations.of(context).t('Add API Key')),
                                         ),
                                       ),

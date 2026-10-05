@@ -3211,7 +3211,7 @@ class _SearchScreenState extends State<SearchScreen>
       if (expired && keepRows) {
         ScaffoldMessenger.maybeOf(context)?.showSnackBar(
           SnackBar(
-            content: const Text("Couldn't refresh Home. Showing previous rows."),
+            content: Text("Couldn't refresh Home. Showing previous rows."),
             action: SnackBarAction(
               label: AppLocalizations.of(context).t('Retry'),
               onPressed: () {
@@ -4463,8 +4463,7 @@ class _SearchScreenState extends State<SearchScreen>
     } on ResourceAuthorizationException {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Text(AppLocalizations.of(context).t('IPTV is unavailable. Please retry or sign in.')),
+          SnackBar(content: Text(AppLocalizations.of(context).t('IPTV is unavailable. Please retry or sign in.')),
           ),
         );
       }
@@ -4492,7 +4491,7 @@ class _SearchScreenState extends State<SearchScreen>
     }
     if (origin == null) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
+        SnackBar(
           content: Text("This series' provider is no longer available"),
         ),
       );
@@ -4675,7 +4674,7 @@ class _SearchScreenState extends State<SearchScreen>
     } catch (_) {
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text("Couldn't update My Watchlist")),
+        SnackBar(content: Text("Couldn't update My Watchlist")),
       );
     }
   }
@@ -4847,7 +4846,7 @@ class _SearchScreenState extends State<SearchScreen>
       actions: [
         DebridActionItem(
           icon: Icons.play_circle_fill_rounded,
-          color: const Color(0xFF10B981),
+          color: Color(0xFF10B981),
           title: AppLocalizations.of(context).t('Play'),
           subtitle: AppLocalizations.of(context).t('Start playback'),
           onTap: () => run('play'),
@@ -4855,7 +4854,7 @@ class _SearchScreenState extends State<SearchScreen>
         if (isCollection)
           DebridActionItem(
             icon: Icons.shuffle_rounded,
-            color: const Color(0xFFA78BFA),
+            color: Color(0xFFA78BFA),
             title: AppLocalizations.of(context).t('Play Random'),
             subtitle: AppLocalizations.of(context).t('Start a random file from this collection'),
             pillLabel: 'Random',
@@ -4863,7 +4862,7 @@ class _SearchScreenState extends State<SearchScreen>
           ),
         DebridActionItem(
           icon: Icons.folder_open_rounded,
-          color: const Color(0xFF818CF8),
+          color: Color(0xFF818CF8),
           title: AppLocalizations.of(context).t('View Files'),
           subtitle: AppLocalizations.of(context).t('Browse folder contents'),
           pillLabel: 'Files',
@@ -4871,7 +4870,7 @@ class _SearchScreenState extends State<SearchScreen>
         ),
         DebridActionItem(
           icon: isFavorited ? Icons.star_rounded : Icons.star_border_rounded,
-          color: const Color(0xFFFFD700),
+          color: Color(0xFFFFD700),
           title: isFavorited ? 'Remove from Favorites' : 'Add to Favorites',
           subtitle: isFavorited
               ? 'Remove from your favorites list'
@@ -12809,7 +12808,7 @@ class _SearchScreenState extends State<SearchScreen>
               },
             ),
             ListTile(
-              leading: const Icon(Icons.copy_rounded, color: Color(0xFFF59E0B)),
+              leading: Icon(Icons.copy_rounded, color: Color(0xFFF59E0B)),
               title: Text(AppLocalizations.of(context).t('Copy link')),
               onTap: () async {
                 DialogTapGuard.markKeyAction();
@@ -12820,7 +12819,7 @@ class _SearchScreenState extends State<SearchScreen>
             if (ProfilePolicyGuard.allowsSync(ProfileFeature.downloads) &&
                 TorrentPlaybackService.supportsDirectStreamDownload(t))
               ListTile(
-                leading: const Icon(
+                leading: Icon(
                   Icons.download_rounded,
                   color: Color(0xFF60A5FA),
                 ),
@@ -13333,7 +13332,7 @@ class _SearchScreenState extends State<SearchScreen>
                   tile('size', 'Size'),
                   tile('date', 'Date added'),
                   tile('name', 'Name'),
-                  const Divider(height: 12),
+                  Divider(height: 12),
                   // Direction toggle — disabled for 'relevance' (engine order).
                   Opacity(
                     opacity: dirEnabled ? 1 : 0.4,
@@ -13341,18 +13340,18 @@ class _SearchScreenState extends State<SearchScreen>
                       padding: const EdgeInsets.symmetric(horizontal: 16),
                       child: Row(
                         children: [
-                          const Expanded(child: Text(AppLocalizations.of(context).t('Direction'))),
+                          Expanded(child: Text(AppLocalizations.of(context).t('Direction'))),
                           ToggleButtons(
                             isSelected: [!_kwSortAsc, _kwSortAsc],
                             onPressed: dirEnabled
                                 ? (i) => applyDir(i == 1)
                                 : null,
                             borderRadius: BorderRadius.circular(8),
-                            constraints: const BoxConstraints(
+                            constraints: BoxConstraints(
                               minHeight: 34,
                               minWidth: 46,
                             ),
-                            children: const [
+                            children: [
                               Icon(Icons.arrow_downward_rounded, size: 18),
                               Icon(Icons.arrow_upward_rounded, size: 18),
                             ],
@@ -14375,7 +14374,7 @@ class _SearchScreenState extends State<SearchScreen>
 
     return Container(
       key: key,
-      margin: const EdgeInsets.only(bottom: 6),
+      margin: EdgeInsets.only(bottom: 6),
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
       decoration: BoxDecoration(
         color: app.fade(app.core.tx, 0.05),
@@ -16309,7 +16308,7 @@ class _SearchScreenState extends State<SearchScreen>
               Align(
                 alignment: Alignment.centerRight,
                 child: Padding(
-                  padding: const EdgeInsets.only(right: 8, top: 4),
+                  padding: EdgeInsets.only(right: 8, top: 4),
                   child: IconButton(
                     icon: const Icon(Icons.close_rounded),
                     tooltip: AppLocalizations.of(context).t('Hide search'),
@@ -18918,7 +18917,7 @@ class _SearchScreenState extends State<SearchScreen>
 
     // Default: Continue Watching.
     return ContinueWatchingSeeAllScreen(
-      key: const ValueKey('disc_cw'),
+      key: ValueKey('disc_cw'),
       title: AppLocalizations.of(context).t('Continue Watching'),
       items: _cwAll,
       progressOf: (m) => _cwCardProgress(_CwKind.local, m),
@@ -20825,7 +20824,7 @@ class _SearchScreenState extends State<SearchScreen>
     final scheme = Theme.of(context).colorScheme;
     return Center(
       child: Padding(
-        padding: const EdgeInsets.all(32),
+        padding: EdgeInsets.all(32),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [

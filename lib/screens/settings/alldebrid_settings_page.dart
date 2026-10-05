@@ -177,7 +177,7 @@ class _AllDebridSettingsPageState extends State<AllDebridSettingsPage> {
         context: context,
         builder: (ctx) => AlertDialog(
           title: Text(AppLocalizations.of(context).t('Hide AllDebrid from navigation?')),
-          content: const Text(
+          content: Text(
             'The AllDebrid tab will be removed from the navigation bar. To show '
             'it again you will need to log out and log back in.',
           ),
@@ -230,7 +230,7 @@ class _AllDebridSettingsPageState extends State<AllDebridSettingsPage> {
   Widget build(BuildContext context) {
     final t = AppThemeScope.of(context).settings;
     if (_loading) {
-      return const SettingsPageScaffold(
+      return SettingsPageScaffold(
         title: AppLocalizations.of(context).t('AllDebrid Settings'),
         body: Center(child: CircularProgressIndicator()),
       );
@@ -241,7 +241,7 @@ class _AllDebridSettingsPageState extends State<AllDebridSettingsPage> {
     return SettingsPageScaffold(
       title: AppLocalizations.of(context).t('AllDebrid Settings'),
       body: SingleChildScrollView(
-        padding: const EdgeInsets.all(16),
+        padding: EdgeInsets.all(16),
         child: Center(
           child: ConstrainedBox(
             constraints: const BoxConstraints(maxWidth: kSettingsMaxWidth),
@@ -257,7 +257,7 @@ class _AllDebridSettingsPageState extends State<AllDebridSettingsPage> {
                       value: _integrationEnabled,
                       onChanged: (value) => _updateIntegrationEnabled(value),
                       title: Text(AppLocalizations.of(context).t('Enable AllDebrid')),
-                      subtitle: const Text(
+                      subtitle: Text(
                         'Turn this off to hide AllDebrid options across the app.',
                       ),
                       contentPadding: const EdgeInsets.symmetric(
@@ -359,7 +359,7 @@ class _AllDebridSettingsPageState extends State<AllDebridSettingsPage> {
                                       ).previousFocus(),
                                       decoration: InputDecoration(
                                         labelText: AppLocalizations.of(context).t('AllDebrid API Key'),
-                                        prefixIcon: const Icon(Icons.security),
+                                        prefixIcon: Icon(Icons.security),
                                         suffixIcon: IconButton(
                                           // Default focus highlight is
                                           // invisible on TV.
@@ -429,7 +429,7 @@ class _AllDebridSettingsPageState extends State<AllDebridSettingsPage> {
                                   ] else ...[
                                     if (_savedApiKey != null) ...[
                                       Container(
-                                        padding: const EdgeInsets.all(12),
+                                        padding: EdgeInsets.all(12),
                                         decoration: BoxDecoration(
                                           color: t.panel2,
                                           borderRadius: BorderRadius.circular(
@@ -492,7 +492,7 @@ class _AllDebridSettingsPageState extends State<AllDebridSettingsPage> {
                                                   }
                                                 });
                                           },
-                                          icon: const Icon(Icons.add),
+                                          icon: Icon(Icons.add),
                                           label: Text(AppLocalizations.of(context).t('Add API Key')),
                                         ),
                                       ),

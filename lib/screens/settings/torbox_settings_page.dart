@@ -220,12 +220,12 @@ class _TorboxSettingsPageState extends State<TorboxSettingsPage> {
       final confirmed = await showDialog<bool>(
         context: context,
         builder: (context) => AlertDialog(
-          title: const Text('Hide Torbox?'),
+          title: Text('Hide Torbox?'),
           content: SingleChildScrollView(
             child: Column(
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: const [
+              children: [
                 Text(
                   'This will hide the Torbox tab from navigation.',
                   style: TextStyle(fontWeight: FontWeight.w500),
@@ -302,7 +302,7 @@ class _TorboxSettingsPageState extends State<TorboxSettingsPage> {
   Widget build(BuildContext context) {
     final t = AppThemeScope.of(context).settings;
     if (_loading) {
-      return const SettingsPageScaffold(
+      return SettingsPageScaffold(
         title: 'Torbox Settings',
         body: Center(child: CircularProgressIndicator()),
       );
@@ -313,7 +313,7 @@ class _TorboxSettingsPageState extends State<TorboxSettingsPage> {
     return SettingsPageScaffold(
       title: 'Torbox Settings',
       body: ListView(
-        padding: const EdgeInsets.all(16),
+        padding: EdgeInsets.all(16),
         children: [
           Center(
             child: ConstrainedBox(
@@ -561,7 +561,7 @@ class _TorboxSettingsPageState extends State<TorboxSettingsPage> {
                                     ] else ...[
                                       if (_savedApiKey != null) ...[
                                         Container(
-                                          padding: const EdgeInsets.all(12),
+                                          padding: EdgeInsets.all(12),
                                           decoration: BoxDecoration(
                                             color: t.panel2,
                                             borderRadius: BorderRadius.circular(
@@ -627,7 +627,7 @@ class _TorboxSettingsPageState extends State<TorboxSettingsPage> {
                                                     }
                                                   });
                                             },
-                                            icon: const Icon(Icons.add),
+                                            icon: Icon(Icons.add),
                                             label: Text(AppLocalizations.of(context).t('Add API Key')),
                                           ),
                                         ),

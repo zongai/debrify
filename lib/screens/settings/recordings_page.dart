@@ -279,7 +279,7 @@ class _RecordingsPageState extends State<RecordingsPage>
     await LiveRecordingService.stop(rec.taskId);
     if (!mounted) return;
     ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(content: Text('Stopping — saving recording…')),
+      SnackBar(content: Text('Stopping — saving recording…')),
     );
     // The engine finalizes and publishes off-process; give it a beat, then
     // let the regular poll settle whatever this misses.
@@ -306,7 +306,7 @@ class _RecordingsPageState extends State<RecordingsPage>
     final confirmed = await showDialog<bool>(
       context: context,
       builder: (dialogContext) => AlertDialog(
-        title: const Text('Cancel recording?'),
+        title: Text('Cancel recording?'),
         content: Text(
           schedule.programmeTitle.isEmpty
               ? schedule.channelName
@@ -355,7 +355,7 @@ class _RecordingsPageState extends State<RecordingsPage>
     final confirmed = await showDialog<bool>(
       context: context,
       builder: (dialogContext) => AlertDialog(
-        title: const Text('Delete recording?'),
+        title: Text('Delete recording?'),
         content: Text(
           '${display.title} (${_fmtBytes(entry.bytes)}) will be removed '
           'from this device.',
@@ -380,7 +380,7 @@ class _RecordingsPageState extends State<RecordingsPage>
     if (!mounted) return;
     if (!ok) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text("Couldn't delete the recording")),
+        SnackBar(content: Text("Couldn't delete the recording")),
       );
     }
     await _loadAll();
@@ -412,7 +412,7 @@ class _RecordingsPageState extends State<RecordingsPage>
     if (!_desktop && !await LiveRecordingService.ensureEngineReady()) {
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
+        SnackBar(
           content: Text('Storage access is needed to save recordings'),
         ),
       );
@@ -427,7 +427,7 @@ class _RecordingsPageState extends State<RecordingsPage>
 
     if (!LiveRecordingService.isSchedulableUrl(choice.url)) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
+        SnackBar(
           content: Text(
             "This channel can't be scheduled — recording needs a direct "
             'TS or Xtream stream',
@@ -507,7 +507,7 @@ class _RecordingsPageState extends State<RecordingsPage>
     if (result.errorCode == 'exact_alarms_required') {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: const Text(
+          content: Text(
             'Allow "Alarms & reminders" for Debrify to schedule recordings',
           ),
           action: SnackBarAction(
@@ -637,7 +637,7 @@ class _RecordingsPageState extends State<RecordingsPage>
       final confirmed = await showDialog<bool>(
         context: context,
         builder: (dialogContext) => AlertDialog(
-          title: const Text("That's a long recording"),
+          title: Text("That's a long recording"),
           content: Text(
             'Recording would run ${hours}h'
             '${minutes > 0 ? ' ${minutes}m' : ''}, '
@@ -993,7 +993,7 @@ class _HubBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.fromLTRB(12, 10, 20, 10),
+      padding: EdgeInsets.fromLTRB(12, 10, 20, 10),
       child: Row(
         children: [
           _HubIconButton(
@@ -1001,7 +1001,7 @@ class _HubBar extends StatelessWidget {
             tooltip: AppLocalizations.of(context).t('Back'),
             onPressed: onBack,
           ),
-          const SizedBox(width: 10),
+          SizedBox(width: 10),
           const Icon(Icons.fiber_manual_record_rounded, color: _kRec, size: 16),
           const SizedBox(width: 8),
           const Text(
@@ -1496,7 +1496,7 @@ class _LibraryRowState extends State<_LibraryRow> {
                 onTap: widget.onPlay,
                 behavior: HitTestBehavior.opaque,
                 child: Padding(
-                  padding: const EdgeInsets.fromLTRB(10, 9, 6, 9),
+                  padding: EdgeInsets.fromLTRB(10, 9, 6, 9),
                   child: Row(
                     children: [
                       _Thumb(
@@ -1527,7 +1527,7 @@ class _LibraryRowState extends State<_LibraryRow> {
                               style: TextStyle(
                                 color: Colors.white.withValues(alpha: 0.5),
                                 fontSize: 11.5,
-                                fontFeatures: const [
+                                fontFeatures: [
                                   FontFeature.tabularFigures(),
                                 ],
                               ),
@@ -1696,7 +1696,7 @@ class _BatteryBanner extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.fromLTRB(14, 12, 6, 12),
+      padding: EdgeInsets.fromLTRB(14, 12, 6, 12),
       decoration: BoxDecoration(
         color: _kRec.withValues(alpha: 0.08),
         borderRadius: BorderRadius.circular(12),

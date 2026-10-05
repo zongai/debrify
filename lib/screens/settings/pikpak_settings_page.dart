@@ -385,7 +385,7 @@ class _PikPakSettingsPageState extends State<PikPakSettingsPage> {
       final confirmed = await showDialog<bool>(
         context: context,
         builder: (context) => AlertDialog(
-          title: const Text('Hide PikPak?'),
+          title: Text('Hide PikPak?'),
           content: SingleChildScrollView(
             child: Column(
               mainAxisSize: MainAxisSize.min,
@@ -490,7 +490,7 @@ class _PikPakSettingsPageState extends State<PikPakSettingsPage> {
     final app = AppThemeScope.of(context);
     final t = app.settings;
     if (_loading) {
-      return const SettingsPageScaffold(
+      return SettingsPageScaffold(
         title: AppLocalizations.of(context).t('PikPak Settings'),
         body: Center(child: CircularProgressIndicator()),
       );
@@ -670,7 +670,7 @@ class _PikPakSettingsPageState extends State<PikPakSettingsPage> {
                           ),
                         ),
                       ),
-                      const SizedBox(height: 16),
+                      SizedBox(height: 16),
 
                       // Post-Torrent Action
                       Card(
@@ -707,7 +707,7 @@ class _PikPakSettingsPageState extends State<PikPakSettingsPage> {
                               SettingsSelectDropdown(
                                 value: _postTorrentAction,
                                 onChanged: _savePostAction,
-                                options: const [
+                                options: [
                                   SettingsSelectOption(
                                     'none',
                                     'None',
@@ -826,7 +826,7 @@ class _PikPakSettingsPageState extends State<PikPakSettingsPage> {
                               )
                             else
                               Padding(
-                                padding: const EdgeInsets.fromLTRB(
+                                padding: EdgeInsets.fromLTRB(
                                   16,
                                   0,
                                   16,
@@ -945,7 +945,7 @@ class _PikPakSettingsPageState extends State<PikPakSettingsPage> {
                               debugPrint('PikPak: Device ID cleared');
                               if (mounted) {
                                 ScaffoldMessenger.of(context).showSnackBar(
-                                  const SnackBar(
+                                  SnackBar(
                                     content: Text(
                                       'Device ID cleared. Try logging in again.',
                                     ),
@@ -953,7 +953,7 @@ class _PikPakSettingsPageState extends State<PikPakSettingsPage> {
                                 );
                               }
                             },
-                            icon: const Icon(Icons.refresh, size: 18),
+                            icon: Icon(Icons.refresh, size: 18),
                             label: const Text('Reset Device ID'),
                           ),
                         ),

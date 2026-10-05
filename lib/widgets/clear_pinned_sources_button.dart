@@ -24,7 +24,7 @@ class _ClearPinnedSourcesButtonState extends State<ClearPinnedSourcesButton> {
     } catch (_) {
       if (mounted) {
         ScaffoldMessenger.maybeOf(context)?.showSnackBar(
-          const SnackBar(
+          SnackBar(
             content: Text('Could not clear pinned sources. Please try again.'),
           ),
         );

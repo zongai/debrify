@@ -222,7 +222,7 @@ class _StremioTvSettingsPageState extends State<StremioTvSettingsPage> {
     return SettingsPageScaffold(
       title: 'Stremio TV Settings',
       body: _loading
-          ? const Center(child: CircularProgressIndicator())
+          ? Center(child: CircularProgressIndicator())
           : SingleChildScrollView(
               padding: const EdgeInsets.all(16),
               child: Center(
@@ -343,12 +343,12 @@ class _StremioTvSettingsPageState extends State<StremioTvSettingsPage> {
                                   ),
                                 ],
                               ),
-                              const Divider(height: 32),
+                              Divider(height: 32),
                               // Auto-refresh toggle
                               SwitchListTile(
                                 contentPadding: EdgeInsets.zero,
                                 title: Text(AppLocalizations.of(context).t('Auto-refresh')),
-                                subtitle: const Text(
+                                subtitle: Text(
                                   'Automatically refresh progress bars and detect rotation changes',
                                 ),
                                 value: _autoRefresh,
@@ -388,7 +388,7 @@ class _StremioTvSettingsPageState extends State<StremioTvSettingsPage> {
                                   DropdownButton<String>(
                                     value: _preferredQuality,
                                     dropdownColor: t.panel2,
-                                    items: const [
+                                    items: [
                                       DropdownMenuItem(
                                         value: 'auto',
                                         child: Text(AppLocalizations.of(context).t('Auto')),

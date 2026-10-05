@@ -215,7 +215,7 @@ class _IptvHiddenCategoriesPageState extends State<IptvHiddenCategoriesPage> {
   // the row on screen — that would show a rule that doesn't exist.
   void _showWriteFailure() {
     ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(content: Text('Couldn\'t save — try again')),
+      SnackBar(content: Text('Couldn\'t save — try again')),
     );
   }
 
@@ -419,7 +419,7 @@ class _IptvHiddenCategoriesPageState extends State<IptvHiddenCategoriesPage> {
             TvTextField(
               controller: _searchController,
               onChanged: (v) => setState(() => _query = v.trim()),
-              decoration: const InputDecoration(
+              decoration: InputDecoration(
                 isDense: true,
                 hintText: 'Filter categories…',
                 prefixIcon: Icon(Icons.search_rounded, size: 18),

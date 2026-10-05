@@ -110,7 +110,7 @@ class _RemoteRolePickerScreenState extends State<RemoteRolePickerScreen> {
   void _showNetworkError() {
     if (!mounted) return;
     ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(
+      SnackBar(
         content: Text(
           'Could not start Remote. Allow local network access and retry.',
         ),
@@ -144,7 +144,7 @@ class _RemoteRolePickerScreenState extends State<RemoteRolePickerScreen> {
                   return Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const SizedBox(height: 8),
+                      SizedBox(height: 8),
                       const Text(
                         'How will this device take part?',
                         style: TextStyle(
@@ -177,7 +177,7 @@ class _RemoteRolePickerScreenState extends State<RemoteRolePickerScreen> {
                                   subtitle:
                                       'Control another device or push your '
                                       'addons, channels, and setup to it.',
-                                  bullets: const [
+                                  bullets: [
                                     'Navigate with a D-pad',
                                     'Send setup, addons, channels',
                                     'Pair over Wi-Fi',
@@ -185,7 +185,7 @@ class _RemoteRolePickerScreenState extends State<RemoteRolePickerScreen> {
                                   onTap: _openSender,
                                 ),
                               ),
-                              const SizedBox(width: 16),
+                              SizedBox(width: 16),
                               Expanded(
                                 child: _RoleCard(
                                   focusNode: _recvFocus,

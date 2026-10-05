@@ -616,7 +616,7 @@ class _AddonHubScreenState extends State<AddonHubScreen> {
       await Clipboard.setData(ClipboardData(text: m.configureUrl));
       if (!mounted) return;
       messenger.showSnackBar(
-        const SnackBar(
+        SnackBar(
           content: Text(
             'Configure link copied — open it in a browser, then '
             'paste the configured URL into "Add addon".',
@@ -873,14 +873,14 @@ class _AddonHubScreenState extends State<AddonHubScreen> {
               autofocus: true,
               initialValue: value,
               maxLength: 60,
-              decoration: const InputDecoration(
+              decoration: InputDecoration(
                 labelText: AppLocalizations.of(context).t('Display name'),
                 hintText: AppLocalizations.of(context).t('For example, AIOStreams Main'),
               ),
               onChanged: (next) => value = next,
               onFieldSubmitted: (next) => Navigator.of(ctx).pop(next.trim()),
             ),
-            const SizedBox(height: 8),
+            SizedBox(height: 8),
             Text(
               'Manifest name: ${a.name}',
               style: TextStyle(
@@ -1073,7 +1073,7 @@ class _AddonHubScreenState extends State<AddonHubScreen> {
                   a.description!,
                   style: TextStyle(color: app.fade(app.core.tx, 0.8)),
                 ),
-                const SizedBox(height: 14),
+                SizedBox(height: 14),
               ],
               if (a.userAlias != null) _detailRow('Manifest name', a.name),
               _detailRow('ID', a.id),
@@ -1523,7 +1523,7 @@ class _AddonHubScreenState extends State<AddonHubScreen> {
         borderRadius: app.shape.br(11),
         border: Border.all(color: app.seeAll.line),
       ),
-      padding: const EdgeInsets.symmetric(horizontal: 12),
+      padding: EdgeInsets.symmetric(horizontal: 12),
       child: Row(
         children: [
           Icon(
@@ -2397,7 +2397,7 @@ class _AddonMeta extends StatelessWidget {
           ),
         ),
         if (_capabilities(resources).isNotEmpty || warnDebrid) ...[
-          const SizedBox(height: 9),
+          SizedBox(height: 9),
           Wrap(
             spacing: 6,
             runSpacing: 6,
@@ -2911,7 +2911,7 @@ class _AddonOptionsSheet extends StatelessWidget {
     final app = AppThemeScope.of(context);
     return SafeArea(
       child: Padding(
-        padding: const EdgeInsets.fromLTRB(16, 12, 16, 16),
+        padding: EdgeInsets.fromLTRB(16, 12, 16, 16),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.stretch,

@@ -1312,7 +1312,7 @@ class _StageState extends State<_Stage> with TickerProviderStateMixin {
                   app.home.bg.withValues(alpha: 0.50),
                   widget.ident.withValues(alpha: 0.06),
                 ],
-                stops: const [0.0, 0.55, 1.0],
+                stops: [0.0, 0.55, 1.0],
               ),
             ),
           ),

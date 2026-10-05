@@ -314,7 +314,7 @@ class _IndexerManagersSettingsPageState
   }
 
   Widget _buildHeader(BuildContext context) {
-    return const SettingsPageHeader(
+    return SettingsPageHeader(
       icon: Icons.manage_search_rounded,
       title: AppLocalizations.of(context).t('Indexer Managers'),
       subtitle:
@@ -406,7 +406,7 @@ class _IndexerManagersSettingsPageState
           onPressed: config.connectionReadOnly
               ? null
               : () => _testConfig(config),
-          icon: const Icon(Icons.network_check_rounded),
+          icon: Icon(Icons.network_check_rounded),
           tooltip: AppLocalizations.of(context).t('Test connection'),
         ),
         IconButton(
@@ -415,7 +415,7 @@ class _IndexerManagersSettingsPageState
           onPressed: config.connectionReadOnly
               ? null
               : () => _openEditor(config),
-          icon: const Icon(Icons.edit_rounded),
+          icon: Icon(Icons.edit_rounded),
           tooltip: AppLocalizations.of(context).t('Edit'),
         ),
         IconButton(
@@ -424,7 +424,7 @@ class _IndexerManagersSettingsPageState
           onPressed: config.connectionReadOnly
               ? null
               : () => _deleteConfig(config),
-          icon: const Icon(Icons.delete_outline_rounded),
+          icon: Icon(Icons.delete_outline_rounded),
           tooltip: AppLocalizations.of(context).t('Delete'),
         ),
       ],
@@ -586,7 +586,7 @@ class _IndexerManagerEditorDialogState
     final theme = Theme.of(context);
 
     return Dialog(
-      insetPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
+      insetPadding: EdgeInsets.symmetric(horizontal: 16, vertical: 24),
       child: ConstrainedBox(
         constraints: BoxConstraints(
           maxWidth: dialogWidth,
@@ -631,7 +631,7 @@ class _IndexerManagerEditorDialogState
                           setState(() => _type = value);
                         },
                       ),
-                      const SizedBox(height: 14),
+                      SizedBox(height: 14),
                       TvTextField(
                         controller: _nameController,
                         focusNode: _nameFocusNode,
@@ -647,7 +647,7 @@ class _IndexerManagerEditorDialogState
                         focusNode: _urlFocusNode,
                         decoration: _engineFieldDecoration(
                           context,
-                          const InputDecoration(
+                          InputDecoration(
                             labelText: 'Base URL',
                             hintText: 'http://localhost:9117',
                           ),
@@ -671,7 +671,7 @@ class _IndexerManagerEditorDialogState
                         focusNode: _apiKeyFocusNode,
                         decoration: _engineFieldDecoration(
                           context,
-                          const InputDecoration(labelText: 'API key'),
+                          InputDecoration(labelText: 'API key'),
                         ),
                         obscureText: true,
                         textInputAction: TextInputAction.next,
@@ -689,7 +689,7 @@ class _IndexerManagerEditorDialogState
                           focusNode: _jackettIndexerFocusNode,
                           decoration: _engineFieldDecoration(
                             context,
-                            const InputDecoration(
+                            InputDecoration(
                               labelText: 'Jackett indexer ID',
                               hintText: 'all',
                             ),
@@ -703,7 +703,7 @@ class _IndexerManagerEditorDialogState
                         focusNode: _categoriesFocusNode,
                         decoration: _engineFieldDecoration(
                           context,
-                          const InputDecoration(
+                          InputDecoration(
                             labelText: 'Categories',
                             hintText: '2000,5000',
                           ),
@@ -714,7 +714,7 @@ class _IndexerManagerEditorDialogState
                       const SizedBox(height: 14),
                       DropdownButtonFormField<int>(
                         value: _maxResults,
-                        decoration: const InputDecoration(
+                        decoration: InputDecoration(
                           labelText: 'Max results',
                         ),
                         isExpanded: true,
@@ -732,13 +732,13 @@ class _IndexerManagerEditorDialogState
                           }
                         },
                       ),
-                      const SizedBox(height: 14),
+                      SizedBox(height: 14),
                       TvTextField(
                         controller: _timeoutController,
                         focusNode: _timeoutFocusNode,
                         decoration: _engineFieldDecoration(
                           context,
-                          const InputDecoration(
+                          InputDecoration(
                             labelText: 'Timeout seconds',
                             hintText: '20 (5–600)',
                           ),
@@ -766,7 +766,7 @@ class _IndexerManagerEditorDialogState
               ),
             ),
             Padding(
-              padding: const EdgeInsets.fromLTRB(24, 8, 24, 24),
+              padding: EdgeInsets.fromLTRB(24, 8, 24, 24),
               child: Wrap(
                 alignment: WrapAlignment.end,
                 spacing: 12,

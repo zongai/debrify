@@ -172,7 +172,7 @@ class _ImportedLaunchAnimationsState extends State<ImportedLaunchAnimations> {
           },
         ),
       if (PlatformUtil.isTelevision)
-        const Padding(
+        Padding(
           padding: EdgeInsets.all(16),
           child: Text(
             'You can also send an animation from a paired Debrify phone or computer. Open its imported animation and choose Send to TV.',
@@ -395,7 +395,7 @@ class _ImportedLaunchDetailState extends State<ImportedLaunchDetail> {
       await remote.sendLaunchAnimation(target.ip, entry);
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
+          SnackBar(
             content: Text(
               'Imported on the receiving device. Preview and select it in Launch Animation settings.',
             ),
@@ -446,7 +446,7 @@ class _ImportedLaunchDetailState extends State<ImportedLaunchDetail> {
       context: context,
       builder: (context) => AlertDialog(
         title: Text('Remove ${widget.entry.name}?'),
-        content: const Text(
+        content: Text(
           'This removes the animation from this device. Profiles using it will use their built-in animation.',
         ),
         actions: [

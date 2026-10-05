@@ -592,7 +592,7 @@ class _StremioTvGuideSheetState extends State<StremioTvGuideSheet>
     final hasQuery = _searchController.text.isNotEmpty;
 
     return Padding(
-      padding: const EdgeInsets.fromLTRB(20, 0, 20, 10),
+      padding: EdgeInsets.fromLTRB(20, 0, 20, 10),
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 200),
         decoration: BoxDecoration(

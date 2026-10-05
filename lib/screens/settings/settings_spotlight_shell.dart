@@ -308,7 +308,7 @@ class _SettingsSpotlightShellState extends State<SettingsSpotlightShell> {
     final category = widget.categories[_selected];
     final app = AppThemeScope.of(context);
     return ListView(
-      key: const Key('settings-compact-detail'),
+      key: Key('settings-compact-detail'),
       padding: const EdgeInsets.fromLTRB(18, 16, 18, 42),
       children: [
         Row(

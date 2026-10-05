@@ -74,7 +74,7 @@ class _RemoteControlScreenState extends State<RemoteControlScreen> {
     } catch (_) {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
+          SnackBar(
             content: Text('Could not start receiving. Please try again.'),
           ),
         );
@@ -92,7 +92,7 @@ class _RemoteControlScreenState extends State<RemoteControlScreen> {
         !await ProfilePolicyGuard.allows(ProfileFeature.remoteTransfer)) {
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
+        SnackBar(
           content: Text('Setup transfer is disabled for this profile.'),
         ),
       );
@@ -177,7 +177,7 @@ class _RemoteControlScreenState extends State<RemoteControlScreen> {
                                   await state.disconnect();
                                   await _connectSafely(state.rescan);
                                 },
-                          child: const Text('Change'),
+                          child: Text('Change'),
                         ),
                       ),
                       Padding(
@@ -448,7 +448,7 @@ class _RemoteControlScreenState extends State<RemoteControlScreen> {
                   height: 1.4,
                 ),
               ),
-              const SizedBox(height: 16),
+              SizedBox(height: 16),
               Form(
                 key: formKey,
                 child: TextFormField(
@@ -552,7 +552,7 @@ class _RemoteControlScreenState extends State<RemoteControlScreen> {
     } catch (_) {
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
+        SnackBar(
           content: Text(
             'Could not start the connection. Check local network access and retry.',
           ),
@@ -737,12 +737,12 @@ class _RemoteControlScreenState extends State<RemoteControlScreen> {
     } on PlatformException {
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('The image picker is not available.')),
+        SnackBar(content: Text('The image picker is not available.')),
       );
     } catch (_) {
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('That avatar could not be sent.')),
+        SnackBar(content: Text('That avatar could not be sent.')),
       );
     } finally {
       if (mounted) setState(() => _sendingAvatar = false);
@@ -857,7 +857,7 @@ class _RemoteControlScreenState extends State<RemoteControlScreen> {
                     NavigateCommand.back,
                   );
                 },
-                icon: const Icon(Icons.arrow_back, size: 20),
+                icon: Icon(Icons.arrow_back, size: 20),
                 label: Text(AppLocalizations.of(context).t('Back')),
                 style: OutlinedButton.styleFrom(
                   foregroundColor: AppThemeScope.of(context).core.tx,

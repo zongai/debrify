@@ -869,7 +869,7 @@ class PlayerMenuPanelState extends State<PlayerMenuPanel>
         case AddonSubtitleStatus.ok:
           if (slot.subtitles.isEmpty) {
             rows.add(
-              const _MenuRow(
+              _MenuRow(
                 label: AppLocalizations.of(context).t('No subtitles from this add-on'),
                 note: true,
               ),

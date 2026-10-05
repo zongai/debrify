@@ -243,7 +243,7 @@ class LemmyResultsViewState extends State<LemmyResultsView> {
 
       if (post == null) {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('No random video found — try again')),
+          SnackBar(content: Text('No random video found — try again')),
         );
         return;
       }
@@ -263,7 +263,7 @@ class LemmyResultsViewState extends State<LemmyResultsView> {
   Future<YoutubeResolvedStreams?> _resolveYouTube(LemmyVideoPost post) async {
     if (mounted) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
+        SnackBar(
           content: Row(
             children: [
               SizedBox(
@@ -298,7 +298,7 @@ class LemmyResultsViewState extends State<LemmyResultsView> {
     if (playUrl == null && post.isRedgifs) {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
+          SnackBar(
             content: Row(
               children: [
                 SizedBox(
@@ -335,7 +335,7 @@ class LemmyResultsViewState extends State<LemmyResultsView> {
     if (playUrl == null) {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('No playable video found')),
+          SnackBar(content: Text('No playable video found')),
         );
       }
       return;
@@ -361,7 +361,7 @@ class LemmyResultsViewState extends State<LemmyResultsView> {
     if (downloadUrl == null && post.isRedgifs) {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
+          SnackBar(
             content: Row(
               children: [
                 SizedBox(
@@ -393,7 +393,7 @@ class LemmyResultsViewState extends State<LemmyResultsView> {
     if (downloadUrl == null) {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('No downloadable video found')),
+          SnackBar(content: Text('No downloadable video found')),
         );
       }
       return;
@@ -416,7 +416,7 @@ class LemmyResultsViewState extends State<LemmyResultsView> {
 
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Added to downloads')),
+        SnackBar(content: Text('Added to downloads')),
       );
     } catch (e) {
       if (!mounted) return;

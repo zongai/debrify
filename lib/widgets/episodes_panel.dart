@@ -1104,7 +1104,7 @@ class EpisodesPanelState extends State<EpisodesPanel> {
       show = await _stremioService.scopeSeriesProgress(show, widget.addon);
     } on StateError {
       if (mounted && generation == _episodeModeGeneration) {
-        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
           content: Text('Could not verify series episodes. Please retry.'),
         ));
       }
@@ -2255,7 +2255,7 @@ class EpisodesPanelState extends State<EpisodesPanel> {
       }
       if (!mounted) return;
       if (season == null || season.episodes.isEmpty) {
-        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Could not load season episodes. Please retry.')));
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Could not load season episodes. Please retry.')));
         return;
       }
       final episodeNumbers = season.episodes.map((e) => e.number).toList();
@@ -2305,7 +2305,7 @@ class EpisodesPanelState extends State<EpisodesPanel> {
         ? 'Season $number marked $action $name.'
         : 'Could not mark $failures episodes $action $name. Reopen the season menu to retry.')));
     } catch (_) {
-      if (mounted) ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+      if (mounted) ScaffoldMessenger.of(context).showSnackBar(SnackBar(
         content: Text('Could not update season watch status. Please retry.')));
     } finally { _seasonActionBusy = false; }
   }

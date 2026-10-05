@@ -106,7 +106,7 @@ class IptvCommandRail extends StatelessWidget {
             ),
       child: FocusTraversalGroup(
         child: ListView(
-          padding: const EdgeInsets.fromLTRB(8, 14, 8, 10),
+          padding: EdgeInsets.fromLTRB(8, 14, 8, 10),
           children: [
             _RailHeader('LIBRARY', tokens: t, first: true),
             for (final p in favorites)
@@ -179,7 +179,7 @@ class IptvCommandRail extends StatelessWidget {
             // whatever list ends above it.
             Container(
               height: 1,
-              margin: const EdgeInsets.fromLTRB(10, 14, 10, 10),
+              margin: EdgeInsets.fromLTRB(10, 14, 10, 10),
               color: t?.hairline ?? app.iptv.hairline,
             ),
             _RailItem(

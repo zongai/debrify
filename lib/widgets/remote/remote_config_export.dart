@@ -482,8 +482,7 @@ class RemoteConfigExportState extends State<RemoteConfigExport> {
     final connectedDevice = RemoteControlState().connectedDevice;
     if (connectedDevice == null) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text(AppLocalizations.of(context).t('No TV connected')),
+        SnackBar(content: Text(AppLocalizations.of(context).t('No TV connected')),
           backgroundColor: Color(0xFFEF4444),
           behavior: SnackBarBehavior.floating,
         ),
@@ -941,8 +940,7 @@ class RemoteConfigExportState extends State<RemoteConfigExport> {
           );
         } else if (successCount == 0) {
           ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(
-              content: Text(AppLocalizations.of(context).t('Failed to send configuration')),
+            SnackBar(content: Text(AppLocalizations.of(context).t('Failed to send configuration')),
               backgroundColor: Color(0xFFEF4444),
               behavior: SnackBarBehavior.floating,
             ),
@@ -965,8 +963,7 @@ class RemoteConfigExportState extends State<RemoteConfigExport> {
       debugPrint('RemoteConfigExport: setup send failed');
       if (mounted && !widget.headless) {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Text(AppLocalizations.of(context).t('Failed to send configuration')),
+          SnackBar(content: Text(AppLocalizations.of(context).t('Failed to send configuration')),
             backgroundColor: Color(0xFFEF4444),
             behavior: SnackBarBehavior.floating,
           ),
@@ -990,7 +987,7 @@ class RemoteConfigExportState extends State<RemoteConfigExport> {
         // Back to menu button
         TextButton.icon(
           onPressed: widget.onBack,
-          icon: const Icon(Icons.arrow_back, size: 18),
+          icon: Icon(Icons.arrow_back, size: 18),
           label: Text(AppLocalizations.of(context).t('Back to menu')),
           style: TextButton.styleFrom(
             foregroundColor: Colors.white.withValues(alpha: 0.7),
@@ -1447,7 +1444,7 @@ class RemoteConfigExportState extends State<RemoteConfigExport> {
                           HapticFeedback.selectionClick();
                           setState(() => item.selected = value ?? false);
                         },
-                        activeColor: const Color(0xFF6366F1),
+                        activeColor: Color(0xFF6366F1),
                         side: BorderSide(
                           color: Colors.white.withValues(alpha: 0.3),
                         ),

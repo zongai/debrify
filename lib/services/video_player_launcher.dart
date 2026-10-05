@@ -793,7 +793,7 @@ class VideoPlayerLauncher {
           context: context,
           barrierDismissible: false,
           builder: (dialogContext) => AlertDialog(
-            title: const Text('External player unavailable'),
+            title: Text('External player unavailable'),
             content: const Text(
               'This server requires authentication. Debrify cannot pass '
               'the required authorization headers to another app, so this video '
@@ -1521,7 +1521,7 @@ class VideoPlayerLauncher {
     if (!await ProfilePolicyGuard.allows(ProfileFeature.externalPlayers)) {
       if (context.mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
+          SnackBar(
             content: Text('External players are disabled for this profile.'),
           ),
         );
@@ -1901,7 +1901,7 @@ class VideoPlayerLauncher {
 
       if (context.mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
+          SnackBar(
             content: Text('Launching DeoVR...'),
             duration: Duration(seconds: 2),
           ),
@@ -1948,7 +1948,7 @@ class VideoPlayerLauncher {
     return await showDialog<bool>(
           context: context,
           builder: (dialogContext) => AlertDialog(
-            title: const Text('Share stream with another app?'),
+            title: Text('Share stream with another app?'),
             content: const Text(
               'This stream address may contain a short-lived account token. '
               'The selected player will be able to read it.',
@@ -2006,7 +2006,7 @@ class VideoPlayerLauncher {
               DropdownButtonFormField<String>(
                 value: selectedScreenType,
                 isExpanded: true,
-                decoration: const InputDecoration(
+                decoration: InputDecoration(
                   border: OutlineInputBorder(),
                   contentPadding: EdgeInsets.symmetric(
                     horizontal: 12,
@@ -2032,7 +2032,7 @@ class VideoPlayerLauncher {
               DropdownButtonFormField<String>(
                 value: selectedStereoMode,
                 isExpanded: true,
-                decoration: const InputDecoration(
+                decoration: InputDecoration(
                   border: OutlineInputBorder(),
                   contentPadding: EdgeInsets.symmetric(
                     horizontal: 12,
@@ -2058,7 +2058,7 @@ class VideoPlayerLauncher {
             ),
             FilledButton.icon(
               onPressed: () => Navigator.of(context).pop(true),
-              icon: const Icon(Icons.play_arrow),
+              icon: Icon(Icons.play_arrow),
               label: Text(AppLocalizations.of(context).t('Play')),
             ),
           ],

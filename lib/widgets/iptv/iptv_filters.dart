@@ -718,7 +718,7 @@ class _ContentTypeToggleState extends State<_ContentTypeToggle> {
         onTap: _toggle,
         behavior: HitTestBehavior.opaque,
         child: AnimatedContainer(
-          duration: const Duration(milliseconds: 150),
+          duration: Duration(milliseconds: 150),
           padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 4),
           decoration: BoxDecoration(
             color: app.seeAll.panel,

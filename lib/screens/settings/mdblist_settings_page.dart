@@ -173,7 +173,7 @@ class _MdblistSettingsPageState extends State<MdblistSettingsPage> {
   @override
   Widget build(BuildContext context) {
     if (_loading) {
-      return const SettingsPageScaffold(
+      return SettingsPageScaffold(
         title: AppLocalizations.of(context).t('MDBList Settings'),
         body: Center(child: CircularProgressIndicator()),
       );
@@ -283,7 +283,7 @@ class _MdblistSettingsPageState extends State<MdblistSettingsPage> {
           onUpArrow: () => FocusScope.of(context).previousFocus(),
           decoration: InputDecoration(
             labelText: 'MDBList API Key',
-            prefixIcon: const Icon(Icons.security),
+            prefixIcon: Icon(Icons.security),
             suffixIcon: IconButton(
               focusColor: t.accent.withValues(alpha: 0.4),
               icon: Icon(_obscure ? Icons.visibility : Icons.visibility_off),
@@ -345,7 +345,7 @@ class _MdblistSettingsPageState extends State<MdblistSettingsPage> {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         Container(
-          padding: const EdgeInsets.all(12),
+          padding: EdgeInsets.all(12),
           decoration: BoxDecoration(
             color: t.panel2,
             borderRadius: BorderRadius.circular(8),
@@ -396,7 +396,7 @@ class _MdblistSettingsPageState extends State<MdblistSettingsPage> {
             if (mounted) _apiKeyFocusNode.requestFocus();
           });
         },
-        icon: const Icon(Icons.add),
+        icon: Icon(Icons.add),
         label: Text(AppLocalizations.of(context).t('Add API Key')),
       ),
     );

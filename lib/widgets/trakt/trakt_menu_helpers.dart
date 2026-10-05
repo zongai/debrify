@@ -117,7 +117,7 @@ Future<Map<String, dynamic>?> showTraktCustomListPickerDialog(
   if (!context.mounted) return null;
   if (lists.isEmpty) {
     ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(
+      SnackBar(
         content: Text('No custom lists found. Create one on Trakt first.'),
         backgroundColor: Color(0xFFEF4444),
       ),
@@ -286,7 +286,7 @@ Future<void> handleTraktMenuAction(
       final confirmed = await showDialog<bool>(
         context: context,
         builder: (ctx) => AlertDialog(
-          title: const Text('Clear watch progress?'),
+          title: Text('Clear watch progress?'),
           content: Text(
             CustomSeriesIdentity.isCustom(imdbId)
             ? 'Clear watched history and resume progress for ${item.name} on this device?\n\nSaved sources are kept. This cannot be undone.'
@@ -311,7 +311,7 @@ Future<void> handleTraktMenuAction(
       showDialog<void>(
         context: context,
         barrierDismissible: false,
-        builder: (_) => const PopScope(
+        builder: (_) => PopScope(
           canPop: false,
           child: AlertDialog(
             content: Row(
@@ -426,7 +426,7 @@ List<TraktMenuOption> buildTraktAddOnlyMenuOptions({
       TraktMenuOption(
         action: TraktItemMenuAction.selectSource,
         icon: hasBoundSource ? Icons.edit_rounded : Icons.link_rounded,
-        color: const Color(0xFF60A5FA),
+        color: Color(0xFF60A5FA),
         label: hasBoundSource
             ? (isMovie ? 'Edit Source' : 'Edit Sources')
             : 'Select Source',

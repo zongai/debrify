@@ -2403,8 +2403,7 @@ class _StremioTvScreenState extends State<StremioTvScreen> {
     if (nowPlaying == null) {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Text(AppLocalizations.of(context).t('No items available for this channel')),
+          SnackBar(content: Text(AppLocalizations.of(context).t('No items available for this channel')),
           ),
         );
       }
@@ -2499,8 +2498,7 @@ class _StremioTvScreenState extends State<StremioTvScreen> {
     if (!mounted) return;
     if (payload == null) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text(AppLocalizations.of(context).t('Local catalog could not be found')),
+        SnackBar(content: Text(AppLocalizations.of(context).t('Local catalog could not be found')),
           behavior: SnackBarBehavior.floating,
         ),
       );
@@ -2708,7 +2706,7 @@ class _StremioTvScreenState extends State<StremioTvScreen> {
               children: [
                 // Premium header bar
                 Container(
-                  padding: const EdgeInsets.fromLTRB(20, 6, 20, 0),
+                  padding: EdgeInsets.fromLTRB(20, 6, 20, 0),
                   decoration: BoxDecoration(
                     gradient: LinearGradient(
                       begin: Alignment.topCenter,
@@ -2964,7 +2962,7 @@ class _StremioTvScreenState extends State<StremioTvScreen> {
                                     label: 'Shuffle (Mix ${_mixSalt + 1})',
                                   ),
                                   MenuItemButton(
-                                    leadingIcon: const Icon(
+                                    leadingIcon: Icon(
                                       Icons.refresh_rounded,
                                     ),
                                     onPressed: _refreshing
@@ -2973,12 +2971,12 @@ class _StremioTvScreenState extends State<StremioTvScreen> {
                                     child: Text(AppLocalizations.of(context).t('Refresh')),
                                   ),
                                   MenuItemButton(
-                                    leadingIcon: const Icon(Icons.tune_rounded),
+                                    leadingIcon: Icon(Icons.tune_rounded),
                                     onPressed: () => _openChannelFilter(),
                                     child: Text(AppLocalizations.of(context).t('Filter channels')),
                                   ),
                                   MenuItemButton(
-                                    leadingIcon: const Icon(
+                                    leadingIcon: Icon(
                                       Icons.settings_rounded,
                                     ),
                                     onPressed: _openStremioTvSettings,
@@ -2986,7 +2984,7 @@ class _StremioTvScreenState extends State<StremioTvScreen> {
                                   ),
                                   SubmenuButton(
                                     focusNode: _submenuFocusNode,
-                                    leadingIcon: const Icon(
+                                    leadingIcon: Icon(
                                       Icons.playlist_add_rounded,
                                     ),
                                     menuChildren: [

@@ -439,7 +439,7 @@ class _EngineImportPageContentState extends State<EngineImportPageContent> {
     if (_error != null) {
       return Center(
         child: Padding(
-          padding: const EdgeInsets.all(24),
+          padding: EdgeInsets.all(24),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             mainAxisSize: MainAxisSize.min,
@@ -593,7 +593,7 @@ class _EngineImportPageContentState extends State<EngineImportPageContent> {
             filled: true,
           ),
         ),
-        const SizedBox(width: 10),
+        SizedBox(width: 10),
         Expanded(
           child: _EnginePillButton(
             focusNode: _refreshButtonFocusNode,
@@ -1269,13 +1269,13 @@ class _EngineImportPageState extends State<EngineImportPage> {
           IconButton(
             focusNode: _importLocalButtonFocusNode,
             onPressed: _isLoading ? null : _importFromLocalFile,
-            icon: const Icon(Icons.folder_open),
+            icon: Icon(Icons.folder_open),
             tooltip: AppLocalizations.of(context).t('Import from Local File'),
           ),
           IconButton(
             focusNode: _refreshButtonFocusNode,
             onPressed: _isLoading ? null : _loadEngines,
-            icon: const Icon(Icons.refresh),
+            icon: Icon(Icons.refresh),
             tooltip: AppLocalizations.of(context).t('Refresh'),
           ),
         ],
@@ -1289,7 +1289,7 @@ class _EngineImportPageState extends State<EngineImportPage> {
 
   Widget _buildBody() {
     if (_isLoading) {
-      return const Center(
+      return Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -1304,7 +1304,7 @@ class _EngineImportPageState extends State<EngineImportPage> {
     if (_error != null) {
       return Center(
         child: Padding(
-          padding: const EdgeInsets.all(24),
+          padding: EdgeInsets.all(24),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [

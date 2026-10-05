@@ -44,7 +44,7 @@ class _PlaybackSettingsPageState extends State<PlaybackSettingsPage> {
   Widget build(BuildContext context) => SettingsPageScaffold(
     title: AppLocalizations.of(context).t('Playback'),
     body: SingleChildScrollView(
-      padding: const EdgeInsets.all(16),
+      padding: EdgeInsets.all(16),
       child: Center(
         child: ConstrainedBox(
           constraints: const BoxConstraints(maxWidth: kSettingsMaxWidth),

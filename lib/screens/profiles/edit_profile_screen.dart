@@ -275,7 +275,7 @@ class _TvAutoLockField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => _TvActionSurface(
-    key: const ValueKey('tv-profile-auto-lock'),
+    key: ValueKey('tv-profile-auto-lock'),
     onPressed: () async {
       final selected = await showDialog<int>(
         context: context,
@@ -520,7 +520,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
     final confirmed = await showDialog<bool>(
       context: context,
       builder: (context) => AlertDialog(
-        title: const Text('Transfer connection ownership?'),
+        title: Text('Transfer connection ownership?'),
         content: Text(
           '${target.name} will become the owner of ${resource.label}. '
           'Existing profiles keep their current grants, and the previous '
@@ -555,12 +555,12 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
       await _loadResources();
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Connection ownership transferred')),
+        SnackBar(content: Text('Connection ownership transferred')),
       );
     } catch (_) {
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Connection could not be transferred')),
+        SnackBar(content: Text('Connection could not be transferred')),
       );
     }
   }
@@ -631,12 +631,12 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
     } on PlatformException {
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('The image picker is not available.')),
+        SnackBar(content: Text('The image picker is not available.')),
       );
     } catch (_) {
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('That image could not be opened.')),
+        SnackBar(content: Text('That image could not be opened.')),
       );
     } finally {
       await CacheScratchCleanup.releasePickerCopy(pickerCopy);
@@ -724,7 +724,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
     }
     if (_pin.text.isNotEmpty && !RegExp(r'^\d{4,8}$').hasMatch(_pin.text)) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('PIN must contain 4–8 digits')),
+        SnackBar(content: Text('PIN must contain 4–8 digits')),
       );
       return;
     }
@@ -978,7 +978,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
       setState(() => _saving = false);
       _restoreTvSaveFocus();
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Could not save this profile')),
+        SnackBar(content: Text('Could not save this profile')),
       );
     }
   }
@@ -1200,7 +1200,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
           child: AbsorbPointer(
             absorbing: _saving,
             child: ListView(
-              padding: const EdgeInsets.all(20),
+              padding: EdgeInsets.all(20),
               children: [
                 if (_saving) const LinearProgressIndicator(),
                 _sectionLabel('Avatar'),
@@ -1267,7 +1267,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                     alignment: Alignment.centerLeft,
                     child: TextButton.icon(
                       onPressed: _saving ? null : _removePinAsAdmin,
-                      icon: const Icon(Icons.lock_open_rounded),
+                      icon: Icon(Icons.lock_open_rounded),
                       label: const Text('Admin reset: remove PIN'),
                     ),
                   ),
@@ -1298,7 +1298,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                 _sectionLabel('Access'),
                 if (_setupLoadError != null)
                   ListTile(
-                    leading: const Icon(Icons.error_outline_rounded),
+                    leading: Icon(Icons.error_outline_rounded),
                     title: Text(_setupLoadError!),
                     trailing: TextButton(
                       onPressed: _loadSetupOptions,
@@ -1306,7 +1306,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                     ),
                   )
                 else if (_engines == null)
-                  const LinearProgressIndicator()
+                  LinearProgressIndicator()
                 else ...[
                   _buildEngineGroup(),
                   ..._buildConnectionGroups(),
@@ -1818,7 +1818,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         SizedBox(width: 230, child: _buildTvProfilePreview(colors)),
-        const SizedBox(width: 18),
+        SizedBox(width: 18),
         Expanded(
           child: _tvPanel(
             child: SingleChildScrollView(
@@ -2170,7 +2170,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
 
   Widget _buildTvAccessSection() => Center(
     child: ConstrainedBox(
-      constraints: const BoxConstraints(maxWidth: 1100),
+      constraints: BoxConstraints(maxWidth: 1100),
       child: _tvPanel(
         child: SingleChildScrollView(
           padding: const EdgeInsets.all(28),
@@ -2307,11 +2307,11 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
       if (!mounted) return;
       ScaffoldMessenger.of(
         context,
-      ).showSnackBar(const SnackBar(content: Text('PIN protection removed')));
+      ).showSnackBar(SnackBar(content: Text('PIN protection removed')));
     } catch (_) {
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('PIN protection was not changed')),
+        SnackBar(content: Text('PIN protection was not changed')),
       );
     }
   }
@@ -2551,7 +2551,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
           style: Theme.of(context).textTheme.bodySmall,
         ),
         if (engines.isEmpty)
-          const ListTile(
+          ListTile(
             leading: Icon(Icons.travel_explore_rounded),
             title: Text('No torrent engines installed'),
             subtitle: Text(
@@ -2692,7 +2692,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
     VoidCallback? onAll,
     VoidCallback? onNone,
   }) => Padding(
-    padding: const EdgeInsets.only(top: 16, bottom: 2),
+    padding: EdgeInsets.only(top: 16, bottom: 2),
     child: Row(
       children: [
         Text(label, style: Theme.of(context).textTheme.titleSmall),

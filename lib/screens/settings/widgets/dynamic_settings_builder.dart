@@ -51,7 +51,7 @@ Widget _stepDropdown(
   return DropdownButtonFormField<int>(
     value: value,
     isExpanded: true,
-    decoration: const InputDecoration(),
+    decoration: InputDecoration(),
     onChanged: (v) {
       if (v != null) onChanged(v);
     },

@@ -1234,7 +1234,7 @@ class _CollectionFolderScreenState extends State<CollectionFolderScreen> {
       context: context,
       builder: (context) => AlertDialog(
         scrollable: true,
-        title: const Text('Collection details'),
+        title: Text('Collection details'),
         content: Text(detail),
         actions: [
           TextButton(
@@ -1836,7 +1836,7 @@ class _CollectionFolderScreenState extends State<CollectionFolderScreen> {
                   child: OutlinedButton.icon(
                     focusNode: _retryNode,
                     onPressed: _retryCurrent,
-                    icon: const Icon(Icons.refresh_rounded, size: 18),
+                    icon: Icon(Icons.refresh_rounded, size: 18),
                     label: Text(AppLocalizations.of(context).t('Retry')),
                     style: OutlinedButton.styleFrom(
                       foregroundColor: app.core.tx,

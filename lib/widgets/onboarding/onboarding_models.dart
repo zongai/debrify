@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../l10n/app_localizations.dart';
 
 enum OnboardStep { mode, services, key, engines, trackers, importing, done }
 
@@ -47,7 +46,7 @@ class IntegrationMeta {
 const Map<IntegrationType, IntegrationMeta> integrationMeta = {
   IntegrationType.realDebrid: IntegrationMeta(
     type: IntegrationType.realDebrid,
-    title: AppLocalizations.of(context).t('Real-Debrid'),
+    title: 'Real-Debrid',
     url: 'https://real-debrid.com/apitoken',
     linkLabel: 'Open token page',
     inputLabel: 'API token',
@@ -59,7 +58,7 @@ const Map<IntegrationType, IntegrationMeta> integrationMeta = {
   ),
   IntegrationType.torbox: IntegrationMeta(
     type: IntegrationType.torbox,
-    title: AppLocalizations.of(context).t('TorBox'),
+    title: 'TorBox',
     url: 'https://torbox.app/settings?section=account',
     linkLabel: 'Open account settings',
     inputLabel: 'API key',
@@ -70,7 +69,7 @@ const Map<IntegrationType, IntegrationMeta> integrationMeta = {
   ),
   IntegrationType.pikpak: IntegrationMeta(
     type: IntegrationType.pikpak,
-    title: AppLocalizations.of(context).t('PikPak'),
+    title: 'PikPak',
     url: 'https://mypikpak.com/drive/login',
     linkLabel: 'Open PikPak',
     inputLabel: 'Email',
@@ -81,7 +80,7 @@ const Map<IntegrationType, IntegrationMeta> integrationMeta = {
   ),
   IntegrationType.premiumize: IntegrationMeta(
     type: IntegrationType.premiumize,
-    title: AppLocalizations.of(context).t('Premiumize'),
+    title: 'Premiumize',
     url: 'https://www.premiumize.me/account',
     linkLabel: 'Open account page',
     inputLabel: 'API key',
@@ -92,7 +91,7 @@ const Map<IntegrationType, IntegrationMeta> integrationMeta = {
   ),
   IntegrationType.allDebrid: IntegrationMeta(
     type: IntegrationType.allDebrid,
-    title: AppLocalizations.of(context).t('AllDebrid'),
+    title: 'AllDebrid',
     url: 'https://alldebrid.com/apikeys',
     linkLabel: 'Open API keys page',
     inputLabel: 'API key',

@@ -485,7 +485,7 @@ class _PikPakFolderPickerDialogState extends State<PikPakFolderPickerDialog> {
               SingleActivator(LogicalKeyboardKey.gameButtonA): ActivateIntent(),
             },
             child: Dialog(
-              insetPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
+              insetPadding: EdgeInsets.symmetric(horizontal: 16, vertical: 24),
               backgroundColor: Colors.transparent,
               child: LayoutBuilder(
                 builder: (context, constraints) {
@@ -608,7 +608,7 @@ class _PikPakFolderPickerDialogState extends State<PikPakFolderPickerDialog> {
                               },
                             ),
                     ),
-                    const SizedBox(height: 16),
+                    SizedBox(height: 16),
 
                     // Action buttons
                     Row(
@@ -657,7 +657,7 @@ class _PikPakFolderPickerDialogState extends State<PikPakFolderPickerDialog> {
                                           });
                                         }
                                       : null,
-                                  icon: const Icon(Icons.check, size: 18),
+                                  icon: Icon(Icons.check, size: 18),
                                   label: Text(AppLocalizations.of(context).t('Select')),
                                 ),
                               ),
@@ -1096,7 +1096,7 @@ class _NewFolderDialogState extends State<_NewFolderDialog> {
                 },
                 onSubmitted: (_) => _validateAndSubmit(),
               ),
-              const SizedBox(height: 20),
+              SizedBox(height: 20),
 
               // Action buttons
               Row(
@@ -1107,7 +1107,7 @@ class _NewFolderDialogState extends State<_NewFolderDialog> {
                     onPressed: () => Navigator.pop(context),
                     child: Text(AppLocalizations.of(context).t('Cancel')),
                   ),
-                  const SizedBox(width: 12),
+                  SizedBox(width: 12),
                   FilledButton.icon(
                     focusNode: _createButtonFocusNode,
                     onPressed: _validateAndSubmit,

@@ -560,7 +560,7 @@ class _SeriesBrowserState extends State<SeriesBrowser> {
   Future<void> _showFixMetadataDialog() async {
     if (widget.playlistItem == null) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
+        SnackBar(
           content: Text('Fix Metadata is not available for this content'),
           backgroundColor: Colors.red,
         ),

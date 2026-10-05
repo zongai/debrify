@@ -615,7 +615,7 @@ class IptvSettingsTwoPaneState extends State<IptvSettingsTwoPane> {
                 ),
               if (widget.playlists.isEmpty)
                 Padding(
-                  padding: const EdgeInsets.fromLTRB(14, 6, 14, 10),
+                  padding: EdgeInsets.fromLTRB(14, 6, 14, 10),
                   child: Text(
                     'No sources yet.',
                     style: TextStyle(fontSize: 13, color: t.dim),
@@ -649,7 +649,7 @@ class IptvSettingsTwoPaneState extends State<IptvSettingsTwoPane> {
                 subtitle: _listsSubtitle,
                 selected: selected == widget.playlists.length + 1,
                 chevron: true,
-                onFocused: () => _dest.value = const _ListsDest(),
+                onFocused: () => _dest.value = _ListsDest(),
                 onSelect: _enterPane,
                 onUp: () => _focusRail(widget.playlists.length),
                 onDown: () => _focusRail(widget.playlists.length + 2),
@@ -667,7 +667,7 @@ class IptvSettingsTwoPaneState extends State<IptvSettingsTwoPane> {
                     : 'Off',
                 selected: selected == widget.playlists.length + 2,
                 chevron: true,
-                onFocused: () => _dest.value = const _StartupDest(),
+                onFocused: () => _dest.value = _StartupDest(),
                 onSelect: _enterPane,
                 onUp: () => _focusRail(widget.playlists.length + 1),
                 onDown: () => _focusRail(widget.playlists.length + 3),
@@ -682,7 +682,7 @@ class IptvSettingsTwoPaneState extends State<IptvSettingsTwoPane> {
                     : 'Off · fullscreen playback only',
                 selected: selected == _channelPreviewIndex,
                 chevron: true,
-                onFocused: () => _dest.value = const _ChannelPreviewDest(),
+                onFocused: () => _dest.value = _ChannelPreviewDest(),
                 onSelect: _enterPane,
                 onUp: () => _focusRail(widget.playlists.length + 2),
                 onDown: () => _focusRail(_continueWatchingIndex),
@@ -697,7 +697,7 @@ class IptvSettingsTwoPaneState extends State<IptvSettingsTwoPane> {
                     : 'Off',
                 selected: selected == _continueWatchingIndex,
                 chevron: true,
-                onFocused: () => _dest.value = const _ContinueWatchingDest(),
+                onFocused: () => _dest.value = _ContinueWatchingDest(),
                 onSelect: _enterPane,
                 onUp: () => _focusRail(_channelPreviewIndex),
                 onDown: () => _focusRail(
@@ -715,7 +715,7 @@ class IptvSettingsTwoPaneState extends State<IptvSettingsTwoPane> {
                   subtitle: iptvStyleLabel(widget.iptvStyle),
                   selected: selected == _appearanceIndex,
                   chevron: true,
-                  onFocused: () => _dest.value = const _AppearanceDest(),
+                  onFocused: () => _dest.value = _AppearanceDest(),
                   onSelect: _enterPane,
                   onUp: () => _focusRail(_continueWatchingIndex),
                   onDown: () => _focusRail(_playerGuideIndex),
@@ -733,7 +733,7 @@ class IptvSettingsTwoPaneState extends State<IptvSettingsTwoPane> {
                 },
                 selected: selected == _playerGuideIndex,
                 chevron: true,
-                onFocused: () => _dest.value = const _PlayerGuideDest(),
+                onFocused: () => _dest.value = _PlayerGuideDest(),
                 onSelect: _enterPane,
                 onUp: () => _focusRail(
                   widget.showAppearanceSection
@@ -829,7 +829,7 @@ class IptvSettingsTwoPaneState extends State<IptvSettingsTwoPane> {
       _AutoRefreshDest() => Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const _PaneHeader(
+          _PaneHeader(
             icon: Icons.update_rounded,
             title: AppLocalizations.of(context).t('Auto-refresh'),
             meta: 'All sources in this profile',
@@ -937,7 +937,7 @@ class IptvSettingsTwoPaneState extends State<IptvSettingsTwoPane> {
                 ? 'Imported from a file — it plays from the copy stored in the app.'
                 : 'Not loaded yet. Open this source in IPTV, or refresh it here.',
           ),
-        const SizedBox(height: 20),
+        SizedBox(height: 20),
         _RowGroup(
           children: [
             if (canRefresh)
@@ -1132,7 +1132,7 @@ class IptvSettingsTwoPaneState extends State<IptvSettingsTwoPane> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const _PaneHeader(
+        _PaneHeader(
           icon: Icons.bookmark_rounded,
           title: AppLocalizations.of(context).t('Channel lists'),
           meta:
@@ -1140,7 +1140,7 @@ class IptvSettingsTwoPaneState extends State<IptvSettingsTwoPane> {
               'Deleting a list never deletes its channels.',
           badges: [],
         ),
-        const SizedBox(height: 20),
+        SizedBox(height: 20),
         _RowGroup(
           children: [
             // Nothing to configure — built in, can't be renamed, reordered or
@@ -1198,7 +1198,7 @@ class IptvSettingsTwoPaneState extends State<IptvSettingsTwoPane> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const _PaneHeader(
+        _PaneHeader(
           icon: Icons.play_circle_outline_rounded,
           title: AppLocalizations.of(context).t('Startup channel'),
           meta: 'Open straight into a live channel when the app starts.',
@@ -1284,7 +1284,7 @@ class IptvSettingsTwoPaneState extends State<IptvSettingsTwoPane> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const _PaneHeader(
+        _PaneHeader(
           icon: Icons.history_toggle_off_rounded,
           title: AppLocalizations.of(context).t('Continue watching'),
           meta:
@@ -1324,7 +1324,7 @@ class IptvSettingsTwoPaneState extends State<IptvSettingsTwoPane> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const _PaneHeader(
+        _PaneHeader(
           icon: Icons.ondemand_video_rounded,
           title: AppLocalizations.of(context).t('Channel preview'),
           meta:
@@ -1393,7 +1393,7 @@ class IptvSettingsTwoPaneState extends State<IptvSettingsTwoPane> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const _PaneHeader(
+        _PaneHeader(
           icon: Icons.style_rounded,
           title: AppLocalizations.of(context).t('Appearance'),
           meta:
@@ -1447,7 +1447,7 @@ class IptvSettingsTwoPaneState extends State<IptvSettingsTwoPane> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const _PaneHeader(
+        _PaneHeader(
           icon: Icons.smart_display_rounded,
           title: AppLocalizations.of(context).t('Player guide'),
           meta:
@@ -1455,7 +1455,7 @@ class IptvSettingsTwoPaneState extends State<IptvSettingsTwoPane> {
               'TV — the next playback session uses the new look.',
           badges: [],
         ),
-        const SizedBox(height: 20),
+        SizedBox(height: 20),
         _RowGroup(
           children: [
             styleRow(
@@ -1495,7 +1495,7 @@ class IptvSettingsTwoPaneState extends State<IptvSettingsTwoPane> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const _PaneHeader(
+        _PaneHeader(
           icon: Icons.fiber_manual_record_rounded,
           title: 'Recording',
           meta:

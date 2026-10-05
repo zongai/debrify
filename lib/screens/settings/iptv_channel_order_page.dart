@@ -95,7 +95,7 @@ class _IptvChannelOrderPageState extends State<IptvChannelOrderPage> {
   @override
   Widget build(BuildContext context) {
     if (_loading) {
-      return const SettingsPageScaffold(
+      return SettingsPageScaffold(
         title: AppLocalizations.of(context).t('Channel order'),
         body: Center(child: CircularProgressIndicator()),
       );
@@ -112,7 +112,7 @@ class _IptvChannelOrderPageState extends State<IptvChannelOrderPage> {
         children: [
           Center(
             child: ConstrainedBox(
-              constraints: const BoxConstraints(maxWidth: 900),
+              constraints: BoxConstraints(maxWidth: 900),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -216,7 +216,7 @@ class _ChannelOrderEditorState extends State<_ChannelOrderEditor> {
       if (!mounted) return;
       setState(() => _saving = false);
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
+        SnackBar(
           content: Text('Couldn\'t save channel order. Try again.'),
         ),
       );

@@ -1483,7 +1483,7 @@ class _IptvSettingsPageState extends State<IptvSettingsPage>
     final action = await showModalBottomSheet<String>(
       context: context,
       backgroundColor: t.panel,
-      shape: const RoundedRectangleBorder(
+      shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(18)),
       ),
       builder: (context) => SafeArea(
@@ -1522,13 +1522,13 @@ class _IptvSettingsPageState extends State<IptvSettingsPage>
             ),
             if (index > 0)
               ListTile(
-                leading: const Icon(Icons.arrow_upward_rounded),
+                leading: Icon(Icons.arrow_upward_rounded),
                 title: Text(AppLocalizations.of(context).t('Move up')),
                 onTap: () => Navigator.of(context).pop('up'),
               ),
             if (index < lists.length - 1)
               ListTile(
-                leading: const Icon(Icons.arrow_downward_rounded),
+                leading: Icon(Icons.arrow_downward_rounded),
                 title: Text(AppLocalizations.of(context).t('Move down')),
                 onTap: () => Navigator.of(context).pop('down'),
               ),
@@ -1814,13 +1814,13 @@ class _IptvSettingsPageState extends State<IptvSettingsPage>
       children: [
         // Name input
         FocusTraversalOrder(
-          order: const NumericFocusOrder(2),
+          order: NumericFocusOrder(2),
           child: TvTextField(
             controller: _nameController,
             focusNode: _nameInputFocusNode,
             labelText: AppLocalizations.of(context).t('Playlist Name'),
             hintText: 'e.g., My IPTV',
-            prefixIcon: const Icon(Icons.label_outline),
+            prefixIcon: Icon(Icons.label_outline),
             textInputAction: TextInputAction.next,
             onSubmitted: (_) => _focusAndReveal(_urlInputFocusNode),
             // Explicit exits: UP targets the SELECTED tab (geometric search
@@ -1938,7 +1938,7 @@ class _IptvSettingsPageState extends State<IptvSettingsPage>
       children: [
         // Playlist name input (optional). Blank falls back to username@host.
         FocusTraversalOrder(
-          order: const NumericFocusOrder(1.9),
+          order: NumericFocusOrder(1.9),
           child: TvTextField(
             controller: _xcNameController,
             focusNode: _xcNameFocusNode,
@@ -1963,7 +1963,7 @@ class _IptvSettingsPageState extends State<IptvSettingsPage>
             focusNode: _xcServerFocusNode,
             labelText: AppLocalizations.of(context).t('Server URL'),
             hintText: 'http://example.com:8080',
-            prefixIcon: const Icon(Icons.dns),
+            prefixIcon: Icon(Icons.dns),
             textInputAction: TextInputAction.next,
             onSubmitted: (_) => _focusAndReveal(_xcUsernameFocusNode),
             onUpArrow: () => _focusAndReveal(_xcNameFocusNode),
@@ -1980,7 +1980,7 @@ class _IptvSettingsPageState extends State<IptvSettingsPage>
             focusNode: _xcUsernameFocusNode,
             labelText: AppLocalizations.of(context).t('Username'),
             hintText: 'your username',
-            prefixIcon: const Icon(Icons.person),
+            prefixIcon: Icon(Icons.person),
             textInputAction: TextInputAction.next,
             onSubmitted: (_) => _focusAndReveal(_xcPasswordFocusNode),
             onUpArrow: () => _focusAndReveal(_xcServerFocusNode),
@@ -2235,7 +2235,7 @@ class _IptvSettingsPageState extends State<IptvSettingsPage>
         .where((e) => hideableIds.contains(e.key))
         .fold(0, (a, e) => a + e.value);
     return ListView(
-      padding: const EdgeInsets.all(16),
+      padding: EdgeInsets.all(16),
       children: [
         const SettingsPageHeader(
           icon: Icons.live_tv_rounded,
@@ -2244,7 +2244,7 @@ class _IptvSettingsPageState extends State<IptvSettingsPage>
               'Sources, lists, startup and looks — everything IPTV in one '
               'place.',
         ),
-        const SizedBox(height: 24),
+        SizedBox(height: 24),
         SettingsSection(
           title: '',
           children: [
@@ -3422,7 +3422,7 @@ class _FocusablePlaylistTileState extends State<_FocusablePlaylistTile> {
               children: [
                 if (widget.playlist.credentialsRedacted) ...[
                   Icon(Icons.lock_outline, size: 12, color: t.dim),
-                  const SizedBox(width: 4),
+                  SizedBox(width: 4),
                   Expanded(
                     child: Text(
                       'Shared connection • credentials hidden',
@@ -3602,7 +3602,7 @@ class _SharedIptvSourceDeleteDialogState
       canRequestFocus: false,
       onKeyEvent: _onKeyEvent,
       child: AlertDialog(
-        title: const Text('Remove shared source?'),
+        title: Text('Remove shared source?'),
         content: Text(
           '"${widget.playlistName}" is shared with $profiles. Removing it '
           'will also remove access to this source from those profiles.',
@@ -3827,7 +3827,7 @@ class _EditPlaylistDialogState extends State<_EditPlaylistDialog> {
         labelText: AppLocalizations.of(context).t('Playlist Name'),
         hintText: 'Enter a name for this playlist',
         errorText: _nameError,
-        prefixIcon: const Icon(Icons.label_outline),
+        prefixIcon: Icon(Icons.label_outline),
         // Off-TV only: on TV the action buttons seed DPAD focus (see the
         // Save/Cancel autofocus below), matching the import-name dialog — a
         // field autofocus in TV passthrough mode pops the broken system IME.
@@ -3844,7 +3844,7 @@ class _EditPlaylistDialogState extends State<_EditPlaylistDialog> {
           labelText: AppLocalizations.of(context).t('Playlist URL'),
           hintText: 'https://example.com/playlist.m3u',
           errorText: _urlError,
-          prefixIcon: const Icon(Icons.link),
+          prefixIcon: Icon(Icons.link),
           textInputAction: TextInputAction.next,
           onUpArrow: up(_urlFocusNode),
           onDownArrow: down(_urlFocusNode),
@@ -3858,7 +3858,7 @@ class _EditPlaylistDialogState extends State<_EditPlaylistDialog> {
           labelText: AppLocalizations.of(context).t('Server URL'),
           hintText: 'http://example.com:8080',
           errorText: _serverError,
-          prefixIcon: const Icon(Icons.dns),
+          prefixIcon: Icon(Icons.dns),
           textInputAction: TextInputAction.next,
           onUpArrow: up(_serverFocusNode),
           onDownArrow: down(_serverFocusNode),
@@ -3870,7 +3870,7 @@ class _EditPlaylistDialogState extends State<_EditPlaylistDialog> {
           labelText: AppLocalizations.of(context).t('Username'),
           hintText: 'your username',
           errorText: _usernameError,
-          prefixIcon: const Icon(Icons.person),
+          prefixIcon: Icon(Icons.person),
           textInputAction: TextInputAction.next,
           onUpArrow: up(_usernameFocusNode),
           onDownArrow: down(_usernameFocusNode),
@@ -3904,7 +3904,7 @@ class _EditPlaylistDialogState extends State<_EditPlaylistDialog> {
     ];
 
     return AlertDialog(
-      title: const Text('Edit Playlist'),
+      title: Text('Edit Playlist'),
       // No fixed width — let AlertDialog size to the screen (a hard width
       // overflows narrow phone dialogs). Scrollable so the taller Xtream form
       // (four fields + EPG) never overflows vertically on short screens.
@@ -4305,7 +4305,7 @@ class _PlaylistNameDialogState extends State<_PlaylistNameDialog> {
             labelText: AppLocalizations.of(context).t('Playlist Name'),
             hintText: 'Enter a name for this playlist',
             errorText: _errorText,
-            prefixIcon: const Icon(Icons.label_outline),
+            prefixIcon: Icon(Icons.label_outline),
             // Off-TV only: on TV the dialog's action buttons seed DPAD focus
             // (below), matching the old clone which never autofocused on TV.
             autofocus: !PlatformUtil.isTelevision,
@@ -4380,7 +4380,7 @@ class _IptvListSettingsRow extends StatelessWidget {
   Widget build(BuildContext context) {
     final t = AppThemeScope.of(context).settings;
     return Padding(
-      padding: const EdgeInsets.fromLTRB(16, 10, 8, 10),
+      padding: EdgeInsets.fromLTRB(16, 10, 8, 10),
       child: Row(
         children: [
           Icon(Icons.bookmark_rounded, size: 20, color: t.dim),

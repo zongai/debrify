@@ -209,7 +209,7 @@ class _LaunchAnimationPageState extends State<LaunchAnimationPage> {
           );
   }
 
-  Widget _header() => const SettingsPageHeader(
+  Widget _header() => SettingsPageHeader(
     icon: Icons.rocket_launch_rounded,
     title: AppLocalizations.of(context).t('Launch Animation'),
     subtitle: 'The ident Debrify plays while it starts',

@@ -130,7 +130,7 @@ class _MediaServerSettingsPageState extends State<MediaServerSettingsPage> {
     } catch (_) {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
+          SnackBar(
             content: Text('Could not check connection sharing. Please retry.'),
           ),
         );
@@ -171,7 +171,7 @@ class _MediaServerSettingsPageState extends State<MediaServerSettingsPage> {
     } catch (_) {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
+          SnackBar(
             content: Text(
               'Could not disconnect. If this connection is shared, manage its sharing in Profiles first.',
             ),
@@ -187,14 +187,14 @@ class _MediaServerSettingsPageState extends State<MediaServerSettingsPage> {
   Widget build(BuildContext context) => SettingsPageScaffold(
     title: AppLocalizations.of(context).mediaServersTitle,
     body: _loading
-        ? const Center(child: CircularProgressIndicator())
+        ? Center(child: CircularProgressIndicator())
         : ListView(
             padding: const EdgeInsets.all(24),
             children: [
               Text(
                 AppLocalizations.of(context).mediaServersBlurb,
               ),
-              const SizedBox(height: 12),
+              SizedBox(height: 12),
               const Text(
                 'Matching uses the server’s IMDb, TMDB or TVDB IDs and season/episode numbers. Missing IDs or different anime numbering may produce no match. Server transcoding is not included.',
               ),
@@ -208,13 +208,13 @@ class _MediaServerSettingsPageState extends State<MediaServerSettingsPage> {
                   value: _watchSync,
                   onChanged: _setWatchSync,
                 ),
-              const SizedBox(height: 24),
+              SizedBox(height: 24),
               if (_error != null) ...[
                 Text(_error!),
                 TextButton(onPressed: _load, child: Text(AppLocalizations.of(context).retry)),
               ],
               if (!ProfileCollectionResourceFacade.active)
-                const Text(
+                Text(
                   'An active Debrify profile is required to store server credentials securely.',
                 ),
               for (final resource in _connections)
@@ -258,7 +258,7 @@ class _MediaServerSettingsPageState extends State<MediaServerSettingsPage> {
                     ),
                   ),
                 ),
-              const SizedBox(height: 16),
+              SizedBox(height: 16),
               FilledButton.icon(
                 onPressed: _busy || !ProfileCollectionResourceFacade.active
                     ? null
@@ -266,7 +266,7 @@ class _MediaServerSettingsPageState extends State<MediaServerSettingsPage> {
                 icon: const Icon(Icons.add),
                 label: Text(AppLocalizations.of(context).connectServer),
               ),
-              const SizedBox(height: 12),
+              SizedBox(height: 12),
               OutlinedButton.icon(
                 onPressed: _busy || !ProfileCollectionResourceFacade.active
                     ? null

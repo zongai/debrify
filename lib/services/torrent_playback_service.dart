@@ -6760,7 +6760,7 @@ class TorrentPlaybackService {
                 DropdownButtonFormField<String>(
                   value: selectedScreenType,
                   isExpanded: true,
-                  decoration: const InputDecoration(
+                  decoration: InputDecoration(
                     border: OutlineInputBorder(),
                     contentPadding: EdgeInsets.symmetric(
                       horizontal: 12,
@@ -6790,7 +6790,7 @@ class TorrentPlaybackService {
                 DropdownButtonFormField<String>(
                   value: selectedStereoMode,
                   isExpanded: true,
-                  decoration: const InputDecoration(
+                  decoration: InputDecoration(
                     border: OutlineInputBorder(),
                     contentPadding: EdgeInsets.symmetric(
                       horizontal: 12,
@@ -6887,7 +6887,7 @@ class TorrentPlaybackService {
 
       if (context.mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
+          SnackBar(
             content: Text('Launching DeoVR...'),
             duration: Duration(seconds: 2),
           ),

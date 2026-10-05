@@ -382,7 +382,7 @@ class _ContinueWatchingSeeAllScreenState
       onKeyEvent: _handleFilterKeys,
       child: Padding(
         padding: _quiet
-            ? const EdgeInsets.fromLTRB(24, 16, 24, 10)
+            ? EdgeInsets.fromLTRB(24, 16, 24, 10)
             : const EdgeInsets.fromLTRB(24, 10, 24, 12),
         child: SeeAllFilterBar(
           isTelevision: widget.isTelevision,
@@ -404,7 +404,7 @@ class _ContinueWatchingSeeAllScreenState
               isTelevision: widget.isTelevision,
               quiet: _quiet,
               focusNode: _catNode,
-              options: const [
+              options: [
                 StremioDropdownOption('all', 'All'),
                 StremioDropdownOption('movie', 'Movies'),
                 StremioDropdownOption('series', 'Series'),

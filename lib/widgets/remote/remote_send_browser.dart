@@ -95,7 +95,7 @@ class _RemoteSendBrowserState extends State<RemoteSendBrowser> {
                 'All profiles, setup, TV data and WebDAV sync',
                 widget.onEverything,
               ),
-              const SizedBox(height: 22),
+              SizedBox(height: 22),
               Text(
                 'Or send just what you need',
                 style: TextStyle(
@@ -142,7 +142,7 @@ class _RemoteSendBrowserState extends State<RemoteSendBrowser> {
                   fontWeight: FontWeight.w600,
                 ),
               ),
-              const SizedBox(height: 8),
+              SizedBox(height: 8),
               Text(
                 _group == RemoteSendGroup.channels
                     ? 'Every saved torrent hash travels with its channel.'
@@ -162,7 +162,7 @@ class _RemoteSendBrowserState extends State<RemoteSendBrowser> {
                     onPressed: (widget.busy || widget.loading)
                         ? null
                         : () => widget.basket.remove(visible.map((c) => c.id)),
-                    child: const Text('Clear selection'),
+                    child: Text('Clear selection'),
                   ),
                 ],
               ),

@@ -533,7 +533,7 @@ class _CatalogSeeAllScreenState extends State<CatalogSeeAllScreen> {
       onKeyEvent: _handleFilterKeys,
       child: Padding(
         padding: _quiet
-            ? const EdgeInsets.fromLTRB(24, 16, 24, 10)
+            ? EdgeInsets.fromLTRB(24, 16, 24, 10)
             : const EdgeInsets.fromLTRB(24, 10, 24, 12),
         child: SeeAllFilterBar(
           isTelevision: widget.isTelevision,

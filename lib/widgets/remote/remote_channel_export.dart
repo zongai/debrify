@@ -123,8 +123,7 @@ class RemoteChannelExportState extends State<RemoteChannelExport> {
     final connectedDevice = RemoteControlState().connectedDevice;
     if (connectedDevice == null) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text(AppLocalizations.of(context).t('No TV connected')),
+        SnackBar(content: Text(AppLocalizations.of(context).t('No TV connected')),
           backgroundColor: Color(0xFFEF4444),
           behavior: SnackBarBehavior.floating,
         ),
@@ -276,7 +275,7 @@ class RemoteChannelExportState extends State<RemoteChannelExport> {
       debugPrint('RemoteChannelExport: channel batch send failed');
       if (mounted && !widget.headless) {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
+          SnackBar(
             content: Text('Failed to send channels'),
             backgroundColor: Color(0xFFEF4444),
             behavior: SnackBarBehavior.floating,
@@ -353,7 +352,7 @@ class RemoteChannelExportState extends State<RemoteChannelExport> {
         // Back to menu button
         TextButton.icon(
           onPressed: widget.onBack,
-          icon: const Icon(Icons.arrow_back, size: 18),
+          icon: Icon(Icons.arrow_back, size: 18),
           label: Text(AppLocalizations.of(context).t('Back to menu')),
           style: TextButton.styleFrom(
             foregroundColor: Colors.white.withValues(alpha: 0.7),

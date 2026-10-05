@@ -288,14 +288,14 @@ class _QuickPlaySettingsPageState extends State<QuickPlaySettingsPage> {
       _pickedKey = null;
     });
     ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(content: Text('Restored default Quick Play behavior')),
+      SnackBar(content: Text('Restored default Quick Play behavior')),
     );
   }
 
   @override
   Widget build(BuildContext context) {
     if (_loading) {
-      return const SettingsPageScaffold(
+      return SettingsPageScaffold(
         title: AppLocalizations.of(context).t('Quick Play'),
         body: Center(child: CircularProgressIndicator()),
       );
@@ -311,7 +311,7 @@ class _QuickPlaySettingsPageState extends State<QuickPlaySettingsPage> {
         ),
         child: Center(
           child: ConstrainedBox(
-            constraints: const BoxConstraints(maxWidth: 980),
+            constraints: BoxConstraints(maxWidth: 980),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -321,7 +321,7 @@ class _QuickPlaySettingsPageState extends State<QuickPlaySettingsPage> {
                   subtitle:
                       'Choose what Debrify plays automatically. Movies and series have separate rules.',
                 ),
-                const SizedBox(height: 22),
+                SizedBox(height: 22),
                 _heading(
                   'Play button opens',
                   'Applies to movies and series. The Play button itself never '
@@ -457,7 +457,7 @@ class _QuickPlaySettingsPageState extends State<QuickPlaySettingsPage> {
   }
 
   Widget _tabs() => ConstrainedBox(
-    constraints: const BoxConstraints(maxWidth: 430),
+    constraints: BoxConstraints(maxWidth: 430),
     child: _Panel(
       padding: const EdgeInsets.all(4),
       child: Row(
@@ -476,7 +476,7 @@ class _QuickPlaySettingsPageState extends State<QuickPlaySettingsPage> {
           ),
           Expanded(
             child: _FocusButton(
-              key: const ValueKey('quick-play-tab-series'),
+              key: ValueKey('quick-play-tab-series'),
               node: _seriesTab,
               selected: _series,
               label: AppLocalizations.of(context).t('Series'),

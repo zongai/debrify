@@ -42,7 +42,7 @@ class _TorrentSettingsPageState extends State<TorrentSettingsPage> {
     return SettingsPageScaffold(
       title: AppLocalizations.of(context).t('Engines'),
       body: SingleChildScrollView(
-        padding: const EdgeInsets.all(16),
+        padding: EdgeInsets.all(16),
         child: Center(
           child: ConstrainedBox(
             constraints: const BoxConstraints(maxWidth: kSettingsMaxWidth),

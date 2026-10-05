@@ -867,7 +867,7 @@ class _SettingsTvLayoutState extends State<SettingsTvLayout> {
         policy: OrderedTraversalPolicy(),
         child: SingleChildScrollView(
           controller: _paneScroll,
-          padding: const EdgeInsets.fromLTRB(32, 30, 40, 40),
+          padding: EdgeInsets.fromLTRB(32, 30, 40, 40),
           child: ConstrainedBox(
             constraints: const BoxConstraints(maxWidth: 900),
             child: Column(
@@ -893,7 +893,7 @@ class _SettingsTvLayoutState extends State<SettingsTvLayout> {
                                 ).settings.accent.withValues(alpha: 0.9),
                         ),
                       ),
-                      const SizedBox(height: 10),
+                      SizedBox(height: 10),
                       Text(
                         AppLocalizations.of(context).t(_kCategories[selected].title),
                         style: const TextStyle(
@@ -1010,7 +1010,7 @@ class _SettingsTvLayoutState extends State<SettingsTvLayout> {
             onTap: widget.onOpenLooks,
             focusNode: _paneNodes[0],
           ),
-          const SizedBox(height: 18),
+          SizedBox(height: 18),
           SettingsSection(
             title: AppLocalizations.of(context).t('Presets'),
             blurb:
@@ -1025,7 +1025,7 @@ class _SettingsTvLayoutState extends State<SettingsTvLayout> {
               ),
             ],
           ),
-          const SizedBox(height: 18),
+          SizedBox(height: 18),
           // The App Theme row is gone: a Look is the single top-level choice
           // now, and Advanced under it edits the individual tokens. The rows
           // below were RENUMBERED rather than left with a hole — the pane
@@ -1055,7 +1055,7 @@ class _SettingsTvLayoutState extends State<SettingsTvLayout> {
               ),
             ],
           ),
-          const SizedBox(height: 18),
+          SizedBox(height: 18),
           SettingsSection(
             title: AppLocalizations.of(context).t('Screen layouts'),
             blurb: 'Where things sit. Each screen is chosen separately.',
@@ -1079,7 +1079,7 @@ class _SettingsTvLayoutState extends State<SettingsTvLayout> {
                     widget.onOpenCollectionListStyle ??
                     () => pushSettingsPage(
                       context,
-                      const TvCollectionListStylePage(),
+                      TvCollectionListStylePage(),
                     ),
                 focusNode: _paneNodes[7],
               ),
@@ -1168,7 +1168,7 @@ class _SettingsTvLayoutState extends State<SettingsTvLayout> {
           // a dead node), so the gated section sits at the end where the walk
           // clamps naturally.
           if (PlatformUtil.isAndroidTvCached) ...[
-            const SizedBox(height: 18),
+            SizedBox(height: 18),
             SettingsSection(
               title: AppLocalizations.of(context).t('Player'),
               blurb: 'The on-screen controls during playback on this TV.',
@@ -1669,7 +1669,7 @@ class _RailItemState extends State<_RailItem> {
                       ? app.fade(app.core.tx, 0.60)
                       : t.dim2;
                   return Container(
-                    padding: const EdgeInsets.symmetric(
+                    padding: EdgeInsets.symmetric(
                       horizontal: 14,
                       vertical: 10,
                     ),

@@ -138,7 +138,7 @@ class _ProfileDataScreenState extends State<ProfileDataScreen> {
 
   Widget _buildError(BuildContext context) => Center(
     child: Padding(
-      padding: const EdgeInsets.all(32),
+      padding: EdgeInsets.all(32),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
@@ -176,7 +176,7 @@ class _ProfileDataScreenState extends State<ProfileDataScreen> {
         _buildPicker(context, report),
         const SizedBox(height: 12),
         TextField(
-          decoration: const InputDecoration(
+          decoration: InputDecoration(
             prefixIcon: Icon(Icons.search_rounded),
             hintText: 'Filter keys',
             isDense: true,
@@ -366,7 +366,7 @@ class _ProfileDataScreenState extends State<ProfileDataScreen> {
     );
     if (!mounted) return;
     ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(content: Text('Report copied — no values are included')),
+      SnackBar(content: Text('Report copied — no values are included')),
     );
   }
 }

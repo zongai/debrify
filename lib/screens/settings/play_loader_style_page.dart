@@ -82,7 +82,7 @@ class _PlayLoaderStylePageState extends State<PlayLoaderStylePage> {
   Widget build(BuildContext context) {
     final t = AppThemeScope.of(context).settings;
     if (_loading) {
-      return const SettingsPageScaffold(
+      return SettingsPageScaffold(
         title: AppLocalizations.of(context).t('Play Loader'),
         body: Center(child: CircularProgressIndicator()),
       );
@@ -91,7 +91,7 @@ class _PlayLoaderStylePageState extends State<PlayLoaderStylePage> {
     return SettingsPageScaffold(
       title: AppLocalizations.of(context).t('Play Loader'),
       body: SingleChildScrollView(
-        padding: const EdgeInsets.all(16),
+        padding: EdgeInsets.all(16),
         child: Center(
           child: ConstrainedBox(
             constraints: const BoxConstraints(maxWidth: kSettingsMaxWidth),

@@ -210,7 +210,7 @@ Future<void> handleMdblistMenuAction(
         final confirmed = await showDialog<bool>(
           context: context,
           builder: (ctx) => AlertDialog(
-            title: const Text('Collect this show?'),
+            title: Text('Collect this show?'),
             content: const Text(
               'MDBList will add every aired episode to your collection.',
             ),

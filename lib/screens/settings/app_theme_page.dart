@@ -99,7 +99,7 @@ class _AppThemePageState extends State<AppThemePage> {
       backgroundColor: t.bg,
       body: SafeArea(
         child: SingleChildScrollView(
-          padding: const EdgeInsets.all(16),
+          padding: EdgeInsets.all(16),
           child: Center(
             child: ConstrainedBox(
               constraints: const BoxConstraints(maxWidth: 720),

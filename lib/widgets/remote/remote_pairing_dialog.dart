@@ -69,7 +69,7 @@ class _RemotePairingPanelState extends State<RemotePairingPanel> {
     final code = display.code;
     final spaced = '${code.substring(0, 3)} ${code.substring(3)}';
     return Container(
-      margin: const EdgeInsets.only(top: 20),
+      margin: EdgeInsets.only(top: 20),
       padding: const EdgeInsets.fromLTRB(24, 20, 24, 16),
       decoration: BoxDecoration(
         color: Colors.white.withValues(alpha: 0.05),
@@ -275,7 +275,7 @@ class _PairingCodeEntryDialogState extends State<_PairingCodeEntryDialog> {
               FilteringTextInputFormatter.digitsOnly,
               LengthLimitingTextInputFormatter(6),
             ],
-            style: const TextStyle(
+            style: TextStyle(
               fontSize: 28,
               fontWeight: FontWeight.w800,
               letterSpacing: 8,
@@ -413,7 +413,7 @@ Future<bool?> showTvIdentityMismatchDialog(
   return showDialog<bool>(
     context: context,
     builder: (dialogContext) => AlertDialog(
-      title: const Text('TV identity changed'),
+      title: Text('TV identity changed'),
       content: Text(
         '"$tvName" does not match the secure identity it had when you last '
         'paired. This happens after reinstalling Debrify on the TV, or if a '
@@ -443,7 +443,7 @@ Future<void> showTvIdentityChangedDialog(BuildContext context, String tvName) {
   return showDialog<void>(
     context: context,
     builder: (dialogContext) => AlertDialog(
-      title: const Text('TV identity changed'),
+      title: Text('TV identity changed'),
       content: Text(
         '"$tvName" no longer matches the secure identity it had before. '
         'This can happen after reinstalling Debrify on the TV — or if '
@@ -587,7 +587,7 @@ Future<RemoteSession?> ensureAuthorizedSession(
     // Silence is not a protocol version. A current TV behind a blocked
     // network, a manual IP, or a restarted receiver can all time out here.
     ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(
+      SnackBar(
         content: Text(
           'Could not connect to the receiving device. Keep Debrify open in '
           'Receive mode, check the address and network, then retry.',
@@ -623,7 +623,7 @@ Future<bool> ensureNavigationSession(
   if (session == null) {
     if (device.supportsEncryption || sameNamePins.isNotEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
+        SnackBar(
           content: Text('Could not establish a secure connection to the TV'),
         ),
       );
@@ -752,7 +752,7 @@ Future<bool> _runPairingFlow(
     } on TimeoutException {
       if (context.mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('The TV did not respond to pairing')),
+          SnackBar(content: Text('The TV did not respond to pairing')),
         );
       }
       return false;
@@ -765,7 +765,7 @@ Future<bool> _runPairingFlow(
       if (requireSas) {
         if (context.mounted) {
           ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(
+            SnackBar(
               content: Text(
                 'This TV skipped code verification but its identity '
                 'changed — transfer refused',
@@ -865,7 +865,7 @@ Future<bool> _runPairingFlow(
         case 'rate_limited':
           if (context.mounted) {
             ScaffoldMessenger.of(context).showSnackBar(
-              const SnackBar(
+              SnackBar(
                 content: Text(
                   'Too many attempts — wait a few minutes and try again',
                 ),
@@ -891,7 +891,7 @@ Future<bool> _runPairingFlow(
     }
     if (ended.value != null && context.mounted) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
+        SnackBar(
           content: Text('Pairing ended. Start again to get a new code.'),
         ),
       );
@@ -955,7 +955,7 @@ class _PairedDevicesDialogState extends State<_PairedDevicesDialog> {
   Widget build(BuildContext context) {
     final devices = _devices;
     return AlertDialog(
-      title: const Text('Paired remote devices'),
+      title: Text('Paired remote devices'),
       content: SizedBox(
         width: 420,
         child: devices == null

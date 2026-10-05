@@ -292,7 +292,7 @@ class _WebDavSettingsPageState extends State<WebDavSettingsPage> {
   Widget build(BuildContext context) {
     final t = AppThemeScope.of(context).settings;
     if (_loading) {
-      return const SettingsPageScaffold(
+      return SettingsPageScaffold(
         title: AppLocalizations.of(context).t('WebDAV'),
         body: Center(child: CircularProgressIndicator()),
       );
@@ -300,7 +300,7 @@ class _WebDavSettingsPageState extends State<WebDavSettingsPage> {
     return SettingsPageScaffold(
       title: AppLocalizations.of(context).t('WebDAV'),
       body: SingleChildScrollView(
-        padding: const EdgeInsets.all(16),
+        padding: EdgeInsets.all(16),
         child: Center(
           child: ConstrainedBox(
             constraints: const BoxConstraints(maxWidth: kSettingsMaxWidth),
@@ -328,7 +328,7 @@ class _WebDavSettingsPageState extends State<WebDavSettingsPage> {
                       keyboardType: TextInputType.url,
                       labelText: AppLocalizations.of(context).t('Server URL'),
                       hintText: 'https://example.com/remote.php/dav/files/me',
-                      prefixIcon: const Icon(Icons.link_rounded),
+                      prefixIcon: Icon(Icons.link_rounded),
                       textInputAction: TextInputAction.next,
                       onChanged: (_) => setState(() {}),
                       onSubmitted: (_) => _usernameFocusNode.requestFocus(),

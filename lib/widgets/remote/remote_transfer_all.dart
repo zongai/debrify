@@ -1434,7 +1434,7 @@ class _RemoteTransferAllState extends State<RemoteTransferAll> {
           alignment: Alignment.centerLeft,
           child: TextButton.icon(
             onPressed: busy ? null : widget.onBack,
-            icon: const Icon(Icons.arrow_back),
+            icon: Icon(Icons.arrow_back),
             label: Text(AppLocalizations.of(context).t('Send')),
           ),
         ),
@@ -1446,7 +1446,7 @@ class _RemoteTransferAllState extends State<RemoteTransferAll> {
             fontWeight: FontWeight.w600,
           ),
         ),
-        const SizedBox(height: 10),
+        SizedBox(height: 10),
         Text(
           'Choose how much to send.',
           style: TextStyle(color: app.settings.dim),
@@ -1513,7 +1513,7 @@ class _RemoteTransferAllState extends State<RemoteTransferAll> {
               enabled: !busy,
               autocorrect: false,
               enableSuggestions: false,
-              decoration: const InputDecoration(labelText: 'PikPak password'),
+              decoration: InputDecoration(labelText: 'PikPak password'),
               onChanged: (_) => setState(() {}),
             ),
           const SizedBox(height: 12),

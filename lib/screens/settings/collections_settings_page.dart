@@ -322,7 +322,7 @@ class _CollectionsSettingsPageState extends State<CollectionsSettingsPage> {
             children: [
               Text(_describe(c)),
               if (unresolved.isNotEmpty) ...[
-                const SizedBox(height: 12),
+                SizedBox(height: 12),
                 Text(
                   'Sources that need attention:\n'
                   '${unresolved.join('\n')}',
@@ -556,7 +556,7 @@ class _CollectionsSettingsPageState extends State<CollectionsSettingsPage> {
   @override
   Widget build(BuildContext context) {
     if (_loading) {
-      return const SettingsPageScaffold(
+      return SettingsPageScaffold(
         title: AppLocalizations.of(context).t('Collections'),
         body: Center(child: CircularProgressIndicator()),
       );
@@ -580,7 +580,7 @@ class _CollectionsSettingsPageState extends State<CollectionsSettingsPage> {
     return SettingsPageScaffold(
       title: AppLocalizations.of(context).t('Collections'),
       body: SingleChildScrollView(
-        padding: const EdgeInsets.all(16),
+        padding: EdgeInsets.all(16),
         child: Center(
           child: ConstrainedBox(
             constraints: const BoxConstraints(maxWidth: kSettingsMaxWidth),
@@ -594,9 +594,9 @@ class _CollectionsSettingsPageState extends State<CollectionsSettingsPage> {
                       'Import Nuvio-style collection files — groups of '
                       'folders that bundle addon catalogs into Home rows',
                 ),
-                const SizedBox(height: 24),
+                SizedBox(height: 24),
                 if (_syncDeferred)
-                  const SettingsSection(
+                  SettingsSection(
                     title: AppLocalizations.of(context).t('Collection sync paused'),
                     blurb:
                         'The shared collections exceed this device’s storage capacity. '
@@ -657,7 +657,7 @@ class _CollectionsSettingsPageState extends State<CollectionsSettingsPage> {
                     ),
                   ],
                 ),
-                const SizedBox(height: 16),
+                SizedBox(height: 16),
                 SettingsSection(
                   title: AppLocalizations.of(context).t('Home rows'),
                   blurb:
@@ -682,7 +682,7 @@ class _CollectionsSettingsPageState extends State<CollectionsSettingsPage> {
                     ),
                   ],
                 ),
-                const SizedBox(height: 16),
+                SizedBox(height: 16),
                 SettingsSection(
                   title: AppLocalizations.of(context).t('Collection GIF playback'),
                   blurb:
@@ -712,7 +712,7 @@ class _CollectionsSettingsPageState extends State<CollectionsSettingsPage> {
                     ),
                   ],
                 ),
-                const SizedBox(height: 16),
+                SizedBox(height: 16),
                 SettingsSection(
                   title: AppLocalizations.of(context).t('Folder layout'),
                   blurb:
@@ -739,7 +739,7 @@ class _CollectionsSettingsPageState extends State<CollectionsSettingsPage> {
                     ),
                   ],
                 ),
-                const SizedBox(height: 16),
+                SizedBox(height: 16),
                 SettingsSection(
                   title: AppLocalizations.of(context).t('Your collections'),
                   blurb: _collections.isEmpty
@@ -759,7 +759,7 @@ class _CollectionsSettingsPageState extends State<CollectionsSettingsPage> {
                         onTap: () => _guarded(() => _openCollectionActions(c)),
                       ),
                     if (_collections.isEmpty)
-                      const Padding(
+                      Padding(
                         padding: EdgeInsets.all(16),
                         child: Text(
                           'No collections yet.',

@@ -354,7 +354,7 @@ class ManualOrderListState extends State<ManualOrderList> {
     final position = await showDialog<int>(
       context: context,
       builder: (dialogContext) => AlertDialog(
-        title: const Text('Move to position'),
+        title: Text('Move to position'),
         content: TextField(
           controller: controller,
           autofocus: true,
@@ -464,14 +464,14 @@ class ManualOrderListState extends State<ManualOrderList> {
       children: [
         if (_searchable)
           Padding(
-            padding: const EdgeInsets.fromLTRB(16, 0, 16, 10),
+            padding: EdgeInsets.fromLTRB(16, 0, 16, 10),
             child: TvTextField(
               key: _searchFieldKey,
               controller: _searchController,
               focusNode: _searchNode,
               hintText: AppLocalizations.of(context).t('Search…'),
               textInputAction: TextInputAction.search,
-              prefixIcon: const Icon(Icons.search_rounded),
+              prefixIcon: Icon(Icons.search_rounded),
               suffixIcon: _query.isEmpty
                   ? null
                   : ExcludeFocus(
@@ -788,7 +788,7 @@ class _ManualOrderRowState extends State<ManualOrderRow> {
                             IconButton(
                               tooltip: AppLocalizations.of(context).t('Move up'),
                               onPressed: widget.onMoveUp,
-                              icon: const Icon(Icons.keyboard_arrow_up_rounded),
+                              icon: Icon(Icons.keyboard_arrow_up_rounded),
                             ),
                             IconButton(
                               tooltip: AppLocalizations.of(context).t('Move down'),

@@ -33,7 +33,7 @@ Future<void> openMetadataTitle(
   messenger?.clearSnackBars();
   messenger?.removeCurrentSnackBar();
   final notice = messenger?.showSnackBar(
-    const SnackBar(
+    SnackBar(
       content: Text('Loading title…'),
       duration: Duration(seconds: 4),
     ),

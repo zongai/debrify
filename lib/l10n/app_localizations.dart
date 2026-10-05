@@ -95,6 +95,11 @@ class AppLocalizations {
   String get enterPlexTokenOrCredentials => _s('enterPlexTokenOrCredentials');
   String get enterUrlAndUsername => _s('enterUrlAndUsername');
   String get couldNotSaveConnection => _s('couldNotSaveConnection');
+  String get couldNotLoadMediaServers => _s('couldNotLoadMediaServers');
+  String get testConnection => _s('testConnection');
+  String get disconnectServerConfirm => _s('disconnectServerConfirm');
+  String get connectionUnavailable => _s('connectionUnavailable');
+  String get connectionSuccessful => _s('connectionSuccessful');
   String get plexLinkButton => _s('plexLinkButton');
   String get plexLinkTitle => _s('plexLinkTitle');
   String get plexLinkInstructions => _s('plexLinkInstructions');

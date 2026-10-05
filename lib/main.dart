@@ -2244,7 +2244,7 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
 
       // Install on this device
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
+        SnackBar(
           content: Row(
             children: [
               SizedBox(
@@ -3329,7 +3329,7 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
 
   void _showIntegrationRequiredSnack() {
     ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(
+      SnackBar(
         content: Text(
           'Connect Real Debrid, Torbox, Premiumize, PikPak, or WebDAV in Settings to unlock more tabs.',
         ),
@@ -3340,7 +3340,7 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
   void _showPolicyDeniedSnack() {
     if (!mounted) return;
     ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(
+      SnackBar(
         content: Text('This feature is disabled for this profile.'),
       ),
     );
@@ -3695,7 +3695,7 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
                               builder: (context, expanded, _) =>
                                   AnimatedOpacity(
                                     opacity: expanded ? 1.0 : 0.0,
-                                    duration: const Duration(milliseconds: 200),
+                                    duration: Duration(milliseconds: 200),
                                     curve: Curves.easeOut,
                                     child: ColoredBox(
                                       color: app.shell.sidebarScrim,
@@ -3985,7 +3985,7 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
                                 // Invisible top strip keeps frameless desktop
                                 // windows draggable now that the AppBar is gone.
                                 if (isDesktopWide)
-                                  const Positioned(
+                                  Positioned(
                                     top: 0,
                                     left: 0,
                                     right: 0,

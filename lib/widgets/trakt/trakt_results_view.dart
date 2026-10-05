@@ -735,7 +735,7 @@ class TraktResultsViewState extends State<TraktResultsView> {
         TraktMenuOption(
           action: TraktItemMenuAction.selectSource,
           icon: hasBoundSource ? Icons.edit_rounded : Icons.link_rounded,
-          color: const Color(0xFF60A5FA),
+          color: Color(0xFF60A5FA),
           label: hasBoundSource
               ? (isMovie ? 'Edit Source' : 'Edit Sources')
               : 'Select Source',
@@ -749,7 +749,7 @@ class TraktResultsViewState extends State<TraktResultsView> {
         caption: 'Stremio TV',
       ),
       if (isSeries)
-        const TraktMenuOption(
+        TraktMenuOption(
           action: TraktItemMenuAction.searchPacks,
           icon: Icons.inventory_2_rounded,
           color: Color(0xFFFBBF24),
@@ -1002,7 +1002,7 @@ class TraktResultsViewState extends State<TraktResultsView> {
         if (pbIds == null || pbIds.isEmpty) {
           if (mounted) {
             ScaffoldMessenger.of(context).showSnackBar(
-              const SnackBar(
+              SnackBar(
                 content: Text(
                   'No in-progress playback to remove — try marking the next episode as watched instead',
                 ),
@@ -1416,7 +1416,7 @@ class TraktResultsViewState extends State<TraktResultsView> {
 
     showModalBottomSheet<void>(
       context: context,
-      backgroundColor: const Color(0xFF1E293B),
+      backgroundColor: Color(0xFF1E293B),
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
       ),
@@ -1440,7 +1440,7 @@ class TraktResultsViewState extends State<TraktResultsView> {
               },
             ),
             ListTile(
-              leading: const Icon(Icons.cloud, color: Color(0xFF7C3AED)),
+              leading: Icon(Icons.cloud, color: Color(0xFF7C3AED)),
               title: Text(AppLocalizations.of(context).t('TorBox')),
               onTap: () {
                 Navigator.of(sheetContext).pop();
@@ -1496,7 +1496,7 @@ class TraktResultsViewState extends State<TraktResultsView> {
 
     return Container(
       key: key,
-      margin: const EdgeInsets.only(bottom: 6),
+      margin: EdgeInsets.only(bottom: 6),
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
       decoration: BoxDecoration(
         color: Colors.white.withValues(alpha: 0.05),
@@ -2743,7 +2743,7 @@ class TraktResultsViewState extends State<TraktResultsView> {
     if (_episodeErrorMessage != null) {
       return Center(
         child: Padding(
-          padding: const EdgeInsets.all(32),
+          padding: EdgeInsets.all(32),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -2865,7 +2865,7 @@ class TraktResultsViewState extends State<TraktResultsView> {
                   _checkAuthAndLoad();
                 });
               },
-              icon: const Icon(Icons.settings),
+              icon: Icon(Icons.settings),
               label: Text(AppLocalizations.of(context).t('Go to Settings')),
             ),
           ],
@@ -2880,7 +2880,7 @@ class TraktResultsViewState extends State<TraktResultsView> {
 
     return Center(
       child: Padding(
-        padding: const EdgeInsets.all(32),
+        padding: EdgeInsets.all(32),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [

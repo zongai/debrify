@@ -73,7 +73,7 @@ class _TextBrightnessPageState extends State<TextBrightnessPage> {
     return SettingsPageScaffold(
       title: AppLocalizations.of(context).t('Text Brightness'),
       body: SingleChildScrollView(
-        padding: const EdgeInsets.all(16),
+        padding: EdgeInsets.all(16),
         child: Center(
           child: ConstrainedBox(
             constraints: const BoxConstraints(maxWidth: kSettingsMaxWidth),

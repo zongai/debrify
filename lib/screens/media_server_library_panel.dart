@@ -295,7 +295,7 @@ class _MediaServerLibraryPanelState extends State<MediaServerLibraryPanel> {
         child: Column(
           children: [
             Padding(
-              padding: const EdgeInsets.all(16),
+              padding: EdgeInsets.all(16),
               child: Wrap(
                 spacing: 12,
                 runSpacing: 12,
@@ -516,7 +516,7 @@ class _MediaServerLibraryPanelState extends State<MediaServerLibraryPanel> {
   Widget _notice(String text, {VoidCallback? retry, bool settings = false}) =>
       Center(
         child: Padding(
-          padding: const EdgeInsets.all(24),
+          padding: EdgeInsets.all(24),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
@@ -791,7 +791,7 @@ class _MediaServerItemScreenState extends State<_MediaServerItemScreen> {
       backgroundColor: app.home.bg,
       appBar: AppBar(title: Text(_item?.name ?? 'Server video')),
       body: _loading
-          ? const Center(child: CircularProgressIndicator())
+          ? Center(child: CircularProgressIndicator())
           : ListView(
               padding: const EdgeInsets.all(24),
               children: [

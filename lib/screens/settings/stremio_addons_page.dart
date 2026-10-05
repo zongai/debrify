@@ -126,7 +126,7 @@ class _StremioAddonsPageContentState extends State<StremioAddonsPageContent> {
     final url = _urlController.text.trim();
     if (url.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Please enter an addon URL')),
+        SnackBar(content: Text('Please enter an addon URL')),
       );
       return;
     }
@@ -219,7 +219,7 @@ class _StremioAddonsPageContentState extends State<StremioAddonsPageContent> {
     return showDialog<void>(
       context: context,
       builder: (context) => AlertDialog(
-        title: const Text('Stremio import complete'),
+        title: Text('Stremio import complete'),
         content: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -253,7 +253,7 @@ class _StremioAddonsPageContentState extends State<StremioAddonsPageContent> {
                 color: theme.colorScheme.error,
               ),
             if (result.errors.isNotEmpty) ...[
-              const SizedBox(height: 12),
+              SizedBox(height: 12),
               Text(
                 result.errors.take(3).join('\n'),
                 style: TextStyle(
@@ -296,7 +296,7 @@ class _StremioAddonsPageContentState extends State<StremioAddonsPageContent> {
     final confirmed = await showDialog<bool>(
       context: context,
       builder: (context) => AlertDialog(
-        title: const Text('Delete all addons?'),
+        title: Text('Delete all addons?'),
         content: Text(
           hasSharedAddons
               ? '$sharedCount addon${sharedCount == 1 ? ' is' : 's are'} '
@@ -438,7 +438,7 @@ class _StremioAddonsPageContentState extends State<StremioAddonsPageContent> {
     final confirmed = await showDialog<bool>(
       context: context,
       builder: (context) => AlertDialog(
-        title: const Text('Remove Addon'),
+        title: Text('Remove Addon'),
         content: Text(
           isShared
               ? '"${addon.displayName}" is shared with $borrowerCount other '
@@ -496,7 +496,7 @@ class _StremioAddonsPageContentState extends State<StremioAddonsPageContent> {
             children: [
               if (addon.description != null) ...[
                 Text(addon.description!),
-                const SizedBox(height: 16),
+                SizedBox(height: 16),
               ],
               _DetailRow(label: 'ID', value: addon.id),
               if (addon.version != null)
@@ -553,10 +553,10 @@ class _StremioAddonsPageContentState extends State<StremioAddonsPageContent> {
               onPressed: () {
                 Clipboard.setData(ClipboardData(text: addon.manifestUrl));
                 ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(content: Text('URL copied to clipboard')),
+                  SnackBar(content: Text('URL copied to clipboard')),
                 );
               },
-              child: const Text('Copy URL'),
+              child: Text('Copy URL'),
             ),
           FilledButton(
             onPressed: () => Navigator.of(context).pop(),
@@ -1113,7 +1113,7 @@ class _StremioAddonsPageContentState extends State<StremioAddonsPageContent> {
         hasScrollBody: false,
         child: Center(
           child: Padding(
-            padding: const EdgeInsets.all(24),
+            padding: EdgeInsets.all(24),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
@@ -1378,7 +1378,7 @@ class _StremioAddonsPageState extends State<StremioAddonsPage> {
     final url = _urlController.text.trim();
     if (url.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Please enter an addon URL')),
+        SnackBar(content: Text('Please enter an addon URL')),
       );
       return;
     }
@@ -1500,7 +1500,7 @@ class _StremioAddonsPageState extends State<StremioAddonsPage> {
     final confirmed = await showDialog<bool>(
       context: context,
       builder: (context) => AlertDialog(
-        title: const Text('Remove Addon'),
+        title: Text('Remove Addon'),
         content: Text(
           isShared
               ? '"${addon.displayName}" is shared with $borrowerCount other '
@@ -1560,7 +1560,7 @@ class _StremioAddonsPageState extends State<StremioAddonsPage> {
             children: [
               if (addon.description != null) ...[
                 Text(addon.description!),
-                const SizedBox(height: 16),
+                SizedBox(height: 16),
               ],
               _DetailRow(label: 'ID', value: addon.id),
               if (addon.version != null)
@@ -1617,10 +1617,10 @@ class _StremioAddonsPageState extends State<StremioAddonsPage> {
               onPressed: () {
                 Clipboard.setData(ClipboardData(text: addon.manifestUrl));
                 ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(content: Text('URL copied to clipboard')),
+                  SnackBar(content: Text('URL copied to clipboard')),
                 );
               },
-              child: const Text('Copy URL'),
+              child: Text('Copy URL'),
             ),
           FilledButton(
             onPressed: () => Navigator.of(context).pop(),
@@ -1639,7 +1639,7 @@ class _StremioAddonsPageState extends State<StremioAddonsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Stremio Addons'),
+        title: Text('Stremio Addons'),
         actions: [
           IconButton(
             onPressed: _addons.isEmpty || _isUpdatingAll
@@ -1682,7 +1682,7 @@ class _StremioAddonsPageState extends State<StremioAddonsPage> {
 
   Widget _buildAddSection() {
     return Container(
-      padding: const EdgeInsets.all(16),
+      padding: EdgeInsets.all(16),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -1743,7 +1743,7 @@ class _StremioAddonsPageState extends State<StremioAddonsPage> {
         child: TvTextField(
           controller: _urlController,
           focusNode: _urlFieldFocusNode,
-          decoration: const InputDecoration(
+          decoration: InputDecoration(
             hintText: 'https://addon.example.com/manifest.json',
             border: OutlineInputBorder(),
             contentPadding: EdgeInsets.symmetric(horizontal: 12, vertical: 14),
@@ -1776,7 +1776,7 @@ class _StremioAddonsPageState extends State<StremioAddonsPage> {
     if (_error != null) {
       return Center(
         child: Padding(
-          padding: const EdgeInsets.all(24),
+          padding: EdgeInsets.all(24),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -2291,7 +2291,7 @@ class _AddonOptionsSheetState extends State<_AddonOptionsSheet> {
       child: Container(
         decoration: BoxDecoration(
           color: theme.colorScheme.surface,
-          borderRadius: const BorderRadius.vertical(top: Radius.circular(16)),
+          borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
         ),
         padding: const EdgeInsets.symmetric(vertical: 16),
         child: Column(
@@ -2356,7 +2356,7 @@ class _AddonOptionsSheetState extends State<_AddonOptionsSheet> {
               ),
             ],
             FocusTraversalOrder(
-              order: const NumericFocusOrder(2),
+              order: NumericFocusOrder(2),
               child: _OptionTile(
                 focusNode: _detailsFocusNode,
                 icon: Icons.info_outline,

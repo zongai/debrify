@@ -82,7 +82,7 @@ class ProfileBackupFlows {
     try {
       if (PlatformUtil.isTvOS) {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
+          SnackBar(
             content: Text(
               'Apple TV profile backups use the authenticated Remote transfer flow.',
             ),
@@ -162,7 +162,7 @@ class ProfileBackupFlows {
                 autofocus: true,
                 textInputAction: TextInputAction.done,
                 keyboardSubmitLabel: 'Create backup',
-                decoration: const InputDecoration(
+                decoration: InputDecoration(
                   labelText: 'Backup passphrase (minimum 8 characters)',
                 ),
                 onChanged: (_) => setDialogState(() {}),
@@ -259,7 +259,7 @@ class ProfileBackupFlows {
         if (!context.mounted) return;
         ScaffoldMessenger.of(
           context,
-        ).showSnackBar(const SnackBar(content: Text('Backup cancelled')));
+        ).showSnackBar(SnackBar(content: Text('Backup cancelled')));
       } finally {
         await LocalBackupScratch.delete(staging);
       }
@@ -285,7 +285,7 @@ class ProfileBackupFlows {
       context: context,
       builder: (dialogContext) => AlertDialog(
         scrollable: true,
-        title: const Text('Back up all profiles'),
+        title: Text('Back up all profiles'),
         content: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -374,7 +374,7 @@ class ProfileBackupFlows {
       } on LocalBackupCancelledException {
         if (!context.mounted) return;
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('Backup cancelled; nothing was saved.')),
+          SnackBar(content: Text('Backup cancelled; nothing was saved.')),
         );
       } finally {
         await LocalBackupScratch.delete(staging);
@@ -589,7 +589,7 @@ class ProfileBackupFlows {
   }) async {
     if (source == _ProfileBackupSource.localFile && PlatformUtil.isTvOS) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
+        SnackBar(
           content: Text(
             'Apple TV restores profile packages through authenticated Remote transfer.',
           ),
@@ -1153,7 +1153,7 @@ class ProfileBackupFlows {
     final result = await showSettingsDialog<String>(
       context: context,
       builder: (dialogContext) => AlertDialog(
-        title: const Text('Unlock backup'),
+        title: Text('Unlock backup'),
         content: TvTextField(
           controller: controller,
           obscureText: true,
@@ -1190,7 +1190,7 @@ class ProfileBackupFlows {
     final pin = await showSettingsDialog<String>(
       context: context,
       builder: (dialogContext) => AlertDialog(
-        title: const Text('Confirm Admin PIN'),
+        title: Text('Confirm Admin PIN'),
         content: TvTextField(
           controller: controller,
           autofocus: true,
@@ -1249,7 +1249,7 @@ class ProfileBackupFlows {
         context: context,
         builder: (context) => StatefulBuilder(
           builder: (context, setDialogState) => AlertDialog(
-            title: const Text('Backup is encrypted'),
+            title: Text('Backup is encrypted'),
             content: Column(
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -1299,7 +1299,7 @@ class ProfileBackupFlows {
       showSettingsDialog<void>(
         context: context,
         barrierDismissible: false,
-        builder: (_) => const AlertDialog(
+        builder: (_) => AlertDialog(
           content: Padding(
             padding: EdgeInsets.symmetric(vertical: 8),
             child: Row(
@@ -1332,7 +1332,7 @@ class ProfileBackupFlows {
         rootNavigator.pop();
         if (!context.mounted) return null;
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('The backup format is invalid')),
+          SnackBar(content: Text('The backup format is invalid')),
         );
         return null;
       }

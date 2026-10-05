@@ -214,7 +214,7 @@ class _DownloadsScreenState extends State<DownloadsScreen>
     final confirm = await showDialog<bool>(
           context: context,
           builder: (ctx) => AlertDialog(
-            title: const Text('Clear all finished?'),
+            title: Text('Clear all finished?'),
             content: const Text('This removes completed entries from the list.'),
             actions: [
               TextButton(
@@ -261,7 +261,7 @@ class _DownloadsScreenState extends State<DownloadsScreen>
     return Column(
       children: [
         Padding(
-          padding: const EdgeInsets.fromLTRB(12, 12, 12, 0),
+          padding: EdgeInsets.fromLTRB(12, 12, 12, 0),
           child: Row(
             children: [
               const Text('Finished', style: TextStyle(fontWeight: FontWeight.w600)),
@@ -558,7 +558,7 @@ class _DownloadsScreenState extends State<DownloadsScreen>
                       },
                     ),
                     if (destPath != null) ...[
-                      const SizedBox(height: 14),
+                      SizedBox(height: 14),
                       Wrap(
                         spacing: 8,
                         runSpacing: 8,
@@ -585,7 +585,7 @@ class _DownloadsScreenState extends State<DownloadsScreen>
                             child: Text(AppLocalizations.of(context).t('Cancel')),
                           ),
                         ),
-                        const SizedBox(width: 12),
+                        SizedBox(width: 12),
                         Expanded(
                           child: ElevatedButton.icon(
                             onPressed: (urlCtrl.text.trim().isEmpty)
@@ -1975,7 +1975,7 @@ class _TorrentGroupCard extends StatelessWidget {
       actions.add(
         TextButton.icon(
           onPressed: onPauseAll,
-          icon: const Icon(Icons.pause_rounded),
+          icon: Icon(Icons.pause_rounded),
           label: Text(AppLocalizations.of(context).t('Pause')),
         ),
       );
@@ -1984,7 +1984,7 @@ class _TorrentGroupCard extends StatelessWidget {
       actions.add(
         TextButton.icon(
           onPressed: onResumeAll,
-          icon: const Icon(Icons.play_arrow_rounded),
+          icon: Icon(Icons.play_arrow_rounded),
           label: Text(AppLocalizations.of(context).t('Resume')),
         ),
       );
@@ -1993,7 +1993,7 @@ class _TorrentGroupCard extends StatelessWidget {
       actions.add(
         TextButton.icon(
           onPressed: onCancelAll,
-          icon: const Icon(Icons.delete_rounded),
+          icon: Icon(Icons.delete_rounded),
           label: Text(AppLocalizations.of(context).t('Cancel')),
         ),
       );
@@ -2391,18 +2391,18 @@ class _DownloadTile extends StatelessWidget {
                     final fileInfo = DownloadService.instance.getLastFileForTask(record.task.taskId);
                     if (fileInfo == null) {
                       ScaffoldMessenger.of(context).showSnackBar(
-                        const SnackBar(content: Text('File not available to open yet')),
+                        SnackBar(content: Text('File not available to open yet')),
                       );
                       return;
                     }
                     final ok = await AndroidNativeDownloader.openContentUri(fileInfo.$1, fileInfo.$2);
                     if (!ok) {
                       ScaffoldMessenger.of(context).showSnackBar(
-                        const SnackBar(content: Text('Opened Downloads instead')),
+                        SnackBar(content: Text('Opened Downloads instead')),
                       );
                     }
                   },
-                  icon: const Icon(Icons.open_in_new),
+                  icon: Icon(Icons.open_in_new),
                   label: Text(AppLocalizations.of(context).t('Open')),
                 ),
               ),
@@ -2416,7 +2416,7 @@ class _DownloadTile extends StatelessWidget {
                       await DownloadService.instance.pause(record.task);
                       await onChanged();
                     },
-                    icon: const Icon(Icons.pause),
+                    icon: Icon(Icons.pause),
                     label: Text(AppLocalizations.of(context).t('Pause')),
                   ),
                 if (record.task is DownloadTask && record.status == TaskStatus.paused && !Platform.isIOS && !isTorboxNonResumable)
@@ -2425,7 +2425,7 @@ class _DownloadTile extends StatelessWidget {
                       await DownloadService.instance.resume(record.task);
                       await onChanged();
                     },
-                    icon: const Icon(Icons.play_arrow),
+                    icon: Icon(Icons.play_arrow),
                     label: Text(AppLocalizations.of(context).t('Resume')),
                   ),
                 if ((record.status == TaskStatus.enqueued ||
@@ -2791,7 +2791,7 @@ class _TorrentDownloadDetailScreenState extends State<TorrentDownloadDetailScree
         actions: [
           IconButton(
             onPressed: _refresh,
-            icon: const Icon(Icons.refresh_rounded),
+            icon: Icon(Icons.refresh_rounded),
             tooltip: AppLocalizations.of(context).t('Refresh'),
           ),
         ],

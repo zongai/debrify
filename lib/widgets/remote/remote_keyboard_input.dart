@@ -76,7 +76,7 @@ class _RemoteKeyboardInputState extends State<RemoteKeyboardInput> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(16),
+      padding: EdgeInsets.all(16),
       decoration: BoxDecoration(
         color: AppThemeScope.of(context).settings.panel2,
         borderRadius: BorderRadius.circular(16),

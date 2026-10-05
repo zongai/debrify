@@ -194,7 +194,7 @@ Future<void> openXtreamSeries(
       // The page's primary CTA must never fail silently — on the phone
       // stacked layout the episode pane's retry state can be off-screen.
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
+        SnackBar(
           content: Text("Couldn't load episodes from the provider — try again"),
         ),
       );

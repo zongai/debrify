@@ -226,8 +226,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
             _currentTorrentId == null) {
           Navigator.of(context).pop();
           ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(
-              content: Text(AppLocalizations.of(context).t('Failed to open torrent. Please try again.')),
+            SnackBar(content: Text(AppLocalizations.of(context).t('Failed to open torrent. Please try again.')),
               backgroundColor: Color(0xFFEF4444),
             ),
           );
@@ -875,7 +874,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
       builder: (context) => AlertDialog(
         backgroundColor: AppThemeScope.of(context).cloud.dialogSurface,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-        title: const Text(
+        title: Text(
           'Delete Torrent',
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
@@ -905,7 +904,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
           barrierDismissible: false,
           builder: (context) => AlertDialog(
             backgroundColor: AppThemeScope.of(context).cloud.dialogSurface,
-            content: const Row(
+            content: Row(
               children: [
                 CircularProgressIndicator(),
                 SizedBox(width: 16),
@@ -953,7 +952,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
       builder: (context) => AlertDialog(
         backgroundColor: AppThemeScope.of(context).cloud.dialogSurface,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-        title: const Text(
+        title: Text(
           'Delete All Torrents',
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
@@ -1153,7 +1152,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
       builder: (context) => AlertDialog(
         backgroundColor: AppThemeScope.of(context).cloud.dialogSurface,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-        title: const Text(
+        title: Text(
           'Delete All Downloads',
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
@@ -1353,7 +1352,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
       builder: (context) => AlertDialog(
         backgroundColor: AppThemeScope.of(context).cloud.dialogSurface,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-        title: const Text(
+        title: Text(
           'Delete Download',
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
@@ -1383,7 +1382,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
           barrierDismissible: false,
           builder: (context) => AlertDialog(
             backgroundColor: AppThemeScope.of(context).cloud.dialogSurface,
-            content: const Row(
+            content: Row(
               children: [
                 CircularProgressIndicator(),
                 SizedBox(width: 16),
@@ -1492,7 +1491,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
         title: Text(
           'Delete $count ${count == 1 ? itemType : itemTypePlural}',
-          style: const TextStyle(fontWeight: FontWeight.bold),
+          style: TextStyle(fontWeight: FontWeight.bold),
         ),
         content: Text(
           'Are you sure you want to delete $count selected ${count == 1 ? itemType : itemTypePlural}? This action cannot be undone.',
@@ -1932,7 +1931,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
                     }
                   },
                   style: TextButton.styleFrom(
-                    foregroundColor: const Color(0xFF60A5FA),
+                    foregroundColor: Color(0xFF60A5FA),
                   ),
                   child: Text(AppLocalizations.of(context).t('Copy Download Link')),
                 ),
@@ -2458,7 +2457,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
     final app = AppThemeScope.of(context);
     final hasText = _searchController.text.isNotEmpty;
     return Padding(
-      padding: const EdgeInsets.fromLTRB(16, 8, 16, 8),
+      padding: EdgeInsets.fromLTRB(16, 8, 16, 8),
       child: Row(
         children: [
           Expanded(
@@ -2665,13 +2664,13 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
       return CloudScaffold(
         appBar: AppBar(
           leading: IconButton(
-            icon: const Icon(Icons.arrow_back),
+            icon: Icon(Icons.arrow_back),
             onPressed: () => Navigator.of(context).pop(),
             tooltip: AppLocalizations.of(context).t('Back'),
           ),
           title: Text(AppLocalizations.of(context).t('Opening torrent...')),
         ),
-        body: const Center(
+        body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -2698,7 +2697,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
           ? AppBar(
               leading: IconButton(
                 focusNode: _backButtonFocusNode,
-                icon: const Icon(Icons.arrow_back),
+                icon: Icon(Icons.arrow_back),
                 onPressed: () => Navigator.of(context).pop(),
                 tooltip: AppLocalizations.of(context).t('Back'),
               ),
@@ -2763,12 +2762,12 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
             fillColor: theme.colorScheme.surfaceContainerHighest.withValues(
               alpha: 0.3,
             ),
-            contentPadding: const EdgeInsets.symmetric(
+            contentPadding: EdgeInsets.symmetric(
               horizontal: 12,
               vertical: 12,
             ),
           ),
-          items: const [
+          items: [
             DropdownMenuItem(value: _FolderViewMode.raw, child: Text(AppLocalizations.of(context).t('Raw'))),
             DropdownMenuItem(
               value: _FolderViewMode.sortedAZ,
@@ -2974,7 +2973,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
     final theme = Theme.of(context);
     final count = _activeSelectedIds.length;
     return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 16),
+      margin: EdgeInsets.symmetric(horizontal: 16),
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 6),
       decoration: BoxDecoration(
         color: theme.colorScheme.primary.withValues(alpha: 0.1),
@@ -3067,7 +3066,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
                     iconSize: iconSize,
                     padding: iconPadding,
                     constraints: iconConstraints,
-                    icon: const Icon(Icons.arrow_back),
+                    icon: Icon(Icons.arrow_back),
                     color: theme.colorScheme.onSurface,
                     visualDensity: VisualDensity.compact,
                   ),
@@ -3246,7 +3245,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
     } else if (_torrentErrorMessage.isNotEmpty && _torrents.isEmpty) {
       body = Center(
         child: Padding(
-          padding: const EdgeInsets.all(20),
+          padding: EdgeInsets.all(20),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -3532,7 +3531,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
     } else if (_downloadErrorMessage.isNotEmpty && _downloads.isEmpty) {
       body = Center(
         child: Padding(
-          padding: const EdgeInsets.all(20),
+          padding: EdgeInsets.all(20),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -3965,7 +3964,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
         barrierDismissible: false,
         builder: (context) => AlertDialog(
           backgroundColor: AppThemeScope.of(context).cloud.dialogSurface,
-          content: const Row(
+          content: Row(
             children: [
               CircularProgressIndicator(),
               SizedBox(width: 16),
@@ -4261,7 +4260,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: const Text('Add Magnet Link'),
+        title: Text('Add Magnet Link'),
         content: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
@@ -4275,7 +4274,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
               ),
               child: TextField(
                 controller: _magnetController,
-                decoration: const InputDecoration(
+                decoration: InputDecoration(
                   hintText: 'Paste magnet link here...',
                   border: InputBorder.none,
                   contentPadding: EdgeInsets.all(16),
@@ -4296,7 +4295,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
                     child: Text(AppLocalizations.of(context).t('Cancel')),
                   ),
                 ),
-                const SizedBox(width: 12),
+                SizedBox(width: 12),
                 Expanded(
                   child: OutlinedButton(
                     onPressed: _showAdvancedMagnetDialog,
@@ -4307,7 +4306,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
                     child: Text(AppLocalizations.of(context).t('Advanced')),
                   ),
                 ),
-                const SizedBox(width: 12),
+                SizedBox(width: 12),
                 Expanded(
                   child: FilledButton(
                     onPressed: _isAddingMagnet
@@ -4479,7 +4478,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: const Text('Select File Type'),
+        title: Text('Select File Type'),
         content: const Text('Choose how to handle files in this torrent:'),
         actions: [
           TextButton(
@@ -4663,7 +4662,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
                     hintStyle: TextStyle(color: Colors.grey[600]),
                     border: OutlineInputBorder(
                       borderRadius: app.shape.br(8),
-                      borderSide: const BorderSide(color: Color(0xFF475569)),
+                      borderSide: BorderSide(color: Color(0xFF475569)),
                     ),
                     enabledBorder: OutlineInputBorder(
                       borderRadius: app.shape.br(8),
@@ -4702,7 +4701,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
                     child: Text(AppLocalizations.of(context).t('Cancel')),
                   ),
                 ),
-                const SizedBox(width: 12),
+                SizedBox(width: 12),
                 Expanded(
                   child: FilledButton(
                     onPressed: _isAddingLink ? null : _addLink,

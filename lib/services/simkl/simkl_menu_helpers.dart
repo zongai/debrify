@@ -118,7 +118,7 @@ Future<bool> confirmSimklTitleRemoval(
   final confirmed = await showDialog<bool>(
     context: context,
     builder: (dialogContext) => AlertDialog(
-      title: const Text('Remove from Simkl?'),
+      title: Text('Remove from Simkl?'),
       content: Text(
         'Removing "$title" from Simkl permanently clears its list status, '
         'watched history, rating, and saved playback progress.',
@@ -130,7 +130,7 @@ Future<bool> confirmSimklTitleRemoval(
         ),
         TextButton(
           onPressed: () => Navigator.of(dialogContext).pop(true),
-          style: TextButton.styleFrom(foregroundColor: const Color(0xFFFF8B8B)),
+          style: TextButton.styleFrom(foregroundColor: Color(0xFFFF8B8B)),
           child: Text(AppLocalizations.of(context).t('Remove')),
         ),
       ],
@@ -308,7 +308,7 @@ List<SimklMenuOption> buildSimklMenuOptions({
   }
 
   return [
-    const SimklMenuOption(action: SimklItemMenuAction.clearWatchProgress,
+    SimklMenuOption(action: SimklItemMenuAction.clearWatchProgress,
       icon: Icons.restart_alt_rounded, color: Color(0xFFEF4444),
       label: 'Clear watch progress on Simkl', caption: 'Clear progress'),
     if (current != 'plantowatch')

@@ -192,7 +192,7 @@ class YoutubeResultsViewState extends State<YoutubeResultsView>
   Future<YoutubeResolvedStreams?> _resolve(YoutubeVideo video) async {
     if (mounted) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
+        SnackBar(
           content: Row(
             children: [
               SizedBox(
@@ -230,7 +230,7 @@ class YoutubeResultsViewState extends State<YoutubeResultsView>
     final playUrl = streams?.playUrl;
     if (playUrl == null || playUrl.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Could not load this video')),
+        SnackBar(content: Text('Could not load this video')),
       );
       return;
     }
@@ -311,7 +311,7 @@ class YoutubeResultsViewState extends State<YoutubeResultsView>
     final downloadUrl = streams?.downloadUrl;
     if (downloadUrl == null || downloadUrl.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('No downloadable stream found')),
+        SnackBar(content: Text('No downloadable stream found')),
       );
       return;
     }
