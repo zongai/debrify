@@ -358,7 +358,7 @@ class _StremioTvSettingsPageState extends State<StremioTvSettingsPage> {
                               const Divider(height: 32),
                               SwitchListTile(
                                 contentPadding: EdgeInsets.zero,
-                                title: const Text('Hide Currently Playing'),
+                                title: Text(AppLocalizations.of(context).t('Hide Currently Playing')),
                                 subtitle: const Text(
                                   'Blur poster and hide details for a surprise when playing',
                                 ),

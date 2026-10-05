@@ -276,7 +276,7 @@ class _MetadataSettingsPageState extends State<MetadataSettingsPage> {
                     ),
                   ),
                 SwitchListTile(
-                  title: const Text('Use other sources when unavailable'),
+                  title: Text(AppLocalizations.of(context).t('Use other sources when unavailable')),
                   subtitle: const Text(
                     'Allow fallback when your selected provider has no information.',
                   ),
@@ -288,7 +288,7 @@ class _MetadataSettingsPageState extends State<MetadataSettingsPage> {
                 const Divider(),
                 const Padding(
                   padding: EdgeInsets.all(16),
-                  child: Text('TMDB language and region'),
+                  child: Text(AppLocalizations.of(context).t('TMDB language and region')),
                 ),
                 _selection(
                   'Metadata language',
@@ -346,7 +346,7 @@ class _MetadataSettingsPageState extends State<MetadataSettingsPage> {
                 const Divider(),
                 const Padding(
                   padding: EdgeInsets.all(16),
-                  child: Text('Optional features'),
+                  child: Text(AppLocalizations.of(context).t('Optional features')),
                 ),
                 for (final feature in MetadataFeature.values)
                   SwitchListTile(

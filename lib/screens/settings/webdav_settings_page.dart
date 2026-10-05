@@ -496,15 +496,15 @@ class _WebDavSettingsPageState extends State<WebDavSettingsPage> {
                       child: SwitchListTile(
                         value: _enabled,
                         onChanged: _servers.isEmpty ? null : _setEnabled,
-                        title: const Text('Enable WebDAV'),
-                        subtitle: const Text('Show WebDAV features in the app'),
+                        title: Text(AppLocalizations.of(context).t('Enable WebDAV')),
+                        subtitle: Text(AppLocalizations.of(context).t('Show WebDAV features in the app')),
                       ),
                     ),
                     _FocusRing(
                       child: SwitchListTile(
                         value: _hiddenFromNav,
                         onChanged: _enabled ? _setHidden : null,
-                        title: const Text('Hide from navigation'),
+                        title: Text(AppLocalizations.of(context).t('Hide from navigation')),
                         subtitle: const Text(
                           'Keep configured but remove the tab',
                         ),
@@ -514,7 +514,7 @@ class _WebDavSettingsPageState extends State<WebDavSettingsPage> {
                       child: SwitchListTile(
                         value: _showVideosOnly,
                         onChanged: _setShowVideosOnly,
-                        title: const Text('Show videos only'),
+                        title: Text(AppLocalizations.of(context).t('Show videos only')),
                         subtitle: const Text(
                           'Hide non-video files while browsing',
                         ),

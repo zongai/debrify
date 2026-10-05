@@ -6674,7 +6674,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text('Profile data reset. Connections and files were kept.'),
+          content: Text(AppLocalizations.of(context).t('Profile data reset. Connections and files were kept.')),
         ),
       );
       await _loadSummaries();

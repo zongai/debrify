@@ -221,7 +221,7 @@ class _TorboxSettingsPageState extends State<TorboxSettingsPage> {
       final confirmed = await showDialog<bool>(
         context: context,
         builder: (context) => AlertDialog(
-          title: Text('Hide Torbox?'),
+          title: Text(AppLocalizations.of(context).t('Hide Torbox?')),
           content: SingleChildScrollView(
             child: Column(
               mainAxisSize: MainAxisSize.min,
@@ -330,7 +330,7 @@ class _TorboxSettingsPageState extends State<TorboxSettingsPage> {
                         autofocus: _seedEntryFocus,
                         value: _integrationEnabled,
                         onChanged: (value) => _updateIntegrationEnabled(value),
-                        title: const Text('Enable Torbox'),
+                        title: Text(AppLocalizations.of(context).t('Enable Torbox')),
                         subtitle: const Text(
                           'Turn this off to hide Torbox options across the app.',
                         ),

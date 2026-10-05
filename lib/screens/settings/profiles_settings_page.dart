@@ -142,7 +142,7 @@ class _ProfilesSettingsPageState extends State<ProfilesSettingsPage> {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text('Could not change device unlock settings.'),
+            content: Text(AppLocalizations.of(context).t('Could not change device unlock settings.')),
           ),
         );
       }

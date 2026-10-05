@@ -186,7 +186,7 @@ class _PremiumizeSettingsPageState extends State<PremiumizeSettingsPage> {
       final confirmed = await showDialog<bool>(
         context: context,
         builder: (context) => AlertDialog(
-          title: Text('Hide Premiumize?'),
+          title: Text(AppLocalizations.of(context).t('Hide Premiumize?')),
           content: SingleChildScrollView(
             child: Column(
               mainAxisSize: MainAxisSize.min,
@@ -306,7 +306,7 @@ class _PremiumizeSettingsPageState extends State<PremiumizeSettingsPage> {
                         autofocus: _seedEntryFocus,
                         value: _integrationEnabled,
                         onChanged: (value) => _updateIntegrationEnabled(value),
-                        title: const Text('Enable Premiumize'),
+                        title: Text(AppLocalizations.of(context).t('Enable Premiumize')),
                         subtitle: const Text(
                           'Turn this off to hide Premiumize options across the app.',
                         ),

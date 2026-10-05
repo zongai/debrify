@@ -241,7 +241,7 @@ class _RealDebridSettingsPageState extends State<RealDebridSettingsPage> {
       final confirmed = await showDialog<bool>(
         context: context,
         builder: (context) => AlertDialog(
-          title: Text('Hide Real Debrid?'),
+          title: Text(AppLocalizations.of(context).t('Hide Real Debrid?')),
           content: SingleChildScrollView(
             child: Column(
               mainAxisSize: MainAxisSize.min,
@@ -346,7 +346,7 @@ class _RealDebridSettingsPageState extends State<RealDebridSettingsPage> {
                       autofocus: _seedEntryFocus,
                       value: _integrationEnabled,
                       onChanged: (value) => _updateIntegrationEnabled(value),
-                      title: const Text('Enable Real Debrid'),
+                      title: Text(AppLocalizations.of(context).t('Enable Real Debrid')),
                       subtitle: const Text(
                         'Turn this off to hide Real Debrid options across the app.',
                       ),

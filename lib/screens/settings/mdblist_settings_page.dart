@@ -519,7 +519,7 @@ class _MdblistSettingsPageState extends State<MdblistSettingsPage> {
               child: OutlinedButton.icon(
                 onPressed: _openApiKeyPage,
                 icon: const Icon(Icons.open_in_new, size: 18),
-                label: const Text('Open mdblist.com/preferences'),
+                label: Text(AppLocalizations.of(context).t('Open mdblist.com/preferences')),
               ),
             ),
           ],

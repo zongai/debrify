@@ -165,7 +165,7 @@ class _PikPakSettingsPageState extends State<PikPakSettingsPage> {
                 children: [
                   Icon(Icons.folder_special, color: t.warning),
                   const SizedBox(width: 12),
-                  const Expanded(child: Text('Folder Restriction (Optional)')),
+                  const Expanded(child: Text(AppLocalizations.of(context).t('Folder Restriction (Optional)'))),
                 ],
               ),
               content: const Column(
@@ -203,7 +203,7 @@ class _PikPakSettingsPageState extends State<PikPakSettingsPage> {
                     focusNode: _folderRestrictionSkipButtonFocusNode,
                     autofocus: true,
                     onPressed: () => Navigator.pop(dialogContext, false),
-                    child: const Text('Skip (Full Access)'),
+                    child: Text(AppLocalizations.of(context).t('Skip (Full Access)')),
                   ),
                 ),
                 _FocusRing(
@@ -211,7 +211,7 @@ class _PikPakSettingsPageState extends State<PikPakSettingsPage> {
                     focusNode: _folderRestrictionSelectButtonFocusNode,
                     onPressed: () => Navigator.pop(dialogContext, true),
                     icon: const Icon(Icons.folder_open, size: 18),
-                    label: const Text('Select Folder'),
+                    label: Text(AppLocalizations.of(context).t('Select Folder')),
                   ),
                 ),
               ],
@@ -386,7 +386,7 @@ class _PikPakSettingsPageState extends State<PikPakSettingsPage> {
       final confirmed = await showDialog<bool>(
         context: context,
         builder: (context) => AlertDialog(
-          title: Text('Hide PikPak?'),
+          title: Text(AppLocalizations.of(context).t('Hide PikPak?')),
           content: SingleChildScrollView(
             child: Column(
               mainAxisSize: MainAxisSize.min,
