@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+
+import '../../l10n/app_localizations.dart';
 import 'package:flutter/services.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:yaml/yaml.dart';
@@ -175,17 +177,17 @@ class _EngineImportPageContentState extends State<EngineImportPageContent> {
     final confirmed = await showDialog<bool>(
       context: context,
       builder: (context) => AlertDialog(
-        title: const Text('Delete Engine'),
+        title: Text(AppLocalizations.of(context).t('Delete Engine')),
         content: Text('Are you sure you want to delete ${engine.displayName}?'),
         actions: [
           TextButton(
             onPressed: () => Navigator.of(context).pop(false),
-            child: const Text('Cancel'),
+            child: Text(AppLocalizations.of(context).t('Cancel')),
           ),
           FilledButton(
             onPressed: () => Navigator.of(context).pop(true),
             style: FilledButton.styleFrom(backgroundColor: Colors.red),
-            child: const Text('Delete'),
+            child: Text(AppLocalizations.of(context).t('Delete')),
           ),
         ],
       ),
@@ -271,18 +273,18 @@ class _EngineImportPageContentState extends State<EngineImportPageContent> {
         final confirmed = await showDialog<bool>(
           context: context,
           builder: (context) => AlertDialog(
-            title: const Text('Engine Already Exists'),
+            title: Text(AppLocalizations.of(context).t('Engine Already Exists')),
             content: Text(
               'An engine with ID "$engineId" already exists. Do you want to replace it?',
             ),
             actions: [
               TextButton(
                 onPressed: () => Navigator.of(context).pop(false),
-                child: const Text('Cancel'),
+                child: Text(AppLocalizations.of(context).t('Cancel')),
               ),
               FilledButton(
                 onPressed: () => Navigator.of(context).pop(true),
-                child: const Text('Replace'),
+                child: Text(AppLocalizations.of(context).t('Replace')),
               ),
             ],
           ),
@@ -466,7 +468,7 @@ class _EngineImportPageContentState extends State<EngineImportPageContent> {
                 focusNode: _retryButtonFocusNode,
                 onPressed: _loadEngines,
                 icon: Icons.refresh_rounded,
-                label: 'Retry',
+                label: AppLocalizations.of(context).t('Retry'),
                 filled: true,
               ),
             ],
@@ -587,7 +589,7 @@ class _EngineImportPageContentState extends State<EngineImportPageContent> {
             focusNode: _importLocalButtonFocusNode,
             onPressed: _importFromLocalFile,
             icon: Icons.folder_open_rounded,
-            label: 'Import from File',
+            label: AppLocalizations.of(context).t('Import from File'),
             filled: true,
           ),
         ),
@@ -597,7 +599,7 @@ class _EngineImportPageContentState extends State<EngineImportPageContent> {
             focusNode: _refreshButtonFocusNode,
             onPressed: _loadEngines,
             icon: Icons.refresh_rounded,
-            label: 'Refresh',
+            label: AppLocalizations.of(context).t('Refresh'),
             filled: false,
           ),
         ),
@@ -1048,17 +1050,17 @@ class _EngineImportPageState extends State<EngineImportPage> {
     final confirmed = await showDialog<bool>(
       context: context,
       builder: (context) => AlertDialog(
-        title: const Text('Delete Engine'),
+        title: Text(AppLocalizations.of(context).t('Delete Engine')),
         content: Text('Are you sure you want to delete ${engine.displayName}?'),
         actions: [
           TextButton(
             onPressed: () => Navigator.of(context).pop(false),
-            child: const Text('Cancel'),
+            child: Text(AppLocalizations.of(context).t('Cancel')),
           ),
           FilledButton(
             onPressed: () => Navigator.of(context).pop(true),
             style: FilledButton.styleFrom(backgroundColor: Colors.red),
-            child: const Text('Delete'),
+            child: Text(AppLocalizations.of(context).t('Delete')),
           ),
         ],
       ),
@@ -1154,18 +1156,18 @@ class _EngineImportPageState extends State<EngineImportPage> {
         final confirmed = await showDialog<bool>(
           context: context,
           builder: (context) => AlertDialog(
-            title: const Text('Engine Already Exists'),
+            title: Text(AppLocalizations.of(context).t('Engine Already Exists')),
             content: Text(
               'An engine with ID "$engineId" already exists. Do you want to replace it?',
             ),
             actions: [
               TextButton(
                 onPressed: () => Navigator.of(context).pop(false),
-                child: const Text('Cancel'),
+                child: Text(AppLocalizations.of(context).t('Cancel')),
               ),
               FilledButton(
                 onPressed: () => Navigator.of(context).pop(true),
-                child: const Text('Replace'),
+                child: Text(AppLocalizations.of(context).t('Replace')),
               ),
             ],
           ),
@@ -1262,19 +1264,19 @@ class _EngineImportPageState extends State<EngineImportPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Import Engines'),
+        title: Text(AppLocalizations.of(context).t('Import Engines')),
         actions: [
           IconButton(
             focusNode: _importLocalButtonFocusNode,
             onPressed: _isLoading ? null : _importFromLocalFile,
             icon: const Icon(Icons.folder_open),
-            tooltip: 'Import from Local File',
+            tooltip: AppLocalizations.of(context).t('Import from Local File'),
           ),
           IconButton(
             focusNode: _refreshButtonFocusNode,
             onPressed: _isLoading ? null : _loadEngines,
             icon: const Icon(Icons.refresh),
-            tooltip: 'Refresh',
+            tooltip: AppLocalizations.of(context).t('Refresh'),
           ),
         ],
       ),
@@ -1293,7 +1295,7 @@ class _EngineImportPageState extends State<EngineImportPage> {
           children: [
             CircularProgressIndicator(),
             SizedBox(height: 16),
-            Text('Loading engines...'),
+            Text(AppLocalizations.of(context).t('Loading engines...')),
           ],
         ),
       );
@@ -1331,7 +1333,7 @@ class _EngineImportPageState extends State<EngineImportPage> {
                   focusNode: _retryButtonFocusNode,
                   onPressed: _loadEngines,
                   icon: const Icon(Icons.refresh),
-                  label: const Text('Retry'),
+                  label: Text(AppLocalizations.of(context).t('Retry')),
                 ),
               ),
             ],

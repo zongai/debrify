@@ -4,6 +4,8 @@ import 'dart:convert';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 import '../../models/stream_badge_rules.dart';
 import '../../services/analytics_service.dart';
 import '../../services/stream_badges_service.dart';
@@ -134,7 +136,7 @@ class _StreamBadgesSettingsPageState extends State<StreamBadgesSettingsPage> {
 
   Future<void> _importFromUrl() => _guarded(() async {
     final url = await _prompt(
-      title: 'Import from link',
+      title: AppLocalizations.of(context).t('Import from link'),
       hint: 'https://raw.githubusercontent.com/…/badges.json',
       helper:
           'A direct link to a badges.json file. Link sources can be '
@@ -222,12 +224,12 @@ class _StreamBadgesSettingsPageState extends State<StreamBadgesSettingsPage> {
           actions: [
             TextButton(
               onPressed: () => Navigator.of(context).pop('delete'),
-              child: const Text('Delete'),
+              child: Text(AppLocalizations.of(context).t('Delete')),
             ),
             if (s.url != null)
               TextButton(
                 onPressed: () => Navigator.of(context).pop('refresh'),
-                child: const Text('Refresh'),
+                child: Text(AppLocalizations.of(context).t('Refresh')),
               ),
             TextButton(
               onPressed: () => Navigator.of(context).pop('toggle'),
@@ -236,7 +238,7 @@ class _StreamBadgesSettingsPageState extends State<StreamBadgesSettingsPage> {
             TextButton(
               autofocus: true,
               onPressed: () => Navigator.of(context).pop(),
-              child: const Text('Close'),
+              child: Text(AppLocalizations.of(context).t('Close')),
             ),
           ],
         ),
@@ -353,7 +355,7 @@ class _StreamBadgesSettingsPageState extends State<StreamBadgesSettingsPage> {
             TextButton(
               autofocus: true,
               onPressed: () => Navigator.of(context).pop(false),
-              child: const Text('Cancel'),
+              child: Text(AppLocalizations.of(context).t('Cancel')),
             ),
             TextButton(
               onPressed: () => Navigator.of(context).pop(true),
@@ -437,7 +439,7 @@ class _StreamBadgesSettingsPageState extends State<StreamBadgesSettingsPage> {
               mainAxisSize: MainAxisSize.min,
               children: [
                 Text(_loadError!),
-                TextButton(onPressed: _load, child: const Text('Retry')),
+                TextButton(onPressed: _load, child: Text(AppLocalizations.of(context).t('Retry'))),
                 TextButton(
                   onPressed: () => _guarded(() async {
                     if (!await _confirm(
@@ -505,7 +507,7 @@ class _StreamBadgesSettingsPageState extends State<StreamBadgesSettingsPage> {
                 ),
                 const SizedBox(height: 16),
                 SettingsSection(
-                  title: 'Import',
+                  title: AppLocalizations.of(context).t('Import'),
                   blurb:
                       'A badges file is a list of regular-expression rules; a '
                       'rule that matches a source\'s name or description adds '
@@ -513,7 +515,7 @@ class _StreamBadgesSettingsPageState extends State<StreamBadgesSettingsPage> {
                   children: [
                     SettingsTile(
                       icon: Icons.link_rounded,
-                      title: 'Import from link',
+                      title: AppLocalizations.of(context).t('Import from link'),
                       subtitle: _busy
                           ? 'Importing…'
                           : 'Paste a raw badges.json URL (refreshable)',
@@ -523,15 +525,15 @@ class _StreamBadgesSettingsPageState extends State<StreamBadgesSettingsPage> {
                     ),
                     SettingsTile(
                       icon: Icons.upload_file_rounded,
-                      title: 'Import from file',
+                      title: AppLocalizations.of(context).t('Import from file'),
                       subtitle: 'Pick a badges.json on this device',
                       enabled: !_busy,
                       onTap: _importFromFile,
                     ),
                     SettingsTile(
                       icon: Icons.content_paste_rounded,
-                      title: 'Paste JSON',
-                      subtitle: 'Paste the file contents directly',
+                      title: AppLocalizations.of(context).t('Paste JSON'),
+                      subtitle: AppLocalizations.of(context).t('Paste the file contents directly'),
                       enabled: !_busy,
                       onTap: _importFromPaste,
                     ),
@@ -568,7 +570,7 @@ class _StreamBadgesSettingsPageState extends State<StreamBadgesSettingsPage> {
                 if (_sources.isNotEmpty) ...[
                   const SizedBox(height: 16),
                   SettingsSection(
-                    title: 'Danger Zone',
+                    title: AppLocalizations.of(context).t('Danger Zone'),
                     children: [
                       SettingsTile(
                         icon: Icons.delete_sweep_rounded,

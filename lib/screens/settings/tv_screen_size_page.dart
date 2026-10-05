@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 import '../../services/analytics_service.dart';
 import '../../services/storage_service.dart';
 import '../../utils/platform_util.dart';
@@ -85,13 +87,13 @@ class _TvScreenSizePageState extends State<TvScreenSizePage> {
     final t = AppThemeScope.of(context).settings;
     if (_loading) {
       return const SettingsPageScaffold(
-        title: 'Screen Size',
+        title: AppLocalizations.of(context).t('Screen Size'),
         body: Center(child: CircularProgressIndicator()),
       );
     }
 
     return SettingsPageScaffold(
-      title: 'Screen Size',
+      title: AppLocalizations.of(context).t('Screen Size'),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16),
         child: Center(
@@ -102,7 +104,7 @@ class _TvScreenSizePageState extends State<TvScreenSizePage> {
               children: [
                 const SettingsPageHeader(
                   icon: Icons.fit_screen_rounded,
-                  title: 'Screen Size',
+                  title: AppLocalizations.of(context).t('Screen Size'),
                   subtitle: 'How large Debrify is drawn on this TV',
                 ),
                 const SizedBox(height: 24),

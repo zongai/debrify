@@ -4,6 +4,8 @@ import 'dart:typed_data';
 
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
+
+import '../../l10n/app_localizations.dart';
 import 'package:path/path.dart' as p;
 import 'package:path_provider/path_provider.dart';
 
@@ -175,7 +177,7 @@ class ProfileBackupFlows {
           actions: [
             TextButton(
               onPressed: () => Navigator.of(dialogContext).pop(false),
-              child: const Text('Cancel'),
+              child: Text(AppLocalizations.of(context).t('Cancel')),
             ),
             FilledButton(
               onPressed: passphrase.text.length >= 8
@@ -308,7 +310,7 @@ class ProfileBackupFlows {
         actions: [
           TextButton(
             onPressed: () => Navigator.of(dialogContext).pop(false),
-            child: const Text('Cancel'),
+            child: Text(AppLocalizations.of(context).t('Cancel')),
           ),
           FilledButton(
             autofocus: true,
@@ -983,7 +985,7 @@ class ProfileBackupFlows {
         actions: [
           TextButton(
             onPressed: () => Navigator.of(dialogContext).pop(false),
-            child: const Text('Cancel'),
+            child: Text(AppLocalizations.of(context).t('Cancel')),
           ),
           FilledButton(
             onPressed: () => Navigator.of(dialogContext).pop(true),
@@ -1167,7 +1169,7 @@ class ProfileBackupFlows {
         actions: [
           TextButton(
             onPressed: () => Navigator.of(dialogContext).pop(),
-            child: const Text('Cancel'),
+            child: Text(AppLocalizations.of(context).t('Cancel')),
           ),
           FilledButton(
             onPressed: () => Navigator.of(dialogContext).pop(controller.text),
@@ -1196,17 +1198,17 @@ class ProfileBackupFlows {
           keyboardType: TextInputType.number,
           textInputAction: TextInputAction.done,
           keyboardSubmitLabel: 'Confirm',
-          decoration: const InputDecoration(labelText: 'PIN'),
+          decoration: InputDecoration(labelText: AppLocalizations.of(context).t('PIN')),
           onSubmitted: (value) => Navigator.of(dialogContext).pop(value),
         ),
         actions: [
           TextButton(
             onPressed: () => Navigator.of(dialogContext).pop(),
-            child: const Text('Cancel'),
+            child: Text(AppLocalizations.of(context).t('Cancel')),
           ),
           FilledButton(
             onPressed: () => Navigator.of(dialogContext).pop(controller.text),
-            child: const Text('Confirm'),
+            child: Text(AppLocalizations.of(context).t('Confirm')),
           ),
         ],
       ),
@@ -1277,7 +1279,7 @@ class ProfileBackupFlows {
             actions: [
               TextButton(
                 onPressed: () => Navigator.of(context).pop(null),
-                child: const Text('Cancel'),
+                child: Text(AppLocalizations.of(context).t('Cancel')),
               ),
               FilledButton(
                 onPressed: () => Navigator.of(context).pop(controller.text),
@@ -1440,7 +1442,7 @@ class _BackupProgressDialogState extends State<_BackupProgressDialog> {
                           setState(() => _cancelRequested = true);
                           onCancel();
                         },
-                  child: const Text('Cancel'),
+                  child: Text(AppLocalizations.of(context).t('Cancel')),
                 ),
               ],
       ),

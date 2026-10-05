@@ -1,6 +1,8 @@
 import '../../theme/app_looks.dart';
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 import '../../services/analytics_service.dart';
 import '../../services/storage_service.dart';
 import '../../models/detail_page_section_visibility.dart';
@@ -213,13 +215,13 @@ class _DetailPageStylePageState extends State<DetailPageStylePage> {
     final t = AppThemeScope.of(context).settings;
     if (_loading) {
       return const SettingsPageScaffold(
-        title: 'Details Page',
+        title: AppLocalizations.of(context).t('Details Page'),
         body: Center(child: CircularProgressIndicator()),
       );
     }
 
     return SettingsPageScaffold(
-      title: 'Details Page',
+      title: AppLocalizations.of(context).t('Details Page'),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16),
         child: Center(
@@ -230,7 +232,7 @@ class _DetailPageStylePageState extends State<DetailPageStylePage> {
               children: [
                 const SettingsPageHeader(
                   icon: Icons.article_rounded,
-                  title: 'Details Page',
+                  title: AppLocalizations.of(context).t('Details Page'),
                   subtitle:
                       'Choose the layout and what appears when you open a movie or series',
                 ),

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+
+import '../../l10n/app_localizations.dart';
 import '../../services/storage_service.dart';
 import '../../services/premiumize_account_service.dart';
 import '../../services/analytics_service.dart';
@@ -209,14 +211,14 @@ class _PremiumizeSettingsPageState extends State<PremiumizeSettingsPage> {
                 // Land DPAD focus on the safe choice when the dialog opens.
                 autofocus: true,
                 onPressed: () => Navigator.pop(context, false),
-                child: const Text('Cancel'),
+                child: Text(AppLocalizations.of(context).t('Cancel')),
               ),
             ),
             _FocusRing(
               radius: 12,
               child: FilledButton(
                 onPressed: () => Navigator.pop(context, true),
-                child: const Text('Hide'),
+                child: Text(AppLocalizations.of(context).t('Hide')),
               ),
             ),
           ],
@@ -277,7 +279,7 @@ class _PremiumizeSettingsPageState extends State<PremiumizeSettingsPage> {
     final t = AppThemeScope.of(context).settings;
     if (_loading) {
       return const SettingsPageScaffold(
-        title: 'Premiumize Settings',
+        title: AppLocalizations.of(context).t('Premiumize Settings'),
         body: Center(child: CircularProgressIndicator()),
       );
     }
@@ -285,7 +287,7 @@ class _PremiumizeSettingsPageState extends State<PremiumizeSettingsPage> {
     final user = PremiumizeAccountService.currentUser;
 
     return SettingsPageScaffold(
-      title: 'Premiumize Settings',
+      title: AppLocalizations.of(context).t('Premiumize Settings'),
       body: ListView(
         padding: const EdgeInsets.all(16),
         children: [
@@ -447,7 +449,7 @@ class _PremiumizeSettingsPageState extends State<PremiumizeSettingsPage> {
                                                               strokeWidth: 2,
                                                             ),
                                                       )
-                                                    : const Text('Save'),
+                                                    : Text(AppLocalizations.of(context).t('Save')),
                                               ),
                                             ),
                                           ),
@@ -468,7 +470,7 @@ class _PremiumizeSettingsPageState extends State<PremiumizeSettingsPage> {
                                                           _addApiKeyButtonFocusNode,
                                                         );
                                                       },
-                                                child: const Text('Cancel'),
+                                                child: Text(AppLocalizations.of(context).t('Cancel')),
                                               ),
                                             ),
                                           ),
@@ -512,7 +514,7 @@ class _PremiumizeSettingsPageState extends State<PremiumizeSettingsPage> {
                                               focusNode: _logoutButtonFocusNode,
                                               onPressed: _deleteKey,
                                               icon: const Icon(Icons.logout),
-                                              label: const Text('Logout'),
+                                              label: Text(AppLocalizations.of(context).t('Logout')),
                                               style: OutlinedButton.styleFrom(
                                                 foregroundColor: t.danger,
                                                 side: BorderSide(
@@ -544,7 +546,7 @@ class _PremiumizeSettingsPageState extends State<PremiumizeSettingsPage> {
                                                   });
                                             },
                                             icon: const Icon(Icons.add),
-                                            label: const Text('Add API Key'),
+                                            label: Text(AppLocalizations.of(context).t('Add API Key')),
                                           ),
                                         ),
                                       ],

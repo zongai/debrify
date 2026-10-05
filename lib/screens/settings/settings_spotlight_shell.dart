@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 import '../../services/main_page_bridge.dart';
 import '../../theme/app_focus.dart';
 import '../../theme/app_theme_scope.dart';

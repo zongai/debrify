@@ -1,5 +1,7 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
+
+import '../../l10n/app_localizations.dart';
 import 'package:flutter/services.dart';
 import 'package:file_picker/file_picker.dart';
 import '../../services/external_player_service.dart';
@@ -848,7 +850,7 @@ class _ExternalPlayerSettingsPageState
       if (mounted) {
         ScaffoldMessenger.of(
           context,
-        ).showSnackBar(const SnackBar(content: Text('Custom command saved')));
+        ).showSnackBar(SnackBar(content: Text(AppLocalizations.of(context).t('Custom command saved'))));
       }
     } catch (e) {
       if (mounted) {
@@ -923,7 +925,7 @@ class _ExternalPlayerSettingsPageState
 
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('Custom URL scheme saved')),
+          SnackBar(content: Text(AppLocalizations.of(context).t('Custom URL scheme saved'))),
         );
       }
     } catch (e) {
@@ -1000,7 +1002,7 @@ class _ExternalPlayerSettingsPageState
       if (mounted) {
         ScaffoldMessenger.of(
           context,
-        ).showSnackBar(const SnackBar(content: Text('Custom command saved')));
+        ).showSnackBar(SnackBar(content: Text(AppLocalizations.of(context).t('Custom command saved'))));
       }
     } catch (e) {
       if (mounted) {
@@ -1076,7 +1078,7 @@ class _ExternalPlayerSettingsPageState
       if (mounted) {
         ScaffoldMessenger.of(
           context,
-        ).showSnackBar(const SnackBar(content: Text('Custom command saved')));
+        ).showSnackBar(SnackBar(content: Text(AppLocalizations.of(context).t('Custom command saved'))));
       }
     } catch (e) {
       if (mounted) {
@@ -1338,7 +1340,7 @@ class _ExternalPlayerSettingsPageState
         if (mounted) {
           ScaffoldMessenger.of(context).showSnackBar(
             const SnackBar(
-              content: Text('Please select a .ttf or .otf font file'),
+              content: Text(AppLocalizations.of(context).t('Please select a .ttf or .otf font file')),
             ),
           );
         }
@@ -1347,7 +1349,7 @@ class _ExternalPlayerSettingsPageState
       if (file.path == null) {
         if (mounted) {
           ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(content: Text('Could not access selected file')),
+            SnackBar(content: Text(AppLocalizations.of(context).t('Could not access selected file'))),
           );
         }
         return;
@@ -1370,7 +1372,7 @@ class _ExternalPlayerSettingsPageState
       } else {
         if (mounted) {
           ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(content: Text('Failed to import font')),
+            SnackBar(content: Text(AppLocalizations.of(context).t('Failed to import font'))),
           );
         }
       }
@@ -2223,7 +2225,7 @@ class _ExternalPlayerSettingsPageState
   }
 
   Widget _playerAppearance() => SettingsSection(
-    title: 'Appearance',
+    title: AppLocalizations.of(context).t('Appearance'),
     blurb: 'The same player styles available in Appearance settings.',
     children: [
       // Match Appearance: Apple TV uses TV controls, not the player dock.
@@ -2243,21 +2245,21 @@ class _ExternalPlayerSettingsPageState
       if (_isAndroidTv)
         SettingsTile.spec(
           SettingsRows.debrifyTvPlayer,
-          subtitle: 'Debrify TV playback-screen style',
+          subtitle: AppLocalizations.of(context).t('Debrify TV playback-screen style'),
           onTap: () async {
             await pushSettingsPage(context, const DebrifyTvPlayerStylePage());
           },
         ),
       SettingsTile.spec(
         SettingsRows.playerGuideStyle,
-        subtitle: 'In-player IPTV guide style',
+        subtitle: AppLocalizations.of(context).t('In-player IPTV guide style'),
         onTap: () async {
           await pushSettingsPage(context, const PlayerGuideStylePage());
         },
       ),
       SettingsTile.spec(
         SettingsRows.playLoaderStyle,
-        subtitle: 'Playback loading-screen style',
+        subtitle: AppLocalizations.of(context).t('Playback loading-screen style'),
         onTap: () async {
           await pushSettingsPage(context, const PlayLoaderStylePage());
         },
@@ -2290,8 +2292,8 @@ class _ExternalPlayerSettingsPageState
               _buildPlayerModeOption(
                 context,
                 value: 'debrify',
-                title: 'Debrify Player',
-                subtitle: 'Use the built-in video player',
+                title: AppLocalizations.of(context).t('Debrify Player'),
+                subtitle: AppLocalizations.of(context).t('Use the built-in video player'),
                 icon: Icons.play_circle_filled_rounded,
                 recommended: true,
                 focusNode: _firstModeFocusNode,
@@ -2299,7 +2301,7 @@ class _ExternalPlayerSettingsPageState
               _buildPlayerModeOption(
                 context,
                 value: 'external',
-                title: 'External Player',
+                title: AppLocalizations.of(context).t('External Player'),
                 subtitle: Platform.isMacOS
                     ? 'Open videos in your preferred external player'
                     : 'Choose which app to use when opening videos',
@@ -2308,8 +2310,8 @@ class _ExternalPlayerSettingsPageState
               _buildPlayerModeOption(
                 context,
                 value: 'deovr',
-                title: 'DeoVR',
-                subtitle: 'Use this only on VR devices',
+                title: AppLocalizations.of(context).t('DeoVR'),
+                subtitle: AppLocalizations.of(context).t('Use this only on VR devices'),
                 icon: Icons.vrpano,
                 disabled: !Platform.isAndroid,
               ),
@@ -2335,7 +2337,7 @@ class _ExternalPlayerSettingsPageState
                 const SizedBox(height: 4),
                 _buildCheckboxTile(
                   context,
-                  title: 'Open the player in portrait',
+                  title: AppLocalizations.of(context).t('Open the player in portrait'),
                   subtitle:
                       'Start videos upright instead of turning the '
                       'phone landscape. The player\'s rotate button '
@@ -2372,7 +2374,7 @@ class _ExternalPlayerSettingsPageState
                 const SizedBox(height: 16),
                 _buildSettingDropdown(
                   context,
-                  label: 'Mark movies watched at',
+                  label: AppLocalizations.of(context).t('Mark movies watched at'),
                   value: _completionThresholdIndex(_movieCompletionThreshold),
                   items: _completionThresholdOptions
                       .map((value) => '$value%')
@@ -2384,7 +2386,7 @@ class _ExternalPlayerSettingsPageState
                 const SizedBox(height: 12),
                 _buildSettingDropdown(
                   context,
-                  label: 'Mark episodes watched at',
+                  label: AppLocalizations.of(context).t('Mark episodes watched at'),
                   value: _completionThresholdIndex(_episodeCompletionThreshold),
                   items: _completionThresholdOptions
                       .map((value) => '$value%')
@@ -2423,7 +2425,7 @@ class _ExternalPlayerSettingsPageState
                 const SizedBox(height: 8),
                 _buildCheckboxTile(
                   context,
-                  title: 'Skip intros & credits',
+                  title: AppLocalizations.of(context).t('Skip intros & credits'),
                   subtitle:
                       'Show a button during supported intros and outros. Playback is never skipped automatically.',
                   value: _skipSegmentsEnabled,
@@ -2434,7 +2436,7 @@ class _ExternalPlayerSettingsPageState
                 const SizedBox(height: 12),
                 _buildDropdownSetting(
                   context,
-                  label: 'Timestamp provider',
+                  label: AppLocalizations.of(context).t('Timestamp provider'),
                   value: _skipSegmentProvider,
                   items: SkipSegmentProviders.availableLabels,
                   onChanged: _setSkipSegmentProvider,
@@ -2483,7 +2485,7 @@ class _ExternalPlayerSettingsPageState
                 const SizedBox(height: 16),
                 _buildDropdownSetting(
                   context,
-                  label: 'Connection patience',
+                  label: AppLocalizations.of(context).t('Connection patience'),
                   value: _netPatience,
                   items: NetworkTuning.patienceOptions,
                   onChanged: _setNetPatience,
@@ -2493,7 +2495,7 @@ class _ExternalPlayerSettingsPageState
                 const SizedBox(height: 12),
                 _buildDropdownSetting(
                   context,
-                  label: 'Stream buffer',
+                  label: AppLocalizations.of(context).t('Stream buffer'),
                   value: _netBuffer,
                   items: NetworkTuning.bufferOptions,
                   onChanged: _setNetBuffer,
@@ -2532,7 +2534,7 @@ class _ExternalPlayerSettingsPageState
           // Default Aspect
           _buildSettingDropdown(
             context,
-            label: 'Default Aspect',
+            label: AppLocalizations.of(context).t('Default Aspect'),
             value: _defaultAspectIndex,
             items: _aspectLabels,
             onChanged: (index) => _setDefaultAspectIndex(index),
@@ -2544,7 +2546,7 @@ class _ExternalPlayerSettingsPageState
           if (_isAndroidTv || PlatformUtil.isTvOS) ...[
             _buildDropdownSetting(
               context,
-              label: 'Match content display',
+              label: AppLocalizations.of(context).t('Match content display'),
               value: _contentDisplayMatchMode.storageKey,
               items: {
                 for (final mode in ContentDisplayMatchMode.values)
@@ -2590,7 +2592,7 @@ class _ExternalPlayerSettingsPageState
             const SizedBox(height: 12),
             _buildDropdownSetting(
               context,
-              label: 'IPTV decoder',
+              label: AppLocalizations.of(context).t('IPTV decoder'),
               value: _iptvDecoderMode,
               items: const {
                 'auto': 'Automatic',
@@ -2623,7 +2625,7 @@ class _ExternalPlayerSettingsPageState
             const SizedBox(height: 12),
             _buildDropdownSetting(
               context,
-              label: 'Video renderer',
+              label: AppLocalizations.of(context).t('Video renderer'),
               value: _androidVideoRendererMode.storageKey,
               items: {
                 for (final mode in AndroidVideoRendererMode.values)
@@ -2658,7 +2660,7 @@ class _ExternalPlayerSettingsPageState
             const SizedBox(height: 4),
             _buildCheckboxTile(
               context,
-              title: 'Force software video decoding',
+              title: AppLocalizations.of(context).t('Force software video decoding'),
               subtitle:
                   'Compatibility option if a video plays with '
                   'wrong colors or a blank picture. Slower — '
@@ -2684,7 +2686,7 @@ class _ExternalPlayerSettingsPageState
           // Default Audio Language
           _buildSettingDropdown(
             context,
-            label: 'Default Audio',
+            label: AppLocalizations.of(context).t('Default Audio'),
             value: _audioLanguageIndex,
             items: _audioLanguageOptions.map((opt) => opt.$2).toList(),
             onChanged: (index) =>
@@ -2702,7 +2704,7 @@ class _ExternalPlayerSettingsPageState
             const SizedBox(height: 4),
             _buildCheckboxTile(
               context,
-              title: 'Allow system audio effects',
+              title: AppLocalizations.of(context).t('Allow system audio effects'),
               subtitle:
                   'Let equalizer apps (Wavelet, Dolby, etc.) process playback. '
                   'Changes the audio output — restart playback to apply.',
@@ -2717,7 +2719,7 @@ class _ExternalPlayerSettingsPageState
             const SizedBox(height: 4),
             _buildCheckboxTile(
               context,
-              title: 'Audio passthrough (AC3 · EAC3 · DTS core)',
+              title: AppLocalizations.of(context).t('Audio passthrough (AC3 · EAC3 · DTS core)'),
               subtitle:
                   'Send the original bitstream to your receiver '
                   'instead of decoding. Requires an HDMI chain '
@@ -2736,7 +2738,7 @@ class _ExternalPlayerSettingsPageState
             const SizedBox(height: 4),
             _buildCheckboxTile(
               context,
-              title: 'Multichannel audio (LPCM over HDMI)',
+              title: AppLocalizations.of(context).t('Multichannel audio (LPCM over HDMI)'),
               subtitle:
                   'Output surround tracks as 5.1/7.1 PCM when '
                   'the connected receiver supports it, instead '
@@ -2756,7 +2758,7 @@ class _ExternalPlayerSettingsPageState
             const SizedBox(height: 4),
             _buildCheckboxTile(
               context,
-              title: 'Force stereo audio',
+              title: AppLocalizations.of(context).t('Force stereo audio'),
               subtitle:
                   'Always downmix to 2 channels, whatever the '
                   'TV or receiver reports. Try this if '
@@ -2770,7 +2772,7 @@ class _ExternalPlayerSettingsPageState
             const SizedBox(height: 4),
             _buildCheckboxTile(
               context,
-              title: 'Use the previous audio engine',
+              title: AppLocalizations.of(context).t('Use the previous audio engine'),
               subtitle:
                   'Go back to the audio output used before '
                   'August 2026. It has no sound at all when '
@@ -2947,7 +2949,7 @@ class _ExternalPlayerSettingsPageState
         children: [
           SettingsTile(
             icon: Icons.low_priority_rounded,
-            title: 'Subtitle priority',
+            title: AppLocalizations.of(context).t('Subtitle priority'),
             subtitle:
                 'Choose the order of embedded subtitles and subtitle addons',
             onTap: () async {
@@ -2964,7 +2966,7 @@ class _ExternalPlayerSettingsPageState
           // Default Subtitle Language
           _buildSettingDropdown(
             context,
-            label: 'Default Subtitle',
+            label: AppLocalizations.of(context).t('Default Subtitle'),
             value: _subtitleLanguageIndex,
             items: _subtitleLanguageOptions.map((opt) => opt.$2).toList(),
             onChanged: (index) =>
@@ -3045,7 +3047,7 @@ class _ExternalPlayerSettingsPageState
               // Size
               _buildSettingDropdown(
                 context,
-                label: 'Size',
+                label: AppLocalizations.of(context).t('Size'),
                 value: _subtitleSizeIndex,
                 items: SubtitleSize.options.map((o) => o.label).toList(),
                 onChanged: (index) => _setSubtitleSizeIndex(index),
@@ -3069,7 +3071,7 @@ class _ExternalPlayerSettingsPageState
               // Color
               _buildSettingDropdown(
                 context,
-                label: 'Color',
+                label: AppLocalizations.of(context).t('Color'),
                 value: _subtitleColorIndex,
                 items: SubtitleColor.options.map((o) => o.label).toList(),
                 onChanged: (index) => _setSubtitleColorIndex(index),
@@ -3093,7 +3095,7 @@ class _ExternalPlayerSettingsPageState
               // Font
               _buildSettingDropdown(
                 context,
-                label: 'Font',
+                label: AppLocalizations.of(context).t('Font'),
                 value: _subtitleFontIndex,
                 items: _allFonts
                     .map((f) => f.isCustom ? '${f.label} (Custom)' : f.label)
@@ -3379,7 +3381,7 @@ class _ExternalPlayerSettingsPageState
                       child: FilledButton.icon(
                         onPressed: _saveIOSCustomScheme,
                         icon: const Icon(Icons.save_rounded),
-                        label: const Text('Save'),
+                        label: Text(AppLocalizations.of(context).t('Save')),
                       ),
                     ),
                     if (_iosCustomScheme != null &&
@@ -3387,7 +3389,7 @@ class _ExternalPlayerSettingsPageState
                       const SizedBox(width: 8),
                       OutlinedButton(
                         onPressed: _clearIOSCustomScheme,
-                        child: const Text('Clear'),
+                        child: Text(AppLocalizations.of(context).t('Clear')),
                       ),
                     ],
                   ],
@@ -3564,7 +3566,7 @@ class _ExternalPlayerSettingsPageState
                       child: FilledButton.icon(
                         onPressed: _saveLinuxCustomCommand,
                         icon: const Icon(Icons.save_rounded),
-                        label: const Text('Save'),
+                        label: Text(AppLocalizations.of(context).t('Save')),
                       ),
                     ),
                     if (_linuxCustomCommand != null &&
@@ -3572,7 +3574,7 @@ class _ExternalPlayerSettingsPageState
                       const SizedBox(width: 8),
                       OutlinedButton(
                         onPressed: _clearLinuxCustomCommand,
-                        child: const Text('Clear'),
+                        child: Text(AppLocalizations.of(context).t('Clear')),
                       ),
                     ],
                   ],
@@ -3748,7 +3750,7 @@ class _ExternalPlayerSettingsPageState
                       child: FilledButton.icon(
                         onPressed: _saveWindowsCustomCommand,
                         icon: const Icon(Icons.save_rounded),
-                        label: const Text('Save'),
+                        label: Text(AppLocalizations.of(context).t('Save')),
                       ),
                     ),
                     if (_windowsCustomCommand != null &&
@@ -3756,7 +3758,7 @@ class _ExternalPlayerSettingsPageState
                       const SizedBox(width: 8),
                       OutlinedButton(
                         onPressed: _clearWindowsCustomCommand,
-                        child: const Text('Clear'),
+                        child: Text(AppLocalizations.of(context).t('Clear')),
                       ),
                     ],
                   ],
@@ -3937,7 +3939,7 @@ class _ExternalPlayerSettingsPageState
                       const SizedBox(width: 8),
                       OutlinedButton(
                         onPressed: _clearCustomApp,
-                        child: const Text('Clear'),
+                        child: Text(AppLocalizations.of(context).t('Clear')),
                       ),
                     ],
                   ],
@@ -4039,7 +4041,7 @@ class _ExternalPlayerSettingsPageState
                       const SizedBox(width: 8),
                       OutlinedButton(
                         onPressed: _clearCustomCommand,
-                        child: const Text('Clear'),
+                        child: Text(AppLocalizations.of(context).t('Clear')),
                       ),
                     ],
                   ],

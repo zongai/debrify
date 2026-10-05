@@ -1,6 +1,8 @@
 import '../../theme/app_looks.dart';
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 import '../../services/analytics_service.dart';
 import '../../services/text_brightness.dart';
 import '../../utils/platform_util.dart';
@@ -69,7 +71,7 @@ class _TextBrightnessPageState extends State<TextBrightnessPage> {
   Widget build(BuildContext context) {
     final t = AppThemeScope.of(context).settings;
     return SettingsPageScaffold(
-      title: 'Text Brightness',
+      title: AppLocalizations.of(context).t('Text Brightness'),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16),
         child: Center(
@@ -80,7 +82,7 @@ class _TextBrightnessPageState extends State<TextBrightnessPage> {
               children: [
                 const SettingsPageHeader(
                   icon: Icons.brightness_6_rounded,
-                  title: 'Text Brightness',
+                  title: AppLocalizations.of(context).t('Text Brightness'),
                   subtitle: 'How bright text is across the app',
                 ),
                 const SizedBox(height: 24),

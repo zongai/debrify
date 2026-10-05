@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 import '../../widgets/tv_text_field.dart';
 import 'widgets/settings_widgets.dart';
 import '../../theme/app_theme_scope.dart';
@@ -163,7 +165,7 @@ class _SettingsSearchPageState extends State<SettingsSearchPage> {
                   : ExcludeFocus(
                       child: IconButton(
                         icon: const Icon(Icons.close_rounded),
-                        tooltip: 'Clear',
+                        tooltip: AppLocalizations.of(context).t('Clear'),
                         onPressed: () {
                           _controller.clear();
                           setState(() => _query = '');

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 import '../../services/analytics_service.dart';
 import '../../services/storage_service.dart';
 import '../../utils/platform_util.dart';
@@ -129,13 +131,13 @@ class _TvPlayerControlsStylePageState extends State<TvPlayerControlsStylePage> {
     final t = AppThemeScope.of(context).settings;
     if (_loading) {
       return const SettingsPageScaffold(
-        title: 'Player Controls',
+        title: AppLocalizations.of(context).t('Player Controls'),
         body: Center(child: CircularProgressIndicator()),
       );
     }
 
     return SettingsPageScaffold(
-      title: 'Player Controls',
+      title: AppLocalizations.of(context).t('Player Controls'),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16),
         child: Center(
@@ -146,7 +148,7 @@ class _TvPlayerControlsStylePageState extends State<TvPlayerControlsStylePage> {
               children: [
                 const SettingsPageHeader(
                   icon: Icons.tune_rounded,
-                  title: 'Player Controls',
+                  title: AppLocalizations.of(context).t('Player Controls'),
                   subtitle:
                       'The on-screen controls during playback on this TV',
                 ),

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+
+import '../../l10n/app_localizations.dart';
 import 'package:flutter/services.dart';
 
 import '../../models/profiles/profile_policy.dart';
@@ -207,7 +209,7 @@ class _ProfilesSettingsPageState extends State<ProfilesSettingsPage> {
           ListTile(
             autofocus: true,
             leading: const Icon(Icons.edit_rounded),
-            title: const Text('Edit'),
+            title: Text(AppLocalizations.of(context).t('Edit')),
             subtitle: const Text('Name, avatar, PIN, access'),
             onTap: () => Navigator.of(dialogContext).pop('edit'),
           ),
@@ -289,11 +291,11 @@ class _ProfilesSettingsPageState extends State<ProfilesSettingsPage> {
               await Clipboard.setData(ClipboardData(text: report));
               if (dialogContext.mounted) Navigator.pop(dialogContext);
             },
-            child: const Text('Copy'),
+            child: Text(AppLocalizations.of(context).t('Copy')),
           ),
           FilledButton(
             onPressed: () => Navigator.pop(dialogContext),
-            child: const Text('Done'),
+            child: Text(AppLocalizations.of(context).t('Done')),
           ),
         ],
       ),
@@ -304,7 +306,7 @@ class _ProfilesSettingsPageState extends State<ProfilesSettingsPage> {
   Widget build(BuildContext context) {
     final profiles = _profiles ?? const <UserProfile>[];
     return SettingsPageScaffold(
-      title: 'Profiles',
+      title: AppLocalizations.of(context).t('Profiles'),
       actions: _mayManage
           ? [
               PopupMenuButton<String>(
@@ -336,7 +338,7 @@ class _ProfilesSettingsPageState extends State<ProfilesSettingsPage> {
                     children: [
                       const SettingsPageHeader(
                         icon: Icons.people_alt_rounded,
-                        title: 'Profiles',
+                        title: AppLocalizations.of(context).t('Profiles'),
                         subtitle:
                             'People, access and this device\'s sign-in behavior',
                       ),
@@ -404,7 +406,7 @@ class _ProfilesSettingsPageState extends State<ProfilesSettingsPage> {
         key: const ValueKey('profiles-switch'),
         focusNode: _firstActionFocus,
         icon: Icons.swap_horiz_rounded,
-        title: 'Switch profile',
+        title: AppLocalizations.of(context).t('Switch profile'),
         subtitle: 'Choose who is watching now',
         onTap: () async => _switchProfile(),
       ),
@@ -451,7 +453,7 @@ class _ProfilesSettingsPageState extends State<ProfilesSettingsPage> {
             key: const ValueKey('profiles-create'),
             icon: Icons.person_add_alt_rounded,
             title: 'Create a profile',
-            subtitle: 'Admin, Member or Kid',
+            subtitle: AppLocalizations.of(context).t('Admin, Member or Kid'),
             onTap: _create,
           ),
       ],

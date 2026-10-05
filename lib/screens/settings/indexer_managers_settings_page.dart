@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 import '../../models/indexer_manager_config.dart';
 import '../../services/indexer_manager_service.dart';
 import '../../services/profiles/profile_async_authorization.dart';
@@ -144,7 +146,7 @@ class _IndexerManagersSettingsPageState
     final shouldDelete = await showDialog<bool>(
       context: context,
       builder: (context) => AlertDialog(
-        title: const Text('Delete Engine'),
+        title: Text(AppLocalizations.of(context).t('Delete Engine')),
         content: Text('Remove ${config.displayName} from torrent search?'),
         actions: [
           _FocusRing(
@@ -153,14 +155,14 @@ class _IndexerManagersSettingsPageState
               // TV: seed DPAD focus inside the dialog (BACK still dismisses).
               autofocus: PlatformUtil.isTelevision,
               onPressed: () => Navigator.of(context).pop(false),
-              child: const Text('Cancel'),
+              child: Text(AppLocalizations.of(context).t('Cancel')),
             ),
           ),
           _FocusRing(
             borderRadius: 12,
             child: FilledButton(
               onPressed: () => Navigator.of(context).pop(true),
-              child: const Text('Delete'),
+              child: Text(AppLocalizations.of(context).t('Delete')),
             ),
           ),
         ],
@@ -405,7 +407,7 @@ class _IndexerManagersSettingsPageState
               ? null
               : () => _testConfig(config),
           icon: const Icon(Icons.network_check_rounded),
-          tooltip: 'Test connection',
+          tooltip: AppLocalizations.of(context).t('Test connection'),
         ),
         IconButton(
           visualDensity: VisualDensity.compact,
@@ -414,7 +416,7 @@ class _IndexerManagersSettingsPageState
               ? null
               : () => _openEditor(config),
           icon: const Icon(Icons.edit_rounded),
-          tooltip: 'Edit',
+          tooltip: AppLocalizations.of(context).t('Edit'),
         ),
         IconButton(
           visualDensity: VisualDensity.compact,
@@ -423,7 +425,7 @@ class _IndexerManagersSettingsPageState
               ? null
               : () => _deleteConfig(config),
           icon: const Icon(Icons.delete_outline_rounded),
-          tooltip: 'Delete',
+          tooltip: AppLocalizations.of(context).t('Delete'),
         ),
       ],
     );
@@ -614,7 +616,7 @@ class _IndexerManagerEditorDialogState
                         // TV: seed DPAD focus on the first control (not a
                         // text field — that would pop the soft keyboard).
                         autofocus: PlatformUtil.isTelevision,
-                        decoration: const InputDecoration(labelText: 'Type'),
+                        decoration: InputDecoration(labelText: AppLocalizations.of(context).t('Type')),
                         isExpanded: true,
                         items: IndexerManagerType.values
                             .map(
@@ -635,7 +637,7 @@ class _IndexerManagerEditorDialogState
                         focusNode: _nameFocusNode,
                         decoration: _engineFieldDecoration(
                           context,
-                          const InputDecoration(labelText: 'Name'),
+                          InputDecoration(labelText: AppLocalizations.of(context).t('Name')),
                         ),
                         textInputAction: TextInputAction.next,
                       ),
@@ -752,7 +754,7 @@ class _IndexerManagerEditorDialogState
                         borderRadius: 12,
                         child: SwitchListTile(
                           contentPadding: EdgeInsets.zero,
-                          title: const Text('Enabled'),
+                          title: Text(AppLocalizations.of(context).t('Enabled')),
                           value: _enabled,
                           onChanged: (value) =>
                               setState(() => _enabled = value),
@@ -774,7 +776,7 @@ class _IndexerManagerEditorDialogState
                     borderRadius: 12,
                     child: TextButton(
                       onPressed: () => Navigator.of(context).pop(),
-                      child: const Text('Cancel'),
+                      child: Text(AppLocalizations.of(context).t('Cancel')),
                     ),
                   ),
                   _FocusRing(

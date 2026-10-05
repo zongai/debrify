@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 /// Destinations within the top-level Playback setting.
 enum PlaybackSettingsSection {
   player(

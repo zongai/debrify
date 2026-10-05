@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+
+import '../../l10n/app_localizations.dart';
 import '../../services/storage_service.dart';
 import 'widgets/settings_widgets.dart';
 import 'widgets/settings_load_error.dart';
@@ -94,7 +96,7 @@ class _TvCollectionListStylePageState extends State<TvCollectionListStylePage> {
 
   @override
   Widget build(BuildContext context) => SettingsPageScaffold(
-    title: 'Collection list style',
+    title: AppLocalizations.of(context).t('Collection list style'),
     body: _failed
         ? SettingsLoadError(onRetry: _load)
         : _style == null
@@ -109,7 +111,7 @@ class _TvCollectionListStylePageState extends State<TvCollectionListStylePage> {
                   children: [
                     const SettingsPageHeader(
                       icon: Icons.view_carousel_outlined,
-                      title: 'Collection list style',
+                      title: AppLocalizations.of(context).t('Collection list style'),
                       subtitle:
                           'How movies and series appear inside collection lists on TVs, desktops and tablets',
                     ),

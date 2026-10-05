@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+
+import '../../l10n/app_localizations.dart';
 import '../../utils/spotlight_interaction_policy.dart';
 import '../../models/stremio_addon.dart';
 import '../../services/home_collections_store.dart';
@@ -526,13 +528,13 @@ class _HomePageSettingsPageState extends State<HomePageSettingsPage> {
   Widget build(BuildContext context) {
     if (_loading) {
       return const SettingsPageScaffold(
-        title: 'Home Page Settings',
+        title: AppLocalizations.of(context).t('Home Page Settings'),
         body: Center(child: CircularProgressIndicator()),
       );
     }
 
     return SettingsPageScaffold(
-      title: 'Home Page Settings',
+      title: AppLocalizations.of(context).t('Home Page Settings'),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16),
         child: Center(
@@ -543,7 +545,7 @@ class _HomePageSettingsPageState extends State<HomePageSettingsPage> {
               children: [
                 const SettingsPageHeader(
                   icon: Icons.home_rounded,
-                  title: 'Home Screen',
+                  title: AppLocalizations.of(context).t('Home Screen'),
                   subtitle: 'Layout, rows, and what shows when the app opens',
                 ),
                 const SizedBox(height: 24),
@@ -748,7 +750,7 @@ class _HomePageSettingsPageState extends State<HomePageSettingsPage> {
                   children: [
                     SettingsToggleTile(
                       icon: Icons.history_rounded,
-                      title: 'Continue Watching',
+                      title: AppLocalizations.of(context).t('Continue Watching'),
                       subtitle:
                           'Show and track recently watched items on the home screen',
                       value: _continueWatchingEnabled,

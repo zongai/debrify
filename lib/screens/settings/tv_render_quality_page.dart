@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 import '../../services/analytics_service.dart';
 import '../../services/storage_service.dart';
 import '../../utils/platform_util.dart';
@@ -112,7 +114,7 @@ class _TvRenderQualityPageState extends State<TvRenderQualityPage> {
     final t = AppThemeScope.of(context).settings;
     if (_loading) {
       return const SettingsPageScaffold(
-        title: 'Rendering',
+        title: AppLocalizations.of(context).t('Rendering'),
         body: Center(child: CircularProgressIndicator()),
       );
     }
@@ -120,7 +122,7 @@ class _TvRenderQualityPageState extends State<TvRenderQualityPage> {
     final currently = _currentlyLine;
 
     return SettingsPageScaffold(
-      title: 'Rendering',
+      title: AppLocalizations.of(context).t('Rendering'),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16),
         child: Center(
@@ -131,7 +133,7 @@ class _TvRenderQualityPageState extends State<TvRenderQualityPage> {
               children: [
                 const SettingsPageHeader(
                   icon: Icons.hd_rounded,
-                  title: 'Rendering',
+                  title: AppLocalizations.of(context).t('Rendering'),
                   subtitle: 'Trade sharpness for smoother navigation',
                 ),
                 const SizedBox(height: 24),

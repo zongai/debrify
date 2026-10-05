@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 import '../../screens/profiles/profile_wall_screen.dart';
 import '../../services/analytics_service.dart';
 import '../../services/profiles/profile_authorization.dart';

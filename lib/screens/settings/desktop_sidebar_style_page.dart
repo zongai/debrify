@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 import '../../services/analytics_service.dart';
 import '../../services/main_page_bridge.dart';
 import '../../services/storage_service.dart';
@@ -83,13 +85,13 @@ class _DesktopSidebarStylePageState extends State<DesktopSidebarStylePage> {
     final t = AppThemeScope.of(context).settings;
     if (_loading) {
       return const SettingsPageScaffold(
-        title: 'Sidebar Style',
+        title: AppLocalizations.of(context).t('Sidebar Style'),
         body: Center(child: CircularProgressIndicator()),
       );
     }
 
     return SettingsPageScaffold(
-      title: 'Sidebar Style',
+      title: AppLocalizations.of(context).t('Sidebar Style'),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16),
         child: Center(
@@ -100,7 +102,7 @@ class _DesktopSidebarStylePageState extends State<DesktopSidebarStylePage> {
               children: [
                 const SettingsPageHeader(
                   icon: Icons.view_sidebar_rounded,
-                  title: 'Sidebar Style',
+                  title: AppLocalizations.of(context).t('Sidebar Style'),
                   subtitle:
                       'How navigation is drawn in wide windows — desktop '
                       'and tablets',
@@ -115,11 +117,11 @@ class _DesktopSidebarStylePageState extends State<DesktopSidebarStylePage> {
                 ),
                 const SizedBox(height: 18),
                 SettingsSection(
-                  title: 'Items',
+                  title: AppLocalizations.of(context).t('Items'),
                   children: [
                     SettingsTile(
                       icon: Icons.low_priority_rounded,
-                      title: 'Order & Names',
+                      title: AppLocalizations.of(context).t('Order & Names'),
                       subtitle:
                           'Rearrange destinations and rename sidebar labels',
                       trailing: const Icon(Icons.chevron_right_rounded),

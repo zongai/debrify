@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 import '../../models/stremio_addon.dart';
 import '../../models/metadata_preferences.dart';
 import '../../services/analytics_service.dart';
@@ -202,13 +204,13 @@ class _DiscoverSettingsPageState extends State<DiscoverSettingsPage> {
   Widget build(BuildContext context) {
     if (_loading) {
       return const SettingsPageScaffold(
-        title: 'Discover',
+        title: AppLocalizations.of(context).t('Discover'),
         body: Center(child: CircularProgressIndicator()),
       );
     }
 
     return SettingsPageScaffold(
-      title: 'Discover',
+      title: AppLocalizations.of(context).t('Discover'),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16),
         child: Center(
@@ -219,7 +221,7 @@ class _DiscoverSettingsPageState extends State<DiscoverSettingsPage> {
               children: [
                 const SettingsPageHeader(
                   icon: Icons.explore_rounded,
-                  title: 'Discover',
+                  title: AppLocalizations.of(context).t('Discover'),
                   subtitle: 'Choose what appears when you open Discover',
                 ),
                 const SizedBox(height: 24),
@@ -239,28 +241,28 @@ class _DiscoverSettingsPageState extends State<DiscoverSettingsPage> {
                 ),
                 const SizedBox(height: 24),
                 SettingsSection(
-                  title: 'Poster cards',
+                  title: AppLocalizations.of(context).t('Poster cards'),
                   children: [
                     SettingsToggleTile(
                       key: const ValueKey('discover-show-type-tags'),
                       icon: Icons.local_offer_outlined,
-                      title: 'Show Movie/Series tags',
-                      subtitle: 'Display the content type on each poster',
+                      title: AppLocalizations.of(context).t('Show Movie/Series tags'),
+                      subtitle: AppLocalizations.of(context).t('Display the content type on each poster'),
                       value: _showTypeTags,
                       onChanged: _setShowTypeTags,
                     ),
                     SettingsToggleTile(
                       key: const ValueKey('discover-show-ratings'),
                       icon: Icons.star_outline_rounded,
-                      title: 'Show ratings',
-                      subtitle: 'Display available ratings on posters',
+                      title: AppLocalizations.of(context).t('Show ratings'),
+                      subtitle: AppLocalizations.of(context).t('Display available ratings on posters'),
                       value: _showRatings,
                       onChanged: _setShowRatings,
                     ),
                     SettingsToggleTile(
                       key: const ValueKey('discover-show-titles'),
                       icon: Icons.title_rounded,
-                      title: 'Show titles',
+                      title: AppLocalizations.of(context).t('Show titles'),
                       subtitle:
                           'Display titles below posters in Discover and Home row expansions',
                       value: _showTitles,

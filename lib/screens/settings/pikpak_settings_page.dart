@@ -1,5 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+
+import '../../l10n/app_localizations.dart';
 import '../../services/storage_service.dart';
 import '../../services/pikpak_api_service.dart';
 import '../../services/analytics_service.dart';
@@ -422,13 +424,13 @@ class _PikPakSettingsPageState extends State<PikPakSettingsPage> {
               child: TextButton(
                 autofocus: true,
                 onPressed: () => Navigator.pop(context, false),
-                child: const Text('Cancel'),
+                child: Text(AppLocalizations.of(context).t('Cancel')),
               ),
             ),
             _FocusRing(
               child: FilledButton(
                 onPressed: () => Navigator.pop(context, true),
-                child: const Text('Hide'),
+                child: Text(AppLocalizations.of(context).t('Hide')),
               ),
             ),
           ],
@@ -489,13 +491,13 @@ class _PikPakSettingsPageState extends State<PikPakSettingsPage> {
     final t = app.settings;
     if (_loading) {
       return const SettingsPageScaffold(
-        title: 'PikPak Settings',
+        title: AppLocalizations.of(context).t('PikPak Settings'),
         body: Center(child: CircularProgressIndicator()),
       );
     }
 
     return SettingsPageScaffold(
-      title: 'PikPak Settings',
+      title: AppLocalizations.of(context).t('PikPak Settings'),
       body: FocusTraversalGroup(
         policy: OrderedTraversalPolicy(),
         child: ListView(
@@ -811,7 +813,7 @@ class _PikPakSettingsPageState extends State<PikPakSettingsPage> {
                                               Icons.clear,
                                               size: 18,
                                             ),
-                                            label: const Text('Remove'),
+                                            label: Text(AppLocalizations.of(context).t('Remove')),
                                             style: OutlinedButton.styleFrom(
                                               foregroundColor: t.danger,
                                             ),
@@ -902,7 +904,7 @@ class _PikPakSettingsPageState extends State<PikPakSettingsPage> {
                         TvTextField(
                           controller: _passwordController,
                           focusNode: _passwordFocusNode,
-                          labelText: 'Password',
+                          labelText: AppLocalizations.of(context).t('Password'),
                           hintText: 'Your PikPak password',
                           prefixIcon: const Icon(Icons.lock),
                           obscureText: true,
@@ -962,7 +964,7 @@ class _PikPakSettingsPageState extends State<PikPakSettingsPage> {
                             focusNode: _logoutButtonFocusNode,
                             onPressed: _logout,
                             icon: const Icon(Icons.logout),
-                            label: const Text('Logout'),
+                            label: Text(AppLocalizations.of(context).t('Logout')),
                             style: OutlinedButton.styleFrom(
                               foregroundColor: t.danger,
                               side: BorderSide(

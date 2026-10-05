@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+
+import '../../l10n/app_localizations.dart';
 import '../../services/storage_service.dart';
 import '../../services/account_service.dart';
 import '../../services/analytics_service.dart';
@@ -264,14 +266,14 @@ class _RealDebridSettingsPageState extends State<RealDebridSettingsPage> {
                 // Land DPAD focus on the safe choice when the dialog opens.
                 autofocus: true,
                 onPressed: () => Navigator.pop(context, false),
-                child: const Text('Cancel'),
+                child: Text(AppLocalizations.of(context).t('Cancel')),
               ),
             ),
             _FocusRing(
               radius: 12,
               child: FilledButton(
                 onPressed: () => Navigator.pop(context, true),
-                child: const Text('Hide'),
+                child: Text(AppLocalizations.of(context).t('Hide')),
               ),
             ),
           ],
@@ -574,7 +576,7 @@ class _RealDebridSettingsPageState extends State<RealDebridSettingsPage> {
                                                   _addApiKeyButtonFocusNode,
                                                 );
                                               },
-                                              child: const Text('Cancel'),
+                                              child: Text(AppLocalizations.of(context).t('Cancel')),
                                             ),
                                           ),
                                         ),
@@ -616,7 +618,7 @@ class _RealDebridSettingsPageState extends State<RealDebridSettingsPage> {
                                             focusNode: _logoutButtonFocusNode,
                                             onPressed: _deleteKey,
                                             icon: const Icon(Icons.logout),
-                                            label: const Text('Logout'),
+                                            label: Text(AppLocalizations.of(context).t('Logout')),
                                             style: OutlinedButton.styleFrom(
                                               foregroundColor: t.danger,
                                             ),
@@ -631,7 +633,7 @@ class _RealDebridSettingsPageState extends State<RealDebridSettingsPage> {
                                           onPressed: () =>
                                               _beginEditApiKey(prefill: false),
                                           icon: const Icon(Icons.add),
-                                          label: const Text('Add API Key'),
+                                          label: Text(AppLocalizations.of(context).t('Add API Key')),
                                         ),
                                       ),
                                     ],

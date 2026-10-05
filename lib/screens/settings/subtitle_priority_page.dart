@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+
+import '../../l10n/app_localizations.dart';
 import 'package:flutter/services.dart';
 
 import '../../models/subtitle_source_priority.dart';
@@ -143,7 +145,7 @@ class _SubtitlePriorityPageState extends State<SubtitlePriorityPage> {
         if (!didPop) _cancel();
       },
       child: SettingsPageScaffold(
-        title: 'Subtitle priority',
+        title: AppLocalizations.of(context).t('Subtitle priority'),
         body: _loading
             ? const Center(child: CircularProgressIndicator())
             : SingleChildScrollView(
@@ -158,7 +160,7 @@ class _SubtitlePriorityPageState extends State<SubtitlePriorityPage> {
                       children: [
                         const SettingsPageHeader(
                           icon: Icons.low_priority_rounded,
-                          title: 'Subtitle priority',
+                          title: AppLocalizations.of(context).t('Subtitle priority'),
                           subtitle:
                               'Try sources from top to bottom for your subtitle language. No Preference tries English first, then another available track within each source.',
                         ),
@@ -269,7 +271,7 @@ class _SubtitlePriorityPageState extends State<SubtitlePriorityPage> {
                                             onPressed: _saving
                                                 ? null
                                                 : () => _select(id),
-                                            child: const Text('Done'),
+                                            child: Text(AppLocalizations.of(context).t('Done')),
                                           ),
                                         ] else
                                           const Icon(Icons.drag_handle),

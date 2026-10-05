@@ -3,6 +3,8 @@ import 'dart:io' show Platform;
 
 import 'package:flutter/foundation.dart' show kIsWeb, visibleForTesting;
 import 'package:flutter/material.dart';
+
+import '../../l10n/app_localizations.dart';
 import 'package:flutter/services.dart';
 import 'package:file_picker/file_picker.dart';
 import '../../models/iptv_playlist.dart';
@@ -1380,7 +1382,7 @@ class _IptvSettingsPageState extends State<IptvSettingsPage>
   Future<void> _createListForProfile() async {
     final name = await showIptvListNameDialog(
       context: context,
-      title: 'New list',
+      title: AppLocalizations.of(context).t('New list'),
       confirmLabel: 'Create',
       existingNames: [for (final list in _lists) list.name],
     );
@@ -1424,11 +1426,11 @@ class _IptvSettingsPageState extends State<IptvSettingsPage>
         actions: [
           TextButton(
             onPressed: () => Navigator.of(context).pop(false),
-            child: const Text('Cancel'),
+            child: Text(AppLocalizations.of(context).t('Cancel')),
           ),
           TextButton(
             onPressed: () => Navigator.of(context).pop(true),
-            child: const Text('Delete'),
+            child: Text(AppLocalizations.of(context).t('Delete')),
           ),
         ],
       ),
@@ -1515,7 +1517,7 @@ class _IptvSettingsPageState extends State<IptvSettingsPage>
             ListTile(
               autofocus: true,
               leading: const Icon(Icons.drive_file_rename_outline_rounded),
-              title: const Text('Rename'),
+              title: Text(AppLocalizations.of(context).t('Rename')),
               onTap: () => Navigator.of(context).pop('rename'),
             ),
             if (index > 0)
@@ -1835,7 +1837,7 @@ class _IptvSettingsPageState extends State<IptvSettingsPage>
           child: TvTextField(
             controller: _urlController,
             focusNode: _urlInputFocusNode,
-            labelText: 'Playlist URL',
+            labelText: AppLocalizations.of(context).t('Playlist URL'),
             hintText: 'https://example.com/playlist.m3u',
             prefixIcon: const Icon(Icons.link),
             textInputAction: TextInputAction.next,
@@ -1959,7 +1961,7 @@ class _IptvSettingsPageState extends State<IptvSettingsPage>
           child: TvTextField(
             controller: _xcServerController,
             focusNode: _xcServerFocusNode,
-            labelText: 'Server URL',
+            labelText: AppLocalizations.of(context).t('Server URL'),
             hintText: 'http://example.com:8080',
             prefixIcon: const Icon(Icons.dns),
             textInputAction: TextInputAction.next,
@@ -1976,7 +1978,7 @@ class _IptvSettingsPageState extends State<IptvSettingsPage>
           child: TvTextField(
             controller: _xcUsernameController,
             focusNode: _xcUsernameFocusNode,
-            labelText: 'Username',
+            labelText: AppLocalizations.of(context).t('Username'),
             hintText: 'your username',
             prefixIcon: const Icon(Icons.person),
             textInputAction: TextInputAction.next,
@@ -1993,7 +1995,7 @@ class _IptvSettingsPageState extends State<IptvSettingsPage>
           child: TvTextField(
             controller: _xcPasswordController,
             focusNode: _xcPasswordFocusNode,
-            labelText: 'Password',
+            labelText: AppLocalizations.of(context).t('Password'),
             hintText: 'your password',
             prefixIcon: const Icon(Icons.lock),
             textInputAction: TextInputAction.done,
@@ -2037,7 +2039,7 @@ class _IptvSettingsPageState extends State<IptvSettingsPage>
   Widget build(BuildContext context) {
     if (_loading) {
       return SettingsPageScaffold(
-        title: 'IPTV Playlists',
+        title: AppLocalizations.of(context).t('IPTV Playlists'),
         body: const Center(child: CircularProgressIndicator()),
       );
     }
@@ -2237,7 +2239,7 @@ class _IptvSettingsPageState extends State<IptvSettingsPage>
       children: [
         const SettingsPageHeader(
           icon: Icons.live_tv_rounded,
-          title: 'IPTV Playlists',
+          title: AppLocalizations.of(context).t('IPTV Playlists'),
           subtitle:
               'Sources, lists, startup and looks — everything IPTV in one '
               'place.',
@@ -2249,7 +2251,7 @@ class _IptvSettingsPageState extends State<IptvSettingsPage>
             SettingsTile(
               focusNode: _hubSourcesFocusNode,
               icon: Icons.playlist_play_rounded,
-              title: 'Sources',
+              title: AppLocalizations.of(context).t('Sources'),
               subtitle: _playlists.isEmpty
                   ? 'None yet — add your first playlist'
                   : '${_playlists.length} '
@@ -2274,14 +2276,14 @@ class _IptvSettingsPageState extends State<IptvSettingsPage>
             ),
             SettingsTile(
               icon: Icons.reorder_rounded,
-              title: 'Channel order',
+              title: AppLocalizations.of(context).t('Channel order'),
               subtitle: 'Arrange Favorites and saved lists',
               onTap: _openChannelOrder,
             ),
             if (_categoryOrderSources.isNotEmpty)
               SettingsTile(
                 icon: Icons.swap_vert_rounded,
-                title: 'Category order',
+                title: AppLocalizations.of(context).t('Category order'),
                 subtitle: 'Arrange categories by source',
                 onTap: () async =>
                     _enterPhoneSection(_PhoneSection.categoryOrder),
@@ -2289,7 +2291,7 @@ class _IptvSettingsPageState extends State<IptvSettingsPage>
             if (_hideableSources.isNotEmpty)
               SettingsTile(
                 icon: Icons.visibility_off_rounded,
-                title: 'Hidden categories',
+                title: AppLocalizations.of(context).t('Hidden categories'),
                 subtitle: hiddenTotal == 0
                     ? 'Nothing hidden'
                     : '$hiddenTotal '
@@ -2318,7 +2320,7 @@ class _IptvSettingsPageState extends State<IptvSettingsPage>
             ),
             SettingsTile(
               icon: Icons.history_toggle_off_rounded,
-              title: 'Continue watching',
+              title: AppLocalizations.of(context).t('Continue watching'),
               subtitle: _trackContinueWatching
                   ? 'Tracking movies and series'
                   : 'Off',
@@ -2330,7 +2332,7 @@ class _IptvSettingsPageState extends State<IptvSettingsPage>
             if (_appearanceVisible)
               SettingsTile(
                 icon: Icons.style_rounded,
-                title: 'Appearance',
+                title: AppLocalizations.of(context).t('Appearance'),
                 subtitle: iptvStyleLabel(_iptvStyle),
                 onTap: () async => unawaited(_openIptvStylePicker()),
               ),
@@ -3485,7 +3487,7 @@ class _FocusablePlaylistTileState extends State<_FocusablePlaylistTile> {
               _FocusableIconButton(
                 focusNode: widget.refreshFocusNode,
                 icon: Icons.refresh,
-                tooltip: 'Refresh playlist',
+                tooltip: AppLocalizations.of(context).t('Refresh playlist'),
                 isBusy: widget.isRefreshing,
                 onPressed: widget.onRefresh!,
                 onLeftArrow: () => widget.starFocusNode?.requestFocus(),
@@ -3495,7 +3497,7 @@ class _FocusablePlaylistTileState extends State<_FocusablePlaylistTile> {
               _FocusableIconButton(
                 focusNode: widget.editFocusNode,
                 icon: Icons.edit_outlined,
-                tooltip: 'Edit playlist',
+                tooltip: AppLocalizations.of(context).t('Edit playlist'),
                 onPressed: widget.onEdit,
                 onLeftArrow: () =>
                     (canRefresh
@@ -3611,7 +3613,7 @@ class _SharedIptvSourceDeleteDialogState
             autofocus: true,
             style: _dialogButtonFocusStyle,
             onPressed: () => Navigator.of(context).pop(false),
-            child: const Text('Cancel'),
+            child: Text(AppLocalizations.of(context).t('Cancel')),
           ),
           FilledButton(
             focusNode: _okFocusNode,
@@ -3839,7 +3841,7 @@ class _EditPlaylistDialogState extends State<_EditPlaylistDialog> {
         TvTextField(
           controller: _urlController,
           focusNode: _urlFocusNode,
-          labelText: 'Playlist URL',
+          labelText: AppLocalizations.of(context).t('Playlist URL'),
           hintText: 'https://example.com/playlist.m3u',
           errorText: _urlError,
           prefixIcon: const Icon(Icons.link),
@@ -3853,7 +3855,7 @@ class _EditPlaylistDialogState extends State<_EditPlaylistDialog> {
         TvTextField(
           controller: _serverController,
           focusNode: _serverFocusNode,
-          labelText: 'Server URL',
+          labelText: AppLocalizations.of(context).t('Server URL'),
           hintText: 'http://example.com:8080',
           errorText: _serverError,
           prefixIcon: const Icon(Icons.dns),
@@ -3865,7 +3867,7 @@ class _EditPlaylistDialogState extends State<_EditPlaylistDialog> {
         TvTextField(
           controller: _usernameController,
           focusNode: _usernameFocusNode,
-          labelText: 'Username',
+          labelText: AppLocalizations.of(context).t('Username'),
           hintText: 'your username',
           errorText: _usernameError,
           prefixIcon: const Icon(Icons.person),
@@ -3877,7 +3879,7 @@ class _EditPlaylistDialogState extends State<_EditPlaylistDialog> {
         TvTextField(
           controller: _passwordController,
           focusNode: _passwordFocusNode,
-          labelText: 'Password',
+          labelText: AppLocalizations.of(context).t('Password'),
           hintText: 'your password',
           errorText: _passwordError,
           prefixIcon: const Icon(Icons.lock),
@@ -3931,13 +3933,13 @@ class _EditPlaylistDialogState extends State<_EditPlaylistDialog> {
           // focus is never stranded on the dialog scope.
           autofocus: PlatformUtil.isTelevision && !_canSave,
           onPressed: () => Navigator.of(context).pop(),
-          child: const Text('Cancel'),
+          child: Text(AppLocalizations.of(context).t('Cancel')),
         ),
         FilledButton(
           style: _dialogButtonFocusStyle,
           autofocus: PlatformUtil.isTelevision && _canSave,
           onPressed: _canSave ? _submit : null,
-          child: const Text('Save'),
+          child: Text(AppLocalizations.of(context).t('Save')),
         ),
       ],
     );
@@ -4319,13 +4321,13 @@ class _PlaylistNameDialogState extends State<_PlaylistNameDialog> {
           // seed DPAD focus here instead.
           autofocus: PlatformUtil.isTelevision && !_initialNameValid,
           onPressed: () => Navigator.of(context).pop(),
-          child: const Text('Cancel'),
+          child: Text(AppLocalizations.of(context).t('Cancel')),
         ),
         FilledButton(
           style: _dialogButtonFocusStyle,
           autofocus: PlatformUtil.isTelevision && _initialNameValid,
           onPressed: _errorText == null ? _submit : null,
-          child: const Text('Import'),
+          child: Text(AppLocalizations.of(context).t('Import')),
         ),
       ],
     );
@@ -4410,7 +4412,7 @@ class _IptvListSettingsRow extends StatelessWidget {
           _FocusableIconButton(
             focusNode: renameFocusNode,
             icon: Icons.edit_outlined,
-            tooltip: 'Rename',
+            tooltip: AppLocalizations.of(context).t('Rename'),
             onPressed: onRename,
           ),
           // The ends of the list keep their arrows for a stable focus order,
@@ -4432,7 +4434,7 @@ class _IptvListSettingsRow extends StatelessWidget {
           _FocusableIconButton(
             focusNode: deleteFocusNode,
             icon: Icons.delete_outline_rounded,
-            tooltip: 'Delete',
+            tooltip: AppLocalizations.of(context).t('Delete'),
             onPressed: onDelete,
           ),
         ],

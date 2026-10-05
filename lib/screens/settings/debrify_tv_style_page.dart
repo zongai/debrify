@@ -1,6 +1,8 @@
 import '../../theme/app_looks.dart';
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 import '../../services/analytics_service.dart';
 import '../../services/storage_service.dart';
 import '../../utils/platform_util.dart';
@@ -108,13 +110,13 @@ class _DebrifyTvStylePageState extends State<DebrifyTvStylePage> {
     final t = AppThemeScope.of(context).settings;
     if (_loading) {
       return const SettingsPageScaffold(
-        title: 'Debrify TV',
+        title: AppLocalizations.of(context).t('Debrify TV'),
         body: Center(child: CircularProgressIndicator()),
       );
     }
 
     return SettingsPageScaffold(
-      title: 'Debrify TV',
+      title: AppLocalizations.of(context).t('Debrify TV'),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16),
         child: Center(
@@ -125,7 +127,7 @@ class _DebrifyTvStylePageState extends State<DebrifyTvStylePage> {
               children: [
                 const SettingsPageHeader(
                   icon: Icons.live_tv_rounded,
-                  title: 'Debrify TV',
+                  title: AppLocalizations.of(context).t('Debrify TV'),
                   subtitle: 'How the channels screen looks, on every device',
                 ),
                 const SizedBox(height: 24),

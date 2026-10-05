@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+
+import '../../l10n/app_localizations.dart';
 import '../../services/analytics_service.dart';
 import '../../services/storage_service.dart';
 import 'widgets/settings_widgets.dart';
@@ -233,7 +235,7 @@ class _StremioTvSettingsPageState extends State<StremioTvSettingsPage> {
                     children: [
                       const SettingsPageHeader(
                         icon: Icons.smart_display_rounded,
-                        title: 'Stremio TV',
+                        title: AppLocalizations.of(context).t('Stremio TV'),
                         subtitle:
                             'Configure how Stremio addon catalogs are displayed as TV channels.',
                       ),
@@ -389,7 +391,7 @@ class _StremioTvSettingsPageState extends State<StremioTvSettingsPage> {
                                     items: const [
                                       DropdownMenuItem(
                                         value: 'auto',
-                                        child: Text('Auto'),
+                                        child: Text(AppLocalizations.of(context).t('Auto')),
                                       ),
                                       DropdownMenuItem(
                                         value: '720p',

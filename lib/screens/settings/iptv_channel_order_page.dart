@@ -2,6 +2,8 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 import '../../models/iptv_playlist.dart' show IptvChannel;
 import '../../services/iptv_media_store.dart' show IptvListMeta;
 import '../../services/storage_service.dart';
@@ -94,12 +96,12 @@ class _IptvChannelOrderPageState extends State<IptvChannelOrderPage> {
   Widget build(BuildContext context) {
     if (_loading) {
       return const SettingsPageScaffold(
-        title: 'Channel order',
+        title: AppLocalizations.of(context).t('Channel order'),
         body: Center(child: CircularProgressIndicator()),
       );
     }
     return SettingsPageScaffold(
-      title: 'Channel order',
+      title: AppLocalizations.of(context).t('Channel order'),
       body: ListView(
         padding: EdgeInsets.fromLTRB(
           PlatformUtil.isTelevision ? 36 : 16,
@@ -116,7 +118,7 @@ class _IptvChannelOrderPageState extends State<IptvChannelOrderPage> {
                 children: [
                   const SettingsPageHeader(
                     icon: Icons.reorder_rounded,
-                    title: 'Channel order',
+                    title: AppLocalizations.of(context).t('Channel order'),
                     subtitle:
                         'Choose Favorites or a saved list, then put its '
                         'channels in the order you want.',

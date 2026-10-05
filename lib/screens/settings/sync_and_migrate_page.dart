@@ -6,6 +6,8 @@ import 'widgets/sync_device_tile.dart';
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+
+import '../../l10n/app_localizations.dart';
 import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -342,7 +344,7 @@ class _SyncAndMigratePageState extends State<SyncAndMigratePage>
               TextButton(
                 autofocus: true,
                 onPressed: () => Navigator.of(dialogContext).pop(),
-                child: const Text('Close'),
+                child: Text(AppLocalizations.of(context).t('Close')),
               ),
             ],
           ),
@@ -444,7 +446,7 @@ class _SyncAndMigratePageState extends State<SyncAndMigratePage>
             actions: [
               TextButton(
                 onPressed: () => Navigator.of(dialogContext).pop(false),
-                child: const Text('Cancel'),
+                child: Text(AppLocalizations.of(context).t('Cancel')),
               ),
               FilledButton(
                 onPressed: () => Navigator.of(dialogContext).pop(true),
@@ -477,7 +479,7 @@ class _SyncAndMigratePageState extends State<SyncAndMigratePage>
         actions: [
           TextButton(
             onPressed: () => Navigator.of(dialogContext).pop(false),
-            child: const Text('Cancel'),
+            child: Text(AppLocalizations.of(context).t('Cancel')),
           ),
           FilledButton(
             onPressed: () => Navigator.of(dialogContext).pop(true),
@@ -525,7 +527,7 @@ class _SyncAndMigratePageState extends State<SyncAndMigratePage>
         actions: [
           TextButton(
             onPressed: () => Navigator.of(dialogContext).pop(false),
-            child: const Text('Cancel'),
+            child: Text(AppLocalizations.of(context).t('Cancel')),
           ),
           FilledButton(
             onPressed: () => Navigator.of(dialogContext).pop(true),
@@ -566,7 +568,7 @@ class _SyncAndMigratePageState extends State<SyncAndMigratePage>
                 ? 'Logout could not be confirmed. Retry or choose Forget connection to disconnect on this device.'
                 : _userFacingSyncError(error),
           ),
-          action: SnackBarAction(label: 'Retry', onPressed: _logout),
+          action: SnackBarAction(label: AppLocalizations.of(context).t('Retry'), onPressed: _logout),
         ),
       );
     } finally {
@@ -611,7 +613,7 @@ class _SyncAndMigratePageState extends State<SyncAndMigratePage>
                   !report.localPublicationConfirmed ||
                   report.localChangeFollowUp ||
                   report.localProfilesSuppressed
-              ? SnackBarAction(label: 'Retry', onPressed: _syncNow)
+              ? SnackBarAction(label: AppLocalizations.of(context).t('Retry'), onPressed: _syncNow)
               : null,
         ),
       );
@@ -843,7 +845,7 @@ class _SyncAndMigratePageState extends State<SyncAndMigratePage>
           actions: [
             TextButton(
               onPressed: () => Navigator.of(dialogContext).pop(false),
-              child: const Text('Cancel'),
+              child: Text(AppLocalizations.of(context).t('Cancel')),
             ),
             FilledButton(
               onPressed: () => Navigator.of(dialogContext).pop(true),
@@ -879,7 +881,7 @@ class _SyncAndMigratePageState extends State<SyncAndMigratePage>
         content: Text(_userFacingSyncError(error)),
         action: onRetry == null
             ? null
-            : SnackBarAction(label: 'Retry', onPressed: onRetry),
+            : SnackBarAction(label: AppLocalizations.of(context).t('Retry'), onPressed: onRetry),
         backgroundColor: Colors.red,
       ),
     );
@@ -1075,7 +1077,7 @@ class _SyncAndMigratePageState extends State<SyncAndMigratePage>
             if (active)
               SettingsTile(
                 icon: Icons.sync,
-                title: 'Sync now',
+                title: AppLocalizations.of(context).t('Sync now'),
                 subtitle: 'Send your changes and check for updates',
                 enabled:
                     !_syncBusy && !_logoutPending && _syncActivation != null,
@@ -1250,7 +1252,7 @@ class _SyncAndMigratePageState extends State<SyncAndMigratePage>
   @override
   Widget build(BuildContext context) {
     return SettingsPageScaffold(
-      title: 'Sync and Migrate',
+      title: AppLocalizations.of(context).t('Sync and Migrate'),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16),
         child: Center(
@@ -1453,7 +1455,7 @@ final class _SyncCredentialDialogState extends State<_SyncCredentialDialog> {
       actions: [
         TextButton(
           onPressed: () => Navigator.of(context).pop(),
-          child: const Text('Cancel'),
+          child: Text(AppLocalizations.of(context).t('Cancel')),
         ),
         FilledButton(
           onPressed: _valid ? _submit : null,

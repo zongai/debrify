@@ -5,6 +5,8 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 import '../../services/analytics_service.dart';
 import '../../services/storage_service.dart';
 import '../../utils/platform_util.dart';
@@ -98,7 +100,7 @@ class _LaunchAnimationPageState extends State<LaunchAnimationPage> {
   @override
   Widget build(BuildContext context) {
     return SettingsPageScaffold(
-      title: 'Launch Animation',
+      title: AppLocalizations.of(context).t('Launch Animation'),
       // The split exists for DPAD: in one column the list scrolls the preview
       // off the top exactly when you start walking the options, so you choose
       // an ident you can no longer see. Pinning the preview beside the list
@@ -209,7 +211,7 @@ class _LaunchAnimationPageState extends State<LaunchAnimationPage> {
 
   Widget _header() => const SettingsPageHeader(
     icon: Icons.rocket_launch_rounded,
-    title: 'Launch Animation',
+    title: AppLocalizations.of(context).t('Launch Animation'),
     subtitle: 'The ident Debrify plays while it starts',
   );
 

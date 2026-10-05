@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 import '../../services/analytics_service.dart';
 import '../../services/storage_service.dart';
 import '../../utils/platform_util.dart';
@@ -123,13 +125,13 @@ class _DebrifyTvPlayerStylePageState extends State<DebrifyTvPlayerStylePage> {
     final t = AppThemeScope.of(context).settings;
     if (_loading) {
       return const SettingsPageScaffold(
-        title: 'Debrify TV Player',
+        title: AppLocalizations.of(context).t('Debrify TV Player'),
         body: Center(child: CircularProgressIndicator()),
       );
     }
 
     return SettingsPageScaffold(
-      title: 'Debrify TV Player',
+      title: AppLocalizations.of(context).t('Debrify TV Player'),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16),
         child: Center(
@@ -140,7 +142,7 @@ class _DebrifyTvPlayerStylePageState extends State<DebrifyTvPlayerStylePage> {
               children: [
                 const SettingsPageHeader(
                   icon: Icons.live_tv_rounded,
-                  title: 'Debrify TV Player',
+                  title: AppLocalizations.of(context).t('Debrify TV Player'),
                   subtitle:
                       'How the playback screen looks while a channel airs',
                 ),

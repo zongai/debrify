@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 import '../../services/analytics_service.dart';
 import '../../theme/app_looks.dart';
 import '../../theme/app_theme_controller.dart';
@@ -80,7 +82,7 @@ class _LooksPageState extends State<LooksPage> {
     // is a lie the user has no way to detect.
     final active = edits == 0 ? AppLooks.active() : null;
     return SettingsPageScaffold(
-      title: 'Looks',
+      title: AppLocalizations.of(context).t('Looks'),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16),
         child: Center(
@@ -91,7 +93,7 @@ class _LooksPageState extends State<LooksPage> {
               children: [
                 const SettingsPageHeader(
                   icon: Icons.auto_awesome_rounded,
-                  title: 'Looks',
+                  title: AppLocalizations.of(context).t('Looks'),
                   subtitle: 'One pick that dresses the whole app',
                 ),
                 const SizedBox(height: 18),
@@ -141,7 +143,7 @@ class _LooksPageState extends State<LooksPage> {
                   children: [
                     SettingsTile(
                       icon: Icons.tune_rounded,
-                      title: 'Advanced',
+                      title: AppLocalizations.of(context).t('Advanced'),
                       subtitle: edits == 0
                           ? 'Edit individual tokens — colour, shape, motion'
                           : '$edits ${edits == 1 ? "token" : "tokens"} '

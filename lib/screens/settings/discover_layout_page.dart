@@ -2,6 +2,8 @@ import 'widgets/settings_load_error.dart';
 import '../../theme/app_looks.dart';
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 import '../../services/analytics_service.dart';
 import '../../services/main_page_bridge.dart';
 import '../../services/storage_service.dart';
@@ -131,19 +133,19 @@ class _DiscoverLayoutPageState extends State<DiscoverLayoutPage> {
     final t = AppThemeScope.of(context).settings;
     if (_loading) {
       return const SettingsPageScaffold(
-        title: 'Discover Layout',
+        title: AppLocalizations.of(context).t('Discover Layout'),
         body: Center(child: CircularProgressIndicator()),
       );
     }
     if (_loadFailed) {
       return SettingsPageScaffold(
-        title: 'Discover Layout',
+        title: AppLocalizations.of(context).t('Discover Layout'),
         body: SettingsLoadError(onRetry: _load),
       );
     }
 
     return SettingsPageScaffold(
-      title: 'Discover Layout',
+      title: AppLocalizations.of(context).t('Discover Layout'),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16),
         child: Center(
@@ -154,7 +156,7 @@ class _DiscoverLayoutPageState extends State<DiscoverLayoutPage> {
               children: [
                 const SettingsPageHeader(
                   icon: Icons.explore_rounded,
-                  title: 'Discover Layout',
+                  title: AppLocalizations.of(context).t('Discover Layout'),
                   subtitle: 'How the Discover tab browses on this TV',
                 ),
                 const SizedBox(height: 24),

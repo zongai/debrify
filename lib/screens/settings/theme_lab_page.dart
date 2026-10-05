@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 import '../../services/storage_service.dart';
 import '../../theme/app_surface.dart';
 import '../../theme/app_theme.dart';
@@ -59,13 +61,13 @@ class _ThemeLabPageState extends State<ThemeLabPage> {
     final live = AppThemeScope.of(context);
     final shown = _built ?? live;
     return SettingsPageScaffold(
-      title: 'Theme Lab',
+      title: AppLocalizations.of(context).t('Theme Lab'),
       body: ListView(
         padding: const EdgeInsets.fromLTRB(16, 8, 16, 40),
         children: [
           const SettingsPageHeader(
             icon: Icons.science_rounded,
-            title: 'Theme Lab',
+            title: AppLocalizations.of(context).t('Theme Lab'),
             subtitle: 'The looks, live, on real widgets',
           ),
           const SizedBox(height: 14),
@@ -92,7 +94,7 @@ class _ThemeLabPageState extends State<ThemeLabPage> {
   /// looking at.
   Widget _feedback() {
     return SettingsSection(
-      title: 'Feedback',
+      title: AppLocalizations.of(context).t('Feedback'),
       children: [
         SettingsToggleTile(
           icon: Icons.volume_up_rounded,

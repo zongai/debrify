@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+
+import '../../l10n/app_localizations.dart';
 import '../../utils/tv_reveal.dart';
 import 'widgets/dynamic_settings_builder.dart';
 import 'widgets/settings_widgets.dart';
@@ -74,7 +76,7 @@ class _DebrifyTvSettingsPageState extends State<DebrifyTvSettingsPage> {
   @override
   Widget build(BuildContext context) {
     return SettingsPageScaffold(
-      title: 'Debrify TV',
+      title: AppLocalizations.of(context).t('Debrify TV'),
       body: FocusScope(
         node: _bodyScope,
         child: FocusTraversalGroup(
@@ -121,8 +123,8 @@ class _DebrifyTvSettingsPageState extends State<DebrifyTvSettingsPage> {
   Widget _buildHeader(BuildContext context) {
     return const SettingsPageHeader(
       icon: Icons.tv_rounded,
-      title: 'Debrify TV Configuration',
-      subtitle: 'Configure search engines and result limits',
+      title: AppLocalizations.of(context).t('Debrify TV Configuration'),
+      subtitle: AppLocalizations.of(context).t('Configure search engines and result limits'),
     );
   }
 
@@ -179,7 +181,7 @@ class _DebrifyTvSettingsPageState extends State<DebrifyTvSettingsPage> {
       child: OutlinedButton.icon(
         onPressed: () => _showResetConfirmation(context),
         icon: const Icon(Icons.refresh),
-        label: const Text('Reset to Defaults'),
+        label: Text(AppLocalizations.of(context).t('Reset to Defaults')),
         // State-resolved accent border + lit fill so DPAD focus is
         // unmistakable on TV (default focus overlay is too faint).
         style: ButtonStyle(
@@ -216,7 +218,7 @@ class _DebrifyTvSettingsPageState extends State<DebrifyTvSettingsPage> {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: const Text('Reset Settings'),
+        title: Text(AppLocalizations.of(context).t('Reset Settings')),
         content: const Text(
           'Are you sure you want to reset all Debrify TV settings to their default values?',
         ),
@@ -237,7 +239,7 @@ class _DebrifyTvSettingsPageState extends State<DebrifyTvSettingsPage> {
                     : null,
               ),
             ),
-            child: const Text('Cancel'),
+            child: Text(AppLocalizations.of(context).t('Cancel')),
           ),
           FilledButton(
             onPressed: () {
@@ -253,7 +255,7 @@ class _DebrifyTvSettingsPageState extends State<DebrifyTvSettingsPage> {
                     : null,
               ),
             ),
-            child: const Text('Reset'),
+            child: Text(AppLocalizations.of(context).t('Reset')),
           ),
         ],
       ),

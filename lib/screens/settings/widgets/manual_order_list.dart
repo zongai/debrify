@@ -1,6 +1,8 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+
+import '../../../l10n/app_localizations.dart';
 import 'package:flutter/services.dart';
 
 import '../../../theme/app_theme_scope.dart';
@@ -365,7 +367,7 @@ class ManualOrderListState extends State<ManualOrderList> {
         actions: [
           TextButton(
             onPressed: () => Navigator.of(dialogContext).pop(),
-            child: const Text('Cancel'),
+            child: Text(AppLocalizations.of(context).t('Cancel')),
           ),
           TextButton(
             onPressed: () =>
@@ -467,7 +469,7 @@ class ManualOrderListState extends State<ManualOrderList> {
               key: _searchFieldKey,
               controller: _searchController,
               focusNode: _searchNode,
-              hintText: 'Search…',
+              hintText: AppLocalizations.of(context).t('Search…'),
               textInputAction: TextInputAction.search,
               prefixIcon: const Icon(Icons.search_rounded),
               suffixIcon: _query.isEmpty
@@ -475,7 +477,7 @@ class ManualOrderListState extends State<ManualOrderList> {
                   : ExcludeFocus(
                       child: IconButton(
                         icon: const Icon(Icons.close_rounded),
-                        tooltip: 'Clear',
+                        tooltip: AppLocalizations.of(context).t('Clear'),
                         onPressed: () {
                           _searchController.clear();
                           setState(() => _query = '');

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 import '../../models/tracking_source.dart';
 import '../../services/analytics_service.dart';
 import '../../services/hide_watched_prefs.dart';
@@ -334,7 +336,7 @@ class _TrackingSettingsPageState extends State<TrackingSettingsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Tracking')),
+      appBar: AppBar(title: Text(AppLocalizations.of(context).t('Tracking'))),
       body: _loading
           ? const Center(child: CircularProgressIndicator())
           : PlatformUtil.isTelevision

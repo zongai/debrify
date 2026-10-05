@@ -8,6 +8,8 @@ import 'dart:io' show File, Platform, exit;
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/foundation.dart' show kIsWeb, visibleForTesting;
 import 'package:flutter/material.dart';
+
+import '../l10n/app_localizations.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:intl/intl.dart';
@@ -1136,7 +1138,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
       : 'Unable to load; open the item to retry';
 
   ConnectionInfo get _rdInfo => ConnectionInfo(
-    title: 'Real Debrid',
+    title: AppLocalizations.of(context).t('Real Debrid'),
     connected:
         !_summaryFailures.contains('Real Debrid') && _realDebridConnected,
     status: _summaryFailures.contains('Real Debrid')
@@ -1148,7 +1150,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
     onTap: _openRealDebridSettings,
   );
   ConnectionInfo get _torboxInfo => ConnectionInfo(
-    title: 'Torbox',
+    title: AppLocalizations.of(context).t('Torbox'),
     connected: !_summaryFailures.contains('Torbox') && _torboxConnected,
     status: _summaryFailures.contains('Torbox')
         ? _summaryFailureStatus('Torbox')
@@ -1159,7 +1161,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
     onTap: _openTorboxSettings,
   );
   ConnectionInfo get _premiumizeInfo => ConnectionInfo(
-    title: 'Premiumize',
+    title: AppLocalizations.of(context).t('Premiumize'),
     connected: !_summaryFailures.contains('Premiumize') && _premiumizeConnected,
     status: _summaryFailures.contains('Premiumize')
         ? _summaryFailureStatus('Premiumize')
@@ -1170,7 +1172,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
     onTap: _openPremiumizeSettings,
   );
   ConnectionInfo get _allDebridInfo => ConnectionInfo(
-    title: 'AllDebrid',
+    title: AppLocalizations.of(context).t('AllDebrid'),
     connected: !_summaryFailures.contains('AllDebrid') && _allDebridConnected,
     status: _summaryFailures.contains('AllDebrid')
         ? _summaryFailureStatus('AllDebrid')
@@ -1181,7 +1183,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
     onTap: _openAllDebridSettings,
   );
   ConnectionInfo get _pikpakInfo => ConnectionInfo(
-    title: 'PikPak',
+    title: AppLocalizations.of(context).t('PikPak'),
     connected: !_summaryFailures.contains('PikPak') && _pikpakConnected,
     status: _summaryFailures.contains('PikPak')
         ? _summaryFailureStatus('PikPak')
@@ -1193,14 +1195,14 @@ class _SettingsScreenState extends State<SettingsScreen> {
   );
   int _mediaServerCount = 0;
   ConnectionInfo get _mediaServersInfo => ConnectionInfo(
-    title: 'Jellyfin, Emby & Plex',
+    title: AppLocalizations.of(context).t('Jellyfin, Emby & Plex'),
     connected: !_summaryFailures.contains('Media servers') && _mediaServerCount > 0,
     status: _summaryFailures.contains('Media servers') ? 'Unavailable' : _mediaServerCount > 0 ? 'Configured' : 'Not configured',
     caption: _mediaServerCount > 0 ? '$_mediaServerCount server connections' : 'Play movies and episodes from your servers',
     onTap: _openMediaServerSettings,
   );
   ConnectionInfo get _webDavInfo => ConnectionInfo(
-    title: 'WebDAV',
+    title: AppLocalizations.of(context).t('WebDAV'),
     connected: !_summaryFailures.contains('WebDAV') && _webDavConnected,
     status: _summaryFailures.contains('WebDAV')
         ? _summaryFailureStatus('WebDAV')
@@ -1211,7 +1213,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
     onTap: _openWebDavSettings,
   );
   ConnectionInfo get _iptvInfo => ConnectionInfo(
-    title: 'IPTV',
+    title: AppLocalizations.of(context).t('IPTV'),
     connected: !_summaryFailures.contains('IPTV'),
     status: _summaryFailures.contains('IPTV')
         ? _summaryFailureStatus('IPTV')
@@ -1226,7 +1228,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
     onTap: _openIptvSettings,
   );
   ConnectionInfo get _traktInfo => ConnectionInfo(
-    title: 'Trakt',
+    title: AppLocalizations.of(context).t('Trakt'),
     connected: !_summaryFailures.contains('Trakt') && _traktConnected,
     status: _summaryFailures.contains('Trakt')
         ? _summaryFailureStatus('Trakt')
@@ -1237,7 +1239,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
     onTap: _openTraktSettings,
   );
   ConnectionInfo get _simklInfo => ConnectionInfo(
-    title: 'Simkl',
+    title: AppLocalizations.of(context).t('Simkl'),
     connected: !_summaryFailures.contains('Simkl') && _simklConnected,
     status: _summaryFailures.contains('Simkl')
         ? _summaryFailureStatus('Simkl')
@@ -1248,7 +1250,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
     onTap: _openSimklSettings,
   );
   ConnectionInfo get _mdblistInfo => ConnectionInfo(
-    title: 'MDBList',
+    title: AppLocalizations.of(context).t('MDBList'),
     connected: !_summaryFailures.contains('MDBList') && _mdblistConnected,
     status: _summaryFailures.contains('MDBList')
         ? _summaryFailureStatus('MDBList')
@@ -1259,14 +1261,14 @@ class _SettingsScreenState extends State<SettingsScreen> {
     onTap: _openMdblistSettings,
   );
   ConnectionInfo get _trackingInfo => ConnectionInfo(
-    title: 'Tracking',
+    title: AppLocalizations.of(context).t('Tracking'),
     connected: true,
     status: 'Configured',
     caption: 'Scrobble, progress source & Home ticks',
     onTap: _openTrackingSettings,
   );
   ConnectionInfo get _indexerManagersInfo => ConnectionInfo(
-    title: 'Jackett & Prowlarr',
+    title: AppLocalizations.of(context).t('Jackett & Prowlarr'),
     connected:
         !_summaryFailures.contains('Indexer managers') &&
         _indexerManagersConfigured,
@@ -1758,8 +1760,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
       ]),
       SettingsSearchEntry(
         icon: Icons.bookmark_rounded,
-        title: 'IPTV lists',
-        subtitle: 'Create and manage your channel lists',
+        title: AppLocalizations.of(context).t('IPTV lists'),
+        subtitle: AppLocalizations.of(context).t('Create and manage your channel lists'),
         category: 'Live TV & DVR',
         keywords: const [
           'list',
@@ -1774,8 +1776,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
       ),
       SettingsSearchEntry(
         icon: Icons.live_tv_rounded,
-        title: 'Startup channel',
-        subtitle: 'Open straight into a live channel when the app starts',
+        title: AppLocalizations.of(context).t('Startup channel'),
+        subtitle: AppLocalizations.of(context).t('Open straight into a live channel when the app starts'),
         category: 'Live TV & DVR',
         keywords: const [
           'startup',
@@ -1794,8 +1796,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
       ),
       SettingsSearchEntry(
         icon: Icons.history_toggle_off_rounded,
-        title: 'IPTV continue watching',
-        subtitle: 'Track the movies and series you start on IPTV',
+        title: AppLocalizations.of(context).t('IPTV continue watching'),
+        subtitle: AppLocalizations.of(context).t('Track the movies and series you start on IPTV'),
         category: 'Live TV & DVR',
         keywords: const [
           'continue watching',
@@ -2642,8 +2644,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
       // Its own category, because it does not live in a settings section.
       SettingsSearchEntry(
         icon: Icons.extension_rounded,
-        title: 'Addons',
-        subtitle: 'Stremio addons and torrent search engines',
+        title: AppLocalizations.of(context).t('Addons'),
+        subtitle: AppLocalizations.of(context).t('Stremio addons and torrent search engines'),
         category: 'Addons',
         keywords: const [
           'addon',
@@ -2713,8 +2715,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
       // its own name, not a settings section it isn't a row of.
       SettingsSearchEntry(
         icon: Icons.smart_display_rounded,
-        title: 'Stremio TV',
-        subtitle: 'Rotation, quality, provider and playback for Stremio TV',
+        title: AppLocalizations.of(context).t('Stremio TV'),
+        subtitle: AppLocalizations.of(context).t('Rotation, quality, provider and playback for Stremio TV'),
         category: 'Stremio TV',
         keywords: const [
           'stremio tv',
@@ -3119,7 +3121,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
             keywords: ['cursor', 'focus color', 'focus colour', 'dpad'],
           ),
           (
-            title: 'Progress',
+            title: AppLocalizations.of(context).t('Progress'),
             subtitle: 'Progress bars and watched marks',
             keywords: ['watched', 'marks', 'bar', 'state', 'colour', 'color'],
           ),
@@ -5117,7 +5119,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
         }
 
         return AlertDialog(
-          title: const Text('Navigation'),
+          title: Text(AppLocalizations.of(context).t('Navigation')),
           contentPadding: const EdgeInsets.fromLTRB(0, 16, 0, 12),
           content: Column(
             mainAxisSize: MainAxisSize.min,
@@ -5416,7 +5418,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
     if (!allowed && mounted) {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
-          content: Text('This feature is disabled for this profile.'),
+          content: Text(AppLocalizations.of(context).t('This feature is disabled for this profile.')),
         ),
       );
     }
@@ -5603,7 +5605,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
             actions: [
               TextButton(
                 onPressed: () => Navigator.of(context).pop(false),
-                child: const Text('Cancel'),
+                child: Text(AppLocalizations.of(context).t('Cancel')),
               ),
               FilledButton(
                 onPressed: passphraseOk
@@ -5832,7 +5834,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
             actions: [
               TextButton(
                 onPressed: () => Navigator.of(context).pop(null),
-                child: const Text('Cancel'),
+                child: Text(AppLocalizations.of(context).t('Cancel')),
               ),
               FilledButton(
                 onPressed: () => Navigator.of(context).pop(controller.text),
@@ -6051,11 +6053,11 @@ class _SettingsScreenState extends State<SettingsScreen> {
         actions: [
           TextButton(
             onPressed: () => Navigator.of(context).pop(false),
-            child: const Text('Cancel'),
+            child: Text(AppLocalizations.of(context).t('Cancel')),
           ),
           FilledButton(
             onPressed: () => Navigator.of(context).pop(true),
-            child: const Text('Restore'),
+            child: Text(AppLocalizations.of(context).t('Restore')),
           ),
         ],
       ),
@@ -6502,11 +6504,11 @@ class _SettingsScreenState extends State<SettingsScreen> {
         actions: [
           TextButton(
             onPressed: () => Navigator.of(context).pop(false),
-            child: const Text('Cancel'),
+            child: Text(AppLocalizations.of(context).t('Cancel')),
           ),
           FilledButton(
             onPressed: () => Navigator.of(context).pop(true),
-            child: const Text('Clear'),
+            child: Text(AppLocalizations.of(context).t('Clear')),
           ),
         ],
       ),
@@ -6532,11 +6534,11 @@ class _SettingsScreenState extends State<SettingsScreen> {
         actions: [
           TextButton(
             onPressed: () => Navigator.of(context).pop(false),
-            child: const Text('Cancel'),
+            child: Text(AppLocalizations.of(context).t('Cancel')),
           ),
           FilledButton(
             onPressed: () => Navigator.of(context).pop(true),
-            child: const Text('Clear'),
+            child: Text(AppLocalizations.of(context).t('Clear')),
           ),
         ],
       ),
@@ -6578,7 +6580,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
         actions: [
           TextButton(
             onPressed: () => Navigator.of(context).pop(),
-            child: const Text('Cancel'),
+            child: Text(AppLocalizations.of(context).t('Cancel')),
           ),
           if (mayResetDevice)
             TextButton(
@@ -6635,7 +6637,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
             actions: [
               TextButton(
                 onPressed: () => Navigator.of(dialogContext).pop(false),
-                child: const Text('Cancel'),
+                child: Text(AppLocalizations.of(context).t('Cancel')),
               ),
               FilledButton(
                 onPressed: typed.text == 'RESET'
@@ -7941,12 +7943,12 @@ class _SettingsLayout extends StatelessWidget {
           children: [
             SettingsLookHero(
               label: AppLooks.active()?.label ?? 'Custom',
-              subtitle: 'Full-bleed art, borderless focus, and ambient detail.',
+              subtitle: AppLocalizations.of(context).t('Full-bleed art, borderless focus, and ambient detail.'),
               onTap: onOpenLooks,
             ),
             const SizedBox(height: 18),
             SettingsSection(
-              title: 'Presets',
+              title: AppLocalizations.of(context).t('Presets'),
               blurb:
                   'One pick sets the theme, layouts, and launch animation '
                   'together.',
@@ -7960,7 +7962,7 @@ class _SettingsLayout extends StatelessWidget {
             ),
             const SizedBox(height: 18),
             SettingsSection(
-              title: 'Theme',
+              title: AppLocalizations.of(context).t('Theme'),
               blurb: 'Colour, focus, and motion. Applies everywhere.',
               children: [
                 SettingsTile.spec(
@@ -7982,7 +7984,7 @@ class _SettingsLayout extends StatelessWidget {
             ),
             const SizedBox(height: 18),
             SettingsSection(
-              title: 'Screen layouts',
+              title: AppLocalizations.of(context).t('Screen layouts'),
               blurb: 'Where things sit. Each screen is chosen separately.',
               children: [
                 if (_showsLargeCollectionStyles(context))
@@ -8154,7 +8156,7 @@ class _SettingsLayout extends StatelessWidget {
           children: [
             if (onOpenDownloadLocation != null) ...[
               SettingsSection(
-                title: 'Downloads',
+                title: AppLocalizations.of(context).t('Downloads'),
                 children: [
                   SettingsTile.spec(
                     SettingsRows.downloadLocation,
@@ -8310,7 +8312,7 @@ class _SettingsLayout extends StatelessWidget {
                 // never by platform. Platform-only rows hide where they don't
                 // apply; the section names never differ between surfaces.
                 SettingsSection(
-                  title: 'Home & Display',
+                  title: AppLocalizations.of(context).t('Home & Display'),
                   children: [
                     SettingsTile.spec(
                       SettingsRows.homePage,
@@ -8326,7 +8328,7 @@ class _SettingsLayout extends StatelessWidget {
                 ),
                 const SizedBox(height: 24),
                 SettingsSection(
-                  title: 'Collections',
+                  title: AppLocalizations.of(context).t('Collections'),
                   children: [
                     SettingsTile.spec(
                       SettingsRows.collections,
@@ -8336,7 +8338,7 @@ class _SettingsLayout extends StatelessWidget {
                 ),
                 const SizedBox(height: 24),
                 SettingsSection(
-                  title: 'Badges',
+                  title: AppLocalizations.of(context).t('Badges'),
                   children: [
                     SettingsTile.spec(
                       SettingsRows.badges,
@@ -8346,7 +8348,7 @@ class _SettingsLayout extends StatelessWidget {
                 ),
                 const SizedBox(height: 24),
                 SettingsSection(
-                  title: 'Metadata',
+                  title: AppLocalizations.of(context).t('Metadata'),
                   children: [
                     SettingsTile.spec(
                       SettingsRows.metadata,
@@ -8359,7 +8361,7 @@ class _SettingsLayout extends StatelessWidget {
                 // pickers live in the TV layout's Appearance category — this
                 // layout never renders on Android TV.
                 SettingsSection(
-                  title: 'Presets',
+                  title: AppLocalizations.of(context).t('Presets'),
                   blurb:
                       'One pick that sets the theme, layouts and launch '
                       'animation together.',
@@ -8378,7 +8380,7 @@ class _SettingsLayout extends StatelessWidget {
                 ),
                 const SizedBox(height: 24),
                 SettingsSection(
-                  title: 'Theme',
+                  title: AppLocalizations.of(context).t('Theme'),
                   blurb:
                       'Colour, focus and motion. Applies everywhere in the '
                       'app.',
@@ -8397,7 +8399,7 @@ class _SettingsLayout extends StatelessWidget {
                 ),
                 const SizedBox(height: 24),
                 SettingsSection(
-                  title: 'Screen layouts',
+                  title: AppLocalizations.of(context).t('Screen layouts'),
                   blurb: 'Where things sit. Each screen is chosen separately.',
                   children: [
                     if (_showsLargeCollectionStyles(context))
@@ -8472,7 +8474,7 @@ class _SettingsLayout extends StatelessWidget {
                 ),
                 const SizedBox(height: 24),
                 SettingsSection(
-                  title: 'Playback',
+                  title: AppLocalizations.of(context).t('Playback'),
                   children: [
                     for (final section in PlaybackSettingsSection.values)
                       SettingsTile(
@@ -8486,7 +8488,7 @@ class _SettingsLayout extends StatelessWidget {
                 ),
                 const SizedBox(height: 24),
                 SettingsSection(
-                  title: 'Search',
+                  title: AppLocalizations.of(context).t('Search'),
                   children: [
                     SettingsTile.spec(
                       SettingsRows.searchSettings,
@@ -8508,7 +8510,7 @@ class _SettingsLayout extends StatelessWidget {
                 ),
                 const SizedBox(height: 24),
                 SettingsSection(
-                  title: 'Discover',
+                  title: AppLocalizations.of(context).t('Discover'),
                   children: [
                     SettingsTile.spec(
                       SettingsRows.discoverDefault,
@@ -8518,7 +8520,7 @@ class _SettingsLayout extends StatelessWidget {
                 ),
                 const SizedBox(height: 24),
                 SettingsSection(
-                  title: 'Live TV & DVR',
+                  title: AppLocalizations.of(context).t('Live TV & DVR'),
                   children: [
                     SettingsTile.spec(
                       SettingsRows.debrifyTv,
@@ -8536,7 +8538,7 @@ class _SettingsLayout extends StatelessWidget {
                 ),
                 const SizedBox(height: 24),
                 SettingsSection(
-                  title: 'Devices',
+                  title: AppLocalizations.of(context).t('Devices'),
                   children: [
                     // Remote is listed on every platform. It used to be hidden
                     // off TV and desktop on the grounds that "mobile keeps its
@@ -8557,7 +8559,7 @@ class _SettingsLayout extends StatelessWidget {
                 if (showSwitchProfile) ...[
                   const SizedBox(height: 24),
                   SettingsSection(
-                    title: 'Profiles',
+                    title: AppLocalizations.of(context).t('Profiles'),
                     children: [
                       SettingsTile.spec(
                         SettingsRows.switchProfile,
@@ -8576,7 +8578,7 @@ class _SettingsLayout extends StatelessWidget {
                 ],
                 const SizedBox(height: 24),
                 SettingsSection(
-                  title: 'Sync and Migrate',
+                  title: AppLocalizations.of(context).t('Sync and Migrate'),
                   children: [
                     SettingsTile.spec(
                       SettingsRows.syncAndMigrate,
@@ -8587,7 +8589,7 @@ class _SettingsLayout extends StatelessWidget {
                 ),
                 const SizedBox(height: 24),
                 SettingsSection(
-                  title: 'Data & Backup',
+                  title: AppLocalizations.of(context).t('Data & Backup'),
                   children: [
                     if (onOpenDownloadLocation != null)
                       SettingsTile.spec(
@@ -8621,7 +8623,7 @@ class _SettingsLayout extends StatelessWidget {
                 const SizedBox(height: 24),
                 // About section
                 SettingsSection(
-                  title: 'About',
+                  title: AppLocalizations.of(context).t('About'),
                   children: [
                     SettingsToggleTile.spec(
                       SettingsRows.autoUpdate,
@@ -8678,7 +8680,7 @@ class _SettingsLayout extends StatelessWidget {
                 // Danger Zone LAST — destructive actions live at the end of
                 // the page, isolated in their own red section on purpose.
                 SettingsSection(
-                  title: 'Danger Zone',
+                  title: AppLocalizations.of(context).t('Danger Zone'),
                   accentColor: t.danger.withValues(alpha: 0.85),
                   children: [
                     SettingsTile.spec(

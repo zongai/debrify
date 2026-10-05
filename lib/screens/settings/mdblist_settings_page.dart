@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+
+import '../../l10n/app_localizations.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../services/analytics_service.dart';
@@ -172,13 +174,13 @@ class _MdblistSettingsPageState extends State<MdblistSettingsPage> {
   Widget build(BuildContext context) {
     if (_loading) {
       return const SettingsPageScaffold(
-        title: 'MDBList Settings',
+        title: AppLocalizations.of(context).t('MDBList Settings'),
         body: Center(child: CircularProgressIndicator()),
       );
     }
 
     return SettingsPageScaffold(
-      title: 'MDBList Settings',
+      title: AppLocalizations.of(context).t('MDBList Settings'),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16),
         child: Center(
@@ -305,7 +307,7 @@ class _MdblistSettingsPageState extends State<MdblistSettingsPage> {
                           width: 18,
                           child: CircularProgressIndicator(strokeWidth: 2),
                         )
-                      : const Text('Save'),
+                      : Text(AppLocalizations.of(context).t('Save')),
                 ),
               ),
             ),
@@ -327,7 +329,7 @@ class _MdblistSettingsPageState extends State<MdblistSettingsPage> {
                                 : _addApiKeyButtonFocusNode,
                           );
                         },
-                  child: const Text('Cancel'),
+                  child: Text(AppLocalizations.of(context).t('Cancel')),
                 ),
               ),
             ),
@@ -368,7 +370,7 @@ class _MdblistSettingsPageState extends State<MdblistSettingsPage> {
             focusNode: _logoutButtonFocusNode,
             onPressed: _deleteKey,
             icon: const Icon(Icons.logout),
-            label: const Text('Logout'),
+            label: Text(AppLocalizations.of(context).t('Logout')),
             style: OutlinedButton.styleFrom(
               foregroundColor: t.danger,
               side: BorderSide(color: t.danger.withValues(alpha: 0.45)),
@@ -395,7 +397,7 @@ class _MdblistSettingsPageState extends State<MdblistSettingsPage> {
           });
         },
         icon: const Icon(Icons.add),
-        label: const Text('Add API Key'),
+        label: Text(AppLocalizations.of(context).t('Add API Key')),
       ),
     );
   }
