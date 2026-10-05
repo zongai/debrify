@@ -695,7 +695,13 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen>
   int _iptvSourceIndex = 0;
   /// When multi-source live is still buffering / not playing, try the next URL.
   Timer? _iptvSourceFailoverTimer;
+  /// First mirror try is quicker; later tries stay a bit more patient.
+  static const Duration _iptvSourceFailoverDelayFast = Duration(seconds: 5);
   static const Duration _iptvSourceFailoverDelay = Duration(seconds: 8);
+  /// Sources already tried in this slow-load / recovery pass (cleared on
+  /// healthy playback or a real channel zap).
+  final Set<int> _iptvTriedSourceIndexes = <int>{};
+  int _iptvFailoverPass = 0;
 
   /// Phase 0 of the IPTV resilience plan: per-tune debugPrint diagnostics,
   /// same log grammar as the native player's IptvTuneDiagnostics.kt. Inert
@@ -718,7 +724,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen>
   late final IptvLiveRecovery _iptvLiveRecovery = IptvLiveRecovery(
     isEligible: _iptvRecoveryEligible,
     performRetune: _performIptvLiveRetune,
-    onEpisodeVisible: (_) => _iptvReconnectText.value = 'Reconnecting…',
+    onEpisodeVisible: (_) => _iptvReconnectText.value = 'Reconnecting…', // localized via phrase table at display
     onRecovered: () => _iptvReconnectText.value = null,
     onSurrender: (source) {
       _iptvDiag.onRecovery(source, 'surrender');
@@ -767,15 +773,25 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen>
     return channel.sourceAt(_iptvSourceIndex);
   }
 
-  /// Advance to the next stream URL for the current logical channel.
-  /// Returns false when there is no alternate source left.
+  /// Advance to the next untried stream URL for the current logical channel.
+  /// Returns false when every mirror in this pass has already been tried.
   bool _advanceIptvSource() {
     final channel = _currentIptvChannel;
     if (channel == null || !channel.hasMultipleSources) return false;
-    final next = (_iptvSourceIndex + 1) % channel.sources.length;
-    if (next == 0) return false; // wrapped — all sources tried this pass
-    setState(() => _iptvSourceIndex = next);
-    return true;
+    final n = channel.sources.length;
+    _iptvTriedSourceIndexes.add(_iptvSourceIndex);
+    for (var step = 1; step < n; step++) {
+      final next = (_iptvSourceIndex + step) % n;
+      if (_iptvTriedSourceIndexes.contains(next)) continue;
+      setState(() => _iptvSourceIndex = next);
+      return true;
+    }
+    return false; // all mirrors tried this pass
+  }
+
+  void _resetIptvSourceFailoverPass() {
+    _iptvTriedSourceIndexes.clear();
+    _iptvFailoverPass = 0;
   }
 
   void _cancelIptvSourceFailover() {
@@ -785,7 +801,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen>
 
   /// If a multi-source live channel is still not healthy after a short wait,
   /// advance to the next mirror (plexios-style). Cancelled when playback flows.
-  void _armIptvSourceFailover() {
+  void _armIptvSourceFailover({bool urgent = false}) {
     _cancelIptvSourceFailover();
     final channel = _currentIptvChannel;
     if (channel == null || !channel.hasMultipleSources || !channel.isLive) {
@@ -793,16 +809,29 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen>
     }
     final armedIndex = _iptvSourceIndex;
     final ticket = _iptvSwitchTicket;
-    _iptvSourceFailoverTimer = Timer(_iptvSourceFailoverDelay, () {
+    final delay = (urgent || _iptvFailoverPass == 0)
+        ? _iptvSourceFailoverDelayFast
+        : _iptvSourceFailoverDelay;
+    _iptvSourceFailoverTimer = Timer(delay, () {
       if (!mounted || ticket != _iptvSwitchTicket) return;
       if (_iptvSourceIndex != armedIndex) return;
       final playing = _player.state.playing;
       final buffering = _player.state.buffering;
-      if (playing && !buffering) return;
-      if (!_advanceIptvSource()) {
-        // Full cycle exhausted — recovery machine still owns further retries.
+      // Healthy playback — stop rotating mirrors.
+      if (playing && !buffering) {
+        _resetIptvSourceFailoverPass();
         return;
       }
+      if (!_advanceIptvSource()) {
+        // Full cycle exhausted — recovery machine still owns further retries
+        // on the last tried URL; clear the pass so a later stall can rotate again.
+        _iptvTriedSourceIndexes.clear();
+        _iptvFailoverPass++;
+        return;
+      }
+      _iptvFailoverPass++;
+      _iptvReconnectText.value =
+          'Switching source ${_iptvSourceIndex + 1}/${channel.sources.length}…';
       _iptvDiag.note(
         'slow_load failover → source ${_iptvSourceIndex + 1}/${channel.sources.length}',
       );
@@ -4061,8 +4090,12 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen>
       if (isCurrent()) _iptvDiag.onBuffering(isBuffering, _position);
       if (!isCurrent() || !_isReady || _isTransitioning) return;
       if (isBuffering) {
-        _iptvSourceFailoverTimer?.cancel();
-    _bufferingDebounceTimer?.cancel();
+        // Prolonged buffer on multi-source live → try the next mirror.
+        final ch = _currentIptvChannel;
+        if (ch != null && ch.hasMultipleSources && ch.isLive) {
+          _armIptvSourceFailover(urgent: true);
+        }
+        _bufferingDebounceTimer?.cancel();
         _bufferingDebounceTimer = Timer(
           VideoPlayerTimingConstants.bufferingDebounceDelay,
           () {
@@ -4078,6 +4111,18 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen>
       } else {
         _bufferingDebounceTimer?.cancel();
         _showBufferingIndicator.value = false;
+        // Playback flowing again — stop rotating sources.
+        if (_player.state.playing) {
+          _cancelIptvSourceFailover();
+          _resetIptvSourceFailoverPass();
+          if (_iptvReconnectText.value != null &&
+              (_iptvReconnectText.value!.startsWith('Switching source') ||
+                  _iptvReconnectText.value!.startsWith('正在切换源') ||
+                  _iptvReconnectText.value == 'Reconnecting…' ||
+                  _iptvReconnectText.value == '正在重连…')) {
+            _iptvReconnectText.value = null;
+          }
+        }
       }
     });
     if (_effectiveIptvChannels != null) {
@@ -8413,7 +8458,13 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen>
     // episode; a real zap resets the machine and takes the pill with it.
     final wasRecoveryRetune = _iptvLiveRecovery.expectRetune;
     _iptvLiveRecovery.onTuneStarted();
-    if (!wasRecoveryRetune) _iptvReconnectText.value = null;
+    if (!wasRecoveryRetune) {
+      _iptvReconnectText.value = null;
+      // Real zap: restart mirror pass from source 0.
+      _cancelIptvSourceFailover();
+      _resetIptvSourceFailoverPass();
+      _iptvSourceIndex = 0;
+    }
     // A channel change ends the current recording (the stream identity flips).
     // Unconditional: it must also cancel a start still awaiting its storage
     // setup, which `_isRecording` would not report yet.
@@ -15451,7 +15502,14 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen>
                                 borderRadius: BorderRadius.circular(22),
                               ),
                               child: Text(
-                                text ?? '',
+                                text == null || text.isEmpty
+                                    ? ''
+                                    : (text.startsWith('Switching source')
+                                        ? text.replaceFirst(
+                                            'Switching source',
+                                            '正在切换源',
+                                          )
+                                        : AppLocalizations.of(context).t(text)),
                                 style: const TextStyle(
                                   color: Colors.white,
                                   fontSize: 15,

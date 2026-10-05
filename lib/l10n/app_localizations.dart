@@ -3037,6 +3037,7 @@ const _phraseTables = <String, Map<String, String>>{
     'In Progress': '进行中',
     'State': '状态',
     'Liked': '赞过',
+    'Stream lost': '信号中断',
 },
   'ja': {
     'Metadata': 'メタデータ',
