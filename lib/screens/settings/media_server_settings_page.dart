@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
@@ -76,10 +77,16 @@ class _MediaServerSettingsPageState extends State<MediaServerSettingsPage> {
     }
   }
 
-  Future<void> _edit([ConnectionResource? resource]) async {
+  Future<void> _edit([
+    ConnectionResource? resource,
+    MediaServerKind? initialKind,
+  ]) async {
     await pushSettingsPage(
       context,
-      _MediaServerConnectPage(resource: resource),
+      _MediaServerConnectPage(
+        resource: resource,
+        initialKind: initialKind,
+      ),
     );
     if (mounted) await _load();
   }
@@ -259,6 +266,14 @@ class _MediaServerSettingsPageState extends State<MediaServerSettingsPage> {
                 icon: const Icon(Icons.add),
                 label: Text(AppLocalizations.of(context).connectServer),
               ),
+              const SizedBox(height: 12),
+              OutlinedButton.icon(
+                onPressed: _busy || !ProfileCollectionResourceFacade.active
+                    ? null
+                    : () => _edit(null, MediaServerKind.plex),
+                icon: const Icon(Icons.link),
+                label: Text(AppLocalizations.of(context).plexLinkButton),
+              ),
             ],
           ),
   );
@@ -295,6 +310,12 @@ class _MediaServerConnectPageState extends State<_MediaServerConnectPage> {
     _token.addListener(() {
       if (mounted) setState(() {});
     });
+    // New Plex connection: go straight to the 4-digit plex.tv/link PIN.
+    if (_kind == MediaServerKind.plex && widget.resource == null) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (mounted) unawaited(_linkPlex());
+      });
+    }
   }
 
   @override
@@ -358,7 +379,7 @@ class _MediaServerConnectPageState extends State<_MediaServerConnectPage> {
           setState(() {
             _busy = false;
             _error =
-                'No Plex servers found. Enter a server URL and try again, or claim the server on plex.tv.';
+                'No Plex servers found for this account. Claim a server on plex.tv and try again.';
           });
           return;
         }
@@ -459,126 +480,151 @@ class _MediaServerConnectPageState extends State<_MediaServerConnectPage> {
   }
 
   @override
-  Widget build(BuildContext context) => SettingsPageScaffold(
-    title: widget.resource == null
-        ? AppLocalizations.of(context).connectMediaServer
-        : AppLocalizations.of(context).reconnectMediaServer,
-    body: ListView(
-      padding: const EdgeInsets.all(24),
-      children: [
-        DropdownButtonFormField<MediaServerKind>(
-          initialValue: _kind,
-          decoration: InputDecoration(labelText: AppLocalizations.of(context).serverType),
-          items: [
-            for (final kind in MediaServerKind.values)
-              DropdownMenuItem(value: kind, child: Text(kind.label)),
+  Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
+    final title = widget.resource == null
+        ? l10n.connectMediaServer
+        : l10n.reconnectMediaServer;
+
+    // Plex: PIN-only UI (no server URL / username / token fields).
+    if (_kind == MediaServerKind.plex) {
+      return SettingsPageScaffold(
+        title: title,
+        body: ListView(
+          padding: const EdgeInsets.all(24),
+          children: [
+            DropdownButtonFormField<MediaServerKind>(
+              value: _kind,
+              decoration: InputDecoration(labelText: l10n.serverType),
+              items: [
+                for (final kind in MediaServerKind.values)
+                  DropdownMenuItem(
+                    value: kind,
+                    child: Text(kind.label),
+                  ),
+              ],
+              onChanged: _busy
+                  ? null
+                  : (value) {
+                      if (value == null) return;
+                      setState(() => _kind = value);
+                      if (value == MediaServerKind.plex &&
+                          widget.resource == null) {
+                        unawaited(_linkPlex());
+                      }
+                    },
+            ),
+            const SizedBox(height: 24),
+            Text(
+              l10n.plexLinkInstructions,
+              style: Theme.of(context).textTheme.bodyLarge,
+            ),
+            const SizedBox(height: 8),
+            Text(
+              'https://www.plex.tv/link',
+              style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                    fontWeight: FontWeight.w600,
+                  ),
+            ),
+            if (_error != null)
+              Padding(
+                padding: const EdgeInsets.only(top: 16),
+                child: Text(
+                  _error!,
+                  style: TextStyle(color: Theme.of(context).colorScheme.error),
+                ),
+              ),
+            const SizedBox(height: 24),
+            FilledButton.icon(
+              onPressed: _busy ? null : _linkPlex,
+              icon: _busy
+                  ? const SizedBox(
+                      width: 18,
+                      height: 18,
+                      child: CircularProgressIndicator(strokeWidth: 2),
+                    )
+                  : const Icon(Icons.link),
+              label: Text(
+                _busy ? l10n.connecting : l10n.plexLinkButton,
+              ),
+            ),
           ],
-          onChanged: _busy
-              ? null
-              : (kind) {
-                  if (kind != null) setState(() => _kind = kind);
-                },
         ),
-        const SizedBox(height: 16),
-        if (widget.resource == null) ...[
+      );
+    }
+
+    return SettingsPageScaffold(
+      title: title,
+      body: ListView(
+        padding: const EdgeInsets.all(24),
+        children: [
+          DropdownButtonFormField<MediaServerKind>(
+            value: _kind,
+            decoration: InputDecoration(labelText: l10n.serverType),
+            items: [
+              for (final kind in MediaServerKind.values)
+                DropdownMenuItem(
+                  value: kind,
+                  child: Text(kind.label),
+                ),
+            ],
+            onChanged: _busy
+                ? null
+                : (value) {
+                    if (value == null) return;
+                    setState(() => _kind = value);
+                    if (value == MediaServerKind.plex &&
+                        widget.resource == null) {
+                      unawaited(_linkPlex());
+                    }
+                  },
+          ),
+          const SizedBox(height: 16),
           TvTextField(
             controller: _label,
             enabled: !_busy,
-            labelText: AppLocalizations.of(context).displayNameOptional,
+            labelText: l10n.displayNameOptional,
           ),
           const SizedBox(height: 16),
-        ],
-        TvTextField(
-          controller: _url,
-          enabled: !_busy,
-          labelText: AppLocalizations.of(context).serverUrl,
-          hintText: _kind == MediaServerKind.plex
-              ? 'http://192.168.1.10:32400'
-              : 'https://media.example.com',
-          keyboardType: TextInputType.url,
-        ),
-        const SizedBox(height: 16),
-        if (_kind == MediaServerKind.plex) ...[
           TvTextField(
-            controller: _token,
+            controller: _url,
             enabled: !_busy,
-            labelText: AppLocalizations.of(context).plexTokenRecommended,
-            hintText: AppLocalizations.of(context).plexTokenHint,
-            obscureText: true,
-          ),
-          const SizedBox(height: 8),
-          Text(
-            AppLocalizations.of(context).plexTokenHelp,
-            style: Theme.of(context).textTheme.bodySmall,
+            labelText: l10n.serverUrl,
+            keyboardType: TextInputType.url,
           ),
           const SizedBox(height: 16),
           TvTextField(
             controller: _user,
-            enabled: !_busy && _token.text.trim().isEmpty,
-            labelText: AppLocalizations.of(context).usernameOptionalIfToken,
+            enabled: !_busy,
+            labelText: l10n.username,
           ),
-          const SizedBox(height: 16),
-          TvTextField(
-            controller: _password,
-            enabled: !_busy && _token.text.trim().isEmpty,
-            labelText: AppLocalizations.of(context).passwordOptionalIfToken,
-            obscureText: true,
-          ),
-          const SizedBox(height: 16),
-          Text(
-            AppLocalizations.of(context).plexTokenOnlyHelp,
-            style: Theme.of(context).textTheme.bodySmall,
-          ),
-        ] else ...[
-          TvTextField(controller: _user, enabled: !_busy, labelText: AppLocalizations.of(context).username),
           const SizedBox(height: 16),
           TvTextField(
             controller: _password,
             enabled: !_busy,
-            labelText: AppLocalizations.of(context).password,
+            labelText: l10n.password,
             obscureText: true,
           ),
           const SizedBox(height: 16),
-          Text(
-            AppLocalizations.of(context).jellyfinEmbyConnectHelp,
+          Text(l10n.jellyfinEmbyConnectHelp),
+          if (_error != null)
+            Padding(
+              padding: const EdgeInsets.only(top: 16),
+              child: Text(
+                _error!,
+                style: TextStyle(color: Theme.of(context).colorScheme.error),
+              ),
+            ),
+          const SizedBox(height: 24),
+          FilledButton(
+            onPressed: _busy ? null : _connect,
+            child: Text(_busy ? l10n.connecting : l10n.connect),
           ),
         ],
-        if (_error != null)
-          Padding(
-            padding: const EdgeInsets.only(top: 16),
-            child: Text(
-              _error!,
-              style: TextStyle(color: Theme.of(context).colorScheme.error),
-            ),
-          ),
-        if (_kind == MediaServerKind.plex) ...[
-          const SizedBox(height: 8),
-          FilledButton.icon(
-            onPressed: _busy ? null : _linkPlex,
-            icon: const Icon(Icons.link),
-            label: Text(
-              _busy
-                  ? AppLocalizations.of(context).connecting
-                  : AppLocalizations.of(context).plexLinkButton,
-            ),
-          ),
-          const SizedBox(height: 12),
-          Text(
-            AppLocalizations.of(context).plexLinkInstructions,
-            style: Theme.of(context).textTheme.bodySmall,
-          ),
-          const SizedBox(height: 16),
-        ],
-        const SizedBox(height: 24),
-        FilledButton(
-          onPressed: _busy ? null : _connect,
-          child: Text(_busy ? AppLocalizations.of(context).connecting : AppLocalizations.of(context).connect),
-        ),
-      ],
-    ),
-  );
+      ),
+    );
+  }
 }
-
 
 /// PIN dialog for https://www.plex.tv/link (aligned with plex-for-kodi PinLogin).
 class _PlexLinkDialog extends StatefulWidget {
