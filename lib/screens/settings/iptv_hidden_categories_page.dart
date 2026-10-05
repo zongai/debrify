@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../l10n/app_localizations.dart';
 import 'package:flutter/services.dart';
 
 import '../../models/iptv_playlist.dart';
@@ -310,7 +309,7 @@ class _IptvHiddenCategoriesPageState extends State<IptvHiddenCategoriesPage> {
   @override
   Widget build(BuildContext context) {
     return SettingsPageScaffold(
-      title: AppLocalizations.of(context).t('Hidden categories'),
+      title: 'Hidden categories',
       body: _loading
           ? const Center(child: CircularProgressIndicator())
           : _buildBody(),

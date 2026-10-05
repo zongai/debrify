@@ -3,7 +3,6 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 
-import '../../l10n/app_localizations.dart';
 import 'package:flutter/services.dart';
 
 import '../../models/debrify_tv_channel_record.dart';
@@ -123,7 +122,7 @@ class RemoteChannelExportState extends State<RemoteChannelExport> {
     final connectedDevice = RemoteControlState().connectedDevice;
     if (connectedDevice == null) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(AppLocalizations.of(context).t('No TV connected')),
+        SnackBar(content: Text('No TV connected'),
           backgroundColor: Color(0xFFEF4444),
           behavior: SnackBarBehavior.floating,
         ),
@@ -353,7 +352,7 @@ class RemoteChannelExportState extends State<RemoteChannelExport> {
         TextButton.icon(
           onPressed: widget.onBack,
           icon: Icon(Icons.arrow_back, size: 18),
-          label: Text(AppLocalizations.of(context).t('Back to menu')),
+          label: Text('Back to menu'),
           style: TextButton.styleFrom(
             foregroundColor: Colors.white.withValues(alpha: 0.7),
           ),

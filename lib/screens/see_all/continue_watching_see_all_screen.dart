@@ -3,7 +3,6 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 
-import '../../l10n/app_localizations.dart';
 
 import '../../models/stremio_addon.dart';
 import '../../services/analytics_service.dart';
@@ -399,7 +398,7 @@ class _ContinueWatchingSeeAllScreenState
               : null,
           buildChips: () => [
             StremioDropdown<String>(
-              label: AppLocalizations.of(context).t('Show'),
+              label: 'Show',
               value: _category,
               isTelevision: widget.isTelevision,
               quiet: _quiet,
@@ -412,7 +411,7 @@ class _ContinueWatchingSeeAllScreenState
               onSelected: (v) => _setFilter(() => _category = v),
             ),
             StremioDropdown<_CwSort>(
-              label: AppLocalizations.of(context).t('Sort'),
+              label: 'Sort',
               value: _sort,
               isTelevision: widget.isTelevision,
               quiet: _quiet,

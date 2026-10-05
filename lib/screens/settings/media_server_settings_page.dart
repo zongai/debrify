@@ -201,7 +201,7 @@ class _MediaServerSettingsPageState extends State<MediaServerSettingsPage> {
               if (ProfileCollectionResourceFacade.active)
                 SettingsToggleTile(
                   icon: Icons.sync,
-                  title: AppLocalizations.of(context).t('Sync server watch progress'),
+                  title: 'Sync server watch progress',
                   subtitle:
                       'For this Debrify profile: resume from the selected server and report playback/watched status back. Shared connections update the same server user. Applies to new playback sessions; no background library sync.',
                   subtitleMaxLines: 5,

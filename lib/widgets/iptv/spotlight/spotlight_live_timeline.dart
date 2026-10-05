@@ -5,7 +5,6 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
-import '../../../l10n/app_localizations.dart';
 import 'package:flutter/services.dart';
 
 import '../../../models/iptv_playlist.dart';
@@ -1302,7 +1301,7 @@ class _SpotlightLiveTimelineState extends State<SpotlightLiveTimeline> {
           onKeyEvent: _onKeyEvent,
           child: Semantics(
             container: true,
-            label: AppLocalizations.of(context).t('Live television programme guide'),
+            label: 'Live television programme guide',
             child: LayoutBuilder(
               builder: (context, constraints) {
                 final identityWidth = math.min(
@@ -1454,7 +1453,7 @@ class _SpotlightLiveTimelineState extends State<SpotlightLiveTimeline> {
                                   : Colors.transparent,
                             ),
                           ),
-                      child: Text(AppLocalizations.of(context).t('Now')),
+                      child: Text('Now'),
                     ),
                   )
                 else
@@ -1510,7 +1509,7 @@ class _SpotlightLiveTimelineState extends State<SpotlightLiveTimeline> {
       color: _timelineBackground,
       alignment: Alignment.center,
       child: Semantics(
-        label: AppLocalizations.of(context).t('No live channels'),
+        label: 'No live channels',
         child: Text(
           'No live channels',
           style: TextStyle(color: tokens.fgDim, fontSize: 13),
@@ -1719,7 +1718,7 @@ class _SpotlightLiveTimelineState extends State<SpotlightLiveTimeline> {
           ),
         ),
         child: _GuideMessage(
-          label: AppLocalizations.of(context).t('On demand  ·  Press OK to open'),
+          label: 'On demand  ·  Press OK to open',
           color: tokens.fgFaint,
           leading: Icon(
             Icons.play_circle_outline_rounded,
@@ -1783,7 +1782,7 @@ class _SpotlightLiveTimelineState extends State<SpotlightLiveTimeline> {
           if (status == _GuideStatus.loading)
             _GuideMessage(
               key: ValueKey(('spotlight-loading', entry.entryKey)),
-              label: AppLocalizations.of(context).t('Loading guide…'),
+              label: 'Loading guide…',
               color: tokens.fgFaint,
               leading: SizedBox(
                 width: 12,
@@ -1797,7 +1796,7 @@ class _SpotlightLiveTimelineState extends State<SpotlightLiveTimeline> {
           else if (status == _GuideStatus.error)
             _GuideMessage(
               key: ValueKey(('spotlight-error', entry.entryKey)),
-              label: AppLocalizations.of(context).t('Guide unavailable  ·  Retry'),
+              label: 'Guide unavailable  ·  Retry',
               color: tokens.rec,
               hint: 'Press OK to retry the guide',
               focused: retrySelected,
@@ -1813,14 +1812,14 @@ class _SpotlightLiveTimelineState extends State<SpotlightLiveTimeline> {
           else if (snapshot!.programmes.isEmpty)
             _GuideMessage(
               key: ValueKey(('spotlight-empty', entry.entryKey)),
-              label: AppLocalizations.of(context).t('No programme information'),
+              label: 'No programme information',
               color: tokens.fgFaint,
               onTap: () => _tapIdentity(row),
             )
           else if (visible.isEmpty)
             _GuideMessage(
               key: ValueKey(('spotlight-window-empty', entry.entryKey)),
-              label: AppLocalizations.of(context).t('No information in this time window'),
+              label: 'No information in this time window',
               color: tokens.fgFaint,
               onTap: () => _tapIdentity(row),
             ),

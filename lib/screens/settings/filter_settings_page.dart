@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../l10n/app_localizations.dart';
 import 'package:flutter/services.dart';
 import '../../models/torrent_filter_state.dart';
 import '../../services/storage_service.dart';
@@ -260,7 +259,7 @@ class _FilterSettingsPageState extends State<FilterSettingsPage> {
     final t = AppThemeScope.of(context).settings;
     if (_loading) {
       return SettingsPageScaffold(
-        title: AppLocalizations.of(context).t('Filters'),
+        title: 'Filters',
         body: Center(child: CircularProgressIndicator()),
       );
     }
@@ -273,7 +272,7 @@ class _FilterSettingsPageState extends State<FilterSettingsPage> {
         _selectedRanges.isNotEmpty;
 
     return SettingsPageScaffold(
-      title: AppLocalizations.of(context).t('Filters'),
+      title: 'Filters',
       actions: [
         if (hasFilters)
           Focus(
@@ -300,7 +299,7 @@ class _FilterSettingsPageState extends State<FilterSettingsPage> {
               child: ExcludeFocus(
                 child: TextButton(
                   onPressed: _clearAll,
-                  child: Text(AppLocalizations.of(context).t('Clear All')),
+                  child: Text('Clear All'),
                 ),
               ),
             ),
@@ -324,7 +323,7 @@ class _FilterSettingsPageState extends State<FilterSettingsPage> {
                   const SizedBox(height: 24),
                   _buildSection(
                     context,
-                    title: AppLocalizations.of(context).t('Quality'),
+                    title: 'Quality',
                     subtitle: 'Filter by video resolution',
                     children: _buildQualityChips(),
                   ),
@@ -338,7 +337,7 @@ class _FilterSettingsPageState extends State<FilterSettingsPage> {
                   const SizedBox(height: 20),
                   _buildSection(
                     context,
-                    title: AppLocalizations.of(context).t('Language'),
+                    title: 'Language',
                     subtitle: 'Filter by audio language',
                     children: _buildLanguageChips(),
                   ),
@@ -352,7 +351,7 @@ class _FilterSettingsPageState extends State<FilterSettingsPage> {
                   const SizedBox(height: 20),
                   _buildSection(
                     context,
-                    title: AppLocalizations.of(context).t('Size'),
+                    title: 'Size',
                     subtitle: 'Skipped for TV series — pack sizes are unreliable',
                     children: _buildSizeChips(),
                   ),

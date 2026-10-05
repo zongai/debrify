@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../l10n/app_localizations.dart';
 import 'package:flutter/services.dart';
 
 import '../../models/profiles/user_profile.dart';
@@ -183,7 +182,7 @@ class _ProfilePinScreenState extends State<ProfilePinScreen> {
             actions: [
               TextButton(
                 onPressed: () => Navigator.of(dialogContext).pop(),
-                child: Text(AppLocalizations.of(context).t('Cancel')),
+                child: Text('Cancel'),
               ),
               FilledButton(
                 onPressed: submitting ? null : submit,
@@ -751,7 +750,7 @@ class _RoundBackButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) => IconButton(
     key: Key('profile-pin-cancel'),
-    tooltip: AppLocalizations.of(context).t('Back'),
+    tooltip: 'Back',
     onPressed: onPressed,
     style: IconButton.styleFrom(
       foregroundColor: Colors.white,

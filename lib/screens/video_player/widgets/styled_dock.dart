@@ -13,7 +13,6 @@ library;
 
 import 'package:flutter/material.dart';
 
-import '../../../l10n/app_localizations.dart';
 
 import 'package:flutter/foundation.dart' show ValueListenable;
 
@@ -366,7 +365,7 @@ class StyledDock extends StatelessWidget {
               IconButton(
                 icon: Icon(Icons.arrow_back_rounded, color: palette.ink),
                 iconSize: metrics.icon,
-                tooltip: AppLocalizations.of(context).t('Back'),
+                tooltip: 'Back',
                 onPressed: onBack,
               ),
             SizedBox(width: metrics.gap),
@@ -409,7 +408,7 @@ class StyledDock extends StatelessWidget {
                   color: palette.ink,
                 ),
                 iconSize: metrics.icon,
-                tooltip: AppLocalizations.of(context).t('Picture in picture'),
+                tooltip: 'Picture in picture',
                 onPressed: onPip,
               ),
           ],
@@ -581,7 +580,7 @@ class StyledDock extends StatelessWidget {
                           ],
                           DockChip(
                             icon: Icons.more_horiz_rounded,
-                            label: AppLocalizations.of(context).t('More'),
+                            label: 'More',
                             active: true,
                             onPressed: () => _openOverflow(context, tools),
                             metrics: metrics,
@@ -665,7 +664,7 @@ class StyledDock extends StatelessWidget {
                 if (shown.length < tools.length)
                   DockChip(
                     icon: Icons.more_horiz_rounded,
-                    label: AppLocalizations.of(context).t('More'),
+                    label: 'More',
                     active: true,
                     onPressed: () => _openOverflow(context, tools),
                     metrics: metrics,
@@ -730,7 +729,7 @@ class StyledDock extends StatelessWidget {
                       if (showFullscreen && onFullscreen != null)
                         DockChip(
                           icon: Icons.fullscreen_rounded,
-                          label: AppLocalizations.of(context).t('Fullscreen'),
+                          label: 'Fullscreen',
                           showLabel: false,
                           onPressed: onFullscreen!,
                           metrics: metrics,
@@ -842,7 +841,7 @@ class StyledDock extends StatelessWidget {
       if (hasPrevious && onPrevious != null) ...[
         DockTransportButton(
           icon: Icons.skip_previous_rounded,
-          label: AppLocalizations.of(context).t('Previous'),
+          label: 'Previous',
           onPressed: onPrevious!,
           metrics: metrics,
           palette: palette,
@@ -861,7 +860,7 @@ class StyledDock extends StatelessWidget {
         SizedBox(width: metrics.gap * 1.5),
         DockTransportButton(
           icon: Icons.skip_next_rounded,
-          label: AppLocalizations.of(context).t('Next'),
+          label: 'Next',
           onPressed: onNext!,
           metrics: metrics,
           palette: palette,

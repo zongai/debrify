@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../l10n/app_localizations.dart';
 
 import '../../services/analytics_service.dart';
 import '../../services/storage_service.dart';
@@ -125,13 +124,13 @@ class _PlayerGuideStylePageState extends State<PlayerGuideStylePage> {
     final t = AppThemeScope.of(context).settings;
     if (_loading) {
       return SettingsPageScaffold(
-        title: AppLocalizations.of(context).t('Player Guide'),
+        title: 'Player Guide',
         body: Center(child: CircularProgressIndicator()),
       );
     }
 
     return SettingsPageScaffold(
-      title: AppLocalizations.of(context).t('Player Guide'),
+      title: 'Player Guide',
       body: SingleChildScrollView(
         padding: EdgeInsets.all(16),
         child: Center(
@@ -142,7 +141,7 @@ class _PlayerGuideStylePageState extends State<PlayerGuideStylePage> {
               children: [
                 const SettingsPageHeader(
                   icon: Icons.smart_display_rounded,
-                  title: AppLocalizations.of(context).t('Player Guide'),
+                  title: 'Player Guide',
                   subtitle:
                       'How the channel banner and in-player guide look '
                       'during live TV',

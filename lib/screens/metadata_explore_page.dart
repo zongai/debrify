@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 
-import '../l10n/app_localizations.dart';
 import 'package:flutter/services.dart';
 
 import '../models/metadata_preferences.dart';
@@ -219,7 +218,7 @@ class _MetadataExplorePageState extends State<MetadataExplorePage> {
   Widget build(BuildContext context) {
     if (_profileChanged) {
       return Scaffold(
-        appBar: AppBar(title: Text(AppLocalizations.of(context).t('Explore'))),
+        appBar: AppBar(title: Text('Explore')),
         body: const Center(child: Text(
           'Profile changed. Go back to browse your current profile.',
         )),
@@ -240,7 +239,7 @@ class _MetadataExplorePageState extends State<MetadataExplorePage> {
       ),
       onDiscover: () => Navigator.of(context).push(MaterialPageRoute<void>(
         builder: (_) => MetadataBrowsePage(
-          title: AppLocalizations.of(context).t('Discover'), kind: 'discover', preferences: _preferences,
+          title: 'Discover', kind: 'discover', preferences: _preferences,
           onOpen: widget.onOpen, isTelevision: widget.isTelevision,
         ),
       )),
@@ -474,7 +473,7 @@ class _MetadataBrowsePageState extends State<MetadataBrowsePage> {
   }
 
   Widget _buildLanguageDropdown({bool quiet = false}) => StremioDropdown<String>(
-    label: AppLocalizations.of(context).t('Language'),
+    label: 'Language',
     value: _language,
     quiet: quiet,
     isTelevision: widget.isTelevision,
@@ -519,7 +518,7 @@ class _MetadataBrowsePageState extends State<MetadataBrowsePage> {
               (_language.isNotEmpty ? 1 : 0),
           buildChips: () => [
             StremioDropdown<String>(
-              label: AppLocalizations.of(context).t('Type'),
+              label: 'Type',
               value: _type,
               quiet: quiet,
               isTelevision: widget.isTelevision,
@@ -663,7 +662,7 @@ class _MetadataBrowsePageState extends State<MetadataBrowsePage> {
                         items: [
                           DropdownMenuItem(
                             value: 'movie',
-                            child: Text(AppLocalizations.of(context).t('Movies')),
+                            child: Text('Movies'),
                           ),
                           DropdownMenuItem(
                             value: 'tv',

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../l10n/app_localizations.dart';
 import 'package:flutter/services.dart';
 
 import '../../models/profiles/profile_policy.dart';
@@ -669,7 +668,7 @@ class _ProfileSetupFlowState extends State<ProfileSetupFlow> {
               focusNode: _cancelNode,
               onPressed: _saving ? null : _cancel,
               style: style,
-              child: Text(AppLocalizations.of(context).t('Cancel')),
+              child: Text('Cancel'),
             ),
         ],
       ),
@@ -766,7 +765,7 @@ class _ProfileSetupFlowState extends State<ProfileSetupFlow> {
           controller: _name,
           focusNode: _nameNode,
           autofocus: PlatformUtil.isTelevision,
-          labelText: AppLocalizations.of(context).t('Name'),
+          labelText: 'Name',
           hintText: 'Who watches here?',
         ),
         const SizedBox(height: 16),

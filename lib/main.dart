@@ -1348,7 +1348,7 @@ class _SupportCampaignDialogState extends State<_SupportCampaignDialog> {
               onPressed: () {
                 Navigator.of(context).pop(false);
               },
-              child: Text(AppLocalizations.of(context).t('Maybe later')),
+              child: Text('Maybe later'),
             ),
             TextButton(
               focusNode: _dismissFocusNode,
@@ -2256,7 +2256,7 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
                 ),
               ),
               SizedBox(width: 12),
-              Text(AppLocalizations.of(context).t('Installing addon...')),
+              Text('Installing addon...'),
             ],
           ),
           duration: Duration(seconds: 10),
@@ -2481,7 +2481,7 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
         return FocusTraversalGroup(
           child: AlertDialog(
             backgroundColor: theme.colorScheme.surface,
-            title: Text(AppLocalizations.of(context).t('Update available')),
+            title: Text('Update available'),
             content: ConstrainedBox(
               constraints: const BoxConstraints(maxWidth: 460),
               child: Column(
@@ -2559,11 +2559,11 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
                         );
                         navigator.pop();
                       },
-                      child: Text(AppLocalizations.of(context).t('Skip this release')),
+                      child: Text('Skip this release'),
                     ),
                     TextButton(
                       onPressed: () => Navigator.of(dialogContext).pop(),
-                      child: Text(AppLocalizations.of(context).t('Later')),
+                      child: Text('Later'),
                     ),
                     FilledButton(
                       onPressed: () {
@@ -3256,7 +3256,7 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
       case 13: // IPTV
         return BrowseScreen(
           tabIndex: 13,
-          hintText: AppLocalizations.of(context).t('Search channels...'),
+          hintText: 'Search channels...',
           // Submit-only: the in-page channel filter runs a full-scan COUNT on
           // the UI isolate, so filter on the search key press, not on every
           // keystroke — one scan per deliberate search, no per-keystroke storm.
@@ -3274,7 +3274,7 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
       case 14: // YouTube
         return BrowseScreen(
           tabIndex: 14,
-          hintText: AppLocalizations.of(context).t('Search YouTube...'),
+          hintText: 'Search YouTube...',
           submitOnly: true,
           isTelevision: _isAndroidTv,
           viewBuilder: (args) => YoutubeResultsView(
@@ -3582,7 +3582,7 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
       _lastBackPressTime = currentTime;
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text(AppLocalizations.of(context).t('Press back again to exit')),
+          content: Text('Press back again to exit'),
           duration: _backPressDuration,
         ),
       );

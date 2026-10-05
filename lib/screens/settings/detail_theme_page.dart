@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../l10n/app_localizations.dart';
 
 import '../../services/analytics_service.dart';
 import '../../services/storage_service.dart';
@@ -101,13 +100,13 @@ class _DetailThemePageState extends State<DetailThemePage> {
     final st = AppThemeScope.of(context).settings;
     if (_loading) {
       return SettingsPageScaffold(
-        title: AppLocalizations.of(context).t('Details Theme'),
+        title: 'Details Theme',
         body: Center(child: CircularProgressIndicator()),
       );
     }
 
     return SettingsPageScaffold(
-      title: AppLocalizations.of(context).t('Details Theme'),
+      title: 'Details Theme',
       body: SingleChildScrollView(
         padding: EdgeInsets.all(16),
         child: Center(
@@ -118,7 +117,7 @@ class _DetailThemePageState extends State<DetailThemePage> {
               children: [
                 const SettingsPageHeader(
                   icon: Icons.palette_rounded,
-                  title: AppLocalizations.of(context).t('Details Theme'),
+                  title: 'Details Theme',
                   subtitle:
                       'The colours, type and shapes a movie or series page is '
                       'drawn in',
@@ -148,7 +147,7 @@ class _DetailThemePageState extends State<DetailThemePage> {
                         ),
                       ),
                       SettingsSection(
-                        title: AppLocalizations.of(context).t('Palettes'),
+                        title: 'Palettes',
                         children: [for (final t in _palettes) _optionRow(t)],
                       ),
                       Padding(

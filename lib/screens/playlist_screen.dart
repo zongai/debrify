@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 
-import '../l10n/app_localizations.dart';
 import 'package:flutter/services.dart';
 
 import '../services/analytics_service.dart';
@@ -286,7 +285,7 @@ class _PlaylistScreenState extends State<PlaylistScreen> {
               foregroundColor: app.playlist.ink2,
               padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 10),
             ),
-            child: Text(AppLocalizations.of(context).t('Keep')),
+            child: Text('Keep'),
           ),
           TextButton(
             onPressed: () => Navigator.of(context).pop(true),
@@ -296,7 +295,7 @@ class _PlaylistScreenState extends State<PlaylistScreen> {
               foregroundColor: Color(0xFFE50914),
               padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 10),
             ),
-            child: Text(AppLocalizations.of(context).t('Remove')),
+            child: Text('Remove'),
           ),
         ],
       ),
@@ -387,7 +386,7 @@ class _PlaylistScreenState extends State<PlaylistScreen> {
               foregroundColor: app.playlist.ink2,
               padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 10),
             ),
-            child: Text(AppLocalizations.of(context).t('Cancel')),
+            child: Text('Cancel'),
           ),
           TextButton(
             onPressed: () => Navigator.of(context).pop(true),
@@ -396,7 +395,7 @@ class _PlaylistScreenState extends State<PlaylistScreen> {
               foregroundColor: app.playlist.warning,
               padding: EdgeInsets.symmetric(horizontal: 18, vertical: 10),
             ),
-            child: Text(AppLocalizations.of(context).t('Clear Progress')),
+            child: Text('Clear Progress'),
           ),
         ],
       ),

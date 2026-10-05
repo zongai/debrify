@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../l10n/app_localizations.dart';
 import 'package:flutter/services.dart';
 
 import '../models/trakt/trakt_calendar_entry.dart';
@@ -544,7 +543,7 @@ class _TraktCalendarScreenState extends State<TraktCalendarScreen> {
   Widget? _buildSourceSelector({bool dense = false}) {
     if (_authenticatedSourceCount < 2) return null;
     return _SelectorField<String>(
-      label: AppLocalizations.of(context).t('Source'),
+      label: 'Source',
       value: _source,
       focusNode: _sourceFocusNode,
       dense: dense,
@@ -552,17 +551,17 @@ class _TraktCalendarScreenState extends State<TraktCalendarScreen> {
         if (_traktAuthed)
           const DropdownMenuItem<String>(
             value: _sourceTrakt,
-            child: Text(AppLocalizations.of(context).t('Trakt')),
+            child: Text('Trakt'),
           ),
         if (_simklAuthed)
           const DropdownMenuItem<String>(
             value: _sourceSimkl,
-            child: Text(AppLocalizations.of(context).t('Simkl')),
+            child: Text('Simkl'),
           ),
         if (_mdblistAuthed)
           const DropdownMenuItem<String>(
             value: _sourceMdblist,
-            child: Text(AppLocalizations.of(context).t('MDBList')),
+            child: Text('MDBList'),
           ),
       ],
       onChanged: _onSourceChanged,
@@ -657,7 +656,7 @@ class _TraktCalendarScreenState extends State<TraktCalendarScreen> {
               SizedBox(width: 8),
               Expanded(
                 child: _SelectorField(
-                  label: AppLocalizations.of(context).t('Month'),
+                  label: 'Month',
                   value: _selectedMonth,
                   focusNode: _monthFocusNode,
                   dense: true,
@@ -821,7 +820,7 @@ class _TraktCalendarScreenState extends State<TraktCalendarScreen> {
                 SizedBox(width: 10),
                 Expanded(
                   child: _SelectorField(
-                    label: AppLocalizations.of(context).t('Month'),
+                    label: 'Month',
                     value: _selectedMonth,
                     focusNode: _monthFocusNode,
                     dense: true,
@@ -868,7 +867,7 @@ class _TraktCalendarScreenState extends State<TraktCalendarScreen> {
                 SizedBox(
                   width: isWide ? 210 : 190,
                   child: _SelectorField(
-                    label: AppLocalizations.of(context).t('Month'),
+                    label: 'Month',
                     value: _selectedMonth,
                     focusNode: _monthFocusNode,
                     items: [

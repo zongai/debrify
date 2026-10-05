@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../../l10n/app_localizations.dart';
 
 import '../constants/color_constants.dart';
 
@@ -93,7 +92,7 @@ class SleepTimerSheet {
               ),
               _tile(
                 context,
-                label: AppLocalizations.of(context).t('Off'),
+                label: 'Off',
                 selected: current == SleepTimerMode.off,
                 value: SleepTimerSelection.off,
               ),
@@ -115,7 +114,7 @@ class SleepTimerSheet {
               if (allowEndOfItem)
                 _tile(
                   context,
-                  label: AppLocalizations.of(context).t('End of episode'),
+                  label: 'End of episode',
                   selected: current == SleepTimerMode.endOfItem,
                   value: const SleepTimerSelection(SleepTimerMode.endOfItem),
                 ),

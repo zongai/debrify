@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../../l10n/app_localizations.dart';
 import 'package:flutter/services.dart';
 
 import '../../../utils/tv_keys.dart';
@@ -184,7 +183,7 @@ class _StremioTvCatalogPickerDialogState
     final name = _nameController.text.trim();
     if (name.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(AppLocalizations.of(context).t('Channel name cannot be empty')),
+        SnackBar(content: Text('Channel name cannot be empty'),
           backgroundColor: Colors.orange,
         ),
       );
@@ -453,7 +452,7 @@ class _StremioTvCatalogPickerDialogState
                       }
                     },
                     decoration: InputDecoration(
-                      labelText: AppLocalizations.of(context).t('Search channels'),
+                      labelText: 'Search channels',
                       hintText: 'Filter by channel name',
                       prefixIcon: const Icon(Icons.search_rounded),
                       border: const OutlineInputBorder(),
@@ -469,7 +468,7 @@ class _StremioTvCatalogPickerDialogState
                                       _searchFocusNode.requestFocus();
                                     },
                               icon: Icon(Icons.close_rounded),
-                              tooltip: AppLocalizations.of(context).t('Clear search'),
+                              tooltip: 'Clear search',
                             ),
                     ),
                   ),
@@ -570,7 +569,7 @@ class _StremioTvCatalogPickerDialogState
                 alignment: Alignment.centerRight,
                 child: TextButton(
                   onPressed: _saving ? null : _dismissDialog,
-                  child: Text(AppLocalizations.of(context).t('Cancel')),
+                  child: Text('Cancel'),
                 ),
               ),
             ),
@@ -667,7 +666,7 @@ class _StremioTvCatalogPickerDialogState
                     focusNode: _createCancelFocusNode,
                     child: OutlinedButton(
                       onPressed: _saving ? null : _closeCreateView,
-                      child: Text(AppLocalizations.of(context).t('Back')),
+                      child: Text('Back'),
                     ),
                   ),
                 ),

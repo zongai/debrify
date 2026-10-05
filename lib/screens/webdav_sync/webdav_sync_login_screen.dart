@@ -1,7 +1,6 @@
 import '../../widgets/webdav_sync/webdav_foreground_sync.dart';
 import 'package:flutter/material.dart';
 
-import '../../l10n/app_localizations.dart';
 
 import '../../services/webdav_protocol_client.dart';
 import '../../services/webdav_sync/webdav_sync_connect_controller.dart';
@@ -198,7 +197,7 @@ final class _WebDavSyncLoginScreenState extends State<WebDavSyncLoginScreen> {
                       ),
                       DropdownMenuItem(
                         value: WebDavSyncProviderPreset.custom,
-                        child: Text(AppLocalizations.of(context).t('Custom')),
+                        child: Text('Custom'),
                       ),
                     ],
                     onChanged: _connecting
@@ -289,7 +288,7 @@ final class _WebDavSyncLoginScreenState extends State<WebDavSyncLoginScreen> {
                             dimension: 20,
                             child: CircularProgressIndicator(strokeWidth: 2),
                           )
-                        : Text(AppLocalizations.of(context).t('Connect')),
+                        : Text('Connect'),
                   ),
                 ),
               ],

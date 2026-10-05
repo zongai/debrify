@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../l10n/app_localizations.dart';
 import '../../services/storage_service.dart';
 import '../../services/torbox_account_service.dart';
 import '../../services/analytics_service.dart';
@@ -246,14 +245,14 @@ class _TorboxSettingsPageState extends State<TorboxSettingsPage> {
                 // Land DPAD focus on the safe choice when the dialog opens.
                 autofocus: true,
                 onPressed: () => Navigator.pop(context, false),
-                child: Text(AppLocalizations.of(context).t('Cancel')),
+                child: Text('Cancel'),
               ),
             ),
             _FocusRing(
               radius: 12,
               child: FilledButton(
                 onPressed: () => Navigator.pop(context, true),
-                child: Text(AppLocalizations.of(context).t('Hide')),
+                child: Text('Hide'),
               ),
             ),
           ],
@@ -276,7 +275,7 @@ class _TorboxSettingsPageState extends State<TorboxSettingsPage> {
       await showDialog(
         context: context,
         builder: (context) => AlertDialog(
-          title: Text(AppLocalizations.of(context).t('Security Restriction')),
+          title: Text('Security Restriction'),
           content: SingleChildScrollView(
             child: Text(
               'To show Torbox in navigation again, you must logout and login. This is a security measure to prevent unauthorized changes.',
@@ -531,7 +530,7 @@ class _TorboxSettingsPageState extends State<TorboxSettingsPage> {
                                                               strokeWidth: 2,
                                                             ),
                                                       )
-                                                    : Text(AppLocalizations.of(context).t('Save')),
+                                                    : Text('Save'),
                                               ),
                                             ),
                                           ),
@@ -552,7 +551,7 @@ class _TorboxSettingsPageState extends State<TorboxSettingsPage> {
                                                           _addApiKeyButtonFocusNode,
                                                         );
                                                       },
-                                                child: Text(AppLocalizations.of(context).t('Cancel')),
+                                                child: Text('Cancel'),
                                               ),
                                             ),
                                           ),
@@ -596,7 +595,7 @@ class _TorboxSettingsPageState extends State<TorboxSettingsPage> {
                                               focusNode: _logoutButtonFocusNode,
                                               onPressed: _deleteKey,
                                               icon: const Icon(Icons.logout),
-                                              label: Text(AppLocalizations.of(context).t('Logout')),
+                                              label: Text('Logout'),
                                               style: OutlinedButton.styleFrom(
                                                 foregroundColor: t.danger,
                                                 side: BorderSide(
@@ -628,7 +627,7 @@ class _TorboxSettingsPageState extends State<TorboxSettingsPage> {
                                                   });
                                             },
                                             icon: Icon(Icons.add),
-                                            label: Text(AppLocalizations.of(context).t('Add API Key')),
+                                            label: Text('Add API Key'),
                                           ),
                                         ),
                                       ],

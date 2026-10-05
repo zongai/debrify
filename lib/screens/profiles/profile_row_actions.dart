@@ -2,7 +2,6 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 
-import '../../l10n/app_localizations.dart';
 
 import '../../models/profiles/profile_policy.dart';
 import '../../models/profiles/user_profile.dart';
@@ -124,7 +123,7 @@ class ProfileRowActions {
           actions: [
             TextButton(
               onPressed: () => Navigator.pop(context, false),
-              child: Text(AppLocalizations.of(context).t('Cancel')),
+              child: Text('Cancel'),
             ),
             FilledButton(
               onPressed:
@@ -133,7 +132,7 @@ class ProfileRowActions {
                       deleteConnections
                   ? () => Navigator.pop(context, true)
                   : null,
-              child: Text(AppLocalizations.of(context).t('Delete profile')),
+              child: Text('Delete profile'),
             ),
           ],
         ),

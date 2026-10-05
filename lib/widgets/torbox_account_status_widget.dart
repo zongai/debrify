@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../l10n/app_localizations.dart';
 import '../models/torbox_user.dart';
 
 class TorboxAccountStatusWidget extends StatelessWidget {
@@ -75,7 +74,7 @@ class TorboxAccountStatusWidget extends StatelessWidget {
         const SizedBox(height: 12),
         _InfoRow(
           icon: Icons.schedule,
-          label: AppLocalizations.of(context).t('Premium Expires'),
+          label: 'Premium Expires',
           value: user.formattedPremiumExpiry,
         ),
         _InfoRow(

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../l10n/app_localizations.dart';
 import 'package:flutter/services.dart';
 
 import '../../models/subtitle_source_priority.dart';
@@ -145,7 +144,7 @@ class _SubtitlePriorityPageState extends State<SubtitlePriorityPage> {
         if (!didPop) _cancel();
       },
       child: SettingsPageScaffold(
-        title: AppLocalizations.of(context).t('Subtitle priority'),
+        title: 'Subtitle priority',
         body: _loading
             ? Center(child: CircularProgressIndicator())
             : SingleChildScrollView(
@@ -160,7 +159,7 @@ class _SubtitlePriorityPageState extends State<SubtitlePriorityPage> {
                       children: [
                         const SettingsPageHeader(
                           icon: Icons.low_priority_rounded,
-                          title: AppLocalizations.of(context).t('Subtitle priority'),
+                          title: 'Subtitle priority',
                           subtitle:
                               'Try sources from top to bottom for your subtitle language. No Preference tries English first, then another available track within each source.',
                         ),
@@ -248,7 +247,7 @@ class _SubtitlePriorityPageState extends State<SubtitlePriorityPage> {
                                         ),
                                         if (_moving == id) ...[
                                           IconButton(
-                                            tooltip: AppLocalizations.of(context).t('Move up'),
+                                            tooltip: 'Move up',
                                             onPressed:
                                                 _saving || _order.first == id
                                                 ? null
@@ -258,7 +257,7 @@ class _SubtitlePriorityPageState extends State<SubtitlePriorityPage> {
                                             ),
                                           ),
                                           IconButton(
-                                            tooltip: AppLocalizations.of(context).t('Move down'),
+                                            tooltip: 'Move down',
                                             onPressed:
                                                 _saving || _order.last == id
                                                 ? null
@@ -271,7 +270,7 @@ class _SubtitlePriorityPageState extends State<SubtitlePriorityPage> {
                                             onPressed: _saving
                                                 ? null
                                                 : () => _select(id),
-                                            child: Text(AppLocalizations.of(context).t('Done')),
+                                            child: Text('Done'),
                                           ),
                                         ] else
                                           const Icon(Icons.drag_handle),

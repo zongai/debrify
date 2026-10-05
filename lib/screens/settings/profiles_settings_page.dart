@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../l10n/app_localizations.dart';
 import 'package:flutter/services.dart';
 
 import '../../models/profiles/profile_policy.dart';
@@ -209,7 +208,7 @@ class _ProfilesSettingsPageState extends State<ProfilesSettingsPage> {
           ListTile(
             autofocus: true,
             leading: Icon(Icons.edit_rounded),
-            title: Text(AppLocalizations.of(context).t('Edit')),
+            title: Text('Edit'),
             subtitle: const Text('Name, avatar, PIN, access'),
             onTap: () => Navigator.of(dialogContext).pop('edit'),
           ),
@@ -280,7 +279,7 @@ class _ProfilesSettingsPageState extends State<ProfilesSettingsPage> {
     await showDialog<void>(
       context: context,
       builder: (dialogContext) => AlertDialog(
-        title: Text(AppLocalizations.of(context).t('Profile diagnostics')),
+        title: Text('Profile diagnostics'),
         content: SizedBox(
           width: 560,
           child: SingleChildScrollView(child: SelectableText(report)),
@@ -291,11 +290,11 @@ class _ProfilesSettingsPageState extends State<ProfilesSettingsPage> {
               await Clipboard.setData(ClipboardData(text: report));
               if (dialogContext.mounted) Navigator.pop(dialogContext);
             },
-            child: Text(AppLocalizations.of(context).t('Copy')),
+            child: Text('Copy'),
           ),
           FilledButton(
             onPressed: () => Navigator.pop(dialogContext),
-            child: Text(AppLocalizations.of(context).t('Done')),
+            child: Text('Done'),
           ),
         ],
       ),
@@ -306,7 +305,7 @@ class _ProfilesSettingsPageState extends State<ProfilesSettingsPage> {
   Widget build(BuildContext context) {
     final profiles = _profiles ?? const <UserProfile>[];
     return SettingsPageScaffold(
-      title: AppLocalizations.of(context).t('Profiles'),
+      title: 'Profiles',
       actions: _mayManage
           ? [
               PopupMenuButton<String>(
@@ -319,7 +318,7 @@ class _ProfilesSettingsPageState extends State<ProfilesSettingsPage> {
                     value: 'diagnostics',
                     child: ListTile(
                       leading: Icon(Icons.health_and_safety_outlined),
-                      title: Text(AppLocalizations.of(context).t('Profile diagnostics')),
+                      title: Text('Profile diagnostics'),
                     ),
                   ),
                 ],
@@ -338,7 +337,7 @@ class _ProfilesSettingsPageState extends State<ProfilesSettingsPage> {
                     children: [
                       const SettingsPageHeader(
                         icon: Icons.people_alt_rounded,
-                        title: AppLocalizations.of(context).t('Profiles'),
+                        title: 'Profiles',
                         subtitle:
                             'People, access and this device\'s sign-in behavior',
                       ),
@@ -406,7 +405,7 @@ class _ProfilesSettingsPageState extends State<ProfilesSettingsPage> {
         key: ValueKey('profiles-switch'),
         focusNode: _firstActionFocus,
         icon: Icons.swap_horiz_rounded,
-        title: AppLocalizations.of(context).t('Switch profile'),
+        title: 'Switch profile',
         subtitle: 'Choose who is watching now',
         onTap: () async => _switchProfile(),
       ),
@@ -453,7 +452,7 @@ class _ProfilesSettingsPageState extends State<ProfilesSettingsPage> {
             key: ValueKey('profiles-create'),
             icon: Icons.person_add_alt_rounded,
             title: 'Create a profile',
-            subtitle: AppLocalizations.of(context).t('Admin, Member or Kid'),
+            subtitle: 'Admin, Member or Kid',
             onTap: _create,
           ),
       ],

@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 
-import '../l10n/app_localizations.dart';
 import 'package:flutter/services.dart';
 
 import '../models/playlist_view_mode.dart';
@@ -1127,7 +1126,7 @@ class _PlaylistContentViewScreenState extends State<PlaylistContentViewScreen> {
             children: [
               CircularProgressIndicator(),
               SizedBox(width: 16),
-              Text(AppLocalizations.of(context).t('Preparing playlist…')),
+              Text('Preparing playlist…'),
             ],
           ),
         ),
@@ -1285,7 +1284,7 @@ class _PlaylistContentViewScreenState extends State<PlaylistContentViewScreen> {
               keyboardInk: app.core.tx,
               keyboardInkOnAccent: app.inkOn(app.settings.accent),
               decoration: InputDecoration(
-                hintText: AppLocalizations.of(context).t('Search all files...'),
+                hintText: 'Search all files...',
                 // Colors.grey left literal: no token carries it.
                 prefixIcon: const Icon(Icons.search, color: Colors.grey),
                 filled: true,
@@ -1533,7 +1532,7 @@ class _PlaylistContentViewScreenState extends State<PlaylistContentViewScreen> {
           IconButton(
             icon: const Icon(Icons.refresh),
             onPressed: _loadContent,
-            tooltip: AppLocalizations.of(context).t('Refresh'),
+            tooltip: 'Refresh',
           ),
         ],
       ),
@@ -1583,7 +1582,7 @@ class _PlaylistContentViewScreenState extends State<PlaylistContentViewScreen> {
               const SizedBox(height: 16),
               ElevatedButton(
                 onPressed: _loadContent,
-                child: Text(AppLocalizations.of(context).t('Retry')),
+                child: Text('Retry'),
               ),
             ],
           ),
@@ -1592,7 +1591,7 @@ class _PlaylistContentViewScreenState extends State<PlaylistContentViewScreen> {
     }
 
     if (_currentViewNodes == null || _currentViewNodes!.isEmpty) {
-      return Center(child: Text(AppLocalizations.of(context).t('No files found')));
+      return Center(child: Text('No files found'));
     }
 
     // For Series Arrange mode, show OTT-style view
@@ -3390,7 +3389,7 @@ class _PlaylistContentViewScreenState extends State<PlaylistContentViewScreen> {
             children: [
               CircularProgressIndicator(),
               SizedBox(width: 16),
-              Text(AppLocalizations.of(context).t('Preparing playlist…')),
+              Text('Preparing playlist…'),
             ],
           ),
         ),

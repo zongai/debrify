@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 
-import '../../../l10n/app_localizations.dart';
 import 'package:flutter/services.dart';
 
 import '../../../theme/app_theme_scope.dart';
@@ -367,7 +366,7 @@ class ManualOrderListState extends State<ManualOrderList> {
         actions: [
           TextButton(
             onPressed: () => Navigator.of(dialogContext).pop(),
-            child: Text(AppLocalizations.of(context).t('Cancel')),
+            child: Text('Cancel'),
           ),
           TextButton(
             onPressed: () =>
@@ -469,7 +468,7 @@ class ManualOrderListState extends State<ManualOrderList> {
               key: _searchFieldKey,
               controller: _searchController,
               focusNode: _searchNode,
-              hintText: AppLocalizations.of(context).t('Search…'),
+              hintText: 'Search…',
               textInputAction: TextInputAction.search,
               prefixIcon: Icon(Icons.search_rounded),
               suffixIcon: _query.isEmpty
@@ -477,7 +476,7 @@ class ManualOrderListState extends State<ManualOrderList> {
                   : ExcludeFocus(
                       child: IconButton(
                         icon: const Icon(Icons.close_rounded),
-                        tooltip: AppLocalizations.of(context).t('Clear'),
+                        tooltip: 'Clear',
                         onPressed: () {
                           _searchController.clear();
                           setState(() => _query = '');
@@ -786,12 +785,12 @@ class _ManualOrderRowState extends State<ManualOrderRow> {
                           // cover the arrows' job and ⋯ keeps the quick moves.
                           if (!PlatformUtil.isPhone) ...[
                             IconButton(
-                              tooltip: AppLocalizations.of(context).t('Move up'),
+                              tooltip: 'Move up',
                               onPressed: widget.onMoveUp,
                               icon: Icon(Icons.keyboard_arrow_up_rounded),
                             ),
                             IconButton(
-                              tooltip: AppLocalizations.of(context).t('Move down'),
+                              tooltip: 'Move down',
                               onPressed: widget.onMoveDown,
                               icon: const Icon(
                                 Icons.keyboard_arrow_down_rounded,

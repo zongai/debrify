@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 
-import '../../l10n/app_localizations.dart';
 import 'package:flutter/services.dart';
 import '../../screens/video_player_screen.dart'; // re-exports PlaylistEntry
 import '../../services/alldebrid_service.dart';
@@ -684,7 +683,7 @@ class _AllDebridFilesScreenState extends State<AllDebridFilesScreen> {
     final magnet = await showDialog<String>(
       context: context,
       builder: (ctx) => AlertDialog(
-        title: Text(AppLocalizations.of(context).t('Add magnet')),
+        title: Text('Add magnet'),
         content: Focus(
           // D-pad: let arrow-down leave the field for the Cancel/Add buttons.
           onKeyEvent: (node, event) {
@@ -701,7 +700,7 @@ class _AllDebridFilesScreenState extends State<AllDebridFilesScreen> {
             maxLines: 3,
             minLines: 1,
             decoration: InputDecoration(
-              hintText: AppLocalizations.of(context).t('Paste a magnet link or infohash'),
+              hintText: 'Paste a magnet link or infohash',
               border: OutlineInputBorder(),
             ),
           ),
@@ -709,11 +708,11 @@ class _AllDebridFilesScreenState extends State<AllDebridFilesScreen> {
         actions: [
           TextButton(
             onPressed: () => Navigator.of(ctx).pop(),
-            child: Text(AppLocalizations.of(context).t('Cancel')),
+            child: Text('Cancel'),
           ),
           TextButton(
             onPressed: () => Navigator.of(ctx).pop(controller.text.trim()),
-            child: Text(AppLocalizations.of(context).t('Add')),
+            child: Text('Add'),
           ),
         ],
       ),
@@ -821,7 +820,7 @@ class _AllDebridFilesScreenState extends State<AllDebridFilesScreen> {
     final link = await showDialog<String>(
       context: context,
       builder: (ctx) => AlertDialog(
-        title: Text(AppLocalizations.of(context).t('Add link')),
+        title: Text('Add link'),
         content: Focus(
           // D-pad: let arrow-down leave the field for the Cancel/Add buttons.
           onKeyEvent: (node, event) {
@@ -838,7 +837,7 @@ class _AllDebridFilesScreenState extends State<AllDebridFilesScreen> {
             maxLines: 3,
             minLines: 1,
             decoration: InputDecoration(
-              hintText: AppLocalizations.of(context).t('Paste a download link'),
+              hintText: 'Paste a download link',
               border: OutlineInputBorder(),
             ),
           ),
@@ -846,11 +845,11 @@ class _AllDebridFilesScreenState extends State<AllDebridFilesScreen> {
         actions: [
           TextButton(
             onPressed: () => Navigator.of(ctx).pop(),
-            child: Text(AppLocalizations.of(context).t('Cancel')),
+            child: Text('Cancel'),
           ),
           TextButton(
             onPressed: () => Navigator.of(ctx).pop(controller.text.trim()),
-            child: Text(AppLocalizations.of(context).t('Add')),
+            child: Text('Add'),
           ),
         ],
       ),
@@ -898,12 +897,12 @@ class _AllDebridFilesScreenState extends State<AllDebridFilesScreen> {
         actions: [
           TextButton(
             onPressed: () => Navigator.of(ctx).pop(false),
-            child: Text(AppLocalizations.of(context).t('Cancel')),
+            child: Text('Cancel'),
           ),
           TextButton(
             onPressed: () => Navigator.of(ctx).pop(true),
             style: TextButton.styleFrom(foregroundColor: Colors.red),
-            child: Text(AppLocalizations.of(context).t('Delete')),
+            child: Text('Delete'),
           ),
         ],
       ),
@@ -936,7 +935,7 @@ class _AllDebridFilesScreenState extends State<AllDebridFilesScreen> {
 
   void _confirmDeleteAllLinks() {
     if (_links.isEmpty) return;
-    _deleteLinks(List.of(_links), title: AppLocalizations.of(context).t('Delete all links?'));
+    _deleteLinks(List.of(_links), title: 'Delete all links?');
   }
 
   // ── Add to playlist ─────────────────────────────────────────────────────
@@ -1019,12 +1018,12 @@ class _AllDebridFilesScreenState extends State<AllDebridFilesScreen> {
         actions: [
           TextButton(
             onPressed: () => Navigator.of(ctx).pop(false),
-            child: Text(AppLocalizations.of(context).t('Cancel')),
+            child: Text('Cancel'),
           ),
           TextButton(
             onPressed: () => Navigator.of(ctx).pop(true),
             style: TextButton.styleFrom(foregroundColor: Colors.red),
-            child: Text(AppLocalizations.of(context).t('Delete')),
+            child: Text('Delete'),
           ),
         ],
       ),
@@ -1049,7 +1048,7 @@ class _AllDebridFilesScreenState extends State<AllDebridFilesScreen> {
 
   void _confirmDeleteAll() {
     if (_magnets.isEmpty) return;
-    _deleteMagnets(List.of(_magnets), title: AppLocalizations.of(context).t('Delete all magnets?'));
+    _deleteMagnets(List.of(_magnets), title: 'Delete all magnets?');
   }
 
   // ── Selection ─────────────────────────────────────────────────────────────
@@ -1206,7 +1205,7 @@ class _AllDebridFilesScreenState extends State<AllDebridFilesScreen> {
                 focusNode: _backButtonFocusNode,
                 icon: Icon(Icons.arrow_back),
                 onPressed: _navigateUp,
-                tooltip: AppLocalizations.of(context).t('Back'),
+                tooltip: 'Back',
               ),
               title: Text(_currentMagnet!.name),
               actions: [
@@ -1226,7 +1225,7 @@ class _AllDebridFilesScreenState extends State<AllDebridFilesScreen> {
                         }
                       });
                     },
-                    tooltip: AppLocalizations.of(context).t('Search files'),
+                    tooltip: 'Search files',
                   ),
               ],
             ),
@@ -1281,7 +1280,7 @@ class _AllDebridFilesScreenState extends State<AllDebridFilesScreen> {
             children: [
               if (_isBrowsePush) ...[
                 Tooltip(
-                  message: AppLocalizations.of(context).t('Back'),
+                  message: 'Back',
                   child: IconButton(
                     onPressed: () => Navigator.of(context).maybePop(),
                     iconSize: iconSize,
@@ -1393,7 +1392,7 @@ class _AllDebridFilesScreenState extends State<AllDebridFilesScreen> {
                   ),
                 ),
               Tooltip(
-                message: AppLocalizations.of(context).t('Refresh'),
+                message: 'Refresh',
                 child: IconButton(
                   onPressed: _refresh,
                   iconSize: iconSize,
@@ -1482,7 +1481,7 @@ class _AllDebridFilesScreenState extends State<AllDebridFilesScreen> {
             focusNode: _deleteButtonFocusNode,
             onPressed: count > 0 ? _handleDeleteSelected : null,
             icon: const Icon(Icons.delete_outline, size: 18),
-            label: Text(AppLocalizations.of(context).t('Delete')),
+            label: Text('Delete'),
             style: FilledButton.styleFrom(
               backgroundColor: theme.colorScheme.error,
               disabledBackgroundColor: theme.colorScheme.error.withValues(
@@ -1664,7 +1663,7 @@ class _AllDebridFilesScreenState extends State<AllDebridFilesScreen> {
               const SizedBox(height: 16),
               Text(_error!, textAlign: TextAlign.center),
               const SizedBox(height: 16),
-              ElevatedButton(onPressed: _load, child: Text(AppLocalizations.of(context).t('Retry'))),
+              ElevatedButton(onPressed: _load, child: Text('Retry')),
             ],
           ),
         ),
@@ -1750,32 +1749,32 @@ class _AllDebridFilesScreenState extends State<AllDebridFilesScreen> {
       if (m.isReady)
         CloudRowAction(
           icon: Icons.play_arrow_rounded,
-          label: AppLocalizations.of(context).t('Play'),
+          label: 'Play',
           showInStrip: true,
           onSelected: () => _playMagnet(m),
         ),
       if (m.isReady)
         CloudRowAction(
           icon: Icons.download,
-          label: AppLocalizations.of(context).t('Download to device'),
+          label: 'Download to device',
           showInStrip: true,
           onSelected: () => _downloadMagnet(m),
         ),
       if (m.isReady)
         CloudRowAction(
           icon: Icons.folder_open,
-          label: AppLocalizations.of(context).t('Open'),
+          label: 'Open',
           onSelected: () => _openMagnet(m),
         ),
       if (m.isReady)
         CloudRowAction(
           icon: Icons.playlist_add,
-          label: AppLocalizations.of(context).t('Add to Playlist'),
+          label: 'Add to Playlist',
           onSelected: () => _addMagnetToPlaylist(m),
         ),
       CloudRowAction(
         icon: Icons.delete_outline,
-        label: AppLocalizations.of(context).t('Delete'),
+        label: 'Delete',
         destructive: true,
         onSelected: () => _deleteMagnets([m]),
       ),
@@ -1826,7 +1825,7 @@ class _AllDebridFilesScreenState extends State<AllDebridFilesScreen> {
               const SizedBox(height: 16),
               Text(_linksError!, textAlign: TextAlign.center),
               const SizedBox(height: 16),
-              ElevatedButton(onPressed: _loadLinks, child: Text(AppLocalizations.of(context).t('Retry'))),
+              ElevatedButton(onPressed: _loadLinks, child: Text('Retry')),
             ],
           ),
         ),
@@ -1903,7 +1902,7 @@ class _AllDebridFilesScreenState extends State<AllDebridFilesScreen> {
       if (isVideo)
         CloudRowAction(
           icon: Icons.play_arrow_rounded,
-          label: AppLocalizations.of(context).t('Play'),
+          label: 'Play',
           showInStrip: true,
           onSelected: () => _playLink(l),
         ),
@@ -1915,12 +1914,12 @@ class _AllDebridFilesScreenState extends State<AllDebridFilesScreen> {
       ),
       CloudRowAction(
         icon: Icons.link,
-        label: AppLocalizations.of(context).t('Copy link'),
+        label: 'Copy link',
         onSelected: () => _copyLink(l),
       ),
       CloudRowAction(
         icon: Icons.delete_outline,
-        label: AppLocalizations.of(context).t('Delete'),
+        label: 'Delete',
         destructive: true,
         onSelected: () => _deleteLinks([l]),
       ),
@@ -1973,13 +1972,13 @@ class _AllDebridFilesScreenState extends State<AllDebridFilesScreen> {
       if (isVideo)
         CloudRowAction(
           icon: Icons.play_arrow_rounded,
-          label: AppLocalizations.of(context).t('Play'),
+          label: 'Play',
           showInStrip: true,
           onSelected: () => _playFile(f),
         ),
       CloudRowAction(
         icon: Icons.download_rounded,
-        label: AppLocalizations.of(context).t('Download'),
+        label: 'Download',
         showInStrip: true,
         onSelected: () => _downloadFile(f),
       ),

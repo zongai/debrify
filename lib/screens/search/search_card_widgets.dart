@@ -1081,7 +1081,7 @@ class _ModeToggle extends StatelessWidget {
       return SizedBox(
         width: fullWidth ? double.infinity : 156,
         child: StremioDropdown<_Mode>(
-          label: AppLocalizations.of(context).t('Search'),
+          label: 'Search',
           value: modes.contains(mode) ? mode : modes.first,
           options: [
             for (final value in modes)

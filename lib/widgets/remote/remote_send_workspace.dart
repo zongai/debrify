@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../l10n/app_localizations.dart';
 import '../../models/stremio_addon.dart';
 import '../../models/profiles/profile_policy.dart';
 import '../../services/profiles/profile_async_authorization.dart';
@@ -165,7 +164,7 @@ class _RemoteSendWorkspaceState extends State<RemoteSendWorkspace> {
                 actions: [
                   TextButton(
                     onPressed: () => Navigator.pop(context, false),
-                    child: Text(AppLocalizations.of(context).t('Cancel')),
+                    child: Text('Cancel'),
                   ),
                   FilledButton(
                     onPressed: needsPassword && password.text.isEmpty
@@ -257,7 +256,7 @@ class _RemoteSendWorkspaceState extends State<RemoteSendWorkspace> {
           actions: [
             TextButton(
               onPressed: () => Navigator.pop(context),
-              child: Text(AppLocalizations.of(context).t('Done')),
+              child: Text('Done'),
             ),
           ],
         ),

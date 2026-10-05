@@ -2,7 +2,6 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 
-import '../l10n/app_localizations.dart';
 import 'package:flutter/services.dart';
 
 import '../models/playlist_view_mode.dart';
@@ -226,7 +225,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
             _currentTorrentId == null) {
           Navigator.of(context).pop();
           ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text(AppLocalizations.of(context).t('Failed to open torrent. Please try again.')),
+            SnackBar(content: Text('Failed to open torrent. Please try again.'),
               backgroundColor: Color(0xFFEF4444),
             ),
           );
@@ -856,7 +855,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
       if (!mounted) return;
       ScaffoldMessenger.of(
         context,
-      ).showSnackBar(SnackBar(content: Text(AppLocalizations.of(context).t('Added to downloads'))));
+      ).showSnackBar(SnackBar(content: Text('Added to downloads')));
     } catch (e) {
       if (!mounted) return;
       ScaffoldMessenger.of(
@@ -890,7 +889,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
           TextButton(
             onPressed: () => Navigator.of(context).pop(true),
             style: TextButton.styleFrom(foregroundColor: Colors.red),
-            child: Text(AppLocalizations.of(context).t('Delete')),
+            child: Text('Delete'),
           ),
         ],
       ),
@@ -908,7 +907,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
               children: [
                 CircularProgressIndicator(),
                 SizedBox(width: 16),
-                Text(AppLocalizations.of(context).t('Deleting torrent...')),
+                Text('Deleting torrent...'),
               ],
             ),
           ),
@@ -968,7 +967,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
           TextButton(
             onPressed: () => Navigator.of(context).pop(true),
             style: TextButton.styleFrom(foregroundColor: Colors.red),
-            child: Text(AppLocalizations.of(context).t('Delete All')),
+            child: Text('Delete All'),
           ),
         ],
       ),
@@ -1168,7 +1167,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
           TextButton(
             onPressed: () => Navigator.of(context).pop(true),
             style: TextButton.styleFrom(foregroundColor: Colors.red),
-            child: Text(AppLocalizations.of(context).t('Delete All')),
+            child: Text('Delete All'),
           ),
         ],
       ),
@@ -1368,7 +1367,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
           TextButton(
             onPressed: () => Navigator.of(context).pop(true),
             style: TextButton.styleFrom(foregroundColor: Colors.red),
-            child: Text(AppLocalizations.of(context).t('Delete')),
+            child: Text('Delete'),
           ),
         ],
       ),
@@ -1386,7 +1385,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
               children: [
                 CircularProgressIndicator(),
                 SizedBox(width: 16),
-                Text(AppLocalizations.of(context).t('Deleting download...')),
+                Text('Deleting download...'),
               ],
             ),
           ),
@@ -1505,7 +1504,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
           TextButton(
             onPressed: () => Navigator.of(context).pop(true),
             style: TextButton.styleFrom(foregroundColor: Colors.red),
-            child: Text(AppLocalizations.of(context).t('Delete')),
+            child: Text('Delete'),
           ),
         ],
       ),
@@ -1933,7 +1932,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
                   style: TextButton.styleFrom(
                     foregroundColor: Color(0xFF60A5FA),
                   ),
-                  child: Text(AppLocalizations.of(context).t('Copy Download Link')),
+                  child: Text('Copy Download Link'),
                 ),
               ],
             ),
@@ -2472,7 +2471,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
                   ? () => _searchClearFocusNode.requestFocus()
                   : null,
               decoration: InputDecoration(
-                hintText: AppLocalizations.of(context).t('Search all files...'),
+                hintText: 'Search all files...',
                 prefixIcon: const Icon(Icons.search, color: Colors.grey),
                 filled: true,
                 fillColor: app.fade(app.core.tx, 0.06),
@@ -2666,9 +2665,9 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
           leading: IconButton(
             icon: Icon(Icons.arrow_back),
             onPressed: () => Navigator.of(context).pop(),
-            tooltip: AppLocalizations.of(context).t('Back'),
+            tooltip: 'Back',
           ),
-          title: Text(AppLocalizations.of(context).t('Opening torrent...')),
+          title: Text('Opening torrent...'),
         ),
         body: Center(
           child: Column(
@@ -2676,7 +2675,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
             children: [
               CircularProgressIndicator(),
               SizedBox(height: 16),
-              Text(AppLocalizations.of(context).t('Loading torrent files...')),
+              Text('Loading torrent files...'),
             ],
           ),
         ),
@@ -2699,9 +2698,9 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
                 focusNode: _backButtonFocusNode,
                 icon: Icon(Icons.arrow_back),
                 onPressed: () => Navigator.of(context).pop(),
-                tooltip: AppLocalizations.of(context).t('Back'),
+                tooltip: 'Back',
               ),
-              title: Text(AppLocalizations.of(context).t('Select Source from Real-Debrid')),
+              title: Text('Select Source from Real-Debrid'),
             )
           : null,
       body: FocusTraversalGroup(
@@ -2748,7 +2747,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
           isExpanded: true,
           value: mode,
           decoration: InputDecoration(
-            labelText: AppLocalizations.of(context).t('View Mode'),
+            labelText: 'View Mode',
             prefixIcon: Icon(
               mode == _FolderViewMode.raw
                   ? Icons.view_list
@@ -2768,10 +2767,10 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
             ),
           ),
           items: [
-            DropdownMenuItem(value: _FolderViewMode.raw, child: Text(AppLocalizations.of(context).t('Raw'))),
+            DropdownMenuItem(value: _FolderViewMode.raw, child: Text('Raw')),
             DropdownMenuItem(
               value: _FolderViewMode.sortedAZ,
-              child: Text(AppLocalizations.of(context).t('Sort (A-Z)')),
+              child: Text('Sort (A-Z)'),
             ),
           ],
           onChanged: (value) {
@@ -2875,7 +2874,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
       if (isFolder || isVideo)
         CloudRowAction(
           icon: Icons.play_arrow_rounded,
-          label: AppLocalizations.of(context).t('Play'),
+          label: 'Play',
           showInStrip: true,
           onSelected: () {
             if (isFolder) {
@@ -2887,7 +2886,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
         ),
       CloudRowAction(
         icon: Icons.download_rounded,
-        label: AppLocalizations.of(context).t('Download'),
+        label: 'Download',
         showInStrip: true,
         onSelected: () {
           if (isFolder) {
@@ -2900,7 +2899,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
       if (isFolder || isVideo)
         CloudRowAction(
           icon: Icons.playlist_add,
-          label: AppLocalizations.of(context).t('Add to Playlist'),
+          label: 'Add to Playlist',
           onSelected: () {
             if (isFolder) {
               _addFolderToPlaylist(node);
@@ -2912,7 +2911,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
       if (!isFolder)
         CloudRowAction(
           icon: Icons.link,
-          label: AppLocalizations.of(context).t('Copy Download Link'),
+          label: 'Copy Download Link',
           onSelected: () => _copyNodeDownloadLink(node),
         ),
     ];
@@ -3001,7 +3000,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
             focusNode: _deleteButtonFocusNode,
             onPressed: count > 0 ? _handleDeleteSelected : null,
             icon: const Icon(Icons.delete_outline, size: 18),
-            label: Text(AppLocalizations.of(context).t('Delete')),
+            label: Text('Delete'),
             style:
                 FilledButton.styleFrom(
                   backgroundColor: theme.colorScheme.error,
@@ -3060,7 +3059,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
             children: [
               if (_isBrowsePush) ...[
                 Tooltip(
-                  message: AppLocalizations.of(context).t('Back'),
+                  message: 'Back',
                   child: IconButton(
                     onPressed: () => Navigator.of(context).maybePop(),
                     iconSize: iconSize,
@@ -3125,7 +3124,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
                 ),
               ],
               Tooltip(
-                message: AppLocalizations.of(context).t('Add magnet link'),
+                message: 'Add magnet link',
                 child: IconButton(
                   onPressed: _showAddMagnetDialog,
                   iconSize: iconSize,
@@ -3174,7 +3173,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
             children: [
               if (_isBrowsePush) ...[
                 Tooltip(
-                  message: AppLocalizations.of(context).t('Back'),
+                  message: 'Back',
                   child: IconButton(
                     onPressed: () => Navigator.of(context).maybePop(),
                     iconSize: iconSize,
@@ -3281,7 +3280,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
               ElevatedButton(
                 autofocus: true,
                 onPressed: () => _fetchTorrents(_apiKey!, reset: true),
-                child: Text(AppLocalizations.of(context).t('Retry')),
+                child: Text('Retry'),
               ),
             ],
           ),
@@ -3567,7 +3566,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
               ElevatedButton(
                 autofocus: true,
                 onPressed: () => _fetchDownloads(_apiKey!, reset: true),
-                child: Text(AppLocalizations.of(context).t('Retry')),
+                child: Text('Retry'),
               ),
             ],
           ),
@@ -3677,29 +3676,29 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
     final actions = <CloudRowAction>[
       CloudRowAction(
         icon: Icons.play_arrow_rounded,
-        label: AppLocalizations.of(context).t('Play'),
+        label: 'Play',
         showInStrip: true,
         onSelected: () => _handlePlayMultiFileTorrent(torrent),
       ),
       CloudRowAction(
         icon: Icons.download,
-        label: AppLocalizations.of(context).t('Download'),
+        label: 'Download',
         showInStrip: true,
         onSelected: () => _handleDownloadTorrent(torrent),
       ),
       CloudRowAction(
         icon: Icons.playlist_add,
-        label: AppLocalizations.of(context).t('Add to Playlist'),
+        label: 'Add to Playlist',
         onSelected: () => _handleAddTorrentToPlaylist(torrent),
       ),
       CloudRowAction(
         icon: Icons.live_tv_rounded,
-        label: AppLocalizations.of(context).t('Add to Debrify TV'),
+        label: 'Add to Debrify TV',
         onSelected: () => _handleAddTorrentToDebrifyTv(torrent),
       ),
       CloudRowAction(
         icon: Icons.delete_outline,
-        label: AppLocalizations.of(context).t('Delete'),
+        label: 'Delete',
         destructive: true,
         onSelected: () => _handleDeleteTorrent(torrent),
       ),
@@ -3913,24 +3912,24 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
       if (canStream || isVideo)
         CloudRowAction(
           icon: Icons.play_arrow_rounded,
-          label: AppLocalizations.of(context).t('Play'),
+          label: 'Play',
           showInStrip: true,
           onSelected: () => _handlePlayDownload(download),
         ),
       CloudRowAction(
         icon: Icons.download,
-        label: AppLocalizations.of(context).t('Download'),
+        label: 'Download',
         showInStrip: true,
         onSelected: () => _handleQueueDownload(download),
       ),
       CloudRowAction(
         icon: Icons.link,
-        label: AppLocalizations.of(context).t('Copy Link'),
+        label: 'Copy Link',
         onSelected: () => _handleDownloadAction(download),
       ),
       CloudRowAction(
         icon: Icons.delete_outline,
-        label: AppLocalizations.of(context).t('Delete'),
+        label: 'Delete',
         destructive: true,
         onSelected: () => _handleDeleteDownload(download),
       ),
@@ -3968,7 +3967,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
             children: [
               CircularProgressIndicator(),
               SizedBox(width: 16),
-              Text(AppLocalizations.of(context).t('Preparing playlist…')),
+              Text('Preparing playlist…'),
             ],
           ),
         ),
@@ -4292,7 +4291,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
                       padding: const EdgeInsets.symmetric(vertical: 12),
                       side: const BorderSide(color: Color(0xFF475569)),
                     ),
-                    child: Text(AppLocalizations.of(context).t('Cancel')),
+                    child: Text('Cancel'),
                   ),
                 ),
                 SizedBox(width: 12),
@@ -4303,7 +4302,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
                       padding: const EdgeInsets.symmetric(vertical: 12),
                       side: const BorderSide(color: Color(0xFF475569)),
                     ),
-                    child: Text(AppLocalizations.of(context).t('Advanced')),
+                    child: Text('Advanced'),
                   ),
                 ),
                 SizedBox(width: 12),
@@ -4325,7 +4324,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
                               color: Colors.white,
                             ),
                           )
-                        : Text(AppLocalizations.of(context).t('Add')),
+                        : Text('Add'),
                   ),
                 ),
               ],
@@ -4430,7 +4429,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text(AppLocalizations.of(context).t('Magnet added successfully!')),
+            content: Text('Magnet added successfully!'),
             backgroundColor: Colors.green,
           ),
         );
@@ -4483,7 +4482,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
         actions: [
           TextButton(
             onPressed: () => Navigator.of(context).pop(),
-            child: Text(AppLocalizations.of(context).t('Cancel')),
+            child: Text('Cancel'),
           ),
           TextButton(
             onPressed: _isAddingMagnet
@@ -4590,7 +4589,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text(AppLocalizations.of(context).t('Magnet added successfully!')),
+            content: Text('Magnet added successfully!'),
             backgroundColor: Colors.green,
           ),
         );
@@ -4698,7 +4697,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
                       padding: const EdgeInsets.symmetric(vertical: 12),
                       side: const BorderSide(color: Color(0xFF475569)),
                     ),
-                    child: Text(AppLocalizations.of(context).t('Cancel')),
+                    child: Text('Cancel'),
                   ),
                 ),
                 SizedBox(width: 12),
@@ -4718,7 +4717,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
                               color: Colors.white,
                             ),
                           )
-                        : Text(AppLocalizations.of(context).t('Add')),
+                        : Text('Add'),
                   ),
                 ),
               ],

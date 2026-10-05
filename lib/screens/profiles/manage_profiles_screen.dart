@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 
-import '../../l10n/app_localizations.dart';
 import 'package:flutter/services.dart';
 
 import '../../models/profiles/profile_policy.dart';
@@ -89,7 +88,7 @@ class _ManageProfilesScreenState extends State<ManageProfilesScreen> {
             ListTile(
               autofocus: true,
               leading: Icon(Icons.edit_rounded),
-              title: Text(AppLocalizations.of(context).t('Edit')),
+              title: Text('Edit'),
               onTap: () => Navigator.of(dialogContext).pop('edit'),
             ),
           ListTile(
@@ -104,7 +103,7 @@ class _ManageProfilesScreenState extends State<ManageProfilesScreen> {
           ),
           ListTile(
             leading: Icon(Icons.delete_outline_rounded),
-            title: Text(AppLocalizations.of(context).t('Delete')),
+            title: Text('Delete'),
             onTap: () => Navigator.of(dialogContext).pop('delete'),
           ),
         ],
@@ -187,7 +186,7 @@ class _ManageProfilesScreenState extends State<ManageProfilesScreen> {
     await showDialog<void>(
       context: context,
       builder: (dialogContext) => AlertDialog(
-        title: Text(AppLocalizations.of(context).t('Profile diagnostics')),
+        title: Text('Profile diagnostics'),
         content: SizedBox(
           width: 560,
           child: SingleChildScrollView(child: SelectableText(report)),
@@ -198,11 +197,11 @@ class _ManageProfilesScreenState extends State<ManageProfilesScreen> {
               await Clipboard.setData(ClipboardData(text: report));
               if (dialogContext.mounted) Navigator.pop(dialogContext);
             },
-            child: Text(AppLocalizations.of(context).t('Copy')),
+            child: Text('Copy'),
           ),
           FilledButton(
             onPressed: () => Navigator.pop(dialogContext),
-            child: Text(AppLocalizations.of(context).t('Done')),
+            child: Text('Done'),
           ),
         ],
       ),
@@ -214,7 +213,7 @@ class _ManageProfilesScreenState extends State<ManageProfilesScreen> {
     final profiles = _profiles;
     return Scaffold(
       appBar: AppBar(
-        title: Text(AppLocalizations.of(context).t('Profiles')),
+        title: Text('Profiles'),
         actions: <Widget>[
           IconButton(
             tooltip: 'Privacy-safe diagnostics',
@@ -228,7 +227,7 @@ class _ManageProfilesScreenState extends State<ManageProfilesScreen> {
           // --dart-define=DEBRIFY_PROFILE_AUDIT=true.
           if (kProfileAudit)
             IconButton(
-              tooltip: AppLocalizations.of(context).t('Profile data'),
+              tooltip: 'Profile data',
               onPressed: profiles == null ? null : _openProfileData,
               icon: Icon(Icons.data_object_rounded),
             ),
@@ -237,7 +236,7 @@ class _ManageProfilesScreenState extends State<ManageProfilesScreen> {
       floatingActionButton: FloatingActionButton.extended(
         onPressed: profiles == null ? null : _edit,
         icon: const Icon(Icons.person_add_rounded),
-        label: Text(AppLocalizations.of(context).t('Create')),
+        label: Text('Create'),
       ),
       body: profiles == null
           ? Center(
@@ -287,7 +286,7 @@ class _ManageProfilesScreenState extends State<ManageProfilesScreen> {
                                   if (profile.isEnabled)
                                     const PopupMenuItem(
                                       value: 'edit',
-                                      child: Text(AppLocalizations.of(context).t('Edit')),
+                                      child: Text('Edit'),
                                     ),
                                   PopupMenuItem(
                                     value: 'toggle',
@@ -297,7 +296,7 @@ class _ManageProfilesScreenState extends State<ManageProfilesScreen> {
                                   ),
                                   PopupMenuItem(
                                     value: 'delete',
-                                    child: Text(AppLocalizations.of(context).t('Delete')),
+                                    child: Text('Delete'),
                                   ),
                                 ],
                               ),

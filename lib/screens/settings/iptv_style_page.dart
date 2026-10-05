@@ -1,7 +1,6 @@
 import '../../theme/app_looks.dart';
 import 'package:flutter/material.dart';
 
-import '../../l10n/app_localizations.dart';
 
 import '../../services/analytics_service.dart';
 import '../../services/storage_service.dart';
@@ -122,13 +121,13 @@ class _IptvStylePageState extends State<IptvStylePage> {
     final t = AppThemeScope.of(context).settings;
     if (_loading) {
       return SettingsPageScaffold(
-        title: AppLocalizations.of(context).t('IPTV Appearance'),
+        title: 'IPTV Appearance',
         body: Center(child: CircularProgressIndicator()),
       );
     }
 
     return SettingsPageScaffold(
-      title: AppLocalizations.of(context).t('IPTV Appearance'),
+      title: 'IPTV Appearance',
       body: SingleChildScrollView(
         padding: EdgeInsets.all(16),
         child: Center(
@@ -139,7 +138,7 @@ class _IptvStylePageState extends State<IptvStylePage> {
               children: [
                 const SettingsPageHeader(
                   icon: Icons.style_rounded,
-                  title: AppLocalizations.of(context).t('IPTV Appearance'),
+                  title: 'IPTV Appearance',
                   subtitle: 'How the IPTV page looks on TV and desktop',
                 ),
                 const SizedBox(height: 24),

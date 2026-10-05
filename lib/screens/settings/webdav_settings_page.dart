@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../l10n/app_localizations.dart';
 import '../../utils/tv_reveal.dart';
 import 'package:flutter/services.dart';
 
@@ -293,12 +292,12 @@ class _WebDavSettingsPageState extends State<WebDavSettingsPage> {
     final t = AppThemeScope.of(context).settings;
     if (_loading) {
       return SettingsPageScaffold(
-        title: AppLocalizations.of(context).t('WebDAV'),
+        title: 'WebDAV',
         body: Center(child: CircularProgressIndicator()),
       );
     }
     return SettingsPageScaffold(
-      title: AppLocalizations.of(context).t('WebDAV'),
+      title: 'WebDAV',
       body: SingleChildScrollView(
         padding: EdgeInsets.all(16),
         child: Center(
@@ -326,7 +325,7 @@ class _WebDavSettingsPageState extends State<WebDavSettingsPage> {
                       enabled: !_editingReadOnly,
                       focusNode: _urlFocusNode,
                       keyboardType: TextInputType.url,
-                      labelText: AppLocalizations.of(context).t('Server URL'),
+                      labelText: 'Server URL',
                       hintText: 'https://example.com/remote.php/dav/files/me',
                       prefixIcon: Icon(Icons.link_rounded),
                       textInputAction: TextInputAction.next,
@@ -368,7 +367,7 @@ class _WebDavSettingsPageState extends State<WebDavSettingsPage> {
                       controller: _usernameController,
                       enabled: !_editingReadOnly,
                       focusNode: _usernameFocusNode,
-                      labelText: AppLocalizations.of(context).t('Username'),
+                      labelText: 'Username',
                       hintText: 'Optional username',
                       prefixIcon: const Icon(Icons.person_rounded),
                       textInputAction: TextInputAction.next,

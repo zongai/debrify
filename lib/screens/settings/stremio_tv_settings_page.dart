@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../l10n/app_localizations.dart';
 import '../../services/analytics_service.dart';
 import '../../services/storage_service.dart';
 import 'widgets/settings_widgets.dart';
@@ -235,7 +234,7 @@ class _StremioTvSettingsPageState extends State<StremioTvSettingsPage> {
                     children: [
                       const SettingsPageHeader(
                         icon: Icons.smart_display_rounded,
-                        title: AppLocalizations.of(context).t('Stremio TV'),
+                        title: 'Stremio TV',
                         subtitle:
                             'Configure how Stremio addon catalogs are displayed as TV channels.',
                       ),
@@ -347,7 +346,7 @@ class _StremioTvSettingsPageState extends State<StremioTvSettingsPage> {
                               // Auto-refresh toggle
                               SwitchListTile(
                                 contentPadding: EdgeInsets.zero,
-                                title: Text(AppLocalizations.of(context).t('Auto-refresh')),
+                                title: Text('Auto-refresh'),
                                 subtitle: Text(
                                   'Automatically refresh progress bars and detect rotation changes',
                                 ),
@@ -391,7 +390,7 @@ class _StremioTvSettingsPageState extends State<StremioTvSettingsPage> {
                                     items: [
                                       DropdownMenuItem(
                                         value: 'auto',
-                                        child: Text(AppLocalizations.of(context).t('Auto')),
+                                        child: Text('Auto'),
                                       ),
                                       DropdownMenuItem(
                                         value: '720p',

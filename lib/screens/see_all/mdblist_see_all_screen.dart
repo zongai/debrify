@@ -3,7 +3,6 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 
-import '../../l10n/app_localizations.dart';
 import 'package:flutter/services.dart';
 
 import '../../models/stremio_addon.dart';
@@ -671,7 +670,7 @@ class _MdblistSeeAllScreenState extends State<MdblistSeeAllScreen> {
       context: context,
       builder: (context) => StatefulBuilder(
         builder: (context, setDialogState) => AlertDialog(
-          title: Text(AppLocalizations.of(context).t('MDBList Catalog Filters')),
+          title: Text('MDBList Catalog Filters'),
           content: SizedBox(
             width: 520,
             child: SingleChildScrollView(
@@ -680,10 +679,10 @@ class _MdblistSeeAllScreenState extends State<MdblistSeeAllScreen> {
                 children: [
                   DropdownButtonFormField<String>(
                     initialValue: draft.mediaType,
-                    decoration: InputDecoration(labelText: AppLocalizations.of(context).t('Media type')),
+                    decoration: InputDecoration(labelText: 'Media type'),
                     items: [
-                      DropdownMenuItem(value: 'movie', child: Text(AppLocalizations.of(context).t('Movies'))),
-                      DropdownMenuItem(value: 'show', child: Text(AppLocalizations.of(context).t('Series'))),
+                      DropdownMenuItem(value: 'movie', child: Text('Movies')),
+                      DropdownMenuItem(value: 'show', child: Text('Series')),
                     ],
                     onChanged: (value) {
                       if (value != null) {
@@ -697,8 +696,8 @@ class _MdblistSeeAllScreenState extends State<MdblistSeeAllScreen> {
                   TextField(
                     controller: genre,
                     decoration: InputDecoration(
-                      labelText: AppLocalizations.of(context).t('Genre'),
-                      hintText: AppLocalizations.of(context).t('e.g. Horror'),
+                      labelText: 'Genre',
+                      hintText: 'e.g. Horror',
                     ),
                   ),
                   SizedBox(height: 10),
@@ -708,8 +707,8 @@ class _MdblistSeeAllScreenState extends State<MdblistSeeAllScreen> {
                         child: TextField(
                           controller: releasedFrom,
                           decoration: InputDecoration(
-                            labelText: AppLocalizations.of(context).t('Released from'),
-                            hintText: AppLocalizations.of(context).t('YYYY-MM-DD'),
+                            labelText: 'Released from',
+                            hintText: 'YYYY-MM-DD',
                           ),
                         ),
                       ),
@@ -719,7 +718,7 @@ class _MdblistSeeAllScreenState extends State<MdblistSeeAllScreen> {
                           controller: releasedTo,
                           decoration: InputDecoration(
                             labelText: 'Released to',
-                            hintText: AppLocalizations.of(context).t('YYYY-MM-DD'),
+                            hintText: 'YYYY-MM-DD',
                           ),
                         ),
                       ),
@@ -835,11 +834,11 @@ class _MdblistSeeAllScreenState extends State<MdblistSeeAllScreen> {
                   sortOrder: draft.sortOrder,
                 ),
               ),
-              child: Text(AppLocalizations.of(context).t('Reset')),
+              child: Text('Reset'),
             ),
             TextButton(
               onPressed: () => Navigator.pop(context),
-              child: Text(AppLocalizations.of(context).t('Cancel')),
+              child: Text('Cancel'),
             ),
             FilledButton(
               onPressed: () => Navigator.pop(
@@ -984,7 +983,7 @@ class _MdblistSeeAllScreenState extends State<MdblistSeeAllScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SeeAllHeader(
-              title: AppLocalizations.of(context).t('MDBList'),
+              title: 'MDBList',
               subtitle: _subtitle(),
               isTelevision: widget.isTelevision,
               backNode: _backNode,
@@ -1028,7 +1027,7 @@ class _MdblistSeeAllScreenState extends State<MdblistSeeAllScreen> {
         buildChips: () => [
           if (_connected) ...[
             StremioDropdown<MdblistDiscoverGroup>(
-              label: AppLocalizations.of(context).t('Category'),
+              label: 'Category',
               value: _group,
               isTelevision: widget.isTelevision,
               quiet: _quiet,
@@ -1041,7 +1040,7 @@ class _MdblistSeeAllScreenState extends State<MdblistSeeAllScreen> {
             ),
             ..._buildViewControls(),
             StremioDropdown<String>(
-              label: AppLocalizations.of(context).t('Show'),
+              label: 'Show',
               value: _show,
               isTelevision: widget.isTelevision,
               quiet: _quiet,
@@ -1060,7 +1059,7 @@ class _MdblistSeeAllScreenState extends State<MdblistSeeAllScreen> {
             ),
             if (_isCatalog)
               StremioDropdown<String>(
-                label: AppLocalizations.of(context).t('Sort'),
+                label: 'Sort',
                 value: _catalogDraft.sort,
                 isTelevision: widget.isTelevision,
                 quiet: _quiet,
@@ -1084,7 +1083,7 @@ class _MdblistSeeAllScreenState extends State<MdblistSeeAllScreen> {
               )
             else
               StremioDropdown<_Sort>(
-                label: AppLocalizations.of(context).t('Sort'),
+                label: 'Sort',
                 value: _sort,
                 isTelevision: widget.isTelevision,
                 quiet: _quiet,
@@ -1121,7 +1120,7 @@ class _MdblistSeeAllScreenState extends State<MdblistSeeAllScreen> {
     if (_group == MdblistDiscoverGroup.library) {
       return [
         StremioDropdown<MdblistLibraryView>(
-          label: AppLocalizations.of(context).t('View'),
+          label: 'View',
           value: _libraryView,
           isTelevision: widget.isTelevision,
           quiet: _quiet,
@@ -1138,7 +1137,7 @@ class _MdblistSeeAllScreenState extends State<MdblistSeeAllScreen> {
       if (_selected == null) return const [];
       return [
         StremioDropdown<MdblistDiscoverChoice>(
-          label: AppLocalizations.of(context).t('View'),
+          label: 'View',
           value: _selected!,
           isTelevision: widget.isTelevision,
           quiet: _quiet,
@@ -1167,7 +1166,7 @@ class _MdblistSeeAllScreenState extends State<MdblistSeeAllScreen> {
             ];
       return [
         StremioDropdown<MdblistListDirectory>(
-          label: AppLocalizations.of(context).t('View'),
+          label: 'View',
           value: _directory,
           isTelevision: widget.isTelevision,
           quiet: _quiet,
@@ -1180,7 +1179,7 @@ class _MdblistSeeAllScreenState extends State<MdblistSeeAllScreen> {
         ),
         if (_selected != null)
           StremioDropdown<MdblistDiscoverChoice>(
-            label: AppLocalizations.of(context).t('List'),
+            label: 'List',
             value: _selected!,
             isTelevision: widget.isTelevision,
             quiet: _quiet,
@@ -1229,7 +1228,7 @@ class _MdblistSeeAllScreenState extends State<MdblistSeeAllScreen> {
           focusNode: _filtersNode,
           onPressed: _openCatalogFilters,
           icon: Icon(Icons.tune_rounded, size: 16),
-          label: Text(AppLocalizations.of(context).t('Filters')),
+          label: Text('Filters'),
         ),
       if (_isCatalog)
         FilledButton.icon(
@@ -1253,7 +1252,7 @@ class _MdblistSeeAllScreenState extends State<MdblistSeeAllScreen> {
                   child: CircularProgressIndicator(strokeWidth: 2),
                 )
               : const Icon(Icons.expand_more_rounded, size: 16),
-          label: Text(AppLocalizations.of(context).t('More')),
+          label: Text('More'),
         ),
       if (_canLike)
         MdblistSaveButton(

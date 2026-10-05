@@ -1,7 +1,6 @@
 import '../../theme/app_looks.dart';
 import 'package:flutter/material.dart';
 
-import '../../l10n/app_localizations.dart';
 
 import '../../services/analytics_service.dart';
 import '../../services/storage_service.dart';
@@ -168,7 +167,7 @@ class _AppThemePageState extends State<AppThemePage> {
                           _optionRow(
                             app: app,
                             id: AppThemes.legacyId,
-                            label: AppLocalizations.of(context).t('Debrify Classic'),
+                            label: 'Debrify Classic',
                             subtitle:
                                 'Today\'s Debrify, untouched. Details pages '
                                 'keep their own theme choice.',

@@ -1006,13 +1006,13 @@ class _SettingsTvLayoutState extends State<SettingsTvLayout> {
         return [
           SettingsLookHero(
             label: widget.looksLabel,
-            subtitle: AppLocalizations.of(context).t('Full-bleed art, borderless focus, and ambient detail.'),
+            subtitle: 'Full-bleed art, borderless focus, and ambient detail.',
             onTap: widget.onOpenLooks,
             focusNode: _paneNodes[0],
           ),
           SizedBox(height: 18),
           SettingsSection(
-            title: AppLocalizations.of(context).t('Presets'),
+            title: 'Presets',
             blurb:
                 'One pick that sets the theme, layouts and launch '
                 'animation together.',
@@ -1032,7 +1032,7 @@ class _SettingsTvLayoutState extends State<SettingsTvLayout> {
           // indexes `_paneNodes` directly and a test asserts the indices are
           // contiguous from zero, because a gap is a row the remote skips.
           SettingsSection(
-            title: AppLocalizations.of(context).t('Theme'),
+            title: 'Theme',
             blurb: 'Colour, focus and motion. Applies everywhere in the app.',
             children: [
               SettingsTile.spec(
@@ -1057,7 +1057,7 @@ class _SettingsTvLayoutState extends State<SettingsTvLayout> {
           ),
           SizedBox(height: 18),
           SettingsSection(
-            title: AppLocalizations.of(context).t('Screen layouts'),
+            title: 'Screen layouts',
             blurb: 'Where things sit. Each screen is chosen separately.',
             children: [
               SettingsTile.spec(
@@ -1074,7 +1074,7 @@ class _SettingsTvLayoutState extends State<SettingsTvLayout> {
               ),
               SettingsTile.spec(
                 SettingsRows.collectionListStyle,
-                subtitle: AppLocalizations.of(context).t('Grid · Gallery · Filmstrip · Journal'),
+                subtitle: 'Grid · Gallery · Filmstrip · Journal',
                 onTap:
                     widget.onOpenCollectionListStyle ??
                     () => pushSettingsPage(
@@ -1135,7 +1135,7 @@ class _SettingsTvLayoutState extends State<SettingsTvLayout> {
           ),
           const SizedBox(height: 18),
           SettingsSection(
-            title: AppLocalizations.of(context).t('Display'),
+            title: 'Display',
             blurb:
                 'How this device draws. These affect performance, not '
                 'style.',
@@ -1170,7 +1170,7 @@ class _SettingsTvLayoutState extends State<SettingsTvLayout> {
           if (PlatformUtil.isAndroidTvCached) ...[
             SizedBox(height: 18),
             SettingsSection(
-              title: AppLocalizations.of(context).t('Player'),
+              title: 'Player',
               blurb: 'The on-screen controls during playback on this TV.',
               children: [
                 SettingsTile.spec(

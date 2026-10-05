@@ -1,7 +1,6 @@
 import '../../theme/app_looks.dart';
 import 'package:flutter/material.dart';
 
-import '../../l10n/app_localizations.dart';
 
 import '../../services/analytics_service.dart';
 import '../../services/storage_service.dart';
@@ -93,13 +92,13 @@ class _ParentsGuideStylePageState extends State<ParentsGuideStylePage> {
     final t = AppThemeScope.of(context).settings;
     if (_loading) {
       return SettingsPageScaffold(
-        title: AppLocalizations.of(context).t('Parents Guide'),
+        title: 'Parents Guide',
         body: Center(child: CircularProgressIndicator()),
       );
     }
 
     return SettingsPageScaffold(
-      title: AppLocalizations.of(context).t('Parents Guide'),
+      title: 'Parents Guide',
       body: SingleChildScrollView(
         padding: EdgeInsets.all(16),
         child: Center(
@@ -110,7 +109,7 @@ class _ParentsGuideStylePageState extends State<ParentsGuideStylePage> {
               children: [
                 const SettingsPageHeader(
                   icon: Icons.family_restroom_rounded,
-                  title: AppLocalizations.of(context).t('Parents Guide'),
+                  title: 'Parents Guide',
                   subtitle:
                       'How content advisories are presented on title pages',
                 ),

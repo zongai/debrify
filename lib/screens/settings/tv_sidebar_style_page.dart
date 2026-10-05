@@ -1,7 +1,6 @@
 import '../../theme/app_looks.dart';
 import 'package:flutter/material.dart';
 
-import '../../l10n/app_localizations.dart';
 
 import '../../services/analytics_service.dart';
 import '../../services/main_page_bridge.dart';
@@ -127,13 +126,13 @@ class _TvSidebarStylePageState extends State<TvSidebarStylePage> {
     final t = AppThemeScope.of(context).settings;
     if (_loading) {
       return SettingsPageScaffold(
-        title: AppLocalizations.of(context).t('Sidebar Style'),
+        title: 'Sidebar Style',
         body: Center(child: CircularProgressIndicator()),
       );
     }
 
     return SettingsPageScaffold(
-      title: AppLocalizations.of(context).t('Sidebar Style'),
+      title: 'Sidebar Style',
       body: SingleChildScrollView(
         padding: EdgeInsets.all(16),
         child: Center(
@@ -144,8 +143,8 @@ class _TvSidebarStylePageState extends State<TvSidebarStylePage> {
               children: [
                 const SettingsPageHeader(
                   icon: Icons.view_sidebar_rounded,
-                  title: AppLocalizations.of(context).t('Sidebar Style'),
-                  subtitle: AppLocalizations.of(context).t('How the navigation rail looks on this TV'),
+                  title: 'Sidebar Style',
+                  subtitle: 'How the navigation rail looks on this TV',
                 ),
                 SizedBox(height: 24),
                 Focus(
@@ -162,11 +161,11 @@ class _TvSidebarStylePageState extends State<TvSidebarStylePage> {
                 ),
                 const SizedBox(height: 18),
                 SettingsSection(
-                  title: AppLocalizations.of(context).t('Items'),
+                  title: 'Items',
                   children: [
                     SettingsTile(
                       icon: Icons.low_priority_rounded,
-                      title: AppLocalizations.of(context).t('Order & Names'),
+                      title: 'Order & Names',
                       subtitle:
                           'Rearrange destinations and rename sidebar labels',
                       trailing: const Icon(Icons.chevron_right_rounded),

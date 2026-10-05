@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../l10n/app_localizations.dart';
 import '../../services/storage_service.dart';
 import '../../services/premiumize_account_service.dart';
 import '../../services/analytics_service.dart';
@@ -211,14 +210,14 @@ class _PremiumizeSettingsPageState extends State<PremiumizeSettingsPage> {
                 // Land DPAD focus on the safe choice when the dialog opens.
                 autofocus: true,
                 onPressed: () => Navigator.pop(context, false),
-                child: Text(AppLocalizations.of(context).t('Cancel')),
+                child: Text('Cancel'),
               ),
             ),
             _FocusRing(
               radius: 12,
               child: FilledButton(
                 onPressed: () => Navigator.pop(context, true),
-                child: Text(AppLocalizations.of(context).t('Hide')),
+                child: Text('Hide'),
               ),
             ),
           ],
@@ -235,7 +234,7 @@ class _PremiumizeSettingsPageState extends State<PremiumizeSettingsPage> {
       await showDialog(
         context: context,
         builder: (context) => AlertDialog(
-          title: Text(AppLocalizations.of(context).t('Security Restriction')),
+          title: Text('Security Restriction'),
           content: SingleChildScrollView(
             child: Text(
               'To show Premiumize in navigation again, you must logout and login. This is a security measure to prevent unauthorized changes.',
@@ -279,7 +278,7 @@ class _PremiumizeSettingsPageState extends State<PremiumizeSettingsPage> {
     final t = AppThemeScope.of(context).settings;
     if (_loading) {
       return SettingsPageScaffold(
-        title: AppLocalizations.of(context).t('Premiumize Settings'),
+        title: 'Premiumize Settings',
         body: Center(child: CircularProgressIndicator()),
       );
     }
@@ -287,7 +286,7 @@ class _PremiumizeSettingsPageState extends State<PremiumizeSettingsPage> {
     final user = PremiumizeAccountService.currentUser;
 
     return SettingsPageScaffold(
-      title: AppLocalizations.of(context).t('Premiumize Settings'),
+      title: 'Premiumize Settings',
       body: ListView(
         padding: EdgeInsets.all(16),
         children: [
@@ -449,7 +448,7 @@ class _PremiumizeSettingsPageState extends State<PremiumizeSettingsPage> {
                                                               strokeWidth: 2,
                                                             ),
                                                       )
-                                                    : Text(AppLocalizations.of(context).t('Save')),
+                                                    : Text('Save'),
                                               ),
                                             ),
                                           ),
@@ -470,7 +469,7 @@ class _PremiumizeSettingsPageState extends State<PremiumizeSettingsPage> {
                                                           _addApiKeyButtonFocusNode,
                                                         );
                                                       },
-                                                child: Text(AppLocalizations.of(context).t('Cancel')),
+                                                child: Text('Cancel'),
                                               ),
                                             ),
                                           ),
@@ -514,7 +513,7 @@ class _PremiumizeSettingsPageState extends State<PremiumizeSettingsPage> {
                                               focusNode: _logoutButtonFocusNode,
                                               onPressed: _deleteKey,
                                               icon: const Icon(Icons.logout),
-                                              label: Text(AppLocalizations.of(context).t('Logout')),
+                                              label: Text('Logout'),
                                               style: OutlinedButton.styleFrom(
                                                 foregroundColor: t.danger,
                                                 side: BorderSide(
@@ -546,7 +545,7 @@ class _PremiumizeSettingsPageState extends State<PremiumizeSettingsPage> {
                                                   });
                                             },
                                             icon: Icon(Icons.add),
-                                            label: Text(AppLocalizations.of(context).t('Add API Key')),
+                                            label: Text('Add API Key'),
                                           ),
                                         ),
                                       ],

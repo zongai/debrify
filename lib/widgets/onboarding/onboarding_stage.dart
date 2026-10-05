@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../l10n/app_localizations.dart';
 import 'package:flutter/services.dart';
 
 import '../../theme/app_theme_scope.dart';
@@ -305,7 +304,7 @@ class _OnboardBackControlState extends State<OnboardBackControl> {
     return Semantics(
       button: true,
       enabled: widget.enabled,
-      label: AppLocalizations.of(context).t('Back'),
+      label: 'Back',
       child: Focus(
         focusNode: widget.controller.backNode,
         canRequestFocus: widget.enabled,

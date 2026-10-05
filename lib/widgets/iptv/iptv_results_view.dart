@@ -15,7 +15,6 @@ import 'package:flutter/foundation.dart'
         setEquals;
 import 'package:flutter/material.dart';
 
-import '../../l10n/app_localizations.dart';
 import 'package:flutter/services.dart';
 import '../../models/iptv_playlist.dart';
 import '../../services/debrify_image_cache.dart';
@@ -884,7 +883,7 @@ class IptvResultsViewState extends State<IptvResultsView>
   Future<void> _promptCreateList() async {
     final name = await showIptvListNameDialog(
       context: context,
-      title: AppLocalizations.of(context).t('New list'),
+      title: 'New list',
       confirmLabel: 'Create',
       existingNames: [for (final list in _lists) list.name],
     );
@@ -3334,12 +3333,12 @@ class IptvResultsViewState extends State<IptvResultsView>
         actions: [
           TextButton(
             onPressed: () => Navigator.of(dialogContext).pop(false),
-            child: Text(AppLocalizations.of(context).t('Cancel')),
+            child: Text('Cancel'),
           ),
           TextButton(
             autofocus: true,
             onPressed: () => Navigator.of(dialogContext).pop(true),
-            child: Text(AppLocalizations.of(context).t('Hide')),
+            child: Text('Hide'),
           ),
         ],
       ),
@@ -4677,12 +4676,12 @@ class IptvResultsViewState extends State<IptvResultsView>
       await _refreshAfterPlayback();
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(AppLocalizations.of(context).t('Removed from Continue Watching'))),
+        SnackBar(content: Text('Removed from Continue Watching')),
       );
     } catch (_) {
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(AppLocalizations.of(context).t('Could not remove item. Please try again.'))),
+        SnackBar(content: Text('Could not remove item. Please try again.')),
       );
     }
   }
@@ -5083,7 +5082,7 @@ class IptvResultsViewState extends State<IptvResultsView>
       // The probe is capped at 3s but still long enough that a silent button
       // reads as broken on a remote — say what's happening.
       messenger.showSnackBar(
-        SnackBar(content: Text(AppLocalizations.of(context).t('Checking channel…')),
+        SnackBar(content: Text('Checking channel…'),
           duration: Duration(seconds: 3),
         ),
       );
@@ -5111,7 +5110,7 @@ class IptvResultsViewState extends State<IptvResultsView>
       if (!await LiveRecordingService.ensureEngineReady()) {
         if (!mounted) return;
         messenger.showSnackBar(
-          SnackBar(content: Text(AppLocalizations.of(context).t('Storage access is needed to save recordings')),
+          SnackBar(content: Text('Storage access is needed to save recordings'),
           ),
         );
         return;
@@ -5264,12 +5263,12 @@ class IptvResultsViewState extends State<IptvResultsView>
         actions: [
           TextButton(
             onPressed: () => Navigator.of(dialogContext).pop(false),
-            child: Text(AppLocalizations.of(context).t('Cancel')),
+            child: Text('Cancel'),
           ),
           TextButton(
             autofocus: true,
             onPressed: () => Navigator.of(dialogContext).pop(true),
-            child: Text(AppLocalizations.of(context).t('Record')),
+            child: Text('Record'),
           ),
         ],
       ),
@@ -5448,7 +5447,7 @@ class IptvResultsViewState extends State<IptvResultsView>
                     unawaited(_loadSettings(forceReload: true));
                   },
                   icon: Icon(Icons.refresh),
-                  label: Text(AppLocalizations.of(context).t('Retry')),
+                  label: Text('Retry'),
                 ),
               ],
             ),
@@ -5589,7 +5588,7 @@ class IptvResultsViewState extends State<IptvResultsView>
           ),
           IconButton(
             visualDensity: VisualDensity.compact,
-            tooltip: AppLocalizations.of(context).t('Dismiss'),
+            tooltip: 'Dismiss',
             icon: Icon(
               Icons.close_rounded,
               size: 16,
@@ -6132,7 +6131,7 @@ class IptvResultsViewState extends State<IptvResultsView>
           if (hasMore) ...[
             const SizedBox(width: 5),
             _spotlightIconAction(
-              tooltip: AppLocalizations.of(context).t('More channel actions'),
+              tooltip: 'More channel actions',
               icon: Icons.more_horiz_rounded,
               onPressed: () =>
                   _showSpotlightChannelActions(channel, programme: programme),
@@ -6200,7 +6199,7 @@ class IptvResultsViewState extends State<IptvResultsView>
         if ((canSave && _customLists.isNotEmpty) ||
             IptvEpgService.isEpgCapable(channel))
           _spotlightIconAction(
-            tooltip: AppLocalizations.of(context).t('More channel actions'),
+            tooltip: 'More channel actions',
             icon: Icons.more_horiz_rounded,
             onPressed: () =>
                 _showSpotlightChannelActions(channel, programme: programme),
@@ -6215,7 +6214,7 @@ class IptvResultsViewState extends State<IptvResultsView>
   ) {
     if (channel.contentType == 'series') {
       return (
-        label: AppLocalizations.of(context).t('Open'),
+        label: 'Open',
         icon: Icons.open_in_new_rounded,
         action: () => unawaited(_playChannel(channel)),
       );
@@ -6224,14 +6223,14 @@ class IptvResultsViewState extends State<IptvResultsView>
       final now = DateTime.now();
       if (programme.airsAt(now)) {
         return (
-          label: AppLocalizations.of(context).t('Watch'),
+          label: 'Watch',
           icon: Icons.play_arrow_rounded,
           action: () => unawaited(_playChannel(channel)),
         );
       }
       if (IptvEpgService.isCatchupAvailable(channel, programme)) {
         return (
-          label: AppLocalizations.of(context).t('Replay'),
+          label: 'Replay',
           icon: Icons.replay_rounded,
           action: () => unawaited(_playCatchup(channel, programme)),
         );
@@ -6240,20 +6239,20 @@ class IptvResultsViewState extends State<IptvResultsView>
         final recordProgramme = _recordProgrammeActionFor(channel);
         if (recordProgramme != null) {
           return (
-            label: AppLocalizations.of(context).t('Record'),
+            label: 'Record',
             icon: Icons.fiber_manual_record_rounded,
             action: () => recordProgramme(programme),
           );
         }
       }
       return (
-        label: AppLocalizations.of(context).t('Guide'),
+        label: 'Guide',
         icon: Icons.calendar_month_rounded,
         action: () => _openSchedulePane(channel),
       );
     }
     return (
-      label: AppLocalizations.of(context).t('Watch'),
+      label: 'Watch',
       icon: Icons.play_arrow_rounded,
       action: () => unawaited(_playChannel(channel)),
     );
@@ -6265,7 +6264,7 @@ class IptvResultsViewState extends State<IptvResultsView>
     final desktopCapture = _desktopCaptureFor(channel);
     if (desktopCapture != null) {
       return (
-        label: AppLocalizations.of(context).t('Stop'),
+        label: 'Stop',
         icon: Icons.stop_rounded,
         action: () => unawaited(_stageStopDesktopRecording(desktopCapture)),
       );
@@ -6275,7 +6274,7 @@ class IptvResultsViewState extends State<IptvResultsView>
         : null;
     if (androidTask != null) {
       return (
-        label: AppLocalizations.of(context).t('Stop'),
+        label: 'Stop',
         icon: Icons.stop_rounded,
         action: () =>
             unawaited(_stageStopAndroidRecording(channel, androidTask)),
@@ -6283,7 +6282,7 @@ class IptvResultsViewState extends State<IptvResultsView>
     }
     if (_pageCanRecord && _channelEngineRecordable(channel)) {
       return (
-        label: AppLocalizations.of(context).t('Record'),
+        label: 'Record',
         icon: Icons.fiber_manual_record_rounded,
         action: () => unawaited(_stageRecordNow(channel)),
       );
@@ -6394,13 +6393,13 @@ class IptvResultsViewState extends State<IptvResultsView>
               if (canSave && _customLists.isNotEmpty)
                 nextTile(
                   icon: Icons.bookmark_add_outlined,
-                  label: AppLocalizations.of(context).t('Save to list'),
+                  label: 'Save to list',
                   onPressed: () => unawaited(_openListPicker(channel)),
                 ),
               if (IptvEpgService.isEpgCapable(channel))
                 nextTile(
                   icon: Icons.calendar_month_rounded,
-                  label: AppLocalizations.of(context).t('Full guide'),
+                  label: 'Full guide',
                   onPressed: () => _openSchedulePane(channel),
                 ),
             ],
@@ -6633,7 +6632,7 @@ class IptvResultsViewState extends State<IptvResultsView>
                     padding: const EdgeInsets.only(left: 16, right: 8),
                     child: Row(
                       children: [
-                        Expanded(child: Text(AppLocalizations.of(context).t('Sources'))),
+                        Expanded(child: Text('Sources')),
                         CloseButton(
                           onPressed: () => Navigator.of(dialogContext).pop(),
                         ),
@@ -7794,7 +7793,7 @@ class IptvResultsViewState extends State<IptvResultsView>
               FilledButton.icon(
                 onPressed: _retryLoad,
                 icon: const Icon(Icons.refresh),
-                label: Text(AppLocalizations.of(context).t('Retry')),
+                label: Text('Retry'),
               ),
             ],
           ),

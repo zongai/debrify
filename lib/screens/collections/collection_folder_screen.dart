@@ -12,7 +12,6 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 
-import '../../l10n/app_localizations.dart';
 import 'package:flutter/services.dart';
 
 import '../../models/home_collection.dart';
@@ -995,7 +994,7 @@ class _CollectionFolderScreenState extends State<CollectionFolderScreen> {
                   children: [
                     Expanded(
                       child: SeeAllHeader(
-                        title: AppLocalizations.of(context).t('Collections'),
+                        title: 'Collections',
                         editorial: true,
                         editorialGutter: _headerGutter,
                         subtitle: [
@@ -1103,7 +1102,7 @@ class _CollectionFolderScreenState extends State<CollectionFolderScreen> {
                         _openRequest++;
                         _openingTitle = null;
                       }),
-                      child: Text(AppLocalizations.of(context).t('Cancel')),
+                      child: Text('Cancel'),
                     ),
                   ],
                 ),
@@ -1240,7 +1239,7 @@ class _CollectionFolderScreenState extends State<CollectionFolderScreen> {
           TextButton(
             autofocus: !retry,
             onPressed: () => Navigator.pop(context, false),
-            child: Text(AppLocalizations.of(context).t('Close')),
+            child: Text('Close'),
           ),
           if (retry)
             TextButton(
@@ -1287,7 +1286,7 @@ class _CollectionFolderScreenState extends State<CollectionFolderScreen> {
   );
 
   Widget _sortChip() => StremioDropdown<String>(
-    label: AppLocalizations.of(context).t('Sort'),
+    label: 'Sort',
     editorial: _styledCollectionList,
     icon: Icons.swap_vert_rounded,
     value: _sort,
@@ -1334,7 +1333,7 @@ class _CollectionFolderScreenState extends State<CollectionFolderScreen> {
             if (_tabs) ...[
               if (_rails.isNotEmpty && widget.sourceKey == null)
                 StremioDropdown<int>(
-                  label: AppLocalizations.of(context).t('List'),
+                  label: 'List',
                   editorial: _styledCollectionList,
                   icon: Icons.format_list_bulleted_rounded,
                   value: _tab,
@@ -1352,7 +1351,7 @@ class _CollectionFolderScreenState extends State<CollectionFolderScreen> {
             ] else ...[
               if (_offersAll)
                 StremioDropdown<_View>(
-                  label: AppLocalizations.of(context).t('View'),
+                  label: 'View',
                   editorial: _styledCollectionList,
                   icon: Icons.view_carousel_outlined,
                   value: _view,
@@ -1819,7 +1818,7 @@ class _CollectionFolderScreenState extends State<CollectionFolderScreen> {
                     child: TextButton(
                       focusNode: _detailsNode,
                       onPressed: () => _showIssueDetails(detail),
-                      child: Text(AppLocalizations.of(context).t('View details')),
+                      child: Text('View details'),
                     ),
                   ),
                 const SizedBox(height: 18),
@@ -1837,7 +1836,7 @@ class _CollectionFolderScreenState extends State<CollectionFolderScreen> {
                     focusNode: _retryNode,
                     onPressed: _retryCurrent,
                     icon: Icon(Icons.refresh_rounded, size: 18),
-                    label: Text(AppLocalizations.of(context).t('Retry')),
+                    label: Text('Retry'),
                     style: OutlinedButton.styleFrom(
                       foregroundColor: app.core.tx,
                       side: BorderSide(color: app.seeAll.accentBorder),

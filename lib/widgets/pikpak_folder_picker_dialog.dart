@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../l10n/app_localizations.dart';
 import 'package:flutter/services.dart';
 import '../services/pikpak_api_service.dart';
 import '../services/android_native_downloader.dart';
@@ -578,7 +577,7 @@ class _PikPakFolderPickerDialogState extends State<PikPakFolderPickerDialog> {
                                   ElevatedButton.icon(
                                     onPressed: _loadRootFolders,
                                     icon: const Icon(Icons.refresh, size: 18),
-                                    label: Text(AppLocalizations.of(context).t('Retry')),
+                                    label: Text('Retry'),
                                   ),
                                 ],
                               ),
@@ -640,7 +639,7 @@ class _PikPakFolderPickerDialogState extends State<PikPakFolderPickerDialog> {
                               child: TextButton(
                                 focusNode: _cancelButtonFocusNode,
                                 onPressed: () => Navigator.pop(context),
-                                child: Text(AppLocalizations.of(context).t('Cancel')),
+                                child: Text('Cancel'),
                               ),
                             ),
                             const SizedBox(width: 12),
@@ -658,7 +657,7 @@ class _PikPakFolderPickerDialogState extends State<PikPakFolderPickerDialog> {
                                         }
                                       : null,
                                   icon: Icon(Icons.check, size: 18),
-                                  label: Text(AppLocalizations.of(context).t('Select')),
+                                  label: Text('Select'),
                                 ),
                               ),
                             ),
@@ -1105,14 +1104,14 @@ class _NewFolderDialogState extends State<_NewFolderDialog> {
                   TextButton(
                     focusNode: _cancelButtonFocusNode,
                     onPressed: () => Navigator.pop(context),
-                    child: Text(AppLocalizations.of(context).t('Cancel')),
+                    child: Text('Cancel'),
                   ),
                   SizedBox(width: 12),
                   FilledButton.icon(
                     focusNode: _createButtonFocusNode,
                     onPressed: _validateAndSubmit,
                     icon: const Icon(Icons.add, size: 18),
-                    label: Text(AppLocalizations.of(context).t('Create')),
+                    label: Text('Create'),
                   ),
                 ],
               ),

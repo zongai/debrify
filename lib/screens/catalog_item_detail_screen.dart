@@ -1334,7 +1334,7 @@ class _CatalogItemDetailScreenState extends State<CatalogItemDetailScreen>
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(width: 70, child: Text(AppLocalizations.of(context).t('Director'), style: labelStyle)),
+                SizedBox(width: 70, child: Text('Director', style: labelStyle)),
                 Expanded(child: Text(extra.director!, style: valueStyle)),
               ],
             ),
@@ -1344,7 +1344,7 @@ class _CatalogItemDetailScreenState extends State<CatalogItemDetailScreen>
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(width: 70, child: Text(AppLocalizations.of(context).t('Stars'), style: labelStyle)),
+                SizedBox(width: 70, child: Text('Stars', style: labelStyle)),
                 Expanded(
                   child: Text(
                     extra.stars.take(4).join(', '),
@@ -1656,7 +1656,7 @@ class _CatalogItemDetailScreenState extends State<CatalogItemDetailScreen>
                   borderRadius: BorderRadius.circular(4),
                 )
               : Text(
-                  AppLocalizations.of(context).t('More Like This'),
+                  'More Like This',
                   style: TextStyle(
                     color: Colors.white.withValues(alpha: 0.92),
                     fontSize: _wide && !tight ? 18 : 15,
@@ -2740,7 +2740,7 @@ class _QuickActions extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         Text(
-          AppLocalizations.of(context).t('QUICK ACTIONS'),
+          'QUICK ACTIONS',
           style: TextStyle(
             color: Colors.white.withValues(alpha: 0.5),
             fontSize: 10,

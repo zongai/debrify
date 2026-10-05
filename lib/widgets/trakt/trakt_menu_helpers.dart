@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../l10n/app_localizations.dart';
 import '../../models/custom_series_identity.dart';
 import '../../models/stremio_addon.dart';
 import '../../models/tracking_source.dart';
@@ -297,7 +296,7 @@ Future<void> handleTraktMenuAction(
           actions: [
             TextButton(
               onPressed: () => Navigator.pop(ctx, false),
-              child: Text(AppLocalizations.of(context).t('Cancel')),
+              child: Text('Cancel'),
             ),
             TextButton(
               onPressed: () => Navigator.pop(ctx, true),
@@ -318,7 +317,7 @@ Future<void> handleTraktMenuAction(
               children: [
                 CircularProgressIndicator(),
                 SizedBox(width: 20),
-                Expanded(child: Text(AppLocalizations.of(context).t('Clearing watch progress…'))),
+                Expanded(child: Text('Clearing watch progress…')),
               ],
             ),
           ),
@@ -437,7 +436,7 @@ List<TraktMenuOption> buildTraktAddOnlyMenuOptions({
         action: TraktItemMenuAction.addToStremioTv,
         icon: Icons.live_tv_rounded,
         color: Color(0xFF22C55E),
-        label: AppLocalizations.of(context).t('Add to Stremio TV'),
+        label: 'Add to Stremio TV',
         caption: 'Stremio TV',
       ),
     if (isSeries)

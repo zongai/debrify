@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../l10n/app_localizations.dart';
 import '../../models/stremio_addon.dart';
 import '../../models/tracking_source.dart';
 import 'simkl_service.dart';
@@ -126,12 +125,12 @@ Future<bool> confirmSimklTitleRemoval(
       actions: [
         TextButton(
           onPressed: () => Navigator.of(dialogContext).pop(false),
-          child: Text(AppLocalizations.of(context).t('Cancel')),
+          child: Text('Cancel'),
         ),
         TextButton(
           onPressed: () => Navigator.of(dialogContext).pop(true),
           style: TextButton.styleFrom(foregroundColor: Color(0xFFFF8B8B)),
-          child: Text(AppLocalizations.of(context).t('Remove')),
+          child: Text('Remove'),
         ),
       ],
     ),
@@ -362,7 +361,7 @@ List<SimklMenuOption> buildSimklMenuOptions({
         action: SimklItemMenuAction.removeFromContinueWatching,
         icon: Icons.playlist_remove_rounded,
         color: Color(0xFFF87171),
-        label: AppLocalizations.of(context).t('Remove from Continue Watching'),
+        label: 'Remove from Continue Watching',
         caption: 'Remove',
       ),
     SimklMenuOption(

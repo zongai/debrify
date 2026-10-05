@@ -1,7 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-import '../../../l10n/app_localizations.dart';
 
 import 'tv_tappable.dart';
 import 'package:media_kit/media_kit.dart' as mk;
@@ -339,7 +338,7 @@ class TracksSheet {
                         children: [
                           _buildTab(
                             icon: Icons.audiotrack_rounded,
-                            label: AppLocalizations.of(context).t('Audio'),
+                            label: 'Audio',
                             badge: audios.isNotEmpty
                                 ? '${audios.length}'
                                 : null,
@@ -349,7 +348,7 @@ class TracksSheet {
                           ),
                           _buildTab(
                             icon: Icons.subtitles_rounded,
-                            label: AppLocalizations.of(context).t('Subtitles'),
+                            label: 'Subtitles',
                             badge: _subtitleBadge(
                               embeddedSubs,
                               addonSlots,
@@ -361,7 +360,7 @@ class TracksSheet {
                           ),
                           _buildTab(
                             icon: Icons.text_format_rounded,
-                            label: AppLocalizations.of(context).t('Style'),
+                            label: 'Style',
                             isSelected: selectedTabIndex == 2,
                             onTap: () =>
                                 setModalState(() => selectedTabIndex = 2),
@@ -1026,8 +1025,8 @@ class _SubtitlesTab extends StatelessWidget {
         padding: padding,
         children: [
           _TrackTile(
-            title: AppLocalizations.of(context).t('Off'),
-            subtitle: AppLocalizations.of(context).t('Disable subtitles'),
+            title: 'Off',
+            subtitle: 'Disable subtitles',
             isSelected: selectedSub == 'no',
             onTap: () async {
               final realChange = _isRealSubtitleChange('no');
@@ -1288,7 +1287,7 @@ class _StyleTab extends StatelessWidget {
 
           // Settings grid
           _StyleOption(
-            label: AppLocalizations.of(context).t('Size'),
+            label: 'Size',
             value: subtitleStyle.size.label,
             onDecrease: () async {
               final newIndex = (subtitleStyle.sizeIndex - 1).clamp(
@@ -1309,7 +1308,7 @@ class _StyleTab extends StatelessWidget {
           ),
 
           _StyleOption(
-            label: AppLocalizations.of(context).t('Style'),
+            label: 'Style',
             value: subtitleStyle.style.label,
             onDecrease: () async {
               final newIndex = (subtitleStyle.styleIndex - 1).clamp(
@@ -1330,7 +1329,7 @@ class _StyleTab extends StatelessWidget {
           ),
 
           _StyleOption(
-            label: AppLocalizations.of(context).t('Color'),
+            label: 'Color',
             value: subtitleStyle.color.label,
             valueColor: subtitleStyle.color.color,
             onDecrease: () async {
@@ -1352,7 +1351,7 @@ class _StyleTab extends StatelessWidget {
           ),
 
           _StyleOption(
-            label: AppLocalizations.of(context).t('Outline'),
+            label: 'Outline',
             value: subtitleStyle.outlineColor.label,
             valueColor: subtitleStyle.outlineColor.color,
             onDecrease: () async {
@@ -1382,7 +1381,7 @@ class _StyleTab extends StatelessWidget {
           ),
 
           _StyleOption(
-            label: AppLocalizations.of(context).t('Background'),
+            label: 'Background',
             value: subtitleStyle.background.label,
             onDecrease: () async {
               final newIndex = (subtitleStyle.bgIndex - 1).clamp(
@@ -1403,7 +1402,7 @@ class _StyleTab extends StatelessWidget {
           ),
 
           _StyleOption(
-            label: AppLocalizations.of(context).t('Font'),
+            label: 'Font',
             value: subtitleStyle.font.label,
             onDecrease: () async {
               final newIndex = await SubtitleFontService.instance
@@ -1431,7 +1430,7 @@ class _StyleTab extends StatelessWidget {
           ),
 
           _StyleOption(
-            label: AppLocalizations.of(context).t('Bold'),
+            label: 'Bold',
             value: subtitleStyle.bold ? 'On' : 'Off',
             onDecrease: () async {
               final newBold = !subtitleStyle.bold;
@@ -1446,7 +1445,7 @@ class _StyleTab extends StatelessWidget {
           ),
 
           _StyleOption(
-            label: AppLocalizations.of(context).t('Elevation'),
+            label: 'Elevation',
             value: subtitleStyle.elevation.label,
             onDecrease: () async {
               final newIndex = (subtitleStyle.elevationIndex - 1).clamp(
@@ -1522,7 +1521,7 @@ class _StyleTab extends StatelessWidget {
               onStyleChanged(newSettings);
             },
             icon: Icon(Icons.refresh_rounded, size: 18),
-            label: Text(AppLocalizations.of(context).t('Reset to Defaults')),
+            label: Text('Reset to Defaults'),
             style: TextButton.styleFrom(
               foregroundColor: Colors.white60,
               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),

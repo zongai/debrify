@@ -4,7 +4,6 @@ import 'dart:typed_data';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 
-import '../../l10n/app_localizations.dart';
 import 'package:flutter/services.dart';
 
 import '../../models/profiles/profile_policy.dart';
@@ -144,7 +143,7 @@ class _RemoteControlScreenState extends State<RemoteControlScreen> {
               appBar: AppBar(
                 backgroundColor: app.core.ground,
                 foregroundColor: app.core.tx,
-                title: Text(AppLocalizations.of(context).t('Remote')),
+                title: Text('Remote'),
                 actions: [
                   TextButton(
                     onPressed: busy ? null : _receiveInstead,
@@ -188,11 +187,11 @@ class _RemoteControlScreenState extends State<RemoteControlScreen> {
                               child: _activeView != 'navigate'
                                   ? FilledButton(
                                       onPressed: busy ? null : _closeView,
-                                      child: Text(AppLocalizations.of(context).t('Send')),
+                                      child: Text('Send'),
                                     )
                                   : OutlinedButton(
                                       onPressed: busy ? null : _closeView,
-                                      child: Text(AppLocalizations.of(context).t('Send')),
+                                      child: Text('Send'),
                                     ),
                             ),
                             const SizedBox(width: 10),
@@ -525,7 +524,7 @@ class _RemoteControlScreenState extends State<RemoteControlScreen> {
               style: FilledButton.styleFrom(
                 backgroundColor: AppThemeScope.of(context).core.tx,
               ),
-              child: Text(AppLocalizations.of(context).t('Connect')),
+              child: Text('Connect'),
             ),
           ],
         );
@@ -858,7 +857,7 @@ class _RemoteControlScreenState extends State<RemoteControlScreen> {
                   );
                 },
                 icon: Icon(Icons.arrow_back, size: 20),
-                label: Text(AppLocalizations.of(context).t('Back')),
+                label: Text('Back'),
                 style: OutlinedButton.styleFrom(
                   foregroundColor: AppThemeScope.of(context).core.tx,
                   side: BorderSide(

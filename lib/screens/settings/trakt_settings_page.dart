@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 
-import '../../l10n/app_localizations.dart';
 import 'package:flutter/services.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -280,13 +279,13 @@ class _TraktSettingsPageState extends State<TraktSettingsPage> {
     final t = app.settings;
     if (_loading) {
       return SettingsPageScaffold(
-        title: AppLocalizations.of(context).t('Trakt Settings'),
+        title: 'Trakt Settings',
         body: Center(child: CircularProgressIndicator()),
       );
     }
 
     return SettingsPageScaffold(
-      title: AppLocalizations.of(context).t('Trakt Settings'),
+      title: 'Trakt Settings',
       body: ListView(
         padding: EdgeInsets.all(16),
         children: [
@@ -358,7 +357,7 @@ class _TraktSettingsPageState extends State<TraktSettingsPage> {
                                   focusNode: _primaryButtonFocus,
                                   onPressed: _logout,
                                   icon: const Icon(Icons.logout),
-                                  label: Text(AppLocalizations.of(context).t('Logout')),
+                                  label: Text('Logout'),
                                   style: OutlinedButton.styleFrom(
                                     foregroundColor: t.danger,
                                     side: BorderSide(
@@ -527,7 +526,7 @@ class _TraktSettingsPageState extends State<TraktSettingsPage> {
             child: OutlinedButton(
               focusNode: _cancelFocus,
               onPressed: _stopDeviceCodeFlow,
-              child: Text(AppLocalizations.of(context).t('Cancel')),
+              child: Text('Cancel'),
             ),
           ),
         ),

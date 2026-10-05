@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../l10n/app_localizations.dart';
 import '../../theme/app_theme_scope.dart';
 import 'package:flutter/services.dart';
 
@@ -199,7 +198,7 @@ class _RemoteKeyboardInputState extends State<RemoteKeyboardInput> {
                 child: OutlinedButton.icon(
                   onPressed: _clearField,
                   icon: const Icon(Icons.backspace_outlined, size: 18),
-                  label: Text(AppLocalizations.of(context).t('Clear')),
+                  label: Text('Clear'),
                   style: OutlinedButton.styleFrom(
                     foregroundColor: AppThemeScope.of(
                       context,

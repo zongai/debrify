@@ -1,7 +1,6 @@
 import 'package:flutter/foundation.dart' show ValueListenable;
 import 'package:flutter/material.dart';
 
-import '../../../l10n/app_localizations.dart';
 
 import 'dock_style.dart';
 import 'styled_dock.dart';
@@ -455,7 +454,7 @@ class Controls extends StatelessWidget {
                         Icons.picture_in_picture_alt_rounded,
                         color: Colors.white,
                       ),
-                      tooltip: AppLocalizations.of(context).t('Picture in picture'),
+                      tooltip: 'Picture in picture',
                       onPressed: onPip,
                     )
                   else if (!hideBackButton)
@@ -566,7 +565,7 @@ class Controls extends StatelessWidget {
                                 if (hasPrevious)
                                   NetflixControlButton(
                                     icon: Icons.skip_previous_rounded,
-                                    label: AppLocalizations.of(context).t('Previous'),
+                                    label: 'Previous',
                                     onPressed: onPrevious!,
                                     isCompact: true,
                                   ),
@@ -613,7 +612,7 @@ class Controls extends StatelessWidget {
                                 if (hasNext)
                                   NetflixControlButton(
                                     icon: Icons.skip_next_rounded,
-                                    label: AppLocalizations.of(context).t('Next'),
+                                    label: 'Next',
                                     onPressed: onNext!,
                                     isCompact: true,
                                   ),
@@ -622,7 +621,7 @@ class Controls extends StatelessWidget {
                                 if (hasNextChannel && onNextChannel != null)
                                   NetflixControlButton(
                                     icon: Icons.tv_rounded,
-                                    label: AppLocalizations.of(context).t('Next Channel'),
+                                    label: 'Next Channel',
                                     onPressed: onNextChannel!,
                                     isCompact: true,
                                   ),
@@ -631,7 +630,7 @@ class Controls extends StatelessWidget {
                                 if (hasGuide && onShowGuide != null)
                                   NetflixControlButton(
                                     icon: Icons.grid_view_rounded,
-                                    label: AppLocalizations.of(context).t('Guide'),
+                                    label: 'Guide',
                                     onPressed: onShowGuide!,
                                     isCompact: true,
                                   ),
@@ -641,7 +640,7 @@ class Controls extends StatelessWidget {
                                     onShowIptvChannels != null)
                                   NetflixControlButton(
                                     icon: Icons.calendar_view_week_rounded,
-                                    label: AppLocalizations.of(context).t('Guide'),
+                                    label: 'Guide',
                                     onPressed: onShowIptvChannels!,
                                     isCompact: true,
                                   ),
@@ -651,7 +650,7 @@ class Controls extends StatelessWidget {
                                     onShowStremioSources != null)
                                   NetflixControlButton(
                                     icon: Icons.swap_horiz_rounded,
-                                    label: AppLocalizations.of(context).t('Sources'),
+                                    label: 'Sources',
                                     onPressed: onShowStremioSources!,
                                     isCompact: true,
                                   ),
@@ -697,7 +696,7 @@ class Controls extends StatelessWidget {
                                 // Audio & subtitles button
                                 NetflixControlButton(
                                   icon: Icons.subtitles_rounded,
-                                  label: AppLocalizations.of(context).t('Audio & Subs'),
+                                  label: 'Audio & Subs',
                                   onPressed: onShowTracks,
                                   isCompact: true,
                                 ),
@@ -706,7 +705,7 @@ class Controls extends StatelessWidget {
                                 if (hasPlaylist)
                                   NetflixControlButton(
                                     icon: Icons.playlist_play_rounded,
-                                    label: AppLocalizations.of(context).t('Episodes'),
+                                    label: 'Episodes',
                                     onPressed: onShowPlaylist,
                                     isCompact: true,
                                   ),
@@ -715,7 +714,7 @@ class Controls extends StatelessWidget {
                                 if (!hideRandom)
                                   NetflixControlButton(
                                     icon: Icons.shuffle_rounded,
-                                    label: AppLocalizations.of(context).t('Random'),
+                                    label: 'Random',
                                     onPressed: onRandom,
                                     isCompact: true,
                                   ),

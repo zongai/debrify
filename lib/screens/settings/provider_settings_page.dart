@@ -1,7 +1,6 @@
 import 'widgets/settings_load_error.dart';
 import 'package:flutter/material.dart';
 
-import '../../l10n/app_localizations.dart';
 import 'package:flutter/services.dart';
 import '../../services/analytics_service.dart';
 import '../../services/pikpak_api_service.dart';
@@ -210,13 +209,13 @@ class _ProviderSettingsPageState extends State<ProviderSettingsPage> {
   Widget build(BuildContext context) {
     if (_loading) {
       return SettingsPageScaffold(
-        title: AppLocalizations.of(context).t('Default Provider'),
+        title: 'Default Provider',
         body: Center(child: CircularProgressIndicator()),
       );
     }
     if (_loadFailed) {
       return SettingsPageScaffold(
-        title: AppLocalizations.of(context).t('Default Provider'),
+        title: 'Default Provider',
         body: SettingsLoadError(onRetry: _loadSettings),
       );
     }
@@ -229,7 +228,7 @@ class _ProviderSettingsPageState extends State<ProviderSettingsPage> {
         _pikpakAvailable;
 
     return SettingsPageScaffold(
-      title: AppLocalizations.of(context).t('Default Provider'),
+      title: 'Default Provider',
       body: FocusTraversalGroup(
         policy: OrderedTraversalPolicy(),
         child: SingleChildScrollView(
@@ -242,7 +241,7 @@ class _ProviderSettingsPageState extends State<ProviderSettingsPage> {
                 children: [
                   const SettingsPageHeader(
                     icon: Icons.cloud_sync_rounded,
-                    title: AppLocalizations.of(context).t('Default Provider'),
+                    title: 'Default Provider',
                     subtitle: 'Configure default provider for adding torrents',
                   ),
                   const SizedBox(height: 24),
@@ -332,7 +331,7 @@ class _ProviderSettingsPageState extends State<ProviderSettingsPage> {
           focusNode: _providerFocusNodes[nodeIndex],
           isFocused: _focusedIndex == nodeIndex,
           icon: Icons.flash_on_rounded,
-          title: AppLocalizations.of(context).t('Torbox'),
+          title: 'Torbox',
           subtitle: 'Fast cloud torrent service',
           selected: _selectedProvider == 'torbox',
           onSelected: () => _selectProvider('torbox'),
@@ -366,7 +365,7 @@ class _ProviderSettingsPageState extends State<ProviderSettingsPage> {
           focusNode: _providerFocusNodes[nodeIndex],
           isFocused: _focusedIndex == nodeIndex,
           icon: Icons.workspace_premium_rounded,
-          title: AppLocalizations.of(context).t('Premiumize'),
+          title: 'Premiumize',
           subtitle: 'Premium cloud downloader',
           selected: _selectedProvider == 'premiumize',
           onSelected: () => _selectProvider('premiumize'),
@@ -383,7 +382,7 @@ class _ProviderSettingsPageState extends State<ProviderSettingsPage> {
           focusNode: _providerFocusNodes[nodeIndex],
           isFocused: _focusedIndex == nodeIndex,
           icon: Icons.all_inclusive_rounded,
-          title: AppLocalizations.of(context).t('AllDebrid'),
+          title: 'AllDebrid',
           subtitle: 'Premium link generator',
           selected: _selectedProvider == 'alldebrid',
           onSelected: () => _selectProvider('alldebrid'),
@@ -400,7 +399,7 @@ class _ProviderSettingsPageState extends State<ProviderSettingsPage> {
           focusNode: _providerFocusNodes[nodeIndex],
           isFocused: _focusedIndex == nodeIndex,
           icon: Icons.folder_rounded,
-          title: AppLocalizations.of(context).t('PikPak'),
+          title: 'PikPak',
           subtitle: 'Cloud storage service',
           selected: _selectedProvider == 'pikpak',
           onSelected: () => _selectProvider('pikpak'),

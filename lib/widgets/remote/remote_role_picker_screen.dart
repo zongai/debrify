@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../l10n/app_localizations.dart';
 import 'package:flutter/services.dart';
 
 import '../../services/android_native_downloader.dart';
@@ -173,7 +172,7 @@ class _RemoteRolePickerScreenState extends State<RemoteRolePickerScreen> {
                                 child: _RoleCard(
                                   focusNode: _sendFocus,
                                   icon: Icons.send_rounded,
-                                  title: AppLocalizations.of(context).t('Send'),
+                                  title: 'Send',
                                   subtitle:
                                       'Control another device or push your '
                                       'addons, channels, and setup to it.',
@@ -209,7 +208,7 @@ class _RemoteRolePickerScreenState extends State<RemoteRolePickerScreen> {
                         _RoleCard(
                           focusNode: _sendFocus,
                           icon: Icons.send_rounded,
-                          title: AppLocalizations.of(context).t('Send'),
+                          title: 'Send',
                           subtitle:
                               'Control another device or push your addons, '
                               'channels, and setup to it.',

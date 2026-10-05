@@ -3,7 +3,6 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 
-import '../../../l10n/app_localizations.dart';
 import 'package:flutter/services.dart';
 
 import '../../../theme/app_theme_scope.dart';
@@ -466,11 +465,11 @@ class _StremioTvRepoBrowserDialogState
         actions: [
           TextButton(
             onPressed: () => Navigator.of(ctx).pop(false),
-            child: Text(AppLocalizations.of(context).t('Cancel')),
+            child: Text('Cancel'),
           ),
           TextButton(
             onPressed: () => Navigator.of(ctx).pop(true),
-            child: Text(AppLocalizations.of(context).t('Remove')),
+            child: Text('Remove'),
           ),
         ],
       ),
@@ -583,7 +582,7 @@ class _StremioTvRepoBrowserDialogState
                     focusNode: _closeFocusNode,
                     onPressed: () => Navigator.of(context).pop(_changed),
                     icon: const Icon(Icons.close),
-                    tooltip: AppLocalizations.of(context).t('Close'),
+                    tooltip: 'Close',
                   ),
                 ],
               ),
@@ -624,7 +623,7 @@ class _StremioTvRepoBrowserDialogState
                       focusNode: _addBtnFocusNode,
                       onPressed: _addRepo,
                       icon: const Icon(Icons.add, size: 18),
-                      label: Text(AppLocalizations.of(context).t('Add')),
+                      label: Text('Add'),
                     ),
                   ),
                 ],
@@ -760,7 +759,7 @@ class _StremioTvRepoBrowserDialogState
                         color: theme.colorScheme.onSurfaceVariant
                             .withValues(alpha: 0.4)),
                     onPressed: () => _confirmDeleteRepo(index),
-                    tooltip: AppLocalizations.of(context).t('Remove'),
+                    tooltip: 'Remove',
                     visualDensity: VisualDensity.compact,
                     constraints:
                         const BoxConstraints(minWidth: 28, minHeight: 28),

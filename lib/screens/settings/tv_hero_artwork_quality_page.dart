@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../l10n/app_localizations.dart';
 
 import '../../models/tv_hero_artwork_quality.dart';
 import '../../services/analytics_service.dart';
@@ -92,7 +91,7 @@ class _TvHeroArtworkQualityPageState extends State<TvHeroArtworkQualityPage> {
   Widget build(BuildContext context) {
     final t = AppThemeScope.of(context).settings;
     return SettingsPageScaffold(
-      title: AppLocalizations.of(context).t('Hero Artwork Quality'),
+      title: 'Hero Artwork Quality',
       body: SingleChildScrollView(
         padding: EdgeInsets.all(16),
         child: Center(
@@ -103,7 +102,7 @@ class _TvHeroArtworkQualityPageState extends State<TvHeroArtworkQualityPage> {
               children: [
                 const SettingsPageHeader(
                   icon: Icons.photo_size_select_large_rounded,
-                  title: AppLocalizations.of(context).t('Hero Artwork Quality'),
+                  title: 'Hero Artwork Quality',
                   subtitle:
                       'Balance sharper Home artwork against TV memory use',
                 ),

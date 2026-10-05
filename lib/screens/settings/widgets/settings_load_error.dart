@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../../l10n/app_localizations.dart';
 
 /// A failed read must leave an actionable page, without exposing editable
 /// fallback values that could overwrite the user's saved settings.
@@ -21,7 +20,7 @@ class SettingsLoadError extends StatelessWidget {
             textAlign: TextAlign.center,
           ),
           const SizedBox(height: 16),
-          ElevatedButton(onPressed: onRetry, child: Text(AppLocalizations.of(context).t('Retry'))),
+          ElevatedButton(onPressed: onRetry, child: Text('Retry')),
         ],
       ),
     ),

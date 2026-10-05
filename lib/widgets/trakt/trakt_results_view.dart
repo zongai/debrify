@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 
-import '../../l10n/app_localizations.dart';
 import 'package:flutter/services.dart';
 import '../../models/stremio_addon.dart';
 import '../../models/advanced_search_selection.dart';
@@ -745,7 +744,7 @@ class TraktResultsViewState extends State<TraktResultsView> {
         action: TraktItemMenuAction.addToStremioTv,
         icon: Icons.live_tv_rounded,
         color: Color(0xFF22C55E),
-        label: AppLocalizations.of(context).t('Add to Stremio TV'),
+        label: 'Add to Stremio TV',
         caption: 'Stremio TV',
       ),
       if (isSeries)
@@ -854,7 +853,7 @@ class TraktResultsViewState extends State<TraktResultsView> {
             action: TraktItemMenuAction.removeFromPlayback,
             icon: Icons.delete_outline_rounded,
             color: Color(0xFFEF4444),
-            label: AppLocalizations.of(context).t('Remove from Continue Watching'),
+            label: 'Remove from Continue Watching',
             caption: 'Remove',
             isTrakt: true,
           ),
@@ -1433,7 +1432,7 @@ class TraktResultsViewState extends State<TraktResultsView> {
             ),
             ListTile(
               leading: const Icon(Icons.cloud, color: Color(0xFF22C55E)),
-              title: Text(AppLocalizations.of(context).t('Real-Debrid')),
+              title: Text('Real-Debrid'),
               onTap: () {
                 Navigator.of(sheetContext).pop();
                 pushRd();
@@ -1441,7 +1440,7 @@ class TraktResultsViewState extends State<TraktResultsView> {
             ),
             ListTile(
               leading: Icon(Icons.cloud, color: Color(0xFF7C3AED)),
-              title: Text(AppLocalizations.of(context).t('TorBox')),
+              title: Text('TorBox'),
               onTap: () {
                 Navigator.of(sheetContext).pop();
                 pushTorbox();
@@ -1570,7 +1569,7 @@ class TraktResultsViewState extends State<TraktResultsView> {
               color: Color(0xFFEF4444),
             ),
             onPressed: onDelete,
-            tooltip: AppLocalizations.of(context).t('Remove source'),
+            tooltip: 'Remove source',
             padding: EdgeInsets.zero,
             constraints: const BoxConstraints(minWidth: 28, minHeight: 28),
           ),
@@ -2758,7 +2757,7 @@ class TraktResultsViewState extends State<TraktResultsView> {
               FilledButton.icon(
                 onPressed: () => _enterEpisodeMode(_selectedShow!),
                 icon: const Icon(Icons.refresh),
-                label: Text(AppLocalizations.of(context).t('Retry')),
+                label: Text('Retry'),
               ),
             ],
           ),
@@ -2866,7 +2865,7 @@ class TraktResultsViewState extends State<TraktResultsView> {
                 });
               },
               icon: Icon(Icons.settings),
-              label: Text(AppLocalizations.of(context).t('Go to Settings')),
+              label: Text('Go to Settings'),
             ),
           ],
         ),
@@ -2899,7 +2898,7 @@ class TraktResultsViewState extends State<TraktResultsView> {
             FilledButton.icon(
               onPressed: _fetchItems,
               icon: const Icon(Icons.refresh),
-              label: Text(AppLocalizations.of(context).t('Retry')),
+              label: Text('Retry'),
             ),
           ],
         ),

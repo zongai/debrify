@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../l10n/app_localizations.dart';
 
 import '../../models/stremio_addon.dart';
 import '../../services/analytics_service.dart';
@@ -150,7 +149,7 @@ class _SpotlightHeroSourcePageState extends State<SpotlightHeroSourcePage> {
     final t = AppThemeScope.of(context).settings;
     if (_loading) {
       return SettingsPageScaffold(
-        title: AppLocalizations.of(context).t('Hero Source'),
+        title: 'Hero Source',
         body: Center(child: CircularProgressIndicator()),
       );
     }
@@ -161,7 +160,7 @@ class _SpotlightHeroSourcePageState extends State<SpotlightHeroSourcePage> {
     ].where((e) => e.catalogs.isNotEmpty).toList();
 
     return SettingsPageScaffold(
-      title: AppLocalizations.of(context).t('Hero Source'),
+      title: 'Hero Source',
       body: SingleChildScrollView(
         padding: EdgeInsets.all(16),
         child: Center(
@@ -172,7 +171,7 @@ class _SpotlightHeroSourcePageState extends State<SpotlightHeroSourcePage> {
               children: [
                 const SettingsPageHeader(
                   icon: Icons.slideshow_rounded,
-                  title: AppLocalizations.of(context).t('Hero Source'),
+                  title: 'Hero Source',
                   subtitle:
                       'What the Spotlight layout\'s big hero reel is built '
                       'from',

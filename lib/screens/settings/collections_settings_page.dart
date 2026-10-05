@@ -4,7 +4,6 @@ import 'dart:convert';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 
-import '../../l10n/app_localizations.dart';
 import 'package:flutter/services.dart';
 
 import '../../models/home_collection.dart';
@@ -148,23 +147,23 @@ class _CollectionsSettingsPageState extends State<CollectionsSettingsPage> {
       builder: (context) => Theme(
         data: settingsPageTheme(context),
         child: AlertDialog(
-          title: Text(AppLocalizations.of(context).t('Export collection')),
+          title: Text('Export collection'),
           content: Text(
             'Share "${collection.title}" as a Nuvio-compatible JSON file.',
           ),
           actions: [
             TextButton(
               onPressed: () => Navigator.pop(context),
-              child: Text(AppLocalizations.of(context).t('Cancel')),
+              child: Text('Cancel'),
             ),
             TextButton(
               onPressed: () => Navigator.pop(context, 'copy'),
-              child: Text(AppLocalizations.of(context).t('Copy JSON')),
+              child: Text('Copy JSON'),
             ),
             TextButton(
               autofocus: true,
               onPressed: () => Navigator.pop(context, 'file'),
-              child: Text(AppLocalizations.of(context).t('Save file')),
+              child: Text('Save file'),
             ),
           ],
         ),
@@ -229,7 +228,7 @@ class _CollectionsSettingsPageState extends State<CollectionsSettingsPage> {
   Future<void> _importFromUrl() => _guarded(() async {
     final session = HomeCollectionsStore.captureSession();
     final url = await _prompt(
-      title: AppLocalizations.of(context).t('Import from link'),
+      title: 'Import from link',
       hint: 'https://…/collections.json',
       helper: 'A direct link to a collections JSON file.',
       keyboardType: TextInputType.url,
@@ -243,7 +242,7 @@ class _CollectionsSettingsPageState extends State<CollectionsSettingsPage> {
   Future<void> _importFromPaste() => _guarded(() async {
     final session = HomeCollectionsStore.captureSession();
     final text = await _prompt(
-      title: AppLocalizations.of(context).t('Paste collection JSON'),
+      title: 'Paste collection JSON',
       hint: '[ { "title": "Streaming", "folders": [ … ] } ]',
       helper: 'Paste the contents of a collections JSON file.',
       multiline: true,
@@ -345,15 +344,15 @@ class _CollectionsSettingsPageState extends State<CollectionsSettingsPage> {
           actions: [
             TextButton(
               onPressed: () => Navigator.of(context).pop('edit'),
-              child: Text(AppLocalizations.of(context).t('Edit')),
+              child: Text('Edit'),
             ),
             TextButton(
               onPressed: () => Navigator.of(context).pop('export'),
-              child: Text(AppLocalizations.of(context).t('Export JSON')),
+              child: Text('Export JSON'),
             ),
             TextButton(
               onPressed: () => Navigator.of(context).pop('delete'),
-              child: Text(AppLocalizations.of(context).t('Delete')),
+              child: Text('Delete'),
             ),
             TextButton(
               onPressed: () => Navigator.of(context).pop('toggle'),
@@ -362,7 +361,7 @@ class _CollectionsSettingsPageState extends State<CollectionsSettingsPage> {
             TextButton(
               autofocus: true,
               onPressed: () => Navigator.of(context).pop(),
-              child: Text(AppLocalizations.of(context).t('Close')),
+              child: Text('Close'),
             ),
           ],
         ),
@@ -399,7 +398,7 @@ class _CollectionsSettingsPageState extends State<CollectionsSettingsPage> {
   Future<void> _resetDamagedInventory() => _guarded(() async {
     final session = HomeCollectionsStore.captureSession();
     final confirmed = await _confirm(
-      title: AppLocalizations.of(context).t('Reset damaged collections?'),
+      title: 'Reset damaged collections?',
       body:
           'This removes the saved collections from this profile. You can then import a collection file or restore a backup.',
       action: 'Reset collections',
@@ -415,7 +414,7 @@ class _CollectionsSettingsPageState extends State<CollectionsSettingsPage> {
     final session = HomeCollectionsStore.captureSession();
     if (_collections.isEmpty) return;
     final confirmed = await _confirm(
-      title: AppLocalizations.of(context).t('Remove all collections?'),
+      title: 'Remove all collections?',
       body: 'Every imported collection is deleted from this profile.',
       action: 'Remove all',
     );
@@ -495,7 +494,7 @@ class _CollectionsSettingsPageState extends State<CollectionsSettingsPage> {
             TextButton(
               autofocus: true,
               onPressed: () => Navigator.of(context).pop(false),
-              child: Text(AppLocalizations.of(context).t('Cancel')),
+              child: Text('Cancel'),
             ),
             TextButton(
               onPressed: () => Navigator.of(context).pop(true),
@@ -557,20 +556,20 @@ class _CollectionsSettingsPageState extends State<CollectionsSettingsPage> {
   Widget build(BuildContext context) {
     if (_loading) {
       return SettingsPageScaffold(
-        title: AppLocalizations.of(context).t('Collections'),
+        title: 'Collections',
         body: Center(child: CircularProgressIndicator()),
       );
     }
     if (_loadError != null) {
       return SettingsPageScaffold(
-        title: AppLocalizations.of(context).t('Collections'),
+        title: 'Collections',
         body: Center(
           child: SingleChildScrollView(
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
                 Text(_loadError!, textAlign: TextAlign.center),
-                TextButton(onPressed: _load, child: Text(AppLocalizations.of(context).t('Retry'))),
+                TextButton(onPressed: _load, child: Text('Retry')),
               ],
             ),
           ),
@@ -578,7 +577,7 @@ class _CollectionsSettingsPageState extends State<CollectionsSettingsPage> {
       );
     }
     return SettingsPageScaffold(
-      title: AppLocalizations.of(context).t('Collections'),
+      title: 'Collections',
       body: SingleChildScrollView(
         padding: EdgeInsets.all(16),
         child: Center(
@@ -589,7 +588,7 @@ class _CollectionsSettingsPageState extends State<CollectionsSettingsPage> {
               children: [
                 const SettingsPageHeader(
                   icon: Icons.collections_bookmark_rounded,
-                  title: AppLocalizations.of(context).t('Collections'),
+                  title: 'Collections',
                   subtitle:
                       'Import Nuvio-style collection files — groups of '
                       'folders that bundle addon catalogs into Home rows',
@@ -597,7 +596,7 @@ class _CollectionsSettingsPageState extends State<CollectionsSettingsPage> {
                 SizedBox(height: 24),
                 if (_syncDeferred)
                   SettingsSection(
-                    title: AppLocalizations.of(context).t('Collection sync paused'),
+                    title: 'Collection sync paused',
                     blurb:
                         'The shared collections exceed this device’s storage capacity. '
                         'Resume and watched state still sync. Remove collections on another device '
@@ -606,13 +605,13 @@ class _CollectionsSettingsPageState extends State<CollectionsSettingsPage> {
                   ),
                 if (_damagedInventory)
                   SettingsSection(
-                    title: AppLocalizations.of(context).t('Damaged collection data'),
+                    title: 'Damaged collection data',
                     blurb:
                         'Valid collections are still available. Reset the saved data or restore a backup to recover.',
                     children: [
                       SettingsTile(
                         icon: Icons.restore_rounded,
-                        title: AppLocalizations.of(context).t('Reset damaged collections'),
+                        title: 'Reset damaged collections',
                         subtitle:
                             'Clear the saved inventory so it can be imported again',
                         enabled: !_busy,
@@ -621,37 +620,37 @@ class _CollectionsSettingsPageState extends State<CollectionsSettingsPage> {
                     ],
                   ),
                 SettingsSection(
-                  title: AppLocalizations.of(context).t('Import'),
+                  title: 'Import',
                   blurb:
                       'Create folders or import a Nuvio collection. Sources '
                       'can use installed addon catalogs, TMDB, or public Trakt lists.',
                   children: [
                     SettingsTile(
                       icon: Icons.create_new_folder_outlined,
-                      title: AppLocalizations.of(context).t('Create collection'),
-                      subtitle: AppLocalizations.of(context).t('Choose folders, artwork, and sources'),
+                      title: 'Create collection',
+                      subtitle: 'Choose folders, artwork, and sources',
                       enabled: !_busy,
                       onTap: () => _guarded(() => _editCollection()),
                     ),
                     SettingsTile(
                       icon: Icons.upload_file_rounded,
-                      title: AppLocalizations.of(context).t('Import from file'),
-                      subtitle: AppLocalizations.of(context).t('Pick a collections .json on this device'),
+                      title: 'Import from file',
+                      subtitle: 'Pick a collections .json on this device',
                       enabled: !_busy,
                       onTap: _importFromFile,
                       focusNode: _firstTileFocusNode,
                     ),
                     SettingsTile(
                       icon: Icons.link_rounded,
-                      title: AppLocalizations.of(context).t('Import from link'),
-                      subtitle: AppLocalizations.of(context).t('Download a collections .json from a URL'),
+                      title: 'Import from link',
+                      subtitle: 'Download a collections .json from a URL',
                       enabled: !_busy,
                       onTap: _importFromUrl,
                     ),
                     SettingsTile(
                       icon: Icons.content_paste_rounded,
-                      title: AppLocalizations.of(context).t('Paste JSON'),
-                      subtitle: AppLocalizations.of(context).t('Paste the file contents directly'),
+                      title: 'Paste JSON',
+                      subtitle: 'Paste the file contents directly',
                       enabled: !_busy,
                       onTap: _importFromPaste,
                     ),
@@ -659,7 +658,7 @@ class _CollectionsSettingsPageState extends State<CollectionsSettingsPage> {
                 ),
                 SizedBox(height: 16),
                 SettingsSection(
-                  title: AppLocalizations.of(context).t('Home rows'),
+                  title: 'Home rows',
                   blurb:
                       'Choose how imported collections are labelled on Home.',
                   children: [
@@ -671,7 +670,7 @@ class _CollectionsSettingsPageState extends State<CollectionsSettingsPage> {
                           opacity: _busy ? 0.5 : 1,
                           child: SettingsToggleTile(
                             icon: Icons.label_off_rounded,
-                            title: AppLocalizations.of(context).t('Hide collection names'),
+                            title: 'Hide collection names',
                             subtitle:
                                 'Remove collection row headings; catalog and add-on names are unchanged',
                             value: _hideNamesOnHome,
@@ -684,7 +683,7 @@ class _CollectionsSettingsPageState extends State<CollectionsSettingsPage> {
                 ),
                 SizedBox(height: 16),
                 SettingsSection(
-                  title: AppLocalizations.of(context).t('Collection GIF playback'),
+                  title: 'Collection GIF playback',
                   blurb:
                       'Choose how folder GIFs play on this device. Video previews are unchanged.',
                   children: [
@@ -714,7 +713,7 @@ class _CollectionsSettingsPageState extends State<CollectionsSettingsPage> {
                 ),
                 SizedBox(height: 16),
                 SettingsSection(
-                  title: AppLocalizations.of(context).t('Folder layout'),
+                  title: 'Folder layout',
                   blurb:
                       'Gallery shows each list as an artwork card. Tabbed folders '
                       'show one list at a time behind a selector.',
@@ -727,7 +726,7 @@ class _CollectionsSettingsPageState extends State<CollectionsSettingsPage> {
                           opacity: _busy ? 0.5 : 1,
                           child: SettingsToggleTile(
                             icon: Icons.tab_rounded,
-                            title: AppLocalizations.of(context).t('Tabbed folders'),
+                            title: 'Tabbed folders',
                             subtitle: _layout == CollectionFolderLayout.tabs
                                 ? 'One list at a time, pick it from the List chip'
                                 : 'Gallery cards that open each list’s full grid',
@@ -741,7 +740,7 @@ class _CollectionsSettingsPageState extends State<CollectionsSettingsPage> {
                 ),
                 SizedBox(height: 16),
                 SettingsSection(
-                  title: AppLocalizations.of(context).t('Your collections'),
+                  title: 'Your collections',
                   blurb: _collections.isEmpty
                       ? 'Nothing imported yet. Each collection becomes a '
                             'row of folder tiles on Home; hide or arrange '
@@ -771,12 +770,12 @@ class _CollectionsSettingsPageState extends State<CollectionsSettingsPage> {
                 if (_collections.isNotEmpty) ...[
                   const SizedBox(height: 16),
                   SettingsSection(
-                    title: AppLocalizations.of(context).t('Danger Zone'),
+                    title: 'Danger Zone',
                     children: [
                       SettingsTile(
                         icon: Icons.delete_sweep_rounded,
-                        title: AppLocalizations.of(context).t('Remove all collections'),
-                        subtitle: AppLocalizations.of(context).t('Delete every imported collection'),
+                        title: 'Remove all collections',
+                        subtitle: 'Delete every imported collection',
                         destructive: true,
                         onTap: () => _guarded(_removeAll),
                       ),

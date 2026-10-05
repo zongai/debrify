@@ -41,7 +41,6 @@ import 'package:flutter/foundation.dart'
     show ValueListenable, listEquals, visibleForTesting;
 import 'package:flutter/material.dart';
 
-import '../l10n/app_localizations.dart';
 import '../models/custom_series_identity.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -1297,7 +1296,7 @@ class _SearchScreenState extends State<SearchScreen>
         !_homeDisabled.contains('cw:movies'))
       _CwRow(
         rowId: 'cw:movies',
-        title: AppLocalizations.of(context).t('Continue Watching'),
+        title: 'Continue Watching',
         tag: _cwMergeLocal ? null : 'Movies',
         kind: _CwKind.local,
         items: _cwMergeLocal ? _cwAll : _cwMovies,
@@ -1322,7 +1321,7 @@ class _SearchScreenState extends State<SearchScreen>
         !_homeDisabled.contains('cw:series'))
       _CwRow(
         rowId: 'cw:series',
-        title: AppLocalizations.of(context).t('Continue Watching'),
+        title: 'Continue Watching',
         tag: 'Series',
         kind: _CwKind.local,
         items: _cwSeries,
@@ -1340,7 +1339,7 @@ class _SearchScreenState extends State<SearchScreen>
         !_homeDisabled.contains('trakt:movies'))
       _CwRow(
         rowId: 'trakt:movies',
-        title: AppLocalizations.of(context).t('Trakt Continue Watching'),
+        title: 'Trakt Continue Watching',
         tag: _cwMergeTrakt ? null : 'Movies',
         kind: _CwKind.trakt,
         items: _cwMergeTrakt ? _traktAll : _traktMovies,
@@ -1363,7 +1362,7 @@ class _SearchScreenState extends State<SearchScreen>
         !_homeDisabled.contains('trakt:shows'))
       _CwRow(
         rowId: 'trakt:shows',
-        title: AppLocalizations.of(context).t('Trakt Continue Watching'),
+        title: 'Trakt Continue Watching',
         tag: 'Shows',
         kind: _CwKind.trakt,
         items: _traktSeries,
@@ -1387,7 +1386,7 @@ class _SearchScreenState extends State<SearchScreen>
         !_homeDisabled.contains('simkl:movies'))
       _CwRow(
         rowId: 'simkl:movies',
-        title: AppLocalizations.of(context).t('Simkl Continue Watching'),
+        title: 'Simkl Continue Watching',
         tag: _cwMergeSimkl ? null : 'Movies',
         kind: _CwKind.simkl,
         items: _cwMergeSimkl ? _simklAll : _simklMovies,
@@ -1410,7 +1409,7 @@ class _SearchScreenState extends State<SearchScreen>
         !_homeDisabled.contains('simkl:shows'))
       _CwRow(
         rowId: 'simkl:shows',
-        title: AppLocalizations.of(context).t('Simkl Continue Watching'),
+        title: 'Simkl Continue Watching',
         tag: 'Shows',
         kind: _CwKind.simkl,
         items: _simklSeries,
@@ -1428,7 +1427,7 @@ class _SearchScreenState extends State<SearchScreen>
         !_homeDisabled.contains('mdblist:movies'))
       _CwRow(
         rowId: 'mdblist:movies',
-        title: AppLocalizations.of(context).t('MDBList Continue Watching'),
+        title: 'MDBList Continue Watching',
         tag: _cwMergeMdblist ? null : 'Movies',
         kind: _CwKind.mdblist,
         items: _cwMergeMdblist ? _mdblistAll : _mdblistMovies,
@@ -1450,7 +1449,7 @@ class _SearchScreenState extends State<SearchScreen>
         !_homeDisabled.contains('mdblist:shows'))
       _CwRow(
         rowId: 'mdblist:shows',
-        title: AppLocalizations.of(context).t('MDBList Continue Watching'),
+        title: 'MDBList Continue Watching',
         tag: 'Shows',
         kind: _CwKind.mdblist,
         items: _mdblistSeries,
@@ -1472,7 +1471,7 @@ class _SearchScreenState extends State<SearchScreen>
     if (_iptvCwMovies.isNotEmpty && !_homeDisabled.contains('iptv:movies'))
       _CwRow(
         rowId: 'iptv:movies',
-        title: AppLocalizations.of(context).t('IPTV Continue Watching'),
+        title: 'IPTV Continue Watching',
         tag: 'Movies',
         kind: _CwKind.iptv,
         items: _iptvCwMovies,
@@ -1488,7 +1487,7 @@ class _SearchScreenState extends State<SearchScreen>
     if (_iptvCwSeries.isNotEmpty && !_homeDisabled.contains('iptv:series'))
       _CwRow(
         rowId: 'iptv:series',
-        title: AppLocalizations.of(context).t('IPTV Continue Watching'),
+        title: 'IPTV Continue Watching',
         tag: 'Series',
         kind: _CwKind.iptv,
         items: _iptvCwSeries,
@@ -3213,7 +3212,7 @@ class _SearchScreenState extends State<SearchScreen>
           SnackBar(
             content: Text("Couldn't refresh Home. Showing previous rows."),
             action: SnackBarAction(
-              label: AppLocalizations.of(context).t('Retry'),
+              label: 'Retry',
               onPressed: () {
                 if (mounted) unawaited(_load(preserveVisibleRows: true));
               },
@@ -4463,7 +4462,7 @@ class _SearchScreenState extends State<SearchScreen>
     } on ResourceAuthorizationException {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text(AppLocalizations.of(context).t('IPTV is unavailable. Please retry or sign in.')),
+          SnackBar(content: Text('IPTV is unavailable. Please retry or sign in.'),
           ),
         );
       }
@@ -4644,16 +4643,16 @@ class _SearchScreenState extends State<SearchScreen>
     final remove = await showDialog<bool>(
       context: context,
       builder: (dialogContext) => AlertDialog(
-        title: Text(AppLocalizations.of(context).t('Series unavailable')),
+        title: Text('Series unavailable'),
         content: Text('$message\n\nRemove it from My Watchlist?'),
         actions: [
           TextButton(
             onPressed: () => Navigator.of(dialogContext).pop(false),
-            child: Text(AppLocalizations.of(context).t('Keep')),
+            child: Text('Keep'),
           ),
           FilledButton(
             onPressed: () => Navigator.of(dialogContext).pop(true),
-            child: Text(AppLocalizations.of(context).t('Remove')),
+            child: Text('Remove'),
           ),
         ],
       ),
@@ -4669,7 +4668,7 @@ class _SearchScreenState extends State<SearchScreen>
       ScaffoldMessenger.of(context)
         ..hideCurrentSnackBar()
         ..showSnackBar(
-          SnackBar(content: Text(AppLocalizations.of(context).t('Removed from My Watchlist'))),
+          SnackBar(content: Text('Removed from My Watchlist')),
         );
     } catch (_) {
       if (!mounted) return;
@@ -4847,24 +4846,24 @@ class _SearchScreenState extends State<SearchScreen>
         DebridActionItem(
           icon: Icons.play_circle_fill_rounded,
           color: Color(0xFF10B981),
-          title: AppLocalizations.of(context).t('Play'),
-          subtitle: AppLocalizations.of(context).t('Start playback'),
+          title: 'Play',
+          subtitle: 'Start playback',
           onTap: () => run('play'),
         ),
         if (isCollection)
           DebridActionItem(
             icon: Icons.shuffle_rounded,
             color: Color(0xFFA78BFA),
-            title: AppLocalizations.of(context).t('Play Random'),
-            subtitle: AppLocalizations.of(context).t('Start a random file from this collection'),
+            title: 'Play Random',
+            subtitle: 'Start a random file from this collection',
             pillLabel: 'Random',
             onTap: () => run('play_random'),
           ),
         DebridActionItem(
           icon: Icons.folder_open_rounded,
           color: Color(0xFF818CF8),
-          title: AppLocalizations.of(context).t('View Files'),
-          subtitle: AppLocalizations.of(context).t('Browse folder contents'),
+          title: 'View Files',
+          subtitle: 'Browse folder contents',
           pillLabel: 'Files',
           onTap: () => run('view_files'),
         ),
@@ -4882,15 +4881,15 @@ class _SearchScreenState extends State<SearchScreen>
           DebridActionItem(
             icon: Icons.replay_rounded,
             color: const Color(0xFF60A5FA),
-            title: AppLocalizations.of(context).t('Clear Progress'),
-            subtitle: AppLocalizations.of(context).t('Reset playback progress'),
+            title: 'Clear Progress',
+            subtitle: 'Reset playback progress',
             onTap: () => run('clear_progress'),
           ),
         DebridActionItem(
           icon: Icons.delete_outline_rounded,
           color: app.home.danger,
-          title: AppLocalizations.of(context).t('Delete'),
-          subtitle: AppLocalizations.of(context).t('Remove from playlist'),
+          title: 'Delete',
+          subtitle: 'Remove from playlist',
           onTap: () => run('delete'),
         ),
       ],
@@ -4967,19 +4966,19 @@ class _SearchScreenState extends State<SearchScreen>
     final confirmed = await showDialog<bool>(
       context: context,
       builder: (dialogContext) => AlertDialog(
-        title: Text(AppLocalizations.of(context).t('Delete?')),
+        title: Text('Delete?'),
         content: Text('Remove "$title" from your playlist?'),
         actions: [
           TextButton(
             onPressed: () => Navigator.of(dialogContext).pop(false),
-            child: Text(AppLocalizations.of(context).t('Cancel')),
+            child: Text('Cancel'),
           ),
           FilledButton(
             style: FilledButton.styleFrom(
               backgroundColor: AppThemeScope.of(dialogContext).home.danger,
             ),
             onPressed: () => Navigator.of(dialogContext).pop(true),
-            child: Text(AppLocalizations.of(context).t('Delete')),
+            child: Text('Delete'),
           ),
         ],
       ),
@@ -5320,7 +5319,7 @@ class _SearchScreenState extends State<SearchScreen>
   /// the rest of the board. Local Continue Watching renders above them; Simkl,
   /// IPTV, favourites and catalog rows below.
   void _maybeAnnounceTraktRows() => _maybeAnnounceCwRows(
-    label: AppLocalizations.of(context).t('Trakt'),
+    label: 'Trakt',
     // Same merge-aware gates as _cwRows / _cwVisible, so a notice fires
     // exactly when a row actually rendered.
     visible:
@@ -5345,7 +5344,7 @@ class _SearchScreenState extends State<SearchScreen>
   /// reserved skeleton slot, so they push the board when they arrive). Local
   /// Continue Watching and the Trakt rows render above them, IPTV below.
   void _maybeAnnounceSimklRows() => _maybeAnnounceCwRows(
-    label: AppLocalizations.of(context).t('Simkl'),
+    label: 'Simkl',
     visible:
         ((_cwMergeSimkl ? _simklAll : _simklMovies).isNotEmpty &&
             !_homeDisabled.contains('simkl:movies')) ||
@@ -5368,7 +5367,7 @@ class _SearchScreenState extends State<SearchScreen>
   );
 
   void _maybeAnnounceMdblistRows() => _maybeAnnounceCwRows(
-    label: AppLocalizations.of(context).t('MDBList'),
+    label: 'MDBList',
     visible:
         ((_cwMergeMdblist ? _mdblistAll : _mdblistMovies).isNotEmpty &&
             !_homeDisabled.contains('mdblist:movies')) ||
@@ -5914,7 +5913,7 @@ class _SearchScreenState extends State<SearchScreen>
   /// Continue Watching grid, seeded with the paused-order list + progress.
   void _openSimklCwSeeAll([String initialCategory = 'all']) {
     _pushCwSeeAll(
-      title: AppLocalizations.of(context).t('Simkl Continue Watching'),
+      title: 'Simkl Continue Watching',
       initialCategory: initialCategory,
       items: _simklAll,
       progressOf: (m) => _cwCardProgress(_CwKind.simkl, m),
@@ -6115,7 +6114,7 @@ class _SearchScreenState extends State<SearchScreen>
 
   void _openMdblistCwSeeAll([String initialCategory = 'all']) {
     _pushCwSeeAll(
-      title: AppLocalizations.of(context).t('MDBList Continue Watching'),
+      title: 'MDBList Continue Watching',
       initialCategory: initialCategory,
       items: _mdblistAll,
       progressOf: (m) => _cwCardProgress(_CwKind.mdblist, m),
@@ -7387,7 +7386,7 @@ class _SearchScreenState extends State<SearchScreen>
                 art: channel.logoUrl,
                 fit: BoxFit.contain,
                 title: channel.name,
-                subtitle: AppLocalizations.of(context).t('IPTV · FAVORITES'),
+                subtitle: 'IPTV · FAVORITES',
               ),
               liveChannel: channel,
             ),
@@ -7493,7 +7492,7 @@ class _SearchScreenState extends State<SearchScreen>
               _CanvasFavFocus(
                 art: posterUrl,
                 title: title,
-                subtitle: AppLocalizations.of(context).t('PLAYLIST · SAVED'),
+                subtitle: 'PLAYLIST · SAVED',
               ),
             ),
           ),
@@ -7956,7 +7955,7 @@ class _SearchScreenState extends State<SearchScreen>
       case _FavKind.playlist:
         return SpotlightShelf(
           id: id,
-          title: AppLocalizations.of(context).t('Playlists'),
+          title: 'Playlists',
           nodes: nodes,
           items: [
             for (final item in _playlistItems)
@@ -7971,7 +7970,7 @@ class _SearchScreenState extends State<SearchScreen>
       case _FavKind.iptv:
         return SpotlightShelf(
           id: id,
-          title: AppLocalizations.of(context).t('IPTV Favourites'),
+          title: 'IPTV Favourites',
           nodes: nodes,
           items: [
             for (final ch in _iptvFavChannels)
@@ -7995,7 +7994,7 @@ class _SearchScreenState extends State<SearchScreen>
       case _FavKind.debrify:
         return SpotlightShelf(
           id: id,
-          title: AppLocalizations.of(context).t('Debrify TV'),
+          title: 'Debrify TV',
           nodes: nodes,
           items: [
             for (final ch in _tvFavChannels)
@@ -8012,7 +8011,7 @@ class _SearchScreenState extends State<SearchScreen>
       case _FavKind.stremio:
         return SpotlightShelf(
           id: id,
-          title: AppLocalizations.of(context).t('Stremio TV'),
+          title: 'Stremio TV',
           nodes: nodes,
           items: [
             for (final ch in _stvFavChannels)
@@ -8022,7 +8021,7 @@ class _SearchScreenState extends State<SearchScreen>
                     ? _stvNowPlaying(ch)?.item.poster
                     : null,
                 title: ch.displayName,
-                subtitle: AppLocalizations.of(context).t('STREMIO TV'),
+                subtitle: 'STREMIO TV',
                 // The now-playing TITLE's rating — the card wears title art,
                 // so the rating follows the title, not the channel.
                 rating: _stvNowPlaying(ch)?.item.imdbRating,
@@ -12032,7 +12031,7 @@ class _SearchScreenState extends State<SearchScreen>
         TextFieldSuggestion(
           id: 'search-query',
           title: 'Search for “$query”',
-          subtitle: AppLocalizations.of(context).t('Search catalogs'),
+          subtitle: 'Search catalogs',
           onSelected: () => _onQuerySubmitted(query),
         ),
     ];
@@ -12809,7 +12808,7 @@ class _SearchScreenState extends State<SearchScreen>
             ),
             ListTile(
               leading: Icon(Icons.copy_rounded, color: Color(0xFFF59E0B)),
-              title: Text(AppLocalizations.of(context).t('Copy link')),
+              title: Text('Copy link'),
               onTap: () async {
                 DialogTapGuard.markKeyAction();
                 Navigator.of(sheetCtx).pop();
@@ -12823,7 +12822,7 @@ class _SearchScreenState extends State<SearchScreen>
                   Icons.download_rounded,
                   color: Color(0xFF60A5FA),
                 ),
-                title: Text(AppLocalizations.of(context).t('Download to device')),
+                title: Text('Download to device'),
                 onTap: () {
                   DialogTapGuard.markKeyAction();
                   Navigator.of(sheetCtx).pop();
@@ -13260,7 +13259,7 @@ class _SearchScreenState extends State<SearchScreen>
             }
 
             return AlertDialog(
-              title: Text(AppLocalizations.of(context).t('Filter by source')),
+              title: Text('Filter by source'),
               content: SizedBox(
                 width: double.maxFinite,
                 child: SingleChildScrollView(
@@ -13276,7 +13275,7 @@ class _SearchScreenState extends State<SearchScreen>
               actions: [
                 TextButton(
                   onPressed: () => Navigator.of(dialogCtx).pop(),
-                  child: Text(AppLocalizations.of(context).t('Done')),
+                  child: Text('Done'),
                 ),
               ],
             );
@@ -13323,7 +13322,7 @@ class _SearchScreenState extends State<SearchScreen>
             final dirEnabled = _kwSort != 'relevance';
             return AlertDialog(
               backgroundColor: scheme.surfaceContainerHigh,
-              title: Text(AppLocalizations.of(context).t('Sort by')),
+              title: Text('Sort by'),
               content: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
@@ -13340,7 +13339,7 @@ class _SearchScreenState extends State<SearchScreen>
                       padding: const EdgeInsets.symmetric(horizontal: 16),
                       child: Row(
                         children: [
-                          Expanded(child: Text(AppLocalizations.of(context).t('Direction'))),
+                          Expanded(child: Text('Direction')),
                           ToggleButtons(
                             isSelected: [!_kwSortAsc, _kwSortAsc],
                             onPressed: dirEnabled
@@ -13365,7 +13364,7 @@ class _SearchScreenState extends State<SearchScreen>
               actions: [
                 TextButton(
                   onPressed: () => Navigator.of(dialogCtx).pop(),
-                  child: Text(AppLocalizations.of(context).t('Done')),
+                  child: Text('Done'),
                 ),
               ],
             );
@@ -13480,11 +13479,11 @@ class _SearchScreenState extends State<SearchScreen>
         context: context,
         builder: (dialogContext) => AlertDialog(
           title: Text(item.name),
-          content: Text(AppLocalizations.of(context).t('The addon configuration for this series is unavailable. Your local history is still saved.')),
+          content: Text('The addon configuration for this series is unavailable. Your local history is still saved.'),
           actions: [
-            TextButton(onPressed: () => Navigator.pop(dialogContext, false), child: Text(AppLocalizations.of(context).t('Close'))),
+            TextButton(onPressed: () => Navigator.pop(dialogContext, false), child: Text('Close')),
             if (_cwIds.contains(item.imdbId))
-              TextButton(onPressed: () => Navigator.pop(dialogContext, true), child: Text(AppLocalizations.of(context).t('Remove from Continue Watching'))),
+              TextButton(onPressed: () => Navigator.pop(dialogContext, true), child: Text('Remove from Continue Watching')),
           ],
         ),
       );
@@ -13536,7 +13535,7 @@ class _SearchScreenState extends State<SearchScreen>
           action: TraktItemMenuAction.removeFromPlayback,
           icon: Icons.delete_sweep_rounded,
           color: app.home.danger,
-          label: AppLocalizations.of(context).t('Remove from Continue Watching'),
+          label: 'Remove from Continue Watching',
           caption: 'Remove',
         ),
       if (inTraktCw)
@@ -13544,7 +13543,7 @@ class _SearchScreenState extends State<SearchScreen>
           action: TraktItemMenuAction.removeFromTraktPlayback,
           icon: Icons.remove_circle_outline_rounded,
           color: app.home.danger,
-          label: AppLocalizations.of(context).t('Remove from Trakt Continue Watching'),
+          label: 'Remove from Trakt Continue Watching',
           caption: 'Remove',
           isTrakt: true,
         ),
@@ -14441,7 +14440,7 @@ class _SearchScreenState extends State<SearchScreen>
           IconButton(
             icon: Icon(Icons.close_rounded, size: 16, color: app.home.danger),
             onPressed: onDelete,
-            tooltip: AppLocalizations.of(context).t('Remove source'),
+            tooltip: 'Remove source',
             padding: EdgeInsets.zero,
             constraints: const BoxConstraints(minWidth: 28, minHeight: 28),
           ),
@@ -16311,7 +16310,7 @@ class _SearchScreenState extends State<SearchScreen>
                   padding: EdgeInsets.only(right: 8, top: 4),
                   child: IconButton(
                     icon: const Icon(Icons.close_rounded),
-                    tooltip: AppLocalizations.of(context).t('Hide search'),
+                    tooltip: 'Hide search',
                     onPressed: _closeSearchSheet,
                   ),
                 ),
@@ -16792,7 +16791,7 @@ class _SearchScreenState extends State<SearchScreen>
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         _railHeader(
-          title: AppLocalizations.of(context).t('MDBList Lists'),
+          title: 'MDBList Lists',
           tag: 'LISTS',
           // Mobile/laptop get a "See All" link (auto-hidden on TV, where the
           // rail is DPAD-scrollable) → full grid of every matched list.
@@ -17269,7 +17268,7 @@ class _SearchScreenState extends State<SearchScreen>
         providers: [
           CinemaSourceProvider(
             id: null,
-            label: AppLocalizations.of(context).t('All sources'),
+            label: 'All sources',
             count: _kwFullSet.length,
           ),
           for (final source in _kwSourceList)
@@ -18762,7 +18761,7 @@ class _SearchScreenState extends State<SearchScreen>
 
   Widget _buildDiscoverPanel() {
     final source = StremioDropdown<String>(
-      label: AppLocalizations.of(context).t('Source'),
+      label: 'Source',
       value: _discSource,
       isTelevision: widget.isTelevision,
       // TV: a quiet violet segment leading the filter line — the row's identity
@@ -18918,7 +18917,7 @@ class _SearchScreenState extends State<SearchScreen>
     // Default: Continue Watching.
     return ContinueWatchingSeeAllScreen(
       key: ValueKey('disc_cw'),
-      title: AppLocalizations.of(context).t('Continue Watching'),
+      title: 'Continue Watching',
       items: _cwAll,
       progressOf: (m) => _cwCardProgress(_CwKind.local, m),
       onOpen: _openContinueItem,
@@ -19062,7 +19061,7 @@ class _SearchScreenState extends State<SearchScreen>
                       focusNode: _catalogContinueNode,
                       autofocus: _sections.every((s) => s.items.isEmpty),
                       busy: busy,
-                      label: AppLocalizations.of(context).t('Continue paused rows'),
+                      label: 'Continue paused rows',
                       onPressed: () =>
                           _continueHomeCatalogs(moreCatalogs: false),
                     ),
@@ -19073,7 +19072,7 @@ class _SearchScreenState extends State<SearchScreen>
                           pending.isEmpty &&
                           _sections.every((s) => s.items.isEmpty),
                       busy: busy,
-                      label: AppLocalizations.of(context).t('Load more catalogs'),
+                      label: 'Load more catalogs',
                       onPressed: () =>
                           _continueHomeCatalogs(moreCatalogs: true),
                     ),
@@ -20076,7 +20075,7 @@ class _SearchScreenState extends State<SearchScreen>
   /// titles drop out and progress stays fresh.
   void _openContinueWatchingSeeAll([String initialCategory = 'all']) {
     _pushCwSeeAll(
-      title: AppLocalizations.of(context).t('Continue Watching'),
+      title: 'Continue Watching',
       initialCategory: initialCategory,
       items: _cwAll,
       progressOf: (m) => _cwCardProgress(_CwKind.local, m),
@@ -20485,7 +20484,7 @@ class _SearchScreenState extends State<SearchScreen>
     final rowH = cellH + 14;
     return _TraktSkeletonRow(
       header: _railHeader(
-        title: AppLocalizations.of(context).t('Trakt Continue Watching'),
+        title: 'Trakt Continue Watching',
         tag: idx == 0 ? (_cwMergeTrakt ? null : 'Movies') : 'Shows',
       ),
       posterW: posterW,
@@ -20624,7 +20623,7 @@ class _SearchScreenState extends State<SearchScreen>
   Widget _buildTvFavRow(String homeRowId) {
     final tv = widget.isTelevision;
     return _buildFavRowShell(
-      title: AppLocalizations.of(context).t('Debrify TV'),
+      title: 'Debrify TV',
       tags: const [
         _CategoryTag('Channels'),
         // Make it explicit this row is the user's STARRED channels, not every
@@ -20666,7 +20665,7 @@ class _SearchScreenState extends State<SearchScreen>
   Widget _buildStremioTvFavRow(String homeRowId) {
     final tv = widget.isTelevision;
     return _buildFavRowShell(
-      title: AppLocalizations.of(context).t('Stremio TV'),
+      title: 'Stremio TV',
       tags: const [
         _CategoryTag('Channels'),
         _CategoryTag('Favorites', icon: Icons.star_rounded),
@@ -20705,7 +20704,7 @@ class _SearchScreenState extends State<SearchScreen>
   Widget _buildIptvFavRow(String homeRowId) {
     final tv = widget.isTelevision;
     return _buildFavRowShell(
-      title: AppLocalizations.of(context).t('IPTV'),
+      title: 'IPTV',
       tags: const [
         _CategoryTag('Live'),
         _CategoryTag('Favorites', icon: Icons.star_rounded),
@@ -20787,7 +20786,7 @@ class _SearchScreenState extends State<SearchScreen>
   Widget _buildPlaylistFavRow(String homeRowId) {
     final tv = widget.isTelevision;
     return _buildFavRowShell(
-      title: AppLocalizations.of(context).t('Playlist'),
+      title: 'Playlist',
       tags: const [_CategoryTag('Saved')],
       itemCount: _playlistItems.length,
       cellBuilder: (col, posterW, cellH) {
@@ -20850,7 +20849,7 @@ class _SearchScreenState extends State<SearchScreen>
                 autofocus: widget.isTelevision,
                 onPressed: onRetry,
                 icon: const Icon(Icons.refresh),
-                label: Text(AppLocalizations.of(context).t('Try again')),
+                label: Text('Try again'),
               ),
             ],
           ],

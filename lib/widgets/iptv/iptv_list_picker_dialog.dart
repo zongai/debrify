@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../l10n/app_localizations.dart';
 import 'package:flutter/services.dart';
 
 import '../../services/iptv_media_store.dart';
@@ -365,7 +364,7 @@ class _IptvListPickerDialogState extends State<_IptvListPickerDialog> {
           alignment: Alignment.centerRight,
           child: _DialogButton(
             focusNode: _cancelNode,
-            label: AppLocalizations.of(context).t('Done'),
+            label: 'Done',
             accent: _accent,
             filled: true,
             onTap: _close,
@@ -451,7 +450,7 @@ class _IptvListPickerDialogState extends State<_IptvListPickerDialog> {
           children: [
             _DialogButton(
               focusNode: _cancelNode,
-              label: AppLocalizations.of(context).t('Cancel'),
+              label: 'Cancel',
               accent: _accent,
               onTap: () {
                 setState(() {

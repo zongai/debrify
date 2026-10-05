@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 
-import '../../l10n/app_localizations.dart';
 import 'package:flutter/services.dart';
 import '../../models/iptv_playlist.dart';
 import '../../theme/app_theme_scope.dart';
@@ -736,21 +735,21 @@ class _ContentTypeToggleState extends State<_ContentTypeToggle> {
                 colorScheme,
                 value: 'live',
                 icon: Icons.live_tv,
-                label: AppLocalizations.of(context).t('Live'),
+                label: 'Live',
               ),
               _segment(
                 theme,
                 colorScheme,
                 value: 'vod',
                 icon: Icons.movie,
-                label: AppLocalizations.of(context).t('Movies'),
+                label: 'Movies',
               ),
               _segment(
                 theme,
                 colorScheme,
                 value: 'series',
                 icon: Icons.video_library,
-                label: AppLocalizations.of(context).t('Series'),
+                label: 'Series',
               ),
             ],
           ),

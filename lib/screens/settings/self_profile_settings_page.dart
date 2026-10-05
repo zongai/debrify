@@ -4,7 +4,6 @@ import 'dart:typed_data';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 
-import '../../l10n/app_localizations.dart';
 import 'package:flutter/services.dart';
 
 import '../../services/cache_scratch_cleanup.dart';
@@ -286,7 +285,7 @@ class _SelfProfileSettingsPageState extends State<SelfProfileSettingsPage> {
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(dialogContext, false),
-            child: Text(AppLocalizations.of(context).t('Cancel')),
+            child: Text('Cancel'),
           ),
           FilledButton(
             onPressed: () => Navigator.pop(dialogContext, true),
@@ -446,7 +445,7 @@ class _SelfProfileSettingsPageState extends State<SelfProfileSettingsPage> {
                                 LengthLimitingTextInputFormatter(40),
                               ],
                               decoration: InputDecoration(
-                                labelText: AppLocalizations.of(context).t('Name'),
+                                labelText: 'Name',
                               ),
                             ),
                           ),

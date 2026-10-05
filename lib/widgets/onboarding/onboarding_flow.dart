@@ -6,7 +6,6 @@ import '../webdav_sync/webdav_foreground_sync.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-import '../../l10n/app_localizations.dart';
 import 'package:flutter/services.dart';
 
 import '../../screens/settings/profile_backup_flows.dart';
@@ -402,7 +401,7 @@ class _InitialSetupFlowState extends State<InitialSetupFlow> {
             actions: [
               TextButton(
                 onPressed: () => Navigator.of(dialogContext).pop(false),
-                child: Text(AppLocalizations.of(context).t('Cancel')),
+                child: Text('Cancel'),
               ),
               FilledButton(
                 onPressed: () => Navigator.of(dialogContext).pop(true),
@@ -600,7 +599,7 @@ class _InitialSetupFlowState extends State<InitialSetupFlow> {
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context, false),
-            child: Text(AppLocalizations.of(context).t('Skip')),
+            child: Text('Skip'),
           ),
           FilledButton(
             onPressed: () => Navigator.pop(context, true),

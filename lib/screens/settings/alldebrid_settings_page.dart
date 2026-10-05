@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../l10n/app_localizations.dart';
 import '../../services/storage_service.dart';
 import '../../services/alldebrid_account_service.dart';
 import '../../services/analytics_service.dart';
@@ -176,7 +175,7 @@ class _AllDebridSettingsPageState extends State<AllDebridSettingsPage> {
       final confirmed = await showDialog<bool>(
         context: context,
         builder: (ctx) => AlertDialog(
-          title: Text(AppLocalizations.of(context).t('Hide AllDebrid from navigation?')),
+          title: Text('Hide AllDebrid from navigation?'),
           content: Text(
             'The AllDebrid tab will be removed from the navigation bar. To show '
             'it again you will need to log out and log back in.',
@@ -188,14 +187,14 @@ class _AllDebridSettingsPageState extends State<AllDebridSettingsPage> {
                 // Land DPAD focus on the safe choice when the dialog opens.
                 autofocus: true,
                 onPressed: () => Navigator.of(ctx).pop(false),
-                child: Text(AppLocalizations.of(context).t('Cancel')),
+                child: Text('Cancel'),
               ),
             ),
             _FocusRing(
               radius: 12,
               child: TextButton(
                 onPressed: () => Navigator.of(ctx).pop(true),
-                child: Text(AppLocalizations.of(context).t('Hide')),
+                child: Text('Hide'),
               ),
             ),
           ],
@@ -231,7 +230,7 @@ class _AllDebridSettingsPageState extends State<AllDebridSettingsPage> {
     final t = AppThemeScope.of(context).settings;
     if (_loading) {
       return SettingsPageScaffold(
-        title: AppLocalizations.of(context).t('AllDebrid Settings'),
+        title: 'AllDebrid Settings',
         body: Center(child: CircularProgressIndicator()),
       );
     }
@@ -239,7 +238,7 @@ class _AllDebridSettingsPageState extends State<AllDebridSettingsPage> {
     final user = AllDebridAccountService.currentUser;
 
     return SettingsPageScaffold(
-      title: AppLocalizations.of(context).t('AllDebrid Settings'),
+      title: 'AllDebrid Settings',
       body: SingleChildScrollView(
         padding: EdgeInsets.all(16),
         child: Center(
@@ -256,7 +255,7 @@ class _AllDebridSettingsPageState extends State<AllDebridSettingsPage> {
                       autofocus: _seedEntryFocus,
                       value: _integrationEnabled,
                       onChanged: (value) => _updateIntegrationEnabled(value),
-                      title: Text(AppLocalizations.of(context).t('Enable AllDebrid')),
+                      title: Text('Enable AllDebrid'),
                       subtitle: Text(
                         'Turn this off to hide AllDebrid options across the app.',
                       ),
@@ -358,7 +357,7 @@ class _AllDebridSettingsPageState extends State<AllDebridSettingsPage> {
                                         context,
                                       ).previousFocus(),
                                       decoration: InputDecoration(
-                                        labelText: AppLocalizations.of(context).t('AllDebrid API Key'),
+                                        labelText: 'AllDebrid API Key',
                                         prefixIcon: Icon(Icons.security),
                                         suffixIcon: IconButton(
                                           // Default focus highlight is
@@ -399,7 +398,7 @@ class _AllDebridSettingsPageState extends State<AllDebridSettingsPage> {
                                                             strokeWidth: 2,
                                                           ),
                                                     )
-                                                  : Text(AppLocalizations.of(context).t('Save')),
+                                                  : Text('Save'),
                                             ),
                                           ),
                                         ),
@@ -420,7 +419,7 @@ class _AllDebridSettingsPageState extends State<AllDebridSettingsPage> {
                                                         _addApiKeyButtonFocusNode,
                                                       );
                                                     },
-                                              child: Text(AppLocalizations.of(context).t('Cancel')),
+                                              child: Text('Cancel'),
                                             ),
                                           ),
                                         ),
@@ -462,7 +461,7 @@ class _AllDebridSettingsPageState extends State<AllDebridSettingsPage> {
                                             focusNode: _logoutButtonFocusNode,
                                             onPressed: _deleteKey,
                                             icon: const Icon(Icons.logout),
-                                            label: Text(AppLocalizations.of(context).t('Logout')),
+                                            label: Text('Logout'),
                                             style: OutlinedButton.styleFrom(
                                               foregroundColor: t.danger,
                                               side: BorderSide(
@@ -493,7 +492,7 @@ class _AllDebridSettingsPageState extends State<AllDebridSettingsPage> {
                                                 });
                                           },
                                           icon: Icon(Icons.add),
-                                          label: Text(AppLocalizations.of(context).t('Add API Key')),
+                                          label: Text('Add API Key'),
                                         ),
                                       ),
                                     ],

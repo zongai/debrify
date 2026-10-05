@@ -4,7 +4,6 @@ import 'dart:io';
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 
-import '../../l10n/app_localizations.dart';
 import 'package:flutter/services.dart';
 
 import '../../services/desktop_recording_service.dart';
@@ -315,7 +314,7 @@ class _RecordingsPageState extends State<RecordingsPage>
         actions: [
           TextButton(
             onPressed: () => Navigator.of(dialogContext).pop(false),
-            child: Text(AppLocalizations.of(context).t('Keep')),
+            child: Text('Keep'),
           ),
           TextButton(
             autofocus: true,
@@ -364,7 +363,7 @@ class _RecordingsPageState extends State<RecordingsPage>
           TextButton(
             autofocus: true,
             onPressed: () => Navigator.of(dialogContext).pop(false),
-            child: Text(AppLocalizations.of(context).t('Keep')),
+            child: Text('Keep'),
           ),
           TextButton(
             onPressed: () => Navigator.of(dialogContext).pop(true),
@@ -511,7 +510,7 @@ class _RecordingsPageState extends State<RecordingsPage>
             'Allow "Alarms & reminders" for Debrify to schedule recordings',
           ),
           action: SnackBarAction(
-            label: AppLocalizations.of(context).t('Settings'),
+            label: 'Settings',
             onPressed: () =>
                 unawaited(LiveRecordingService.openExactAlarmSettings()),
           ),
@@ -651,7 +650,7 @@ class _RecordingsPageState extends State<RecordingsPage>
             TextButton(
               autofocus: true,
               onPressed: () => Navigator.of(dialogContext).pop(false),
-              child: Text(AppLocalizations.of(context).t('Cancel')),
+              child: Text('Cancel'),
             ),
             TextButton(
               onPressed: () => Navigator.of(dialogContext).pop(true),
@@ -998,7 +997,7 @@ class _HubBar extends StatelessWidget {
         children: [
           _HubIconButton(
             icon: Icons.arrow_back_rounded,
-            tooltip: AppLocalizations.of(context).t('Back'),
+            tooltip: 'Back',
             onPressed: onBack,
           ),
           SizedBox(width: 10),
@@ -1016,7 +1015,7 @@ class _HubBar extends StatelessWidget {
           const Spacer(),
           _HubButton(
             icon: Icons.add_rounded,
-            label: AppLocalizations.of(context).t('Schedule'),
+            label: 'Schedule',
             filled: true,
             onPressed: onSchedule,
             onDown: onScheduleDown,
@@ -1543,7 +1542,7 @@ class _LibraryRowState extends State<_LibraryRow> {
           ),
           _RowIconButton(
             icon: Icons.delete_outline_rounded,
-            tooltip: AppLocalizations.of(context).t('Delete recording'),
+            tooltip: 'Delete recording',
             onPressed: widget.onDelete,
           ),
           const SizedBox(width: 6),
@@ -1742,7 +1741,7 @@ class _BatteryBanner extends StatelessWidget {
           ),
           IconButton(
             visualDensity: VisualDensity.compact,
-            tooltip: AppLocalizations.of(context).t('Dismiss'),
+            tooltip: 'Dismiss',
             icon: Icon(
               Icons.close_rounded,
               size: 16,

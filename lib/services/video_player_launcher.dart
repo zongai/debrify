@@ -17,7 +17,6 @@ import 'package:android_intent_plus/flag.dart';
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 
-import '../l10n/app_localizations.dart';
 import 'package:http/http.dart' as http;
 
 import '../models/iptv_playlist.dart';
@@ -802,7 +801,7 @@ class VideoPlayerLauncher {
             actions: [
               TextButton(
                 onPressed: () => Navigator.of(dialogContext).pop(false),
-                child: Text(AppLocalizations.of(context).t('Cancel')),
+                child: Text('Cancel'),
               ),
               FilledButton(
                 autofocus: true,
@@ -1960,7 +1959,7 @@ class VideoPlayerLauncher {
               ),
               FilledButton(
                 onPressed: () => Navigator.of(dialogContext).pop(true),
-                child: Text(AppLocalizations.of(context).t('Continue')),
+                child: Text('Continue'),
               ),
             ],
           ),
@@ -2054,12 +2053,12 @@ class VideoPlayerLauncher {
           actions: [
             TextButton(
               onPressed: () => Navigator.of(context).pop(false),
-              child: Text(AppLocalizations.of(context).t('Cancel')),
+              child: Text('Cancel'),
             ),
             FilledButton.icon(
               onPressed: () => Navigator.of(context).pop(true),
               icon: Icon(Icons.play_arrow),
-              label: Text(AppLocalizations.of(context).t('Play')),
+              label: Text('Play'),
             ),
           ],
         ),

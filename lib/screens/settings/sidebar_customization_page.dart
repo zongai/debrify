@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 
-import '../../l10n/app_localizations.dart';
 import 'package:flutter/services.dart';
 
 import '../../models/sidebar_configuration.dart';
@@ -138,7 +137,7 @@ class _SidebarCustomizationPageState extends State<SidebarCustomizationPage> {
         .catchError((Object error, StackTrace stackTrace) {
           if (!mounted || revision != _saveRevision) return;
           ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text(AppLocalizations.of(context).t('Could not save sidebar changes'))),
+            SnackBar(content: Text('Could not save sidebar changes')),
           );
         });
   }
@@ -189,7 +188,7 @@ class _SidebarCustomizationPageState extends State<SidebarCustomizationPage> {
     final confirmed = await showDialog<bool>(
       context: context,
       builder: (dialogContext) => AlertDialog(
-        title: Text(AppLocalizations.of(context).t('Reset sidebar?')),
+        title: Text('Reset sidebar?'),
         content: Text(
           'This restores the original order and every default name on both '
           'TV and desktop.',
@@ -197,11 +196,11 @@ class _SidebarCustomizationPageState extends State<SidebarCustomizationPage> {
         actions: [
           TextButton(
             onPressed: () => Navigator.of(dialogContext).pop(false),
-            child: Text(AppLocalizations.of(context).t('Cancel')),
+            child: Text('Cancel'),
           ),
           FilledButton(
             onPressed: () => Navigator.of(dialogContext).pop(true),
-            child: Text(AppLocalizations.of(context).t('Reset')),
+            child: Text('Reset'),
           ),
         ],
       ),
@@ -280,13 +279,13 @@ class _SidebarCustomizationPageState extends State<SidebarCustomizationPage> {
   Widget build(BuildContext context) {
     if (_loading) {
       return SettingsPageScaffold(
-        title: AppLocalizations.of(context).t('Sidebar Items'),
+        title: 'Sidebar Items',
         body: Center(child: CircularProgressIndicator()),
       );
     }
     final t = AppThemeScope.of(context).settings;
     return SettingsPageScaffold(
-      title: AppLocalizations.of(context).t('Sidebar Items'),
+      title: 'Sidebar Items',
       bottomNavigationBar: SafeArea(
         top: false,
         child: Padding(
@@ -312,7 +311,7 @@ class _SidebarCustomizationPageState extends State<SidebarCustomizationPage> {
                   focusNode: _resetNode,
                   onPressed: _configuration.isDefault ? null : _reset,
                   icon: Icon(Icons.restart_alt_rounded),
-                  label: Text(AppLocalizations.of(context).t('Restore default order and names')),
+                  label: Text('Restore default order and names'),
                 ),
               ),
             ),
@@ -331,7 +330,7 @@ class _SidebarCustomizationPageState extends State<SidebarCustomizationPage> {
                   padding: EdgeInsets.fromLTRB(16, 12, 16, 0),
                   child: SettingsPageHeader(
                     icon: Icons.low_priority_rounded,
-                    title: AppLocalizations.of(context).t('Make the sidebar yours'),
+                    title: 'Make the sidebar yours',
                     subtitle:
                         'Order and names are shared by TV and desktop for '
                         'this profile. Availability still follows connections '
@@ -634,7 +633,7 @@ class _SidebarLabelDialogState extends State<_SidebarLabelDialog> {
           keyboardInk: app.core.tx,
           keyboardInkOnAccent: app.inkOn(app.settings.accent),
           decoration: InputDecoration(
-            labelText: AppLocalizations.of(context).t('Sidebar name'),
+            labelText: 'Sidebar name',
             helperText: 'Default: ${widget.destination.defaultLabel}',
             errorText: _error,
           ),
@@ -646,16 +645,16 @@ class _SidebarLabelDialogState extends State<_SidebarLabelDialog> {
             onPressed: () => Navigator.of(
               context,
             ).pop<_SidebarLabelEdit>(_SidebarLabelReset()),
-            child: Text(AppLocalizations.of(context).t('Use default')),
+            child: Text('Use default'),
           ),
         TextButton(
           onPressed: () => Navigator.of(context).pop(),
-          child: Text(AppLocalizations.of(context).t('Cancel')),
+          child: Text('Cancel'),
         ),
         FilledButton(
           focusNode: _saveNode,
           onPressed: _save,
-          child: Text(AppLocalizations.of(context).t('Save')),
+          child: Text('Save'),
         ),
       ],
     );

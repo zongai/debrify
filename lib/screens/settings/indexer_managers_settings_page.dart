@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../l10n/app_localizations.dart';
 
 import '../../models/indexer_manager_config.dart';
 import '../../services/indexer_manager_service.dart';
@@ -146,7 +145,7 @@ class _IndexerManagersSettingsPageState
     final shouldDelete = await showDialog<bool>(
       context: context,
       builder: (context) => AlertDialog(
-        title: Text(AppLocalizations.of(context).t('Delete Engine')),
+        title: Text('Delete Engine'),
         content: Text('Remove ${config.displayName} from torrent search?'),
         actions: [
           _FocusRing(
@@ -155,14 +154,14 @@ class _IndexerManagersSettingsPageState
               // TV: seed DPAD focus inside the dialog (BACK still dismisses).
               autofocus: PlatformUtil.isTelevision,
               onPressed: () => Navigator.of(context).pop(false),
-              child: Text(AppLocalizations.of(context).t('Cancel')),
+              child: Text('Cancel'),
             ),
           ),
           _FocusRing(
             borderRadius: 12,
             child: FilledButton(
               onPressed: () => Navigator.of(context).pop(true),
-              child: Text(AppLocalizations.of(context).t('Delete')),
+              child: Text('Delete'),
             ),
           ),
         ],
@@ -251,7 +250,7 @@ class _IndexerManagersSettingsPageState
   @override
   Widget build(BuildContext context) {
     return SettingsPageScaffold(
-      title: AppLocalizations.of(context).t('Indexer Managers'),
+      title: 'Indexer Managers',
       actions: [
         IconButton(
           focusNode: _addButtonFocus,
@@ -316,7 +315,7 @@ class _IndexerManagersSettingsPageState
   Widget _buildHeader(BuildContext context) {
     return SettingsPageHeader(
       icon: Icons.manage_search_rounded,
-      title: AppLocalizations.of(context).t('Indexer Managers'),
+      title: 'Indexer Managers',
       subtitle:
           'Connect public or private indexers through Jackett and Prowlarr. Enabled engines appear in the torrent search source picker.',
     );
@@ -407,7 +406,7 @@ class _IndexerManagersSettingsPageState
               ? null
               : () => _testConfig(config),
           icon: Icon(Icons.network_check_rounded),
-          tooltip: AppLocalizations.of(context).t('Test connection'),
+          tooltip: 'Test connection',
         ),
         IconButton(
           visualDensity: VisualDensity.compact,
@@ -416,7 +415,7 @@ class _IndexerManagersSettingsPageState
               ? null
               : () => _openEditor(config),
           icon: Icon(Icons.edit_rounded),
-          tooltip: AppLocalizations.of(context).t('Edit'),
+          tooltip: 'Edit',
         ),
         IconButton(
           visualDensity: VisualDensity.compact,
@@ -425,7 +424,7 @@ class _IndexerManagersSettingsPageState
               ? null
               : () => _deleteConfig(config),
           icon: Icon(Icons.delete_outline_rounded),
-          tooltip: AppLocalizations.of(context).t('Delete'),
+          tooltip: 'Delete',
         ),
       ],
     );
@@ -616,7 +615,7 @@ class _IndexerManagerEditorDialogState
                         // TV: seed DPAD focus on the first control (not a
                         // text field — that would pop the soft keyboard).
                         autofocus: PlatformUtil.isTelevision,
-                        decoration: InputDecoration(labelText: AppLocalizations.of(context).t('Type')),
+                        decoration: InputDecoration(labelText: 'Type'),
                         isExpanded: true,
                         items: IndexerManagerType.values
                             .map(
@@ -637,7 +636,7 @@ class _IndexerManagerEditorDialogState
                         focusNode: _nameFocusNode,
                         decoration: _engineFieldDecoration(
                           context,
-                          InputDecoration(labelText: AppLocalizations.of(context).t('Name')),
+                          InputDecoration(labelText: 'Name'),
                         ),
                         textInputAction: TextInputAction.next,
                       ),
@@ -754,7 +753,7 @@ class _IndexerManagerEditorDialogState
                         borderRadius: 12,
                         child: SwitchListTile(
                           contentPadding: EdgeInsets.zero,
-                          title: Text(AppLocalizations.of(context).t('Enabled')),
+                          title: Text('Enabled'),
                           value: _enabled,
                           onChanged: (value) =>
                               setState(() => _enabled = value),
@@ -776,7 +775,7 @@ class _IndexerManagerEditorDialogState
                     borderRadius: 12,
                     child: TextButton(
                       onPressed: () => Navigator.of(context).pop(),
-                      child: Text(AppLocalizations.of(context).t('Cancel')),
+                      child: Text('Cancel'),
                     ),
                   ),
                   _FocusRing(

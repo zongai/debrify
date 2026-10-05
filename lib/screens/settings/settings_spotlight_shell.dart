@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../l10n/app_localizations.dart';
 
 import '../../services/main_page_bridge.dart';
 import '../../theme/app_focus.dart';
@@ -332,7 +331,7 @@ class _SettingsSpotlightShellState extends State<SettingsSpotlightShell> {
             ),
             const Spacer(),
             IconButton(
-              tooltip: AppLocalizations.of(context).t('Search settings'),
+              tooltip: 'Search settings',
               onPressed: widget.onOpenSearch,
               icon: const Icon(Icons.search_rounded),
             ),

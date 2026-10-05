@@ -4,7 +4,6 @@ import 'dart:io';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 
-import '../../l10n/app_localizations.dart';
 import 'package:flutter/services.dart';
 
 import '../../services/cache_scratch_cleanup.dart';
@@ -197,11 +196,11 @@ class _ImportedLaunchAnimationsState extends State<ImportedLaunchAnimations> {
                 actions: [
                   TextButton(
                     onPressed: () => Navigator.pop(context, false),
-                    child: Text(AppLocalizations.of(context).t('Cancel')),
+                    child: Text('Cancel'),
                   ),
                   TextButton(
                     onPressed: () => Navigator.pop(context, true),
-                    child: Text(AppLocalizations.of(context).t('Reset')),
+                    child: Text('Reset'),
                   ),
                 ],
               ),
@@ -452,11 +451,11 @@ class _ImportedLaunchDetailState extends State<ImportedLaunchDetail> {
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context, false),
-            child: Text(AppLocalizations.of(context).t('Cancel')),
+            child: Text('Cancel'),
           ),
           TextButton(
             onPressed: () => Navigator.pop(context, true),
-            child: Text(AppLocalizations.of(context).t('Remove')),
+            child: Text('Remove'),
           ),
         ],
       ),

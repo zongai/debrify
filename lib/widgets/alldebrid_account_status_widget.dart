@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../l10n/app_localizations.dart';
 import '../models/alldebrid_user.dart';
 
 class AllDebridAccountStatusWidget extends StatelessWidget {
@@ -76,7 +75,7 @@ class AllDebridAccountStatusWidget extends StatelessWidget {
         const SizedBox(height: 12),
         _InfoRow(
           icon: Icons.schedule,
-          label: AppLocalizations.of(context).t('Premium Expires'),
+          label: 'Premium Expires',
           value: user.formattedPremiumExpiry,
         ),
         _InfoRow(

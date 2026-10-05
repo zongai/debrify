@@ -1,7 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
-import '../../l10n/app_localizations.dart';
 import 'package:flutter/services.dart';
 
 import '../../models/stremio_addon.dart';
@@ -1630,7 +1629,7 @@ class ShowcaseEpisodeCell extends StatelessWidget {
                       Positioned(
                         left: 6,
                         top: 6,
-                        child: _Badge(label: AppLocalizations.of(context).t('UP NEXT')),
+                        child: _Badge(label: 'UP NEXT'),
                       ),
                     if (watched)
                       const Positioned(
@@ -1803,7 +1802,7 @@ class ShowcaseEpisodeCardCompact extends StatelessWidget {
                       Positioned(
                         left: 7,
                         top: 7,
-                        child: _Badge(label: AppLocalizations.of(context).t('UP NEXT')),
+                        child: _Badge(label: 'UP NEXT'),
                       ),
                     if (watched)
                       const Positioned(

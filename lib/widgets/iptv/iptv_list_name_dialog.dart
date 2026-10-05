@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../l10n/app_localizations.dart';
 import 'package:flutter/services.dart';
 
 import '../../theme/app_theme_scope.dart';
@@ -184,7 +183,7 @@ class _IptvListNameDialogState extends State<_IptvListNameDialog> {
                 children: [
                   _NameDialogButton(
                     focusNode: _cancelNode,
-                    label: AppLocalizations.of(context).t('Cancel'),
+                    label: 'Cancel',
                     onTap: () => Navigator.of(context).pop(),
                   ),
                   const SizedBox(width: 10),

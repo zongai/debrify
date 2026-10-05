@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../l10n/app_localizations.dart';
 
 import '../../services/analytics_service.dart';
 import '../../services/play_loader_style.dart';
@@ -83,13 +82,13 @@ class _PlayLoaderStylePageState extends State<PlayLoaderStylePage> {
     final t = AppThemeScope.of(context).settings;
     if (_loading) {
       return SettingsPageScaffold(
-        title: AppLocalizations.of(context).t('Play Loader'),
+        title: 'Play Loader',
         body: Center(child: CircularProgressIndicator()),
       );
     }
 
     return SettingsPageScaffold(
-      title: AppLocalizations.of(context).t('Play Loader'),
+      title: 'Play Loader',
       body: SingleChildScrollView(
         padding: EdgeInsets.all(16),
         child: Center(
@@ -100,7 +99,7 @@ class _PlayLoaderStylePageState extends State<PlayLoaderStylePage> {
               children: [
                 const SettingsPageHeader(
                   icon: Icons.play_circle_outline_rounded,
-                  title: AppLocalizations.of(context).t('Play Loader'),
+                  title: 'Play Loader',
                   subtitle:
                       'What you see between pressing Play and the picture '
                       'starting',

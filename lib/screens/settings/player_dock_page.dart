@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../l10n/app_localizations.dart';
 
 import '../../services/analytics_service.dart';
 import '../../services/storage_service.dart';
@@ -185,13 +184,13 @@ class _PlayerDockPageState extends State<PlayerDockPage> {
     final t = AppThemeScope.of(context).settings;
     if (_loading) {
       return SettingsPageScaffold(
-        title: AppLocalizations.of(context).t('Player Controls'),
+        title: 'Player Controls',
         body: Center(child: CircularProgressIndicator()),
       );
     }
 
     return SettingsPageScaffold(
-      title: AppLocalizations.of(context).t('Player Controls'),
+      title: 'Player Controls',
       body: SingleChildScrollView(
         padding: EdgeInsets.all(16),
         child: Center(
@@ -202,7 +201,7 @@ class _PlayerDockPageState extends State<PlayerDockPage> {
               children: [
                 const SettingsPageHeader(
                   icon: Icons.tune_rounded,
-                  title: AppLocalizations.of(context).t('Player Controls'),
+                  title: 'Player Controls',
                   subtitle:
                       'The on-screen controls during playback — their layout, '
                       'accent colour and size',
@@ -241,7 +240,7 @@ class _PlayerDockPageState extends State<PlayerDockPage> {
                 ),
                 const SizedBox(height: 20),
                 SettingsSection(
-                  title: AppLocalizations.of(context).t('Size'),
+                  title: 'Size',
                   children: [
                     for (final choice in kPlayerDockSizeChoices)
                       _optionRow(

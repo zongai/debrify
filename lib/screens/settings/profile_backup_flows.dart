@@ -5,7 +5,6 @@ import 'dart:typed_data';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 
-import '../../l10n/app_localizations.dart';
 import 'package:path/path.dart' as p;
 import 'package:path_provider/path_provider.dart';
 
@@ -177,13 +176,13 @@ class ProfileBackupFlows {
           actions: [
             TextButton(
               onPressed: () => Navigator.of(dialogContext).pop(false),
-              child: Text(AppLocalizations.of(context).t('Cancel')),
+              child: Text('Cancel'),
             ),
             FilledButton(
               onPressed: passphrase.text.length >= 8
                   ? () => Navigator.of(dialogContext).pop(true)
                   : null,
-              child: Text(AppLocalizations.of(context).t('Create backup')),
+              child: Text('Create backup'),
             ),
           ],
         ),
@@ -310,12 +309,12 @@ class ProfileBackupFlows {
         actions: [
           TextButton(
             onPressed: () => Navigator.of(dialogContext).pop(false),
-            child: Text(AppLocalizations.of(context).t('Cancel')),
+            child: Text('Cancel'),
           ),
           FilledButton(
             autofocus: true,
             onPressed: () => Navigator.of(dialogContext).pop(true),
-            child: Text(AppLocalizations.of(context).t('Create backup')),
+            child: Text('Create backup'),
           ),
         ],
       ),
@@ -985,7 +984,7 @@ class ProfileBackupFlows {
         actions: [
           TextButton(
             onPressed: () => Navigator.of(dialogContext).pop(false),
-            child: Text(AppLocalizations.of(context).t('Cancel')),
+            child: Text('Cancel'),
           ),
           FilledButton(
             onPressed: () => Navigator.of(dialogContext).pop(true),
@@ -1161,7 +1160,7 @@ class ProfileBackupFlows {
           textInputAction: TextInputAction.done,
           keyboardSubmitLabel: 'Unlock',
           decoration: InputDecoration(
-            labelText: AppLocalizations.of(context).t('Passphrase'),
+            labelText: 'Passphrase',
             errorText: errorText,
           ),
           onSubmitted: (value) => Navigator.of(dialogContext).pop(value),
@@ -1169,7 +1168,7 @@ class ProfileBackupFlows {
         actions: [
           TextButton(
             onPressed: () => Navigator.of(dialogContext).pop(),
-            child: Text(AppLocalizations.of(context).t('Cancel')),
+            child: Text('Cancel'),
           ),
           FilledButton(
             onPressed: () => Navigator.of(dialogContext).pop(controller.text),
@@ -1198,17 +1197,17 @@ class ProfileBackupFlows {
           keyboardType: TextInputType.number,
           textInputAction: TextInputAction.done,
           keyboardSubmitLabel: 'Confirm',
-          decoration: InputDecoration(labelText: AppLocalizations.of(context).t('PIN')),
+          decoration: InputDecoration(labelText: 'PIN'),
           onSubmitted: (value) => Navigator.of(dialogContext).pop(value),
         ),
         actions: [
           TextButton(
             onPressed: () => Navigator.of(dialogContext).pop(),
-            child: Text(AppLocalizations.of(context).t('Cancel')),
+            child: Text('Cancel'),
           ),
           FilledButton(
             onPressed: () => Navigator.of(dialogContext).pop(controller.text),
-            child: Text(AppLocalizations.of(context).t('Confirm')),
+            child: Text('Confirm'),
           ),
         ],
       ),
@@ -1269,7 +1268,7 @@ class ProfileBackupFlows {
                   textInputAction: TextInputAction.done,
                   keyboardSubmitLabel: 'Unlock',
                   decoration: InputDecoration(
-                    labelText: AppLocalizations.of(context).t('Passphrase'),
+                    labelText: 'Passphrase',
                     errorText: errorText,
                   ),
                   onSubmitted: (value) => Navigator.of(context).pop(value),
@@ -1279,7 +1278,7 @@ class ProfileBackupFlows {
             actions: [
               TextButton(
                 onPressed: () => Navigator.of(context).pop(null),
-                child: Text(AppLocalizations.of(context).t('Cancel')),
+                child: Text('Cancel'),
               ),
               FilledButton(
                 onPressed: () => Navigator.of(context).pop(controller.text),
@@ -1442,7 +1441,7 @@ class _BackupProgressDialogState extends State<_BackupProgressDialog> {
                           setState(() => _cancelRequested = true);
                           onCancel();
                         },
-                  child: Text(AppLocalizations.of(context).t('Cancel')),
+                  child: Text('Cancel'),
                 ),
               ],
       ),

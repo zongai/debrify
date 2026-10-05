@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 
-import '../../l10n/app_localizations.dart';
 import 'package:flutter/services.dart';
 
 import '../../models/iptv_playlist.dart';
@@ -783,7 +782,7 @@ class IptvSchedulePane extends StatelessWidget {
                     if (!isTelevision)
                       IconButton(
                         key: const ValueKey('iptv-schedule-back'),
-                        tooltip: AppLocalizations.of(context).t('Back to channels'),
+                        tooltip: 'Back to channels',
                         onPressed: onClose,
                         visualDensity: VisualDensity.compact,
                         icon: Icon(

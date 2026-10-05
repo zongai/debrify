@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../l10n/app_localizations.dart';
 import '../services/series_progress_reset_service.dart';
 
 /// Uses the same global reset as the title menu. Never launches on partial reset.
@@ -44,7 +43,7 @@ Future<bool> resetProgressForRewatch(
           children: [
             CircularProgressIndicator(),
             SizedBox(width: 20),
-            Expanded(child: Text(AppLocalizations.of(context).t('Clearing watch progress…'))),
+            Expanded(child: Text('Clearing watch progress…')),
           ],
         ),
       ),

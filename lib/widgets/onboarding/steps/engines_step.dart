@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../../l10n/app_localizations.dart';
 
 import '../../../services/engine/remote_engine_manager.dart';
 import '../../../theme/widgets/parallax_focus.dart';
@@ -122,7 +121,7 @@ class EnginesStep extends StatelessWidget {
               shape: ParallaxShape.pill,
               radius: BorderRadius.circular(18),
               builder: (context, focused) =>
-                  OnboardPillSurface(focused: focused, label: AppLocalizations.of(context).t('Try again')),
+                  OnboardPillSurface(focused: focused, label: 'Try again'),
             ),
             const SizedBox(width: 10),
             OnboardFocusable(

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../../l10n/app_localizations.dart';
 
 import 'package:flutter/services.dart';
 import '../../../utils/tv_keys.dart';
@@ -309,7 +308,7 @@ class _ChannelGuideState extends State<ChannelGuide>
         focusNode: _searchFocusNode,
         style: const TextStyle(color: Colors.white, fontSize: 14),
         decoration: InputDecoration(
-          hintText: AppLocalizations.of(context).t('Search channels...'),
+          hintText: 'Search channels...',
           hintStyle: TextStyle(color: Colors.white.withValues(alpha: 0.4)),
           prefixIcon: Icon(
             Icons.search,

@@ -2,7 +2,6 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 
-import '../../l10n/app_localizations.dart';
 import 'package:flutter/services.dart';
 
 import '../../models/playlist_view_mode.dart';
@@ -188,7 +187,7 @@ class _WebDavFilesScreenState extends State<WebDavFilesScreen> {
       });
       return;
     }
-    await _loadPath('', title: AppLocalizations.of(context).t('WebDAV'), replaceStack: true);
+    await _loadPath('', title: 'WebDAV', replaceStack: true);
   }
 
   Future<void> _loadPath(
@@ -376,7 +375,7 @@ class _WebDavFilesScreenState extends State<WebDavFilesScreen> {
       _searchController.clear();
       _searchActive = false;
     });
-    await _loadPath('', title: AppLocalizations.of(context).t('WebDAV'), replaceStack: true);
+    await _loadPath('', title: 'WebDAV', replaceStack: true);
   }
 
   void _openFolder(WebDavItem item) {
@@ -679,11 +678,11 @@ class _WebDavFilesScreenState extends State<WebDavFilesScreen> {
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(ctx, false),
-            child: Text(AppLocalizations.of(context).t('Cancel')),
+            child: Text('Cancel'),
           ),
           FilledButton(
             onPressed: () => Navigator.pop(ctx, true),
-            child: Text(AppLocalizations.of(context).t('Delete')),
+            child: Text('Delete'),
           ),
         ],
       ),
@@ -795,7 +794,7 @@ class _WebDavFilesScreenState extends State<WebDavFilesScreen> {
                   }
                 },
                 icon: Icon(Icons.arrow_back_rounded, color: app.core.tx),
-                tooltip: AppLocalizations.of(context).t('Back'),
+                tooltip: 'Back',
               ),
             ),
           Expanded(child: _buildServerAndSearch(app)),
@@ -822,13 +821,13 @@ class _WebDavFilesScreenState extends State<WebDavFilesScreen> {
             focusNode: _refreshFocusNode,
             onPressed: _refresh,
             icon: Icon(Icons.refresh_rounded, color: app.core.tx),
-            tooltip: AppLocalizations.of(context).t('Refresh'),
+            tooltip: 'Refresh',
           ),
           IconButton(
             focusNode: _settingsFocusNode,
             onPressed: _openSettings,
             icon: Icon(Icons.settings_rounded, color: app.core.tx),
-            tooltip: AppLocalizations.of(context).t('Settings'),
+            tooltip: 'Settings',
           ),
         ],
       ),
@@ -1061,7 +1060,7 @@ class _WebDavFilesScreenState extends State<WebDavFilesScreen> {
       );
     }
     if (_items.isEmpty) {
-      return Center(child: Text(AppLocalizations.of(context).t('No files found')));
+      return Center(child: Text('No files found'));
     }
     return _buildItemList();
   }
@@ -1105,25 +1104,25 @@ class _WebDavFilesScreenState extends State<WebDavFilesScreen> {
       if (canPlay)
         CloudRowAction(
           icon: Icons.play_arrow_rounded,
-          label: AppLocalizations.of(context).t('Play'),
+          label: 'Play',
           showInStrip: true,
           onSelected: () => _playItem(item),
         ),
       CloudRowAction(
         icon: Icons.download_rounded,
-        label: AppLocalizations.of(context).t('Download'),
+        label: 'Download',
         showInStrip: true,
         onSelected: () => _downloadItem(item),
       ),
       if (canPlay)
         CloudRowAction(
           icon: Icons.playlist_add,
-          label: AppLocalizations.of(context).t('Add to Playlist'),
+          label: 'Add to Playlist',
           onSelected: () => _addItemToPlaylist(item),
         ),
       CloudRowAction(
         icon: Icons.delete_outline,
-        label: AppLocalizations.of(context).t('Delete'),
+        label: 'Delete',
         destructive: true,
         onSelected: () => _deleteItem(item),
       ),

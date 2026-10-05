@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../l10n/app_localizations.dart';
 import 'package:flutter/services.dart';
 
 import '../../models/iptv_playlist.dart';
@@ -26,7 +25,7 @@ class IptvAutoRefreshDialog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => SimpleDialog(
-    title: Text(AppLocalizations.of(context).t('Auto-refresh')),
+    title: Text('Auto-refresh'),
     children: [
       const Padding(
         padding: EdgeInsets.fromLTRB(24, 0, 24, 16),
@@ -645,7 +644,7 @@ class IptvSettingsTwoPaneState extends State<IptvSettingsTwoPane> {
               _RailEntry(
                 focusNode: _railNodes[widget.playlists.length + 1],
                 icon: Icons.bookmark_rounded,
-                title: AppLocalizations.of(context).t('Channel lists'),
+                title: 'Channel lists',
                 subtitle: _listsSubtitle,
                 selected: selected == widget.playlists.length + 1,
                 chevron: true,
@@ -658,7 +657,7 @@ class IptvSettingsTwoPaneState extends State<IptvSettingsTwoPane> {
               _RailEntry(
                 focusNode: _railNodes[widget.playlists.length + 2],
                 icon: Icons.play_circle_outline_rounded,
-                title: AppLocalizations.of(context).t('Startup channel'),
+                title: 'Startup channel',
                 subtitle: widget.startupEnabled
                     ? (widget.startupMode ==
                               StorageService.startupIptvModePinned
@@ -676,7 +675,7 @@ class IptvSettingsTwoPaneState extends State<IptvSettingsTwoPane> {
               _RailEntry(
                 focusNode: _railNodes[_channelPreviewIndex],
                 icon: Icons.ondemand_video_rounded,
-                title: AppLocalizations.of(context).t('Channel preview'),
+                title: 'Channel preview',
                 subtitle: widget.channelPreviewEnabled
                     ? 'On · uses a stream while browsing'
                     : 'Off · fullscreen playback only',
@@ -691,7 +690,7 @@ class IptvSettingsTwoPaneState extends State<IptvSettingsTwoPane> {
               _RailEntry(
                 focusNode: _railNodes[_continueWatchingIndex],
                 icon: Icons.history_toggle_off_rounded,
-                title: AppLocalizations.of(context).t('Continue watching'),
+                title: 'Continue watching',
                 subtitle: widget.trackContinueWatching
                     ? 'Tracking movies and series'
                     : 'Off',
@@ -711,7 +710,7 @@ class IptvSettingsTwoPaneState extends State<IptvSettingsTwoPane> {
                 _RailEntry(
                   focusNode: _railNodes[_appearanceIndex],
                   icon: Icons.style_rounded,
-                  title: AppLocalizations.of(context).t('Appearance'),
+                  title: 'Appearance',
                   subtitle: iptvStyleLabel(widget.iptvStyle),
                   selected: selected == _appearanceIndex,
                   chevron: true,
@@ -724,7 +723,7 @@ class IptvSettingsTwoPaneState extends State<IptvSettingsTwoPane> {
               _RailEntry(
                 focusNode: _railNodes[_playerGuideIndex],
                 icon: Icons.smart_display_rounded,
-                title: AppLocalizations.of(context).t('Player guide'),
+                title: 'Player guide',
                 subtitle: switch (widget.playerGuideStyle) {
                   'glass' => 'Cinema Glass',
                   'edition' => 'Midnight Edition',
@@ -770,7 +769,7 @@ class IptvSettingsTwoPaneState extends State<IptvSettingsTwoPane> {
               _RailEntry(
                 focusNode: _railNodes[_autoRefreshIndex],
                 icon: Icons.update_rounded,
-                title: AppLocalizations.of(context).t('Auto-refresh'),
+                title: 'Auto-refresh',
                 subtitle: iptvAutoRefreshLabel(widget.autoRefreshHours),
                 selected: selected == _autoRefreshIndex,
                 chevron: true,
@@ -831,7 +830,7 @@ class IptvSettingsTwoPaneState extends State<IptvSettingsTwoPane> {
         children: [
           _PaneHeader(
             icon: Icons.update_rounded,
-            title: AppLocalizations.of(context).t('Auto-refresh'),
+            title: 'Auto-refresh',
             meta: 'All sources in this profile',
             badges: [],
           ),
@@ -989,7 +988,7 @@ class IptvSettingsTwoPaneState extends State<IptvSettingsTwoPane> {
               _PaneRow(
                 focusNode: _paneNode(row++),
                 icon: Icons.visibility_off_rounded,
-                title: AppLocalizations.of(context).t('Hidden categories'),
+                title: 'Hidden categories',
                 subtitle: switch (widget.hiddenCounts[playlist.id] ?? 0) {
                   0 => 'Nothing hidden from this source',
                   1 => '1 category hidden',
@@ -1003,7 +1002,7 @@ class IptvSettingsTwoPaneState extends State<IptvSettingsTwoPane> {
               _PaneRow(
                 focusNode: _paneNode(row++),
                 icon: Icons.swap_vert_rounded,
-                title: AppLocalizations.of(context).t('Category order'),
+                title: 'Category order',
                 subtitle: 'Arrange categories in this source',
                 trailing: _chevron,
                 onTap: () => widget.onManageCategoryOrder!(playlist),
@@ -1030,7 +1029,7 @@ class IptvSettingsTwoPaneState extends State<IptvSettingsTwoPane> {
               _PaneRow(
                 focusNode: _paneNode(row++),
                 icon: Icons.delete_outline_rounded,
-                title: AppLocalizations.of(context).t('Remove source'),
+                title: 'Remove source',
                 subtitle: 'Keeps your lists and watch history',
                 danger: true,
                 trailing: _chevron,
@@ -1134,7 +1133,7 @@ class IptvSettingsTwoPaneState extends State<IptvSettingsTwoPane> {
       children: [
         _PaneHeader(
           icon: Icons.bookmark_rounded,
-          title: AppLocalizations.of(context).t('Channel lists'),
+          title: 'Channel lists',
           meta:
               'Hold OK on any channel to add it to a list. '
               'Deleting a list never deletes its channels.',
@@ -1149,7 +1148,7 @@ class IptvSettingsTwoPaneState extends State<IptvSettingsTwoPane> {
             _PaneRow(
               focusNode: null,
               icon: Icons.star_rounded,
-              title: AppLocalizations.of(context).t('Favorites'),
+              title: 'Favorites',
               subtitle: 'Built in · always available',
               trailing: null,
               onTap: null,
@@ -1158,7 +1157,7 @@ class IptvSettingsTwoPaneState extends State<IptvSettingsTwoPane> {
             _PaneRow(
               focusNode: _paneNode(row++),
               icon: Icons.reorder_rounded,
-              title: AppLocalizations.of(context).t('Channel order'),
+              title: 'Channel order',
               subtitle: 'Arrange Favorites and saved lists',
               trailing: _chevron,
               onTap: widget.onManageChannelOrder,
@@ -1200,7 +1199,7 @@ class IptvSettingsTwoPaneState extends State<IptvSettingsTwoPane> {
       children: [
         _PaneHeader(
           icon: Icons.play_circle_outline_rounded,
-          title: AppLocalizations.of(context).t('Startup channel'),
+          title: 'Startup channel',
           meta: 'Open straight into a live channel when the app starts.',
           badges: [],
         ),
@@ -1286,7 +1285,7 @@ class IptvSettingsTwoPaneState extends State<IptvSettingsTwoPane> {
       children: [
         _PaneHeader(
           icon: Icons.history_toggle_off_rounded,
-          title: AppLocalizations.of(context).t('Continue watching'),
+          title: 'Continue watching',
           meta:
               'The shelf of on-demand movies and series you have started, '
               'on Home and in IPTV.',
@@ -1326,7 +1325,7 @@ class IptvSettingsTwoPaneState extends State<IptvSettingsTwoPane> {
       children: [
         _PaneHeader(
           icon: Icons.ondemand_video_rounded,
-          title: AppLocalizations.of(context).t('Channel preview'),
+          title: 'Channel preview',
           meta:
               'Control whether the side panel tunes the focused channel '
               'while you browse.',
@@ -1395,7 +1394,7 @@ class IptvSettingsTwoPaneState extends State<IptvSettingsTwoPane> {
       children: [
         _PaneHeader(
           icon: Icons.style_rounded,
-          title: AppLocalizations.of(context).t('Appearance'),
+          title: 'Appearance',
           meta:
               'How the IPTV page looks on TV and desktop. Phones keep the '
               'classic list either way.',
@@ -1449,7 +1448,7 @@ class IptvSettingsTwoPaneState extends State<IptvSettingsTwoPane> {
       children: [
         _PaneHeader(
           icon: Icons.smart_display_rounded,
-          title: AppLocalizations.of(context).t('Player guide'),
+          title: 'Player guide',
           meta:
               'How the channel banner and in-player guide look during live '
               'TV — the next playback session uses the new look.',
@@ -1461,7 +1460,7 @@ class IptvSettingsTwoPaneState extends State<IptvSettingsTwoPane> {
             styleRow(
               icon: Icons.play_circle_outline_rounded,
               value: 'classic',
-              title: AppLocalizations.of(context).t('Classic'),
+              title: 'Classic',
               subtitle: "Today's look",
             ),
             styleRow(
@@ -1542,7 +1541,7 @@ class IptvSettingsTwoPaneState extends State<IptvSettingsTwoPane> {
               _PaneRow(
                 focusNode: _paneNode(row++),
                 icon: Icons.battery_alert_rounded,
-                title: AppLocalizations.of(context).t('Battery optimization'),
+                title: 'Battery optimization',
                 subtitle: widget.batteryExempt == true
                     ? 'Excluded — long recordings can run to the end'
                     : 'Optimized — the phone may kill long recordings; '
@@ -1556,7 +1555,7 @@ class IptvSettingsTwoPaneState extends State<IptvSettingsTwoPane> {
               _PaneRow(
                 focusNode: _paneNode(row++),
                 icon: Icons.event_rounded,
-                title: AppLocalizations.of(context).t('Recordings'),
+                title: 'Recordings',
                 subtitle: widget.scheduledCount == 0
                     ? 'Live captures, schedules and your recorded files'
                     : '${widget.scheduledCount} scheduled · live captures '

@@ -2,7 +2,6 @@ import 'dart:async';
 import '../../../services/webdav_sync/webdav_sync_graph_tier.dart';
 import 'package:flutter/material.dart';
 
-import '../../../l10n/app_localizations.dart';
 import '../../../services/webdav_sync/webdav_sync_device_names.dart';
 import '../../../widgets/tv_text_field.dart';
 
@@ -62,9 +61,9 @@ class _SyncDeviceNameDialogState extends State<SyncDeviceNameDialog> {
     actions: [
       TextButton(
         onPressed: () => Navigator.of(context).pop(),
-        child: Text(AppLocalizations.of(context).t('Cancel')),
+        child: Text('Cancel'),
       ),
-      FilledButton(onPressed: _submit, child: Text(AppLocalizations.of(context).t('Save'))),
+      FilledButton(onPressed: _submit, child: Text('Save')),
     ],
   );
 }
@@ -153,7 +152,7 @@ class SyncDeviceTile extends StatelessWidget {
                   TextButton.icon(
                     onPressed: onRename,
                     icon: const Icon(Icons.edit_outlined, size: 18),
-                    label: Text(AppLocalizations.of(context).t('Rename')),
+                    label: Text('Rename'),
                   ),
                 if (onRemove != null)
                   TextButton.icon(
@@ -162,7 +161,7 @@ class SyncDeviceTile extends StatelessWidget {
                       foregroundColor: Theme.of(context).colorScheme.error,
                     ),
                     icon: Icon(Icons.remove_circle_outline, size: 18),
-                    label: Text(AppLocalizations.of(context).t('Remove')),
+                    label: Text('Remove'),
                   ),
               ],
             ),
@@ -263,7 +262,7 @@ class _SyncDevicesDialogState extends State<SyncDevicesDialog> {
       actions: [
         TextButton(
           onPressed: () => Navigator.of(context).pop(),
-          child: Text(AppLocalizations.of(context).t('Done')),
+          child: Text('Done'),
         ),
       ],
     );

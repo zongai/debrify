@@ -3,7 +3,6 @@ import 'dart:convert';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 
-import '../../l10n/app_localizations.dart';
 import 'package:flutter/services.dart';
 
 import '../../models/stremio_addon.dart';
@@ -248,7 +247,7 @@ class _StremioAddonsPageContentState extends State<StremioAddonsPageContent> {
             if (result.failed > 0)
               _ImportResultRow(
                 icon: Icons.error_outline,
-                label: AppLocalizations.of(context).t('Failed'),
+                label: 'Failed',
                 value: '${result.failed}',
                 color: theme.colorScheme.error,
               ),
@@ -267,7 +266,7 @@ class _StremioAddonsPageContentState extends State<StremioAddonsPageContent> {
         actions: [
           FilledButton(
             onPressed: () => Navigator.of(context).pop(),
-            child: Text(AppLocalizations.of(context).t('Done')),
+            child: Text('Done'),
           ),
         ],
       ),
@@ -308,7 +307,7 @@ class _StremioAddonsPageContentState extends State<StremioAddonsPageContent> {
         actions: [
           TextButton(
             onPressed: () => Navigator.of(context).pop(false),
-            child: Text(AppLocalizations.of(context).t('Cancel')),
+            child: Text('Cancel'),
           ),
           FilledButton(
             onPressed: () => Navigator.of(context).pop(true),
@@ -449,12 +448,12 @@ class _StremioAddonsPageContentState extends State<StremioAddonsPageContent> {
         actions: [
           TextButton(
             onPressed: () => Navigator.of(context).pop(false),
-            child: Text(AppLocalizations.of(context).t('Cancel')),
+            child: Text('Cancel'),
           ),
           FilledButton(
             onPressed: () => Navigator.of(context).pop(true),
             style: FilledButton.styleFrom(backgroundColor: Colors.red),
-            child: Text(AppLocalizations.of(context).t('Remove')),
+            child: Text('Remove'),
           ),
         ],
       ),
@@ -500,7 +499,7 @@ class _StremioAddonsPageContentState extends State<StremioAddonsPageContent> {
               ],
               _DetailRow(label: 'ID', value: addon.id),
               if (addon.version != null)
-                _DetailRow(label: AppLocalizations.of(context).t('Version'), value: addon.version!),
+                _DetailRow(label: 'Version', value: addon.version!),
               _DetailRow(
                 label: 'Types',
                 value: addon.types.isEmpty ? 'None' : addon.types.join(', '),
@@ -560,7 +559,7 @@ class _StremioAddonsPageContentState extends State<StremioAddonsPageContent> {
             ),
           FilledButton(
             onPressed: () => Navigator.of(context).pop(),
-            child: Text(AppLocalizations.of(context).t('Close')),
+            child: Text('Close'),
           ),
         ],
       ),
@@ -1140,7 +1139,7 @@ class _StremioAddonsPageContentState extends State<StremioAddonsPageContent> {
                 FilledButton.icon(
                   onPressed: _loadAddons,
                   icon: const Icon(Icons.refresh_rounded),
-                  label: Text(AppLocalizations.of(context).t('Retry')),
+                  label: Text('Retry'),
                 ),
               ],
             ),
@@ -1511,12 +1510,12 @@ class _StremioAddonsPageState extends State<StremioAddonsPage> {
         actions: [
           TextButton(
             onPressed: () => Navigator.of(context).pop(false),
-            child: Text(AppLocalizations.of(context).t('Cancel')),
+            child: Text('Cancel'),
           ),
           FilledButton(
             onPressed: () => Navigator.of(context).pop(true),
             style: FilledButton.styleFrom(backgroundColor: Colors.red),
-            child: Text(AppLocalizations.of(context).t('Remove')),
+            child: Text('Remove'),
           ),
         ],
       ),
@@ -1564,7 +1563,7 @@ class _StremioAddonsPageState extends State<StremioAddonsPage> {
               ],
               _DetailRow(label: 'ID', value: addon.id),
               if (addon.version != null)
-                _DetailRow(label: AppLocalizations.of(context).t('Version'), value: addon.version!),
+                _DetailRow(label: 'Version', value: addon.version!),
               _DetailRow(
                 label: 'Types',
                 value: addon.types.isEmpty ? 'None' : addon.types.join(', '),
@@ -1624,7 +1623,7 @@ class _StremioAddonsPageState extends State<StremioAddonsPage> {
             ),
           FilledButton(
             onPressed: () => Navigator.of(context).pop(),
-            child: Text(AppLocalizations.of(context).t('Close')),
+            child: Text('Close'),
           ),
         ],
       ),
@@ -1657,7 +1656,7 @@ class _StremioAddonsPageState extends State<StremioAddonsPage> {
           IconButton(
             onPressed: _isLoading ? null : _loadAddons,
             icon: const Icon(Icons.refresh),
-            tooltip: AppLocalizations.of(context).t('Reload'),
+            tooltip: 'Reload',
           ),
         ],
       ),
@@ -1720,7 +1719,7 @@ class _StremioAddonsPageState extends State<StremioAddonsPage> {
                           ),
                         )
                       : const Icon(Icons.add),
-                  label: Text(AppLocalizations.of(context).t('Add')),
+                  label: Text('Add'),
                 ),
               ),
             ],
@@ -1802,7 +1801,7 @@ class _StremioAddonsPageState extends State<StremioAddonsPage> {
               FilledButton.icon(
                 onPressed: _loadAddons,
                 icon: const Icon(Icons.refresh),
-                label: Text(AppLocalizations.of(context).t('Retry')),
+                label: Text('Retry'),
               ),
             ],
           ),
@@ -2350,7 +2349,7 @@ class _AddonOptionsSheetState extends State<_AddonOptionsSheet> {
                 child: _OptionTile(
                   focusNode: _updateFocusNode,
                   icon: Icons.refresh,
-                  label: AppLocalizations.of(context).t('Update'),
+                  label: 'Update',
                   onTap: widget.onUpdate,
                 ),
               ),
@@ -2370,7 +2369,7 @@ class _AddonOptionsSheetState extends State<_AddonOptionsSheet> {
                 child: _OptionTile(
                   focusNode: _deleteFocusNode,
                   icon: Icons.delete_outline,
-                  label: AppLocalizations.of(context).t('Remove'),
+                  label: 'Remove',
                   isDestructive: true,
                   onTap: widget.onDelete,
                 ),

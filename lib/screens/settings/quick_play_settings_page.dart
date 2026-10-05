@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 
-import '../../l10n/app_localizations.dart';
 import 'package:flutter/services.dart';
 
 import '../../models/quick_play_rules.dart';
@@ -296,12 +295,12 @@ class _QuickPlaySettingsPageState extends State<QuickPlaySettingsPage> {
   Widget build(BuildContext context) {
     if (_loading) {
       return SettingsPageScaffold(
-        title: AppLocalizations.of(context).t('Quick Play'),
+        title: 'Quick Play',
         body: Center(child: CircularProgressIndicator()),
       );
     }
     return SettingsPageScaffold(
-      title: AppLocalizations.of(context).t('Quick Play'),
+      title: 'Quick Play',
       body: SingleChildScrollView(
         padding: EdgeInsets.fromLTRB(
           PlatformUtil.isTelevision ? 36 : 16,
@@ -317,7 +316,7 @@ class _QuickPlaySettingsPageState extends State<QuickPlaySettingsPage> {
               children: [
                 const SettingsPageHeader(
                   icon: Icons.bolt_rounded,
-                  title: AppLocalizations.of(context).t('Quick Play'),
+                  title: 'Quick Play',
                   subtitle:
                       'Choose what Debrify plays automatically. Movies and series have separate rules.',
                 ),
@@ -330,7 +329,7 @@ class _QuickPlaySettingsPageState extends State<QuickPlaySettingsPage> {
                 const SizedBox(height: 10),
                 _playModeSelect(),
                 const SizedBox(height: 24),
-                SettingsSection(title: AppLocalizations.of(context).t('Sources'), children: [
+                SettingsSection(title: 'Sources', children: [
                   SettingsToggleTile(
                     icon: Icons.image_outlined,
                     title: 'Show add-on logos',
@@ -467,7 +466,7 @@ class _QuickPlaySettingsPageState extends State<QuickPlaySettingsPage> {
               key: const ValueKey('quick-play-tab-movie'),
               node: _movieTab,
               selected: !_series,
-              label: AppLocalizations.of(context).t('Movies'),
+              label: 'Movies',
               onTap: () => setState(() {
                 _series = false;
                 _pickedKey = null;
@@ -479,7 +478,7 @@ class _QuickPlaySettingsPageState extends State<QuickPlaySettingsPage> {
               key: ValueKey('quick-play-tab-series'),
               node: _seriesTab,
               selected: _series,
-              label: AppLocalizations.of(context).t('Series'),
+              label: 'Series',
               onTap: () => setState(() {
                 _series = true;
                 _pickedKey = null;
@@ -754,7 +753,7 @@ class _PriorityRowState extends State<_PriorityRow> {
                         children: [
                           IconButton(
                             onPressed: widget.onMoveUp,
-                            tooltip: AppLocalizations.of(context).t('Move up'),
+                            tooltip: 'Move up',
                             visualDensity: VisualDensity.compact,
                             icon: Icon(
                               Icons.keyboard_arrow_up_rounded,
@@ -763,7 +762,7 @@ class _PriorityRowState extends State<_PriorityRow> {
                           ),
                           IconButton(
                             onPressed: widget.onMoveDown,
-                            tooltip: AppLocalizations.of(context).t('Move down'),
+                            tooltip: 'Move down',
                             visualDensity: VisualDensity.compact,
                             icon: Icon(
                               Icons.keyboard_arrow_down_rounded,

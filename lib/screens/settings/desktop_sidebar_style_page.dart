@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../l10n/app_localizations.dart';
 
 import '../../services/analytics_service.dart';
 import '../../services/main_page_bridge.dart';
@@ -85,13 +84,13 @@ class _DesktopSidebarStylePageState extends State<DesktopSidebarStylePage> {
     final t = AppThemeScope.of(context).settings;
     if (_loading) {
       return SettingsPageScaffold(
-        title: AppLocalizations.of(context).t('Sidebar Style'),
+        title: 'Sidebar Style',
         body: Center(child: CircularProgressIndicator()),
       );
     }
 
     return SettingsPageScaffold(
-      title: AppLocalizations.of(context).t('Sidebar Style'),
+      title: 'Sidebar Style',
       body: SingleChildScrollView(
         padding: EdgeInsets.all(16),
         child: Center(
@@ -102,7 +101,7 @@ class _DesktopSidebarStylePageState extends State<DesktopSidebarStylePage> {
               children: [
                 const SettingsPageHeader(
                   icon: Icons.view_sidebar_rounded,
-                  title: AppLocalizations.of(context).t('Sidebar Style'),
+                  title: 'Sidebar Style',
                   subtitle:
                       'How navigation is drawn in wide windows — desktop '
                       'and tablets',
@@ -117,11 +116,11 @@ class _DesktopSidebarStylePageState extends State<DesktopSidebarStylePage> {
                 ),
                 const SizedBox(height: 18),
                 SettingsSection(
-                  title: AppLocalizations.of(context).t('Items'),
+                  title: 'Items',
                   children: [
                     SettingsTile(
                       icon: Icons.low_priority_rounded,
-                      title: AppLocalizations.of(context).t('Order & Names'),
+                      title: 'Order & Names',
                       subtitle:
                           'Rearrange destinations and rename sidebar labels',
                       trailing: const Icon(Icons.chevron_right_rounded),

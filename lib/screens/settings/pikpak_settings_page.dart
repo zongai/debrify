@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 
-import '../../l10n/app_localizations.dart';
 import '../../services/storage_service.dart';
 import '../../services/pikpak_api_service.dart';
 import '../../services/analytics_service.dart';
@@ -312,7 +311,7 @@ class _PikPakSettingsPageState extends State<PikPakSettingsPage> {
       await showDialog(
         context: context,
         builder: (context) => AlertDialog(
-          title: Text(AppLocalizations.of(context).t('Security Restriction')),
+          title: Text('Security Restriction'),
           content: const Text(
             'To change the folder restriction, you must logout and login again. This is a security measure to prevent unauthorized changes.',
           ),
@@ -355,7 +354,7 @@ class _PikPakSettingsPageState extends State<PikPakSettingsPage> {
     await showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: Text(AppLocalizations.of(context).t('Security Restriction')),
+        title: Text('Security Restriction'),
         content: const Text(
           'To remove the folder restriction, you must logout and login again. This is a security measure to prevent unauthorized changes.',
         ),
@@ -424,13 +423,13 @@ class _PikPakSettingsPageState extends State<PikPakSettingsPage> {
               child: TextButton(
                 autofocus: true,
                 onPressed: () => Navigator.pop(context, false),
-                child: Text(AppLocalizations.of(context).t('Cancel')),
+                child: Text('Cancel'),
               ),
             ),
             _FocusRing(
               child: FilledButton(
                 onPressed: () => Navigator.pop(context, true),
-                child: Text(AppLocalizations.of(context).t('Hide')),
+                child: Text('Hide'),
               ),
             ),
           ],
@@ -453,7 +452,7 @@ class _PikPakSettingsPageState extends State<PikPakSettingsPage> {
       await showDialog(
         context: context,
         builder: (context) => AlertDialog(
-          title: Text(AppLocalizations.of(context).t('Security Restriction')),
+          title: Text('Security Restriction'),
           content: SingleChildScrollView(
             child: Text(
               'To show PikPak in navigation again, you must logout and login. This is a security measure to prevent unauthorized changes.',
@@ -491,13 +490,13 @@ class _PikPakSettingsPageState extends State<PikPakSettingsPage> {
     final t = app.settings;
     if (_loading) {
       return SettingsPageScaffold(
-        title: AppLocalizations.of(context).t('PikPak Settings'),
+        title: 'PikPak Settings',
         body: Center(child: CircularProgressIndicator()),
       );
     }
 
     return SettingsPageScaffold(
-      title: AppLocalizations.of(context).t('PikPak Settings'),
+      title: 'PikPak Settings',
       body: FocusTraversalGroup(
         policy: OrderedTraversalPolicy(),
         child: ListView(
@@ -813,7 +812,7 @@ class _PikPakSettingsPageState extends State<PikPakSettingsPage> {
                                               Icons.clear,
                                               size: 18,
                                             ),
-                                            label: Text(AppLocalizations.of(context).t('Remove')),
+                                            label: Text('Remove'),
                                             style: OutlinedButton.styleFrom(
                                               foregroundColor: t.danger,
                                             ),
@@ -904,7 +903,7 @@ class _PikPakSettingsPageState extends State<PikPakSettingsPage> {
                         TvTextField(
                           controller: _passwordController,
                           focusNode: _passwordFocusNode,
-                          labelText: AppLocalizations.of(context).t('Password'),
+                          labelText: 'Password',
                           hintText: 'Your PikPak password',
                           prefixIcon: const Icon(Icons.lock),
                           obscureText: true,
@@ -964,7 +963,7 @@ class _PikPakSettingsPageState extends State<PikPakSettingsPage> {
                             focusNode: _logoutButtonFocusNode,
                             onPressed: _logout,
                             icon: const Icon(Icons.logout),
-                            label: Text(AppLocalizations.of(context).t('Logout')),
+                            label: Text('Logout'),
                             style: OutlinedButton.styleFrom(
                               foregroundColor: t.danger,
                               side: BorderSide(

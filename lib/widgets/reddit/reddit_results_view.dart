@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../l10n/app_localizations.dart';
 import '../../models/playlist_view_mode.dart';
 import '../../services/reddit_service.dart';
 import '../../services/reddit_embed_resolver_service.dart';
@@ -322,7 +321,7 @@ class RedditResultsViewState extends State<RedditResultsView> {
                   child: CircularProgressIndicator(strokeWidth: 2),
                 ),
                 SizedBox(width: 12),
-                Text(AppLocalizations.of(context).t('Loading video...')),
+                Text('Loading video...'),
               ],
             ),
             duration: Duration(seconds: 2),

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../l10n/app_localizations.dart';
 import 'package:flutter/services.dart';
 import 'dart:convert';
 import '../../screens/video_player_screen.dart';
@@ -1181,7 +1180,7 @@ class _PikPakFilesScreenState extends State<PikPakFilesScreen> {
           TextButton(
             autofocus: true, // Safe default for TV/DPAD
             onPressed: () => Navigator.of(context).pop(),
-            child: Text(AppLocalizations.of(context).t('Cancel')),
+            child: Text('Cancel'),
           ),
           TextButton(
             onPressed: () {
@@ -1783,7 +1782,7 @@ class _PikPakFilesScreenState extends State<PikPakFilesScreen> {
           isExpanded: true,
           value: mode,
           decoration: InputDecoration(
-            labelText: AppLocalizations.of(context).t('View Mode'),
+            labelText: 'View Mode',
             prefixIcon: Icon(
               mode == _FolderViewMode.raw
                   ? Icons.view_list
@@ -1803,10 +1802,10 @@ class _PikPakFilesScreenState extends State<PikPakFilesScreen> {
             ),
           ),
           items: [
-            DropdownMenuItem(value: _FolderViewMode.raw, child: Text(AppLocalizations.of(context).t('Raw'))),
+            DropdownMenuItem(value: _FolderViewMode.raw, child: Text('Raw')),
             DropdownMenuItem(
               value: _FolderViewMode.sortedAZ,
-              child: Text(AppLocalizations.of(context).t('Sort (A-Z)')),
+              child: Text('Sort (A-Z)'),
             ),
           ],
           onChanged: (value) {
@@ -2095,7 +2094,7 @@ class _PikPakFilesScreenState extends State<PikPakFilesScreen> {
           leading: IconButton(
             icon: Icon(Icons.arrow_back),
             onPressed: () => Navigator.of(context).pop(),
-            tooltip: AppLocalizations.of(context).t('Back'),
+            tooltip: 'Back',
           ),
           title: const Text('Opening folder...'),
         ),
@@ -2165,7 +2164,7 @@ class _PikPakFilesScreenState extends State<PikPakFilesScreen> {
                   focusNode: _backButtonFocusNode,
                   icon: Icon(Icons.arrow_back),
                   onPressed: () => _handleBackNavigation(),
-                  tooltip: AppLocalizations.of(context).t('Back'),
+                  tooltip: 'Back',
                 ),
               )
             // At the browse root (opened from the Cloud hub with no folder
@@ -2173,7 +2172,7 @@ class _PikPakFilesScreenState extends State<PikPakFilesScreen> {
             : (_isBrowsePush
                   ? IconButton(
                       icon: Icon(Icons.arrow_back),
-                      tooltip: AppLocalizations.of(context).t('Back'),
+                      tooltip: 'Back',
                       onPressed: () => Navigator.of(context).maybePop(),
                     )
                   : null),
@@ -2232,7 +2231,7 @@ class _PikPakFilesScreenState extends State<PikPakFilesScreen> {
               focusNode: _addLinkButtonFocusNode,
               icon: const Icon(Icons.add_link),
               onPressed: _isLoading ? null : _showAddLinkDialog,
-              tooltip: AppLocalizations.of(context).t('Add Link'),
+              tooltip: 'Add Link',
               iconSize: actionIconSize,
               padding: actionIconPadding,
               constraints: actionIconConstraints,
@@ -2242,7 +2241,7 @@ class _PikPakFilesScreenState extends State<PikPakFilesScreen> {
             focusNode: _refreshButtonFocusNode,
             icon: Icon(Icons.refresh),
             onPressed: _isLoading ? null : _refreshFiles,
-            tooltip: AppLocalizations.of(context).t('Refresh'),
+            tooltip: 'Refresh',
             iconSize: actionIconSize,
             padding: actionIconPadding,
             constraints: actionIconConstraints,
@@ -2316,7 +2315,7 @@ class _PikPakFilesScreenState extends State<PikPakFilesScreen> {
                     );
                   },
                   icon: Icon(Icons.settings),
-                  label: Text(AppLocalizations.of(context).t('Go to Settings')),
+                  label: Text('Go to Settings'),
                   style: FilledButton.styleFrom().copyWith(
                     side: WidgetStateProperty.resolveWith((states) {
                       if (states.contains(WidgetState.focused)) {
@@ -2364,7 +2363,7 @@ class _PikPakFilesScreenState extends State<PikPakFilesScreen> {
                   autofocus: true,
                   onPressed: _refreshFiles,
                   icon: const Icon(Icons.refresh),
-                  label: Text(AppLocalizations.of(context).t('Retry')),
+                  label: Text('Retry'),
                   style: FilledButton.styleFrom().copyWith(
                     side: WidgetStateProperty.resolveWith((states) {
                       if (states.contains(WidgetState.focused)) {
@@ -2444,7 +2443,7 @@ class _PikPakFilesScreenState extends State<PikPakFilesScreen> {
             focusNode: _deleteButtonFocusNode,
             onPressed: count > 0 ? _handleDeleteSelected : null,
             icon: const Icon(Icons.delete_outline, size: 18),
-            label: Text(AppLocalizations.of(context).t('Delete')),
+            label: Text('Delete'),
             style:
                 FilledButton.styleFrom(
                   backgroundColor: theme.colorScheme.error,
@@ -2578,7 +2577,7 @@ class _PikPakFilesScreenState extends State<PikPakFilesScreen> {
         if (isFolder || (isVideo && isComplete))
           CloudRowAction(
             icon: Icons.play_arrow_rounded,
-            label: AppLocalizations.of(context).t('Play'),
+            label: 'Play',
             showInStrip: true,
             onSelected: () {
               if (isFolder) {
@@ -2590,7 +2589,7 @@ class _PikPakFilesScreenState extends State<PikPakFilesScreen> {
           ),
         CloudRowAction(
           icon: Icons.download,
-          label: AppLocalizations.of(context).t('Download'),
+          label: 'Download',
           showInStrip: true,
           onSelected: () {
             if (isFolder) {
@@ -2602,12 +2601,12 @@ class _PikPakFilesScreenState extends State<PikPakFilesScreen> {
         ),
         CloudRowAction(
           icon: Icons.playlist_add,
-          label: AppLocalizations.of(context).t('Add to Playlist'),
+          label: 'Add to Playlist',
           onSelected: () => _handleAddToPlaylist(file),
         ),
         CloudRowAction(
           icon: Icons.delete_outline,
-          label: AppLocalizations.of(context).t('Delete'),
+          label: 'Delete',
           destructive: true,
           onSelected: () => _showDeleteDialog(file),
         ),
@@ -3274,7 +3273,7 @@ class _PikPakFilesScreenState extends State<PikPakFilesScreen> {
                     padding: EdgeInsets.symmetric(vertical: 12),
                     side: const BorderSide(color: Color(0xFF475569)),
                   ),
-                  child: Text(AppLocalizations.of(context).t('Cancel')),
+                  child: Text('Cancel'),
                 ),
               ),
               const SizedBox(width: 12),

@@ -3,7 +3,6 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 
-import '../../l10n/app_localizations.dart';
 import 'package:flutter/services.dart';
 
 import '../../services/storage_service.dart';
@@ -482,7 +481,7 @@ class RemoteConfigExportState extends State<RemoteConfigExport> {
     final connectedDevice = RemoteControlState().connectedDevice;
     if (connectedDevice == null) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(AppLocalizations.of(context).t('No TV connected')),
+        SnackBar(content: Text('No TV connected'),
           backgroundColor: Color(0xFFEF4444),
           behavior: SnackBarBehavior.floating,
         ),
@@ -833,7 +832,7 @@ class RemoteConfigExportState extends State<RemoteConfigExport> {
                 ConfigCommand.iptvLists,
                 targetIp,
                 jsonEncode(payload),
-                label: AppLocalizations.of(context).t('IPTV lists'),
+                label: 'IPTV lists',
                 transferRequestId: supportsApplicationResult ? requestId : null,
               );
         },
@@ -852,7 +851,7 @@ class RemoteConfigExportState extends State<RemoteConfigExport> {
                 ConfigCommand.streamBadges,
                 targetIp,
                 jsonEncode(payload),
-                label: AppLocalizations.of(context).t('Stream badges'),
+                label: 'Stream badges',
                 transferRequestId: supportsApplicationResult ? requestId : null,
               );
         },
@@ -940,7 +939,7 @@ class RemoteConfigExportState extends State<RemoteConfigExport> {
           );
         } else if (successCount == 0) {
           ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text(AppLocalizations.of(context).t('Failed to send configuration')),
+            SnackBar(content: Text('Failed to send configuration'),
               backgroundColor: Color(0xFFEF4444),
               behavior: SnackBarBehavior.floating,
             ),
@@ -963,7 +962,7 @@ class RemoteConfigExportState extends State<RemoteConfigExport> {
       debugPrint('RemoteConfigExport: setup send failed');
       if (mounted && !widget.headless) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text(AppLocalizations.of(context).t('Failed to send configuration')),
+          SnackBar(content: Text('Failed to send configuration'),
             backgroundColor: Color(0xFFEF4444),
             behavior: SnackBarBehavior.floating,
           ),
@@ -988,7 +987,7 @@ class RemoteConfigExportState extends State<RemoteConfigExport> {
         TextButton.icon(
           onPressed: widget.onBack,
           icon: Icon(Icons.arrow_back, size: 18),
-          label: Text(AppLocalizations.of(context).t('Back to menu')),
+          label: Text('Back to menu'),
           style: TextButton.styleFrom(
             foregroundColor: Colors.white.withValues(alpha: 0.7),
           ),
@@ -1464,7 +1463,7 @@ class RemoteConfigExportState extends State<RemoteConfigExport> {
                   controller: _pikpakPasswordController,
                   obscureText: !_showPikpakPassword,
                   decoration: InputDecoration(
-                    labelText: AppLocalizations.of(context).t('Password'),
+                    labelText: 'Password',
                     labelStyle: TextStyle(
                       color: Colors.white.withValues(alpha: 0.5),
                     ),

@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-import '../../l10n/app_localizations.dart';
 
 import '../../models/iptv_playlist.dart';
 import '../../services/iptv_catalog_db.dart';
@@ -382,7 +381,7 @@ class _IptvCategoryOrderPageState extends State<IptvCategoryOrderPage> {
         }
       },
       child: SettingsPageScaffold(
-        title: AppLocalizations.of(context).t('Category order'),
+        title: 'Category order',
         actions: [
           TextButton(
             focusNode: _doneNode,

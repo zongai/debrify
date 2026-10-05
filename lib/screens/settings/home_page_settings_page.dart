@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../l10n/app_localizations.dart';
 import '../../utils/spotlight_interaction_policy.dart';
 import '../../models/stremio_addon.dart';
 import '../../services/home_collections_store.dart';
@@ -528,13 +527,13 @@ class _HomePageSettingsPageState extends State<HomePageSettingsPage> {
   Widget build(BuildContext context) {
     if (_loading) {
       return SettingsPageScaffold(
-        title: AppLocalizations.of(context).t('Home Page Settings'),
+        title: 'Home Page Settings',
         body: Center(child: CircularProgressIndicator()),
       );
     }
 
     return SettingsPageScaffold(
-      title: AppLocalizations.of(context).t('Home Page Settings'),
+      title: 'Home Page Settings',
       body: SingleChildScrollView(
         padding: EdgeInsets.all(16),
         child: Center(
@@ -545,7 +544,7 @@ class _HomePageSettingsPageState extends State<HomePageSettingsPage> {
               children: [
                 const SettingsPageHeader(
                   icon: Icons.home_rounded,
-                  title: AppLocalizations.of(context).t('Home Screen'),
+                  title: 'Home Screen',
                   subtitle: 'Layout, rows, and what shows when the app opens',
                 ),
                 SizedBox(height: 24),
@@ -593,7 +592,7 @@ class _HomePageSettingsPageState extends State<HomePageSettingsPage> {
                     // in place.
                     SettingsTile(
                       icon: Icons.slideshow_rounded,
-                      title: AppLocalizations.of(context).t('Hero Source'),
+                      title: 'Hero Source',
                       subtitle: _spotlightLayoutActive
                           ? spotlightHeroSourceLabel(_heroSource)
                           : 'Only used by the Spotlight home layout',
@@ -750,7 +749,7 @@ class _HomePageSettingsPageState extends State<HomePageSettingsPage> {
                   children: [
                     SettingsToggleTile(
                       icon: Icons.history_rounded,
-                      title: AppLocalizations.of(context).t('Continue Watching'),
+                      title: 'Continue Watching',
                       subtitle:
                           'Show and track recently watched items on the home screen',
                       value: _continueWatchingEnabled,

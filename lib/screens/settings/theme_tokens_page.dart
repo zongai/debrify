@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../l10n/app_localizations.dart';
 import 'package:flutter/services.dart';
 
 import '../../services/analytics_service.dart';
@@ -251,7 +250,7 @@ class _ThemeTokensPageState extends State<ThemeTokensPage> {
     final classic = AppThemeController.instance.isLegacy;
 
     return SettingsPageScaffold(
-      title: AppLocalizations.of(context).t('Advanced'),
+      title: 'Advanced',
       body: SingleChildScrollView(
         padding: EdgeInsets.all(16),
         child: Center(
@@ -262,7 +261,7 @@ class _ThemeTokensPageState extends State<ThemeTokensPage> {
               children: [
                 const SettingsPageHeader(
                   icon: Icons.tune_rounded,
-                  title: AppLocalizations.of(context).t('Advanced'),
+                  title: 'Advanced',
                   subtitle: 'Every token a Look sets, one at a time',
                 ),
                 const SizedBox(height: 18),

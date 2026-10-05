@@ -3,7 +3,6 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 
-import '../../l10n/app_localizations.dart';
 import 'package:flutter/services.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -287,19 +286,19 @@ class _SimklSettingsPageState extends State<SimklSettingsPage> {
     final t = app.settings;
     if (_loading) {
       return SettingsPageScaffold(
-        title: AppLocalizations.of(context).t('Simkl Settings'),
+        title: 'Simkl Settings',
         body: Center(child: CircularProgressIndicator()),
       );
     }
     if (_loadFailed) {
       return SettingsPageScaffold(
-        title: AppLocalizations.of(context).t('Simkl Settings'),
+        title: 'Simkl Settings',
         body: SettingsLoadError(onRetry: _loadSettings),
       );
     }
 
     return SettingsPageScaffold(
-      title: AppLocalizations.of(context).t('Simkl Settings'),
+      title: 'Simkl Settings',
       body: ListView(
         padding: EdgeInsets.all(16),
         children: [
@@ -371,7 +370,7 @@ class _SimklSettingsPageState extends State<SimklSettingsPage> {
                                   focusNode: _primaryButtonFocus,
                                   onPressed: _logout,
                                   icon: const Icon(Icons.logout),
-                                  label: Text(AppLocalizations.of(context).t('Logout')),
+                                  label: Text('Logout'),
                                   style: OutlinedButton.styleFrom(
                                     foregroundColor: t.danger,
                                     side: BorderSide(
@@ -540,7 +539,7 @@ class _SimklSettingsPageState extends State<SimklSettingsPage> {
             child: OutlinedButton(
               focusNode: _cancelFocus,
               onPressed: _stopPinFlow,
-              child: Text(AppLocalizations.of(context).t('Cancel')),
+              child: Text('Cancel'),
             ),
           ),
         ),
