@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 import '../../utils/tv_reveal.dart';
 import 'package:flutter/services.dart';
 
@@ -481,7 +483,7 @@ class _WebDavSettingsPageState extends State<WebDavSettingsPage> {
                         child: OutlinedButton.icon(
                           onPressed: _newServer,
                           icon: const Icon(Icons.add_rounded),
-                          label: const Text('Add another server'),
+                          label: Text(AppLocalizations.of(context).t('Add another server')),
                         ),
                       ),
                     ],

@@ -2843,7 +2843,7 @@ Future<void> showLegacyModeInfoDialog(BuildContext context) {
         TextButton(
           autofocus: true,
           onPressed: () => Navigator.of(dialogCtx).pop(),
-          child: const Text('OK'),
+          child: Text(AppLocalizations.of(context).t('OK')),
         ),
       ],
     ),

@@ -4,6 +4,8 @@ import 'dart:io';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 import 'package:flutter/services.dart';
 
 import '../../services/cache_scratch_cleanup.dart';
@@ -196,11 +198,11 @@ class _ImportedLaunchAnimationsState extends State<ImportedLaunchAnimations> {
                 actions: [
                   TextButton(
                     onPressed: () => Navigator.pop(context, false),
-                    child: Text('Cancel'),
+                    child: Text(AppLocalizations.of(context).t('Cancel')),
                   ),
                   TextButton(
                     onPressed: () => Navigator.pop(context, true),
-                    child: Text('Reset'),
+                    child: Text(AppLocalizations.of(context).t('Reset')),
                   ),
                 ],
               ),
@@ -287,7 +289,7 @@ class _ImportedLaunchDetailState extends State<ImportedLaunchDetail> {
                       _ready = false;
                       _replay++;
                     }),
-                    child: const Text('Replay'),
+                    child: Text(AppLocalizations.of(context).t('Replay')),
                   ),
                   OutlinedButton(
                     onPressed: () =>
@@ -298,7 +300,7 @@ class _ImportedLaunchDetailState extends State<ImportedLaunchDetail> {
                   ),
                   OutlinedButton(
                     onPressed: _saving ? null : _send,
-                    child: const Text('Send to TV'),
+                    child: Text(AppLocalizations.of(context).t('Send to TV')),
                   ),
                   OutlinedButton.icon(
                     style: OutlinedButton.styleFrom(
@@ -315,7 +317,7 @@ class _ImportedLaunchDetailState extends State<ImportedLaunchDetail> {
                 ],
               ),
               const SizedBox(height: 16),
-              const Text('Background'),
+              Text(AppLocalizations.of(context).t('Background')),
               Wrap(
                 spacing: 10,
                 children: [
@@ -451,11 +453,11 @@ class _ImportedLaunchDetailState extends State<ImportedLaunchDetail> {
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context, false),
-            child: Text('Cancel'),
+            child: Text(AppLocalizations.of(context).t('Cancel')),
           ),
           TextButton(
             onPressed: () => Navigator.pop(context, true),
-            child: Text('Remove'),
+            child: Text(AppLocalizations.of(context).t('Remove')),
           ),
         ],
       ),

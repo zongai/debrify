@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 import '../../utils/tv_reveal.dart';
 import 'widgets/dynamic_settings_builder.dart';
 import 'widgets/settings_widgets.dart';
@@ -180,7 +182,7 @@ class _DebrifyTvSettingsPageState extends State<DebrifyTvSettingsPage> {
       child: OutlinedButton.icon(
         onPressed: () => _showResetConfirmation(context),
         icon: Icon(Icons.refresh),
-        label: Text('Reset to Defaults'),
+        label: Text(AppLocalizations.of(context).t('Reset to Defaults')),
         // State-resolved accent border + lit fill so DPAD focus is
         // unmistakable on TV (default focus overlay is too faint).
         style: ButtonStyle(
@@ -217,7 +219,7 @@ class _DebrifyTvSettingsPageState extends State<DebrifyTvSettingsPage> {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: Text('Reset Settings'),
+        title: Text(AppLocalizations.of(context).t('Reset Settings')),
         content: Text(
           'Are you sure you want to reset all Debrify TV settings to their default values?',
         ),
@@ -238,7 +240,7 @@ class _DebrifyTvSettingsPageState extends State<DebrifyTvSettingsPage> {
                     : null,
               ),
             ),
-            child: Text('Cancel'),
+            child: Text(AppLocalizations.of(context).t('Cancel')),
           ),
           FilledButton(
             onPressed: () {
@@ -254,7 +256,7 @@ class _DebrifyTvSettingsPageState extends State<DebrifyTvSettingsPage> {
                     : null,
               ),
             ),
-            child: Text('Reset'),
+            child: Text(AppLocalizations.of(context).t('Reset')),
           ),
         ],
       ),
@@ -307,7 +309,7 @@ class _DebrifyTvSettingsPageState extends State<DebrifyTvSettingsPage> {
 
     if (mounted) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Settings reset to defaults')),
+        SnackBar(content: Text(AppLocalizations.of(context).t('Settings reset to defaults'))),
       );
     }
   }

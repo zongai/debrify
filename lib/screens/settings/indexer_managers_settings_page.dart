@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 
 import '../../models/indexer_manager_config.dart';
 import '../../services/indexer_manager_service.dart';
@@ -145,7 +147,7 @@ class _IndexerManagersSettingsPageState
     final shouldDelete = await showDialog<bool>(
       context: context,
       builder: (context) => AlertDialog(
-        title: Text('Delete Engine'),
+        title: Text(AppLocalizations.of(context).t('Delete Engine')),
         content: Text('Remove ${config.displayName} from torrent search?'),
         actions: [
           _FocusRing(
@@ -154,14 +156,14 @@ class _IndexerManagersSettingsPageState
               // TV: seed DPAD focus inside the dialog (BACK still dismisses).
               autofocus: PlatformUtil.isTelevision,
               onPressed: () => Navigator.of(context).pop(false),
-              child: Text('Cancel'),
+              child: Text(AppLocalizations.of(context).t('Cancel')),
             ),
           ),
           _FocusRing(
             borderRadius: 12,
             child: FilledButton(
               onPressed: () => Navigator.of(context).pop(true),
-              child: Text('Delete'),
+              child: Text(AppLocalizations.of(context).t('Delete')),
             ),
           ),
         ],
@@ -307,7 +309,7 @@ class _IndexerManagersSettingsPageState
         backgroundColor: t.accent,
         foregroundColor: onAccent,
         icon: const Icon(Icons.add_rounded),
-        label: const Text('Add Engine'),
+        label: Text(AppLocalizations.of(context).t('Add Engine')),
       ),
     );
   }
@@ -753,7 +755,7 @@ class _IndexerManagerEditorDialogState
                         borderRadius: 12,
                         child: SwitchListTile(
                           contentPadding: EdgeInsets.zero,
-                          title: Text('Enabled'),
+                          title: Text(AppLocalizations.of(context).t('Enabled')),
                           value: _enabled,
                           onChanged: (value) =>
                               setState(() => _enabled = value),
@@ -775,7 +777,7 @@ class _IndexerManagerEditorDialogState
                     borderRadius: 12,
                     child: TextButton(
                       onPressed: () => Navigator.of(context).pop(),
-                      child: Text('Cancel'),
+                      child: Text(AppLocalizations.of(context).t('Cancel')),
                     ),
                   ),
                   _FocusRing(

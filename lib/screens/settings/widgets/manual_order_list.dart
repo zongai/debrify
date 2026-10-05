@@ -2,6 +2,8 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 
+import '../../../l10n/app_localizations.dart';
+
 import 'package:flutter/services.dart';
 
 import '../../../theme/app_theme_scope.dart';
@@ -366,12 +368,12 @@ class ManualOrderListState extends State<ManualOrderList> {
         actions: [
           TextButton(
             onPressed: () => Navigator.of(dialogContext).pop(),
-            child: Text('Cancel'),
+            child: Text(AppLocalizations.of(context).t('Cancel')),
           ),
           TextButton(
             onPressed: () =>
                 Navigator.of(dialogContext).pop(int.tryParse(controller.text)),
-            child: const Text('Move'),
+            child: Text(AppLocalizations.of(context).t('Move')),
           ),
         ],
       ),

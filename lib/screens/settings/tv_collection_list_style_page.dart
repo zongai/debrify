@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 import '../../services/storage_service.dart';
 import 'widgets/settings_widgets.dart';
 import 'widgets/settings_load_error.dart';

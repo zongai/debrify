@@ -131,7 +131,7 @@ class _MediaServerSettingsPageState extends State<MediaServerSettingsPage> {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text('Could not check connection sharing. Please retry.'),
+            content: Text(AppLocalizations.of(context).t('Could not check connection sharing. Please retry.')),
           ),
         );
       }

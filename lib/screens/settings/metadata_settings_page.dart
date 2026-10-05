@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 
 import '../../models/metadata_preferences.dart';
 import '../../models/stremio_addon.dart';
@@ -242,7 +244,7 @@ class _MetadataSettingsPageState extends State<MetadataSettingsPage> {
         (prefs.features.contains(MetadataFeature.availability) ||
          prefs.features.contains(MetadataFeature.discovery));
     return Scaffold(
-      appBar: AppBar(title: Text('Metadata')),
+      appBar: AppBar(title: Text(AppLocalizations.of(context).t('Metadata'))),
       body: prefs == null
           ? Center(
               child: _error == null
@@ -366,7 +368,7 @@ class _MetadataSettingsPageState extends State<MetadataSettingsPage> {
                   onPressed: _saving
                       ? null
                       : () => _save(MetadataPreferences()),
-                  child: const Text('Restore defaults'),
+                  child: Text(AppLocalizations.of(context).t('Restore defaults')),
                 ),
                 const Padding(
                   padding: EdgeInsets.all(16),

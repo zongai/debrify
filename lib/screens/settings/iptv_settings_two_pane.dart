@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 import 'package:flutter/services.dart';
 
 import '../../models/iptv_playlist.dart';
@@ -25,7 +27,7 @@ class IptvAutoRefreshDialog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => SimpleDialog(
-    title: Text('Auto-refresh'),
+    title: Text(AppLocalizations.of(context).t('Auto-refresh')),
     children: [
       const Padding(
         padding: EdgeInsets.fromLTRB(24, 0, 24, 16),

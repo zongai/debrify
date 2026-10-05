@@ -3,6 +3,8 @@ import 'dart:convert';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 import 'package:flutter/services.dart';
 
 import '../../models/stremio_addon.dart';
@@ -266,7 +268,7 @@ class _StremioAddonsPageContentState extends State<StremioAddonsPageContent> {
         actions: [
           FilledButton(
             onPressed: () => Navigator.of(context).pop(),
-            child: Text('Done'),
+            child: Text(AppLocalizations.of(context).t('Done')),
           ),
         ],
       ),
@@ -295,7 +297,7 @@ class _StremioAddonsPageContentState extends State<StremioAddonsPageContent> {
     final confirmed = await showDialog<bool>(
       context: context,
       builder: (context) => AlertDialog(
-        title: Text('Delete all addons?'),
+        title: Text(AppLocalizations.of(context).t('Delete all addons?')),
         content: Text(
           hasSharedAddons
               ? '$sharedCount addon${sharedCount == 1 ? ' is' : 's are'} '
@@ -307,12 +309,12 @@ class _StremioAddonsPageContentState extends State<StremioAddonsPageContent> {
         actions: [
           TextButton(
             onPressed: () => Navigator.of(context).pop(false),
-            child: Text('Cancel'),
+            child: Text(AppLocalizations.of(context).t('Cancel')),
           ),
           FilledButton(
             onPressed: () => Navigator.of(context).pop(true),
             style: FilledButton.styleFrom(backgroundColor: Colors.red),
-            child: const Text('Delete all'),
+            child: Text(AppLocalizations.of(context).t('Delete all')),
           ),
         ],
       ),
@@ -448,12 +450,12 @@ class _StremioAddonsPageContentState extends State<StremioAddonsPageContent> {
         actions: [
           TextButton(
             onPressed: () => Navigator.of(context).pop(false),
-            child: Text('Cancel'),
+            child: Text(AppLocalizations.of(context).t('Cancel')),
           ),
           FilledButton(
             onPressed: () => Navigator.of(context).pop(true),
             style: FilledButton.styleFrom(backgroundColor: Colors.red),
-            child: Text('Remove'),
+            child: Text(AppLocalizations.of(context).t('Remove')),
           ),
         ],
       ),
@@ -552,14 +554,14 @@ class _StremioAddonsPageContentState extends State<StremioAddonsPageContent> {
               onPressed: () {
                 Clipboard.setData(ClipboardData(text: addon.manifestUrl));
                 ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(content: Text('URL copied to clipboard')),
+                  SnackBar(content: Text(AppLocalizations.of(context).t('URL copied to clipboard'))),
                 );
               },
-              child: Text('Copy URL'),
+              child: Text(AppLocalizations.of(context).t('Copy URL')),
             ),
           FilledButton(
             onPressed: () => Navigator.of(context).pop(),
-            child: Text('Close'),
+            child: Text(AppLocalizations.of(context).t('Close')),
           ),
         ],
       ),
@@ -1139,7 +1141,7 @@ class _StremioAddonsPageContentState extends State<StremioAddonsPageContent> {
                 FilledButton.icon(
                   onPressed: _loadAddons,
                   icon: const Icon(Icons.refresh_rounded),
-                  label: Text('Retry'),
+                  label: Text(AppLocalizations.of(context).t('Retry')),
                 ),
               ],
             ),
@@ -1510,12 +1512,12 @@ class _StremioAddonsPageState extends State<StremioAddonsPage> {
         actions: [
           TextButton(
             onPressed: () => Navigator.of(context).pop(false),
-            child: Text('Cancel'),
+            child: Text(AppLocalizations.of(context).t('Cancel')),
           ),
           FilledButton(
             onPressed: () => Navigator.of(context).pop(true),
             style: FilledButton.styleFrom(backgroundColor: Colors.red),
-            child: Text('Remove'),
+            child: Text(AppLocalizations.of(context).t('Remove')),
           ),
         ],
       ),
@@ -1616,14 +1618,14 @@ class _StremioAddonsPageState extends State<StremioAddonsPage> {
               onPressed: () {
                 Clipboard.setData(ClipboardData(text: addon.manifestUrl));
                 ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(content: Text('URL copied to clipboard')),
+                  SnackBar(content: Text(AppLocalizations.of(context).t('URL copied to clipboard'))),
                 );
               },
-              child: Text('Copy URL'),
+              child: Text(AppLocalizations.of(context).t('Copy URL')),
             ),
           FilledButton(
             onPressed: () => Navigator.of(context).pop(),
-            child: Text('Close'),
+            child: Text(AppLocalizations.of(context).t('Close')),
           ),
         ],
       ),
@@ -1638,7 +1640,7 @@ class _StremioAddonsPageState extends State<StremioAddonsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Stremio Addons'),
+        title: Text(AppLocalizations.of(context).t('Stremio Addons')),
         actions: [
           IconButton(
             onPressed: _addons.isEmpty || _isUpdatingAll
@@ -1719,7 +1721,7 @@ class _StremioAddonsPageState extends State<StremioAddonsPage> {
                           ),
                         )
                       : const Icon(Icons.add),
-                  label: Text('Add'),
+                  label: Text(AppLocalizations.of(context).t('Add')),
                 ),
               ),
             ],
@@ -1801,7 +1803,7 @@ class _StremioAddonsPageState extends State<StremioAddonsPage> {
               FilledButton.icon(
                 onPressed: _loadAddons,
                 icon: const Icon(Icons.refresh),
-                label: Text('Retry'),
+                label: Text(AppLocalizations.of(context).t('Retry')),
               ),
             ],
           ),

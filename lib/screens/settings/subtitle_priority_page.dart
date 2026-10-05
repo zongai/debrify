@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 import 'package:flutter/services.dart';
 
 import '../../models/subtitle_source_priority.dart';
@@ -270,7 +272,7 @@ class _SubtitlePriorityPageState extends State<SubtitlePriorityPage> {
                                             onPressed: _saving
                                                 ? null
                                                 : () => _select(id),
-                                            child: Text('Done'),
+                                            child: Text(AppLocalizations.of(context).t('Done')),
                                           ),
                                         ] else
                                           const Icon(Icons.drag_handle),

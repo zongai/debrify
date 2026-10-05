@@ -2,6 +2,8 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 
 import '../../models/iptv_playlist.dart' show IptvChannel;
 import '../../services/iptv_media_store.dart' show IptvListMeta;

@@ -4,6 +4,8 @@ import 'dart:convert';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 
 import '../../models/stream_badge_rules.dart';
 import '../../services/analytics_service.dart';
@@ -223,12 +225,12 @@ class _StreamBadgesSettingsPageState extends State<StreamBadgesSettingsPage> {
           actions: [
             TextButton(
               onPressed: () => Navigator.of(context).pop('delete'),
-              child: Text('Delete'),
+              child: Text(AppLocalizations.of(context).t('Delete')),
             ),
             if (s.url != null)
               TextButton(
                 onPressed: () => Navigator.of(context).pop('refresh'),
-                child: Text('Refresh'),
+                child: Text(AppLocalizations.of(context).t('Refresh')),
               ),
             TextButton(
               onPressed: () => Navigator.of(context).pop('toggle'),
@@ -237,7 +239,7 @@ class _StreamBadgesSettingsPageState extends State<StreamBadgesSettingsPage> {
             TextButton(
               autofocus: true,
               onPressed: () => Navigator.of(context).pop(),
-              child: Text('Close'),
+              child: Text(AppLocalizations.of(context).t('Close')),
             ),
           ],
         ),
@@ -354,7 +356,7 @@ class _StreamBadgesSettingsPageState extends State<StreamBadgesSettingsPage> {
             TextButton(
               autofocus: true,
               onPressed: () => Navigator.of(context).pop(false),
-              child: Text('Cancel'),
+              child: Text(AppLocalizations.of(context).t('Cancel')),
             ),
             TextButton(
               onPressed: () => Navigator.of(context).pop(true),
@@ -404,7 +406,7 @@ class _StreamBadgesSettingsPageState extends State<StreamBadgesSettingsPage> {
             TextButton(
               autofocus: true,
               onPressed: () => Navigator.of(context).pop(),
-              child: const Text('OK'),
+              child: Text(AppLocalizations.of(context).t('OK')),
             ),
           ],
         ),
@@ -438,7 +440,7 @@ class _StreamBadgesSettingsPageState extends State<StreamBadgesSettingsPage> {
               mainAxisSize: MainAxisSize.min,
               children: [
                 Text(_loadError!),
-                TextButton(onPressed: _load, child: Text('Retry')),
+                TextButton(onPressed: _load, child: Text(AppLocalizations.of(context).t('Retry'))),
                 TextButton(
                   onPressed: () => _guarded(() async {
                     if (!await _confirm(

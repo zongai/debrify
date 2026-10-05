@@ -4,6 +4,8 @@ import 'dart:io';
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 import 'package:flutter/services.dart';
 
 import '../../services/desktop_recording_service.dart';
@@ -305,7 +307,7 @@ class _RecordingsPageState extends State<RecordingsPage>
     final confirmed = await showDialog<bool>(
       context: context,
       builder: (dialogContext) => AlertDialog(
-        title: Text('Cancel recording?'),
+        title: Text(AppLocalizations.of(context).t('Cancel recording?')),
         content: Text(
           schedule.programmeTitle.isEmpty
               ? schedule.channelName
@@ -314,12 +316,12 @@ class _RecordingsPageState extends State<RecordingsPage>
         actions: [
           TextButton(
             onPressed: () => Navigator.of(dialogContext).pop(false),
-            child: Text('Keep'),
+            child: Text(AppLocalizations.of(context).t('Keep')),
           ),
           TextButton(
             autofocus: true,
             onPressed: () => Navigator.of(dialogContext).pop(true),
-            child: const Text('Cancel recording'),
+            child: Text(AppLocalizations.of(context).t('Cancel recording')),
           ),
         ],
       ),
@@ -354,7 +356,7 @@ class _RecordingsPageState extends State<RecordingsPage>
     final confirmed = await showDialog<bool>(
       context: context,
       builder: (dialogContext) => AlertDialog(
-        title: Text('Delete recording?'),
+        title: Text(AppLocalizations.of(context).t('Delete recording?')),
         content: Text(
           '${display.title} (${_fmtBytes(entry.bytes)}) will be removed '
           'from this device.',
@@ -363,7 +365,7 @@ class _RecordingsPageState extends State<RecordingsPage>
           TextButton(
             autofocus: true,
             onPressed: () => Navigator.of(dialogContext).pop(false),
-            child: Text('Keep'),
+            child: Text(AppLocalizations.of(context).t('Keep')),
           ),
           TextButton(
             onPressed: () => Navigator.of(dialogContext).pop(true),
@@ -412,7 +414,7 @@ class _RecordingsPageState extends State<RecordingsPage>
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text('Storage access is needed to save recordings'),
+          content: Text(AppLocalizations.of(context).t('Storage access is needed to save recordings')),
         ),
       );
       return;
@@ -650,11 +652,11 @@ class _RecordingsPageState extends State<RecordingsPage>
             TextButton(
               autofocus: true,
               onPressed: () => Navigator.of(dialogContext).pop(false),
-              child: Text('Cancel'),
+              child: Text(AppLocalizations.of(context).t('Cancel')),
             ),
             TextButton(
               onPressed: () => Navigator.of(dialogContext).pop(true),
-              child: const Text('Record'),
+              child: Text(AppLocalizations.of(context).t('Record')),
             ),
           ],
         ),

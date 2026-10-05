@@ -3,6 +3,8 @@ import 'dart:async';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 
 import '../../models/iptv_playlist.dart';
 import '../../services/iptv_catalog_db.dart';
@@ -158,7 +160,7 @@ class _IptvCategoryOrderPageState extends State<IptvCategoryOrderPage> {
       });
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text('The active profile changed. Nothing was saved.'),
+          content: Text(AppLocalizations.of(context).t('The active profile changed. Nothing was saved.')),
         ),
       );
       // PopScope reads its registered canPop value from the completed build.

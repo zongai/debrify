@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 import '../../services/storage_service.dart';
 import '../../services/torbox_account_service.dart';
 import '../../services/analytics_service.dart';
@@ -245,14 +247,14 @@ class _TorboxSettingsPageState extends State<TorboxSettingsPage> {
                 // Land DPAD focus on the safe choice when the dialog opens.
                 autofocus: true,
                 onPressed: () => Navigator.pop(context, false),
-                child: Text('Cancel'),
+                child: Text(AppLocalizations.of(context).t('Cancel')),
               ),
             ),
             _FocusRing(
               radius: 12,
               child: FilledButton(
                 onPressed: () => Navigator.pop(context, true),
-                child: Text('Hide'),
+                child: Text(AppLocalizations.of(context).t('Hide')),
               ),
             ),
           ],
@@ -275,7 +277,7 @@ class _TorboxSettingsPageState extends State<TorboxSettingsPage> {
       await showDialog(
         context: context,
         builder: (context) => AlertDialog(
-          title: Text('Security Restriction'),
+          title: Text(AppLocalizations.of(context).t('Security Restriction')),
           content: SingleChildScrollView(
             child: Text(
               'To show Torbox in navigation again, you must logout and login. This is a security measure to prevent unauthorized changes.',
@@ -288,7 +290,7 @@ class _TorboxSettingsPageState extends State<TorboxSettingsPage> {
               child: FilledButton(
                 autofocus: true,
                 onPressed: () => Navigator.pop(context),
-                child: const Text('OK'),
+                child: Text(AppLocalizations.of(context).t('OK')),
               ),
             ),
           ],
@@ -530,7 +532,7 @@ class _TorboxSettingsPageState extends State<TorboxSettingsPage> {
                                                               strokeWidth: 2,
                                                             ),
                                                       )
-                                                    : Text('Save'),
+                                                    : Text(AppLocalizations.of(context).t('Save')),
                                               ),
                                             ),
                                           ),
@@ -551,7 +553,7 @@ class _TorboxSettingsPageState extends State<TorboxSettingsPage> {
                                                           _addApiKeyButtonFocusNode,
                                                         );
                                                       },
-                                                child: Text('Cancel'),
+                                                child: Text(AppLocalizations.of(context).t('Cancel')),
                                               ),
                                             ),
                                           ),
@@ -595,7 +597,7 @@ class _TorboxSettingsPageState extends State<TorboxSettingsPage> {
                                               focusNode: _logoutButtonFocusNode,
                                               onPressed: _deleteKey,
                                               icon: const Icon(Icons.logout),
-                                              label: Text('Logout'),
+                                              label: Text(AppLocalizations.of(context).t('Logout')),
                                               style: OutlinedButton.styleFrom(
                                                 foregroundColor: t.danger,
                                                 side: BorderSide(
@@ -627,7 +629,7 @@ class _TorboxSettingsPageState extends State<TorboxSettingsPage> {
                                                   });
                                             },
                                             icon: Icon(Icons.add),
-                                            label: Text('Add API Key'),
+                                            label: Text(AppLocalizations.of(context).t('Add API Key')),
                                           ),
                                         ),
                                       ],

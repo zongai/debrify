@@ -5,6 +5,8 @@ import 'dart:typed_data';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 import 'package:path/path.dart' as p;
 import 'package:path_provider/path_provider.dart';
 
@@ -144,7 +146,7 @@ class ProfileBackupFlows {
       context: context,
       builder: (dialogContext) => StatefulBuilder(
         builder: (context, setDialogState) => AlertDialog(
-          title: const Text('Back up all profiles'),
+          title: Text(AppLocalizations.of(context).t('Back up all profiles')),
           content: Column(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -176,13 +178,13 @@ class ProfileBackupFlows {
           actions: [
             TextButton(
               onPressed: () => Navigator.of(dialogContext).pop(false),
-              child: Text('Cancel'),
+              child: Text(AppLocalizations.of(context).t('Cancel')),
             ),
             FilledButton(
               onPressed: passphrase.text.length >= 8
                   ? () => Navigator.of(dialogContext).pop(true)
                   : null,
-              child: Text('Create backup'),
+              child: Text(AppLocalizations.of(context).t('Create backup')),
             ),
           ],
         ),
@@ -258,7 +260,7 @@ class ProfileBackupFlows {
         if (!context.mounted) return;
         ScaffoldMessenger.of(
           context,
-        ).showSnackBar(SnackBar(content: Text('Backup cancelled')));
+        ).showSnackBar(SnackBar(content: Text(AppLocalizations.of(context).t('Backup cancelled'))));
       } finally {
         await LocalBackupScratch.delete(staging);
       }
@@ -284,7 +286,7 @@ class ProfileBackupFlows {
       context: context,
       builder: (dialogContext) => AlertDialog(
         scrollable: true,
-        title: Text('Back up all profiles'),
+        title: Text(AppLocalizations.of(context).t('Back up all profiles')),
         content: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -309,12 +311,12 @@ class ProfileBackupFlows {
         actions: [
           TextButton(
             onPressed: () => Navigator.of(dialogContext).pop(false),
-            child: Text('Cancel'),
+            child: Text(AppLocalizations.of(context).t('Cancel')),
           ),
           FilledButton(
             autofocus: true,
             onPressed: () => Navigator.of(dialogContext).pop(true),
-            child: Text('Create backup'),
+            child: Text(AppLocalizations.of(context).t('Create backup')),
           ),
         ],
       ),
@@ -373,7 +375,7 @@ class ProfileBackupFlows {
       } on LocalBackupCancelledException {
         if (!context.mounted) return;
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Backup cancelled; nothing was saved.')),
+          SnackBar(content: Text(AppLocalizations.of(context).t('Backup cancelled; nothing was saved.'))),
         );
       } finally {
         await LocalBackupScratch.delete(staging);
@@ -491,7 +493,7 @@ class ProfileBackupFlows {
         actions: [
           FilledButton(
             onPressed: () => Navigator.of(dialogContext).pop(),
-            child: const Text('OK'),
+            child: Text(AppLocalizations.of(context).t('OK')),
           ),
         ],
       ),
@@ -984,7 +986,7 @@ class ProfileBackupFlows {
         actions: [
           TextButton(
             onPressed: () => Navigator.of(dialogContext).pop(false),
-            child: Text('Cancel'),
+            child: Text(AppLocalizations.of(context).t('Cancel')),
           ),
           FilledButton(
             onPressed: () => Navigator.of(dialogContext).pop(true),
@@ -1168,11 +1170,11 @@ class ProfileBackupFlows {
         actions: [
           TextButton(
             onPressed: () => Navigator.of(dialogContext).pop(),
-            child: Text('Cancel'),
+            child: Text(AppLocalizations.of(context).t('Cancel')),
           ),
           FilledButton(
             onPressed: () => Navigator.of(dialogContext).pop(controller.text),
-            child: const Text('Unlock'),
+            child: Text(AppLocalizations.of(context).t('Unlock')),
           ),
         ],
       ),
@@ -1203,11 +1205,11 @@ class ProfileBackupFlows {
         actions: [
           TextButton(
             onPressed: () => Navigator.of(dialogContext).pop(),
-            child: Text('Cancel'),
+            child: Text(AppLocalizations.of(context).t('Cancel')),
           ),
           FilledButton(
             onPressed: () => Navigator.of(dialogContext).pop(controller.text),
-            child: Text('Confirm'),
+            child: Text(AppLocalizations.of(context).t('Confirm')),
           ),
         ],
       ),
@@ -1248,7 +1250,7 @@ class ProfileBackupFlows {
         context: context,
         builder: (context) => StatefulBuilder(
           builder: (context, setDialogState) => AlertDialog(
-            title: Text('Backup is encrypted'),
+            title: Text(AppLocalizations.of(context).t('Backup is encrypted')),
             content: Column(
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -1278,11 +1280,11 @@ class ProfileBackupFlows {
             actions: [
               TextButton(
                 onPressed: () => Navigator.of(context).pop(null),
-                child: Text('Cancel'),
+                child: Text(AppLocalizations.of(context).t('Cancel')),
               ),
               FilledButton(
                 onPressed: () => Navigator.of(context).pop(controller.text),
-                child: const Text('Unlock'),
+                child: Text(AppLocalizations.of(context).t('Unlock')),
               ),
             ],
           ),
@@ -1309,7 +1311,7 @@ class ProfileBackupFlows {
                   child: CircularProgressIndicator(strokeWidth: 2),
                 ),
                 SizedBox(width: 16),
-                Expanded(child: Text('Unlocking backup…')),
+                Expanded(child: Text(AppLocalizations.of(context).t('Unlocking backup…'))),
               ],
             ),
           ),
@@ -1331,7 +1333,7 @@ class ProfileBackupFlows {
         rootNavigator.pop();
         if (!context.mounted) return null;
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('The backup format is invalid')),
+          SnackBar(content: Text(AppLocalizations.of(context).t('The backup format is invalid'))),
         );
         return null;
       }
@@ -1441,7 +1443,7 @@ class _BackupProgressDialogState extends State<_BackupProgressDialog> {
                           setState(() => _cancelRequested = true);
                           onCancel();
                         },
-                  child: Text('Cancel'),
+                  child: Text(AppLocalizations.of(context).t('Cancel')),
                 ),
               ],
       ),

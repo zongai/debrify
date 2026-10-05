@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 import '../../services/analytics_service.dart';
 import '../../services/storage_service.dart';
 import 'widgets/settings_widgets.dart';
@@ -346,7 +348,7 @@ class _StremioTvSettingsPageState extends State<StremioTvSettingsPage> {
                               // Auto-refresh toggle
                               SwitchListTile(
                                 contentPadding: EdgeInsets.zero,
-                                title: Text('Auto-refresh'),
+                                title: Text(AppLocalizations.of(context).t('Auto-refresh')),
                                 subtitle: Text(
                                   'Automatically refresh progress bars and detect rotation changes',
                                 ),
@@ -390,7 +392,7 @@ class _StremioTvSettingsPageState extends State<StremioTvSettingsPage> {
                                     items: [
                                       DropdownMenuItem(
                                         value: 'auto',
-                                        child: Text('Auto'),
+                                        child: Text(AppLocalizations.of(context).t('Auto')),
                                       ),
                                       DropdownMenuItem(
                                         value: '720p',
@@ -430,7 +432,7 @@ class _StremioTvSettingsPageState extends State<StremioTvSettingsPage> {
                                     items: const [
                                       DropdownMenuItem(
                                         value: 0,
-                                        child: Text('Beginning'),
+                                        child: Text(AppLocalizations.of(context).t('Beginning')),
                                       ),
                                       DropdownMenuItem(
                                         value: 10,

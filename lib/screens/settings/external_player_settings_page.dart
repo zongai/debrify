@@ -1,6 +1,8 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 import 'package:flutter/services.dart';
 import 'package:file_picker/file_picker.dart';
 import '../../services/external_player_service.dart';
@@ -849,7 +851,7 @@ class _ExternalPlayerSettingsPageState
       if (mounted) {
         ScaffoldMessenger.of(
           context,
-        ).showSnackBar(SnackBar(content: Text('Custom command saved')));
+        ).showSnackBar(SnackBar(content: Text(AppLocalizations.of(context).t('Custom command saved'))));
       }
     } catch (e) {
       if (mounted) {
@@ -924,7 +926,7 @@ class _ExternalPlayerSettingsPageState
 
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Custom URL scheme saved')),
+          SnackBar(content: Text(AppLocalizations.of(context).t('Custom URL scheme saved'))),
         );
       }
     } catch (e) {
@@ -1001,7 +1003,7 @@ class _ExternalPlayerSettingsPageState
       if (mounted) {
         ScaffoldMessenger.of(
           context,
-        ).showSnackBar(SnackBar(content: Text('Custom command saved')));
+        ).showSnackBar(SnackBar(content: Text(AppLocalizations.of(context).t('Custom command saved'))));
       }
     } catch (e) {
       if (mounted) {
@@ -1077,7 +1079,7 @@ class _ExternalPlayerSettingsPageState
       if (mounted) {
         ScaffoldMessenger.of(
           context,
-        ).showSnackBar(SnackBar(content: Text('Custom command saved')));
+        ).showSnackBar(SnackBar(content: Text(AppLocalizations.of(context).t('Custom command saved'))));
       }
     } catch (e) {
       if (mounted) {
@@ -1338,7 +1340,7 @@ class _ExternalPlayerSettingsPageState
           !lowerName.endsWith('.otf')) {
         if (mounted) {
           ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text('Please select a .ttf or .otf font file'),
+            SnackBar(content: Text(AppLocalizations.of(context).t('Please select a .ttf or .otf font file')),
             ),
           );
         }
@@ -1347,7 +1349,7 @@ class _ExternalPlayerSettingsPageState
       if (file.path == null) {
         if (mounted) {
           ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text('Could not access selected file')),
+            SnackBar(content: Text(AppLocalizations.of(context).t('Could not access selected file'))),
           );
         }
         return;
@@ -1370,7 +1372,7 @@ class _ExternalPlayerSettingsPageState
       } else {
         if (mounted) {
           ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text('Failed to import font')),
+            SnackBar(content: Text(AppLocalizations.of(context).t('Failed to import font'))),
           );
         }
       }
@@ -3122,7 +3124,7 @@ class _ExternalPlayerSettingsPageState
                 child: OutlinedButton.icon(
                   onPressed: _importCustomFont,
                   icon: const Icon(Icons.file_upload_outlined),
-                  label: const Text('Import Custom Font (TTF/OTF)'),
+                  label: Text(AppLocalizations.of(context).t('Import Custom Font (TTF/OTF)')),
                   // Default focus overlay is too faint for TV —
                   // paint an explicit accent ring + lit fill.
                   style: ButtonStyle(
@@ -3379,7 +3381,7 @@ class _ExternalPlayerSettingsPageState
                       child: FilledButton.icon(
                         onPressed: _saveIOSCustomScheme,
                         icon: const Icon(Icons.save_rounded),
-                        label: Text('Save'),
+                        label: Text(AppLocalizations.of(context).t('Save')),
                       ),
                     ),
                     if (_iosCustomScheme != null &&
@@ -3387,7 +3389,7 @@ class _ExternalPlayerSettingsPageState
                       SizedBox(width: 8),
                       OutlinedButton(
                         onPressed: _clearIOSCustomScheme,
-                        child: Text('Clear'),
+                        child: Text(AppLocalizations.of(context).t('Clear')),
                       ),
                     ],
                   ],
@@ -3564,7 +3566,7 @@ class _ExternalPlayerSettingsPageState
                       child: FilledButton.icon(
                         onPressed: _saveLinuxCustomCommand,
                         icon: const Icon(Icons.save_rounded),
-                        label: Text('Save'),
+                        label: Text(AppLocalizations.of(context).t('Save')),
                       ),
                     ),
                     if (_linuxCustomCommand != null &&
@@ -3572,7 +3574,7 @@ class _ExternalPlayerSettingsPageState
                       SizedBox(width: 8),
                       OutlinedButton(
                         onPressed: _clearLinuxCustomCommand,
-                        child: Text('Clear'),
+                        child: Text(AppLocalizations.of(context).t('Clear')),
                       ),
                     ],
                   ],
@@ -3748,7 +3750,7 @@ class _ExternalPlayerSettingsPageState
                       child: FilledButton.icon(
                         onPressed: _saveWindowsCustomCommand,
                         icon: const Icon(Icons.save_rounded),
-                        label: Text('Save'),
+                        label: Text(AppLocalizations.of(context).t('Save')),
                       ),
                     ),
                     if (_windowsCustomCommand != null &&
@@ -3756,7 +3758,7 @@ class _ExternalPlayerSettingsPageState
                       SizedBox(width: 8),
                       OutlinedButton(
                         onPressed: _clearWindowsCustomCommand,
-                        child: Text('Clear'),
+                        child: Text(AppLocalizations.of(context).t('Clear')),
                       ),
                     ],
                   ],
@@ -3937,7 +3939,7 @@ class _ExternalPlayerSettingsPageState
                       const SizedBox(width: 8),
                       OutlinedButton(
                         onPressed: _clearCustomApp,
-                        child: Text('Clear'),
+                        child: Text(AppLocalizations.of(context).t('Clear')),
                       ),
                     ],
                   ],
@@ -4031,7 +4033,7 @@ class _ExternalPlayerSettingsPageState
                       child: FilledButton.icon(
                         onPressed: _saveCustomCommand,
                         icon: const Icon(Icons.save_rounded),
-                        label: const Text('Save Command'),
+                        label: Text(AppLocalizations.of(context).t('Save Command')),
                       ),
                     ),
                     if (_customCommand != null &&
@@ -4039,7 +4041,7 @@ class _ExternalPlayerSettingsPageState
                       const SizedBox(width: 8),
                       OutlinedButton(
                         onPressed: _clearCustomCommand,
-                        child: Text('Clear'),
+                        child: Text(AppLocalizations.of(context).t('Clear')),
                       ),
                     ],
                   ],
@@ -4217,7 +4219,7 @@ class _ExternalPlayerSettingsPageState
       return SettingsPageScaffold(
         title: section.label,
         body: const Center(
-          child: Text('Player settings are not available on this platform'),
+          child: Text(AppLocalizations.of(context).t('Player settings are not available on this platform')),
         ),
       );
     }

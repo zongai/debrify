@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 import '../../utils/spotlight_interaction_policy.dart';
 import '../../models/stremio_addon.dart';
 import '../../services/home_collections_store.dart';
@@ -630,15 +632,15 @@ class _HomePageSettingsPageState extends State<HomePageSettingsPage> {
                             items: const [
                               DropdownMenuItem(
                                 value: 'snowy_mountain',
-                                child: Text('Snowy mountain'),
+                                child: Text(AppLocalizations.of(context).t('Snowy mountain')),
                               ),
                               DropdownMenuItem(
                                 value: 'midnight_rain',
-                                child: Text('Midnight rain'),
+                                child: Text(AppLocalizations.of(context).t('Midnight rain')),
                               ),
                               DropdownMenuItem(
                                 value: 'moonlit_ocean',
-                                child: Text('Moonlit ocean'),
+                                child: Text(AppLocalizations.of(context).t('Moonlit ocean')),
                               ),
                             ],
                             onChanged: (value) {
@@ -711,11 +713,11 @@ class _HomePageSettingsPageState extends State<HomePageSettingsPage> {
                         items: const [
                           DropdownMenuItem(
                             value: 'catalog',
-                            child: Text('Catalog'),
+                            child: Text(AppLocalizations.of(context).t('Catalog')),
                           ),
                           DropdownMenuItem(
                             value: 'keyword',
-                            child: Text('Keyword'),
+                            child: Text(AppLocalizations.of(context).t('Keyword')),
                           ),
                         ],
                         onChanged: (value) {

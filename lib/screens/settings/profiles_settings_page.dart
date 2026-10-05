@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 import 'package:flutter/services.dart';
 
 import '../../models/profiles/profile_policy.dart';
@@ -208,7 +210,7 @@ class _ProfilesSettingsPageState extends State<ProfilesSettingsPage> {
           ListTile(
             autofocus: true,
             leading: Icon(Icons.edit_rounded),
-            title: Text('Edit'),
+            title: Text(AppLocalizations.of(context).t('Edit')),
             subtitle: const Text('Name, avatar, PIN, access'),
             onTap: () => Navigator.of(dialogContext).pop('edit'),
           ),
@@ -231,7 +233,7 @@ class _ProfilesSettingsPageState extends State<ProfilesSettingsPage> {
           ),
           ListTile(
             leading: const Icon(Icons.delete_outline_rounded),
-            title: const Text('Delete profile'),
+            title: Text(AppLocalizations.of(context).t('Delete profile')),
             textColor: Theme.of(context).colorScheme.error,
             iconColor: Theme.of(context).colorScheme.error,
             onTap: () => Navigator.of(dialogContext).pop('delete'),
@@ -279,7 +281,7 @@ class _ProfilesSettingsPageState extends State<ProfilesSettingsPage> {
     await showDialog<void>(
       context: context,
       builder: (dialogContext) => AlertDialog(
-        title: Text('Profile diagnostics'),
+        title: Text(AppLocalizations.of(context).t('Profile diagnostics')),
         content: SizedBox(
           width: 560,
           child: SingleChildScrollView(child: SelectableText(report)),
@@ -290,11 +292,11 @@ class _ProfilesSettingsPageState extends State<ProfilesSettingsPage> {
               await Clipboard.setData(ClipboardData(text: report));
               if (dialogContext.mounted) Navigator.pop(dialogContext);
             },
-            child: Text('Copy'),
+            child: Text(AppLocalizations.of(context).t('Copy')),
           ),
           FilledButton(
             onPressed: () => Navigator.pop(dialogContext),
-            child: Text('Done'),
+            child: Text(AppLocalizations.of(context).t('Done')),
           ),
         ],
       ),
@@ -318,7 +320,7 @@ class _ProfilesSettingsPageState extends State<ProfilesSettingsPage> {
                     value: 'diagnostics',
                     child: ListTile(
                       leading: Icon(Icons.health_and_safety_outlined),
-                      title: Text('Profile diagnostics'),
+                      title: Text(AppLocalizations.of(context).t('Profile diagnostics')),
                     ),
                   ),
                 ],

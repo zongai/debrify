@@ -4,6 +4,8 @@ import 'dart:convert';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 import 'package:flutter/services.dart';
 
 import '../../models/home_collection.dart';
@@ -147,23 +149,23 @@ class _CollectionsSettingsPageState extends State<CollectionsSettingsPage> {
       builder: (context) => Theme(
         data: settingsPageTheme(context),
         child: AlertDialog(
-          title: Text('Export collection'),
+          title: Text(AppLocalizations.of(context).t('Export collection')),
           content: Text(
             'Share "${collection.title}" as a Nuvio-compatible JSON file.',
           ),
           actions: [
             TextButton(
               onPressed: () => Navigator.pop(context),
-              child: Text('Cancel'),
+              child: Text(AppLocalizations.of(context).t('Cancel')),
             ),
             TextButton(
               onPressed: () => Navigator.pop(context, 'copy'),
-              child: Text('Copy JSON'),
+              child: Text(AppLocalizations.of(context).t('Copy JSON')),
             ),
             TextButton(
               autofocus: true,
               onPressed: () => Navigator.pop(context, 'file'),
-              child: Text('Save file'),
+              child: Text(AppLocalizations.of(context).t('Save file')),
             ),
           ],
         ),
@@ -344,15 +346,15 @@ class _CollectionsSettingsPageState extends State<CollectionsSettingsPage> {
           actions: [
             TextButton(
               onPressed: () => Navigator.of(context).pop('edit'),
-              child: Text('Edit'),
+              child: Text(AppLocalizations.of(context).t('Edit')),
             ),
             TextButton(
               onPressed: () => Navigator.of(context).pop('export'),
-              child: Text('Export JSON'),
+              child: Text(AppLocalizations.of(context).t('Export JSON')),
             ),
             TextButton(
               onPressed: () => Navigator.of(context).pop('delete'),
-              child: Text('Delete'),
+              child: Text(AppLocalizations.of(context).t('Delete')),
             ),
             TextButton(
               onPressed: () => Navigator.of(context).pop('toggle'),
@@ -361,7 +363,7 @@ class _CollectionsSettingsPageState extends State<CollectionsSettingsPage> {
             TextButton(
               autofocus: true,
               onPressed: () => Navigator.of(context).pop(),
-              child: Text('Close'),
+              child: Text(AppLocalizations.of(context).t('Close')),
             ),
           ],
         ),
@@ -494,7 +496,7 @@ class _CollectionsSettingsPageState extends State<CollectionsSettingsPage> {
             TextButton(
               autofocus: true,
               onPressed: () => Navigator.of(context).pop(false),
-              child: Text('Cancel'),
+              child: Text(AppLocalizations.of(context).t('Cancel')),
             ),
             TextButton(
               onPressed: () => Navigator.of(context).pop(true),
@@ -535,7 +537,7 @@ class _CollectionsSettingsPageState extends State<CollectionsSettingsPage> {
             TextButton(
               autofocus: true,
               onPressed: () => Navigator.of(context).pop(),
-              child: const Text('OK'),
+              child: Text(AppLocalizations.of(context).t('OK')),
             ),
           ],
         ),
@@ -569,7 +571,7 @@ class _CollectionsSettingsPageState extends State<CollectionsSettingsPage> {
               mainAxisSize: MainAxisSize.min,
               children: [
                 Text(_loadError!, textAlign: TextAlign.center),
-                TextButton(onPressed: _load, child: Text('Retry')),
+                TextButton(onPressed: _load, child: Text(AppLocalizations.of(context).t('Retry'))),
               ],
             ),
           ),

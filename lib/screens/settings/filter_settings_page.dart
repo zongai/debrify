@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 import 'package:flutter/services.dart';
 import '../../models/torrent_filter_state.dart';
 import '../../services/storage_service.dart';
@@ -299,7 +301,7 @@ class _FilterSettingsPageState extends State<FilterSettingsPage> {
               child: ExcludeFocus(
                 child: TextButton(
                   onPressed: _clearAll,
-                  child: Text('Clear All'),
+                  child: Text(AppLocalizations.of(context).t('Clear All')),
                 ),
               ),
             ),

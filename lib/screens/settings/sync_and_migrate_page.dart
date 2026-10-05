@@ -7,6 +7,8 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -343,7 +345,7 @@ class _SyncAndMigratePageState extends State<SyncAndMigratePage>
               TextButton(
                 autofocus: true,
                 onPressed: () => Navigator.of(dialogContext).pop(),
-                child: Text('Close'),
+                child: Text(AppLocalizations.of(context).t('Close')),
               ),
             ],
           ),
@@ -445,7 +447,7 @@ class _SyncAndMigratePageState extends State<SyncAndMigratePage>
             actions: [
               TextButton(
                 onPressed: () => Navigator.of(dialogContext).pop(false),
-                child: Text('Cancel'),
+                child: Text(AppLocalizations.of(context).t('Cancel')),
               ),
               FilledButton(
                 onPressed: () => Navigator.of(dialogContext).pop(true),
@@ -478,7 +480,7 @@ class _SyncAndMigratePageState extends State<SyncAndMigratePage>
         actions: [
           TextButton(
             onPressed: () => Navigator.of(dialogContext).pop(false),
-            child: Text('Cancel'),
+            child: Text(AppLocalizations.of(context).t('Cancel')),
           ),
           FilledButton(
             onPressed: () => Navigator.of(dialogContext).pop(true),
@@ -526,11 +528,11 @@ class _SyncAndMigratePageState extends State<SyncAndMigratePage>
         actions: [
           TextButton(
             onPressed: () => Navigator.of(dialogContext).pop(false),
-            child: Text('Cancel'),
+            child: Text(AppLocalizations.of(context).t('Cancel')),
           ),
           FilledButton(
             onPressed: () => Navigator.of(dialogContext).pop(true),
-            child: const Text('Log out'),
+            child: Text(AppLocalizations.of(context).t('Log out')),
           ),
         ],
       ),
@@ -834,7 +836,7 @@ class _SyncAndMigratePageState extends State<SyncAndMigratePage>
         barrierDismissible: false,
         builder: (dialogContext) => AlertDialog(
           scrollable: true,
-          title: Text('Remove this device?'),
+          title: Text(AppLocalizations.of(context).t('Remove this device?')),
           content: const Text(
             'Delete this device’s sync files and remove its registration. '
             'Its local data stays intact. When the device next connects, it '
@@ -844,11 +846,11 @@ class _SyncAndMigratePageState extends State<SyncAndMigratePage>
           actions: [
             TextButton(
               onPressed: () => Navigator.of(dialogContext).pop(false),
-              child: Text('Cancel'),
+              child: Text(AppLocalizations.of(context).t('Cancel')),
             ),
             FilledButton(
               onPressed: () => Navigator.of(dialogContext).pop(true),
-              child: const Text('Remove device'),
+              child: Text(AppLocalizations.of(context).t('Remove device')),
             ),
           ],
         ),
@@ -1341,7 +1343,7 @@ final class _DebrifyTvSyncProgressDialogState
         actions: [
           TextButton(
             onPressed: _stopping ? null : _stop,
-            child: const Text('Stop'),
+            child: Text(AppLocalizations.of(context).t('Stop')),
           ),
         ],
       ),
@@ -1454,7 +1456,7 @@ final class _SyncCredentialDialogState extends State<_SyncCredentialDialog> {
       actions: [
         TextButton(
           onPressed: () => Navigator.of(context).pop(),
-          child: Text('Cancel'),
+          child: Text(AppLocalizations.of(context).t('Cancel')),
         ),
         FilledButton(
           onPressed: _valid ? _submit : null,

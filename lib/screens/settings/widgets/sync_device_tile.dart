@@ -2,6 +2,8 @@ import 'dart:async';
 import '../../../services/webdav_sync/webdav_sync_graph_tier.dart';
 import 'package:flutter/material.dart';
 
+import '../../../l10n/app_localizations.dart';
+
 import '../../../services/webdav_sync/webdav_sync_device_names.dart';
 import '../../../widgets/tv_text_field.dart';
 
@@ -61,9 +63,9 @@ class _SyncDeviceNameDialogState extends State<SyncDeviceNameDialog> {
     actions: [
       TextButton(
         onPressed: () => Navigator.of(context).pop(),
-        child: Text('Cancel'),
+        child: Text(AppLocalizations.of(context).t('Cancel')),
       ),
-      FilledButton(onPressed: _submit, child: Text('Save')),
+      FilledButton(onPressed: _submit, child: Text(AppLocalizations.of(context).t('Save'))),
     ],
   );
 }
@@ -152,7 +154,7 @@ class SyncDeviceTile extends StatelessWidget {
                   TextButton.icon(
                     onPressed: onRename,
                     icon: const Icon(Icons.edit_outlined, size: 18),
-                    label: Text('Rename'),
+                    label: Text(AppLocalizations.of(context).t('Rename')),
                   ),
                 if (onRemove != null)
                   TextButton.icon(
@@ -161,7 +163,7 @@ class SyncDeviceTile extends StatelessWidget {
                       foregroundColor: Theme.of(context).colorScheme.error,
                     ),
                     icon: Icon(Icons.remove_circle_outline, size: 18),
-                    label: Text('Remove'),
+                    label: Text(AppLocalizations.of(context).t('Remove')),
                   ),
               ],
             ),
@@ -222,7 +224,7 @@ class _SyncDevicesDialogState extends State<SyncDevicesDialog> {
   Widget build(BuildContext context) {
     final now = widget.clock();
     return AlertDialog(
-      title: Text('Connected devices'),
+      title: Text(AppLocalizations.of(context).t('Connected devices')),
       content: SizedBox(
         width: 520,
         child: ListView(
@@ -262,7 +264,7 @@ class _SyncDevicesDialogState extends State<SyncDevicesDialog> {
       actions: [
         TextButton(
           onPressed: () => Navigator.of(context).pop(),
-          child: Text('Done'),
+          child: Text(AppLocalizations.of(context).t('Done')),
         ),
       ],
     );

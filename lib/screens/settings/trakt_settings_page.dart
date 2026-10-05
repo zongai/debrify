@@ -2,6 +2,8 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 import 'package:flutter/services.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -357,7 +359,7 @@ class _TraktSettingsPageState extends State<TraktSettingsPage> {
                                   focusNode: _primaryButtonFocus,
                                   onPressed: _logout,
                                   icon: const Icon(Icons.logout),
-                                  label: Text('Logout'),
+                                  label: Text(AppLocalizations.of(context).t('Logout')),
                                   style: OutlinedButton.styleFrom(
                                     foregroundColor: t.danger,
                                     side: BorderSide(
@@ -526,7 +528,7 @@ class _TraktSettingsPageState extends State<TraktSettingsPage> {
             child: OutlinedButton(
               focusNode: _cancelFocus,
               onPressed: _stopDeviceCodeFlow,
-              child: Text('Cancel'),
+              child: Text(AppLocalizations.of(context).t('Cancel')),
             ),
           ),
         ),

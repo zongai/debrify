@@ -4,6 +4,8 @@ import 'dart:io' show Platform;
 import 'package:flutter/foundation.dart' show kIsWeb, visibleForTesting;
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 import 'package:flutter/services.dart';
 import 'package:file_picker/file_picker.dart';
 import '../../models/iptv_playlist.dart';
@@ -1425,11 +1427,11 @@ class _IptvSettingsPageState extends State<IptvSettingsPage>
         actions: [
           TextButton(
             onPressed: () => Navigator.of(context).pop(false),
-            child: Text('Cancel'),
+            child: Text(AppLocalizations.of(context).t('Cancel')),
           ),
           TextButton(
             onPressed: () => Navigator.of(context).pop(true),
-            child: Text('Delete'),
+            child: Text(AppLocalizations.of(context).t('Delete')),
           ),
         ],
       ),
@@ -1516,19 +1518,19 @@ class _IptvSettingsPageState extends State<IptvSettingsPage>
             ListTile(
               autofocus: true,
               leading: const Icon(Icons.drive_file_rename_outline_rounded),
-              title: Text('Rename'),
+              title: Text(AppLocalizations.of(context).t('Rename')),
               onTap: () => Navigator.of(context).pop('rename'),
             ),
             if (index > 0)
               ListTile(
                 leading: Icon(Icons.arrow_upward_rounded),
-                title: Text('Move up'),
+                title: Text(AppLocalizations.of(context).t('Move up')),
                 onTap: () => Navigator.of(context).pop('up'),
               ),
             if (index < lists.length - 1)
               ListTile(
                 leading: Icon(Icons.arrow_downward_rounded),
-                title: Text('Move down'),
+                title: Text(AppLocalizations.of(context).t('Move down')),
                 onTap: () => Navigator.of(context).pop('down'),
               ),
             ListTile(
@@ -2585,7 +2587,7 @@ class _IptvSettingsPageState extends State<IptvSettingsPage>
           child: Column(
             children: [
               SwitchListTile(
-                title: const Text('Start on a channel'),
+                title: Text(AppLocalizations.of(context).t('Start on a channel')),
                 subtitle: const Text(
                   'Open straight into a live channel when the app starts. '
                   'Press BACK while it is tuning to stop.',
@@ -2596,7 +2598,7 @@ class _IptvSettingsPageState extends State<IptvSettingsPage>
               if (_startupEnabled) ...[
                 const Divider(height: 1),
                 RadioListTile<String>(
-                  title: const Text('Last watched channel'),
+                  title: Text(AppLocalizations.of(context).t('Last watched channel')),
                   subtitle: Text(
                     _lastLiveChannel == null
                         // Honest about the bootstrap: the first boot after
@@ -2611,7 +2613,7 @@ class _IptvSettingsPageState extends State<IptvSettingsPage>
                   onChanged: _setStartupMode,
                 ),
                 RadioListTile<String>(
-                  title: const Text('A specific channel'),
+                  title: Text(AppLocalizations.of(context).t('A specific channel')),
                   subtitle: Text(_startupChannelLabel),
                   value: StorageService.startupIptvModePinned,
                   groupValue: _startupMode,
@@ -2642,7 +2644,7 @@ class _IptvSettingsPageState extends State<IptvSettingsPage>
         const SizedBox(height: 6),
         Card(
           child: SwitchListTile(
-            title: const Text('Track movies and series'),
+            title: Text(AppLocalizations.of(context).t('Track movies and series')),
             subtitle: const Text(
               'Keeps a Continue watching shelf of the on-demand items you '
               'start, on Home and in IPTV. Off hides it and stops adding to '
@@ -2665,7 +2667,7 @@ class _IptvSettingsPageState extends State<IptvSettingsPage>
         const SizedBox(height: 6),
         Card(
           child: SwitchListTile(
-            title: const Text('Play channel previews'),
+            title: Text(AppLocalizations.of(context).t('Play channel previews')),
             subtitle: const Text(
               'Plays the focused channel in the side panel while you browse. '
               'This opens a provider stream and may count toward your '
@@ -2696,7 +2698,7 @@ class _IptvSettingsPageState extends State<IptvSettingsPage>
             children: [
               if (_engineToggleVisible)
                 SwitchListTile(
-                  title: const Text('Background recording engine'),
+                  title: Text(AppLocalizations.of(context).t('Background recording engine')),
                   subtitle: const Text(
                     'Recordings keep running when you zap or leave the '
                     'app, and programmes can be scheduled from the TV '
@@ -3612,13 +3614,13 @@ class _SharedIptvSourceDeleteDialogState
             autofocus: true,
             style: _dialogButtonFocusStyle,
             onPressed: () => Navigator.of(context).pop(false),
-            child: Text('Cancel'),
+            child: Text(AppLocalizations.of(context).t('Cancel')),
           ),
           FilledButton(
             focusNode: _okFocusNode,
             style: _dialogButtonFocusStyle,
             onPressed: () => Navigator.of(context).pop(true),
-            child: const Text('OK'),
+            child: Text(AppLocalizations.of(context).t('OK')),
           ),
         ],
       ),
@@ -3932,13 +3934,13 @@ class _EditPlaylistDialogState extends State<_EditPlaylistDialog> {
           // focus is never stranded on the dialog scope.
           autofocus: PlatformUtil.isTelevision && !_canSave,
           onPressed: () => Navigator.of(context).pop(),
-          child: Text('Cancel'),
+          child: Text(AppLocalizations.of(context).t('Cancel')),
         ),
         FilledButton(
           style: _dialogButtonFocusStyle,
           autofocus: PlatformUtil.isTelevision && _canSave,
           onPressed: _canSave ? _submit : null,
-          child: Text('Save'),
+          child: Text(AppLocalizations.of(context).t('Save')),
         ),
       ],
     );
@@ -4320,13 +4322,13 @@ class _PlaylistNameDialogState extends State<_PlaylistNameDialog> {
           // seed DPAD focus here instead.
           autofocus: PlatformUtil.isTelevision && !_initialNameValid,
           onPressed: () => Navigator.of(context).pop(),
-          child: Text('Cancel'),
+          child: Text(AppLocalizations.of(context).t('Cancel')),
         ),
         FilledButton(
           style: _dialogButtonFocusStyle,
           autofocus: PlatformUtil.isTelevision && _initialNameValid,
           onPressed: _errorText == null ? _submit : null,
-          child: Text('Import'),
+          child: Text(AppLocalizations.of(context).t('Import')),
         ),
       ],
     );
