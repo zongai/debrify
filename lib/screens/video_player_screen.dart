@@ -96,6 +96,7 @@ import 'video_player/widgets/player_menu_panel.dart';
 import 'video_player/widgets/playlist_sheet.dart';
 import 'video_player/widgets/channel_guide.dart';
 import 'video_player/widgets/iptv_channel_sheet.dart';
+import 'video_player/widgets/iptv_source_sheet.dart';
 import 'video_player/widgets/iptv_zap_banner.dart';
 import 'video_player/widgets/player_guide_style.dart';
 import '../widgets/iptv/styles/iptv_style.dart';
@@ -1273,6 +1274,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen>
 
   // Stremio source sheet state
   bool _showSourceSheet = false;
+  bool _showIptvSourceSheet = false;
   int _currentSourceIndex = 0;
   final _serverWatch = MediaServerWatchController();
   Torrent? _openedWatchSource;
@@ -9195,6 +9197,12 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen>
   // ─── Stremio Source Sheet ───────────────────────────────────────────
 
   void _showSourceSheetOverlay() {
+    // IPTV multi-source channels use their own sheet (stream mirrors).
+    final iptv = _currentIptvChannel;
+    if (iptv != null && iptv.hasMultipleSources) {
+      _showIptvSourceSheetOverlay();
+      return;
+    }
     final sources = _effectiveSources;
     if (sources == null || sources.isEmpty) return;
     _hideIptvZapBanner();
@@ -9208,6 +9216,50 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen>
     setState(() {
       _showSourceSheet = false;
     });
+  }
+
+  void _showIptvSourceSheetOverlay() {
+    final channel = _currentIptvChannel;
+    if (channel == null || !channel.hasMultipleSources) return;
+    _hideIptvZapBanner();
+    setState(() {
+      _showIptvChannelSheet = false;
+      _showSourceSheet = false;
+      _showIptvSourceSheet = true;
+      _controlsVisible.value = false;
+    });
+  }
+
+  void _hideIptvSourceSheet() {
+    if (!_showIptvSourceSheet) return;
+    setState(() => _showIptvSourceSheet = false);
+  }
+
+  Future<void> _selectIptvSource(int index) async {
+    final channel = _currentIptvChannel;
+    if (channel == null) return;
+    if (index < 0 || index >= channel.sources.length) return;
+    _hideIptvSourceSheet();
+    if (index == _iptvSourceIndex) return;
+    setState(() => _iptvSourceIndex = index);
+    final source = channel.sourceAt(index);
+    final ticket = _iptvSwitchTicket;
+    await _stopRecording(userInitiated: false);
+    if (!mounted || ticket != _iptvSwitchTicket) return;
+    _iptvDiag.onTuneStart(
+      channel.name,
+      source.url,
+      isLive: channel.isLive,
+    );
+    try {
+      await _openMedia(
+        mk.Media(source.url, httpHeaders: source.playbackHeaders),
+        play: true,
+        liveStream: channel.isLive,
+      );
+    } catch (e) {
+      debugPrint('Player: IPTV source switch failed: $e');
+    }
   }
 
   Future<String?> Function(Torrent) _buildSourceSheetResolver() {
@@ -13059,9 +13111,11 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen>
     // stripped episodes, sources and speed from those sessions.
     final isLive = _iptvZapBannerOwnsIdentity;
     final hasSources =
-        _effectiveSources != null &&
-        _effectiveSources!.isNotEmpty &&
-        (_effectiveResolver != null || widget.resolveSourceToPlaylist != null);
+        (_currentIptvChannel?.hasMultipleSources == true) ||
+        (_effectiveSources != null &&
+            _effectiveSources!.isNotEmpty &&
+            (_effectiveResolver != null ||
+                widget.resolveSourceToPlaylist != null));
     final hasGuide =
         (_channelEntries.isNotEmpty && widget.requestChannelById != null) ||
         _hasStremioTvGuide;
@@ -13211,6 +13265,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen>
       _showChannelGuide ||
       _showIptvChannelSheet ||
       _showSourceSheet ||
+      _showIptvSourceSheet ||
       _showStremioTvGuide ||
       _showPlayerMenu;
 
@@ -13238,6 +13293,8 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen>
       // It may still be open (pane change rather than close). Taking focus to
       // the player root would leave its DPAD dead.
       if (_showIptvChannelSheet) return;
+    } else if (_showIptvSourceSheet) {
+      _hideIptvSourceSheet();
     } else if (_showSourceSheet) {
       _hideSourceSheet();
     } else if (_showStremioTvGuide) {
@@ -14776,6 +14833,16 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen>
               return KeyEventResult.ignored;
             }
 
+            // IPTV stream-source sheet
+            if (_showIptvSourceSheet) {
+              if (key == LogicalKeyboardKey.escape ||
+                  key == LogicalKeyboardKey.goBack) {
+                _hideIptvSourceSheet();
+                return KeyEventResult.handled;
+              }
+              return KeyEventResult.ignored;
+            }
+
             // Source sheet is open - handle its keys first
             if (_showSourceSheet) {
               if (key == LogicalKeyboardKey.escape ||
@@ -15598,17 +15665,21 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen>
                                       ? _showIptvChannelSheetOverlay
                                       : null,
                                   hasStremioSources:
-                                      _effectiveSources != null &&
-                                      _effectiveSources!.isNotEmpty &&
-                                      (_effectiveResolver != null ||
-                                          widget.resolveSourceToPlaylist !=
-                                              null),
-                                  onShowStremioSources:
-                                      _effectiveSources != null &&
+                                      (_currentIptvChannel?.hasMultipleSources ==
+                                          true) ||
+                                      (_effectiveSources != null &&
                                           _effectiveSources!.isNotEmpty &&
                                           (_effectiveResolver != null ||
                                               widget.resolveSourceToPlaylist !=
-                                                  null)
+                                                  null)),
+                                  onShowStremioSources:
+                                      (_currentIptvChannel?.hasMultipleSources ==
+                                              true) ||
+                                          (_effectiveSources != null &&
+                                              _effectiveSources!.isNotEmpty &&
+                                              (_effectiveResolver != null ||
+                                                  widget.resolveSourceToPlaylist !=
+                                                      null))
                                       ? _showSourceSheetOverlay
                                       : null,
                                   showPipButton: PipService.isOwner(this),
@@ -15816,6 +15887,19 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen>
                       tokens: _playerGuideTokens,
                     ),
                   ),
+                // IPTV multi-source stream picker
+                if (_showIptvSourceSheet &&
+                    _currentIptvChannel != null &&
+                    _currentIptvChannel!.hasMultipleSources &&
+                    !inPip)
+                  Positioned.fill(
+                    child: IptvSourceSheet(
+                      channel: _currentIptvChannel!,
+                      currentIndex: _iptvSourceIndex,
+                      onSelected: (i) => unawaited(_selectIptvSource(i)),
+                      onClose: _hideIptvSourceSheet,
+                    ),
+                  ),
                 // Stremio source sheet overlay
                 if (_showSourceSheet &&
                     _effectiveSources != null &&
@@ -15897,6 +15981,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen>
       _showChannelGuide ||
       _showIptvChannelSheet ||
       _showSourceSheet ||
+      _showIptvSourceSheet ||
       _showStremioTvGuide ||
       _showPlayerMenu;
 
