@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 
 import '../../services/iptv_media_store.dart' show IptvListMeta;
 import '../../services/storage_service.dart';
@@ -177,7 +179,7 @@ class _StartupChannelDialog extends StatelessWidget {
       actions: [
         TextButton(
           onPressed: () => Navigator.of(context).pop(),
-          child: Text('Cancel'),
+          child: Text(AppLocalizations.of(context).t('Cancel')),
         ),
       ],
     );

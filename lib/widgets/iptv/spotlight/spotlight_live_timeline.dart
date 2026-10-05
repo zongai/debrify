@@ -5,6 +5,8 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
+import '../../../l10n/app_localizations.dart';
+
 import 'package:flutter/services.dart';
 
 import '../../../models/iptv_playlist.dart';
@@ -1453,7 +1455,7 @@ class _SpotlightLiveTimelineState extends State<SpotlightLiveTimeline> {
                                   : Colors.transparent,
                             ),
                           ),
-                      child: Text('Now'),
+                      child: Text(AppLocalizations.of(context).t('Now')),
                     ),
                   )
                 else

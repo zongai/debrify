@@ -2,6 +2,8 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 import 'package:flutter/services.dart';
 
 import '../../models/playlist_view_mode.dart';
@@ -678,11 +680,11 @@ class _WebDavFilesScreenState extends State<WebDavFilesScreen> {
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(ctx, false),
-            child: Text('Cancel'),
+            child: Text(AppLocalizations.of(context).t('Cancel')),
           ),
           FilledButton(
             onPressed: () => Navigator.pop(ctx, true),
-            child: Text('Delete'),
+            child: Text(AppLocalizations.of(context).t('Delete')),
           ),
         ],
       ),
@@ -1060,7 +1062,7 @@ class _WebDavFilesScreenState extends State<WebDavFilesScreen> {
       );
     }
     if (_items.isEmpty) {
-      return Center(child: Text('No files found'));
+      return Center(child: Text(AppLocalizations.of(context).t('No files found')));
     }
     return _buildItemList();
   }

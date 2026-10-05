@@ -2,6 +2,8 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 
+import '../l10n/app_localizations.dart';
+
 import 'package:flutter/services.dart';
 
 import '../models/playlist_view_mode.dart';
@@ -225,7 +227,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
             _currentTorrentId == null) {
           Navigator.of(context).pop();
           ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text('Failed to open torrent. Please try again.'),
+            SnackBar(content: Text(AppLocalizations.of(context).t('Failed to open torrent. Please try again.')),
               backgroundColor: Color(0xFFEF4444),
             ),
           );
@@ -855,7 +857,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
       if (!mounted) return;
       ScaffoldMessenger.of(
         context,
-      ).showSnackBar(SnackBar(content: Text('Added to downloads')));
+      ).showSnackBar(SnackBar(content: Text(AppLocalizations.of(context).t('Added to downloads'))));
     } catch (e) {
       if (!mounted) return;
       ScaffoldMessenger.of(
@@ -889,7 +891,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
           TextButton(
             onPressed: () => Navigator.of(context).pop(true),
             style: TextButton.styleFrom(foregroundColor: Colors.red),
-            child: Text('Delete'),
+            child: Text(AppLocalizations.of(context).t('Delete')),
           ),
         ],
       ),
@@ -907,7 +909,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
               children: [
                 CircularProgressIndicator(),
                 SizedBox(width: 16),
-                Text('Deleting torrent...'),
+                Text(AppLocalizations.of(context).t('Deleting torrent...')),
               ],
             ),
           ),
@@ -967,7 +969,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
           TextButton(
             onPressed: () => Navigator.of(context).pop(true),
             style: TextButton.styleFrom(foregroundColor: Colors.red),
-            child: Text('Delete All'),
+            child: Text(AppLocalizations.of(context).t('Delete All')),
           ),
         ],
       ),
@@ -1167,7 +1169,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
           TextButton(
             onPressed: () => Navigator.of(context).pop(true),
             style: TextButton.styleFrom(foregroundColor: Colors.red),
-            child: Text('Delete All'),
+            child: Text(AppLocalizations.of(context).t('Delete All')),
           ),
         ],
       ),
@@ -1367,7 +1369,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
           TextButton(
             onPressed: () => Navigator.of(context).pop(true),
             style: TextButton.styleFrom(foregroundColor: Colors.red),
-            child: Text('Delete'),
+            child: Text(AppLocalizations.of(context).t('Delete')),
           ),
         ],
       ),
@@ -1385,7 +1387,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
               children: [
                 CircularProgressIndicator(),
                 SizedBox(width: 16),
-                Text('Deleting download...'),
+                Text(AppLocalizations.of(context).t('Deleting download...')),
               ],
             ),
           ),
@@ -1504,7 +1506,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
           TextButton(
             onPressed: () => Navigator.of(context).pop(true),
             style: TextButton.styleFrom(foregroundColor: Colors.red),
-            child: Text('Delete'),
+            child: Text(AppLocalizations.of(context).t('Delete')),
           ),
         ],
       ),
@@ -1932,7 +1934,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
                   style: TextButton.styleFrom(
                     foregroundColor: Color(0xFF60A5FA),
                   ),
-                  child: Text('Copy Download Link'),
+                  child: Text(AppLocalizations.of(context).t('Copy Download Link')),
                 ),
               ],
             ),
@@ -2667,7 +2669,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
             onPressed: () => Navigator.of(context).pop(),
             tooltip: 'Back',
           ),
-          title: Text('Opening torrent...'),
+          title: Text(AppLocalizations.of(context).t('Opening torrent...')),
         ),
         body: Center(
           child: Column(
@@ -2675,7 +2677,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
             children: [
               CircularProgressIndicator(),
               SizedBox(height: 16),
-              Text('Loading torrent files...'),
+              Text(AppLocalizations.of(context).t('Loading torrent files...')),
             ],
           ),
         ),
@@ -2700,7 +2702,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
                 onPressed: () => Navigator.of(context).pop(),
                 tooltip: 'Back',
               ),
-              title: Text('Select Source from Real-Debrid'),
+              title: Text(AppLocalizations.of(context).t('Select Source from Real-Debrid')),
             )
           : null,
       body: FocusTraversalGroup(
@@ -2767,10 +2769,10 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
             ),
           ),
           items: [
-            DropdownMenuItem(value: _FolderViewMode.raw, child: Text('Raw')),
+            DropdownMenuItem(value: _FolderViewMode.raw, child: Text(AppLocalizations.of(context).t('Raw'))),
             DropdownMenuItem(
               value: _FolderViewMode.sortedAZ,
-              child: Text('Sort (A-Z)'),
+              child: Text(AppLocalizations.of(context).t('Sort (A-Z)')),
             ),
           ],
           onChanged: (value) {
@@ -2849,7 +2851,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
     }
 
     if (_currentViewNodes == null || _currentViewNodes!.isEmpty) {
-      return const Center(child: Text('Empty folder'));
+      return const Center(child: Text(AppLocalizations.of(context).t('Empty folder')));
     }
 
     return ListView.builder(
@@ -3000,7 +3002,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
             focusNode: _deleteButtonFocusNode,
             onPressed: count > 0 ? _handleDeleteSelected : null,
             icon: const Icon(Icons.delete_outline, size: 18),
-            label: Text('Delete'),
+            label: Text(AppLocalizations.of(context).t('Delete')),
             style:
                 FilledButton.styleFrom(
                   backgroundColor: theme.colorScheme.error,
@@ -3280,7 +3282,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
               ElevatedButton(
                 autofocus: true,
                 onPressed: () => _fetchTorrents(_apiKey!, reset: true),
-                child: Text('Retry'),
+                child: Text(AppLocalizations.of(context).t('Retry')),
               ),
             ],
           ),
@@ -3566,7 +3568,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
               ElevatedButton(
                 autofocus: true,
                 onPressed: () => _fetchDownloads(_apiKey!, reset: true),
-                child: Text('Retry'),
+                child: Text(AppLocalizations.of(context).t('Retry')),
               ),
             ],
           ),
@@ -3967,7 +3969,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
             children: [
               CircularProgressIndicator(),
               SizedBox(width: 16),
-              Text('Preparing playlist…'),
+              Text(AppLocalizations.of(context).t('Preparing playlist…')),
             ],
           ),
         ),
@@ -4259,7 +4261,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: Text('Add Magnet Link'),
+        title: Text(AppLocalizations.of(context).t('Add Magnet Link')),
         content: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
@@ -4291,7 +4293,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
                       padding: const EdgeInsets.symmetric(vertical: 12),
                       side: const BorderSide(color: Color(0xFF475569)),
                     ),
-                    child: Text('Cancel'),
+                    child: Text(AppLocalizations.of(context).t('Cancel')),
                   ),
                 ),
                 SizedBox(width: 12),
@@ -4302,7 +4304,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
                       padding: const EdgeInsets.symmetric(vertical: 12),
                       side: const BorderSide(color: Color(0xFF475569)),
                     ),
-                    child: Text('Advanced'),
+                    child: Text(AppLocalizations.of(context).t('Advanced')),
                   ),
                 ),
                 SizedBox(width: 12),
@@ -4324,7 +4326,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
                               color: Colors.white,
                             ),
                           )
-                        : Text('Add'),
+                        : Text(AppLocalizations.of(context).t('Add')),
                   ),
                 ),
               ],
@@ -4383,13 +4385,13 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
       context: context,
       barrierDismissible: false,
       builder: (context) => AlertDialog(
-        title: const Text('Adding Torrent'),
+        title: Text(AppLocalizations.of(context).t('Adding Torrent')),
         content: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
             const CircularProgressIndicator(),
             const SizedBox(height: 16),
-            const Text('Processing magnet link...'),
+            Text(AppLocalizations.of(context).t('Processing magnet link...')),
             const SizedBox(height: 8),
             Text(
               'This may take a few moments',
@@ -4429,7 +4431,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text('Magnet added successfully!'),
+            content: Text(AppLocalizations.of(context).t('Magnet added successfully!')),
             backgroundColor: Colors.green,
           ),
         );
@@ -4477,12 +4479,12 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: Text('Select File Type'),
-        content: const Text('Choose how to handle files in this torrent:'),
+        title: Text(AppLocalizations.of(context).t('Select File Type')),
+        content: Text(AppLocalizations.of(context).t('Choose how to handle files in this torrent:')),
         actions: [
           TextButton(
             onPressed: () => Navigator.of(context).pop(),
-            child: Text('Cancel'),
+            child: Text(AppLocalizations.of(context).t('Cancel')),
           ),
           TextButton(
             onPressed: _isAddingMagnet
@@ -4494,7 +4496,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
                     height: 16,
                     child: CircularProgressIndicator(strokeWidth: 2),
                   )
-                : const Text('Smart (recommended)'),
+                : Text(AppLocalizations.of(context).t('Smart (recommended)')),
           ),
           TextButton(
             onPressed: _isAddingMagnet
@@ -4506,7 +4508,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
                     height: 16,
                     child: CircularProgressIndicator(strokeWidth: 2),
                   )
-                : const Text('Largest File'),
+                : Text(AppLocalizations.of(context).t('Largest File')),
           ),
           TextButton(
             onPressed: _isAddingMagnet
@@ -4518,7 +4520,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
                     height: 16,
                     child: CircularProgressIndicator(strokeWidth: 2),
                   )
-                : const Text('Video Files'),
+                : Text(AppLocalizations.of(context).t('Video Files')),
           ),
           TextButton(
             onPressed: _isAddingMagnet
@@ -4530,7 +4532,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
                     height: 16,
                     child: CircularProgressIndicator(strokeWidth: 2),
                   )
-                : const Text('All Files'),
+                : Text(AppLocalizations.of(context).t('All Files')),
           ),
         ],
       ),
@@ -4548,13 +4550,13 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
       context: context,
       barrierDismissible: false,
       builder: (context) => AlertDialog(
-        title: const Text('Adding Torrent'),
+        title: Text(AppLocalizations.of(context).t('Adding Torrent')),
         content: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
             const CircularProgressIndicator(),
             const SizedBox(height: 16),
-            const Text('Processing magnet link...'),
+            Text(AppLocalizations.of(context).t('Processing magnet link...')),
             const SizedBox(height: 8),
             Text(
               'This may take a few moments',
@@ -4589,7 +4591,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text('Magnet added successfully!'),
+            content: Text(AppLocalizations.of(context).t('Magnet added successfully!')),
             backgroundColor: Colors.green,
           ),
         );
@@ -4697,7 +4699,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
                       padding: const EdgeInsets.symmetric(vertical: 12),
                       side: const BorderSide(color: Color(0xFF475569)),
                     ),
-                    child: Text('Cancel'),
+                    child: Text(AppLocalizations.of(context).t('Cancel')),
                   ),
                 ),
                 SizedBox(width: 12),
@@ -4717,7 +4719,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
                               color: Colors.white,
                             ),
                           )
-                        : Text('Add'),
+                        : Text(AppLocalizations.of(context).t('Add')),
                   ),
                 ),
               ],
@@ -4777,7 +4779,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
           children: [
             const CircularProgressIndicator(),
             const SizedBox(height: 16),
-            const Text('Processing link...'),
+            Text(AppLocalizations.of(context).t('Processing link...')),
             const SizedBox(height: 8),
             Text(
               'This may take a few moments',
@@ -4810,7 +4812,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text('Link unrestricted successfully!'),
+            content: Text(AppLocalizations.of(context).t('Link unrestricted successfully!')),
             backgroundColor: Colors.green,
           ),
         );

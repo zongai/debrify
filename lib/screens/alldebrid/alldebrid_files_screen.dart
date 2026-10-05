@@ -1,6 +1,8 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 import 'package:flutter/services.dart';
 import '../../screens/video_player_screen.dart'; // re-exports PlaylistEntry
 import '../../services/alldebrid_service.dart';
@@ -683,7 +685,7 @@ class _AllDebridFilesScreenState extends State<AllDebridFilesScreen> {
     final magnet = await showDialog<String>(
       context: context,
       builder: (ctx) => AlertDialog(
-        title: Text('Add magnet'),
+        title: Text(AppLocalizations.of(context).t('Add magnet')),
         content: Focus(
           // D-pad: let arrow-down leave the field for the Cancel/Add buttons.
           onKeyEvent: (node, event) {
@@ -708,11 +710,11 @@ class _AllDebridFilesScreenState extends State<AllDebridFilesScreen> {
         actions: [
           TextButton(
             onPressed: () => Navigator.of(ctx).pop(),
-            child: Text('Cancel'),
+            child: Text(AppLocalizations.of(context).t('Cancel')),
           ),
           TextButton(
             onPressed: () => Navigator.of(ctx).pop(controller.text.trim()),
-            child: Text('Add'),
+            child: Text(AppLocalizations.of(context).t('Add')),
           ),
         ],
       ),
@@ -820,7 +822,7 @@ class _AllDebridFilesScreenState extends State<AllDebridFilesScreen> {
     final link = await showDialog<String>(
       context: context,
       builder: (ctx) => AlertDialog(
-        title: Text('Add link'),
+        title: Text(AppLocalizations.of(context).t('Add link')),
         content: Focus(
           // D-pad: let arrow-down leave the field for the Cancel/Add buttons.
           onKeyEvent: (node, event) {
@@ -845,11 +847,11 @@ class _AllDebridFilesScreenState extends State<AllDebridFilesScreen> {
         actions: [
           TextButton(
             onPressed: () => Navigator.of(ctx).pop(),
-            child: Text('Cancel'),
+            child: Text(AppLocalizations.of(context).t('Cancel')),
           ),
           TextButton(
             onPressed: () => Navigator.of(ctx).pop(controller.text.trim()),
-            child: Text('Add'),
+            child: Text(AppLocalizations.of(context).t('Add')),
           ),
         ],
       ),
@@ -897,12 +899,12 @@ class _AllDebridFilesScreenState extends State<AllDebridFilesScreen> {
         actions: [
           TextButton(
             onPressed: () => Navigator.of(ctx).pop(false),
-            child: Text('Cancel'),
+            child: Text(AppLocalizations.of(context).t('Cancel')),
           ),
           TextButton(
             onPressed: () => Navigator.of(ctx).pop(true),
             style: TextButton.styleFrom(foregroundColor: Colors.red),
-            child: Text('Delete'),
+            child: Text(AppLocalizations.of(context).t('Delete')),
           ),
         ],
       ),
@@ -1018,12 +1020,12 @@ class _AllDebridFilesScreenState extends State<AllDebridFilesScreen> {
         actions: [
           TextButton(
             onPressed: () => Navigator.of(ctx).pop(false),
-            child: Text('Cancel'),
+            child: Text(AppLocalizations.of(context).t('Cancel')),
           ),
           TextButton(
             onPressed: () => Navigator.of(ctx).pop(true),
             style: TextButton.styleFrom(foregroundColor: Colors.red),
-            child: Text('Delete'),
+            child: Text(AppLocalizations.of(context).t('Delete')),
           ),
         ],
       ),
@@ -1481,7 +1483,7 @@ class _AllDebridFilesScreenState extends State<AllDebridFilesScreen> {
             focusNode: _deleteButtonFocusNode,
             onPressed: count > 0 ? _handleDeleteSelected : null,
             icon: const Icon(Icons.delete_outline, size: 18),
-            label: Text('Delete'),
+            label: Text(AppLocalizations.of(context).t('Delete')),
             style: FilledButton.styleFrom(
               backgroundColor: theme.colorScheme.error,
               disabledBackgroundColor: theme.colorScheme.error.withValues(
@@ -1663,7 +1665,7 @@ class _AllDebridFilesScreenState extends State<AllDebridFilesScreen> {
               const SizedBox(height: 16),
               Text(_error!, textAlign: TextAlign.center),
               const SizedBox(height: 16),
-              ElevatedButton(onPressed: _load, child: Text('Retry')),
+              ElevatedButton(onPressed: _load, child: Text(AppLocalizations.of(context).t('Retry'))),
             ],
           ),
         ),
@@ -1825,7 +1827,7 @@ class _AllDebridFilesScreenState extends State<AllDebridFilesScreen> {
               const SizedBox(height: 16),
               Text(_linksError!, textAlign: TextAlign.center),
               const SizedBox(height: 16),
-              ElevatedButton(onPressed: _loadLinks, child: Text('Retry')),
+              ElevatedButton(onPressed: _loadLinks, child: Text(AppLocalizations.of(context).t('Retry'))),
             ],
           ),
         ),

@@ -1,6 +1,8 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 import 'package:flutter/services.dart';
 import '../../screens/video_player_screen.dart'; // re-exports PlaylistEntry
 import '../../services/analytics_service.dart';
@@ -1013,7 +1015,7 @@ class _PremiumizeFilesScreenState extends State<PremiumizeFilesScreen> {
           TextButton(
             autofocus: true,
             onPressed: () => Navigator.of(context).pop(),
-            child: Text('Cancel'),
+            child: Text(AppLocalizations.of(context).t('Cancel')),
           ),
           TextButton(
             style: TextButton.styleFrom(foregroundColor: Colors.red),
@@ -1021,7 +1023,7 @@ class _PremiumizeFilesScreenState extends State<PremiumizeFilesScreen> {
               Navigator.of(context).pop();
               _executeDelete([item]);
             },
-            child: Text('Delete'),
+            child: Text(AppLocalizations.of(context).t('Delete')),
           ),
         ],
       ),
@@ -1044,12 +1046,12 @@ class _PremiumizeFilesScreenState extends State<PremiumizeFilesScreen> {
           TextButton(
             autofocus: true,
             onPressed: () => Navigator.of(context).pop(false),
-            child: Text('Cancel'),
+            child: Text(AppLocalizations.of(context).t('Cancel')),
           ),
           TextButton(
             style: TextButton.styleFrom(foregroundColor: Colors.red),
             onPressed: () => Navigator.of(context).pop(true),
-            child: Text('Delete'),
+            child: Text(AppLocalizations.of(context).t('Delete')),
           ),
         ],
       ),
@@ -1115,12 +1117,12 @@ class _PremiumizeFilesScreenState extends State<PremiumizeFilesScreen> {
           TextButton(
             autofocus: true,
             onPressed: () => Navigator.of(context).pop(false),
-            child: Text('Cancel'),
+            child: Text(AppLocalizations.of(context).t('Cancel')),
           ),
           TextButton(
             style: TextButton.styleFrom(foregroundColor: Colors.red),
             onPressed: () => Navigator.of(context).pop(true),
-            child: Text('Delete'),
+            child: Text(AppLocalizations.of(context).t('Delete')),
           ),
         ],
       ),
@@ -1221,7 +1223,7 @@ class _PremiumizeFilesScreenState extends State<PremiumizeFilesScreen> {
               _linkController.clear();
               Navigator.of(context).pop();
             },
-            child: Text('Cancel'),
+            child: Text(AppLocalizations.of(context).t('Cancel')),
           ),
           FilledButton(
             style: FilledButton.styleFrom(
@@ -1713,10 +1715,10 @@ class _PremiumizeFilesScreenState extends State<PremiumizeFilesScreen> {
             ),
           ),
           items: [
-            DropdownMenuItem(value: _FolderViewMode.raw, child: Text('Raw')),
+            DropdownMenuItem(value: _FolderViewMode.raw, child: Text(AppLocalizations.of(context).t('Raw'))),
             DropdownMenuItem(
               value: _FolderViewMode.sortedAZ,
-              child: Text('Sort (A-Z)'),
+              child: Text(AppLocalizations.of(context).t('Sort (A-Z)')),
             ),
           ],
           onChanged: (value) {
@@ -1759,7 +1761,7 @@ class _PremiumizeFilesScreenState extends State<PremiumizeFilesScreen> {
             focusNode: _deleteButtonFocusNode,
             onPressed: count > 0 ? _handleDeleteSelected : null,
             icon: const Icon(Icons.delete_outline, size: 18),
-            label: Text('Delete'),
+            label: Text(AppLocalizations.of(context).t('Delete')),
             style: FilledButton.styleFrom(
               backgroundColor: theme.colorScheme.error,
               disabledBackgroundColor: theme.colorScheme.error.withValues(
@@ -2065,7 +2067,7 @@ class _PremiumizeFilesScreenState extends State<PremiumizeFilesScreen> {
               child: TextButton.icon(
                 onPressed: _clearFinishedTransfers,
                 icon: const Icon(Icons.cleaning_services_outlined, size: 18),
-                label: const Text('Clear finished'),
+                label: Text(AppLocalizations.of(context).t('Clear finished')),
               ),
             ),
           ),
@@ -2195,7 +2197,7 @@ class _PremiumizeFilesScreenState extends State<PremiumizeFilesScreen> {
 
   Widget _buildNotEnabled() {
     return CloudScaffold(
-      appBar: AppBar(title: Text('Premiumize')),
+      appBar: AppBar(title: Text(AppLocalizations.of(context).t('Premiumize'))),
       body: FocusTraversalGroup(
         policy: OrderedTraversalPolicy(),
         child: Center(
@@ -2225,7 +2227,7 @@ class _PremiumizeFilesScreenState extends State<PremiumizeFilesScreen> {
                     isError: false,
                   ),
                   icon: const Icon(Icons.settings),
-                  label: Text('Go to Settings'),
+                  label: Text(AppLocalizations.of(context).t('Go to Settings')),
                 ),
               ],
             ),
@@ -2237,7 +2239,7 @@ class _PremiumizeFilesScreenState extends State<PremiumizeFilesScreen> {
 
   Widget _buildError() {
     return CloudScaffold(
-      appBar: AppBar(title: Text('Premiumize')),
+      appBar: AppBar(title: Text(AppLocalizations.of(context).t('Premiumize'))),
       body: FocusTraversalGroup(
         policy: OrderedTraversalPolicy(),
         child: Center(
@@ -2264,7 +2266,7 @@ class _PremiumizeFilesScreenState extends State<PremiumizeFilesScreen> {
                   autofocus: true,
                   onPressed: _refresh,
                   icon: const Icon(Icons.refresh),
-                  label: Text('Retry'),
+                  label: Text(AppLocalizations.of(context).t('Retry')),
                 ),
               ],
             ),

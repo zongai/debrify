@@ -15,6 +15,8 @@ import 'package:flutter/foundation.dart'
         setEquals;
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 import 'package:flutter/services.dart';
 import '../../models/iptv_playlist.dart';
 import '../../services/debrify_image_cache.dart';
@@ -3333,12 +3335,12 @@ class IptvResultsViewState extends State<IptvResultsView>
         actions: [
           TextButton(
             onPressed: () => Navigator.of(dialogContext).pop(false),
-            child: Text('Cancel'),
+            child: Text(AppLocalizations.of(context).t('Cancel')),
           ),
           TextButton(
             autofocus: true,
             onPressed: () => Navigator.of(dialogContext).pop(true),
-            child: Text('Hide'),
+            child: Text(AppLocalizations.of(context).t('Hide')),
           ),
         ],
       ),
@@ -4676,12 +4678,12 @@ class IptvResultsViewState extends State<IptvResultsView>
       await _refreshAfterPlayback();
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Removed from Continue Watching')),
+        SnackBar(content: Text(AppLocalizations.of(context).t('Removed from Continue Watching'))),
       );
     } catch (_) {
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Could not remove item. Please try again.')),
+        SnackBar(content: Text(AppLocalizations.of(context).t('Could not remove item. Please try again.'))),
       );
     }
   }
@@ -5082,7 +5084,7 @@ class IptvResultsViewState extends State<IptvResultsView>
       // The probe is capped at 3s but still long enough that a silent button
       // reads as broken on a remote — say what's happening.
       messenger.showSnackBar(
-        SnackBar(content: Text('Checking channel…'),
+        SnackBar(content: Text(AppLocalizations.of(context).t('Checking channel…')),
           duration: Duration(seconds: 3),
         ),
       );
@@ -5110,7 +5112,7 @@ class IptvResultsViewState extends State<IptvResultsView>
       if (!await LiveRecordingService.ensureEngineReady()) {
         if (!mounted) return;
         messenger.showSnackBar(
-          SnackBar(content: Text('Storage access is needed to save recordings'),
+          SnackBar(content: Text(AppLocalizations.of(context).t('Storage access is needed to save recordings')),
           ),
         );
         return;
@@ -5263,12 +5265,12 @@ class IptvResultsViewState extends State<IptvResultsView>
         actions: [
           TextButton(
             onPressed: () => Navigator.of(dialogContext).pop(false),
-            child: Text('Cancel'),
+            child: Text(AppLocalizations.of(context).t('Cancel')),
           ),
           TextButton(
             autofocus: true,
             onPressed: () => Navigator.of(dialogContext).pop(true),
-            child: Text('Record'),
+            child: Text(AppLocalizations.of(context).t('Record')),
           ),
         ],
       ),
@@ -5447,7 +5449,7 @@ class IptvResultsViewState extends State<IptvResultsView>
                     unawaited(_loadSettings(forceReload: true));
                   },
                   icon: Icon(Icons.refresh),
-                  label: Text('Retry'),
+                  label: Text(AppLocalizations.of(context).t('Retry')),
                 ),
               ],
             ),
@@ -6632,7 +6634,7 @@ class IptvResultsViewState extends State<IptvResultsView>
                     padding: const EdgeInsets.only(left: 16, right: 8),
                     child: Row(
                       children: [
-                        Expanded(child: Text('Sources')),
+                        Expanded(child: Text(AppLocalizations.of(context).t('Sources'))),
                         CloseButton(
                           onPressed: () => Navigator.of(dialogContext).pop(),
                         ),
@@ -7793,7 +7795,7 @@ class IptvResultsViewState extends State<IptvResultsView>
               FilledButton.icon(
                 onPressed: _retryLoad,
                 icon: const Icon(Icons.refresh),
-                label: Text('Retry'),
+                label: Text(AppLocalizations.of(context).t('Retry')),
               ),
             ],
           ),

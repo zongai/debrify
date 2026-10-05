@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 import 'package:flutter/services.dart';
 import 'dart:convert';
 import '../../screens/video_player_screen.dart';
@@ -1180,7 +1182,7 @@ class _PikPakFilesScreenState extends State<PikPakFilesScreen> {
           TextButton(
             autofocus: true, // Safe default for TV/DPAD
             onPressed: () => Navigator.of(context).pop(),
-            child: Text('Cancel'),
+            child: Text(AppLocalizations.of(context).t('Cancel')),
           ),
           TextButton(
             onPressed: () {
@@ -1802,10 +1804,10 @@ class _PikPakFilesScreenState extends State<PikPakFilesScreen> {
             ),
           ),
           items: [
-            DropdownMenuItem(value: _FolderViewMode.raw, child: Text('Raw')),
+            DropdownMenuItem(value: _FolderViewMode.raw, child: Text(AppLocalizations.of(context).t('Raw'))),
             DropdownMenuItem(
               value: _FolderViewMode.sortedAZ,
-              child: Text('Sort (A-Z)'),
+              child: Text(AppLocalizations.of(context).t('Sort (A-Z)')),
             ),
           ],
           onChanged: (value) {
@@ -2315,7 +2317,7 @@ class _PikPakFilesScreenState extends State<PikPakFilesScreen> {
                     );
                   },
                   icon: Icon(Icons.settings),
-                  label: Text('Go to Settings'),
+                  label: Text(AppLocalizations.of(context).t('Go to Settings')),
                   style: FilledButton.styleFrom().copyWith(
                     side: WidgetStateProperty.resolveWith((states) {
                       if (states.contains(WidgetState.focused)) {
@@ -2363,7 +2365,7 @@ class _PikPakFilesScreenState extends State<PikPakFilesScreen> {
                   autofocus: true,
                   onPressed: _refreshFiles,
                   icon: const Icon(Icons.refresh),
-                  label: Text('Retry'),
+                  label: Text(AppLocalizations.of(context).t('Retry')),
                   style: FilledButton.styleFrom().copyWith(
                     side: WidgetStateProperty.resolveWith((states) {
                       if (states.contains(WidgetState.focused)) {
@@ -2443,7 +2445,7 @@ class _PikPakFilesScreenState extends State<PikPakFilesScreen> {
             focusNode: _deleteButtonFocusNode,
             onPressed: count > 0 ? _handleDeleteSelected : null,
             icon: const Icon(Icons.delete_outline, size: 18),
-            label: Text('Delete'),
+            label: Text(AppLocalizations.of(context).t('Delete')),
             style:
                 FilledButton.styleFrom(
                   backgroundColor: theme.colorScheme.error,
@@ -3273,7 +3275,7 @@ class _PikPakFilesScreenState extends State<PikPakFilesScreen> {
                     padding: EdgeInsets.symmetric(vertical: 12),
                     side: const BorderSide(color: Color(0xFF475569)),
                   ),
-                  child: Text('Cancel'),
+                  child: Text(AppLocalizations.of(context).t('Cancel')),
                 ),
               ),
               const SizedBox(width: 12),
