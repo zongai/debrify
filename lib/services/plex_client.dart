@@ -1220,6 +1220,15 @@ class PlexPinSession {
   const PlexPinSession({required this.id, required this.code});
   final String id;
   final String code;
+
+  /// Opens the official link page with this PIN prefilled.
+  ///
+  /// Format used by Plex web: https://www.plex.tv/link/#code=XXXX
+  Uri get linkUri => Uri.parse(
+        'https://www.plex.tv/link/#code=${Uri.encodeComponent(code)}',
+      );
+
+  String get linkUrl => linkUri.toString();
 }
 
 /// A PMS discovered via plex.tv resources for the signed-in account.

@@ -656,6 +656,11 @@ class _PlexLinkDialogState extends State<_PlexLinkDialog> {
   void initState() {
     super.initState();
     _poll();
+    // Open the link page with the PIN already in the URL so the user does not
+    // have to type the code by hand.
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (mounted && !_cancelled) unawaited(_openLink());
+    });
   }
 
   Future<void> _poll() async {
@@ -686,7 +691,7 @@ class _PlexLinkDialogState extends State<_PlexLinkDialog> {
   }
 
   Future<void> _openLink() async {
-    final uri = Uri.parse('https://www.plex.tv/link');
+    final uri = widget.session.linkUri;
     await launchUrl(uri, mode: LaunchMode.externalApplication);
   }
 
@@ -713,6 +718,13 @@ class _PlexLinkDialogState extends State<_PlexLinkDialog> {
             style: theme.textTheme.headlineMedium?.copyWith(
               letterSpacing: 4,
               fontWeight: FontWeight.bold,
+            ),
+          ),
+          const SizedBox(height: 8),
+          SelectableText(
+            widget.session.linkUrl,
+            style: theme.textTheme.bodySmall?.copyWith(
+              color: theme.colorScheme.primary,
             ),
           ),
           const SizedBox(height: 16),
