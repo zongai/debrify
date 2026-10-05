@@ -61,7 +61,7 @@ class DockChip extends StatelessWidget {
           // overflowing. The full text stays available via Tooltip/Semantics.
           Flexible(
             child: Text(
-              label,
+              AppLocalizations.of(context).t(label),
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
               softWrap: false,
@@ -78,12 +78,13 @@ class DockChip extends StatelessWidget {
       ],
     );
 
+    final localized = AppLocalizations.of(context).t(label);
     return Tooltip(
-      message: label,
+      message: localized,
       waitDuration: const Duration(milliseconds: 600),
       child: Semantics(
         button: true,
-        label: label,
+        label: localized,
         selected: active,
         child: Material(
           color: Colors.transparent,

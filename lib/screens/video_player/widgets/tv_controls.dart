@@ -1,6 +1,8 @@
 import 'package:flutter/foundation.dart' show ValueListenable;
 import 'package:flutter/material.dart';
 
+import '../../../l10n/app_localizations.dart';
+
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 
@@ -269,7 +271,9 @@ class _TvControlsState extends State<TvControls> {
                   opacity: _focusedLabel == null ? 0 : 1,
                   duration: const Duration(milliseconds: 120),
                   child: Text(
-                    _focusedLabel ?? '',
+                    _focusedLabel == null
+                        ? ''
+                        : AppLocalizations.of(context).t(_focusedLabel!),
                     style: const TextStyle(
                       color: Colors.white70,
                       fontSize: 11.5,

@@ -52,7 +52,7 @@ class NetflixControlButton extends StatelessWidget {
                 if (!isCompact || label.isNotEmpty) ...[
                   SizedBox(width: isCompact ? 4 : 6),
                   Text(
-                    label,
+                    AppLocalizations.of(context).t(label),
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: isCompact ? 10 : 12,

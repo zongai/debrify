@@ -76,9 +76,9 @@ class IptvZapBanner extends StatelessWidget {
       // Spotlight rides the glass banner shape — its tokens (white ink,
       // crimson status) restyle it into the monochrome look on their own.
       PlayerGuideStyle.glass ||
-      PlayerGuideStyle.spotlight => _buildGlass(t, s, width),
-      PlayerGuideStyle.edition => _buildEdition(t, s),
-      PlayerGuideStyle.console => _buildConsole(t, s),
+      PlayerGuideStyle.spotlight => _buildGlass(context, t, s, width),
+      PlayerGuideStyle.edition => _buildEdition(context, t, s),
+      PlayerGuideStyle.console => _buildConsole(context, t, s),
       PlayerGuideStyle.classic => throw StateError('unreachable'),
     };
     return IgnorePointer(ignoring: true, child: child);
@@ -99,7 +99,7 @@ class IptvZapBanner extends StatelessWidget {
     // Narrow viewports stack instead, which is also how the eye reads a
     // portrait screen.
     final narrow = width < 640;
-    final programme = _buildProgramme(s, alignEnd: !narrow);
+    final programme = _buildProgramme(context, s, alignEnd: !narrow);
 
     return IgnorePointer(
       ignoring: true,
@@ -256,7 +256,7 @@ class IptvZapBanner extends StatelessWidget {
   ///
   /// [alignEnd] is the wide layout, where this sits opposite the identity;
   /// stacked underneath it on a narrow screen it reads left-aligned instead.
-  Widget _buildProgramme(double Function(double) s, {required bool alignEnd}) {
+  Widget _buildProgramme(BuildContext context, double Function(double) s, {required bool alignEnd}) {
     final nowProgramme = epg?.now;
     final nextProgramme = epg?.next;
 
@@ -268,7 +268,9 @@ class IptvZapBanner extends StatelessWidget {
       nowColor = Colors.white;
       nowWeight = FontWeight.bold;
     } else {
-      nowText = epgLoading ? 'Loading guide…' : 'No guide data';
+      nowText = AppLocalizations.of(context).t(
+            epgLoading ? 'Loading guide…' : 'No guide data',
+          );
       nowColor = Colors.white.withValues(alpha: 0.42);
       nowWeight = FontWeight.normal;
     }
@@ -330,7 +332,7 @@ class IptvZapBanner extends StatelessWidget {
 
   // ─── Cinema Glass — floating island card / flush glass band ───────────────
 
-  Widget _buildGlass(IptvStyleTokens t, double Function(double) s, double width) {
+  Widget _buildGlass(BuildContext context, IptvStyleTokens t, double Function(double) s, double width) {
     final narrow = width < 640;
     final content = Column(
       mainAxisSize: MainAxisSize.min,
@@ -348,7 +350,7 @@ class IptvZapBanner extends StatelessWidget {
             children: [
               _StyledLogoTile(channel: channel, size: s(60), tokens: t),
               SizedBox(width: s(16)),
-              Expanded(child: _glassIdentityAndProgramme(t, s)),
+              Expanded(child: _glassIdentityAndProgramme(context, t, s)),
             ],
           ),
         ),
@@ -403,13 +405,14 @@ class IptvZapBanner extends StatelessWidget {
   }
 
   Widget _glassIdentityAndProgramme(
+    BuildContext context,
     IptvStyleTokens t,
     double Function(double) s,
   ) {
     final number = channel.channelNumber;
     final group = channel.group?.trim();
     final nowProgramme = epg?.now;
-    final nowText = nowProgramme?.title ?? _silenceLine();
+    final nowText = nowProgramme?.title ?? _silenceLine(context);
     final times = _timesLine(nowProgramme);
     final next = _nextLine();
 
@@ -449,7 +452,7 @@ class IptvZapBanner extends StatelessWidget {
               ),
             ),
             SizedBox(width: s(12)),
-            _liveRecTags(t, s, size: 11),
+            _liveRecTags(context, t, s, size: 11),
           ],
         ),
         SizedBox(height: s(6)),
@@ -496,7 +499,7 @@ class IptvZapBanner extends StatelessWidget {
 
   // ─── Midnight Edition — editorial full-width ink band ─────────────────────
 
-  Widget _buildEdition(IptvStyleTokens t, double Function(double) s) {
+  Widget _buildEdition(BuildContext context, IptvStyleTokens t, double Function(double) s) {
     final number = channel.channelNumber;
     final group = channel.group?.trim();
     final nowProgramme = epg?.now;
@@ -504,7 +507,7 @@ class IptvZapBanner extends StatelessWidget {
     // the byline. A guideless channel promotes its name to the headline.
     final headline = nowProgramme?.title ?? channel.name;
     final byline = nowProgramme == null
-        ? _silenceLine()
+        ? _silenceLine(context)
         : [
             channel.name,
             if (_timesLine(nowProgramme) != null) _timesLine(nowProgramme)!,
@@ -641,10 +644,10 @@ class IptvZapBanner extends StatelessWidget {
 
   // ─── Master Control — black instrument strip ──────────────────────────────
 
-  Widget _buildConsole(IptvStyleTokens t, double Function(double) s) {
+  Widget _buildConsole(BuildContext context, IptvStyleTokens t, double Function(double) s) {
     final number = channel.channelNumber;
     final nowProgramme = epg?.now;
-    final nowText = nowProgramme?.title ?? _silenceLine();
+    final nowText = nowProgramme?.title ?? _silenceLine(context);
     final times = _timesLine(nowProgramme);
     final next = _nextLine();
 
@@ -685,7 +688,7 @@ class IptvZapBanner extends StatelessWidget {
               ),
             ),
             SizedBox(width: s(12)),
-            _liveRecTags(t, s, size: 10.5, mono: true),
+            _liveRecTags(context, t, s, size: 10.5, mono: true),
           ],
         ),
         SizedBox(height: s(7)),
@@ -821,6 +824,7 @@ class IptvZapBanner extends StatelessWidget {
 
   /// `● LIVE` (+ `● REC` while recording) in token colors.
   Widget _liveRecTags(
+    BuildContext context,
     IptvStyleTokens t,
     double Function(double) s, {
     required double size,
@@ -837,7 +841,7 @@ class IptvZapBanner extends StatelessWidget {
     return Row(
       mainAxisSize: MainAxisSize.min,
       children: [
-        Text('● LIVE', style: tag(t.live)),
+        Text(AppLocalizations.of(context).t('● LIVE'), style: tag(t.live)),
         if (isRecording) ...[
           SizedBox(width: s(10)),
           Text('● REC', style: tag(t.rec)),
@@ -846,7 +850,9 @@ class IptvZapBanner extends StatelessWidget {
     );
   }
 
-  String _silenceLine() => epgLoading ? 'Loading guide…' : 'No guide data';
+  String _silenceLine(BuildContext context) => AppLocalizations.of(context).t(
+      epgLoading ? 'Loading guide…' : 'No guide data',
+    );
 
   String? _nextLine() {
     final nowProgramme = epg?.now;
