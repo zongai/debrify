@@ -40,6 +40,8 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/foundation.dart'
     show ValueListenable, listEquals, visibleForTesting;
 import 'package:flutter/material.dart';
+
+import '../l10n/app_localizations.dart';
 import '../models/custom_series_identity.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -1295,7 +1297,7 @@ class _SearchScreenState extends State<SearchScreen>
         !_homeDisabled.contains('cw:movies'))
       _CwRow(
         rowId: 'cw:movies',
-        title: 'Continue Watching',
+        title: AppLocalizations.of(context).t('Continue Watching'),
         tag: _cwMergeLocal ? null : 'Movies',
         kind: _CwKind.local,
         items: _cwMergeLocal ? _cwAll : _cwMovies,
@@ -1320,7 +1322,7 @@ class _SearchScreenState extends State<SearchScreen>
         !_homeDisabled.contains('cw:series'))
       _CwRow(
         rowId: 'cw:series',
-        title: 'Continue Watching',
+        title: AppLocalizations.of(context).t('Continue Watching'),
         tag: 'Series',
         kind: _CwKind.local,
         items: _cwSeries,
@@ -1338,7 +1340,7 @@ class _SearchScreenState extends State<SearchScreen>
         !_homeDisabled.contains('trakt:movies'))
       _CwRow(
         rowId: 'trakt:movies',
-        title: 'Trakt Continue Watching',
+        title: AppLocalizations.of(context).t('Trakt Continue Watching'),
         tag: _cwMergeTrakt ? null : 'Movies',
         kind: _CwKind.trakt,
         items: _cwMergeTrakt ? _traktAll : _traktMovies,
@@ -1361,7 +1363,7 @@ class _SearchScreenState extends State<SearchScreen>
         !_homeDisabled.contains('trakt:shows'))
       _CwRow(
         rowId: 'trakt:shows',
-        title: 'Trakt Continue Watching',
+        title: AppLocalizations.of(context).t('Trakt Continue Watching'),
         tag: 'Shows',
         kind: _CwKind.trakt,
         items: _traktSeries,
@@ -1385,7 +1387,7 @@ class _SearchScreenState extends State<SearchScreen>
         !_homeDisabled.contains('simkl:movies'))
       _CwRow(
         rowId: 'simkl:movies',
-        title: 'Simkl Continue Watching',
+        title: AppLocalizations.of(context).t('Simkl Continue Watching'),
         tag: _cwMergeSimkl ? null : 'Movies',
         kind: _CwKind.simkl,
         items: _cwMergeSimkl ? _simklAll : _simklMovies,
@@ -1408,7 +1410,7 @@ class _SearchScreenState extends State<SearchScreen>
         !_homeDisabled.contains('simkl:shows'))
       _CwRow(
         rowId: 'simkl:shows',
-        title: 'Simkl Continue Watching',
+        title: AppLocalizations.of(context).t('Simkl Continue Watching'),
         tag: 'Shows',
         kind: _CwKind.simkl,
         items: _simklSeries,
@@ -1426,7 +1428,7 @@ class _SearchScreenState extends State<SearchScreen>
         !_homeDisabled.contains('mdblist:movies'))
       _CwRow(
         rowId: 'mdblist:movies',
-        title: 'MDBList Continue Watching',
+        title: AppLocalizations.of(context).t('MDBList Continue Watching'),
         tag: _cwMergeMdblist ? null : 'Movies',
         kind: _CwKind.mdblist,
         items: _cwMergeMdblist ? _mdblistAll : _mdblistMovies,
@@ -1448,7 +1450,7 @@ class _SearchScreenState extends State<SearchScreen>
         !_homeDisabled.contains('mdblist:shows'))
       _CwRow(
         rowId: 'mdblist:shows',
-        title: 'MDBList Continue Watching',
+        title: AppLocalizations.of(context).t('MDBList Continue Watching'),
         tag: 'Shows',
         kind: _CwKind.mdblist,
         items: _mdblistSeries,
@@ -1470,7 +1472,7 @@ class _SearchScreenState extends State<SearchScreen>
     if (_iptvCwMovies.isNotEmpty && !_homeDisabled.contains('iptv:movies'))
       _CwRow(
         rowId: 'iptv:movies',
-        title: 'IPTV Continue Watching',
+        title: AppLocalizations.of(context).t('IPTV Continue Watching'),
         tag: 'Movies',
         kind: _CwKind.iptv,
         items: _iptvCwMovies,
@@ -1486,7 +1488,7 @@ class _SearchScreenState extends State<SearchScreen>
     if (_iptvCwSeries.isNotEmpty && !_homeDisabled.contains('iptv:series'))
       _CwRow(
         rowId: 'iptv:series',
-        title: 'IPTV Continue Watching',
+        title: AppLocalizations.of(context).t('IPTV Continue Watching'),
         tag: 'Series',
         kind: _CwKind.iptv,
         items: _iptvCwSeries,
@@ -5913,7 +5915,7 @@ class _SearchScreenState extends State<SearchScreen>
   /// Continue Watching grid, seeded with the paused-order list + progress.
   void _openSimklCwSeeAll([String initialCategory = 'all']) {
     _pushCwSeeAll(
-      title: 'Simkl Continue Watching',
+      title: AppLocalizations.of(context).t('Simkl Continue Watching'),
       initialCategory: initialCategory,
       items: _simklAll,
       progressOf: (m) => _cwCardProgress(_CwKind.simkl, m),
@@ -6114,7 +6116,7 @@ class _SearchScreenState extends State<SearchScreen>
 
   void _openMdblistCwSeeAll([String initialCategory = 'all']) {
     _pushCwSeeAll(
-      title: 'MDBList Continue Watching',
+      title: AppLocalizations.of(context).t('MDBList Continue Watching'),
       initialCategory: initialCategory,
       items: _mdblistAll,
       progressOf: (m) => _cwCardProgress(_CwKind.mdblist, m),
@@ -13483,7 +13485,7 @@ class _SearchScreenState extends State<SearchScreen>
           actions: [
             TextButton(onPressed: () => Navigator.pop(dialogContext, false), child: const Text('Close')),
             if (_cwIds.contains(item.imdbId))
-              TextButton(onPressed: () => Navigator.pop(dialogContext, true), child: const Text('Remove from Continue Watching')),
+              TextButton(onPressed: () => Navigator.pop(dialogContext, true), child: const Text(AppLocalizations.of(context).t('Remove from Continue Watching'))),
           ],
         ),
       );
@@ -18917,7 +18919,7 @@ class _SearchScreenState extends State<SearchScreen>
     // Default: Continue Watching.
     return ContinueWatchingSeeAllScreen(
       key: const ValueKey('disc_cw'),
-      title: 'Continue Watching',
+      title: AppLocalizations.of(context).t('Continue Watching'),
       items: _cwAll,
       progressOf: (m) => _cwCardProgress(_CwKind.local, m),
       onOpen: _openContinueItem,
@@ -20075,7 +20077,7 @@ class _SearchScreenState extends State<SearchScreen>
   /// titles drop out and progress stays fresh.
   void _openContinueWatchingSeeAll([String initialCategory = 'all']) {
     _pushCwSeeAll(
-      title: 'Continue Watching',
+      title: AppLocalizations.of(context).t('Continue Watching'),
       initialCategory: initialCategory,
       items: _cwAll,
       progressOf: (m) => _cwCardProgress(_CwKind.local, m),
@@ -20484,7 +20486,7 @@ class _SearchScreenState extends State<SearchScreen>
     final rowH = cellH + 14;
     return _TraktSkeletonRow(
       header: _railHeader(
-        title: 'Trakt Continue Watching',
+        title: AppLocalizations.of(context).t('Trakt Continue Watching'),
         tag: idx == 0 ? (_cwMergeTrakt ? null : 'Movies') : 'Shows',
       ),
       posterW: posterW,
@@ -20849,7 +20851,7 @@ class _SearchScreenState extends State<SearchScreen>
                 autofocus: widget.isTelevision,
                 onPressed: onRetry,
                 icon: const Icon(Icons.refresh),
-                label: const Text('Try again'),
+                label: const Text(AppLocalizations.of(context).t('Try again')),
               ),
             ],
           ],

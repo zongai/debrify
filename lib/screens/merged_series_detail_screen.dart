@@ -11,6 +11,8 @@ import 'dart:async';
 
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+
+import '../l10n/app_localizations.dart';
 import 'package:flutter/services.dart';
 
 import '../utils/platform_util.dart';
@@ -1320,7 +1322,7 @@ class _MergedDetailScreenState extends State<MergedDetailScreen>
     String? chosen;
     if (_trailerCandidates.length > 1) {
       chosen = await showDialog<String>(context: context, builder: (context) => SimpleDialog(
-        title: const Text('Choose trailer'),
+        title: const Text(AppLocalizations.of(context).t('Choose trailer')),
         children: [for (final video in _trailerCandidates) SimpleDialogOption(
           onPressed: () => Navigator.pop(context, video.key),
           child: Text('${video.title}${video.language.isEmpty ? '' : ' · ${video.language}'}'))]));
@@ -1362,7 +1364,7 @@ class _MergedDetailScreenState extends State<MergedDetailScreen>
                 child: CircularProgressIndicator(strokeWidth: 2),
               ),
               SizedBox(width: 12),
-              Text('Loading trailer…'),
+              Text(AppLocalizations.of(context).t('Loading trailer…')),
             ],
           ),
           duration: Duration(seconds: 4),
@@ -3119,7 +3121,7 @@ class _MergedDetailScreenState extends State<MergedDetailScreen>
             child: TextButton.icon(
               onPressed: _openDetailsSheet,
               icon: Icon(Icons.info_outline_rounded, size: 18),
-              label: const Text('Cast, ratings & more'),
+              label: const Text(AppLocalizations.of(context).t('Cast, ratings & more')),
               style: TextButton.styleFrom(foregroundColor: Colors.white70),
             ),
           ),

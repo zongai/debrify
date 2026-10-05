@@ -10,6 +10,8 @@ import 'dart:async';
 
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+
+import '../l10n/app_localizations.dart';
 import 'package:flutter/services.dart';
 
 import '../theme/app_theme_scope.dart';
@@ -37,6 +39,16 @@ import '../services/simkl/simkl_service.dart';
 import '../services/mdblist/mdblist_menu_helpers.dart';
 import '../utils/artwork_url.dart';
 import '../utils/tv_keys.dart';
+
+
+String _localizedPlayLabel(AppLocalizations l10n, String label) {
+  const prefix = 'Resume · ';
+  if (label.startsWith(prefix)) {
+    final resume = l10n.t('Resume');
+    return '$resume · ${label.substring(prefix.length)}';
+  }
+  return l10n.t(label);
+}
 
 /// Cinematic detail screen for a catalog item.
 ///
@@ -1322,7 +1334,7 @@ class _CatalogItemDetailScreenState extends State<CatalogItemDetailScreen>
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(width: 70, child: Text('Director', style: labelStyle)),
+                SizedBox(width: 70, child: Text(AppLocalizations.of(context).t('Director'), style: labelStyle)),
                 Expanded(child: Text(extra.director!, style: valueStyle)),
               ],
             ),
@@ -1332,7 +1344,7 @@ class _CatalogItemDetailScreenState extends State<CatalogItemDetailScreen>
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(width: 70, child: Text('Stars', style: labelStyle)),
+                SizedBox(width: 70, child: Text(AppLocalizations.of(context).t('Stars'), style: labelStyle)),
                 Expanded(
                   child: Text(
                     extra.stars.take(4).join(', '),
@@ -1644,7 +1656,7 @@ class _CatalogItemDetailScreenState extends State<CatalogItemDetailScreen>
                   borderRadius: BorderRadius.circular(4),
                 )
               : Text(
-                  'More Like This',
+                  AppLocalizations.of(context).t('More Like This'),
                   style: TextStyle(
                     color: Colors.white.withValues(alpha: 0.92),
                     fontSize: _wide && !tight ? 18 : 15,
@@ -2585,7 +2597,8 @@ class _ActionRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final browseLabel = isSeries ? 'Episodes' : 'Sources';
+    final l10n = AppLocalizations.of(context);
+    final browseLabel = isSeries ? l10n.t('Episodes') : l10n.t('Sources');
     final browseIcon = isSeries ? Icons.list_alt_rounded : Icons.layers_rounded;
     final gap = compact ? 8.0 : 10.0;
 
@@ -2653,7 +2666,7 @@ class _ActionRow extends StatelessWidget {
     final play = _PrimaryButton(
       focusNode: playFocus,
       icon: Icons.play_arrow_rounded,
-      label: playLabel,
+      label: _localizedPlayLabel(AppLocalizations.of(context), playLabel),
       busy: playBusy,
       filled: true,
       compact: compact,
@@ -2727,7 +2740,7 @@ class _QuickActions extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         Text(
-          'QUICK ACTIONS',
+          AppLocalizations.of(context).t('QUICK ACTIONS'),
           style: TextStyle(
             color: Colors.white.withValues(alpha: 0.5),
             fontSize: 10,
