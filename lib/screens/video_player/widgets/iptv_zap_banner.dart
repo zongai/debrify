@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../l10n/app_localizations.dart';
+
 import '../../../models/iptv_playlist.dart';
 import '../../../services/iptv_epg_service.dart';
 import '../../../widgets/iptv/styles/iptv_style.dart';

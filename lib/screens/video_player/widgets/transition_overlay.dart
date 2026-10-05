@@ -3,6 +3,8 @@ import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
 
+import '../../../l10n/app_localizations.dart';
+
 import '../../../utils/platform_util.dart';
 
 /// Fullscreen transition overlay shown while the next stream resolves.

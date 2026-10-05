@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 /// Empty state widget when no IPTV playlist is selected or no channels found
 class IptvEmptyState extends StatelessWidget {
   final bool hasPlaylists;

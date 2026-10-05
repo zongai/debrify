@@ -5,6 +5,8 @@ import 'dart:ui';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
+import '../../../l10n/app_localizations.dart';
+
 import 'package:flutter/services.dart';
 import '../../../services/desktop_schedule_service.dart';
 import '../../../services/iptv_epg_service.dart';
@@ -1169,7 +1171,7 @@ class IptvChannelSheetState extends State<IptvChannelSheet>
           ),
           if (compact && _compactPane == _CompactPane.schedule)
             IconButton(
-              tooltip: 'Back to channels',
+              tooltip: AppLocalizations.of(context).t('Back to channels'),
               onPressed: _leaveSchedulePane,
               icon: const Icon(Icons.arrow_back_rounded, color: Colors.white70),
             ),
@@ -1321,7 +1323,7 @@ class IptvChannelSheetState extends State<IptvChannelSheet>
           Expanded(child: identity),
           if (compact && _compactPane == _CompactPane.schedule)
             IconButton(
-              tooltip: 'Back to channels',
+              tooltip: AppLocalizations.of(context).t('Back to channels'),
               onPressed: _leaveSchedulePane,
               icon: Icon(Icons.arrow_back_rounded, color: t.fgMid),
             ),
@@ -1543,7 +1545,7 @@ class IptvChannelSheetState extends State<IptvChannelSheet>
                 : null,
           ),
           decoration: InputDecoration(
-            hintText: 'Search channels or categories...',
+            hintText: AppLocalizations.of(context).t('Search channels or categories...'),
             hintStyle: TextStyle(
               color: t == null
                   ? Colors.white.withValues(alpha: 0.25)
@@ -1571,7 +1573,7 @@ class IptvChannelSheetState extends State<IptvChannelSheet>
                 children: [
                   if (hasQuery)
                     IconButton(
-                      tooltip: 'Clear search',
+                      tooltip: AppLocalizations.of(context).t('Clear search'),
                       icon: Icon(
                         Icons.clear_rounded,
                         color: t == null
@@ -1582,7 +1584,7 @@ class IptvChannelSheetState extends State<IptvChannelSheet>
                       onPressed: () => unawaited(_clearSearch()),
                     ),
                   IconButton(
-                    tooltip: 'Search full source',
+                    tooltip: AppLocalizations.of(context).t('Search full source'),
                     icon: Icon(
                       Icons.arrow_forward_rounded,
                       color: t == null
@@ -1738,7 +1740,7 @@ class IptvChannelSheetState extends State<IptvChannelSheet>
             const SizedBox(width: 7),
             _FilterChip(
               icon: Icons.favorite_rounded,
-              label: 'Saved',
+              label: AppLocalizations.of(context).t('Saved'),
               selected: _favoritesOnly,
               onTap: _toggleFavoritesFilter,
               dpadFocused: _dpadOnFilter(2),
@@ -1893,7 +1895,7 @@ class IptvChannelSheetState extends State<IptvChannelSheet>
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
-          content: Text('Storage access is needed to save recordings'),
+          content: Text(AppLocalizations.of(context).t('Storage access is needed to save recordings')),
         ),
       );
       return;
@@ -1917,7 +1919,7 @@ class IptvChannelSheetState extends State<IptvChannelSheet>
     final confirmed = await showSpotlightDialog<bool>(
       context,
       builder: (dialogContext) => SpotlightDialogCard(
-        title: 'Record programme?',
+        title: AppLocalizations.of(context).t('Record programme?'),
         statusDot: SpotlightDialogCard.statusRed,
         bodyText: '${programme.title} · ${channel.name}',
         metaText:
@@ -1971,7 +1973,7 @@ class IptvChannelSheetState extends State<IptvChannelSheet>
             'Allow "Alarms & reminders" for Debrify to schedule recordings',
           ),
           action: SnackBarAction(
-            label: 'Settings',
+            label: AppLocalizations.of(context).t('Settings'),
             onPressed: () =>
                 unawaited(LiveRecordingService.openExactAlarmSettings()),
           ),
@@ -2084,7 +2086,7 @@ class IptvChannelSheetState extends State<IptvChannelSheet>
               FilledButton.icon(
                 onPressed: () => unawaited(_submitSearch()),
                 icon: const Icon(Icons.search_rounded, size: 17),
-                label: const Text('Search all channels'),
+                label: Text(AppLocalizations.of(context).t('Search all channels')),
                 style: FilledButton.styleFrom(
                   backgroundColor: t == null
                       ? const Color(0xFF7C5CFF)
@@ -2606,7 +2608,7 @@ class _CategoryPickerDialogState extends State<_CategoryPickerDialog> {
                     fontSize: 14,
                   ),
                   decoration: InputDecoration(
-                    hintText: 'Search categories…',
+                    hintText: AppLocalizations.of(context).t('Search categories…'),
                     hintStyle: TextStyle(
                       color: t == null
                           ? Colors.white.withValues(alpha: 0.25)
@@ -3313,7 +3315,7 @@ class _ChannelTile extends StatelessWidget {
                 onTap: onFavorite,
               ),
               _TileAction(
-                tooltip: 'Programme guide',
+                tooltip: AppLocalizations.of(context).t('Programme guide'),
                 icon: Icons.calendar_month_rounded,
                 color: t == null
                     ? _accent.withValues(alpha: 0.75)

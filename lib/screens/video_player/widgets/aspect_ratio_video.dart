@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+
+import '../../../l10n/app_localizations.dart';
 import 'package:media_kit_video/media_kit_video.dart' as mkv;
 
 class AspectRatioVideo extends StatelessWidget {

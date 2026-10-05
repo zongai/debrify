@@ -3,6 +3,8 @@ import 'dart:async';
 import 'package:flutter/foundation.dart' show ValueListenable;
 import 'package:flutter/material.dart';
 
+import '../../../l10n/app_localizations.dart';
+
 import '../../../models/iptv_playlist.dart';
 import '../../../services/iptv_epg_service.dart';
 import 'iptv_style.dart';

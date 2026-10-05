@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../l10n/app_localizations.dart';
+
 import '../constants/color_constants.dart';
 
 /// What a sleep timer is set to.
@@ -91,7 +93,7 @@ class SleepTimerSheet {
               ),
               _tile(
                 context,
-                label: 'Off',
+                label: AppLocalizations.of(context).t('Off'),
                 selected: current == SleepTimerMode.off,
                 value: SleepTimerSelection.off,
               ),
@@ -113,7 +115,7 @@ class SleepTimerSheet {
               if (allowEndOfItem)
                 _tile(
                   context,
-                  label: 'End of episode',
+                  label: AppLocalizations.of(context).t('End of episode'),
                   selected: current == SleepTimerMode.endOfItem,
                   value: const SleepTimerSelection(SleepTimerMode.endOfItem),
                 ),

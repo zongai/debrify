@@ -1,5 +1,7 @@
 import 'package:flutter/foundation.dart' show ValueListenable;
 import 'package:flutter/material.dart';
+
+import '../../../l10n/app_localizations.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 
@@ -436,7 +438,7 @@ class _TvControlsState extends State<TvControls> {
         widget.onShowGuide ?? widget.onShowIptvChannels,
         option: true,
       );
-      add(Icons.dns_rounded, 'Sources', widget.onShowSources, option: true);
+      add(Icons.dns_rounded, AppLocalizations.of(context).t('Sources'), widget.onShowSources, option: true);
       add(
         Icons.aspect_ratio_rounded,
         _aspectLabel(),
@@ -485,7 +487,7 @@ class _TvControlsState extends State<TvControls> {
         option: true,
       );
       add(Icons.shuffle_rounded, 'Shuffle', widget.onRandom, option: true);
-      add(Icons.dns_rounded, 'Sources', widget.onShowSources, option: true);
+      add(Icons.dns_rounded, AppLocalizations.of(context).t('Sources'), widget.onShowSources, option: true);
       add(
         Icons.speed_rounded,
         '${widget.speed}x speed',

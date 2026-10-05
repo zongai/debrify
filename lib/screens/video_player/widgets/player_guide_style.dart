@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../l10n/app_localizations.dart';
+
 import '../../../widgets/iptv/styles/iptv_style.dart';
 
 /// The in-player IPTV guide look, chosen in IPTV settings and persisted as

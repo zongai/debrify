@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+
+import '../../../l10n/app_localizations.dart';
 import '../../../models/series_playlist.dart';
 import '../../../models/movie_collection.dart';
 import '../../../models/playlist_view_mode.dart';

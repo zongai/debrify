@@ -3,6 +3,8 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
+import '../../../l10n/app_localizations.dart';
+
 import 'tv_tappable.dart';
 import '../../../utils/platform_util.dart';
 import '../services/subtitle_cue_parser.dart';
@@ -292,15 +294,15 @@ class _SubtitleLinePickerOverlayState extends State<SubtitleLinePickerOverlay> {
                     setState(() => _showManualStepper = !_showManualStepper),
               ),
               const SizedBox(width: 6),
-              _headerButton(label: 'Reset', onTap: _resetOffset),
+              _headerButton(label: AppLocalizations.of(context).t('Reset'), onTap: _resetOffset),
               const SizedBox(width: 6),
               if (_highlightedIndex >= 0)
                 _headerButton(
-                  label: 'Now',
+                  label: AppLocalizations.of(context).t('Now'),
                   onTap: () => _scrollToIndex(_highlightedIndex),
                 ),
               const Spacer(),
-              _headerButton(label: 'Done', onTap: widget.onDismiss, solid: true),
+              _headerButton(label: AppLocalizations.of(context).t('Done'), onTap: widget.onDismiss, solid: true),
             ],
           ),
         ],

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 // Helpers for tap gating
 bool isInTopArea(double dy) => dy < 72.0;
 

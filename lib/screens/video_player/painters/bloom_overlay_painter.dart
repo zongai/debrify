@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 class BloomOverlayPainter extends CustomPainter {
   final DateTime? startedAt;
   BloomOverlayPainter({required this.startedAt});

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../l10n/app_localizations.dart';
+
 // Netflix-style control button widget
 class NetflixControlButton extends StatelessWidget {
   final IconData icon;

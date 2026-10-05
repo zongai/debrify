@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../l10n/app_localizations.dart';
+
 /// Non-blocking retry indicator overlay for PikPak cold storage reactivation
 ///
 /// Displays a semi-transparent indicator at the bottom-right showing

@@ -3,6 +3,8 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 import '../../theme/app_surfaces.dart';
 import '../../theme/legacy_theme_boundary.dart';
 import '../../utils/platform_util.dart';

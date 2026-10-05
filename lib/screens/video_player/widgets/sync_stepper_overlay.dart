@@ -2,6 +2,8 @@ import 'dart:async';
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+
+import '../../../l10n/app_localizations.dart';
 import 'package:flutter/services.dart';
 
 import '../../../utils/platform_util.dart';
@@ -228,9 +230,9 @@ class _SyncStepperOverlayState extends State<SyncStepperOverlay> {
           ),
           if (!onTv) ...[
             const SizedBox(width: 16),
-            _TextPillButton(label: 'Reset', onTap: () => widget.onOffsetChanged(0)),
+            _TextPillButton(label: AppLocalizations.of(context).t('Reset'), onTap: () => widget.onOffsetChanged(0)),
             const SizedBox(width: 8),
-            _TextPillButton(label: 'Done', onTap: widget.onDismiss, solid: true),
+            _TextPillButton(label: AppLocalizations.of(context).t('Done'), onTap: widget.onDismiss, solid: true),
           ],
         ],
       ),

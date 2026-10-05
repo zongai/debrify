@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+
+import '../../../l10n/app_localizations.dart';
 import 'package:flutter/services.dart';
 
 import '../../../utils/tv_keys.dart';
@@ -265,7 +267,7 @@ class SpotlightShell extends StatelessWidget {
                           },
                           child: IconButton(
                             key: const ValueKey('spotlight-search-trigger'),
-                            tooltip: 'Search channels',
+                            tooltip: AppLocalizations.of(context).t('Search channels'),
                             onPressed: onOpenSearch,
                             icon: const Icon(Icons.search_rounded),
                             style: ButtonStyle(
@@ -485,7 +487,7 @@ class _CompactSourceButtonState extends State<_CompactSourceButton> {
     return Semantics(
       button: true,
       excludeSemantics: true,
-      label: 'Open sources',
+      label: AppLocalizations.of(context).t('Open sources'),
       value: label,
       onTap: widget.onPressed,
       child: Focus(

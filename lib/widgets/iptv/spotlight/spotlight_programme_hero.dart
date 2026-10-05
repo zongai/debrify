@@ -3,6 +3,8 @@ import 'dart:async';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
+import '../../../l10n/app_localizations.dart';
+
 import '../../../models/iptv_playlist.dart';
 import '../../../services/debrify_image_cache.dart';
 import '../../../services/iptv_epg_service.dart';

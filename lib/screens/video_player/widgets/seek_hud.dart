@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+
+import '../../../l10n/app_localizations.dart';
 import '../models/hud_state.dart';
 
 class SeekHud extends StatelessWidget {

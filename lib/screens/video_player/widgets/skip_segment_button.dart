@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../l10n/app_localizations.dart';
+
 import '../../../services/skip_segment_service.dart';
 
 /// The OTT skip action ("Skip intro »") as a small squared chip, Netflix-style

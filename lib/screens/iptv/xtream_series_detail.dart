@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 import '../../models/iptv_playlist.dart';
 import '../../models/playlist_view_mode.dart';
 import '../../models/stremio_addon.dart';

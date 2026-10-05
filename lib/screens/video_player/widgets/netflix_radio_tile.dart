@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../l10n/app_localizations.dart';
+
 /// Netflix-style radio tile widget for track selection
 class NetflixRadioTile extends StatelessWidget {
   final String value;

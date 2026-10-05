@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 /// Color constants for video player UI
 class VideoPlayerColors {
   // Netflix brand colors

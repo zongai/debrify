@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../l10n/app_localizations.dart';
+
 /// The IPTV cockpit's visual style, chosen in IPTV settings and persisted as
 /// the `iptv_style` preference (see `StorageService.getIptvStyle`).
 ///

@@ -7,6 +7,8 @@ library;
 
 import 'package:flutter/material.dart';
 
+import '../../../l10n/app_localizations.dart';
+
 import 'dock_style.dart';
 
 /// One tool control: icon, optional label, minimum [DockMetrics.target] tall.

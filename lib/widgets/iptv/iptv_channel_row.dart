@@ -4,6 +4,8 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/foundation.dart'
     show defaultTargetPlatform, TargetPlatform;
 import 'package:flutter/material.dart';
+
+import '../../l10n/app_localizations.dart';
 import 'package:flutter/services.dart';
 
 import '../../models/iptv_playlist.dart';
@@ -268,14 +270,15 @@ class _IptvChannelRowState extends State<IptvChannelRow>
               .trim();
 
     final group = ch.group?.trim();
+    final l10n = AppLocalizations.of(context);
     final subParts = <String>[
       if (group != null && group.isNotEmpty) group,
       if (resolution != null) resolution,
-      if (ch.hasMultipleSources) '${ch.sources.length} sources',
+      if (ch.hasMultipleSources) '${ch.sources.length} ${l10n.t('sources')}',
     ];
     final sub = subParts.isNotEmpty
         ? subParts.join('  •  ')
-        : (isLive ? 'Live' : '');
+        : (isLive ? l10n.t('Live') : '');
 
     final fx = widget.isTelevision
         ? Duration.zero
