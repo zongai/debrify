@@ -8998,6 +8998,7 @@ class AndroidTvTorrentPlayerActivity : AppCompatActivity() {
                         }
                     }
                 } ?: emptyMap(),
+                streamSources = parseChannelStreamSources(channel),
             )
         }
 
@@ -9041,8 +9042,36 @@ class AndroidTvTorrentPlayerActivity : AppCompatActivity() {
                 resumePositionMs =
                     (channel["resumePositionMs"] as? Number)?.toLong() ?: 0L,
                 headers = headers,
+                streamSources = parseChannelStreamSourcesMap(channel),
             )
         }
+
+
+    private fun parseChannelStreamSources(channel: JSONObject): List<IptvStreamSource> {
+        val arr = channel.optJSONArray("sources") ?: return emptyList()
+        val out = ArrayList<IptvStreamSource>(arr.length())
+        for (i in 0 until arr.length()) {
+            val row = arr.optJSONObject(i) ?: continue
+            val url = row.optString("url").takeIf { it.isNotEmpty() } ?: continue
+            val label = row.optString("label").takeIf { it.isNotEmpty() }
+                ?: "Stream ${out.size + 1}"
+            out.add(IptvStreamSource(url, label))
+        }
+        return out
+    }
+
+    private fun parseChannelStreamSourcesMap(channel: Map<*, *>): List<IptvStreamSource> {
+        val raw = channel["sources"] as? List<*> ?: return emptyList()
+        val out = ArrayList<IptvStreamSource>(raw.size)
+        for (item in raw) {
+            val row = item as? Map<*, *> ?: continue
+            val url = (row["url"] as? String)?.takeIf { it.isNotEmpty() } ?: continue
+            val label = (row["label"] as? String)?.takeIf { it.isNotEmpty() }
+                ?: "Stream ${out.size + 1}"
+            out.add(IptvStreamSource(url, label))
+        }
+        return out
+    }
 
     private fun iptvChannelEntry(
         index: Int,
@@ -9065,6 +9094,7 @@ class AndroidTvTorrentPlayerActivity : AppCompatActivity() {
         tvArchiveDuration: Int?,
         resumePositionMs: Long,
         headers: Map<String, String>,
+        streamSources: List<IptvStreamSource> = emptyList(),
     ): IptvChannelEntry {
         val normalizedType = contentType.ifEmpty {
             if (duration == -1) "live" else "vod"
@@ -9092,6 +9122,7 @@ class AndroidTvTorrentPlayerActivity : AppCompatActivity() {
             hasNextEpisode = hasNextEpisode,
             tvArchive = tvArchive,
             tvArchiveDuration = tvArchiveDuration,
+            streamSources = streamSources,
         )
     }
 
@@ -14500,6 +14531,20 @@ class AndroidTvTorrentPlayerActivity : AppCompatActivity() {
         currentIptvStreamUrl = null
 
         if (!isStremioIptvUrl(entry.url)) {
+            // M3U multi-source: mirror stream list into the IPTV Sources panel
+            // (same path Stremio-addon candidates use) so the user can pick.
+            if (entry.streamSources.size > 1) {
+                iptvStremioChannelKey = entry.url
+                iptvStremioCandidates = entry.streamSources.map {
+                    IptvStremioCandidate(it.url, it.label)
+                }
+                iptvStremioCandidateIndex = 0
+                populateIptvStremioSources()
+                val startUrl = iptvTwinPreferredUrls[entry.url]
+                    ?: entry.streamSources.first().url
+                setIptvMediaItem(entry, startUrl)
+                return
+            }
             // A channel whose `.m3u8` wedged and whose `.ts` twin proved
             // itself this session starts on the twin directly.
             setIptvMediaItem(entry, iptvTwinPreferredUrls[entry.url] ?: entry.url)
@@ -21410,6 +21455,11 @@ private class MoviePlaylistAdapter(
 // IPTV Channel Data + Adapter
 // ═══════════════════════════════════════════════════════════════
 
+private data class IptvStreamSource(
+    val url: String,
+    val label: String,
+)
+
 private data class IptvChannelEntry(
     var index: Int,
     val channelNumber: Int?,
@@ -21459,6 +21509,7 @@ private data class IptvChannelEntry(
     val season: Int? = null,
     val episode: Int? = null,
     val hasNextEpisode: Boolean? = null,
+    val streamSources: List<IptvStreamSource> = emptyList(),
 ) {
     val displayName: String
         get() = if (isLive && channelNumber != null) {

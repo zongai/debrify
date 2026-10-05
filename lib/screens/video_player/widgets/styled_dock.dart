@@ -77,6 +77,7 @@ class StyledDock extends StatelessWidget {
   final VoidCallback? onShowGuide;
   final VoidCallback? onShowIptvChannels;
   final VoidCallback? onShowStremioSources;
+  final VoidCallback? onShowIptvStreamSources;
   final VoidCallback? onRecord;
   final VoidCallback? onLiveEdgeAction;
   final bool liveEdgeActionActive;
@@ -91,6 +92,7 @@ class StyledDock extends StatelessWidget {
   final bool hasGuide;
   final bool hasIptvChannels;
   final bool hasStremioSources;
+  final bool hasIptvStreamSources;
   final bool hasPlaylist;
   final bool hasRecord;
   final bool isRecording;
@@ -171,6 +173,7 @@ class StyledDock extends StatelessWidget {
     this.onShowGuide,
     this.onShowIptvChannels,
     this.onShowStremioSources,
+    this.onShowIptvStreamSources,
     this.onRecord,
     this.onLiveEdgeAction,
     this.liveEdgeActionActive = false,
@@ -184,6 +187,7 @@ class StyledDock extends StatelessWidget {
     this.hasGuide = false,
     this.hasIptvChannels = false,
     this.hasStremioSources = false,
+    this.hasIptvStreamSources = false,
     this.hasPlaylist = false,
     this.hasRecord = false,
     this.isRecording = false,
@@ -256,6 +260,8 @@ class StyledDock extends StatelessWidget {
         ),
       if (hasStremioSources && onShowStremioSources != null)
         _Tool(Icons.swap_horiz_rounded, 'Sources', onShowStremioSources!),
+      if (hasIptvStreamSources && onShowIptvStreamSources != null)
+        _Tool(Icons.swap_horiz_rounded, 'Streams', onShowIptvStreamSources!),
       if (hasGuide && onShowGuide != null)
         _Tool(Icons.grid_view_rounded, 'Guide', onShowGuide!),
       // Renamed from "Guide": the legacy dock rendered that word twice, side

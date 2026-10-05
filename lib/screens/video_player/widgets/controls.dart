@@ -61,6 +61,9 @@ class Controls extends StatelessWidget {
   final VoidCallback? onShowIptvChannels;
   final bool hasStremioSources;
   final VoidCallback? onShowStremioSources;
+  /// Multi-stream mirrors on the current IPTV channel (not torrent Sources).
+  final bool hasIptvStreamSources;
+  final VoidCallback? onShowIptvStreamSources;
   final bool showPipButton;
   final VoidCallback? onPip;
 
@@ -160,6 +163,8 @@ class Controls extends StatelessWidget {
     this.onShowIptvChannels,
     this.hasStremioSources = false,
     this.onShowStremioSources,
+    this.hasIptvStreamSources = false,
+    this.onShowIptvStreamSources,
     this.showPipButton = false,
     this.onPip,
     this.hasRecord = false,
@@ -282,6 +287,8 @@ class Controls extends StatelessWidget {
       hasGuide: hasGuide,
       hasIptvChannels: hasIptvChannels,
       hasStremioSources: hasStremioSources,
+      hasIptvStreamSources: hasIptvStreamSources,
+      onShowIptvStreamSources: onShowIptvStreamSources,
       hasPlaylist: hasPlaylist,
       hasRecord: hasRecord,
       isRecording: isRecording,
@@ -642,6 +649,16 @@ class Controls extends StatelessWidget {
                                     icon: Icons.grid_view_rounded,
                                     label: 'Guide',
                                     onPressed: onShowGuide!,
+                                    isCompact: true,
+                                  ),
+
+                                // IPTV stream mirrors (same logical channel)
+                                if (hasIptvStreamSources &&
+                                    onShowIptvStreamSources != null)
+                                  NetflixControlButton(
+                                    icon: Icons.swap_horiz_rounded,
+                                    label: 'Streams',
+                                    onPressed: onShowIptvStreamSources!,
                                     isCompact: true,
                                   ),
 

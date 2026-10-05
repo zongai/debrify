@@ -9354,12 +9354,6 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen>
   // ─── Stremio Source Sheet ───────────────────────────────────────────
 
   void _showSourceSheetOverlay() {
-    // IPTV multi-source channels use their own sheet (stream mirrors).
-    final iptv = _currentIptvChannel;
-    if (iptv != null && iptv.hasMultipleSources) {
-      _showIptvSourceSheetOverlay();
-      return;
-    }
     final sources = _effectiveSources;
     if (sources == null || sources.isEmpty) return;
     _hideIptvZapBanner();
@@ -13269,11 +13263,11 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen>
     // stripped episodes, sources and speed from those sessions.
     final isLive = _iptvZapBannerOwnsIdentity;
     final hasSources =
-        (_currentIptvChannel?.hasMultipleSources == true) ||
-        (_effectiveSources != null &&
-            _effectiveSources!.isNotEmpty &&
-            (_effectiveResolver != null ||
-                widget.resolveSourceToPlaylist != null));
+        _effectiveSources != null &&
+        _effectiveSources!.isNotEmpty &&
+        (_effectiveResolver != null || widget.resolveSourceToPlaylist != null);
+    final hasIptvStreamSources =
+        _currentIptvChannel?.hasMultipleSources == true;
     final hasGuide =
         (_channelEntries.isNotEmpty && widget.requestChannelById != null) ||
         _hasStremioTvGuide;
@@ -13375,6 +13369,9 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen>
                   ? () => unawaited(_showRandomPlaybackMenu())
                   : null,
               onShowSources: hasSources ? _showSourceSheetOverlay : null,
+              onShowIptvStreamSources: hasIptvStreamSources
+                  ? _showIptvSourceSheetOverlay
+                  : null,
               onShowGuide: hasGuide
                   ? (_channelEntries.isNotEmpty &&
                             widget.requestChannelById != null
@@ -15830,23 +15827,27 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen>
                                       ? _showIptvChannelSheetOverlay
                                       : null,
                                   hasStremioSources:
-                                      (_currentIptvChannel?.hasMultipleSources ==
-                                          true) ||
-                                      (_effectiveSources != null &&
+                                      _effectiveSources != null &&
+                                      _effectiveSources!.isNotEmpty &&
+                                      (_effectiveResolver != null ||
+                                          widget.resolveSourceToPlaylist !=
+                                              null),
+                                  onShowStremioSources:
+                                      _effectiveSources != null &&
                                           _effectiveSources!.isNotEmpty &&
                                           (_effectiveResolver != null ||
                                               widget.resolveSourceToPlaylist !=
-                                                  null)),
-                                  onShowStremioSources:
-                                      (_currentIptvChannel?.hasMultipleSources ==
-                                              true) ||
-                                          (_effectiveSources != null &&
-                                              _effectiveSources!.isNotEmpty &&
-                                              (_effectiveResolver != null ||
-                                                  widget.resolveSourceToPlaylist !=
-                                                      null))
+                                                  null)
                                       ? _showSourceSheetOverlay
                                       : null,
+                                  hasIptvStreamSources:
+                                      _currentIptvChannel?.hasMultipleSources ==
+                                      true,
+                                  onShowIptvStreamSources:
+                                      _currentIptvChannel?.hasMultipleSources ==
+                                              true
+                                          ? _showIptvSourceSheetOverlay
+                                          : null,
                                   showPipButton: PipService.isOwner(this),
                                   onPip: PipService.isOwner(this)
                                       ? _enterPip
