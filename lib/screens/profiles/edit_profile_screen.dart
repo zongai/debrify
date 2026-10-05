@@ -4,6 +4,8 @@ import 'dart:typed_data';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 import 'package:flutter/services.dart';
 
 import '../../services/cache_scratch_cleanup.dart';
@@ -280,7 +282,7 @@ class _TvAutoLockField extends StatelessWidget {
         context: context,
         builder: (context) => TvHeldKeyGuard(
           child: SimpleDialog(
-            title: Text('Auto-lock'),
+            title: Text(AppLocalizations.of(context).t('Auto-lock')),
             children: [
               for (final entry in _labels.entries)
                 ListTile(
@@ -528,11 +530,11 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context, false),
-            child: Text('Cancel'),
+            child: Text(AppLocalizations.of(context).t('Cancel')),
           ),
           FilledButton(
             onPressed: () => Navigator.pop(context, true),
-            child: const Text('Transfer'),
+            child: Text(AppLocalizations.of(context).t('Transfer')),
           ),
         ],
       ),
@@ -1135,7 +1137,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
     await showDialog<void>(
       context: context,
       builder: (dialogContext) => AlertDialog(
-        title: Text('Profile diagnostics'),
+        title: Text(AppLocalizations.of(context).t('Profile diagnostics')),
         content: SizedBox(
           width: 560,
           child: SingleChildScrollView(child: SelectableText(report)),
@@ -1146,11 +1148,11 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
               await Clipboard.setData(ClipboardData(text: report));
               if (dialogContext.mounted) Navigator.pop(dialogContext);
             },
-            child: Text('Copy'),
+            child: Text(AppLocalizations.of(context).t('Copy')),
           ),
           FilledButton(
             onPressed: () => Navigator.pop(dialogContext),
-            child: Text('Done'),
+            child: Text(AppLocalizations.of(context).t('Done')),
           ),
         ],
       ),
@@ -1189,7 +1191,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
           actions: [
             TextButton(
               onPressed: _saving ? null : _save,
-              child: Text('Save'),
+              child: Text(AppLocalizations.of(context).t('Save')),
             ),
           ],
         ),
@@ -1267,7 +1269,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                     child: TextButton.icon(
                       onPressed: _saving ? null : _removePinAsAdmin,
                       icon: Icon(Icons.lock_open_rounded),
-                      label: const Text('Admin reset: remove PIN'),
+                      label: Text(AppLocalizations.of(context).t('Admin reset: remove PIN')),
                     ),
                   ),
                 SwitchListTile(
@@ -1279,7 +1281,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                   initialValue: _inactivityMinutes,
                   decoration: InputDecoration(labelText: 'Auto-lock'),
                   items: const <DropdownMenuItem<int>>[
-                    DropdownMenuItem(value: 0, child: Text('Never')),
+                    DropdownMenuItem(value: 0, child: Text(AppLocalizations.of(context).t('Never'))),
                     DropdownMenuItem(value: 5, child: Text('After 5 minutes')),
                     DropdownMenuItem(
                       value: 15,
@@ -1301,7 +1303,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                     title: Text(_setupLoadError!),
                     trailing: TextButton(
                       onPressed: _loadSetupOptions,
-                      child: Text('Retry'),
+                      child: Text(AppLocalizations.of(context).t('Retry')),
                     ),
                   )
                 else if (_engines == null)
@@ -1314,7 +1316,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                   _sectionLabel('Data'),
                   ListTile(
                     leading: const Icon(Icons.info_outline_rounded),
-                    title: Text('Diagnostics'),
+                    title: Text(AppLocalizations.of(context).t('Diagnostics')),
                     subtitle: const Text(
                       'Registry, generation and lease state',
                     ),
@@ -2132,7 +2134,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                   child: TextButton.icon(
                     onPressed: _saving ? null : _removePinAsAdmin,
                     icon: const Icon(Icons.lock_open_rounded),
-                    label: const Text('Admin reset: remove PIN'),
+                    label: Text(AppLocalizations.of(context).t('Admin reset: remove PIN')),
                   ),
                 ),
               const SizedBox(height: 16),
@@ -2195,7 +2197,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                     title: Text(_setupLoadError!),
                     trailing: TextButton(
                       onPressed: _loadSetupOptions,
-                      child: Text('Retry'),
+                      child: Text(AppLocalizations.of(context).t('Retry')),
                     ),
                   ),
                 )
@@ -2706,9 +2708,9 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
         ),
         const Spacer(),
         if (onAll != null)
-          TextButton(onPressed: onAll, child: Text('All')),
+          TextButton(onPressed: onAll, child: Text(AppLocalizations.of(context).t('All'))),
         if (onNone != null)
-          TextButton(onPressed: onNone, child: Text('None')),
+          TextButton(onPressed: onNone, child: Text(AppLocalizations.of(context).t('None'))),
       ],
     ),
   );

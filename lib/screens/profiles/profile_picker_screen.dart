@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 
 import '../../models/profiles/user_profile.dart';
 import '../../widgets/profiles/profile_avatar_view.dart';
@@ -66,7 +68,7 @@ class ProfilePickerScreen extends StatelessWidget {
                     OutlinedButton.icon(
                       onPressed: onManage,
                       icon: const Icon(Icons.manage_accounts_rounded),
-                      label: Text('Manage profiles'),
+                      label: Text(AppLocalizations.of(context).t('Manage profiles')),
                     ),
                   ],
                 ],

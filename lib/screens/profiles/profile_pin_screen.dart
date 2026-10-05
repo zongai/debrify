@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 import 'package:flutter/services.dart';
 
 import '../../models/profiles/user_profile.dart';
@@ -182,7 +184,7 @@ class _ProfilePinScreenState extends State<ProfilePinScreen> {
             actions: [
               TextButton(
                 onPressed: () => Navigator.of(dialogContext).pop(),
-                child: Text('Cancel'),
+                child: Text(AppLocalizations.of(context).t('Cancel')),
               ),
               FilledButton(
                 onPressed: submitting ? null : submit,
@@ -516,7 +518,7 @@ class _ProfilePinScreenState extends State<ProfilePinScreen> {
             foregroundColor: Colors.white.withValues(alpha: .55),
             padding: EdgeInsets.zero,
           ),
-          child: const Text('Forgot PIN?'),
+          child: Text(AppLocalizations.of(context).t('Forgot PIN?')),
         ),
     ],
   );

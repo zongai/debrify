@@ -3,6 +3,8 @@ import 'dart:io';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 
 import '../../services/backup_restore_service.dart';
 import '../../services/profiles/device_key_provider.dart';
@@ -73,11 +75,11 @@ class _ProfileRecoveryScreenState extends State<ProfileRecoveryScreen> {
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(dialogContext),
-            child: Text('Cancel'),
+            child: Text(AppLocalizations.of(context).t('Cancel')),
           ),
           FilledButton(
             onPressed: () => Navigator.pop(dialogContext, controller.text),
-            child: Text('Continue'),
+            child: Text(AppLocalizations.of(context).t('Continue')),
           ),
         ],
       ),
@@ -223,7 +225,7 @@ class _ProfileRecoveryScreenState extends State<ProfileRecoveryScreen> {
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(dialogContext, false),
-            child: Text('Cancel'),
+            child: Text(AppLocalizations.of(context).t('Cancel')),
           ),
           FilledButton(
             onPressed: () => Navigator.pop(dialogContext, true),

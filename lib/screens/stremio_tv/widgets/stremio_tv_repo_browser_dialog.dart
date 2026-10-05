@@ -3,6 +3,8 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 
+import '../../../l10n/app_localizations.dart';
+
 import 'package:flutter/services.dart';
 
 import '../../../theme/app_theme_scope.dart';
@@ -465,11 +467,11 @@ class _StremioTvRepoBrowserDialogState
         actions: [
           TextButton(
             onPressed: () => Navigator.of(ctx).pop(false),
-            child: Text('Cancel'),
+            child: Text(AppLocalizations.of(context).t('Cancel')),
           ),
           TextButton(
             onPressed: () => Navigator.of(ctx).pop(true),
-            child: Text('Remove'),
+            child: Text(AppLocalizations.of(context).t('Remove')),
           ),
         ],
       ),
@@ -623,7 +625,7 @@ class _StremioTvRepoBrowserDialogState
                       focusNode: _addBtnFocusNode,
                       onPressed: _addRepo,
                       icon: const Icon(Icons.add, size: 18),
-                      label: Text('Add'),
+                      label: Text(AppLocalizations.of(context).t('Add')),
                     ),
                   ),
                 ],

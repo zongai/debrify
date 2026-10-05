@@ -2,6 +2,8 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 
 import '../../models/home_collection.dart';
 import '../../models/stremio_addon.dart';
@@ -67,7 +69,7 @@ class _CollectionEditorScreenState extends State<CollectionEditorScreen> {
         title: Text(
           widget.collection == null ? 'Create collection' : 'Edit collection',
         ),
-        actions: [TextButton(onPressed: _save, child: Text('Save'))],
+        actions: [TextButton(onPressed: _save, child: Text(AppLocalizations.of(context).t('Save')))],
       ),
       body: Form(
         key: _form,
@@ -105,7 +107,7 @@ class _CollectionEditorScreenState extends State<CollectionEditorScreen> {
             OutlinedButton.icon(
               onPressed: () => _editFolder(),
               icon: const Icon(Icons.create_new_folder_outlined),
-              label: const Text('Add folder'),
+              label: Text(AppLocalizations.of(context).t('Add folder')),
             ),
           ],
         ),
@@ -165,8 +167,8 @@ class _FolderEditorState extends State<_FolderEditor> {
   @override
   Widget build(BuildContext context) => Scaffold(
     appBar: AppBar(
-      title: Text('Edit folder'),
-      actions: [TextButton(onPressed: _save, child: Text('Save'))],
+      title: Text(AppLocalizations.of(context).t('Edit folder')),
+      actions: [TextButton(onPressed: _save, child: Text(AppLocalizations.of(context).t('Save')))],
     ),
     body: Form(
       key: _form,
@@ -210,7 +212,7 @@ class _FolderEditorState extends State<_FolderEditor> {
           OutlinedButton.icon(
             onPressed: () => _editSource(),
             icon: const Icon(Icons.add),
-            label: const Text('Add source'),
+            label: Text(AppLocalizations.of(context).t('Add source')),
           ),
         ],
       ),
@@ -291,8 +293,8 @@ class _SourceEditorState extends State<_SourceEditor> {
     };
     return Scaffold(
       appBar: AppBar(
-        title: Text('Edit source'),
-        actions: [TextButton(onPressed: _save, child: Text('Save'))],
+        title: Text(AppLocalizations.of(context).t('Edit source')),
+        actions: [TextButton(onPressed: _save, child: Text(AppLocalizations.of(context).t('Save')))],
       ),
       body: Form(
         key: _form,
@@ -426,7 +428,7 @@ class _SourceEditorState extends State<_SourceEditor> {
                   'NETWORK',
                 ].contains(_draft['tmdbSourceType'])) ...[
                   const SizedBox(height: 16),
-                  const Text('Filters (optional)'),
+                  Text(AppLocalizations.of(context).t('Filters (optional)')),
                   const Text(
                     'Separate IDs with commas for AND, or | for OR where supported by TMDB.',
                   ),

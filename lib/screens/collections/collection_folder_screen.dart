@@ -12,6 +12,8 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 import 'package:flutter/services.dart';
 
 import '../../models/home_collection.dart';
@@ -1102,7 +1104,7 @@ class _CollectionFolderScreenState extends State<CollectionFolderScreen> {
                         _openRequest++;
                         _openingTitle = null;
                       }),
-                      child: Text('Cancel'),
+                      child: Text(AppLocalizations.of(context).t('Cancel')),
                     ),
                   ],
                 ),
@@ -1233,13 +1235,13 @@ class _CollectionFolderScreenState extends State<CollectionFolderScreen> {
       context: context,
       builder: (context) => AlertDialog(
         scrollable: true,
-        title: Text('Collection details'),
+        title: Text(AppLocalizations.of(context).t('Collection details')),
         content: Text(detail),
         actions: [
           TextButton(
             autofocus: !retry,
             onPressed: () => Navigator.pop(context, false),
-            child: Text('Close'),
+            child: Text(AppLocalizations.of(context).t('Close')),
           ),
           if (retry)
             TextButton(
@@ -1818,7 +1820,7 @@ class _CollectionFolderScreenState extends State<CollectionFolderScreen> {
                     child: TextButton(
                       focusNode: _detailsNode,
                       onPressed: () => _showIssueDetails(detail),
-                      child: Text('View details'),
+                      child: Text(AppLocalizations.of(context).t('View details')),
                     ),
                   ),
                 const SizedBox(height: 18),
@@ -1836,7 +1838,7 @@ class _CollectionFolderScreenState extends State<CollectionFolderScreen> {
                     focusNode: _retryNode,
                     onPressed: _retryCurrent,
                     icon: Icon(Icons.refresh_rounded, size: 18),
-                    label: Text('Retry'),
+                    label: Text(AppLocalizations.of(context).t('Retry')),
                     style: OutlinedButton.styleFrom(
                       foregroundColor: app.core.tx,
                       side: BorderSide(color: app.seeAll.accentBorder),

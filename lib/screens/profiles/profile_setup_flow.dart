@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 import 'package:flutter/services.dart';
 
 import '../../models/profiles/profile_policy.dart';
@@ -668,7 +670,7 @@ class _ProfileSetupFlowState extends State<ProfileSetupFlow> {
               focusNode: _cancelNode,
               onPressed: _saving ? null : _cancel,
               style: style,
-              child: Text('Cancel'),
+              child: Text(AppLocalizations.of(context).t('Cancel')),
             ),
         ],
       ),

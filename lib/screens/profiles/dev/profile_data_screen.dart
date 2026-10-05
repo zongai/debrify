@@ -2,6 +2,8 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 
+import '../../../l10n/app_localizations.dart';
+
 import 'package:flutter/services.dart';
 
 import '../../../services/profiles/dev/profile_audit_report.dart';
@@ -113,7 +115,7 @@ class _ProfileDataScreenState extends State<ProfileDataScreen> {
     final report = _report;
     return Scaffold(
       appBar: AppBar(
-        title: Text('Profile data'),
+        title: Text(AppLocalizations.of(context).t('Profile data')),
         actions: <Widget>[
           IconButton(
             tooltip: 'Copy report',
@@ -153,7 +155,7 @@ class _ProfileDataScreenState extends State<ProfileDataScreen> {
             autofocus: true,
             onPressed: _load,
             icon: const Icon(Icons.refresh),
-            label: Text('Retry'),
+            label: Text(AppLocalizations.of(context).t('Retry')),
           ),
         ],
       ),

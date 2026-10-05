@@ -399,7 +399,7 @@ class _ProfileGateState extends State<ProfileGate> with WidgetsBindingObserver {
       if (profile.pinResetRequired) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text('An Admin must reset this profile PIN.'),
+            content: Text(AppLocalizations.of(context).t('An Admin must reset this profile PIN.')),
           ),
         );
         return;

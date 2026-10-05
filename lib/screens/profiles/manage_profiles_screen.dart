@@ -2,6 +2,8 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 import 'package:flutter/services.dart';
 
 import '../../models/profiles/profile_policy.dart';
@@ -88,7 +90,7 @@ class _ManageProfilesScreenState extends State<ManageProfilesScreen> {
             ListTile(
               autofocus: true,
               leading: Icon(Icons.edit_rounded),
-              title: Text('Edit'),
+              title: Text(AppLocalizations.of(context).t('Edit')),
               onTap: () => Navigator.of(dialogContext).pop('edit'),
             ),
           ListTile(
@@ -103,7 +105,7 @@ class _ManageProfilesScreenState extends State<ManageProfilesScreen> {
           ),
           ListTile(
             leading: Icon(Icons.delete_outline_rounded),
-            title: Text('Delete'),
+            title: Text(AppLocalizations.of(context).t('Delete')),
             onTap: () => Navigator.of(dialogContext).pop('delete'),
           ),
         ],
@@ -186,7 +188,7 @@ class _ManageProfilesScreenState extends State<ManageProfilesScreen> {
     await showDialog<void>(
       context: context,
       builder: (dialogContext) => AlertDialog(
-        title: Text('Profile diagnostics'),
+        title: Text(AppLocalizations.of(context).t('Profile diagnostics')),
         content: SizedBox(
           width: 560,
           child: SingleChildScrollView(child: SelectableText(report)),
@@ -197,11 +199,11 @@ class _ManageProfilesScreenState extends State<ManageProfilesScreen> {
               await Clipboard.setData(ClipboardData(text: report));
               if (dialogContext.mounted) Navigator.pop(dialogContext);
             },
-            child: Text('Copy'),
+            child: Text(AppLocalizations.of(context).t('Copy')),
           ),
           FilledButton(
             onPressed: () => Navigator.pop(dialogContext),
-            child: Text('Done'),
+            child: Text(AppLocalizations.of(context).t('Done')),
           ),
         ],
       ),
@@ -213,7 +215,7 @@ class _ManageProfilesScreenState extends State<ManageProfilesScreen> {
     final profiles = _profiles;
     return Scaffold(
       appBar: AppBar(
-        title: Text('Profiles'),
+        title: Text(AppLocalizations.of(context).t('Profiles')),
         actions: <Widget>[
           IconButton(
             tooltip: 'Privacy-safe diagnostics',
@@ -236,7 +238,7 @@ class _ManageProfilesScreenState extends State<ManageProfilesScreen> {
       floatingActionButton: FloatingActionButton.extended(
         onPressed: profiles == null ? null : _edit,
         icon: const Icon(Icons.person_add_rounded),
-        label: Text('Create'),
+        label: Text(AppLocalizations.of(context).t('Create')),
       ),
       body: profiles == null
           ? Center(
@@ -286,7 +288,7 @@ class _ManageProfilesScreenState extends State<ManageProfilesScreen> {
                                   if (profile.isEnabled)
                                     const PopupMenuItem(
                                       value: 'edit',
-                                      child: Text('Edit'),
+                                      child: Text(AppLocalizations.of(context).t('Edit')),
                                     ),
                                   PopupMenuItem(
                                     value: 'toggle',
@@ -296,7 +298,7 @@ class _ManageProfilesScreenState extends State<ManageProfilesScreen> {
                                   ),
                                   PopupMenuItem(
                                     value: 'delete',
-                                    child: Text('Delete'),
+                                    child: Text(AppLocalizations.of(context).t('Delete')),
                                   ),
                                 ],
                               ),

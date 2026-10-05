@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../l10n/app_localizations.dart';
+
 import 'package:flutter/services.dart';
 
 import '../../../utils/tv_keys.dart';
@@ -136,7 +138,7 @@ class _StremioTvCatalogPickerDialogState
     if (result == null) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: const Text('Failed to update channel'),
+          content: Text(AppLocalizations.of(context).t('Failed to update channel')),
           backgroundColor: Colors.red.shade700,
         ),
       );
@@ -183,7 +185,7 @@ class _StremioTvCatalogPickerDialogState
     final name = _nameController.text.trim();
     if (name.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Channel name cannot be empty'),
+        SnackBar(content: Text(AppLocalizations.of(context).t('Channel name cannot be empty')),
           backgroundColor: Colors.orange,
         ),
       );
@@ -204,7 +206,7 @@ class _StremioTvCatalogPickerDialogState
     if (result == null) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: const Text('Failed to create channel'),
+          content: Text(AppLocalizations.of(context).t('Failed to create channel')),
           backgroundColor: Colors.red.shade700,
         ),
       );
@@ -569,7 +571,7 @@ class _StremioTvCatalogPickerDialogState
                 alignment: Alignment.centerRight,
                 child: TextButton(
                   onPressed: _saving ? null : _dismissDialog,
-                  child: Text('Cancel'),
+                  child: Text(AppLocalizations.of(context).t('Cancel')),
                 ),
               ),
             ),
@@ -666,7 +668,7 @@ class _StremioTvCatalogPickerDialogState
                     focusNode: _createCancelFocusNode,
                     child: OutlinedButton(
                       onPressed: _saving ? null : _closeCreateView,
-                      child: Text('Back'),
+                      child: Text(AppLocalizations.of(context).t('Back')),
                     ),
                   ),
                 ),

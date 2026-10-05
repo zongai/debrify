@@ -4,6 +4,8 @@ import 'dart:convert';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 
+import '../../../l10n/app_localizations.dart';
+
 import 'package:flutter/services.dart';
 import 'package:http/http.dart' as http;
 
@@ -608,11 +610,11 @@ class _StremioTvLocalCatalogEditorDialogState
         actions: [
           TextButton(
             onPressed: () => Navigator.of(ctx).pop(false),
-            child: Text('Cancel'),
+            child: Text(AppLocalizations.of(context).t('Cancel')),
           ),
           TextButton(
             onPressed: () => Navigator.of(ctx).pop(true),
-            child: Text('Remove'),
+            child: Text(AppLocalizations.of(context).t('Remove')),
           ),
         ],
       ),
@@ -763,7 +765,7 @@ class _StremioTvLocalCatalogEditorDialogState
                     focusNode: removeFocusNode,
                     onPressed: () => _removeItem(index, item),
                     icon: const Icon(Icons.delete_outline_rounded, size: 18),
-                    label: Text('Remove'),
+                    label: Text(AppLocalizations.of(context).t('Remove')),
                     style: OutlinedButton.styleFrom(
                       foregroundColor: theme.colorScheme.error,
                       side: BorderSide(color: theme.colorScheme.error),
@@ -792,7 +794,7 @@ class _StremioTvLocalCatalogEditorDialogState
                   focusNode: removeFocusNode,
                   onPressed: () => _removeItem(index, item),
                   icon: const Icon(Icons.delete_outline_rounded, size: 18),
-                  label: Text('Remove'),
+                  label: Text(AppLocalizations.of(context).t('Remove')),
                   style: OutlinedButton.styleFrom(
                     foregroundColor: theme.colorScheme.error,
                     side: BorderSide(color: theme.colorScheme.error),
@@ -1310,11 +1312,11 @@ class _StremioTvLocalCatalogsDialogState
         actions: [
           TextButton(
             onPressed: () => Navigator.of(ctx).pop(false),
-            child: Text('Cancel'),
+            child: Text(AppLocalizations.of(context).t('Cancel')),
           ),
           TextButton(
             onPressed: () => Navigator.of(ctx).pop(true),
-            child: Text('Delete'),
+            child: Text(AppLocalizations.of(context).t('Delete')),
           ),
         ],
       ),
@@ -1728,7 +1730,7 @@ class _ImportUrlDialogState extends State<_ImportUrlDialog> {
         TextButton(
           focusNode: _cancelFocusNode,
           onPressed: () => Navigator.of(context).pop(),
-          child: Text('Cancel'),
+          child: Text(AppLocalizations.of(context).t('Cancel')),
         ),
         FilledButton(
           focusNode: _importFocusNode,
@@ -1739,7 +1741,7 @@ class _ImportUrlDialogState extends State<_ImportUrlDialog> {
                   height: 16,
                   child: CircularProgressIndicator(strokeWidth: 2),
                 )
-              : Text('Import'),
+              : Text(AppLocalizations.of(context).t('Import')),
         ),
       ],
     );
@@ -1902,7 +1904,7 @@ class _ImportJsonDialogState extends State<_ImportJsonDialog> {
   Widget build(BuildContext context) {
     final app = AppThemeScope.of(context);
     return AlertDialog(
-      title: Text('Paste JSON'),
+      title: Text(AppLocalizations.of(context).t('Paste JSON')),
       content: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
@@ -1949,7 +1951,7 @@ class _ImportJsonDialogState extends State<_ImportJsonDialog> {
         TextButton(
           focusNode: _cancelFocusNode,
           onPressed: () => Navigator.of(context).pop(),
-          child: Text('Cancel'),
+          child: Text(AppLocalizations.of(context).t('Cancel')),
         ),
         FilledButton(
           focusNode: _importFocusNode,
@@ -1960,7 +1962,7 @@ class _ImportJsonDialogState extends State<_ImportJsonDialog> {
                   height: 16,
                   child: CircularProgressIndicator(strokeWidth: 2),
                 )
-              : Text('Import'),
+              : Text(AppLocalizations.of(context).t('Import')),
         ),
       ],
     );
@@ -2365,19 +2367,19 @@ class _ImportTraktDialogState extends State<_ImportTraktDialog> {
 
     if (!_authenticated) {
       return AlertDialog(
-        title: Text('Import from Trakt'),
+        title: Text(AppLocalizations.of(context).t('Import from Trakt')),
         content: const Text('Sign in to Trakt first in Settings.'),
         actions: [
           TextButton(
             onPressed: () => Navigator.of(context).pop(),
-            child: Text('OK'),
+            child: Text(AppLocalizations.of(context).t('OK')),
           ),
         ],
       );
     }
 
     return AlertDialog(
-      title: const Text('Import from Trakt'),
+      title: Text(AppLocalizations.of(context).t('Import from Trakt')),
       content: SizedBox(
         width: 400,
         child: Column(
@@ -2507,7 +2509,7 @@ class _ImportTraktDialogState extends State<_ImportTraktDialog> {
       actions: [
         TextButton(
           onPressed: () => Navigator.of(context).pop(),
-          child: Text('Cancel'),
+          child: Text(AppLocalizations.of(context).t('Cancel')),
         ),
       ],
     );
@@ -2736,7 +2738,7 @@ class _ImportMdblistDialogState extends State<_ImportMdblistDialog> {
         actions: [
           TextButton(
             onPressed: () => Navigator.of(context).pop(),
-            child: Text('OK'),
+            child: Text(AppLocalizations.of(context).t('OK')),
           ),
         ],
       );
@@ -2845,7 +2847,7 @@ class _ImportMdblistDialogState extends State<_ImportMdblistDialog> {
       actions: [
         TextButton(
           onPressed: () => Navigator.of(context).pop(),
-          child: Text('Cancel'),
+          child: Text(AppLocalizations.of(context).t('Cancel')),
         ),
       ],
     );

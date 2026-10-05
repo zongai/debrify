@@ -4,6 +4,8 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 import 'package:flutter/rendering.dart' show ScrollCacheExtent;
 import 'package:flutter/services.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -1104,7 +1106,7 @@ class _AddonHubScreenState extends State<AddonHubScreen> {
               Clipboard.setData(ClipboardData(text: a.manifestUrl));
               Navigator.of(ctx).pop();
               ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(content: Text('URL copied to clipboard')),
+                SnackBar(content: Text(AppLocalizations.of(context).t('URL copied to clipboard'))),
               );
             },
           ),

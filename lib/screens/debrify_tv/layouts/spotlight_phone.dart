@@ -234,7 +234,7 @@ class _SpotlightPhoneArmState extends State<SpotlightPhoneArm> {
                         const SizedBox(height: 12),
                         TextButton(
                           onPressed: _clearSearch,
-                          child: const Text('Clear search'),
+                          child: Text(AppLocalizations.of(context).t('Clear search')),
                         ),
                       ],
                     ),
