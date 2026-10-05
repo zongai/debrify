@@ -15,6 +15,7 @@ import 'package:sqlite3/open.dart' as sqlite_open;
 import 'package:sqlite3/sqlite3.dart';
 
 import '../models/iptv_playlist.dart';
+import 'iptv_channel_normalizer.dart';
 import '../utils/m3u_parser.dart';
 import 'iptv_channel_order.dart';
 import 'iptv_catalog_diagnostics.dart';
@@ -403,6 +404,7 @@ class IptvCatalogDb {
         content_type TEXT,
         attributes_json TEXT,
         http_headers_json TEXT,
+        sources_json TEXT,
         search_key TEXT NOT NULL,
         channel_number INTEGER,
         manual_position INTEGER
@@ -666,6 +668,13 @@ class IptvCatalogDb {
 
   static final WebDavSyncMonotonicStamp _monotonicStamp =
       WebDavSyncMonotonicStamp();
+
+    try {
+      db.execute('ALTER TABLE channels ADD COLUMN sources_json TEXT');
+    } catch (_) {
+      // Column already present.
+    }
+
 
   /// Stamp time for a user catalog mutation; strictly increasing per clock so
   /// a backwards clock step cannot reuse a stamp for a different mutation.
@@ -1368,6 +1377,8 @@ class IptvCatalogDb {
       // Readers cannot observe a chunk boundary: the `catalogs` pointer row
       // only lands in the FINAL transaction, and snapshots resolve rows
       // through it.
+      final merged = IptvChannelNormalizer.merge(channels);
+
       db.execute('BEGIN IMMEDIATE');
       Map<int, int> channelNumbers;
       try {
@@ -1380,7 +1391,7 @@ class IptvCatalogDb {
             : _assignChannelNumbers(
                 db,
                 sourceKey: numberingSourceKey,
-                channels: channels,
+                channels: merged,
               );
         db.execute('COMMIT');
       } catch (_) {
@@ -1392,18 +1403,18 @@ class IptvCatalogDb {
         INSERT INTO channels(
           catalog_key, generation, position, name, url, logo_url, grp,
           duration, content_type, attributes_json, http_headers_json,
-          search_key, channel_number, manual_position
-        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+          sources_json, search_key, channel_number, manual_position
+        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
       ''');
       try {
         var i = 0;
-        while (i < channels.length) {
+        while (i < merged.length) {
           var end = i + _ingestChunkRows;
-          if (end > channels.length) end = channels.length;
+          if (end > merged.length) end = merged.length;
           db.execute('BEGIN IMMEDIATE');
           try {
             for (; i < end; i++) {
-              final c = channels[i];
+              final c = merged[i];
               int? manualPosition;
               final group = c.group;
               if (group != null) {
@@ -1426,10 +1437,13 @@ class IptvCatalogDb {
                 c.contentType,
                 c.attributes.isEmpty ? null : jsonEncode(c.attributes),
                 c.httpHeaders.isEmpty ? null : jsonEncode(c.httpHeaders),
+                c.sources.length <= 1
+                    ? null
+                    : jsonEncode([for (final s in c.sources) s.toJson()]),
                 // Same haystack IptvChannel.searchKey builds — search
                 // behavior must not change when the query moves into SQL.
                 '${c.name.toLowerCase()}\n${c.group?.toLowerCase() ?? ''}',
-                channelNumbers[i],
+                channelNumbers.length > i ? channelNumbers[i] : null,
                 manualPosition,
               ]);
             }
@@ -1508,7 +1522,14 @@ class IptvCatalogDb {
     catalogKey: catalogKey,
     numberingSourceKey: numberingSourceKey,
     produce: (emit) async {
-      final summary = await M3uParser.parseLines(lines, onChannel: emit);
+      final buffered = <IptvChannel>[];
+      final summary = await M3uParser.parseLines(
+        lines,
+        onChannel: buffered.add,
+      );
+      for (final channel in IptvChannelNormalizer.merge(buffered)) {
+        emit(channel);
+      }
       return IptvParseResult(
         channels: const [],
         categories: summary.categories,
@@ -1575,8 +1596,8 @@ class IptvCatalogDb {
         INSERT INTO channels(
           catalog_key, generation, position, name, url, logo_url, grp,
           duration, content_type, attributes_json, http_headers_json,
-          search_key, channel_number, manual_position
-        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NULL, NULL)
+          sources_json, search_key, channel_number, manual_position
+        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NULL, NULL)
       ''');
 
       final summary = await produce((channel) {
@@ -1594,6 +1615,9 @@ class IptvCatalogDb {
           channel.contentType,
           channel.attributes.isEmpty ? null : jsonEncode(channel.attributes),
           channel.httpHeaders.isEmpty ? null : jsonEncode(channel.httpHeaders),
+          channel.sources.length <= 1
+              ? null
+              : jsonEncode([for (final s in channel.sources) s.toJson()]),
           '${channel.name.toLowerCase()}\n'
               '${channel.group?.toLowerCase() ?? ''}',
         ]);
@@ -4020,7 +4044,23 @@ class CatalogSnapshot {
       contentType: row['content_type'] as String?,
       attributes: _decodeStringMap(row['attributes_json']),
       httpHeaders: _decodeStringMap(row['http_headers_json']),
+      sources: _decodeSources(row['sources_json']),
     );
+  }
+
+  static List<IptvSource>? _decodeSources(Object? raw) {
+    if (raw == null) return null;
+    try {
+      final decoded = raw is String ? jsonDecode(raw) : raw;
+      if (decoded is! List || decoded.isEmpty) return null;
+      return [
+        for (final row in decoded)
+          if (row is Map)
+            IptvSource.fromJson(Map<String, dynamic>.from(row)),
+      ];
+    } catch (_) {
+      return null;
+    }
   }
 
   static Map<String, String> _decodeStringMap(Object? json) {
@@ -4065,6 +4105,11 @@ class _CatalogDigestAccumulator {
     _mix(channel.contentType ?? '');
     if (channel.attributes.isNotEmpty) _mix(jsonEncode(channel.attributes));
     if (channel.httpHeaders.isNotEmpty) _mix(jsonEncode(channel.httpHeaders));
+    if (channel.sources.length > 1) {
+      for (final s in channel.sources) {
+        _mix(s.url);
+      }
+    }
     count++;
   }
 

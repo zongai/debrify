@@ -687,6 +687,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen>
   // IPTV channel sheet state
   bool _showIptvChannelSheet = false;
   int _currentIptvIndex = 0;
+  int _iptvSourceIndex = 0;
 
   /// Phase 0 of the IPTV resilience plan: per-tune debugPrint diagnostics,
   /// same log grammar as the native player's IptvTuneDiagnostics.kt. Inert
@@ -752,7 +753,25 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen>
   /// edge. Stremio channels re-run the whole switch so their candidate
   /// ladder stays the owner of which URL plays; [IptvLiveRecovery.expectRetune]
   /// keeps the recovery episode alive across that switch's tune-start.
+  IptvSource? get _iptvActiveSource {
+    final channel = _currentIptvChannel;
+    if (channel == null) return null;
+    return channel.sourceAt(_iptvSourceIndex);
+  }
+
+  /// Advance to the next stream URL for the current logical channel.
+  /// Returns false when there is no alternate source left.
+  bool _advanceIptvSource() {
+    final channel = _currentIptvChannel;
+    if (channel == null || !channel.hasMultipleSources) return false;
+    final next = (_iptvSourceIndex + 1) % channel.sources.length;
+    if (next == 0) return false; // wrapped — all sources tried this pass
+    setState(() => _iptvSourceIndex = next);
+    return true;
+  }
+
   void _performIptvLiveRetune(String source, int attempt) {
+
     final channel = _currentIptvChannel;
     if (channel == null || !channel.isLive) return;
     _cancelPendingIptvCatchup(hideFeedback: false);
@@ -776,6 +795,12 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen>
     // machine saw: a real zap bumps it and the stale retune dissolves at
     // the checks below instead of stealing playback back (codex round 2's
     // blocker).
+    // Prefer the next alternate source before reopening the same URL again
+    // (plexios-style multi-source failover).
+    if (channel.hasMultipleSources && attempt > 0) {
+      _advanceIptvSource();
+    }
+    final active = channel.sourceAt(_iptvSourceIndex);
     final ticket = _iptvSwitchTicket;
     unawaited(() async {
       // mpv makes no promise about `stream-record` across an open() — a
@@ -783,12 +808,12 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen>
       // media replacement path (codex round 2, finding 6).
       await _stopRecording(userInitiated: false);
       if (!mounted || ticket != _iptvSwitchTicket) return;
-      _iptvDiag.onTuneStart(channel.name, channel.url, isLive: true);
+      _iptvDiag.onTuneStart(channel.name, active.url, isLive: true);
       _iptvLiveRecovery.expectRetune = true;
       _iptvLiveRecovery.onTuneStarted();
       try {
         await _openMedia(
-          mk.Media(channel.url, httpHeaders: channel.playbackHeaders),
+          mk.Media(active.url, httpHeaders: active.playbackHeaders),
           play: true,
           liveStream: true,
         );
@@ -8319,6 +8344,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen>
       _tvScrubGeneration++;
       _tvAbandonScrub();
       _currentIptvIndex = index;
+      _iptvSourceIndex = 0;
       _currentChannelNumber = channel.channelNumber ?? (index + 1);
       // The corner badge is painted from this pair; without the name it kept
       // showing the launch channel under the new channel's number.

@@ -149,12 +149,72 @@ class IptvPlaylist {
   int get hashCode => id.hashCode;
 }
 
-/// Represents an IPTV channel from an M3U playlist
+/// One playable stream for an [IptvChannel] (URL + headers + optional label).
+///
+/// A logical channel may expose several sources (CDN mirrors, alternate
+/// codecs). Selection and failover live in the player; the list UI shows the
+/// channel once with a source-count badge when [IptvChannel.sources].length > 1.
+class IptvSource {
+  final String url;
+  final String? label;
+  final Map<String, String> httpHeaders;
+
+  const IptvSource({
+    required this.url,
+    this.label,
+    this.httpHeaders = const {},
+  });
+
+  Map<String, String> get playbackHeaders {
+    final headers = <String, String>{...httpHeaders};
+    final hasUserAgent = headers.keys.any(
+      (k) => k.toLowerCase() == 'user-agent',
+    );
+    if (!hasUserAgent) headers['User-Agent'] = kIptvDefaultUserAgent;
+    return headers;
+  }
+
+  Map<String, dynamic> toJson() => {
+    'url': url,
+    if (label != null) 'label': label,
+    if (httpHeaders.isNotEmpty) 'httpHeaders': httpHeaders,
+  };
+
+  factory IptvSource.fromJson(Map<String, dynamic> json) => IptvSource(
+    url: json['url'] as String? ?? '',
+    label: json['label'] as String?,
+    httpHeaders: _stringMap(json['httpHeaders']),
+  );
+
+  @override
+  bool operator ==(Object other) =>
+      other is IptvSource && other.url == url && other.label == label;
+
+  @override
+  int get hashCode => Object.hash(url, label);
+}
+
+Map<String, String> _stringMap(Object? raw) {
+  if (raw is! Map) return const {};
+  return {
+    for (final e in raw.entries)
+      if (e.key != null && e.value != null) e.key.toString(): e.value.toString(),
+  };
+}
+
+/// Represents an IPTV channel from an M3U playlist.
+///
+/// **Channel vs source:** the channel is the user-facing identity (name, logo,
+/// group, number). [sources] are the playable streams. [url] / [httpHeaders]
+/// always mirror the primary (first) source so existing call sites and the
+/// catalog DB stay compatible.
 class IptvChannel {
   /// Stable, provider-scoped number for live television. Null for VOD,
   /// series, and sources that have not been numbered yet.
   final int? channelNumber;
   final String name;
+
+  /// Primary stream URL — same as [sources].first.url when [sources] is set.
   final String url;
   final String? logoUrl;
   final String? group; // Category/group
@@ -162,11 +222,11 @@ class IptvChannel {
   final String? contentType; // 'live', 'vod', or null (M3U channels)
   final Map<String, String> attributes; // Additional tvg-* attributes
 
-  /// HTTP headers this channel's playlist declared for it — via `#EXTVLCOPT:`
-  /// / `#EXTHTTP:` lines, `http-user-agent="…"` EXTINF attributes, or a
-  /// `|User-Agent=…` URL suffix. Empty for channels that declare none; see
-  /// [playbackHeaders] for what players should actually send.
+  /// Headers for the primary source (mirrored from [sources].first).
   final Map<String, String> httpHeaders;
+
+  /// All playable streams for this logical channel. Never empty.
+  final List<IptvSource> sources;
 
   IptvChannel({
     this.channelNumber,
@@ -178,18 +238,74 @@ class IptvChannel {
     this.contentType,
     this.attributes = const {},
     this.httpHeaders = const {},
-  });
+    List<IptvSource>? sources,
+  }) : sources = _normalizeSources(
+          sources: sources,
+          url: url,
+          httpHeaders: httpHeaders,
+        );
 
-  /// The headers to send when playing this channel: whatever the playlist
-  /// declared, with [kIptvDefaultUserAgent] filled in when it named no UA.
-  Map<String, String> get playbackHeaders {
-    final headers = <String, String>{...httpHeaders};
-    final hasUserAgent = headers.keys.any(
-      (k) => k.toLowerCase() == 'user-agent',
-    );
-    if (!hasUserAgent) headers['User-Agent'] = kIptvDefaultUserAgent;
-    return headers;
+  static List<IptvSource> _normalizeSources({
+    required List<IptvSource>? sources,
+    required String url,
+    required Map<String, String> httpHeaders,
+  }) {
+    if (sources != null && sources.isNotEmpty) {
+      // Ensure primary url is first.
+      final primary = sources.first.url == url
+          ? sources
+          : [
+              IptvSource(url: url, httpHeaders: httpHeaders),
+              for (final s in sources)
+                if (s.url != url) s,
+            ];
+      // De-dupe by URL preserving order.
+      final seen = <String>{};
+      final out = <IptvSource>[];
+      for (final s in primary) {
+        if (seen.add(s.url)) out.add(s);
+      }
+      return List.unmodifiable(out);
+    }
+    return List.unmodifiable([
+      IptvSource(url: url, httpHeaders: httpHeaders),
+    ]);
   }
+
+  bool get hasMultipleSources => sources.length > 1;
+
+  IptvSource get primarySource => sources.first;
+
+  IptvSource sourceAt(int index) {
+    if (index < 0 || index >= sources.length) return primarySource;
+    return sources[index];
+  }
+
+  /// Copy with a different primary source (moves [index] to front).
+  IptvChannel withPrimarySource(int index) {
+    if (index <= 0 || index >= sources.length) return this;
+    final next = [
+      sources[index],
+      for (var i = 0; i < sources.length; i++)
+        if (i != index) sources[i],
+    ];
+    final primary = next.first;
+    return IptvChannel(
+      channelNumber: channelNumber,
+      name: name,
+      url: primary.url,
+      logoUrl: logoUrl,
+      group: group,
+      duration: duration,
+      contentType: contentType,
+      attributes: attributes,
+      httpHeaders: primary.httpHeaders,
+      sources: next,
+    );
+  }
+
+  /// The headers to send when playing the primary source.
+  Map<String, String> get playbackHeaders => primarySource.playbackHeaders;
 
   /// Lowercased "name\ngroup" haystack for search, built once per channel on
   /// first use. Searching used to call toLowerCase() on every channel's name
@@ -230,10 +346,39 @@ class IptvChannel {
     if (duration != null) 'duration': duration,
     if (contentType != null) 'contentType': contentType,
     if (httpHeaders.isNotEmpty) 'httpHeaders': httpHeaders,
+    if (sources.length > 1)
+      'sources': [for (final s in sources) s.toJson()],
   };
 
+  factory IptvChannel.fromJson(Map<String, dynamic> json) {
+    final url = json['url'] as String? ?? '';
+    final headers = _stringMap(json['httpHeaders']);
+    List<IptvSource>? sources;
+    final rawSources = json['sources'];
+    if (rawSources is List && rawSources.isNotEmpty) {
+      sources = [
+        for (final row in rawSources)
+          if (row is Map)
+            IptvSource.fromJson(Map<String, dynamic>.from(row)),
+      ];
+    }
+    return IptvChannel(
+      channelNumber: (json['channelNumber'] as num?)?.toInt(),
+      name: json['name'] as String? ?? '',
+      url: url,
+      logoUrl: json['logoUrl'] as String?,
+      group: json['group'] as String?,
+      duration: (json['duration'] as num?)?.toInt(),
+      contentType: json['contentType'] as String?,
+      attributes: _stringMap(json['attributes']),
+      httpHeaders: headers,
+      sources: sources,
+    );
+  }
+
   @override
-  String toString() => 'IptvChannel(name: $name, group: $group, url: $url)';
+  String toString() =>
+      'IptvChannel(name: $name, group: $group, sources: ${sources.length}, url: $url)';
 }
 
 /// Result of parsing an M3U playlist

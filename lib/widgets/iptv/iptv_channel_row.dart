@@ -271,6 +271,7 @@ class _IptvChannelRowState extends State<IptvChannelRow>
     final subParts = <String>[
       if (group != null && group.isNotEmpty) group,
       if (resolution != null) resolution,
+      if (ch.hasMultipleSources) '${ch.sources.length} sources',
     ];
     final sub = subParts.isNotEmpty
         ? subParts.join('  •  ')

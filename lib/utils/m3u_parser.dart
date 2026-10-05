@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import '../models/iptv_playlist.dart';
+import '../services/iptv_channel_normalizer.dart';
 
 /// Parser for M3U/M3U8 playlist files
 class M3uParser {
@@ -44,7 +45,7 @@ class M3uParser {
     }
 
     return IptvParseResult(
-      channels: channels,
+      channels: IptvChannelNormalizer.merge(channels),
       categories: summary.categories,
       epgUrl: summary.epgUrl,
     );
