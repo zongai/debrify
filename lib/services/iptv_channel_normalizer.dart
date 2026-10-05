@@ -44,9 +44,31 @@ class IptvChannelNormalizer {
     if (tvgId != null && tvgId.isNotEmpty) {
       return 'id:${tvgId.toLowerCase()}';
     }
-    final name = channel.name.trim().toLowerCase();
-    final group = (channel.group ?? '').trim().toLowerCase();
-    return 'ng:$name\u0000$group';
+    // Name-only after stripping quality / line tags so the same station
+    // listed under different groups (or "HD" vs plain) becomes multi-source.
+    return 'n:${_normalizeName(channel.name)}';
+  }
+
+  /// Lowercase, collapse spaces, drop common quality / mirror suffixes.
+  static String _normalizeName(String raw) {
+    var s = raw.trim().toLowerCase();
+    s = s.replaceAll(RegExp(r'\s+'), ' ');
+    // (HD), [FHD], 【高清】, -HD, _FHD, etc.
+    s = s.replaceAll(
+      RegExp(
+        r'[\[\(【]\s*(hd|fhd|uhd|sd|4k|hevc|h265|h264|高清|超清|蓝光|备用|线路\s*\d+|源\s*\d+|source\s*\d+)\s*[\]\)】]',
+        caseSensitive: false,
+      ),
+      '',
+    );
+    s = s.replaceAll(
+      RegExp(
+        r'[\s_\-]*(hd|fhd|uhd|4k|hevc|备用|线路\d+|源\d+|source\s*\d+)\s*$',
+        caseSensitive: false,
+      ),
+      '',
+    );
+    return s.trim();
   }
 }
 

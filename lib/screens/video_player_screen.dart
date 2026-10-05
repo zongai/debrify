@@ -689,6 +689,9 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen>
   bool _showIptvChannelSheet = false;
   int _currentIptvIndex = 0;
   int _iptvSourceIndex = 0;
+  /// When multi-source live is still buffering / not playing, try the next URL.
+  Timer? _iptvSourceFailoverTimer;
+  static const Duration _iptvSourceFailoverDelay = Duration(seconds: 8);
 
   /// Phase 0 of the IPTV resilience plan: per-tune debugPrint diagnostics,
   /// same log grammar as the native player's IptvTuneDiagnostics.kt. Inert
@@ -771,6 +774,40 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen>
     return true;
   }
 
+  void _cancelIptvSourceFailover() {
+    _iptvSourceFailoverTimer?.cancel();
+    _iptvSourceFailoverTimer = null;
+  }
+
+  /// If a multi-source live channel is still not healthy after a short wait,
+  /// advance to the next mirror (plexios-style). Cancelled when playback flows.
+  void _armIptvSourceFailover() {
+    _cancelIptvSourceFailover();
+    final channel = _currentIptvChannel;
+    if (channel == null || !channel.hasMultipleSources || !channel.isLive) {
+      return;
+    }
+    final armedIndex = _iptvSourceIndex;
+    final ticket = _iptvSwitchTicket;
+    _iptvSourceFailoverTimer = Timer(_iptvSourceFailoverDelay, () {
+      if (!mounted || ticket != _iptvSwitchTicket) return;
+      if (_iptvSourceIndex != armedIndex) return;
+      final playing = _player.state.playing;
+      final buffering = _player.state.buffering;
+      if (playing && !buffering) return;
+      if (!_advanceIptvSource()) {
+        // Full cycle exhausted — recovery machine still owns further retries.
+        return;
+      }
+      _iptvDiag.note(
+        'slow_load failover → source ${_iptvSourceIndex + 1}/${channel.sources.length}',
+      );
+      _performIptvLiveRetune('slow_load', 1);
+      // Arm again for the new source.
+      _armIptvSourceFailover();
+    });
+  }
+
   void _performIptvLiveRetune(String source, int attempt) {
 
     final channel = _currentIptvChannel;
@@ -798,7 +835,11 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen>
     // blocker).
     // Prefer the next alternate source before reopening the same URL again
     // (plexios-style multi-source failover).
-    if (channel.hasMultipleSources && attempt > 0) {
+    // Prefer the next mirror on recovery (error/stall). Slow-load / open_fail
+    // paths already advanced before calling retune — do not skip twice.
+    if (channel.hasMultipleSources &&
+        source != 'slow_load' &&
+        source != 'open_fail') {
       _advanceIptvSource();
     }
     final active = channel.sourceAt(_iptvSourceIndex);
@@ -818,6 +859,9 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen>
           play: true,
           liveStream: true,
         );
+        if (mounted && ticket == _iptvSwitchTicket) {
+          _armIptvSourceFailover();
+        }
       } catch (e) {
         debugPrint('Player: IPTV live retune failed to open: $e');
       }
@@ -3864,6 +3908,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen>
       // _isPlaying tracks mpv's pause property: a cache-stall keeps it true
       // (stall detector armed), a user pause flips it false (excluded).
       if (_effectiveIptvChannels != null) {
+        _cancelIptvSourceFailover();
         _iptvLiveRecovery.onProgress(d, wantsPlayback: _isPlaying);
       }
       _position = d;
@@ -4012,7 +4057,8 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen>
       if (isCurrent()) _iptvDiag.onBuffering(isBuffering, _position);
       if (!isCurrent() || !_isReady || _isTransitioning) return;
       if (isBuffering) {
-        _bufferingDebounceTimer?.cancel();
+        _iptvSourceFailoverTimer?.cancel();
+    _bufferingDebounceTimer?.cancel();
         _bufferingDebounceTimer = Timer(
           VideoPlayerTimingConstants.bufferingDebounceDelay,
           () {
@@ -8444,27 +8490,38 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen>
         debugPrint('Player: no playable stream for ${channel.name}');
       }
     } else {
-      // Plain M3U/Xtream channel: single link, no source sheet. Headers are
-      // per-channel (the playlist declares them per entry), so they come from
-      // the channel rather than widget.httpHeaders.
+      // Plain M3U/Xtream: use the active multi-source index (mirrors).
+      // Headers are per-source when the playlist declares them.
       _setIptvSources(null, null);
+      final active = channel.sourceAt(_iptvSourceIndex);
       try {
         _iptvDiag.onTuneStart(
           channel.name,
-          channel.url,
+          active.url,
           isLive: channel.isLive,
         );
         final media = mk.Media(
-          channel.url,
-          httpHeaders: channel.playbackHeaders,
+          active.url,
+          httpHeaders: active.playbackHeaders,
         );
         // The outgoing stream is torn down (pause above); everything mpv
         // reports from here is this channel's, including a fast failure that
         // lands while open() is still awaiting.
         _iptvErrorsMuted = false;
         await _openMedia(media, play: true, liveStream: channel.isLive);
+        if (mounted && ticket == _iptvSwitchTicket) {
+          _armIptvSourceFailover();
+        }
       } catch (e) {
         debugPrint('Player: IPTV channel switch failed: $e');
+        // Immediate mirror try on open failure when alternates exist.
+        if (mounted &&
+            ticket == _iptvSwitchTicket &&
+            channel.hasMultipleSources &&
+            _advanceIptvSource()) {
+          _performIptvLiveRetune('open_fail', 1);
+          _armIptvSourceFailover();
+        }
       }
     }
 
@@ -9257,6 +9314,9 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen>
         play: true,
         liveStream: channel.isLive,
       );
+      if (mounted && ticket == _iptvSwitchTicket) {
+        _armIptvSourceFailover();
+      }
     } catch (e) {
       debugPrint('Player: IPTV source switch failed: $e');
     }
