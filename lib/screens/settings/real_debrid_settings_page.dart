@@ -619,7 +619,7 @@ class _RealDebridSettingsPageState extends State<RealDebridSettingsPage> {
                                             focusNode: _logoutButtonFocusNode,
                                             onPressed: _deleteKey,
                                             icon: const Icon(Icons.logout),
-                                            label: Text(AppLocalizations.of(context).t('Logout'),
+                                            label: Text(AppLocalizations.of(context).t('Logout')),
                                             style: OutlinedButton.styleFrom(
                                               foregroundColor: t.danger,
                                             ),

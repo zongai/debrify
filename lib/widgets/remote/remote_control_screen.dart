@@ -859,7 +859,7 @@ class _RemoteControlScreenState extends State<RemoteControlScreen> {
                   );
                 },
                 icon: Icon(Icons.arrow_back, size: 20),
-                label: Text(AppLocalizations.of(context).t('Back'),
+                label: Text(AppLocalizations.of(context).t('Back')),
                 style: OutlinedButton.styleFrom(
                   foregroundColor: AppThemeScope.of(context).core.tx,
                   side: BorderSide(

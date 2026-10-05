@@ -170,7 +170,7 @@ class MobileClassicNav extends StatelessWidget {
                       if (context.mounted) _openEditSheet(context);
                     },
                     icon: const Icon(Icons.edit_rounded, size: 14),
-                    label: Text(AppLocalizations.of(context).t('Edit bar'),
+                    label: Text(AppLocalizations.of(context).t('Edit bar')),
                     style: TextButton.styleFrom(
                       foregroundColor: app.shell.navLabel,
                       textStyle: const TextStyle(
@@ -601,8 +601,7 @@ class _RemoteRow extends StatelessWidget {
               color: app.fade(app.core.tx, 0.75),
             ),
             const SizedBox(width: 10),
-            const Text(
-              AppLocalizations.of(context).t('Remote control'),
+            Text(AppLocalizations.of(context).t('Remote control'),
               style: TextStyle(fontSize: 12.5, fontWeight: FontWeight.w700),
             ),
             const Spacer(),

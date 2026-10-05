@@ -593,7 +593,7 @@ class _DownloadsScreenState extends State<DownloadsScreen>
                                 ? null
                                 : () => Navigator.of(context).pop(true),
                             icon: const Icon(Icons.download_rounded),
-                            label: Text(AppLocalizations.of(context).t('Download'),
+                            label: Text(AppLocalizations.of(context).t('Download')),
                             style: ElevatedButton.styleFrom(
                               padding: const EdgeInsets.symmetric(vertical: 14),
                               backgroundColor: app.downloads.accent,
