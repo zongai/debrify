@@ -1,6 +1,7 @@
 enum MediaServerKind {
   jellyfin('Jellyfin'),
-  emby('Emby');
+  emby('Emby'),
+  plex('Plex');
 
   const MediaServerKind(this.label);
   final String label;

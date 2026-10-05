@@ -1191,7 +1191,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
   );
   int _mediaServerCount = 0;
   ConnectionInfo get _mediaServersInfo => ConnectionInfo(
-    title: 'Jellyfin & Emby',
+    title: 'Jellyfin, Emby & Plex',
     connected: !_summaryFailures.contains('Media servers') && _mediaServerCount > 0,
     status: _summaryFailures.contains('Media servers') ? 'Unavailable' : _mediaServerCount > 0 ? 'Configured' : 'Not configured',
     caption: _mediaServerCount > 0 ? '$_mediaServerCount server connections' : 'Play movies and episodes from your servers',

@@ -172,7 +172,7 @@ class _MediaServerSettingsPageState extends State<MediaServerSettingsPage> {
 
   @override
   Widget build(BuildContext context) => SettingsPageScaffold(
-    title: 'Jellyfin & Emby',
+    title: 'Jellyfin, Emby & Plex',
     body: _loading
         ? const Center(child: CircularProgressIndicator())
         : ListView(
@@ -271,6 +271,7 @@ class _MediaServerConnectPageState extends State<_MediaServerConnectPage> {
   final _url = TextEditingController();
   final _user = TextEditingController();
   final _password = TextEditingController();
+  final _token = TextEditingController();
   MediaServerKind _kind = MediaServerKind.jellyfin;
   bool _busy = false;
   String? _error;
@@ -279,9 +280,15 @@ class _MediaServerConnectPageState extends State<_MediaServerConnectPage> {
   void initState() {
     super.initState();
     _label.text = widget.resource?.label ?? '';
-    if (widget.resource?.publicConfig['accountLabel'] == 'Emby') {
+    final label = widget.resource?.publicConfig['accountLabel'];
+    if (label == 'Emby') {
       _kind = MediaServerKind.emby;
+    } else if (label == 'Plex') {
+      _kind = MediaServerKind.plex;
     }
+    _token.addListener(() {
+      if (mounted) setState(() {});
+    });
   }
 
   @override
@@ -290,13 +297,25 @@ class _MediaServerConnectPageState extends State<_MediaServerConnectPage> {
     _url.dispose();
     _user.dispose();
     _password.dispose();
+    _token.dispose();
     super.dispose();
   }
 
   Future<void> _connect() async {
     if (_busy) return;
-    if (_url.text.trim().isEmpty || _user.text.trim().isEmpty) {
-      setState(() => _error = 'Enter the server URL and username.');
+    final url = _url.text.trim();
+    final token = _token.text.trim();
+    final isPlexToken = _kind == MediaServerKind.plex && token.isNotEmpty;
+    if (url.isEmpty) {
+      setState(() => _error = 'Enter the server URL.');
+      return;
+    }
+    if (!isPlexToken && _user.text.trim().isEmpty) {
+      setState(
+        () => _error = _kind == MediaServerKind.plex
+            ? 'Enter a Plex token, or a username and password.'
+            : 'Enter the server URL and username.',
+      );
       return;
     }
     setState(() {
@@ -310,6 +329,7 @@ class _MediaServerConnectPageState extends State<_MediaServerConnectPage> {
         baseUrl: _url.text,
         username: _user.text,
         password: _password.text,
+        token: isPlexToken ? token : null,
         replaceId: widget.resource?.id,
       );
       if (mounted) Navigator.pop(context);
@@ -360,22 +380,57 @@ class _MediaServerConnectPageState extends State<_MediaServerConnectPage> {
           controller: _url,
           enabled: !_busy,
           labelText: 'Server URL',
-          hintText: 'https://media.example.com',
+          hintText: _kind == MediaServerKind.plex
+              ? 'http://192.168.1.10:32400'
+              : 'https://media.example.com',
           keyboardType: TextInputType.url,
         ),
         const SizedBox(height: 16),
-        TvTextField(controller: _user, enabled: !_busy, labelText: 'Username'),
-        const SizedBox(height: 16),
-        TvTextField(
-          controller: _password,
-          enabled: !_busy,
-          labelText: 'Password',
-          obscureText: true,
-        ),
-        const SizedBox(height: 16),
-        const Text(
-          'Use a server user with access to the libraries you want to play. HTTPS is recommended outside your home network. Only the sign-in token is saved, not your password.',
-        ),
+        if (_kind == MediaServerKind.plex) ...[
+          TvTextField(
+            controller: _token,
+            enabled: !_busy,
+            labelText: 'Plex token (recommended)',
+            hintText: 'X-Plex-Token value',
+            obscureText: true,
+          ),
+          const SizedBox(height: 8),
+          Text(
+            'Paste a server or account token. When a token is set, username and password are ignored.',
+            style: Theme.of(context).textTheme.bodySmall,
+          ),
+          const SizedBox(height: 16),
+          TvTextField(
+            controller: _user,
+            enabled: !_busy && _token.text.trim().isEmpty,
+            labelText: 'Username (optional if token set)',
+          ),
+          const SizedBox(height: 16),
+          TvTextField(
+            controller: _password,
+            enabled: !_busy && _token.text.trim().isEmpty,
+            labelText: 'Password (optional if token set)',
+            obscureText: true,
+          ),
+          const SizedBox(height: 16),
+          Text(
+            'Token-only: no plex.tv password is sent. Find a token in Plex Web (authorized devices) or from an existing client. HTTPS is recommended outside your home network. Only the token is stored.',
+            style: Theme.of(context).textTheme.bodySmall,
+          ),
+        ] else ...[
+          TvTextField(controller: _user, enabled: !_busy, labelText: 'Username'),
+          const SizedBox(height: 16),
+          TvTextField(
+            controller: _password,
+            enabled: !_busy,
+            labelText: 'Password',
+            obscureText: true,
+          ),
+          const SizedBox(height: 16),
+          const Text(
+            'Use a server user with access to the libraries you want to play. HTTPS is recommended outside your home network. Only the sign-in token is saved, not your password.',
+          ),
+        ],
         if (_error != null)
           Padding(
             padding: const EdgeInsets.only(top: 16),

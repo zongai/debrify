@@ -9,9 +9,14 @@ import 'package:crypto/crypto.dart';
 import '../models/media_server.dart';
 import '../models/media_server_library.dart';
 import '../models/media_server_watch_state.dart';
+import 'plex_client.dart';
 
-/// Shared Jellyfin/Emby user API. Only same-server endpoints are constructed;
-/// remote paths supplied in library metadata are never opened directly.
+/// Shared media-server user API (Jellyfin, Emby, and Plex).
+///
+/// Jellyfin/Emby share one HTTP dialect; Plex is handled by [PlexClient] and
+/// mapped into the same library/source shapes. Only same-server endpoints are
+/// constructed; remote paths supplied in library metadata are never opened
+/// directly.
 class MediaServerClient {
   MediaServerClient({
     http.Client? client,
@@ -19,14 +24,19 @@ class MediaServerClient {
     this.lookupBudget = const Duration(seconds: 12),
     DateTime Function()? lookupClock,
   }) : _client = client ?? http.Client(),
-       _lookupClock = lookupClock ?? DateTime.now;
+       _lookupClock = lookupClock ?? DateTime.now,
+       _plex = PlexClient(client: client, timeout: timeout);
 
   final http.Client _client;
+  final PlexClient _plex;
   final Duration timeout;
   final Duration lookupBudget;
   final DateTime Function() _lookupClock;
   static final _lookupCache = <(Object, String), _LookupPageState>{};
-  void close() => _client.close();
+  void close() {
+    _client.close();
+    _plex.close();
+  }
 
   static Uri normalizeBaseUrl(String value) {
     final uri = Uri.tryParse(value.trim());
@@ -63,6 +73,9 @@ class MediaServerClient {
     String? token,
     MediaServerKind kind = MediaServerKind.jellyfin,
   ]) {
+    if (kind == MediaServerKind.plex) {
+      return PlexClient.headers(deviceId: deviceId, token: token);
+    }
     // Jellyfin 12 no longer accepts X-Emby-Token. Include the session token in
     // the standard authorization value for API calls AND player requests;
     // keep the legacy header for older Jellyfin/Emby installations.
@@ -210,7 +223,26 @@ class MediaServerClient {
     required String password,
     required String deviceId,
     Future<void> Function()? authorize,
+    String? token,
   }) async {
+    if (kind == MediaServerKind.plex) {
+      final plexToken = token?.trim() ?? '';
+      if (plexToken.isNotEmpty) {
+        return _plex.loginWithToken(
+          baseUrl: baseUrl,
+          token: plexToken,
+          deviceId: deviceId,
+          authorize: authorize,
+        );
+      }
+      return _plex.login(
+        baseUrl: baseUrl,
+        username: username,
+        password: password,
+        deviceId: deviceId,
+        authorize: authorize,
+      );
+    }
     final base = normalizeBaseUrl(baseUrl).toString();
     final data = await _request(
       base,
@@ -247,6 +279,9 @@ class MediaServerClient {
     MediaServerAccount account, {
     Future<void> Function()? authorize,
   }) async {
+    if (account.kind == MediaServerKind.plex) {
+      return _plex.testConnection(account, authorize: authorize);
+    }
     final info = await _request(
       account.baseUrl,
       'System/Info/Public',
@@ -424,6 +459,18 @@ class MediaServerClient {
       return [];
     }
     final providerId = provider == 'imdb' ? id : id.split(':').last;
+    if (account.kind == MediaServerKind.plex) {
+      return _plex.findItems(
+        account,
+        provider: provider,
+        providerId: providerId,
+        isMovie: isMovie,
+        season: season,
+        episode: episode,
+        authorize: authorize,
+        deadline: deadline,
+      );
+    }
     bool matchesIdentity(Map<String, dynamic> item) {
       final ids = item['ProviderIds'];
       return item['Type'] == (isMovie ? 'Movie' : 'Series') &&
@@ -518,6 +565,22 @@ class MediaServerClient {
     bool episodeOrder = false,
     Future<void> Function()? authorize,
   }) async {
+    if (account.kind == MediaServerKind.plex) {
+      // Plex sections use their own key path; when drilling into a section the
+      // panel passes the section id / metadata ratingKey as parentId.
+      String? plexParent = parentId;
+      if (parentId != null && parentId.isNotEmpty) {
+        // Prefer the stored plex key when the item carried one.
+        plexParent = parentId;
+      }
+      return _plex.library(
+        account,
+        parentId: plexParent,
+        search: search,
+        offset: offset,
+        authorize: authorize,
+      );
+    }
     if (offset < 0 ||
         !const {'SortName', 'DateCreated', 'ProductionYear'}.contains(sort) ||
         !const {'browse', 'recent', 'resume'}.contains(mode)) {
@@ -577,6 +640,9 @@ class MediaServerClient {
     String itemId, {
     Future<void> Function()? authorize,
   }) async {
+    if (account.kind == MediaServerKind.plex) {
+      return _plex.libraryItem(account, itemId, authorize: authorize);
+    }
     final data = await _request(
       account.baseUrl,
       'Users/${_segment(account.userId)}/Items/${_segment(itemId)}',
@@ -598,6 +664,9 @@ class MediaServerClient {
     String itemId, {
     Future<void> Function()? authorize,
   }) async {
+    if (account.kind == MediaServerKind.plex) {
+      return _plex.libraryImage(account, itemId, authorize: authorize);
+    }
     await authorize?.call();
     final request =
         http.Request(
@@ -636,6 +705,9 @@ class MediaServerClient {
     String itemId, {
     Future<void> Function()? authorize,
   }) async {
+    if (account.kind == MediaServerKind.plex) {
+      return _plex.mediaSources(account, itemId, authorize: authorize);
+    }
     final data = await _request(
       account.baseUrl,
       'Items/${_segment(itemId)}/PlaybackInfo',
@@ -675,6 +747,9 @@ class MediaServerClient {
     String itemId, {
     Future<void> Function()? authorize,
   }) async {
+    if (account.kind == MediaServerKind.plex) {
+      return _plex.watchState(account, itemId, authorize: authorize);
+    }
     final item = await _request(
       account.baseUrl,
       'Users/${_segment(account.userId)}/Items/${_segment(itemId)}',
@@ -694,6 +769,10 @@ class MediaServerClient {
     String itemId, {
     Future<void> Function()? authorize,
   }) async {
+    if (account.kind == MediaServerKind.plex) {
+      // Plex timeline does not require a PlaySessionId from PlaybackInfo.
+      return null;
+    }
     final info = await _request(
       account.baseUrl,
       'Items/${_segment(itemId)}/PlaybackInfo',
@@ -720,6 +799,21 @@ class MediaServerClient {
     required bool paused,
     Future<void> Function()? authorize,
   }) async {
+    if (account.kind == MediaServerKind.plex) {
+      // positionMs is already milliseconds; Plex timeline uses ms.
+      // Convert to ticks for the shared PlexClient helper (ticks = ms * 10000).
+      return _plex.reportWatchProgress(
+        account,
+        itemId: itemId,
+        mediaSourceId: mediaSourceId,
+        action: action,
+        positionTicks: positionMs * 10000,
+        durationTicks: 0,
+        paused: paused,
+        sessionId: playSessionId.isEmpty ? null : playSessionId,
+        authorize: authorize,
+      );
+    }
     final path = switch (action) {
       'start' => 'Sessions/Playing',
       'progress' => 'Sessions/Playing/Progress',
@@ -752,6 +846,9 @@ class MediaServerClient {
     String itemId, {
     Future<void> Function()? authorize,
   }) async {
+    if (account.kind == MediaServerKind.plex) {
+      return _plex.markWatched(account, itemId, authorize: authorize);
+    }
     await _request(
       account.baseUrl,
       'Users/${_segment(account.userId)}/PlayedItems/${_segment(itemId)}',
@@ -767,12 +864,19 @@ class MediaServerClient {
   static Uri playbackUrl(
     MediaServerAccount account,
     String itemId,
-    String sourceId,
-  ) => endpoint(account.baseUrl, 'Videos/${_segment(itemId)}/stream', {
-    'Static': 'true',
-    'MediaSourceId': sourceId,
-    'DeviceId': account.deviceId,
-  });
+    String sourceId, {
+    String? plexPartKey,
+  }) {
+    if (account.kind == MediaServerKind.plex) {
+      final key = plexPartKey ?? sourceId;
+      return PlexClient.playbackUrl(account, key);
+    }
+    return endpoint(account.baseUrl, 'Videos/${_segment(itemId)}/stream', {
+      'Static': 'true',
+      'MediaSourceId': sourceId,
+      'DeviceId': account.deviceId,
+    });
+  }
 }
 
 class _LookupTimeout extends MediaServerException {

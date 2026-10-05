@@ -211,6 +211,7 @@ class MediaServerService {
     required String baseUrl,
     required String username,
     required String password,
+    String? token,
     String? replaceId,
   }) async {
     if (!ProfileCollectionResourceFacade.active) {
@@ -251,6 +252,7 @@ class MediaServerService {
         baseUrl: baseUrl,
         username: username,
         password: password,
+        token: token,
         deviceId: List.generate(
           24,
           (_) => Random.secure().nextInt(256).toRadixString(16).padLeft(2, '0'),
@@ -359,10 +361,15 @@ class MediaServerService {
       final video = (media['MediaStreams'] as List? ?? [])
           .whereType<Map>()
           .where((s) => s['Type'] == 'Video');
-      final videoStream = video.isEmpty
-          ? const <String, dynamic>{}
-          : video.first;
-      final codec = videoStream['Codec'];
+      // Plex mediaSources put Width/Height/Codec on the media map itself.
+      final videoStream = <String, dynamic>{
+        if (media['Width'] != null) 'Width': media['Width'],
+        if (media['Height'] != null) 'Height': media['Height'],
+        if (media['VideoCodec'] != null) 'Codec': media['VideoCodec'],
+        if (media['VideoRange'] != null) 'VideoRange': media['VideoRange'],
+        if (video.isNotEmpty) ...video.first,
+      };
+      final codec = videoStream['Codec'] ?? media['VideoCodec'];
       final title = item['Name'] as String? ?? 'Untitled';
       final quality = _quality(videoStream);
       final rangeTags = _dynamicRangeTags(videoStream);
@@ -423,6 +430,7 @@ class MediaServerService {
           account,
           itemId,
           sourceId,
+          plexPartKey: media['_plexPartKey'] as String?,
         ).toString(),
         httpHeaders: MediaServerClient.headers(
           account.deviceId,

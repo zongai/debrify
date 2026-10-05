@@ -158,14 +158,27 @@ class _MediaServerLibraryPanelState extends State<MediaServerLibraryPanel> {
       if (!mounted || generation != _generation) return;
       final libraries = views.items
           .where(
-            (item) => !const {
-              'music',
-              'books',
-              'photos',
-              'games',
-              'livetv',
-              'channels',
-            }.contains(item.data['CollectionType']),
+            (item) {
+              final collection = item.data['CollectionType']?.toString();
+              final plexType = item.data['_plexType']?.toString();
+              const blocked = {
+                'music',
+                'books',
+                'photos',
+                'games',
+                'livetv',
+                'channels',
+                'artist',
+                'photo',
+              };
+              if (collection != null && blocked.contains(collection)) {
+                return false;
+              }
+              if (plexType != null && blocked.contains(plexType)) {
+                return false;
+              }
+              return true;
+            },
           )
           .toList();
       setState(() {

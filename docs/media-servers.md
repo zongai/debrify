@@ -1,9 +1,32 @@
-# Jellyfin and Emby sources
+# Jellyfin, Emby and Plex sources
 
-Open **Settings → Jellyfin & Emby → Connect server**. Choose the server type,
+Open **Settings → Jellyfin, Emby & Plex → Connect server**. Choose the server type,
 enter its URL (including a reverse-proxy base path, if any), and sign in with
 a server user that can play the desired library. Multiple servers are supported.
 Use **Test connection**, **Reconnect**, or **Disconnect** on an existing connection.
+
+
+## Plex-specific notes
+
+**Token login (recommended):** paste a Plex **X-Plex-Token** with the PMS URL.
+No plex.tv password is sent. Tokens can come from Plex Web (account →
+authorized devices), PMS, or another client that already holds a valid token.
+The app only stores the token (encrypted in the profile resource registry).
+
+**Username/password:** still supported — signs in via plex.tv to obtain a
+token, then verifies it against the PMS URL. Shared Home users must have
+library access on that server.
+
+The server must be reachable from this device (local network or remote access).
+
+Matching for **Sources** uses Plex GUIDs (`imdb://`, `tmdb://`, `tvdb://`),
+including legacy agent-style GUIDs. Playback uses direct play of the original
+Part (no transcode negotiation yet). Progress is written back via the Plex
+timeline/scrobble endpoints.
+
+Reference client behaviour for headers, token handling, library sections,
+metadata children, and timeline updates follows the open-source
+[plex-for-kodi](https://github.com/pannal/plex-for-kodi) (plexnet) patterns.
 
 Open a movie or an individual episode and select **Sources**. Matching versions
 appear under the server's display name, with resolution/container/codec labels.
