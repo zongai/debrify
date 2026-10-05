@@ -2,6 +2,8 @@ import 'dart:async';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
+import '../l10n/app_localizations.dart';
+
 import '../models/stream_badge_rules.dart';
 import '../services/stream_badge_matcher.dart';
 import '../services/stream_badges_service.dart';

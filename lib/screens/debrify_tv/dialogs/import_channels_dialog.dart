@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+
+import '../../../l10n/app_localizations.dart';
 import 'spotlight_dialog.dart';
 
 /// Import mode selection for channels

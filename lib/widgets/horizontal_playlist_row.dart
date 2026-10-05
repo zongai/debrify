@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+
+import '../l10n/app_localizations.dart';
 import 'playlist_landscape_card.dart';
 import 'horizontal_mouse_wheel.dart';
 

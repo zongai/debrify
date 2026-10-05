@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../l10n/app_localizations.dart';
+
 import '../../../models/debrify_tv/channel.dart';
 import '../../../models/debrify_tv/channel_stats.dart';
 import '../../../models/debrify_tv_cache.dart';

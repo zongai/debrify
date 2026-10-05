@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../l10n/app_localizations.dart';
+
 class StatChip extends StatelessWidget {
   final IconData icon;
   final String text;

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../l10n/app_localizations.dart';
+
 import '../models/trakt/trakt_calendar_entry.dart';
 import '../theme/app_theme.dart';
 import '../theme/app_theme_scope.dart';

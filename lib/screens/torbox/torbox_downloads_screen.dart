@@ -393,7 +393,7 @@ class _TorboxDownloadsScreenState extends State<TorboxDownloadsScreen> {
     if (videoFiles.isEmpty) {
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('No playable Torbox video files found.')),
+        SnackBar(content: Text(AppLocalizations.of(context).t('No playable Torbox video files found.'))),
       );
       return;
     }
@@ -545,12 +545,12 @@ class _TorboxDownloadsScreenState extends State<TorboxDownloadsScreen> {
       ),
       _TorboxMoreOption(
         icon: Icons.live_tv_rounded,
-        label: 'Add to Debrify TV',
+        label: AppLocalizations.of(context).t('Add to Debrify TV'),
         onTap: () => _handleAddToDebrifyTv(torrent),
       ),
       _TorboxMoreOption(
         icon: Icons.copy,
-        label: 'Copy Link',
+        label: AppLocalizations.of(context).t('Copy Link'),
         onTap: isMultiFile
             ? () => _copyTorrentZipLink(torrent)
             : () => _copyTorrentLink(torrent),
@@ -1519,7 +1519,7 @@ class _TorboxDownloadsScreenState extends State<TorboxDownloadsScreen> {
                         // Option 2: Download as ZIP
                         _buildDownloadOptionCard(
                           icon: Icons.folder_zip_rounded,
-                          title: 'Download as ZIP',
+                          title: AppLocalizations.of(context).t('Download as ZIP'),
                           description:
                               'Download all files in a single ZIP archive',
                           color: const Color(0xFF10B981),
@@ -1576,7 +1576,7 @@ class _TorboxDownloadsScreenState extends State<TorboxDownloadsScreen> {
     final messenger = ScaffoldMessenger.of(context);
     messenger.showSnackBar(
       const SnackBar(
-        content: Text('Preparing ZIP download...'),
+        content: Text(AppLocalizations.of(context).t('Preparing ZIP download...')),
         duration: Duration(seconds: 2),
       ),
     );
@@ -1593,7 +1593,7 @@ class _TorboxDownloadsScreenState extends State<TorboxDownloadsScreen> {
         if (mounted) {
           messenger.showSnackBar(
             const SnackBar(
-              content: Text('Failed to generate ZIP download link'),
+              content: Text(AppLocalizations.of(context).t('Failed to generate ZIP download link')),
               backgroundColor: Color(0xFFEF4444),
             ),
           );
@@ -1625,7 +1625,7 @@ class _TorboxDownloadsScreenState extends State<TorboxDownloadsScreen> {
       if (mounted) {
         messenger.showSnackBar(
           const SnackBar(
-            content: Text('ZIP download queued successfully'),
+            content: Text(AppLocalizations.of(context).t('ZIP download queued successfully')),
             backgroundColor: Color(0xFF10B981),
           ),
         );
@@ -3102,7 +3102,7 @@ class _TorboxDownloadsScreenState extends State<TorboxDownloadsScreen> {
     final messenger = ScaffoldMessenger.of(context);
     messenger.showSnackBar(
       const SnackBar(
-        content: Text('Preparing ZIP download...'),
+        content: Text(AppLocalizations.of(context).t('Preparing ZIP download...')),
         duration: Duration(seconds: 2),
       ),
     );
@@ -3116,7 +3116,7 @@ class _TorboxDownloadsScreenState extends State<TorboxDownloadsScreen> {
         if (mounted) {
           messenger.showSnackBar(
             const SnackBar(
-              content: Text('Failed to generate ZIP download link'),
+              content: Text(AppLocalizations.of(context).t('Failed to generate ZIP download link')),
               backgroundColor: Color(0xFFEF4444),
             ),
           );
@@ -3148,7 +3148,7 @@ class _TorboxDownloadsScreenState extends State<TorboxDownloadsScreen> {
       if (mounted) {
         messenger.showSnackBar(
           const SnackBar(
-            content: Text('ZIP download queued successfully'),
+            content: Text(AppLocalizations.of(context).t('ZIP download queued successfully')),
             backgroundColor: Color(0xFF10B981),
           ),
         );
@@ -6528,7 +6528,7 @@ class _TorboxDownloadsScreenState extends State<TorboxDownloadsScreen> {
         ),
       CloudRowAction(
         icon: Icons.live_tv_rounded,
-        label: 'Add to Debrify TV',
+        label: AppLocalizations.of(context).t('Add to Debrify TV'),
         onSelected: () => _handleAddToDebrifyTv(torrent),
       ),
       CloudRowAction(
@@ -6601,7 +6601,7 @@ class _TorboxDownloadsScreenState extends State<TorboxDownloadsScreen> {
       if (!isFolder)
         CloudRowAction(
           icon: Icons.link,
-          label: 'Copy Link',
+          label: AppLocalizations.of(context).t('Copy Link'),
           onSelected: () => _copyFileLink(node),
         ),
     ];

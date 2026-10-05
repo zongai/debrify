@@ -2,6 +2,8 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 import 'launch_ident.dart';
 
 /// Prism — the name huge and ultralight, its glyphs filled by one spectrum

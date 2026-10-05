@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 /// Empty state for Reddit when no search/subreddit selected
 class RedditEmptyState extends StatelessWidget {
   const RedditEmptyState({super.key});

@@ -2,6 +2,8 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 import 'launch_ident.dart';
 
 /// Monogram — confidence by subtraction. A single hairline ring draws itself

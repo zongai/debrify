@@ -183,7 +183,7 @@ class ProfileBackupFlows {
               onPressed: passphrase.text.length >= 8
                   ? () => Navigator.of(dialogContext).pop(true)
                   : null,
-              child: const Text('Create backup'),
+              child: Text(AppLocalizations.of(context).t('Create backup')),
             ),
           ],
         ),
@@ -315,7 +315,7 @@ class ProfileBackupFlows {
           FilledButton(
             autofocus: true,
             onPressed: () => Navigator.of(dialogContext).pop(true),
-            child: const Text('Create backup'),
+            child: Text(AppLocalizations.of(context).t('Create backup')),
           ),
         ],
       ),
@@ -1161,7 +1161,7 @@ class ProfileBackupFlows {
           textInputAction: TextInputAction.done,
           keyboardSubmitLabel: 'Unlock',
           decoration: InputDecoration(
-            labelText: 'Passphrase',
+            labelText: AppLocalizations.of(context).t('Passphrase'),
             errorText: errorText,
           ),
           onSubmitted: (value) => Navigator.of(dialogContext).pop(value),
@@ -1269,7 +1269,7 @@ class ProfileBackupFlows {
                   textInputAction: TextInputAction.done,
                   keyboardSubmitLabel: 'Unlock',
                   decoration: InputDecoration(
-                    labelText: 'Passphrase',
+                    labelText: AppLocalizations.of(context).t('Passphrase'),
                     errorText: errorText,
                   ),
                   onSubmitted: (value) => Navigator.of(context).pop(value),

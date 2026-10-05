@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+
+import '../l10n/app_localizations.dart';
 import '../utils/tv_keys.dart';
 
 /// Adds held-OK and touch long-press without turning a short press into a hold.

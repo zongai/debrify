@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 import '../../theme/app_theme_scope.dart';
 import '../../theme/widgets/focus_expression.dart';
 

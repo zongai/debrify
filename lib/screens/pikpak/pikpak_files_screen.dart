@@ -2232,7 +2232,7 @@ class _PikPakFilesScreenState extends State<PikPakFilesScreen> {
               focusNode: _addLinkButtonFocusNode,
               icon: const Icon(Icons.add_link),
               onPressed: _isLoading ? null : _showAddLinkDialog,
-              tooltip: 'Add Link',
+              tooltip: AppLocalizations.of(context).t('Add Link'),
               iconSize: actionIconSize,
               padding: actionIconPadding,
               constraints: actionIconConstraints,

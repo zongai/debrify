@@ -8,6 +8,8 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 import '../../models/stremio_addon.dart';
 import '../../services/app_route_observer.dart';
 import '../../services/main_page_bridge.dart';

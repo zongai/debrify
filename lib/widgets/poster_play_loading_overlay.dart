@@ -2,6 +2,8 @@ import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
 
+import '../l10n/app_localizations.dart';
+
 /// Cinematic "finding the best source" mask for catalog auto-play: the title's
 /// poster fills the screen (blurred + darkened), with a provider-accent spinner,
 /// the title, a status line, and an optional Cancel button. Mirrors Home's

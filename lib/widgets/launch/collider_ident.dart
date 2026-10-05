@@ -4,6 +4,8 @@ import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 import 'launch_ident.dart';
 
 /// Collider — two spiral galaxies fall together, shear each other into tidal

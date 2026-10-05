@@ -4,6 +4,8 @@ import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 import 'launch_ident.dart';
 
 /// Ember — the letters start as cold iron voids. Heat floods up through them,

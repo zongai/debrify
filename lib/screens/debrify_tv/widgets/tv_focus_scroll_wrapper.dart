@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../l10n/app_localizations.dart';
+
 /// Wraps a focusable widget to ensure proper scroll positioning on Android TV.
 ///
 /// When a descendant widget gains focus, this wrapper ensures the item is

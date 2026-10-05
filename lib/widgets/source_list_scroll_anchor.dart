@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+
+import '../l10n/app_localizations.dart';
 import 'package:flutter/rendering.dart';
 
 /// Keeps DPAD focus anchored as asynchronous badges/images change row heights.

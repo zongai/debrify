@@ -281,7 +281,7 @@ class _TvAutoLockField extends StatelessWidget {
         context: context,
         builder: (context) => TvHeldKeyGuard(
           child: SimpleDialog(
-            title: const Text('Auto-lock'),
+            title: Text(AppLocalizations.of(context).t('Auto-lock')),
             children: [
               for (final entry in _labels.entries)
                 ListTile(
@@ -1136,7 +1136,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
     await showDialog<void>(
       context: context,
       builder: (dialogContext) => AlertDialog(
-        title: const Text('Profile diagnostics'),
+        title: Text(AppLocalizations.of(context).t('Profile diagnostics')),
         content: SizedBox(
           width: 560,
           child: SingleChildScrollView(child: SelectableText(report)),
@@ -1278,7 +1278,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                 ),
                 DropdownButtonFormField<int>(
                   initialValue: _inactivityMinutes,
-                  decoration: const InputDecoration(labelText: 'Auto-lock'),
+                  decoration: InputDecoration(labelText: AppLocalizations.of(context).t('Auto-lock')),
                   items: const <DropdownMenuItem<int>>[
                     DropdownMenuItem(value: 0, child: Text(AppLocalizations.of(context).t('Never'))),
                     DropdownMenuItem(value: 5, child: Text('After 5 minutes')),
@@ -1315,7 +1315,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                   _sectionLabel('Data'),
                   ListTile(
                     leading: const Icon(Icons.info_outline_rounded),
-                    title: const Text('Diagnostics'),
+                    title: Text(AppLocalizations.of(context).t('Diagnostics')),
                     subtitle: const Text(
                       'Registry, generation and lease state',
                     ),

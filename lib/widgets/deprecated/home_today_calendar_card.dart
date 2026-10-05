@@ -1,6 +1,8 @@
 // DEPRECATED — orphaned when the old Home board was retired (2026-07-13).
 // Fully commented; not compiled/used. Kept for reference.
 // import 'package:flutter/material.dart';
+
+import '../../l10n/app_localizations.dart';
 // import 'package:flutter/services.dart';
 // 
 // import '../models/trakt/trakt_calendar_entry.dart';

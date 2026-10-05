@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 /// Empty state for Lemmy when no search/community selected
 class LemmyEmptyState extends StatelessWidget {
   const LemmyEmptyState({super.key});

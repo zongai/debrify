@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../l10n/app_localizations.dart';
+
 import '../../../models/debrify_tv/channel.dart';
 import '../../../models/debrify_tv/channel_stats.dart';
 import '../../../models/debrify_tv_cache.dart';
@@ -252,7 +254,7 @@ class SpotlightStage extends StatelessWidget {
               onKey: onKey,
               onActivate: onDelete,
               icon: Icons.delete_outline_rounded,
-              tooltip: 'Delete channel',
+              tooltip: AppLocalizations.of(context).t('Delete channel'),
               danger: true,
             ),
           ],
@@ -437,7 +439,7 @@ class _StatsBand extends StatelessWidget {
           const SizedBox(width: 8),
           Expanded(
             child: _StatCard(
-              label: 'Keywords',
+              label: AppLocalizations.of(context).t('Keywords'),
               value: s == null ? '—' : '${kwTotal - deadCount} of $kwTotal',
               caption: s == null
                   ? ''

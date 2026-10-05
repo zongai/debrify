@@ -1,5 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+
+import '../l10n/app_localizations.dart';
 import 'package:flutter/services.dart';
 
 import '../services/trakt/trakt_episode_model.dart';
@@ -352,7 +354,7 @@ class _EpisodeTileState extends State<EpisodeTile> {
             top: 8,
             left: 8,
             child: _Chip(
-              label: 'UP NEXT',
+              label: AppLocalizations.of(context).t('UP NEXT'),
               color: Color(0xFFFBBF24),
               filled: true,
             ),

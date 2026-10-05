@@ -2,6 +2,8 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 import 'launch_ident.dart';
 
 /// Trace — a signal locking on. One point of light runs the frame, drawing a

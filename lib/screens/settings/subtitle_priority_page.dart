@@ -248,7 +248,7 @@ class _SubtitlePriorityPageState extends State<SubtitlePriorityPage> {
                                         ),
                                         if (_moving == id) ...[
                                           IconButton(
-                                            tooltip: 'Move up',
+                                            tooltip: AppLocalizations.of(context).t('Move up'),
                                             onPressed:
                                                 _saving || _order.first == id
                                                 ? null
@@ -258,7 +258,7 @@ class _SubtitlePriorityPageState extends State<SubtitlePriorityPage> {
                                             ),
                                           ),
                                           IconButton(
-                                            tooltip: 'Move down',
+                                            tooltip: AppLocalizations.of(context).t('Move down'),
                                             onPressed:
                                                 _saving || _order.last == id
                                                 ? null

@@ -1,6 +1,8 @@
 import 'dart:math' as math;
 import 'package:flutter/material.dart';
 
+import '../l10n/app_localizations.dart';
+
 /// Phases of the torrent search process.
 enum SearchPhase {
   idle,

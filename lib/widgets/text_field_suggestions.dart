@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../l10n/app_localizations.dart';
+
 /// Presentation-only choices supplied by a field's owner. Keeping the action
 /// with its stable identity avoids selecting a different item after a refresh.
 class TextFieldSuggestion {

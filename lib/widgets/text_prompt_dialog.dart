@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../l10n/app_localizations.dart';
+
 /// A single-field prompt (a URL, a pasted document) that pops the trimmed
 /// text on confirm and null on cancel. Empty input never confirms.
 class TextPromptDialog extends StatefulWidget {

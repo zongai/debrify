@@ -1100,7 +1100,7 @@ class _SyncAndMigratePageState extends State<SyncAndMigratePage>
         if (active && !_logoutPending) ...[
           const SizedBox(height: 16),
           SettingsSection(
-            title: 'Diagnostics',
+            title: AppLocalizations.of(context).t('Diagnostics'),
             children: [
               SettingsToggleTile(
                 icon: Icons.upload_file_outlined,

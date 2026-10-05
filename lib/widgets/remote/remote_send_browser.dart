@@ -131,7 +131,7 @@ class _RemoteSendBrowserState extends State<RemoteSendBrowser> {
                       ? null
                       : () => setState(() => _group = null),
                   icon: const Icon(Icons.arrow_back),
-                  label: const Text('Send'),
+                  label: Text(AppLocalizations.of(context).t('Send')),
                 ),
               ),
               Text(

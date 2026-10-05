@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../l10n/app_localizations.dart';
+
 /// A tile widget for displaying search statistics.
 ///
 /// Shows the queue size and last search timestamp for Debrify TV.

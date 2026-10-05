@@ -1367,7 +1367,7 @@ class _RemoteTransferAllState extends State<RemoteTransferAll> {
           ConfigCommand.streamBadges,
           targetIp,
           jsonEncode(payload),
-          label: 'Stream badges',
+          label: AppLocalizations.of(context).t('Stream badges'),
           transferRequestId: transferRequestId,
         );
       default:
@@ -1435,7 +1435,7 @@ class _RemoteTransferAllState extends State<RemoteTransferAll> {
           child: TextButton.icon(
             onPressed: busy ? null : widget.onBack,
             icon: const Icon(Icons.arrow_back),
-            label: const Text('Send'),
+            label: Text(AppLocalizations.of(context).t('Send')),
           ),
         ),
         Text(

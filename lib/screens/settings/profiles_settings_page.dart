@@ -280,7 +280,7 @@ class _ProfilesSettingsPageState extends State<ProfilesSettingsPage> {
     await showDialog<void>(
       context: context,
       builder: (dialogContext) => AlertDialog(
-        title: const Text('Profile diagnostics'),
+        title: Text(AppLocalizations.of(context).t('Profile diagnostics')),
         content: SizedBox(
           width: 560,
           child: SingleChildScrollView(child: SelectableText(report)),
@@ -319,7 +319,7 @@ class _ProfilesSettingsPageState extends State<ProfilesSettingsPage> {
                     value: 'diagnostics',
                     child: ListTile(
                       leading: Icon(Icons.health_and_safety_outlined),
-                      title: Text('Profile diagnostics'),
+                      title: Text(AppLocalizations.of(context).t('Profile diagnostics')),
                     ),
                   ),
                 ],

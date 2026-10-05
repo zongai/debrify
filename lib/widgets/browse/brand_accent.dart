@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 /// Deterministic vivid accent colour derived from a string (channel/author
 /// name). Gives every card a stable, distinct tint so a wall of mismatched
 /// logos reads as curated rather than random — without decoding the image.

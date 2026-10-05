@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../l10n/app_localizations.dart';
+
 import '../models/torrent.dart';
 import '../utils/dialog_tap_guard.dart';
 

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../l10n/app_localizations.dart';
+
 /// Sections in the Home screen that can receive focus
 enum HomeSection {
   sources,

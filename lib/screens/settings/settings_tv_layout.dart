@@ -1074,7 +1074,7 @@ class _SettingsTvLayoutState extends State<SettingsTvLayout> {
               ),
               SettingsTile.spec(
                 SettingsRows.collectionListStyle,
-                subtitle: 'Grid · Gallery · Filmstrip · Journal',
+                subtitle: AppLocalizations.of(context).t('Grid · Gallery · Filmstrip · Journal'),
                 onTap:
                     widget.onOpenCollectionListStyle ??
                     () => pushSettingsPage(

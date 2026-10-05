@@ -2,6 +2,8 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 import '../../models/home_collection.dart';
 import '../../models/stremio_addon.dart';
 import '../settings/widgets/settings_widgets.dart';
@@ -66,7 +68,7 @@ class _CollectionEditorScreenState extends State<CollectionEditorScreen> {
         title: Text(
           widget.collection == null ? 'Create collection' : 'Edit collection',
         ),
-        actions: [TextButton(onPressed: _save, child: const Text('Save'))],
+        actions: [TextButton(onPressed: _save, child: Text(AppLocalizations.of(context).t('Save')))],
       ),
       body: Form(
         key: _form,
@@ -165,7 +167,7 @@ class _FolderEditorState extends State<_FolderEditor> {
   Widget build(BuildContext context) => Scaffold(
     appBar: AppBar(
       title: const Text('Edit folder'),
-      actions: [TextButton(onPressed: _save, child: const Text('Save'))],
+      actions: [TextButton(onPressed: _save, child: Text(AppLocalizations.of(context).t('Save')))],
     ),
     body: Form(
       key: _form,
@@ -291,7 +293,7 @@ class _SourceEditorState extends State<_SourceEditor> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Edit source'),
-        actions: [TextButton(onPressed: _save, child: const Text('Save'))],
+        actions: [TextButton(onPressed: _save, child: Text(AppLocalizations.of(context).t('Save')))],
       ),
       body: Form(
         key: _form,
@@ -301,7 +303,7 @@ class _SourceEditorState extends State<_SourceEditor> {
           children: [
             DropdownButtonFormField<String>(
               initialValue: _provider,
-              decoration: const InputDecoration(labelText: 'Source'),
+              decoration: InputDecoration(labelText: AppLocalizations.of(context).t('Source')),
               items: [
                 for (final e in providerChoices.entries)
                   DropdownMenuItem(value: e.key, child: Text(e.value)),
@@ -629,7 +631,7 @@ Widget _orderedTile<T>({
       mainAxisAlignment: MainAxisAlignment.end,
       children: [
         IconButton(
-          tooltip: 'Move up',
+          tooltip: AppLocalizations.of(context).t('Move up'),
           onPressed: index == 0
               ? null
               : () {
@@ -640,7 +642,7 @@ Widget _orderedTile<T>({
           icon: const Icon(Icons.arrow_upward),
         ),
         IconButton(
-          tooltip: 'Move down',
+          tooltip: AppLocalizations.of(context).t('Move down'),
           onPressed: index == values.length - 1
               ? null
               : () {
@@ -651,7 +653,7 @@ Widget _orderedTile<T>({
           icon: const Icon(Icons.arrow_downward),
         ),
         IconButton(
-          tooltip: 'Remove',
+          tooltip: AppLocalizations.of(context).t('Remove'),
           onPressed: () {
             values.removeAt(index);
             onChanged();

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 import '../skeleton_poster.dart';
 
 /// Static placeholder rows shown while a cloud folder listing loads — shaped

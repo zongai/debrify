@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+
+import '../../l10n/app_localizations.dart';
 import '../../models/playlist_view_mode.dart';
 import '../../models/stremio_subtitle.dart';
 import '../../models/torrent.dart';
@@ -199,7 +201,7 @@ class YoutubeResultsViewState extends State<YoutubeResultsView>
                 child: CircularProgressIndicator(strokeWidth: 2),
               ),
               SizedBox(width: 12),
-              Text('Loading video...'),
+              Text(AppLocalizations.of(context).t('Loading video...')),
             ],
           ),
           duration: Duration(seconds: 4),

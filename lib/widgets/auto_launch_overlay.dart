@@ -1,6 +1,8 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 
+import '../l10n/app_localizations.dart';
+
 /// Full-screen overlay shown during auto-launch of Debrify TV channels.
 ///
 /// This overlay provides a beautiful loading experience that masks the

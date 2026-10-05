@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../l10n/app_localizations.dart';
+
 import '../utils/platform_util.dart';
 
 /// Shell tab transitions. Android TV fades in only the selected page, so an

@@ -1724,7 +1724,7 @@ class _MergedDetailScreenState extends State<MergedDetailScreen>
                               child: _circleButton(
                                 Icons.arrow_back_rounded,
                                 () => Navigator.of(context).maybePop(),
-                                tooltip: 'Back',
+                                tooltip: AppLocalizations.of(context).t('Back'),
                                 focusNode: _backButtonFocusNode,
                                 // Square themes (Noir, Concrete, Phosphor,
                                 // Blueprint) cannot be forced into a circle.
@@ -2718,7 +2718,7 @@ class _MergedDetailScreenState extends State<MergedDetailScreen>
         // picker for series, so this is movie-only.
         if (_isMovie && widget.onBrowse != null)
           _GhostButton(
-            label: 'Sources',
+            label: AppLocalizations.of(context).t('Sources'),
             icon: Icons.layers_rounded,
             onTap: widget.onBrowse!,
           ),
@@ -2748,12 +2748,12 @@ class _MergedDetailScreenState extends State<MergedDetailScreen>
         // season packs, local Continue Watching) — no tracker involved, so a
         // neutral button rather than a branded one.
         if (_metadataExploreAction != null)
-          _RoundIconButton(icon: Icons.explore_outlined, tooltip: 'Explore',
+          _RoundIconButton(icon: Icons.explore_outlined, tooltip: AppLocalizations.of(context).t('Explore'),
             onTap: _metadataExploreAction!),
         if (_appMenuOptions.isNotEmpty && widget.onTraktAction != null)
           _RoundIconButton(
             icon: Icons.more_horiz_rounded,
-            tooltip: 'More',
+            tooltip: AppLocalizations.of(context).t('More'),
             onTap: _showAppActionsMenu,
           ),
         // Trakt — a branded pill that *carries* the live status (the status
@@ -2767,7 +2767,7 @@ class _MergedDetailScreenState extends State<MergedDetailScreen>
             rating: _traktStatus?.rating,
             accent: kTraktRed,
             tracked: _traktTracked,
-            tooltip: 'Trakt options',
+            tooltip: AppLocalizations.of(context).t('Trakt options'),
             onTap: _showQuickActionsMenu,
           ),
         // Simkl's own pill — a separate button/sheet, not merged with Trakt's,
@@ -2780,7 +2780,7 @@ class _MergedDetailScreenState extends State<MergedDetailScreen>
             rating: _simklStatus?.rating,
             accent: kSimklCyan,
             tracked: _simklTracked,
-            tooltip: 'Simkl options',
+            tooltip: AppLocalizations.of(context).t('Simkl options'),
             onTap: _showSimklQuickActionsMenu,
           ),
         if (_menuOptionsMdblist.isNotEmpty && widget.onMdblistAction != null)
@@ -2791,7 +2791,7 @@ class _MergedDetailScreenState extends State<MergedDetailScreen>
             rating: _mdblistStatus?.rating,
             accent: kMdblistPurple,
             tracked: _mdblistTracked,
-            tooltip: 'MDBList options',
+            tooltip: AppLocalizations.of(context).t('MDBList options'),
             onTap: _showMdblistQuickActionsMenu,
           ),
       ],
@@ -5011,8 +5011,8 @@ class _TraktSheetState extends State<_TraktSheet> {
       if (watchlistOn != null || watchlistOff != null)
         _SheetSwitchRow(
           icon: Icons.bookmark_rounded,
-          label: 'Watchlist',
-          subtitle: 'Synced to every device on your Trakt account',
+          label: AppLocalizations.of(context).t('Watchlist'),
+          subtitle: AppLocalizations.of(context).t('Synced to every device on your Trakt account'),
           value: watchlistOn != null,
           accent: kTraktRed,
           autofocus: claimFocus(),
@@ -5023,8 +5023,8 @@ class _TraktSheetState extends State<_TraktSheet> {
       if (collectionOn != null || collectionOff != null)
         _SheetSwitchRow(
           icon: Icons.video_library_rounded,
-          label: 'Collection',
-          subtitle: 'Your library of everything you own or keep track of',
+          label: AppLocalizations.of(context).t('Collection'),
+          subtitle: AppLocalizations.of(context).t('Your library of everything you own or keep track of'),
           value: collectionOn != null,
           accent: kTraktRed,
           autofocus: claimFocus(),
@@ -5035,8 +5035,8 @@ class _TraktSheetState extends State<_TraktSheet> {
       if (!watchedIsAmbiguous && (markWatched != null || markUnwatched != null))
         _SheetSwitchRow(
           icon: Icons.visibility_rounded,
-          label: 'Watched',
-          subtitle: 'Syncs your history across all your devices',
+          label: AppLocalizations.of(context).t('Watched'),
+          subtitle: AppLocalizations.of(context).t('Syncs your history across all your devices'),
           value: markUnwatched != null,
           accent: kTraktRed,
           autofocus: claimFocus(),

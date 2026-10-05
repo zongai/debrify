@@ -1,6 +1,8 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import '../viewport_artwork_scope.dart';
 import 'package:flutter/material.dart';
+
+import '../../l10n/app_localizations.dart';
 import 'package:flutter/services.dart';
 import 'package:url_launcher/url_launcher.dart';
 

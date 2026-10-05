@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 /// Touch-friendly category navigation that scrolls independently of the grid.
 class CollectionCategoryTabs extends StatelessWidget {
   const CollectionCategoryTabs({

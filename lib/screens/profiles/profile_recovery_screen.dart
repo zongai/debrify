@@ -67,7 +67,7 @@ class _ProfileRecoveryScreenState extends State<ProfileRecoveryScreen> {
               textInputAction: TextInputAction.done,
               keyboardSubmitLabel: 'Continue',
               onSubmitted: (value) => Navigator.pop(dialogContext, value),
-              decoration: const InputDecoration(labelText: 'Passphrase'),
+              decoration: InputDecoration(labelText: AppLocalizations.of(context).t('Passphrase')),
             ),
           ],
         ),

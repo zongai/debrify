@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../l10n/app_localizations.dart';
+
 /// A tile widget for displaying information with an icon, title, and subtitle.
 ///
 /// Used in the Debrify TV feature to display various stats and settings.

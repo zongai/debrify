@@ -1,6 +1,8 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+
+import '../l10n/app_localizations.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'see_all/discover_shelf_scope.dart';

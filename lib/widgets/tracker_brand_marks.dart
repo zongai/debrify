@@ -10,6 +10,8 @@ library;
 
 import 'package:flutter/material.dart';
 
+import '../l10n/app_localizations.dart';
+
 /// Trakt brand red — also the tint for anything Trakt-owned in the UI.
 const Color kTraktRed = Color(0xFFED1C24);
 

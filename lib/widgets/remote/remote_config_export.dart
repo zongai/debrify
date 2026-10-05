@@ -483,7 +483,7 @@ class RemoteConfigExportState extends State<RemoteConfigExport> {
     if (connectedDevice == null) {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
-          content: Text('No TV connected'),
+          content: Text(AppLocalizations.of(context).t('No TV connected')),
           backgroundColor: Color(0xFFEF4444),
           behavior: SnackBarBehavior.floating,
         ),
@@ -853,7 +853,7 @@ class RemoteConfigExportState extends State<RemoteConfigExport> {
                 ConfigCommand.streamBadges,
                 targetIp,
                 jsonEncode(payload),
-                label: 'Stream badges',
+                label: AppLocalizations.of(context).t('Stream badges'),
                 transferRequestId: supportsApplicationResult ? requestId : null,
               );
         },
@@ -942,7 +942,7 @@ class RemoteConfigExportState extends State<RemoteConfigExport> {
         } else if (successCount == 0) {
           ScaffoldMessenger.of(context).showSnackBar(
             const SnackBar(
-              content: Text('Failed to send configuration'),
+              content: Text(AppLocalizations.of(context).t('Failed to send configuration')),
               backgroundColor: Color(0xFFEF4444),
               behavior: SnackBarBehavior.floating,
             ),
@@ -966,7 +966,7 @@ class RemoteConfigExportState extends State<RemoteConfigExport> {
       if (mounted && !widget.headless) {
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(
-            content: Text('Failed to send configuration'),
+            content: Text(AppLocalizations.of(context).t('Failed to send configuration')),
             backgroundColor: Color(0xFFEF4444),
             behavior: SnackBarBehavior.floating,
           ),
@@ -991,7 +991,7 @@ class RemoteConfigExportState extends State<RemoteConfigExport> {
         TextButton.icon(
           onPressed: widget.onBack,
           icon: const Icon(Icons.arrow_back, size: 18),
-          label: const Text('Back to menu'),
+          label: Text(AppLocalizations.of(context).t('Back to menu')),
           style: TextButton.styleFrom(
             foregroundColor: Colors.white.withValues(alpha: 0.7),
           ),

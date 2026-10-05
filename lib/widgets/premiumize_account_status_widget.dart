@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+
+import '../l10n/app_localizations.dart';
 import '../models/premiumize_user.dart';
 
 class PremiumizeAccountStatusWidget extends StatelessWidget {
@@ -77,7 +79,7 @@ class PremiumizeAccountStatusWidget extends StatelessWidget {
         const SizedBox(height: 12),
         _InfoRow(
           icon: Icons.schedule,
-          label: 'Premium Expires',
+          label: AppLocalizations.of(context).t('Premium Expires'),
           value: user.formattedPremiumExpiry,
         ),
         _InfoRow(

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../l10n/app_localizations.dart';
+
 const Color kPremiumBlue = Color(0xFF6366F1);
 
 /// Reusable progress bar overlay for video files

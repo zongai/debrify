@@ -52,7 +52,7 @@ class ProfileGateStyle {
       label: 'Portrait Wall',
       blurb: 'Tall posters, colour-washed room',
     ),
-    (id: classic, label: 'Classic', blurb: 'The original card grid'),
+    (id: classic, label: AppLocalizations.of(context).t('Classic'), blurb: 'The original card grid'),
   ];
 
   static String labelFor(String id) => options

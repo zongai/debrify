@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 /// Keeps the remote's focus on a pending action while suppressing repeat presses.
 class CatalogContinuationButton extends StatelessWidget {
   const CatalogContinuationButton({

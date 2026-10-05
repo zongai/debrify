@@ -300,7 +300,7 @@ class _FilterSettingsPageState extends State<FilterSettingsPage> {
               child: ExcludeFocus(
                 child: TextButton(
                   onPressed: _clearAll,
-                  child: const Text('Clear All'),
+                  child: Text(AppLocalizations.of(context).t('Clear All')),
                 ),
               ),
             ),

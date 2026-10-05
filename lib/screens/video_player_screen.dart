@@ -9700,7 +9700,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen>
     if (validateExplicitSelection && !committed) {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
-          content: Text('This source is unavailable. Choose another source.'),
+          content: Text(AppLocalizations.of(context).t('This source is unavailable. Choose another source.')),
         ),
       );
     }
@@ -9896,7 +9896,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen>
     if (!committed) {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
-          content: Text('This source is unavailable. Choose another source.'),
+          content: Text(AppLocalizations.of(context).t('This source is unavailable. Choose another source.')),
         ),
       );
     }
@@ -16588,7 +16588,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen>
                           keyboardType: TextInputType.number,
                           style: const TextStyle(color: Colors.white),
                           decoration: InputDecoration(
-                            labelText: 'Season',
+                            labelText: AppLocalizations.of(context).t('Season'),
                             labelStyle: TextStyle(
                               color: Colors.white.withValues(alpha: 0.62),
                             ),
@@ -16602,7 +16602,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen>
                           keyboardType: TextInputType.number,
                           style: const TextStyle(color: Colors.white),
                           decoration: InputDecoration(
-                            labelText: 'Episode',
+                            labelText: AppLocalizations.of(context).t('Episode'),
                             labelStyle: TextStyle(
                               color: Colors.white.withValues(alpha: 0.62),
                             ),

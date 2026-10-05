@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 import '../../theme/app_theme_scope.dart';
 
 /// The row heading's provenance chip — "CINEMETA", "TRAKT" — the answer to

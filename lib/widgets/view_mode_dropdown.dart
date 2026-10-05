@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../l10n/app_localizations.dart';
+
 /// View modes for folder/content browsing
 enum FolderViewMode {
   raw,

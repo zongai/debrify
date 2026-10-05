@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../l10n/app_localizations.dart';
+
 import '../utils/format_tag_detector.dart';
 
 /// Renders a single release [FormatTag] as a small, consistent "chip" for the

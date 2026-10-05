@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../l10n/app_localizations.dart';
+
 import '../utils/dialog_tap_guard.dart';
 
 /// Shared confirmation used whenever a provider can queue a torrent that is

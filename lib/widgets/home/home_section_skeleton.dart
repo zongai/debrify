@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+
+import '../../l10n/app_localizations.dart';
 import '../../theme/widgets/themed_skeleton.dart';
 import 'home_theme.dart';
 

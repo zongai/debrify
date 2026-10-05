@@ -745,7 +745,7 @@ class TraktResultsViewState extends State<TraktResultsView> {
         action: TraktItemMenuAction.addToStremioTv,
         icon: Icons.live_tv_rounded,
         color: Color(0xFF22C55E),
-        label: 'Add to Stremio TV',
+        label: AppLocalizations.of(context).t('Add to Stremio TV'),
         caption: 'Stremio TV',
       ),
       if (isSeries)

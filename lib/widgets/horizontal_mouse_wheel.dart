@@ -1,6 +1,8 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
+import '../l10n/app_localizations.dart';
+
 /// Wraps a horizontal scrollable so a vertical mouse wheel scrolls it
 /// horizontally. Registers via pointerSignalResolver so the outer vertical
 /// page Scrollable doesn't *also* scroll on the same event — only the row

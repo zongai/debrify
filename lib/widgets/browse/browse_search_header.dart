@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 import '../tv_text_field.dart';
 
 /// Shared search header for the "Browse" sidebar tabs (IPTV, YouTube).

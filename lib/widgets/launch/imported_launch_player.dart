@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+
+import '../../l10n/app_localizations.dart';
 import 'package:lottie/lottie.dart';
 import '../../services/launch_animation/launch_animation_library.dart';
 

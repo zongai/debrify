@@ -2,6 +2,8 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 
+import '../l10n/app_localizations.dart';
+
 import '../screens/settings/recordings_page.dart';
 import '../services/live_recording_service.dart';
 import '../services/recording_capacity.dart';

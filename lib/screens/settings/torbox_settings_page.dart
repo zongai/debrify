@@ -276,7 +276,7 @@ class _TorboxSettingsPageState extends State<TorboxSettingsPage> {
       await showDialog(
         context: context,
         builder: (context) => AlertDialog(
-          title: const Text('Security Restriction'),
+          title: Text(AppLocalizations.of(context).t('Security Restriction')),
           content: SingleChildScrollView(
             child: Text(
               'To show Torbox in navigation again, you must logout and login. This is a security measure to prevent unauthorized changes.',

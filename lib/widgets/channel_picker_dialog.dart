@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+
+import '../l10n/app_localizations.dart';
 import 'package:flutter/services.dart';
 import '../models/debrify_tv_channel_record.dart';
 import '../services/debrify_tv_repository.dart';
@@ -134,7 +136,7 @@ class _ChannelPickerDialogState extends State<ChannelPickerDialog> {
     if (name.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
-          content: Text('Channel name cannot be empty'),
+          content: Text(AppLocalizations.of(context).t('Channel name cannot be empty')),
           backgroundColor: Colors.orange,
         ),
       );

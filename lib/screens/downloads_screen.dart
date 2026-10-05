@@ -223,7 +223,7 @@ class _DownloadsScreenState extends State<DownloadsScreen>
               ),
               FilledButton(
                 onPressed: () => Navigator.of(ctx).pop(true),
-                child: const Text('Clear All'),
+                child: Text(AppLocalizations.of(context).t('Clear All')),
               ),
             ],
           ),
@@ -271,7 +271,7 @@ class _DownloadsScreenState extends State<DownloadsScreen>
                     ? () => _handleClearFinished(groups)
                     : null,
                 icon: const Icon(Icons.delete_sweep_rounded),
-                label: const Text('Clear All'),
+                label: Text(AppLocalizations.of(context).t('Clear All')),
               ),
             ],
           ),

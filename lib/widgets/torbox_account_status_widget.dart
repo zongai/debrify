@@ -75,7 +75,7 @@ class TorboxAccountStatusWidget extends StatelessWidget {
         const SizedBox(height: 12),
         _InfoRow(
           icon: Icons.schedule,
-          label: 'Premium Expires',
+          label: AppLocalizations.of(context).t('Premium Expires'),
           value: user.formattedPremiumExpiry,
         ),
         _InfoRow(

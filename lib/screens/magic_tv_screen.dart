@@ -6,6 +6,8 @@ import 'dart:typed_data';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+
+import '../l10n/app_localizations.dart';
 import 'package:flutter/services.dart';
 import 'package:http/http.dart' as http;
 import 'package:collection/collection.dart';
@@ -1958,33 +1960,33 @@ class _DebrifyTVScreenState extends State<DebrifyTVScreen> {
       children: [
         providerChip(
           value: _providerRealDebrid,
-          label: 'Real Debrid',
+          label: AppLocalizations.of(context).t('Real Debrid'),
           available: _rdAvailable,
           unavailableMessage:
               'Enable Real Debrid and add an API key in Settings.',
         ),
         providerChip(
           value: _providerTorbox,
-          label: 'Torbox',
+          label: AppLocalizations.of(context).t('Torbox'),
           available: _torboxAvailable,
           unavailableMessage: 'Enable Torbox and add an API key in Settings.',
         ),
         providerChip(
           value: _providerPikPak,
-          label: 'PikPak',
+          label: AppLocalizations.of(context).t('PikPak'),
           available: _pikpakAvailable,
           unavailableMessage: 'Log in to PikPak in Settings.',
         ),
         providerChip(
           value: _providerPremiumize,
-          label: 'Premiumize',
+          label: AppLocalizations.of(context).t('Premiumize'),
           available: _premiumizeAvailable,
           unavailableMessage:
               'Enable Premiumize and add an API key in Settings.',
         ),
         providerChip(
           value: _providerAllDebrid,
-          label: 'AllDebrid',
+          label: AppLocalizations.of(context).t('AllDebrid'),
           available: _allDebridAvailable,
           unavailableMessage:
               'Enable AllDebrid and add an API key in Settings.',
@@ -2283,7 +2285,7 @@ class _DebrifyTVScreenState extends State<DebrifyTVScreen> {
                     DebrifyTvDialogSection(
                       label: 'Channel settings',
                       child: SwitchRow(
-                        title: 'Avoid NSFW content',
+                        title: AppLocalizations.of(context).t('Avoid NSFW content'),
                         subtitle: _viewerForcesNsfw
                             ? 'Always on for this profile'
                             : 'Best-effort filter while building this channel',
@@ -2305,7 +2307,7 @@ class _DebrifyTVScreenState extends State<DebrifyTVScreen> {
                 ),
                 actions: [
                   DebrifyTvDialogButton(
-                    label: 'Cancel',
+                    label: AppLocalizations.of(context).t('Cancel'),
                     onPressed: () => Navigator.of(dialogContext).pop(),
                   ),
                   DebrifyTvDialogButton(
@@ -2440,7 +2442,7 @@ class _DebrifyTVScreenState extends State<DebrifyTVScreen> {
           actions: <Widget>[
             DebrifyTvDialogButton(
               autofocus: true,
-              label: 'Close',
+              label: AppLocalizations.of(context).t('Close'),
               onPressed: () => Navigator.of(dialogContext).pop(),
             ),
           ],
@@ -3274,11 +3276,11 @@ class _DebrifyTVScreenState extends State<DebrifyTVScreen> {
               ),
               actions: [
                 DebrifyTvDialogButton(
-                  label: 'Cancel',
+                  label: AppLocalizations.of(context).t('Cancel'),
                   onPressed: () => Navigator.of(dialogContext).pop(),
                 ),
                 DebrifyTvDialogButton(
-                  label: 'Import',
+                  label: AppLocalizations.of(context).t('Import'),
                   icon: Icons.download_rounded,
                   tone: DebrifyTvDialogButtonTone.primary,
                   onPressed: () {
@@ -3537,7 +3539,7 @@ class _DebrifyTVScreenState extends State<DebrifyTVScreen> {
           actions: [
             DebrifyTvDialogButton(
               autofocus: true,
-              label: 'Close',
+              label: AppLocalizations.of(context).t('Close'),
               onPressed: () => Navigator.of(dialogContext).pop(),
             ),
           ],
@@ -3641,7 +3643,7 @@ class _DebrifyTVScreenState extends State<DebrifyTVScreen> {
           actions: [
             DebrifyTvDialogButton(
               autofocus: true,
-              label: 'Cancel',
+              label: AppLocalizations.of(context).t('Cancel'),
               onPressed: () => Navigator.of(dialogContext).pop(false),
             ),
             DebrifyTvDialogButton(
@@ -3777,7 +3779,7 @@ class _DebrifyTVScreenState extends State<DebrifyTVScreen> {
                       value: '${compressionRatio.toStringAsFixed(1)}×',
                     ),
                     _SpotlightMetaPill(
-                      label: 'Keywords',
+                      label: AppLocalizations.of(context).t('Keywords'),
                       value: '${channel.keywords.length}',
                     ),
                   ],
@@ -3786,12 +3788,12 @@ class _DebrifyTVScreenState extends State<DebrifyTVScreen> {
             ),
             actions: [
               DebrifyTvDialogButton(
-                label: 'Close',
+                label: AppLocalizations.of(context).t('Close'),
                 onPressed: () => Navigator.of(dialogContext).pop(),
               ),
               DebrifyTvDialogButton(
                 autofocus: true,
-                label: 'Copy link',
+                label: AppLocalizations.of(context).t('Copy link'),
                 icon: Icons.copy_rounded,
                 tone: DebrifyTvDialogButtonTone.primary,
                 onPressed: () {
@@ -8315,7 +8317,7 @@ class _DebrifyTVScreenState extends State<DebrifyTVScreen> {
               onPressed: _isBusy
                   ? null
                   : () => _handleTopMenuAction(_DebrifyTvTopMenuAction.import),
-              child: const Text('Import'),
+              child: Text(AppLocalizations.of(context).t('Import')),
             ),
             MenuItemButton(
               style: itemStyle,
@@ -8331,7 +8333,7 @@ class _DebrifyTVScreenState extends State<DebrifyTVScreen> {
               onPressed: _isBusy
                   ? null
                   : () => _handleTopMenuAction(_DebrifyTvTopMenuAction.add),
-              child: const Text('Add Channel'),
+              child: Text(AppLocalizations.of(context).t('Add Channel')),
             ),
             MenuItemButton(
               style: itemStyle,
@@ -8340,21 +8342,21 @@ class _DebrifyTVScreenState extends State<DebrifyTVScreen> {
                   ? null
                   : () =>
                         _handleTopMenuAction(_DebrifyTvTopMenuAction.deleteAll),
-              child: const Text('Delete All'),
+              child: Text(AppLocalizations.of(context).t('Delete All')),
             ),
             MenuItemButton(
               style: itemStyle,
               leadingIcon: const Icon(Icons.settings_rounded),
               onPressed: () =>
                   _handleTopMenuAction(_DebrifyTvTopMenuAction.settings),
-              child: const Text('Settings'),
+              child: Text(AppLocalizations.of(context).t('Settings')),
             ),
           ],
           builder: (context, controller, child) {
             final focused = _channelMenuFocusNode.hasFocus;
 
             return Tooltip(
-              message: 'Options',
+              message: AppLocalizations.of(context).t('Options'),
               child: GestureDetector(
                 onTap: () {
                   if (controller.isOpen) {
@@ -8402,7 +8404,7 @@ class _DebrifyTVScreenState extends State<DebrifyTVScreen> {
         _buildTopActionButton(
           focusNode: _quickPlayFocusNode,
           icon: Icons.play_arrow_rounded,
-          tooltip: 'Play',
+          tooltip: AppLocalizations.of(context).t('Play'),
           onPressed: _isBusy ? null : _showQuickPlayDialog,
           activeColor: tv.fillStrong,
           leftToSidebar: true,
@@ -8482,7 +8484,7 @@ class _DebrifyTVScreenState extends State<DebrifyTVScreen> {
                 onSubmitted: (_) => _focusBelowChannelSearch(),
                 onDownArrow: _focusBelowChannelSearch,
                 decoration: InputDecoration(
-                  hintText: 'Search channels...',
+                  hintText: AppLocalizations.of(context).t('Search channels...'),
                   hintStyle: TextStyle(
                     color: app.core.tx.withValues(alpha: 0.3),
                   ),
@@ -8695,7 +8697,7 @@ class _DebrifyTVScreenState extends State<DebrifyTVScreen> {
           TvFocusableButton(
             onPressed: _handleAddChannel,
             icon: Icons.add_rounded,
-            label: 'Add Channel',
+            label: AppLocalizations.of(context).t('Add Channel'),
             backgroundColor: tv.accent,
             width: 200,
           ),
@@ -8939,7 +8941,7 @@ class _DebrifyTVScreenState extends State<DebrifyTVScreen> {
                     size: 16,
                   ),
                   padding: EdgeInsets.zero,
-                  tooltip: 'Options',
+                  tooltip: AppLocalizations.of(context).t('Options'),
                   color: tv.noticeBg,
                   surfaceTintColor: Colors.transparent,
                   shape: RoundedRectangleBorder(
@@ -8984,7 +8986,7 @@ class _DebrifyTVScreenState extends State<DebrifyTVScreen> {
                         children: [
                           Icon(Icons.edit_rounded, size: 18),
                           SizedBox(width: 12),
-                          Text('Edit'),
+                          Text(AppLocalizations.of(context).t('Edit')),
                         ],
                       ),
                     ),
@@ -9004,7 +9006,7 @@ class _DebrifyTVScreenState extends State<DebrifyTVScreen> {
                         children: [
                           Icon(Icons.delete_outline_rounded, size: 18),
                           SizedBox(width: 12),
-                          Text('Delete'),
+                          Text(AppLocalizations.of(context).t('Delete')),
                         ],
                       ),
                     ),
@@ -9075,7 +9077,7 @@ class _DebrifyTVScreenState extends State<DebrifyTVScreen> {
               const SizedBox(height: 10),
               DebrifyTvDialogOptionCard(
                 icon: Icons.delete_outline_rounded,
-                title: 'Delete channel',
+                title: AppLocalizations.of(context).t('Delete channel'),
                 subtitle: 'Remove this channel and its cached title pool.',
                 tag: 'Careful',
                 danger: true,
@@ -9088,7 +9090,7 @@ class _DebrifyTVScreenState extends State<DebrifyTVScreen> {
           ),
           actions: [
             DebrifyTvDialogButton(
-              label: 'Close',
+              label: AppLocalizations.of(context).t('Close'),
               onPressed: () => Navigator.of(dialogContext).pop(),
             ),
           ],
@@ -9281,7 +9283,7 @@ class _DebrifyTVScreenState extends State<DebrifyTVScreen> {
             if (includeNsfwToggle && isQuickScope) ...[
               const SizedBox(height: 8),
               SwitchRow(
-                title: 'Avoid NSFW content',
+                title: AppLocalizations.of(context).t('Avoid NSFW content'),
                 subtitle: _viewerForcesNsfw
                     ? 'Always on for this profile'
                     : 'Filter adult/inappropriate torrents • Best effort, not 100% accurate',
@@ -9305,7 +9307,7 @@ class _DebrifyTVScreenState extends State<DebrifyTVScreen> {
             DebrifyTvDialogButton(
               expand: true,
               icon: Icons.restore_rounded,
-              label: 'Reset to defaults',
+              label: AppLocalizations.of(context).t('Reset to defaults'),
               onPressed: () async {
                 final defaultProvider = _determineDefaultProvider(
                   null,
@@ -9418,7 +9420,7 @@ class _DebrifyTVScreenState extends State<DebrifyTVScreen> {
                     keyboardInk: app.core.tx,
                     keyboardInkOnAccent: app.inkOn(app.settings.accent),
                     decoration: const InputDecoration(
-                      labelText: 'Keywords',
+                      labelText: AppLocalizations.of(context).t('Keywords'),
                       hintText: 'Comma separated keywords',
                     ),
                     onDownArrow: () {
@@ -9441,7 +9443,7 @@ class _DebrifyTVScreenState extends State<DebrifyTVScreen> {
                   ),
                   const SizedBox(height: 12),
                   SwitchRow(
-                    title: 'Avoid NSFW content',
+                    title: AppLocalizations.of(context).t('Avoid NSFW content'),
                     subtitle: _viewerForcesNsfw
                         ? 'Always on for this profile'
                         : 'Best-effort filter while searching',
@@ -9463,7 +9465,7 @@ class _DebrifyTVScreenState extends State<DebrifyTVScreen> {
               ),
               actions: [
                 DebrifyTvDialogButton(
-                  label: 'Cancel',
+                  label: AppLocalizations.of(context).t('Cancel'),
                   onPressed: () => Navigator.of(dialogContext).pop(),
                 ),
                 DebrifyTvDialogButton(
@@ -9540,7 +9542,7 @@ class _DebrifyTVScreenState extends State<DebrifyTVScreen> {
               actions: [
                 DebrifyTvDialogButton(
                   autofocus: true,
-                  label: 'Done',
+                  label: AppLocalizations.of(context).t('Done'),
                   icon: Icons.check_rounded,
                   tone: DebrifyTvDialogButtonTone.primary,
                   onPressed: () => Navigator.of(dialogContext).pop(),

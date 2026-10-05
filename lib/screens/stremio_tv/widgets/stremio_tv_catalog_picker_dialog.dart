@@ -185,7 +185,7 @@ class _StremioTvCatalogPickerDialogState
     if (name.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
-          content: Text('Channel name cannot be empty'),
+          content: Text(AppLocalizations.of(context).t('Channel name cannot be empty')),
           backgroundColor: Colors.orange,
         ),
       );

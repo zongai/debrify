@@ -318,7 +318,7 @@ Future<void> handleTraktMenuAction(
               children: [
                 CircularProgressIndicator(),
                 SizedBox(width: 20),
-                Expanded(child: Text('Clearing watch progress…')),
+                Expanded(child: Text(AppLocalizations.of(context).t('Clearing watch progress…'))),
               ],
             ),
           ),
@@ -437,7 +437,7 @@ List<TraktMenuOption> buildTraktAddOnlyMenuOptions({
         action: TraktItemMenuAction.addToStremioTv,
         icon: Icons.live_tv_rounded,
         color: Color(0xFF22C55E),
-        label: 'Add to Stremio TV',
+        label: AppLocalizations.of(context).t('Add to Stremio TV'),
         caption: 'Stremio TV',
       ),
     if (isSeries)

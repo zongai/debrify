@@ -1,6 +1,8 @@
 import 'dart:math' as math;
 import 'package:flutter/material.dart';
 
+import '../l10n/app_localizations.dart';
+
 /// Premium loading overlay shown when adding a torrent to a debrid service.
 /// Replaces the old Dialog-based loader with a cinematic full-screen overlay.
 class DebridLoadingOverlay {

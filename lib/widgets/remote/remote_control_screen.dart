@@ -188,11 +188,11 @@ class _RemoteControlScreenState extends State<RemoteControlScreen> {
                               child: _activeView != 'navigate'
                                   ? FilledButton(
                                       onPressed: busy ? null : _closeView,
-                                      child: const Text('Send'),
+                                      child: Text(AppLocalizations.of(context).t('Send')),
                                     )
                                   : OutlinedButton(
                                       onPressed: busy ? null : _closeView,
-                                      child: const Text('Send'),
+                                      child: Text(AppLocalizations.of(context).t('Send')),
                                     ),
                             ),
                             const SizedBox(width: 10),

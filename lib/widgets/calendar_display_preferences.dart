@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../l10n/app_localizations.dart';
+
 /// Shared by every tracker calendar and its episode sheet.
 enum CalendarTimeFormat {
   device('Device default'),

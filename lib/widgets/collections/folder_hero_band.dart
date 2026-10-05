@@ -1,6 +1,8 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 import '../../models/home_collection.dart';
 import '../../theme/app_theme.dart';
 import '../../theme/app_theme_scope.dart';

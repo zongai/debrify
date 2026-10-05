@@ -1523,13 +1523,13 @@ class _IptvSettingsPageState extends State<IptvSettingsPage>
             if (index > 0)
               ListTile(
                 leading: const Icon(Icons.arrow_upward_rounded),
-                title: const Text('Move up'),
+                title: Text(AppLocalizations.of(context).t('Move up')),
                 onTap: () => Navigator.of(context).pop('up'),
               ),
             if (index < lists.length - 1)
               ListTile(
                 leading: const Icon(Icons.arrow_downward_rounded),
-                title: const Text('Move down'),
+                title: Text(AppLocalizations.of(context).t('Move down')),
                 onTap: () => Navigator.of(context).pop('down'),
               ),
             ListTile(
@@ -1818,7 +1818,7 @@ class _IptvSettingsPageState extends State<IptvSettingsPage>
           child: TvTextField(
             controller: _nameController,
             focusNode: _nameInputFocusNode,
-            labelText: 'Playlist Name',
+            labelText: AppLocalizations.of(context).t('Playlist Name'),
             hintText: 'e.g., My IPTV',
             prefixIcon: const Icon(Icons.label_outline),
             textInputAction: TextInputAction.next,
@@ -2260,14 +2260,14 @@ class _IptvSettingsPageState extends State<IptvSettingsPage>
             ),
             SettingsTile(
               icon: Icons.update_rounded,
-              title: 'Auto-refresh',
+              title: AppLocalizations.of(context).t('Auto-refresh'),
               subtitle:
                   '${iptvAutoRefreshLabel(_autoRefreshHours)} · All sources in this profile',
               onTap: _pickAutoRefresh,
             ),
             SettingsTile(
               icon: Icons.video_library_rounded,
-              title: 'Channel lists',
+              title: AppLocalizations.of(context).t('Channel lists'),
               subtitle: _customLists.isEmpty
                   ? 'Favorites only'
                   : 'Favorites + ${_customLists.length} '
@@ -2311,7 +2311,7 @@ class _IptvSettingsPageState extends State<IptvSettingsPage>
             ),
             SettingsTile(
               icon: Icons.ondemand_video_rounded,
-              title: 'Channel preview',
+              title: AppLocalizations.of(context).t('Channel preview'),
               subtitle: _channelPreviewEnabled
                   ? 'On · uses a provider stream while browsing'
                   : 'Off · no stream until you press Watch',
@@ -2338,7 +2338,7 @@ class _IptvSettingsPageState extends State<IptvSettingsPage>
               ),
             SettingsTile(
               icon: Icons.smart_display_rounded,
-              title: 'Player guide',
+              title: AppLocalizations.of(context).t('Player guide'),
               subtitle: playerGuideStyleLabel(_playerGuideStyle),
               onTap: () async => unawaited(_openPlayerGuidePicker()),
             ),
@@ -3824,7 +3824,7 @@ class _EditPlaylistDialogState extends State<_EditPlaylistDialog> {
       TvTextField(
         controller: _nameController,
         focusNode: _nameFocusNode,
-        labelText: 'Playlist Name',
+        labelText: AppLocalizations.of(context).t('Playlist Name'),
         hintText: 'Enter a name for this playlist',
         errorText: _nameError,
         prefixIcon: const Icon(Icons.label_outline),
@@ -4302,7 +4302,7 @@ class _PlaylistNameDialogState extends State<_PlaylistNameDialog> {
           TvTextField(
             controller: _controller,
             focusNode: _fieldFocusNode,
-            labelText: 'Playlist Name',
+            labelText: AppLocalizations.of(context).t('Playlist Name'),
             hintText: 'Enter a name for this playlist',
             errorText: _errorText,
             prefixIcon: const Icon(Icons.label_outline),
@@ -4421,14 +4421,14 @@ class _IptvListSettingsRow extends StatelessWidget {
             focusNode: upFocusNode,
             icon: Icons.keyboard_arrow_up_rounded,
             color: isFirst ? t.dim2 : null,
-            tooltip: 'Move up',
+            tooltip: AppLocalizations.of(context).t('Move up'),
             onPressed: isFirst ? () {} : onMoveUp,
           ),
           _FocusableIconButton(
             focusNode: downFocusNode,
             icon: Icons.keyboard_arrow_down_rounded,
             color: isLast ? t.dim2 : null,
-            tooltip: 'Move down',
+            tooltip: AppLocalizations.of(context).t('Move down'),
             onPressed: isLast ? () {} : onMoveDown,
           ),
           _FocusableIconButton(

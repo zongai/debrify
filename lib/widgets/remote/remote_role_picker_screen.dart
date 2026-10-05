@@ -173,7 +173,7 @@ class _RemoteRolePickerScreenState extends State<RemoteRolePickerScreen> {
                                 child: _RoleCard(
                                   focusNode: _sendFocus,
                                   icon: Icons.send_rounded,
-                                  title: 'Send',
+                                  title: AppLocalizations.of(context).t('Send'),
                                   subtitle:
                                       'Control another device or push your '
                                       'addons, channels, and setup to it.',
@@ -209,7 +209,7 @@ class _RemoteRolePickerScreenState extends State<RemoteRolePickerScreen> {
                         _RoleCard(
                           focusNode: _sendFocus,
                           icon: Icons.send_rounded,
-                          title: 'Send',
+                          title: AppLocalizations.of(context).t('Send'),
                           subtitle:
                               'Control another device or push your addons, '
                               'channels, and setup to it.',

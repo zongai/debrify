@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 import '../../theme/app_theme_scope.dart';
 
 /// Empty state for the YouTube source before a search is run.

@@ -3695,7 +3695,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
       ),
       CloudRowAction(
         icon: Icons.live_tv_rounded,
-        label: 'Add to Debrify TV',
+        label: AppLocalizations.of(context).t('Add to Debrify TV'),
         onSelected: () => _handleAddTorrentToDebrifyTv(torrent),
       ),
       CloudRowAction(
@@ -3926,7 +3926,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
       ),
       CloudRowAction(
         icon: Icons.link,
-        label: 'Copy Link',
+        label: AppLocalizations.of(context).t('Copy Link'),
         onSelected: () => _handleDownloadAction(download),
       ),
       CloudRowAction(
@@ -3969,7 +3969,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
             children: [
               CircularProgressIndicator(),
               SizedBox(width: 16),
-              Text('Preparing playlist…'),
+              Text(AppLocalizations.of(context).t('Preparing playlist…')),
             ],
           ),
         ),
@@ -4431,7 +4431,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text('Magnet added successfully!'),
+            content: Text(AppLocalizations.of(context).t('Magnet added successfully!')),
             backgroundColor: Colors.green,
           ),
         );
@@ -4591,7 +4591,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text('Magnet added successfully!'),
+            content: Text(AppLocalizations.of(context).t('Magnet added successfully!')),
             backgroundColor: Colors.green,
           ),
         );

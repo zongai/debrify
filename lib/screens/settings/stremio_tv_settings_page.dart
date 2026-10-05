@@ -347,7 +347,7 @@ class _StremioTvSettingsPageState extends State<StremioTvSettingsPage> {
                               // Auto-refresh toggle
                               SwitchListTile(
                                 contentPadding: EdgeInsets.zero,
-                                title: const Text('Auto-refresh'),
+                                title: Text(AppLocalizations.of(context).t('Auto-refresh')),
                                 subtitle: const Text(
                                   'Automatically refresh progress bars and detect rotation changes',
                                 ),

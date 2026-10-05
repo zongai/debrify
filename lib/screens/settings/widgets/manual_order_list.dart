@@ -786,12 +786,12 @@ class _ManualOrderRowState extends State<ManualOrderRow> {
                           // cover the arrows' job and ⋯ keeps the quick moves.
                           if (!PlatformUtil.isPhone) ...[
                             IconButton(
-                              tooltip: 'Move up',
+                              tooltip: AppLocalizations.of(context).t('Move up'),
                               onPressed: widget.onMoveUp,
                               icon: const Icon(Icons.keyboard_arrow_up_rounded),
                             ),
                             IconButton(
-                              tooltip: 'Move down',
+                              tooltip: AppLocalizations.of(context).t('Move down'),
                               onPressed: widget.onMoveDown,
                               icon: const Icon(
                                 Icons.keyboard_arrow_down_rounded,

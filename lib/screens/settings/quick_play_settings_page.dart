@@ -754,7 +754,7 @@ class _PriorityRowState extends State<_PriorityRow> {
                         children: [
                           IconButton(
                             onPressed: widget.onMoveUp,
-                            tooltip: 'Move up',
+                            tooltip: AppLocalizations.of(context).t('Move up'),
                             visualDensity: VisualDensity.compact,
                             icon: Icon(
                               Icons.keyboard_arrow_up_rounded,
@@ -763,7 +763,7 @@ class _PriorityRowState extends State<_PriorityRow> {
                           ),
                           IconButton(
                             onPressed: widget.onMoveDown,
-                            tooltip: 'Move down',
+                            tooltip: AppLocalizations.of(context).t('Move down'),
                             visualDensity: VisualDensity.compact,
                             icon: Icon(
                               Icons.keyboard_arrow_down_rounded,

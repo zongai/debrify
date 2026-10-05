@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../l10n/app_localizations.dart';
+
 import '../models/metadata_preferences.dart';
 import '../models/stremio_addon.dart';
 import '../services/main_page_bridge.dart';

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../l10n/app_localizations.dart';
+
 import '../services/watched_status_service.dart';
 
 /// A quiet watched marker for movie posters.

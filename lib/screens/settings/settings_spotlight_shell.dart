@@ -332,7 +332,7 @@ class _SettingsSpotlightShellState extends State<SettingsSpotlightShell> {
             ),
             const Spacer(),
             IconButton(
-              tooltip: 'Search settings',
+              tooltip: AppLocalizations.of(context).t('Search settings'),
               onPressed: widget.onOpenSearch,
               icon: const Icon(Icons.search_rounded),
             ),

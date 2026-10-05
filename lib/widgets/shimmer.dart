@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../l10n/app_localizations.dart';
+
 /// Skeleton placeholder shared by themed surfaces, surfaces still scheduled for
 /// conversion, and the permanently-frozen video player.
 ///

@@ -1,5 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+
+import '../../../l10n/app_localizations.dart';
 import '../../../theme/app_theme_scope.dart';
 import '../widgets/gradient_spinner.dart';
 import 'spotlight_dialog.dart';

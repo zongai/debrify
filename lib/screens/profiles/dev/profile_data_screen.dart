@@ -114,7 +114,7 @@ class _ProfileDataScreenState extends State<ProfileDataScreen> {
     final report = _report;
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Profile data'),
+        title: Text(AppLocalizations.of(context).t('Profile data')),
         actions: <Widget>[
           IconButton(
             tooltip: 'Copy report',

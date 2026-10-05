@@ -187,7 +187,7 @@ class _ManageProfilesScreenState extends State<ManageProfilesScreen> {
     await showDialog<void>(
       context: context,
       builder: (dialogContext) => AlertDialog(
-        title: const Text('Profile diagnostics'),
+        title: Text(AppLocalizations.of(context).t('Profile diagnostics')),
         content: SizedBox(
           width: 560,
           child: SingleChildScrollView(child: SelectableText(report)),
@@ -228,7 +228,7 @@ class _ManageProfilesScreenState extends State<ManageProfilesScreen> {
           // --dart-define=DEBRIFY_PROFILE_AUDIT=true.
           if (kProfileAudit)
             IconButton(
-              tooltip: 'Profile data',
+              tooltip: AppLocalizations.of(context).t('Profile data'),
               onPressed: profiles == null ? null : _openProfileData,
               icon: const Icon(Icons.data_object_rounded),
             ),

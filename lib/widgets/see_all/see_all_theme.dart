@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 /// Shared visual tokens for the "See All" browse/grid screens.
 ///
 /// These mirror the Stremio board constants in `search_screen.dart`

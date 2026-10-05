@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../l10n/app_localizations.dart';
+
 import '../../../theme/premium_looks.dart';
 import 'detail_theme.dart';
 

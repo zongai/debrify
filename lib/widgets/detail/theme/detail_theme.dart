@@ -2,6 +2,8 @@ import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 
+import '../../../l10n/app_localizations.dart';
+
 import '../../../theme/app_surface.dart' show SeparationModel;
 import '../../../theme/theme_spec.dart' show inkOnFill;
 import 'detail_themes.dart';

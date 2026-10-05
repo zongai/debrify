@@ -593,7 +593,7 @@ class _HomePageSettingsPageState extends State<HomePageSettingsPage> {
                     // in place.
                     SettingsTile(
                       icon: Icons.slideshow_rounded,
-                      title: 'Hero Source',
+                      title: AppLocalizations.of(context).t('Hero Source'),
                       subtitle: _spotlightLayoutActive
                           ? spotlightHeroSourceLabel(_heroSource)
                           : 'Only used by the Spotlight home layout',

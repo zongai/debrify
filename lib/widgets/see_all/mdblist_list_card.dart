@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 import '../../services/mdblist/mdblist_list_source.dart';
 import '../../theme/app_theme_scope.dart';
 

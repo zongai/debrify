@@ -251,7 +251,7 @@ class _IndexerManagersSettingsPageState
   @override
   Widget build(BuildContext context) {
     return SettingsPageScaffold(
-      title: 'Indexer Managers',
+      title: AppLocalizations.of(context).t('Indexer Managers'),
       actions: [
         IconButton(
           focusNode: _addButtonFocus,
@@ -316,7 +316,7 @@ class _IndexerManagersSettingsPageState
   Widget _buildHeader(BuildContext context) {
     return const SettingsPageHeader(
       icon: Icons.manage_search_rounded,
-      title: 'Indexer Managers',
+      title: AppLocalizations.of(context).t('Indexer Managers'),
       subtitle:
           'Connect public or private indexers through Jackett and Prowlarr. Enabled engines appear in the torrent search source picker.',
     );

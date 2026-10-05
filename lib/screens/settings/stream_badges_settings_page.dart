@@ -425,13 +425,13 @@ class _StreamBadgesSettingsPageState extends State<StreamBadgesSettingsPage> {
   Widget build(BuildContext context) {
     if (_loading) {
       return const SettingsPageScaffold(
-        title: 'Stream badges',
+        title: AppLocalizations.of(context).t('Stream badges'),
         body: Center(child: CircularProgressIndicator()),
       );
     }
     if (_loadError != null) {
       return SettingsPageScaffold(
-        title: 'Stream badges',
+        title: AppLocalizations.of(context).t('Stream badges'),
         body: Center(
           child: Padding(
             padding: const EdgeInsets.all(24),
@@ -462,7 +462,7 @@ class _StreamBadgesSettingsPageState extends State<StreamBadgesSettingsPage> {
       );
     }
     return SettingsPageScaffold(
-      title: 'Stream badges',
+      title: AppLocalizations.of(context).t('Stream badges'),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16),
         child: Center(
@@ -473,7 +473,7 @@ class _StreamBadgesSettingsPageState extends State<StreamBadgesSettingsPage> {
               children: [
                 const SettingsPageHeader(
                   icon: Icons.sell_rounded,
-                  title: 'Stream badges',
+                  title: AppLocalizations.of(context).t('Stream badges'),
                   subtitle:
                       'Label sources with chips from a Nuvio-style badges.json '
                       '— provider, format, resolution, HDR, audio, language',

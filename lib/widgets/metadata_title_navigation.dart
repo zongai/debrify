@@ -1,6 +1,8 @@
 import '../models/media_identity.dart';
 import 'package:flutter/material.dart';
 
+import '../l10n/app_localizations.dart';
+
 import '../models/stremio_addon.dart';
 import '../services/collection_native_source_service.dart';
 import '../services/profiles/profile_runtime.dart';

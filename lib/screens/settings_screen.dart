@@ -3131,7 +3131,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
             keywords: ['badge', 'highlight', 'colour', 'color'],
           ),
           (
-            title: 'Background',
+            title: AppLocalizations.of(context).t('Background'),
             subtitle: 'The page behind everything',
             keywords: ['ground', 'surface', 'page', 'colour', 'color'],
           ),
@@ -5505,7 +5505,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
               (passphraseController.text.isNotEmpty &&
                   passphraseController.text == confirmController.text);
           return AlertDialog(
-            title: const Text('Create backup'),
+            title: Text(AppLocalizations.of(context).t('Create backup')),
             content: SingleChildScrollView(
               child: Column(
                 mainAxisSize: MainAxisSize.min,
@@ -5562,7 +5562,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                       textInputAction: TextInputAction.next,
                       keyboardSubmitLabel: 'Next',
                       decoration: const InputDecoration(
-                        labelText: 'Passphrase',
+                        labelText: AppLocalizations.of(context).t('Passphrase'),
                       ),
                       onChanged: (_) => setDialogState(() {}),
                       onSubmitted: (_) => confirmFocus.requestFocus(),
@@ -5824,7 +5824,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   textInputAction: TextInputAction.done,
                   keyboardSubmitLabel: 'Unlock',
                   decoration: InputDecoration(
-                    labelText: 'Passphrase',
+                    labelText: AppLocalizations.of(context).t('Passphrase'),
                     errorText: errorText,
                   ),
                   onSubmitted: (value) => Navigator.of(context).pop(value),
@@ -5838,7 +5838,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
               ),
               FilledButton(
                 onPressed: () => Navigator.of(context).pop(controller.text),
-                child: const Text('Unlock'),
+                child: Text(AppLocalizations.of(context).t('Unlock')),
               ),
             ],
           ),
@@ -7990,7 +7990,7 @@ class _SettingsLayout extends StatelessWidget {
                 if (_showsLargeCollectionStyles(context))
                   SettingsTile.spec(
                     SettingsRows.collectionListStyle,
-                    subtitle: 'Grid · Gallery · Filmstrip · Journal',
+                    subtitle: AppLocalizations.of(context).t('Grid · Gallery · Filmstrip · Journal'),
                     onTap: onOpenCollectionListStyle,
                   ),
                 SettingsTile.spec(
@@ -8197,7 +8197,7 @@ class _SettingsLayout extends StatelessWidget {
             if (onExportDiagnosticLogs != null) ...[
               const SizedBox(height: 18),
               SettingsSection(
-                title: 'Diagnostics',
+                title: AppLocalizations.of(context).t('Diagnostics'),
                 children: [
                   SettingsTile.spec(
                     SettingsRows.exportDiagnosticLogs,
@@ -8405,7 +8405,7 @@ class _SettingsLayout extends StatelessWidget {
                     if (_showsLargeCollectionStyles(context))
                       SettingsTile.spec(
                         SettingsRows.collectionListStyle,
-                        subtitle: 'Grid · Gallery · Filmstrip · Journal',
+                        subtitle: AppLocalizations.of(context).t('Grid · Gallery · Filmstrip · Journal'),
                         onTap: onOpenCollectionListStyle,
                       ),
                     SettingsTile.spec(

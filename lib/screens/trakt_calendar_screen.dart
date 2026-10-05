@@ -657,7 +657,7 @@ class _TraktCalendarScreenState extends State<TraktCalendarScreen> {
               const SizedBox(width: 8),
               Expanded(
                 child: _SelectorField(
-                  label: 'Month',
+                  label: AppLocalizations.of(context).t('Month'),
                   value: _selectedMonth,
                   focusNode: _monthFocusNode,
                   dense: true,
@@ -821,7 +821,7 @@ class _TraktCalendarScreenState extends State<TraktCalendarScreen> {
                 const SizedBox(width: 10),
                 Expanded(
                   child: _SelectorField(
-                    label: 'Month',
+                    label: AppLocalizations.of(context).t('Month'),
                     value: _selectedMonth,
                     focusNode: _monthFocusNode,
                     dense: true,
@@ -868,7 +868,7 @@ class _TraktCalendarScreenState extends State<TraktCalendarScreen> {
                 SizedBox(
                   width: isWide ? 210 : 190,
                   child: _SelectorField(
-                    label: 'Month',
+                    label: AppLocalizations.of(context).t('Month'),
                     value: _selectedMonth,
                     focusNode: _monthFocusNode,
                     items: [

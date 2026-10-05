@@ -2,6 +2,8 @@ import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 import 'animated_weather_background.dart';
 
 /// One image sample per pixel, with no blur, offscreen textures or per-wave

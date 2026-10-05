@@ -3,6 +3,8 @@ import '../../utils/tv_keys.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import '../../services/debrify_image_cache.dart';
 import 'package:flutter/material.dart';
+
+import '../../l10n/app_localizations.dart';
 import 'package:flutter/services.dart';
 import '../../models/stremio_addon.dart';
 import '../../services/storage_service.dart';

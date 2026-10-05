@@ -63,7 +63,7 @@ class _TorrentSettingsPageState extends State<TorrentSettingsPage> {
                   children: [
                     SettingsTile(
                       icon: Icons.manage_search_rounded,
-                      title: 'Indexer Managers',
+                      title: AppLocalizations.of(context).t('Indexer Managers'),
                       subtitle: 'Add Jackett or Prowlarr search sources',
                       focusNode: _firstTileFocus,
                       onTap: () async {

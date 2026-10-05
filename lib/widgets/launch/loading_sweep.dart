@@ -2,6 +2,8 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 /// The indeterminate spinner tucked into the bottom-right corner while the
 /// splash holds for the Home board: a faint ring with a bright accent comet
 /// sweeping round it, deliberately small enough to read as a status detail

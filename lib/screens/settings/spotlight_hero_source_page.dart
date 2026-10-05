@@ -150,7 +150,7 @@ class _SpotlightHeroSourcePageState extends State<SpotlightHeroSourcePage> {
     final t = AppThemeScope.of(context).settings;
     if (_loading) {
       return const SettingsPageScaffold(
-        title: 'Hero Source',
+        title: AppLocalizations.of(context).t('Hero Source'),
         body: Center(child: CircularProgressIndicator()),
       );
     }
@@ -161,7 +161,7 @@ class _SpotlightHeroSourcePageState extends State<SpotlightHeroSourcePage> {
     ].where((e) => e.catalogs.isNotEmpty).toList();
 
     return SettingsPageScaffold(
-      title: 'Hero Source',
+      title: AppLocalizations.of(context).t('Hero Source'),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16),
         child: Center(
@@ -172,7 +172,7 @@ class _SpotlightHeroSourcePageState extends State<SpotlightHeroSourcePage> {
               children: [
                 const SettingsPageHeader(
                   icon: Icons.slideshow_rounded,
-                  title: 'Hero Source',
+                  title: AppLocalizations.of(context).t('Hero Source'),
                   subtitle:
                       'What the Spotlight layout\'s big hero reel is built '
                       'from',

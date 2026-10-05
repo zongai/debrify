@@ -26,7 +26,7 @@ class IptvAutoRefreshDialog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => SimpleDialog(
-    title: const Text('Auto-refresh'),
+    title: Text(AppLocalizations.of(context).t('Auto-refresh')),
     children: [
       const Padding(
         padding: EdgeInsets.fromLTRB(24, 0, 24, 16),
@@ -645,7 +645,7 @@ class IptvSettingsTwoPaneState extends State<IptvSettingsTwoPane> {
               _RailEntry(
                 focusNode: _railNodes[widget.playlists.length + 1],
                 icon: Icons.bookmark_rounded,
-                title: 'Channel lists',
+                title: AppLocalizations.of(context).t('Channel lists'),
                 subtitle: _listsSubtitle,
                 selected: selected == widget.playlists.length + 1,
                 chevron: true,
@@ -676,7 +676,7 @@ class IptvSettingsTwoPaneState extends State<IptvSettingsTwoPane> {
               _RailEntry(
                 focusNode: _railNodes[_channelPreviewIndex],
                 icon: Icons.ondemand_video_rounded,
-                title: 'Channel preview',
+                title: AppLocalizations.of(context).t('Channel preview'),
                 subtitle: widget.channelPreviewEnabled
                     ? 'On · uses a stream while browsing'
                     : 'Off · fullscreen playback only',
@@ -724,7 +724,7 @@ class IptvSettingsTwoPaneState extends State<IptvSettingsTwoPane> {
               _RailEntry(
                 focusNode: _railNodes[_playerGuideIndex],
                 icon: Icons.smart_display_rounded,
-                title: 'Player guide',
+                title: AppLocalizations.of(context).t('Player guide'),
                 subtitle: switch (widget.playerGuideStyle) {
                   'glass' => 'Cinema Glass',
                   'edition' => 'Midnight Edition',
@@ -770,7 +770,7 @@ class IptvSettingsTwoPaneState extends State<IptvSettingsTwoPane> {
               _RailEntry(
                 focusNode: _railNodes[_autoRefreshIndex],
                 icon: Icons.update_rounded,
-                title: 'Auto-refresh',
+                title: AppLocalizations.of(context).t('Auto-refresh'),
                 subtitle: iptvAutoRefreshLabel(widget.autoRefreshHours),
                 selected: selected == _autoRefreshIndex,
                 chevron: true,
@@ -831,7 +831,7 @@ class IptvSettingsTwoPaneState extends State<IptvSettingsTwoPane> {
         children: [
           const _PaneHeader(
             icon: Icons.update_rounded,
-            title: 'Auto-refresh',
+            title: AppLocalizations.of(context).t('Auto-refresh'),
             meta: 'All sources in this profile',
             badges: [],
           ),
@@ -1134,7 +1134,7 @@ class IptvSettingsTwoPaneState extends State<IptvSettingsTwoPane> {
       children: [
         const _PaneHeader(
           icon: Icons.bookmark_rounded,
-          title: 'Channel lists',
+          title: AppLocalizations.of(context).t('Channel lists'),
           meta:
               'Hold OK on any channel to add it to a list. '
               'Deleting a list never deletes its channels.',
@@ -1326,7 +1326,7 @@ class IptvSettingsTwoPaneState extends State<IptvSettingsTwoPane> {
       children: [
         const _PaneHeader(
           icon: Icons.ondemand_video_rounded,
-          title: 'Channel preview',
+          title: AppLocalizations.of(context).t('Channel preview'),
           meta:
               'Control whether the side panel tunes the focused channel '
               'while you browse.',
@@ -1449,7 +1449,7 @@ class IptvSettingsTwoPaneState extends State<IptvSettingsTwoPane> {
       children: [
         const _PaneHeader(
           icon: Icons.smart_display_rounded,
-          title: 'Player guide',
+          title: AppLocalizations.of(context).t('Player guide'),
           meta:
               'How the channel banner and in-player guide look during live '
               'TV — the next playback session uses the new look.',
@@ -1461,7 +1461,7 @@ class IptvSettingsTwoPaneState extends State<IptvSettingsTwoPane> {
             styleRow(
               icon: Icons.play_circle_outline_rounded,
               value: 'classic',
-              title: 'Classic',
+              title: AppLocalizations.of(context).t('Classic'),
               subtitle: "Today's look",
             ),
             styleRow(

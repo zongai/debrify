@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../l10n/app_localizations.dart';
+
 import '../models/stremio_addon.dart';
 import '../models/advanced_search_selection.dart';
 import '../widgets/episodes_panel.dart';

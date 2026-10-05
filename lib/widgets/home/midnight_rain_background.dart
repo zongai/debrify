@@ -4,6 +4,8 @@ import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 import 'animated_weather_background.dart';
 
 /// A fixed photographic skyline. Rain is batched by depth rather than drawn

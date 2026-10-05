@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../l10n/app_localizations.dart';
+
 /// A non-interactive identity beside source text; image failures keep its size.
 class AddonIdentity extends StatelessWidget {
   const AddonIdentity({super.key, required this.name, this.logo, this.large = false,

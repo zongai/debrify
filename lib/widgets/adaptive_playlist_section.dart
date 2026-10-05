@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+
+import '../l10n/app_localizations.dart';
 import '../theme/app_theme_scope.dart';
 import '../utils/platform_util.dart';
 import 'playlist_grid_card.dart';

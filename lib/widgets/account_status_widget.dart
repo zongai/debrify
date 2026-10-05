@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+
+import '../l10n/app_localizations.dart';
 import '../models/rd_user.dart';
 
 class AccountStatusWidget extends StatelessWidget {

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+
+import '../l10n/app_localizations.dart';
 import '../models/movie_collection.dart';
 import '../screens/video_player/models/playlist_entry.dart';
 import '../services/storage_service.dart';

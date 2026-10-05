@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 /// Official approved blue-short logo, rasterized without changing its colors
 /// or proportions. Source: themoviedb.org/about/logos-attribution.
 class TmdbAttribution extends StatelessWidget {

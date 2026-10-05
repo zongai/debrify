@@ -2,6 +2,8 @@ import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
 
+import '../l10n/app_localizations.dart';
+
 import '../models/media_server.dart';
 import '../models/media_server_library.dart';
 import '../models/profiles/connection_resource.dart';
@@ -302,7 +304,7 @@ class _MediaServerLibraryPanelState extends State<MediaServerLibraryPanel> {
                   widget.leading,
                   if (_servers.isNotEmpty)
                     StremioDropdown<String>(
-                      label: 'Server',
+                      label: AppLocalizations.of(context).t('Server'),
                       value: _serverId ?? _servers.first.id,
                       isTelevision: widget.isTelevision,
                       options: [
@@ -313,7 +315,7 @@ class _MediaServerLibraryPanelState extends State<MediaServerLibraryPanel> {
                     ),
                   if (_libraries.isNotEmpty)
                     StremioDropdown<String>(
-                      label: 'Library',
+                      label: AppLocalizations.of(context).t('Library'),
                       value: _libraryId ?? _libraries.first.id,
                       isTelevision: widget.isTelevision,
                       options: [
@@ -332,7 +334,7 @@ class _MediaServerLibraryPanelState extends State<MediaServerLibraryPanel> {
                     ),
                   if (_session != null && _libraryId != null) ...[
                     StremioDropdown<String>(
-                      label: 'Show',
+                      label: AppLocalizations.of(context).t('Show'),
                       value: _mode,
                       isTelevision: widget.isTelevision,
                       options: const [
@@ -350,7 +352,7 @@ class _MediaServerLibraryPanelState extends State<MediaServerLibraryPanel> {
                     ),
                     if (_mode == 'browse')
                       StremioDropdown<String>(
-                        label: 'Sort',
+                        label: AppLocalizations.of(context).t('Sort'),
                         value: _sort,
                         isTelevision: widget.isTelevision,
                         options: const [
@@ -524,7 +526,7 @@ class _MediaServerLibraryPanelState extends State<MediaServerLibraryPanel> {
                 style: TextStyle(color: AppThemeScope.of(context).core.tx),
               ),
               if (retry != null)
-                TextButton(onPressed: retry, child: const Text('Retry')),
+                TextButton(onPressed: retry, child: Text(AppLocalizations.of(context).t('Retry'))),
               if (settings)
                 TextButton(
                   onPressed: _settings,
@@ -804,7 +806,7 @@ class _MediaServerItemScreenState extends State<_MediaServerItemScreen> {
                   Text(_error!, style: TextStyle(color: app.core.tx)),
                   TextButton(
                     onPressed: _busy ? null : _load,
-                    child: const Text('Retry'),
+                    child: Text(AppLocalizations.of(context).t('Retry')),
                   ),
                 ],
                 if (_sources != null) ...[

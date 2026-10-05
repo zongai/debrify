@@ -1277,7 +1277,7 @@ class _SourcesScreenState extends State<_SourcesScreen> {
           children: [
             ListTile(
               leading: Icon(Icons.play_arrow_rounded, color: app.core.tx),
-              title: const Text('Play'),
+              title: Text(AppLocalizations.of(context).t('Play')),
               onTap: () {
                 DialogTapGuard.markKeyAction();
                 Navigator.of(sheetCtx).pop();
@@ -1312,7 +1312,7 @@ class _SourcesScreenState extends State<_SourcesScreen> {
                   Icons.copy_rounded,
                   color: Color(0xFFF59E0B),
                 ),
-                title: const Text('Copy link'),
+                title: Text(AppLocalizations.of(context).t('Copy link')),
                 onTap: () {
                   DialogTapGuard.markKeyAction();
                   Navigator.of(sheetCtx).pop();
@@ -1385,7 +1385,7 @@ class _SourcesScreenState extends State<_SourcesScreen> {
               ),
             ListTile(
               leading: const Icon(Icons.copy_rounded, color: Color(0xFFF59E0B)),
-              title: const Text('Copy link'),
+              title: Text(AppLocalizations.of(context).t('Copy link')),
               onTap: () async {
                 DialogTapGuard.markKeyAction();
                 Navigator.of(sheetCtx).pop();
@@ -1399,7 +1399,7 @@ class _SourcesScreenState extends State<_SourcesScreen> {
                   Icons.download_rounded,
                   color: Color(0xFF60A5FA),
                 ),
-                title: const Text('Download to device'),
+                title: Text(AppLocalizations.of(context).t('Download to device')),
                 subtitle: Text(
                   'Save this stream to your device',
                   style: TextStyle(color: app.fade(app.core.tx, 0.5)),
@@ -1555,7 +1555,7 @@ class _SourcesScreenState extends State<_SourcesScreen> {
     return [
       CinemaSourceProvider(
         id: null,
-        label: 'All sources',
+        label: AppLocalizations.of(context).t('All sources'),
         count: _torrents.length,
       ),
       for (final key in keys)
@@ -2192,7 +2192,7 @@ class _SourcesScreenState extends State<_SourcesScreen> {
               if (_seasonChipVisible)
                 PopupMenuButton<int>(
                   initialValue: _selectedSeason ?? 0,
-                  tooltip: 'Season',
+                  tooltip: AppLocalizations.of(context).t('Season'),
                   color: const Color(0xFF1E1B2C),
                   onSelected: (v) {
                     final next = v == 0 ? null : v;
@@ -2233,7 +2233,7 @@ class _SourcesScreenState extends State<_SourcesScreen> {
               const Spacer(),
               PopupMenuButton<String>(
                 initialValue: _sortBy,
-                tooltip: 'Sort',
+                tooltip: AppLocalizations.of(context).t('Sort'),
                 color: const Color(0xFF1E1B2C),
                 onSelected: (v) {
                   _sortBy = v;
@@ -2241,10 +2241,10 @@ class _SourcesScreenState extends State<_SourcesScreen> {
                 },
                 itemBuilder: (_) => const [
                   PopupMenuItem(value: 'source', child: Text('Addon order')),
-                  PopupMenuItem(value: 'name', child: Text('Name')),
-                  PopupMenuItem(value: 'size', child: Text('Size')),
+                  PopupMenuItem(value: 'name', child: Text(AppLocalizations.of(context).t('Name'))),
+                  PopupMenuItem(value: 'size', child: Text(AppLocalizations.of(context).t('Size'))),
                   PopupMenuItem(value: 'seeders', child: Text('Seeders')),
-                  PopupMenuItem(value: 'date', child: Text('Date')),
+                  PopupMenuItem(value: 'date', child: Text(AppLocalizations.of(context).t('Date'))),
                 ],
                 child: _tbChip(
                   line,
@@ -2823,7 +2823,7 @@ class _SourcesScreenState extends State<_SourcesScreen> {
           hintText: 'Search torrents by keyword',
           prefixIcon: const Icon(Icons.search_rounded),
           suffixIcon: IconButton(
-            tooltip: 'Search',
+            tooltip: AppLocalizations.of(context).t('Search'),
             icon: const Icon(Icons.arrow_forward_rounded),
             onPressed: () => _submitKeyword(_kwCtrl.text),
           ),
@@ -3223,7 +3223,7 @@ class _SrcDialogShell extends StatelessWidget {
                     alignment: Alignment.centerRight,
                     child: _SrcActionChip(
                       icon: Icons.check_rounded,
-                      label: 'Done',
+                      label: AppLocalizations.of(context).t('Done'),
                       filled: true,
                       onTap: () => Navigator.of(context).pop(),
                     ),

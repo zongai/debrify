@@ -4150,7 +4150,7 @@ class _ExternalPlayerSettingsPageState
                     // Screen Type dropdown
                     _buildDropdownSetting(
                       context,
-                      label: 'Screen Type',
+                      label: AppLocalizations.of(context).t('Screen Type'),
                       value: _vrDefaultScreenType,
                       items: deovr.screenTypeLabels,
                       onChanged: _setVrDefaultScreenType,
@@ -4162,7 +4162,7 @@ class _ExternalPlayerSettingsPageState
                     // Stereo Mode dropdown
                     _buildDropdownSetting(
                       context,
-                      label: 'Stereo Mode',
+                      label: AppLocalizations.of(context).t('Stereo Mode'),
                       value: _vrDefaultStereoMode,
                       items: deovr.stereoModeLabels,
                       onChanged: _setVrDefaultStereoMode,

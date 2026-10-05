@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../l10n/app_localizations.dart';
+
 /// The app shell's backdrop: a static deep-indigo wash behind everything.
 ///
 /// This used to animate on phone/tablet/desktop — a 12s gradient sweep, a 20s
