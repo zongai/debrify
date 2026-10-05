@@ -40,17 +40,22 @@ class IptvChannelNormalizer {
   }
 
   static String _mergeKey(IptvChannel channel) {
+    // Prefer normalized name so alternate mirrors with different tvg-id /
+    // group still become one channel with multiple sources (Chinese IPTV
+    // lists often give each line a unique tvg-id).
+    final nameKey = normalizeName(channel.name);
+    if (nameKey.isNotEmpty) {
+      return 'n:$nameKey';
+    }
     final tvgId = channel.attributes['tvg-id']?.trim();
     if (tvgId != null && tvgId.isNotEmpty) {
       return 'id:${tvgId.toLowerCase()}';
     }
-    // Name-only after stripping quality / line tags so the same station
-    // listed under different groups (or "HD" vs plain) becomes multi-source.
-    return 'n:${_normalizeName(channel.name)}';
+    return 'n:';
   }
 
   /// Lowercase, collapse spaces, drop common quality / mirror suffixes.
-  static String _normalizeName(String raw) {
+  static String normalizeName(String raw) {
     var s = raw.trim().toLowerCase();
     s = s.replaceAll(RegExp(r'\s+'), ' ');
     // (HD), [FHD], 【高清】, -HD, _FHD, etc.

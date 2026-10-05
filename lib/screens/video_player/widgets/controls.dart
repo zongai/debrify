@@ -626,6 +626,16 @@ class Controls extends StatelessWidget {
                                     isCompact: true,
                                   ),
 
+                                // Sources first so multi-line IPTV can switch without scrolling
+                                if (hasStremioSources &&
+                                    onShowStremioSources != null)
+                                  NetflixControlButton(
+                                    icon: Icons.swap_horiz_rounded,
+                                    label: 'Sources',
+                                    onPressed: onShowStremioSources!,
+                                    isCompact: true,
+                                  ),
+
                                 // Channel guide button
                                 if (hasGuide && onShowGuide != null)
                                   NetflixControlButton(
@@ -642,16 +652,6 @@ class Controls extends StatelessWidget {
                                     icon: Icons.calendar_view_week_rounded,
                                     label: 'Guide',
                                     onPressed: onShowIptvChannels!,
-                                    isCompact: true,
-                                  ),
-
-                                // Stremio Sources button
-                                if (hasStremioSources &&
-                                    onShowStremioSources != null)
-                                  NetflixControlButton(
-                                    icon: Icons.swap_horiz_rounded,
-                                    label: 'Sources',
-                                    onPressed: onShowStremioSources!,
                                     isCompact: true,
                                   ),
 

@@ -56,6 +56,7 @@ import '../utils/movie_parser.dart';
 import '../utils/iptv_player_paging.dart';
 import '../services/movie_metadata_service.dart';
 import '../models/iptv_playlist.dart';
+import '../services/iptv_channel_normalizer.dart';
 import '../services/stremio_iptv_service.dart';
 import '../services/iptv_epg_service.dart';
 import '../models/playlist_view_mode.dart';
@@ -7559,7 +7560,54 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen>
         _currentIptvIndex >= chans.length) {
       return null;
     }
-    return chans[_currentIptvIndex];
+    return _withPeerSources(chans[_currentIptvIndex], chans);
+  }
+
+  /// Expand [channel] with peer rows that share the same normalized name so
+  /// multi-source switching works even before a playlist re-import (legacy
+  /// DBs stored one URL per row).
+  IptvChannel _withPeerSources(IptvChannel channel, List<IptvChannel> peers) {
+    if (channel.hasMultipleSources) return channel;
+    final key = IptvChannelNormalizer.normalizeName(channel.name);
+    if (key.isEmpty) return channel;
+    final seen = <String>{};
+    final sources = <IptvSource>[];
+    // Keep current channel URLs first (order matters for primary).
+    for (final s in channel.sources) {
+      if (seen.add(s.url)) sources.add(s);
+    }
+    for (final peer in peers) {
+      if (identical(peer, channel)) continue;
+      if (IptvChannelNormalizer.normalizeName(peer.name) != key) continue;
+      for (final s in peer.sources) {
+        if (seen.add(s.url)) {
+          sources.add(
+            s.label != null && s.label!.isNotEmpty
+                ? s
+                : IptvSource(
+                    url: s.url,
+                    httpHeaders: s.httpHeaders,
+                    label: peer.group != null && peer.group!.isNotEmpty
+                        ? 'Source ${sources.length + 1} · ${peer.group}'
+                        : 'Source ${sources.length + 1}',
+                  ),
+          );
+        }
+      }
+    }
+    if (sources.length <= 1) return channel;
+    return IptvChannel(
+      channelNumber: channel.channelNumber,
+      name: channel.name,
+      url: channel.url,
+      logoUrl: channel.logoUrl,
+      group: channel.group,
+      duration: channel.duration,
+      contentType: channel.contentType,
+      attributes: channel.attributes,
+      httpHeaders: channel.httpHeaders,
+      sources: sources,
+    );
   }
 
   // ==========================================================================

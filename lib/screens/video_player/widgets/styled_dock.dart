@@ -254,6 +254,8 @@ class StyledDock extends StatelessWidget {
           // Semantic, never the palette accent.
           tint: isRecording ? DockPalette.record : null,
         ),
+      if (hasStremioSources && onShowStremioSources != null)
+        _Tool(Icons.swap_horiz_rounded, 'Sources', onShowStremioSources!),
       if (hasGuide && onShowGuide != null)
         _Tool(Icons.grid_view_rounded, 'Guide', onShowGuide!),
       // Renamed from "Guide": the legacy dock rendered that word twice, side
@@ -268,8 +270,6 @@ class StyledDock extends StatelessWidget {
         _Tool(Icons.tv_rounded, 'Next channel', onNextChannel!),
       if (hasPlaylist)
         _Tool(Icons.playlist_play_rounded, 'Episodes', onShowPlaylist),
-      if (hasStremioSources && onShowStremioSources != null)
-        _Tool(Icons.swap_horiz_rounded, 'Sources', onShowStremioSources!),
       _Tool(Icons.subtitles_rounded, 'Subtitles & audio', onShowTracks),
       _Tool(
         Icons.aspect_ratio_rounded,
