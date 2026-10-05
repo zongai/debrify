@@ -6,6 +6,8 @@ import 'package:flutter/foundation.dart'
     show ValueListenable, defaultTargetPlatform;
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+
+import '../../../l10n/app_localizations.dart';
 import 'package:flutter/services.dart';
 
 import '../../../theme/app_theme.dart';
@@ -1375,7 +1377,7 @@ class _StageState extends State<_Stage> with TickerProviderStateMixin {
                 onTap: widget.onOpenDetail,
                 child: _glassPill(
                   icon: Icons.info_outline_rounded,
-                  label: 'Details',
+                  label: AppLocalizations.of(context).t('Details'),
                 ),
               ),
             ),
@@ -1387,7 +1389,7 @@ class _StageState extends State<_Stage> with TickerProviderStateMixin {
                 onTap: widget.onOpenList,
                 child: _glassPill(
                   icon: Icons.format_list_bulleted_rounded,
-                  label: 'Channels',
+                  label: AppLocalizations.of(context).t('Channels'),
                 ),
               ),
             ),

@@ -2,6 +2,8 @@ import 'dart:async';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+
+import '../../l10n/app_localizations.dart';
 import 'package:flutter/services.dart';
 
 import '../../models/stremio_addon.dart';
@@ -550,7 +552,7 @@ class _CatalogSeeAllScreenState extends State<CatalogSeeAllScreen> {
               : null,
           buildChips: () => [
             StremioDropdown<String>(
-              label: 'Type',
+              label: AppLocalizations.of(context).t('Type'),
               value: _type,
               isTelevision: widget.isTelevision,
               quiet: _quiet,
@@ -561,7 +563,7 @@ class _CatalogSeeAllScreenState extends State<CatalogSeeAllScreen> {
               onSelected: _onTypeChanged,
             ),
             StremioDropdown<StremioAddonCatalog>(
-              label: 'Catalog',
+              label: AppLocalizations.of(context).t('Catalog'),
               value: _catalog,
               isTelevision: widget.isTelevision,
               quiet: _quiet,
@@ -573,7 +575,7 @@ class _CatalogSeeAllScreenState extends State<CatalogSeeAllScreen> {
             ),
             if (_catalog.supportsGenre)
               StremioDropdown<String>(
-                label: 'Genre',
+                label: AppLocalizations.of(context).t('Genre'),
                 // '' is the sentinel for "All" (the menu can't return null as a
                 // real selection — null means dismissed).
                 value: _genre ?? '',
@@ -588,7 +590,7 @@ class _CatalogSeeAllScreenState extends State<CatalogSeeAllScreen> {
                 onSelected: (g) => _onGenreChanged(g.isEmpty ? null : g),
               ),
             StremioDropdown<String>(
-              label: 'Sort',
+              label: AppLocalizations.of(context).t('Sort'),
               value: _sort,
               isTelevision: widget.isTelevision,
               quiet: _quiet,

@@ -3,6 +3,8 @@ import 'dart:math' as math;
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
+import '../../../l10n/app_localizations.dart';
+
 import '../../../models/stremio_addon.dart';
 import '../../../models/stremio_tv/stremio_tv_channel.dart';
 import '../../../models/stremio_tv/stremio_tv_now_playing.dart';

@@ -3,6 +3,8 @@ import 'dart:typed_data';
 
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
+
+import '../../l10n/app_localizations.dart';
 import 'package:flutter/services.dart';
 
 import '../../services/cache_scratch_cleanup.dart';
@@ -527,7 +529,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context, false),
-            child: const Text('Cancel'),
+            child: Text(AppLocalizations.of(context).t('Cancel')),
           ),
           FilledButton(
             onPressed: () => Navigator.pop(context, true),
@@ -1145,11 +1147,11 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
               await Clipboard.setData(ClipboardData(text: report));
               if (dialogContext.mounted) Navigator.pop(dialogContext);
             },
-            child: const Text('Copy'),
+            child: Text(AppLocalizations.of(context).t('Copy')),
           ),
           FilledButton(
             onPressed: () => Navigator.pop(dialogContext),
-            child: const Text('Done'),
+            child: Text(AppLocalizations.of(context).t('Done')),
           ),
         ],
       ),
@@ -1188,7 +1190,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
           actions: [
             TextButton(
               onPressed: _saving ? null : _save,
-              child: const Text('Save'),
+              child: Text(AppLocalizations.of(context).t('Save')),
             ),
           ],
         ),
@@ -1210,7 +1212,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                   inputFormatters: <TextInputFormatter>[
                     LengthLimitingTextInputFormatter(40),
                   ],
-                  decoration: const InputDecoration(labelText: 'Name'),
+                  decoration: InputDecoration(labelText: AppLocalizations.of(context).t('Name')),
                 ),
                 if (widget.profile == null)
                   SwitchListTile(
@@ -1278,7 +1280,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                   initialValue: _inactivityMinutes,
                   decoration: const InputDecoration(labelText: 'Auto-lock'),
                   items: const <DropdownMenuItem<int>>[
-                    DropdownMenuItem(value: 0, child: Text('Never')),
+                    DropdownMenuItem(value: 0, child: Text(AppLocalizations.of(context).t('Never'))),
                     DropdownMenuItem(value: 5, child: Text('After 5 minutes')),
                     DropdownMenuItem(
                       value: 15,
@@ -1300,7 +1302,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                     title: Text(_setupLoadError!),
                     trailing: TextButton(
                       onPressed: _loadSetupOptions,
-                      child: const Text('Retry'),
+                      child: Text(AppLocalizations.of(context).t('Retry')),
                     ),
                   )
                 else if (_engines == null)
@@ -1887,7 +1889,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                     inputFormatters: <TextInputFormatter>[
                       LengthLimitingTextInputFormatter(40),
                     ],
-                    decoration: const InputDecoration(hintText: 'Profile name'),
+                    decoration: InputDecoration(hintText: AppLocalizations.of(context).t('Profile name')),
                   ),
                   const SizedBox(height: 20),
                   Text('Role', style: Theme.of(context).textTheme.titleMedium),
@@ -2194,7 +2196,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                     title: Text(_setupLoadError!),
                     trailing: TextButton(
                       onPressed: _loadSetupOptions,
-                      child: const Text('Retry'),
+                      child: Text(AppLocalizations.of(context).t('Retry')),
                     ),
                   ),
                 )
@@ -2705,9 +2707,9 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
         ),
         const Spacer(),
         if (onAll != null)
-          TextButton(onPressed: onAll, child: const Text('All')),
+          TextButton(onPressed: onAll, child: Text(AppLocalizations.of(context).t('All'))),
         if (onNone != null)
-          TextButton(onPressed: onNone, child: const Text('None')),
+          TextButton(onPressed: onNone, child: Text(AppLocalizations.of(context).t('None'))),
       ],
     ),
   );

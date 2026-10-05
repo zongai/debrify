@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 import '../../models/stremio_addon.dart';
 import '../../models/tracking_source.dart';
 import '../watched_status_service.dart';
@@ -215,7 +217,7 @@ Future<void> handleMdblistMenuAction(
             actions: [
               TextButton(
                 onPressed: () => Navigator.pop(ctx, false),
-                child: const Text('Cancel'),
+                child: Text(AppLocalizations.of(context).t('Cancel')),
               ),
               FilledButton(
                 onPressed: () => Navigator.pop(ctx, true),

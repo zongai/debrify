@@ -1,6 +1,8 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+
+import '../../../l10n/app_localizations.dart';
 import 'package:flutter/services.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -69,7 +71,7 @@ class KeyStep extends StatefulWidget {
           semanticLabel: 'Skip this service',
           builder: (context, focused) => OnboardPillSurface(
             focused: focused,
-            label: 'Skip',
+            label: AppLocalizations.of(context).t('Skip'),
             enabled: !validating,
           ),
         ),
@@ -345,7 +347,7 @@ class _KeyStepState extends State<KeyStep> {
               controller: widget.pikpakPasswordController,
               focusNode: _passwordFocus,
               cell: _passwordCell,
-              label: 'Password',
+              label: AppLocalizations.of(context).t('Password'),
               hintText: 'Enter your PikPak password',
               obscureText: true,
               onSubmitted: (_) => widget.onConnect(),
@@ -406,7 +408,7 @@ class _KeyStepState extends State<KeyStep> {
           controller: widget.focusController,
           cell: const OnboardCell(0, 1),
           icon: Icons.content_paste_rounded,
-          label: 'Paste',
+          label: AppLocalizations.of(context).t('Paste'),
           enabled: !_validating,
           onPressed: _paste,
         ),

@@ -2,6 +2,8 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 import '../tv_keyboard.dart';
 
 /// A measured home for the keyboard owned by a descendant [TvTextField].

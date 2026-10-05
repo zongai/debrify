@@ -2,6 +2,8 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 import '../../services/player_display_controls.dart';
 
 /// Presentation owns only its wake lock and route, never the sync operation.

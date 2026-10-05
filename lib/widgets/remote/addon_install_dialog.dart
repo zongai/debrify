@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 import '../../services/remote_control/remote_control_state.dart';
 import '../../services/remote_control/udp_discovery_service.dart';
 

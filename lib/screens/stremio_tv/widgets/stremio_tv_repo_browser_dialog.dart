@@ -2,6 +2,8 @@ import 'dart:convert';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+
+import '../../../l10n/app_localizations.dart';
 import 'package:flutter/services.dart';
 
 import '../../../theme/app_theme_scope.dart';
@@ -464,11 +466,11 @@ class _StremioTvRepoBrowserDialogState
         actions: [
           TextButton(
             onPressed: () => Navigator.of(ctx).pop(false),
-            child: const Text('Cancel'),
+            child: Text(AppLocalizations.of(context).t('Cancel')),
           ),
           TextButton(
             onPressed: () => Navigator.of(ctx).pop(true),
-            child: const Text('Remove'),
+            child: Text(AppLocalizations.of(context).t('Remove')),
           ),
         ],
       ),
@@ -581,7 +583,7 @@ class _StremioTvRepoBrowserDialogState
                     focusNode: _closeFocusNode,
                     onPressed: () => Navigator.of(context).pop(_changed),
                     icon: const Icon(Icons.close),
-                    tooltip: 'Close',
+                    tooltip: AppLocalizations.of(context).t('Close'),
                   ),
                 ],
               ),
@@ -622,7 +624,7 @@ class _StremioTvRepoBrowserDialogState
                       focusNode: _addBtnFocusNode,
                       onPressed: _addRepo,
                       icon: const Icon(Icons.add, size: 18),
-                      label: const Text('Add'),
+                      label: Text(AppLocalizations.of(context).t('Add')),
                     ),
                   ),
                 ],
@@ -758,7 +760,7 @@ class _StremioTvRepoBrowserDialogState
                         color: theme.colorScheme.onSurfaceVariant
                             .withValues(alpha: 0.4)),
                     onPressed: () => _confirmDeleteRepo(index),
-                    tooltip: 'Remove',
+                    tooltip: AppLocalizations.of(context).t('Remove'),
                     visualDensity: VisualDensity.compact,
                     constraints:
                         const BoxConstraints(minWidth: 28, minHeight: 28),

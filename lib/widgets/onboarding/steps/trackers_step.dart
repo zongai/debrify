@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+
+import '../../../l10n/app_localizations.dart';
 import 'package:flutter/services.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -147,7 +149,7 @@ class TrackersStep extends StatelessWidget {
       context: context,
       builder: (dialogContext) => StatefulBuilder(
         builder: (context, setDialogState) => AlertDialog(
-          title: const Text('Connect MDBList'),
+          title: Text(AppLocalizations.of(context).t('Connect MDBList')),
           content: SizedBox(
             width: 420,
             child: Column(
@@ -181,7 +183,7 @@ class TrackersStep extends StatelessWidget {
           actions: [
             TextButton(
               onPressed: saving ? null : () => Navigator.pop(dialogContext),
-              child: const Text('Cancel'),
+              child: Text(AppLocalizations.of(context).t('Cancel')),
             ),
             FilledButton(
               onPressed: saving
@@ -222,7 +224,7 @@ class TrackersStep extends StatelessWidget {
                       height: 18,
                       child: CircularProgressIndicator(strokeWidth: 2),
                     )
-                  : const Text('Connect'),
+                  : Text(AppLocalizations.of(context).t('Connect')),
             ),
           ],
         ),

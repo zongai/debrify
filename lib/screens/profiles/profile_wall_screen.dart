@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+
+import '../../l10n/app_localizations.dart';
 import 'package:flutter/services.dart';
 
 import '../../models/profiles/profile_policy.dart';
@@ -447,7 +449,7 @@ class _ManageChip extends StatelessWidget {
       ),
       onPressed: onPressed,
       icon: const Icon(Icons.manage_accounts_rounded, size: 18),
-      label: const Text('Manage profiles'),
+      label: Text(AppLocalizations.of(context).t('Manage profiles')),
     ),
   );
 }

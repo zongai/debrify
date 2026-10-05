@@ -1,5 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+
+import '../../l10n/app_localizations.dart';
 import 'package:flutter/services.dart';
 import '../../screens/video_player_screen.dart'; // re-exports PlaylistEntry
 import '../../services/analytics_service.dart';
@@ -1012,7 +1014,7 @@ class _PremiumizeFilesScreenState extends State<PremiumizeFilesScreen> {
           TextButton(
             autofocus: true,
             onPressed: () => Navigator.of(context).pop(),
-            child: const Text('Cancel'),
+            child: Text(AppLocalizations.of(context).t('Cancel')),
           ),
           TextButton(
             style: TextButton.styleFrom(foregroundColor: Colors.red),
@@ -1020,7 +1022,7 @@ class _PremiumizeFilesScreenState extends State<PremiumizeFilesScreen> {
               Navigator.of(context).pop();
               _executeDelete([item]);
             },
-            child: const Text('Delete'),
+            child: Text(AppLocalizations.of(context).t('Delete')),
           ),
         ],
       ),
@@ -1043,12 +1045,12 @@ class _PremiumizeFilesScreenState extends State<PremiumizeFilesScreen> {
           TextButton(
             autofocus: true,
             onPressed: () => Navigator.of(context).pop(false),
-            child: const Text('Cancel'),
+            child: Text(AppLocalizations.of(context).t('Cancel')),
           ),
           TextButton(
             style: TextButton.styleFrom(foregroundColor: Colors.red),
             onPressed: () => Navigator.of(context).pop(true),
-            child: const Text('Delete'),
+            child: Text(AppLocalizations.of(context).t('Delete')),
           ),
         ],
       ),
@@ -1114,12 +1116,12 @@ class _PremiumizeFilesScreenState extends State<PremiumizeFilesScreen> {
           TextButton(
             autofocus: true,
             onPressed: () => Navigator.of(context).pop(false),
-            child: const Text('Cancel'),
+            child: Text(AppLocalizations.of(context).t('Cancel')),
           ),
           TextButton(
             style: TextButton.styleFrom(foregroundColor: Colors.red),
             onPressed: () => Navigator.of(context).pop(true),
-            child: const Text('Delete'),
+            child: Text(AppLocalizations.of(context).t('Delete')),
           ),
         ],
       ),
@@ -1220,7 +1222,7 @@ class _PremiumizeFilesScreenState extends State<PremiumizeFilesScreen> {
               _linkController.clear();
               Navigator.of(context).pop();
             },
-            child: const Text('Cancel'),
+            child: Text(AppLocalizations.of(context).t('Cancel')),
           ),
           FilledButton(
             style: FilledButton.styleFrom(
@@ -1546,7 +1548,7 @@ class _PremiumizeFilesScreenState extends State<PremiumizeFilesScreen> {
                   focusNode: _backButtonFocusNode,
                   icon: const Icon(Icons.arrow_back),
                   onPressed: _handleBackNavigation,
-                  tooltip: 'Back',
+                  tooltip: AppLocalizations.of(context).t('Back'),
                 ),
               )
             // At the browse root (pushed from the Cloud hub with no folder
@@ -1554,7 +1556,7 @@ class _PremiumizeFilesScreenState extends State<PremiumizeFilesScreen> {
             : (_isBrowsePush
                   ? IconButton(
                       icon: const Icon(Icons.arrow_back),
-                      tooltip: 'Back',
+                      tooltip: AppLocalizations.of(context).t('Back'),
                       onPressed: () => Navigator.of(context).maybePop(),
                     )
                   : null),
@@ -1611,7 +1613,7 @@ class _PremiumizeFilesScreenState extends State<PremiumizeFilesScreen> {
             focusNode: _refreshButtonFocusNode,
             icon: const Icon(Icons.refresh),
             onPressed: (_isLoading || _isLoadingTransfers) ? null : _refresh,
-            tooltip: 'Refresh',
+            tooltip: AppLocalizations.of(context).t('Refresh'),
             iconSize: iconSize,
             padding: iconPadding,
             constraints: iconConstraints,
@@ -1694,7 +1696,7 @@ class _PremiumizeFilesScreenState extends State<PremiumizeFilesScreen> {
           isExpanded: true,
           value: mode,
           decoration: InputDecoration(
-            labelText: 'View Mode',
+            labelText: AppLocalizations.of(context).t('View Mode'),
             prefixIcon: Icon(
               mode == _FolderViewMode.raw
                   ? Icons.view_list
@@ -1712,10 +1714,10 @@ class _PremiumizeFilesScreenState extends State<PremiumizeFilesScreen> {
             ),
           ),
           items: const [
-            DropdownMenuItem(value: _FolderViewMode.raw, child: Text('Raw')),
+            DropdownMenuItem(value: _FolderViewMode.raw, child: Text(AppLocalizations.of(context).t('Raw'))),
             DropdownMenuItem(
               value: _FolderViewMode.sortedAZ,
-              child: Text('Sort (A-Z)'),
+              child: Text(AppLocalizations.of(context).t('Sort (A-Z)')),
             ),
           ],
           onChanged: (value) {
@@ -1758,7 +1760,7 @@ class _PremiumizeFilesScreenState extends State<PremiumizeFilesScreen> {
             focusNode: _deleteButtonFocusNode,
             onPressed: count > 0 ? _handleDeleteSelected : null,
             icon: const Icon(Icons.delete_outline, size: 18),
-            label: const Text('Delete'),
+            label: Text(AppLocalizations.of(context).t('Delete')),
             style: FilledButton.styleFrom(
               backgroundColor: theme.colorScheme.error,
               disabledBackgroundColor: theme.colorScheme.error.withValues(
@@ -1961,7 +1963,7 @@ class _PremiumizeFilesScreenState extends State<PremiumizeFilesScreen> {
       if (item.isFolder || isVideo)
         CloudRowAction(
           icon: Icons.play_arrow_rounded,
-          label: 'Play',
+          label: AppLocalizations.of(context).t('Play'),
           showInStrip: true,
           onSelected: () {
             if (item.isFolder) {
@@ -1973,7 +1975,7 @@ class _PremiumizeFilesScreenState extends State<PremiumizeFilesScreen> {
         ),
       CloudRowAction(
         icon: Icons.download,
-        label: 'Download',
+        label: AppLocalizations.of(context).t('Download'),
         showInStrip: true,
         onSelected: () {
           if (item.isFolder) {
@@ -1986,12 +1988,12 @@ class _PremiumizeFilesScreenState extends State<PremiumizeFilesScreen> {
       if (item.isFolder || isVideo)
         CloudRowAction(
           icon: Icons.playlist_add,
-          label: 'Add to Playlist',
+          label: AppLocalizations.of(context).t('Add to Playlist'),
           onSelected: () => _addToPlaylist(item),
         ),
       CloudRowAction(
         icon: Icons.delete_outline,
-        label: 'Delete',
+        label: AppLocalizations.of(context).t('Delete'),
         destructive: true,
         onSelected: () => _showDeleteDialog(item),
       ),
@@ -2194,7 +2196,7 @@ class _PremiumizeFilesScreenState extends State<PremiumizeFilesScreen> {
 
   Widget _buildNotEnabled() {
     return CloudScaffold(
-      appBar: AppBar(title: const Text('Premiumize')),
+      appBar: AppBar(title: Text(AppLocalizations.of(context).t('Premiumize'))),
       body: FocusTraversalGroup(
         policy: OrderedTraversalPolicy(),
         child: Center(
@@ -2224,7 +2226,7 @@ class _PremiumizeFilesScreenState extends State<PremiumizeFilesScreen> {
                     isError: false,
                   ),
                   icon: const Icon(Icons.settings),
-                  label: const Text('Go to Settings'),
+                  label: Text(AppLocalizations.of(context).t('Go to Settings')),
                 ),
               ],
             ),
@@ -2236,7 +2238,7 @@ class _PremiumizeFilesScreenState extends State<PremiumizeFilesScreen> {
 
   Widget _buildError() {
     return CloudScaffold(
-      appBar: AppBar(title: const Text('Premiumize')),
+      appBar: AppBar(title: Text(AppLocalizations.of(context).t('Premiumize'))),
       body: FocusTraversalGroup(
         policy: OrderedTraversalPolicy(),
         child: Center(
@@ -2263,7 +2265,7 @@ class _PremiumizeFilesScreenState extends State<PremiumizeFilesScreen> {
                   autofocus: true,
                   onPressed: _refresh,
                   icon: const Icon(Icons.refresh),
-                  label: const Text('Retry'),
+                  label: Text(AppLocalizations.of(context).t('Retry')),
                 ),
               ],
             ),

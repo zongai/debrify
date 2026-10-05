@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 class LinuxVaultScreen extends StatefulWidget {
   final bool existingVault;
   final bool allowAutoUnlock;

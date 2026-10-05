@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+
+import '../l10n/app_localizations.dart';
 import 'package:flutter/services.dart';
 
 import '../models/trakt/trakt_calendar_entry.dart';
@@ -542,7 +544,7 @@ class _TraktCalendarScreenState extends State<TraktCalendarScreen> {
   Widget? _buildSourceSelector({bool dense = false}) {
     if (_authenticatedSourceCount < 2) return null;
     return _SelectorField<String>(
-      label: 'Source',
+      label: AppLocalizations.of(context).t('Source'),
       value: _source,
       focusNode: _sourceFocusNode,
       dense: dense,
@@ -550,17 +552,17 @@ class _TraktCalendarScreenState extends State<TraktCalendarScreen> {
         if (_traktAuthed)
           const DropdownMenuItem<String>(
             value: _sourceTrakt,
-            child: Text('Trakt'),
+            child: Text(AppLocalizations.of(context).t('Trakt')),
           ),
         if (_simklAuthed)
           const DropdownMenuItem<String>(
             value: _sourceSimkl,
-            child: Text('Simkl'),
+            child: Text(AppLocalizations.of(context).t('Simkl')),
           ),
         if (_mdblistAuthed)
           const DropdownMenuItem<String>(
             value: _sourceMdblist,
-            child: Text('MDBList'),
+            child: Text(AppLocalizations.of(context).t('MDBList')),
           ),
       ],
       onChanged: _onSourceChanged,

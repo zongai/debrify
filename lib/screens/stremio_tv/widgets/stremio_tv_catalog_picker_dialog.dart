@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+
+import '../../../l10n/app_localizations.dart';
 import 'package:flutter/services.dart';
 
 import '../../../utils/tv_keys.dart';
@@ -452,7 +454,7 @@ class _StremioTvCatalogPickerDialogState
                       }
                     },
                     decoration: InputDecoration(
-                      labelText: 'Search channels',
+                      labelText: AppLocalizations.of(context).t('Search channels'),
                       hintText: 'Filter by channel name',
                       prefixIcon: const Icon(Icons.search_rounded),
                       border: const OutlineInputBorder(),
@@ -468,7 +470,7 @@ class _StremioTvCatalogPickerDialogState
                                       _searchFocusNode.requestFocus();
                                     },
                               icon: const Icon(Icons.close_rounded),
-                              tooltip: 'Clear search',
+                              tooltip: AppLocalizations.of(context).t('Clear search'),
                             ),
                     ),
                   ),
@@ -569,7 +571,7 @@ class _StremioTvCatalogPickerDialogState
                 alignment: Alignment.centerRight,
                 child: TextButton(
                   onPressed: _saving ? null : _dismissDialog,
-                  child: const Text('Cancel'),
+                  child: Text(AppLocalizations.of(context).t('Cancel')),
                 ),
               ),
             ),
@@ -666,7 +668,7 @@ class _StremioTvCatalogPickerDialogState
                     focusNode: _createCancelFocusNode,
                     child: OutlinedButton(
                       onPressed: _saving ? null : _closeCreateView,
-                      child: const Text('Back'),
+                      child: Text(AppLocalizations.of(context).t('Back')),
                     ),
                   ),
                 ),

@@ -1,6 +1,8 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+
+import '../../../l10n/app_localizations.dart';
 import 'package:flutter/services.dart';
 
 import '../../../services/profiles/dev/profile_audit_report.dart';
@@ -152,7 +154,7 @@ class _ProfileDataScreenState extends State<ProfileDataScreen> {
             autofocus: true,
             onPressed: _load,
             icon: const Icon(Icons.refresh),
-            label: const Text('Retry'),
+            label: Text(AppLocalizations.of(context).t('Retry')),
           ),
         ],
       ),

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../l10n/app_localizations.dart';
+
 import '../../../theme/widgets/parallax_focus.dart';
 import '../onboarding_focus.dart';
 import '../onboarding_models.dart';
@@ -35,7 +37,7 @@ class DoneStep extends StatelessWidget {
         skipped: summary.engines.isEmpty,
       ),
       (
-        label: 'Trackers',
+        label: AppLocalizations.of(context).t('Trackers'),
         value: summary.trackers.isEmpty
             ? 'Skipped'
             : summary.trackers.join(', '),

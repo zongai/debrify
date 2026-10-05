@@ -2,6 +2,8 @@ import 'remote_transfer_progress.dart';
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+
+import '../../l10n/app_localizations.dart';
 import 'package:flutter/services.dart';
 
 import '../../services/remote_control/remote_control_state.dart';

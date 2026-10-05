@@ -13485,7 +13485,7 @@ class _SearchScreenState extends State<SearchScreen>
           actions: [
             TextButton(onPressed: () => Navigator.pop(dialogContext, false), child: const Text('Close')),
             if (_cwIds.contains(item.imdbId))
-              TextButton(onPressed: () => Navigator.pop(dialogContext, true), child: const Text(AppLocalizations.of(context).t('Remove from Continue Watching'))),
+              TextButton(onPressed: () => Navigator.pop(dialogContext, true), child: Text(AppLocalizations.of(context).t('Remove from Continue Watching'))),
           ],
         ),
       );
@@ -20851,7 +20851,7 @@ class _SearchScreenState extends State<SearchScreen>
                 autofocus: widget.isTelevision,
                 onPressed: onRetry,
                 icon: const Icon(Icons.refresh),
-                label: const Text(AppLocalizations.of(context).t('Try again')),
+                label: Text(AppLocalizations.of(context).t('Try again')),
               ),
             ],
           ],

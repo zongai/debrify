@@ -4,6 +4,8 @@ import 'dart:convert';
 
 import 'package:background_downloader/background_downloader.dart';
 import 'package:flutter/material.dart';
+
+import '../l10n/app_localizations.dart';
 import 'package:path_provider/path_provider.dart';
 import '../utils/app_storage.dart';
 import 'package:flutter/services.dart';
@@ -217,7 +219,7 @@ class _DownloadsScreenState extends State<DownloadsScreen>
             actions: [
               TextButton(
                 onPressed: () => Navigator.of(ctx).pop(false),
-                child: const Text('Cancel'),
+                child: Text(AppLocalizations.of(context).t('Cancel')),
               ),
               FilledButton(
                 onPressed: () => Navigator.of(ctx).pop(true),
@@ -524,7 +526,7 @@ class _DownloadsScreenState extends State<DownloadsScreen>
                               }
                             },
                             icon: Icon(Icons.paste, color: app.downloads.onAccent),
-                            tooltip: 'Paste',
+                            tooltip: AppLocalizations.of(context).t('Paste'),
                           )
                         ],
                       ),
@@ -580,7 +582,7 @@ class _DownloadsScreenState extends State<DownloadsScreen>
                               side: BorderSide(color: app.downloads.line),
                               shape: RoundedRectangleBorder(borderRadius: app.shape.br(14)),
                             ),
-                            child: const Text('Cancel'),
+                            child: Text(AppLocalizations.of(context).t('Cancel')),
                           ),
                         ),
                         const SizedBox(width: 12),
@@ -590,7 +592,7 @@ class _DownloadsScreenState extends State<DownloadsScreen>
                                 ? null
                                 : () => Navigator.of(context).pop(true),
                             icon: const Icon(Icons.download_rounded),
-                            label: const Text('Download'),
+                            label: Text(AppLocalizations.of(context).t('Download')),
                             style: ElevatedButton.styleFrom(
                               padding: const EdgeInsets.symmetric(vertical: 14),
                               backgroundColor: app.downloads.accent,
@@ -1974,7 +1976,7 @@ class _TorrentGroupCard extends StatelessWidget {
         TextButton.icon(
           onPressed: onPauseAll,
           icon: const Icon(Icons.pause_rounded),
-          label: const Text('Pause'),
+          label: Text(AppLocalizations.of(context).t('Pause')),
         ),
       );
     }
@@ -1983,7 +1985,7 @@ class _TorrentGroupCard extends StatelessWidget {
         TextButton.icon(
           onPressed: onResumeAll,
           icon: const Icon(Icons.play_arrow_rounded),
-          label: const Text('Resume'),
+          label: Text(AppLocalizations.of(context).t('Resume')),
         ),
       );
     }
@@ -1992,7 +1994,7 @@ class _TorrentGroupCard extends StatelessWidget {
         TextButton.icon(
           onPressed: onCancelAll,
           icon: const Icon(Icons.delete_rounded),
-          label: const Text('Cancel'),
+          label: Text(AppLocalizations.of(context).t('Cancel')),
         ),
       );
     }
@@ -2401,7 +2403,7 @@ class _DownloadTile extends StatelessWidget {
                     }
                   },
                   icon: const Icon(Icons.open_in_new),
-                  label: const Text('Open'),
+                  label: Text(AppLocalizations.of(context).t('Open')),
                 ),
               ),
             const SizedBox(height: 8),
@@ -2415,7 +2417,7 @@ class _DownloadTile extends StatelessWidget {
                       await onChanged();
                     },
                     icon: const Icon(Icons.pause),
-                    label: const Text('Pause'),
+                    label: Text(AppLocalizations.of(context).t('Pause')),
                   ),
                 if (record.task is DownloadTask && record.status == TaskStatus.paused && !Platform.isIOS && !isTorboxNonResumable)
                   FilledButton.tonalIcon(
@@ -2424,7 +2426,7 @@ class _DownloadTile extends StatelessWidget {
                       await onChanged();
                     },
                     icon: const Icon(Icons.play_arrow),
-                    label: const Text('Resume'),
+                    label: Text(AppLocalizations.of(context).t('Resume')),
                   ),
                 if ((record.status == TaskStatus.enqueued ||
                     record.status == TaskStatus.running ||
@@ -2790,7 +2792,7 @@ class _TorrentDownloadDetailScreenState extends State<TorrentDownloadDetailScree
           IconButton(
             onPressed: _refresh,
             icon: const Icon(Icons.refresh_rounded),
-            tooltip: 'Refresh',
+            tooltip: AppLocalizations.of(context).t('Refresh'),
           ),
         ],
       ),

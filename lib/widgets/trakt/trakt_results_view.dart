@@ -1,5 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+
+import '../../l10n/app_localizations.dart';
 import 'package:flutter/services.dart';
 import '../../models/stremio_addon.dart';
 import '../../models/advanced_search_selection.dart';
@@ -852,7 +854,7 @@ class TraktResultsViewState extends State<TraktResultsView> {
             action: TraktItemMenuAction.removeFromPlayback,
             icon: Icons.delete_outline_rounded,
             color: Color(0xFFEF4444),
-            label: 'Remove from Continue Watching',
+            label: AppLocalizations.of(context).t('Remove from Continue Watching'),
             caption: 'Remove',
             isTrakt: true,
           ),
@@ -1431,7 +1433,7 @@ class TraktResultsViewState extends State<TraktResultsView> {
             ),
             ListTile(
               leading: const Icon(Icons.cloud, color: Color(0xFF22C55E)),
-              title: const Text('Real-Debrid'),
+              title: Text(AppLocalizations.of(context).t('Real-Debrid')),
               onTap: () {
                 Navigator.of(sheetContext).pop();
                 pushRd();
@@ -1439,7 +1441,7 @@ class TraktResultsViewState extends State<TraktResultsView> {
             ),
             ListTile(
               leading: const Icon(Icons.cloud, color: Color(0xFF7C3AED)),
-              title: const Text('TorBox'),
+              title: Text(AppLocalizations.of(context).t('TorBox')),
               onTap: () {
                 Navigator.of(sheetContext).pop();
                 pushTorbox();
@@ -1568,7 +1570,7 @@ class TraktResultsViewState extends State<TraktResultsView> {
               color: Color(0xFFEF4444),
             ),
             onPressed: onDelete,
-            tooltip: 'Remove source',
+            tooltip: AppLocalizations.of(context).t('Remove source'),
             padding: EdgeInsets.zero,
             constraints: const BoxConstraints(minWidth: 28, minHeight: 28),
           ),
@@ -2756,7 +2758,7 @@ class TraktResultsViewState extends State<TraktResultsView> {
               FilledButton.icon(
                 onPressed: () => _enterEpisodeMode(_selectedShow!),
                 icon: const Icon(Icons.refresh),
-                label: const Text('Retry'),
+                label: Text(AppLocalizations.of(context).t('Retry')),
               ),
             ],
           ),
@@ -2864,7 +2866,7 @@ class TraktResultsViewState extends State<TraktResultsView> {
                 });
               },
               icon: const Icon(Icons.settings),
-              label: const Text('Go to Settings'),
+              label: Text(AppLocalizations.of(context).t('Go to Settings')),
             ),
           ],
         ),
@@ -2897,7 +2899,7 @@ class TraktResultsViewState extends State<TraktResultsView> {
             FilledButton.icon(
               onPressed: _fetchItems,
               icon: const Icon(Icons.refresh),
-              label: const Text('Retry'),
+              label: Text(AppLocalizations.of(context).t('Retry')),
             ),
           ],
         ),

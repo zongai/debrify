@@ -2,6 +2,8 @@ import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 /// The flat-vector character avatars, drawn in code.
 ///
 /// Deliberately flat: solid fills, no gradients, no specular highlights, no

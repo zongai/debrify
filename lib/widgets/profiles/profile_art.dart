@@ -2,6 +2,8 @@ import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 import 'profile_face_art.dart';
 
 /// A built-in avatar, either drawn in code or shipped as a bounded asset.

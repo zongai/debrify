@@ -1322,7 +1322,7 @@ class _MergedDetailScreenState extends State<MergedDetailScreen>
     String? chosen;
     if (_trailerCandidates.length > 1) {
       chosen = await showDialog<String>(context: context, builder: (context) => SimpleDialog(
-        title: const Text(AppLocalizations.of(context).t('Choose trailer')),
+        title: Text(AppLocalizations.of(context).t('Choose trailer')),
         children: [for (final video in _trailerCandidates) SimpleDialogOption(
           onPressed: () => Navigator.pop(context, video.key),
           child: Text('${video.title}${video.language.isEmpty ? '' : ' · ${video.language}'}'))]));
@@ -3121,7 +3121,7 @@ class _MergedDetailScreenState extends State<MergedDetailScreen>
             child: TextButton.icon(
               onPressed: _openDetailsSheet,
               icon: Icon(Icons.info_outline_rounded, size: 18),
-              label: const Text(AppLocalizations.of(context).t('Cast, ratings & more')),
+              label: Text(AppLocalizations.of(context).t('Cast, ratings & more')),
               style: TextButton.styleFrom(foregroundColor: Colors.white70),
             ),
           ),

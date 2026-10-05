@@ -3,6 +3,8 @@ import 'dart:convert';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+
+import '../../l10n/app_localizations.dart';
 import 'package:flutter/services.dart';
 
 import '../../models/stremio_addon.dart';
@@ -266,7 +268,7 @@ class _RemoteTransferAllState extends State<RemoteTransferAll> {
         items.add(
           _TransferItem(
             key: ConfigCommand.realDebrid,
-            label: 'Real-Debrid',
+            label: AppLocalizations.of(context).t('Real-Debrid'),
             icon: Icons.speed,
             color: const Color(0xFF10B981),
           ),
@@ -276,7 +278,7 @@ class _RemoteTransferAllState extends State<RemoteTransferAll> {
         items.add(
           _TransferItem(
             key: ConfigCommand.torbox,
-            label: 'Torbox',
+            label: AppLocalizations.of(context).t('Torbox'),
             icon: Icons.inventory_2,
             color: const Color(0xFFF59E0B),
           ),
@@ -286,7 +288,7 @@ class _RemoteTransferAllState extends State<RemoteTransferAll> {
         items.add(
           _TransferItem(
             key: ConfigCommand.premiumize,
-            label: 'Premiumize',
+            label: AppLocalizations.of(context).t('Premiumize'),
             icon: Icons.workspace_premium_rounded,
             color: const Color(0xFFFB923C),
           ),
@@ -296,7 +298,7 @@ class _RemoteTransferAllState extends State<RemoteTransferAll> {
         items.add(
           _TransferItem(
             key: ConfigCommand.allDebrid,
-            label: 'AllDebrid',
+            label: AppLocalizations.of(context).t('AllDebrid'),
             icon: Icons.all_inclusive_rounded,
             color: const Color(0xFF26A69A),
           ),
@@ -306,7 +308,7 @@ class _RemoteTransferAllState extends State<RemoteTransferAll> {
         items.add(
           _TransferItem(
             key: ConfigCommand.pikpak,
-            label: 'PikPak',
+            label: AppLocalizations.of(context).t('PikPak'),
             icon: Icons.cloud,
             color: const Color(0xFF3B82F6),
           ),
@@ -1352,7 +1354,7 @@ class _RemoteTransferAllState extends State<RemoteTransferAll> {
           ConfigCommand.iptvLists,
           targetIp,
           jsonEncode(payload),
-          label: 'IPTV lists',
+          label: AppLocalizations.of(context).t('IPTV lists'),
           transferRequestId: transferRequestId,
         );
       case ConfigCommand.streamBadges:
@@ -1408,7 +1410,7 @@ class _RemoteTransferAllState extends State<RemoteTransferAll> {
             actions: [
               TextButton(
                 onPressed: () => Navigator.pop(context, false),
-                child: const Text('Cancel'),
+                child: Text(AppLocalizations.of(context).t('Cancel')),
               ),
               FilledButton(
                 onPressed: () => Navigator.pop(context, true),
@@ -1459,7 +1461,7 @@ class _RemoteTransferAllState extends State<RemoteTransferAll> {
             Text(_inventoryError!),
             TextButton(
               onPressed: busy ? null : _loadBundle,
-              child: const Text('Try again'),
+              child: Text(AppLocalizations.of(context).t('Try again')),
             ),
           ],
           RadioGroup<bool>(

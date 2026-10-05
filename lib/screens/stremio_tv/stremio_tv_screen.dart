@@ -2,6 +2,8 @@ import 'dart:async';
 
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
+
+import '../../l10n/app_localizations.dart';
 import 'package:flutter/services.dart';
 
 import '../../theme/app_theme_scope.dart';
@@ -796,42 +798,42 @@ class _StremioTvScreenState extends State<StremioTvScreen> {
     switch (_debridProvider) {
       case 'realdebrid':
         return (
-          label: 'Real-Debrid',
+          label: AppLocalizations.of(context).t('Real-Debrid'),
           code: 'RD',
           color: const Color(0xFF10B981),
           cacheCheck: false,
         );
       case 'torbox':
         return (
-          label: 'TorBox',
+          label: AppLocalizations.of(context).t('TorBox'),
           code: 'TB',
           color: const Color(0xFF8B5CF6),
           cacheCheck: true,
         );
       case 'premiumize':
         return (
-          label: 'Premiumize',
+          label: AppLocalizations.of(context).t('Premiumize'),
           code: 'PM',
           color: const Color(0xFFF59E0B),
           cacheCheck: true,
         );
       case 'alldebrid':
         return (
-          label: 'AllDebrid',
+          label: AppLocalizations.of(context).t('AllDebrid'),
           code: 'AD',
           color: const Color(0xFF26A69A),
           cacheCheck: false,
         );
       case 'pikpak':
         return (
-          label: 'PikPak',
+          label: AppLocalizations.of(context).t('PikPak'),
           code: 'PP',
           color: const Color(0xFF6366F1),
           cacheCheck: false,
         );
       default:
         return (
-          label: 'Debrid',
+          label: AppLocalizations.of(context).t('Debrid'),
           code: 'DB',
           color: PipelineLoadingOverlay.accent,
           cacheCheck: false,
@@ -857,7 +859,7 @@ class _StremioTvScreenState extends State<StremioTvScreen> {
       _notifyStartupAutoLaunchFailed('No items available for channel');
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('No items available for this channel')),
+          SnackBar(content: Text(AppLocalizations.of(context).t('No items available for this channel'))),
         );
       }
       return;
@@ -2402,7 +2404,7 @@ class _StremioTvScreenState extends State<StremioTvScreen> {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(
-            content: Text('No items available for this channel'),
+            content: Text(AppLocalizations.of(context).t('No items available for this channel')),
           ),
         );
       }
@@ -2436,7 +2438,7 @@ class _StremioTvScreenState extends State<StremioTvScreen> {
     if (channel.items.isEmpty) {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('No items available for this channel')),
+          SnackBar(content: Text(AppLocalizations.of(context).t('No items available for this channel'))),
         );
       }
       return;
@@ -2498,7 +2500,7 @@ class _StremioTvScreenState extends State<StremioTvScreen> {
     if (payload == null) {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
-          content: Text('Local catalog could not be found'),
+          content: Text(AppLocalizations.of(context).t('Local catalog could not be found')),
           behavior: SnackBarBehavior.floating,
         ),
       );
@@ -2754,7 +2756,7 @@ class _StremioTvScreenState extends State<StremioTvScreen> {
                                     // Nothing to the right — consume
                                   },
                                   decoration: InputDecoration(
-                                    hintText: 'Search channels...',
+                                    hintText: AppLocalizations.of(context).t('Search channels...'),
                                     hintStyle: TextStyle(
                                       color: app.core.tx.withValues(
                                         alpha: 0.3,
@@ -2968,19 +2970,19 @@ class _StremioTvScreenState extends State<StremioTvScreen> {
                                     onPressed: _refreshing
                                         ? null
                                         : () => _refresh(),
-                                    child: const Text('Refresh'),
+                                    child: Text(AppLocalizations.of(context).t('Refresh')),
                                   ),
                                   MenuItemButton(
                                     leadingIcon: const Icon(Icons.tune_rounded),
                                     onPressed: () => _openChannelFilter(),
-                                    child: const Text('Filter channels'),
+                                    child: Text(AppLocalizations.of(context).t('Filter channels')),
                                   ),
                                   MenuItemButton(
                                     leadingIcon: const Icon(
                                       Icons.settings_rounded,
                                     ),
                                     onPressed: _openStremioTvSettings,
-                                    child: const Text('Stremio TV Settings'),
+                                    child: Text(AppLocalizations.of(context).t('Stremio TV Settings')),
                                   ),
                                   SubmenuButton(
                                     focusNode: _submenuFocusNode,
@@ -2991,22 +2993,22 @@ class _StremioTvScreenState extends State<StremioTvScreen> {
                                       _submenuItem(
                                         autofocus: true,
                                         icon: Icons.list_rounded,
-                                        label: 'Manage',
+                                        label: AppLocalizations.of(context).t('Manage'),
                                         onPressed: _openLocalCatalogs,
                                       ),
                                       _submenuItem(
                                         icon: Icons.file_upload_outlined,
-                                        label: 'From File',
+                                        label: AppLocalizations.of(context).t('From File'),
                                         onPressed: _importFromFile,
                                       ),
                                       _submenuItem(
                                         icon: Icons.link_rounded,
-                                        label: 'From URL',
+                                        label: AppLocalizations.of(context).t('From URL'),
                                         onPressed: _importFromUrl,
                                       ),
                                       _submenuItem(
                                         icon: Icons.data_object_rounded,
-                                        label: 'Paste JSON',
+                                        label: AppLocalizations.of(context).t('Paste JSON'),
                                         onPressed: _importFromJson,
                                       ),
                                       _submenuItem(
@@ -3029,7 +3031,7 @@ class _StremioTvScreenState extends State<StremioTvScreen> {
                                           onPressed: _importFromMdblist,
                                         ),
                                     ],
-                                    child: const Text('Import'),
+                                    child: Text(AppLocalizations.of(context).t('Import')),
                                   ),
                                 ],
                                 builder: (context, controller, child) =>

@@ -2559,11 +2559,11 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
                         );
                         navigator.pop();
                       },
-                      child: const Text(AppLocalizations.of(context).t('Skip this release')),
+                      child: Text(AppLocalizations.of(context).t('Skip this release')),
                     ),
                     TextButton(
                       onPressed: () => Navigator.of(dialogContext).pop(),
-                      child: const Text(AppLocalizations.of(context).t('Later')),
+                      child: Text(AppLocalizations.of(context).t('Later')),
                     ),
                     FilledButton(
                       onPressed: () {

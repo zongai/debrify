@@ -3,6 +3,8 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 import '../../models/stremio_addon.dart';
 import '../../services/analytics_service.dart';
 import '../../services/discover_prefs.dart';
@@ -604,7 +606,7 @@ class _TraktSeeAllScreenState extends State<TraktSeeAllScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SeeAllHeader(
-              title: 'Trakt',
+              title: AppLocalizations.of(context).t('Trakt'),
               subtitle: _loading
                   ? '${_list.label} · Loading…'
                   : '${_list.label} · $n ${n == 1 ? 'title' : 'titles'}',
@@ -660,7 +662,7 @@ class _TraktSeeAllScreenState extends State<TraktSeeAllScreen> {
               : null,
           buildChips: () => [
             StremioDropdown<String>(
-              label: 'List',
+              label: AppLocalizations.of(context).t('List'),
               value: _primaryKey,
               isTelevision: widget.isTelevision,
               quiet: _quiet,
@@ -689,7 +691,7 @@ class _TraktSeeAllScreenState extends State<TraktSeeAllScreen> {
                 onSelected: _setList,
               ),
             StremioDropdown<String>(
-              label: 'Show',
+              label: AppLocalizations.of(context).t('Show'),
               value: _category,
               isTelevision: widget.isTelevision,
               quiet: _quiet,
@@ -702,7 +704,7 @@ class _TraktSeeAllScreenState extends State<TraktSeeAllScreen> {
               onSelected: (v) => _setFilter(() => _category = v),
             ),
             StremioDropdown<_Sort>(
-              label: 'Sort',
+              label: AppLocalizations.of(context).t('Sort'),
               value: _effectiveSort,
               isTelevision: widget.isTelevision,
               quiet: _quiet,

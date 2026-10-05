@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 import '../../services/text_brightness.dart';
 import '../../theme/app_theme.dart';
 import '../../theme/app_theme_adapter.dart';

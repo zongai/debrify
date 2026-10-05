@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../l10n/app_localizations.dart';
+
 import '../../../theme/widgets/parallax_focus.dart';
 import '../onboarding_focus.dart';
 import '../onboarding_models.dart';

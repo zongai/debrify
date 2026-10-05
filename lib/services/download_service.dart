@@ -15,6 +15,8 @@ import 'storage_service.dart';
 import 'android_native_downloader.dart';
 import 'android_download_history.dart';
 import 'package:flutter/material.dart';
+
+import '../l10n/app_localizations.dart';
 import 'package:http/http.dart' as http;
 import 'package:connectivity_plus/connectivity_plus.dart';
 import '../models/profiles/profile_policy.dart';

@@ -2,6 +2,8 @@ import 'dart:async';
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+
+import '../../l10n/app_localizations.dart';
 import 'package:flutter/services.dart';
 
 import '../../services/storage_service.dart';
@@ -832,7 +834,7 @@ class RemoteConfigExportState extends State<RemoteConfigExport> {
                 ConfigCommand.iptvLists,
                 targetIp,
                 jsonEncode(payload),
-                label: 'IPTV lists',
+                label: AppLocalizations.of(context).t('IPTV lists'),
                 transferRequestId: supportsApplicationResult ? requestId : null,
               );
         },
@@ -1465,7 +1467,7 @@ class RemoteConfigExportState extends State<RemoteConfigExport> {
                   controller: _pikpakPasswordController,
                   obscureText: !_showPikpakPassword,
                   decoration: InputDecoration(
-                    labelText: 'Password',
+                    labelText: AppLocalizations.of(context).t('Password'),
                     labelStyle: TextStyle(
                       color: Colors.white.withValues(alpha: 0.5),
                     ),
