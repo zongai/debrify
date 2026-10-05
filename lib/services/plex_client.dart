@@ -924,11 +924,11 @@ class PlexClient {
     try {
       final streamed = await _client.send(request).timeout(timeout);
       final response = await http.Response.fromStream(streamed).timeout(timeout);
-      DiagnosticLog.event(
-        'plex_http',
-        {
-          'method': request.method,
-          'path': request.url.path,
+      DiagnosticLog.instance.recordEvent(
+        source: 'plex',
+        event: 'http',
+        fields: {
+          'method': DiagnosticLabel(request.method),
           'status': response.statusCode,
           'elapsed_ms': timer.elapsedMilliseconds,
         },

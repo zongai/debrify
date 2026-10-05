@@ -253,12 +253,12 @@ class MediaServerClient {
       authorize: authorize,
     );
     final user = data['User'];
-    final token = data['AccessToken'];
+    final accessToken = data['AccessToken'];
     final serverId = data['ServerId'];
     if (user is! Map ||
         user['Id'] is! String ||
-        token is! String ||
-        token.isEmpty ||
+        accessToken is! String ||
+        accessToken.isEmpty ||
         serverId is! String ||
         serverId.isEmpty) {
       throw const MediaServerException(
@@ -269,7 +269,7 @@ class MediaServerClient {
       kind: kind,
       baseUrl: base,
       userId: _segment(user['Id'] as String),
-      token: token,
+      token: accessToken,
       serverId: serverId,
       deviceId: deviceId,
     );
