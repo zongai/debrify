@@ -5,6 +5,8 @@ import 'dart:ui';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
+import '../../../l10n/app_localizations.dart';
+
 
 import 'package:flutter/services.dart';
 import '../../../services/desktop_schedule_service.dart';
@@ -1893,7 +1895,7 @@ class IptvChannelSheetState extends State<IptvChannelSheet>
     if (Platform.isAndroid && !await LiveRecordingService.ensureEngineReady()) {
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Storage access is needed to save recordings'),
+        SnackBar(content: Text(AppLocalizations.of(context).t('Storage access is needed to save recordings')),
         ),
       );
       return;
@@ -2084,7 +2086,7 @@ class IptvChannelSheetState extends State<IptvChannelSheet>
               FilledButton.icon(
                 onPressed: () => unawaited(_submitSearch()),
                 icon: const Icon(Icons.search_rounded, size: 17),
-                label: Text('Search all channels'),
+                label: Text(AppLocalizations.of(context).t('Search all channels')),
                 style: FilledButton.styleFrom(
                   backgroundColor: t == null
                       ? const Color(0xFF7C5CFF)

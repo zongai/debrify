@@ -75,7 +75,7 @@ class NetflixRadioTile extends StatelessWidget {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       Text(
-                        title,
+                        AppLocalizations.of(context).t(title),
                         style: TextStyle(
                           color: isSelected
                               ? Colors.white
@@ -89,7 +89,7 @@ class NetflixRadioTile extends StatelessWidget {
                       if (subtitle != null) ...[
                         const SizedBox(height: 2),
                         Text(
-                          subtitle!,
+                          AppLocalizations.of(context).t(subtitle!),
                           style: TextStyle(
                             color: Colors.white.withValues(alpha: 0.5),
                             fontSize: 11,

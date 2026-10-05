@@ -14,6 +14,8 @@ import 'dart:math' as math;
 import 'package:flutter/foundation.dart' show kIsWeb, listEquals;
 import 'package:flutter/material.dart';
 
+import '../l10n/app_localizations.dart';
+
 import '../models/custom_series_identity.dart';
 import 'package:path_provider/path_provider.dart';
 import '../utils/app_storage.dart';
@@ -886,7 +888,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen>
     if (!_iptvStartOverActive) return;
     if (_duration <= Duration.zero) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Timeline is still loading')),
+        SnackBar(content: Text(AppLocalizations.of(context).t('Timeline is still loading'))),
       );
       return;
     }
@@ -963,7 +965,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen>
       setState(() => _iptvStartOverLoading = false);
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Start over is not available')),
+        SnackBar(content: Text(AppLocalizations.of(context).t('Start over is not available'))),
       );
       return;
     }
@@ -5740,7 +5742,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen>
     final entries = _activePlaylist ?? const [];
     if (entries.isEmpty && !_canFetchEpisodes) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('No playlist items available')),
+        SnackBar(content: Text(AppLocalizations.of(context).t('No playlist items available'))),
       );
       return;
     }
@@ -5811,7 +5813,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen>
       });
       ScaffoldMessenger.of(
         context,
-      ).showSnackBar(SnackBar(content: Text('Continuous shuffle off')));
+      ).showSnackBar(SnackBar(content: Text(AppLocalizations.of(context).t('Continuous shuffle off'))));
     } else {
       setState(() {
         _continuousShuffleEnabled = true;
@@ -5821,7 +5823,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen>
       });
       ScaffoldMessenger.of(
         context,
-      ).showSnackBar(SnackBar(content: Text('Continuous shuffle on')));
+      ).showSnackBar(SnackBar(content: Text(AppLocalizations.of(context).t('Continuous shuffle on'))));
       await _playRandomOnce(disableContinuousShuffle: false);
     }
   }
@@ -5955,7 +5957,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen>
       if (mounted) {
         setState(() => _isTransitioning = false);
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('No other playable episode found for shuffle'),
+          SnackBar(content: Text(AppLocalizations.of(context).t('No other playable episode found for shuffle')),
           ),
         );
       }
@@ -5965,7 +5967,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen>
       if (mounted) {
         setState(() => _isTransitioning = false);
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Could not load a random episode')),
+          SnackBar(content: Text(AppLocalizations.of(context).t('Could not load a random episode'))),
         );
       }
       return true;
@@ -7365,7 +7367,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen>
       _iptvCatchupRequests.complete(requestTicket);
       messenger.hideCurrentSnackBar();
       messenger.showSnackBar(
-        SnackBar(content: Text('Replay is not available')),
+        SnackBar(content: Text(AppLocalizations.of(context).t('Replay is not available'))),
       );
       return;
     }
@@ -7934,7 +7936,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen>
       // tee can capture what mpv is demuxing. Fall through.
       if (ProfileRuntime.isProfileCommitted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('This stream cannot be recorded safely'),
+          SnackBar(content: Text(AppLocalizations.of(context).t('This stream cannot be recorded safely')),
           ),
         );
         return;
@@ -8220,7 +8222,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen>
       debugPrint('VideoPlayer: start recording failed: $e');
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Could not start recording')),
+        SnackBar(content: Text(AppLocalizations.of(context).t('Could not start recording'))),
       );
     }
   }
@@ -9744,7 +9746,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen>
     }
     if (validateExplicitSelection && !committed) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('This source is unavailable. Choose another source.'),
+        SnackBar(content: Text(AppLocalizations.of(context).t('This source is unavailable. Choose another source.')),
         ),
       );
     }
@@ -9939,7 +9941,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen>
 
     if (!committed) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('This source is unavailable. Choose another source.'),
+        SnackBar(content: Text(AppLocalizations.of(context).t('This source is unavailable. Choose another source.')),
         ),
       );
     }
@@ -16717,7 +16719,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen>
     final imdbId = selected.effectiveImdbId;
     if (imdbId == null || !imdbId.startsWith('tt')) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Selected title has no IMDb ID')),
+        SnackBar(content: Text(AppLocalizations.of(context).t('Selected title has no IMDb ID'))),
       );
       return null;
     }
@@ -16791,7 +16793,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen>
       if (subtitles.isEmpty && mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text('No online subtitles found for this title'),
+            content: Text(AppLocalizations.of(context).t('No online subtitles found for this title')),
           ),
         );
       }
@@ -16811,7 +16813,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen>
       if (mounted) {
         ScaffoldMessenger.of(
           context,
-        ).showSnackBar(SnackBar(content: Text('Subtitle search failed')));
+        ).showSnackBar(SnackBar(content: Text(AppLocalizations.of(context).t('Subtitle search failed'))));
       }
       return null;
     }

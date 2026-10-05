@@ -1,6 +1,8 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
+import '../../../l10n/app_localizations.dart';
+
 
 import 'tv_tappable.dart';
 import 'package:media_kit/media_kit.dart' as mk;
@@ -1521,7 +1523,7 @@ class _StyleTab extends StatelessWidget {
               onStyleChanged(newSettings);
             },
             icon: Icon(Icons.refresh_rounded, size: 18),
-            label: Text('Reset to Defaults'),
+            label: Text(AppLocalizations.of(context).t('Reset to Defaults')),
             style: TextButton.styleFrom(
               foregroundColor: Colors.white60,
               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
@@ -2114,7 +2116,7 @@ class _StyleOption extends StatelessWidget {
           Expanded(
             flex: 2,
             child: Text(
-              label,
+              AppLocalizations.of(context).t(label),
               style: TextStyle(
                 color: Colors.white.withValues(alpha: 0.8),
                 fontSize: 14,

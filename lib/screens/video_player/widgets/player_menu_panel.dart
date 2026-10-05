@@ -2,6 +2,8 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
+import '../../../l10n/app_localizations.dart';
+
 import 'package:flutter/services.dart';
 
 import '../../../models/stremio_subtitle.dart';
@@ -1535,7 +1537,7 @@ class _RailRow extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      label,
+                      AppLocalizations.of(context).t(label),
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
                       style: TextStyle(
@@ -1585,7 +1587,7 @@ class _ValueRow extends StatelessWidget {
         child: Row(
           children: [
             Text(
-              row.label.toUpperCase(),
+              AppLocalizations.of(context).t(row.label).toUpperCase(),
               style: TextStyle(
                 color: _ink.withValues(alpha: 0.35),
                 fontSize: 10,
@@ -1615,7 +1617,7 @@ class _ValueRow extends StatelessWidget {
             ],
             Expanded(
               child: Text(
-                row.label,
+                AppLocalizations.of(context).t(row.label),
                 style: TextStyle(
                   color: _ink.withValues(alpha: 0.40),
                   fontSize: 12,
@@ -1666,7 +1668,7 @@ class _ValueRow extends StatelessWidget {
                       children: [
                         Flexible(
                           child: Text(
-                            row.label,
+                            AppLocalizations.of(context).t(row.label),
                             maxLines: 1,
                             overflow: TextOverflow.ellipsis,
                             style: TextStyle(
@@ -1711,7 +1713,7 @@ class _ValueRow extends StatelessWidget {
                       Padding(
                         padding: const EdgeInsets.only(top: 2),
                         child: Text(
-                          row.sublabel!,
+                          AppLocalizations.of(context).t(row.sublabel!),
                           maxLines: 2,
                           overflow: TextOverflow.ellipsis,
                           style: TextStyle(
