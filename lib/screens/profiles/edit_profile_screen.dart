@@ -1280,7 +1280,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                 DropdownButtonFormField<int>(
                   initialValue: _inactivityMinutes,
                   decoration: InputDecoration(labelText: 'Auto-lock'),
-                  items: const <DropdownMenuItem<int>>[
+                  items: <DropdownMenuItem<int>>[
                     DropdownMenuItem(value: 0, child: Text(AppLocalizations.of(context).t('Never'))),
                     DropdownMenuItem(value: 5, child: Text('After 5 minutes')),
                     DropdownMenuItem(

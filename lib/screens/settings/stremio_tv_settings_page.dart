@@ -429,7 +429,7 @@ class _StremioTvSettingsPageState extends State<StremioTvSettingsPage> {
                                   DropdownButton<int>(
                                     value: _maxStartPercent,
                                     dropdownColor: t.panel2,
-                                    items: const [
+                                    items: [
                                       DropdownMenuItem(
                                         value: 0,
                                         child: Text(AppLocalizations.of(context).t('Beginning')),

@@ -4218,7 +4218,7 @@ class _ExternalPlayerSettingsPageState
     if (!isSupportedPlatform) {
       return SettingsPageScaffold(
         title: section.label,
-        body: const Center(
+        body: Center(
           child: Text(AppLocalizations.of(context).t('Player settings are not available on this platform')),
         ),
       );

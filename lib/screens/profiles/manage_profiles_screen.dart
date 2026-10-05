@@ -286,7 +286,7 @@ class _ManageProfilesScreenState extends State<ManageProfilesScreen> {
                                 onSelected: _runProfileAction(profile),
                                 itemBuilder: (_) => [
                                   if (profile.isEnabled)
-                                    const PopupMenuItem(
+                                    PopupMenuItem(
                                       value: 'edit',
                                       child: Text(AppLocalizations.of(context).t('Edit')),
                                     ),

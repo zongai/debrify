@@ -8981,7 +8981,7 @@ class _DebrifyTVScreenState extends State<DebrifyTVScreen> {
                         ],
                       ),
                     ),
-                    const PopupMenuItem(
+                    PopupMenuItem(
                       value: 'edit',
                       child: Row(
                         children: [
@@ -9001,7 +9001,7 @@ class _DebrifyTVScreenState extends State<DebrifyTVScreen> {
                         ],
                       ),
                     ),
-                    const PopupMenuItem(
+                    PopupMenuItem(
                       value: 'delete',
                       child: Row(
                         children: [

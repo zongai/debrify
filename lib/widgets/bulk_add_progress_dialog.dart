@@ -265,7 +265,7 @@ class BulkAddProgressController {
             cancelled = true;
             close();
           },
-          child: Text(AppLocalizations.of(context).t('Cancel')),
+          child: Text(AppLocalizations.of(_context).t('Cancel')),
         ),
       ],
     );

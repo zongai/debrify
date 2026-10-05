@@ -2851,7 +2851,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
     }
 
     if (_currentViewNodes == null || _currentViewNodes!.isEmpty) {
-      return const Center(child: Text(AppLocalizations.of(context).t('Empty folder')));
+      return Center(child: Text(AppLocalizations.of(context).t('Empty folder')));
     }
 
     return ListView.builder(

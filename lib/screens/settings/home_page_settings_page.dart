@@ -629,7 +629,7 @@ class _HomePageSettingsPageState extends State<HomePageSettingsPage> {
                               labelText: 'Animation',
                               prefixIcon: Icon(Icons.landscape_rounded),
                             ),
-                            items: const [
+                            items: [
                               DropdownMenuItem(
                                 value: 'snowy_mountain',
                                 child: Text(AppLocalizations.of(context).t('Snowy mountain')),
@@ -710,7 +710,7 @@ class _HomePageSettingsPageState extends State<HomePageSettingsPage> {
                             _iconForSourceType(_selectedSourceType),
                           ),
                         ),
-                        items: const [
+                        items: [
                           DropdownMenuItem(
                             value: 'catalog',
                             child: Text(AppLocalizations.of(context).t('Catalog')),

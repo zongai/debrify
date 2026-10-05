@@ -257,7 +257,7 @@ class _DownloadsScreenState extends State<DownloadsScreen>
 
   Widget _buildFinishedTab(List<TorrentDownloadGroup> groups) {
     if (groups.isEmpty) {
-      return const Center(child: Text(AppLocalizations.of(context).t('No downloads')));
+      return Center(child: Text(AppLocalizations.of(context).t('No downloads')));
     }
     return Column(
       children: [
@@ -1678,7 +1678,7 @@ class _TorrentGroupListState extends State<_TorrentGroupList> {
   @override
   Widget build(BuildContext context) {
     if (widget.groups.isEmpty) {
-      return const Center(child: Text(AppLocalizations.of(context).t('No downloads')));
+      return Center(child: Text(AppLocalizations.of(context).t('No downloads')));
     }
 
     return ListView.separated(
@@ -2730,7 +2730,7 @@ class _TorrentDownloadDetailScreenState extends State<TorrentDownloadDetailScree
     }
     final group = _group;
     if (group == null) {
-      return const Center(child: Text(AppLocalizations.of(context).t('Download group not found')));
+      return Center(child: Text(AppLocalizations.of(context).t('Download group not found')));
     }
 
     final items = group.items;
