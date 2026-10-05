@@ -271,10 +271,13 @@ class _IptvChannelRowState extends State<IptvChannelRow>
 
     final group = ch.group?.trim();
     final l10n = AppLocalizations.of(context);
+    final sourcesLabel = ch.hasMultipleSources
+        ? '${ch.sources.length} ${l10n.t('sources')}'
+        : '';
     final subParts = <String>[
       if (group != null && group.isNotEmpty) group,
       if (resolution != null) resolution,
-      if (ch.hasMultipleSources) '${ch.sources.length} ${l10n.t('sources')}',
+      if (sourcesLabel.isNotEmpty) sourcesLabel,
     ];
     final sub = subParts.isNotEmpty
         ? subParts.join('  •  ')
@@ -412,7 +415,7 @@ class _IptvChannelRowState extends State<IptvChannelRow>
                         // the classic sub-line itself while it has nothing better —
                         // so a channel without guide data looks exactly like before,
                         // just with more air.
-                        _RowEpg(channel: ch, fallback: sub)
+                        _RowEpg(channel: ch, fallback: sub, sourcesLabel: sourcesLabel)
                       else if (sub.isNotEmpty) ...[
                         const SizedBox(height: 2),
                         Text(
@@ -702,6 +705,7 @@ class _IptvChannelRowState extends State<IptvChannelRow>
                   _RowEpg(
                     channel: ch,
                     fallback: lineSub,
+                    sourcesLabel: sourcesLabel,
                     tokens: t,
                     console: console,
                     tileWidth: widget.tileWidth,
@@ -897,6 +901,10 @@ class _RowEpg extends StatefulWidget {
   /// guide data (not capable, still loading, or the guide has a gap).
   final String fallback;
 
+  /// Multi-source count (e.g. "3 sources"). Kept visible after EPG loads —
+  /// guide data must not hide stream multiplicity.
+  final String sourcesLabel;
+
   /// Styled-look tokens, or null for the shipped paint (taken verbatim).
   final IptvStyleTokens? tokens;
 
@@ -915,6 +923,7 @@ class _RowEpg extends StatefulWidget {
   const _RowEpg({
     required this.channel,
     required this.fallback,
+    this.sourcesLabel = '',
     this.tokens,
     this.console = false,
     this.tileWidth,
@@ -1123,15 +1132,32 @@ class _RowEpgState extends State<_RowEpg> {
       children: [
         if (now != null) ...[
           const SizedBox(height: 3),
-          Text(
-            now.title,
-            maxLines: 1,
-            overflow: TextOverflow.ellipsis,
-            style: TextStyle(
-              color: app.core.tx.withValues(alpha: 0.74),
-              fontSize: 12.5,
-              fontWeight: FontWeight.w500,
-            ),
+          Row(
+            children: [
+              Expanded(
+                child: Text(
+                  now.title,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(
+                    color: app.core.tx.withValues(alpha: 0.74),
+                    fontSize: 12.5,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+              ),
+              if (widget.sourcesLabel.isNotEmpty) ...[
+                const SizedBox(width: 8),
+                Text(
+                  widget.sourcesLabel,
+                  style: TextStyle(
+                    color: app.core.tx.withValues(alpha: 0.45),
+                    fontSize: 11,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+              ],
+            ],
           ),
           const SizedBox(height: 5),
           // Same bar the rail card draws, at row scale.
@@ -1228,6 +1254,18 @@ class _RowEpgState extends State<_RowEpg> {
                   ),
                 ),
               ),
+              if (widget.sourcesLabel.isNotEmpty) ...[
+                const SizedBox(width: 8),
+                Text(
+                  widget.sourcesLabel,
+                  style: TextStyle(
+                    color: t.fgDim,
+                    fontSize: 11,
+                    fontWeight: FontWeight.w600,
+                    fontFamily: mono,
+                  ),
+                ),
+              ],
               if (widget.console &&
                   widget.resolution != null &&
                   widget.resolution!.isNotEmpty) ...[
