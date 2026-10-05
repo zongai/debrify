@@ -205,18 +205,19 @@ class PlexClient {
     Future<void> Function()? authorize,
   }) async {
     await authorize?.call();
-    // Prefer the v2 JSON API; fall back to classic XML used by plex-for-kodi.
+    // plex.tv/link expects a short 4-character code (plex-for-kodi PinLogin).
+    // v2 with strong=true returns a ~25-char code for QR-only flows — do not
+    // use strong here. Prefer classic XML; fall back to non-strong v2 JSON.
     try {
-      return await _createPinV2(deviceId: deviceId);
+      return await _createPinXml(deviceId: deviceId);
     } catch (_) {
-      return _createPinXml(deviceId: deviceId);
+      return _createPinV2(deviceId: deviceId);
     }
   }
 
   Future<PlexPinSession> _createPinV2({required String deviceId}) async {
-    final uri = Uri.parse('$_plexTv/api/v2/pins').replace(
-      queryParameters: {'strong': 'true'},
-    );
+    // No strong=true — that yields a long code unsuitable for plex.tv/link.
+    final uri = Uri.parse('$_plexTv/api/v2/pins');
     final request = http.Request('POST', uri)
       ..followRedirects = false
       ..headers.addAll({
@@ -235,9 +236,14 @@ class PlexClient {
       throw const MediaServerException('Plex returned an invalid PIN response.');
     }
     final id = body['id']?.toString();
-    final code = body['code']?.toString();
+    final code = body['code']?.toString()?.trim().toUpperCase();
     if (id == null || id.isEmpty || code == null || code.isEmpty) {
       throw const MediaServerException('Plex returned an incomplete PIN.');
+    }
+    if (code.length > 6) {
+      throw const MediaServerException(
+        'Plex returned a QR-only PIN; retry for a short link code.',
+      );
     }
     return PlexPinSession(id: id, code: code);
   }
@@ -256,8 +262,8 @@ class PlexClient {
     }
     final xml = utf8.decode(response.bodyBytes);
     final id = _xmlTag(xml, 'id');
-    final code = _xmlTag(xml, 'code');
-    if (id == null || code == null) {
+    final code = _xmlTag(xml, 'code')?.trim().toUpperCase();
+    if (id == null || code == null || code.isEmpty) {
       throw const MediaServerException('Plex returned an incomplete PIN.');
     }
     return PlexPinSession(id: id, code: code);
