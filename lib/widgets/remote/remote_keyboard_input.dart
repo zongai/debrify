@@ -200,7 +200,7 @@ class _RemoteKeyboardInputState extends State<RemoteKeyboardInput> {
                 child: OutlinedButton.icon(
                   onPressed: _clearField,
                   icon: const Icon(Icons.backspace_outlined, size: 18),
-                  label: Text(AppLocalizations.of(context).t('Clear')),
+                  label: Text(AppLocalizations.of(context).t('Clear'),
                   style: OutlinedButton.styleFrom(
                     foregroundColor: AppThemeScope.of(
                       context,

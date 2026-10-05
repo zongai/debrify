@@ -814,7 +814,7 @@ class _PikPakSettingsPageState extends State<PikPakSettingsPage> {
                                               Icons.clear,
                                               size: 18,
                                             ),
-                                            label: Text(AppLocalizations.of(context).t('Remove')),
+                                            label: Text(AppLocalizations.of(context).t('Remove'),
                                             style: OutlinedButton.styleFrom(
                                               foregroundColor: t.danger,
                                             ),
@@ -965,7 +965,7 @@ class _PikPakSettingsPageState extends State<PikPakSettingsPage> {
                             focusNode: _logoutButtonFocusNode,
                             onPressed: _logout,
                             icon: const Icon(Icons.logout),
-                            label: Text(AppLocalizations.of(context).t('Logout')),
+                            label: Text(AppLocalizations.of(context).t('Logout'),
                             style: OutlinedButton.styleFrom(
                               foregroundColor: t.danger,
                               side: BorderSide(

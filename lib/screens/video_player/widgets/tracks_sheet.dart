@@ -1523,7 +1523,7 @@ class _StyleTab extends StatelessWidget {
               onStyleChanged(newSettings);
             },
             icon: Icon(Icons.refresh_rounded, size: 18),
-            label: Text(AppLocalizations.of(context).t('Reset to Defaults')),
+            label: Text(AppLocalizations.of(context).t('Reset to Defaults'),
             style: TextButton.styleFrom(
               foregroundColor: Colors.white60,
               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),

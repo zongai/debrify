@@ -1838,7 +1838,7 @@ class _CollectionFolderScreenState extends State<CollectionFolderScreen> {
                     focusNode: _retryNode,
                     onPressed: _retryCurrent,
                     icon: Icon(Icons.refresh_rounded, size: 18),
-                    label: Text(AppLocalizations.of(context).t('Retry')),
+                    label: Text(AppLocalizations.of(context).t('Retry'),
                     style: OutlinedButton.styleFrom(
                       foregroundColor: app.core.tx,
                       side: BorderSide(color: app.seeAll.accentBorder),

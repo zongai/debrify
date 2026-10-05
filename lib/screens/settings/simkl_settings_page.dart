@@ -372,7 +372,7 @@ class _SimklSettingsPageState extends State<SimklSettingsPage> {
                                   focusNode: _primaryButtonFocus,
                                   onPressed: _logout,
                                   icon: const Icon(Icons.logout),
-                                  label: Text(AppLocalizations.of(context).t('Logout')),
+                                  label: Text(AppLocalizations.of(context).t('Logout'),
                                   style: OutlinedButton.styleFrom(
                                     foregroundColor: t.danger,
                                     side: BorderSide(

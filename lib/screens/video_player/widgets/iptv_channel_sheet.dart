@@ -2086,7 +2086,7 @@ class IptvChannelSheetState extends State<IptvChannelSheet>
               FilledButton.icon(
                 onPressed: () => unawaited(_submitSearch()),
                 icon: const Icon(Icons.search_rounded, size: 17),
-                label: Text(AppLocalizations.of(context).t('Search all channels')),
+                label: Text(AppLocalizations.of(context).t('Search all channels'),
                 style: FilledButton.styleFrom(
                   backgroundColor: t == null
                       ? const Color(0xFF7C5CFF)

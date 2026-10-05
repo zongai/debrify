@@ -359,7 +359,7 @@ class _TraktSettingsPageState extends State<TraktSettingsPage> {
                                   focusNode: _primaryButtonFocus,
                                   onPressed: _logout,
                                   icon: const Icon(Icons.logout),
-                                  label: Text(AppLocalizations.of(context).t('Logout')),
+                                  label: Text(AppLocalizations.of(context).t('Logout'),
                                   style: OutlinedButton.styleFrom(
                                     foregroundColor: t.danger,
                                     side: BorderSide(

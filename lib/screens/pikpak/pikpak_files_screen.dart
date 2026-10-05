@@ -2317,7 +2317,7 @@ class _PikPakFilesScreenState extends State<PikPakFilesScreen> {
                     );
                   },
                   icon: Icon(Icons.settings),
-                  label: Text(AppLocalizations.of(context).t('Go to Settings')),
+                  label: Text(AppLocalizations.of(context).t('Go to Settings'),
                   style: FilledButton.styleFrom().copyWith(
                     side: WidgetStateProperty.resolveWith((states) {
                       if (states.contains(WidgetState.focused)) {
@@ -2365,7 +2365,7 @@ class _PikPakFilesScreenState extends State<PikPakFilesScreen> {
                   autofocus: true,
                   onPressed: _refreshFiles,
                   icon: const Icon(Icons.refresh),
-                  label: Text(AppLocalizations.of(context).t('Retry')),
+                  label: Text(AppLocalizations.of(context).t('Retry'),
                   style: FilledButton.styleFrom().copyWith(
                     side: WidgetStateProperty.resolveWith((states) {
                       if (states.contains(WidgetState.focused)) {
@@ -2445,7 +2445,7 @@ class _PikPakFilesScreenState extends State<PikPakFilesScreen> {
             focusNode: _deleteButtonFocusNode,
             onPressed: count > 0 ? _handleDeleteSelected : null,
             icon: const Icon(Icons.delete_outline, size: 18),
-            label: Text(AppLocalizations.of(context).t('Delete')),
+            label: Text(AppLocalizations.of(context).t('Delete'),
             style:
                 FilledButton.styleFrom(
                   backgroundColor: theme.colorScheme.error,
