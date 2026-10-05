@@ -787,7 +787,7 @@ class SettingsPageScaffold extends StatelessWidget {
           // AppBar chrome (transparent bg, zero elevation) comes from
           // settingsPageTheme.appBarTheme — single source of truth.
           appBar: AppBar(
-            title: Text(title),
+            title: Text(AppLocalizations.of(context).t(title)),
             leading: leading,
             actions: actions,
             bottom: appBarBottom,
@@ -836,7 +836,7 @@ class SettingsPageHeader extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                title,
+                AppLocalizations.of(context).t(title),
                 // No color: inherits the ambient bodyMedium color, which is
                 // onSurface — and so follows Appearance → Text Brightness.
                 style: const TextStyle(
@@ -847,7 +847,7 @@ class SettingsPageHeader extends StatelessWidget {
               ),
               const SizedBox(height: 3),
               Text(
-                subtitle,
+                AppLocalizations.of(context).t(subtitle),
                 style: TextStyle(fontSize: 12.5, height: 1.4, color: t.dim),
               ),
             ],
@@ -898,7 +898,7 @@ class SettingsInfoBanner extends StatelessWidget {
           const SizedBox(width: 10),
           Expanded(
             child: Text(
-              text,
+              AppLocalizations.of(context).t(text),
               style: TextStyle(
                 fontSize: 12,
                 height: 1.45,
