@@ -6283,7 +6283,7 @@ class _TorboxDownloadsScreenState extends State<TorboxDownloadsScreen> {
       itemCount: _currentItems.length + (_isLoadingMore ? 1 : 0),
       itemBuilder: (context, index) {
         if (index >= _currentItems.length) {
-          return const Padding(
+          return Padding(
             padding: EdgeInsets.symmetric(vertical: 24),
             child: Center(child: CircularProgressIndicator()),
           );
@@ -6367,7 +6367,7 @@ class _TorboxDownloadsScreenState extends State<TorboxDownloadsScreen> {
       itemCount: _webDownloads.length + (_isLoadingMoreWebDownloads ? 1 : 0),
       itemBuilder: (context, index) {
         if (index >= _webDownloads.length) {
-          return const Padding(
+          return Padding(
             padding: EdgeInsets.symmetric(vertical: 24),
             child: Center(child: CircularProgressIndicator()),
           );

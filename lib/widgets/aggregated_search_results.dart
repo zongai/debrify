@@ -1061,7 +1061,7 @@ class AggregatedSearchResultsState extends State<AggregatedSearchResults> {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            const Padding(
+            Padding(
               padding: EdgeInsets.all(16),
               child: Text(
                 'Select Provider',

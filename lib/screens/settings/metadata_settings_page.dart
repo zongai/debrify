@@ -254,7 +254,7 @@ class _MetadataSettingsPageState extends State<MetadataSettingsPage> {
           : ListView(
               padding: const EdgeInsets.symmetric(vertical: 12),
               children: [
-                const Padding(
+                Padding(
                   padding: EdgeInsets.all(16),
                   child: Text(
                     'Choose who supplies each part of a title. Current behaviour keeps your existing setup. '
@@ -286,7 +286,7 @@ class _MetadataSettingsPageState extends State<MetadataSettingsPage> {
                       : (value) => _save(prefs.copyWith(fallback: value)),
                 ),
                 const Divider(),
-                const Padding(
+                Padding(
                   padding: EdgeInsets.all(16),
                   child: Text(AppLocalizations.of(context).t('TMDB language and region')),
                 ),
@@ -344,7 +344,7 @@ class _MetadataSettingsPageState extends State<MetadataSettingsPage> {
                   disabledReason: 'Enable Where to watch or TMDB discovery to change this.',
                 ),
                 const Divider(),
-                const Padding(
+                Padding(
                   padding: EdgeInsets.all(16),
                   child: Text(AppLocalizations.of(context).t('Optional features')),
                 ),
@@ -370,7 +370,7 @@ class _MetadataSettingsPageState extends State<MetadataSettingsPage> {
                       : () => _save(MetadataPreferences()),
                   child: Text(AppLocalizations.of(context).t('Restore defaults')),
                 ),
-                const Padding(
+                Padding(
                   padding: EdgeInsets.all(16),
                   child: TmdbAttribution(),
                 ),

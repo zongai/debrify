@@ -1319,7 +1319,7 @@ class _AddonHubScreenState extends State<AddonHubScreen> {
   }
 
   Widget _buildHeader() {
-    return const Padding(
+    return Padding(
       padding: EdgeInsets.fromLTRB(24, 14, 24, 8),
       child: Text(
         'Addons',
@@ -1349,7 +1349,7 @@ class _AddonHubScreenState extends State<AddonHubScreen> {
           value: _kind,
           focusNode: _kindFocus,
           isTelevision: _isTv,
-          options: const [
+          options: [
             StremioDropdownOption(_HubKind.addons, 'Stremio Addons'),
             StremioDropdownOption(_HubKind.engines, 'Torrent Engines'),
           ],
@@ -1360,7 +1360,7 @@ class _AddonHubScreenState extends State<AddonHubScreen> {
           value: _source,
           focusNode: _sourceFocus,
           isTelevision: _isTv,
-          options: const [
+          options: [
             StremioDropdownOption(_AddonSource.installed, 'Installed'),
             StremioDropdownOption(_AddonSource.official, 'Official'),
             StremioDropdownOption(_AddonSource.community, 'Community'),
@@ -1372,7 +1372,7 @@ class _AddonHubScreenState extends State<AddonHubScreen> {
           value: _typeFilter,
           focusNode: _typeFocus,
           isTelevision: _isTv,
-          options: const [
+          options: [
             StremioDropdownOption('', 'All'),
             StremioDropdownOption('movie', 'Movies'),
             StremioDropdownOption('series', 'Series'),

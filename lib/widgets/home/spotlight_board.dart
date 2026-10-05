@@ -1934,7 +1934,7 @@ class SpotlightBoardState extends State<SpotlightBoard> with MetadataPresentatio
                               color: Colors.white.withValues(alpha: 0.12),
                             ),
                           ),
-                          child: const Padding(
+                          child: Padding(
                             padding: EdgeInsets.symmetric(
                               horizontal: 14,
                               vertical: 9,

@@ -1381,7 +1381,7 @@ class _StremioTvLocalCatalogsDialogState
 
               // ── Catalog list ──
               if (_loadingCatalogs)
-                const Padding(
+                Padding(
                   padding: EdgeInsets.symmetric(vertical: 16),
                   child: Center(
                     child: SizedBox(
@@ -1446,7 +1446,7 @@ class _StremioTvLocalCatalogsDialogState
                           children: [
                             if (isTrakt || isMdblist)
                               _refreshingCatalogId == catalog['id']
-                                  ? const Padding(
+                                  ? Padding(
                                       padding: EdgeInsets.all(12),
                                       child: SizedBox(
                                         width: 18,
@@ -2423,7 +2423,7 @@ class _ImportTraktDialogState extends State<_ImportTraktDialog> {
             // Direct import sources — just show an import button
             if (!_source.needsListPicker) ...[
               if (_importing)
-                const Padding(
+                Padding(
                   padding: EdgeInsets.symmetric(vertical: 24),
                   child: Center(child: CircularProgressIndicator()),
                 )
@@ -2437,7 +2437,7 @@ class _ImportTraktDialogState extends State<_ImportTraktDialog> {
             // List picker sources — show list of lists
             if (_source.needsListPicker) ...[
               if (_loading)
-                const Padding(
+                Padding(
                   padding: EdgeInsets.symmetric(vertical: 24),
                   child: Center(child: CircularProgressIndicator()),
                 )
@@ -2786,7 +2786,7 @@ class _ImportMdblistDialogState extends State<_ImportMdblistDialog> {
                 ),
               ),
             if (_loading)
-              const Padding(
+              Padding(
                 padding: EdgeInsets.symmetric(vertical: 24),
                 child: Center(child: CircularProgressIndicator()),
               )

@@ -1453,7 +1453,7 @@ class _RemoteTransferAllState extends State<RemoteTransferAll> {
           style: TextStyle(color: app.settings.dim),
         ),
         if (_loading)
-          const Padding(
+          Padding(
             padding: EdgeInsets.all(24),
             child: LinearProgressIndicator(),
           )

@@ -408,7 +408,7 @@ class _RealDebridSettingsPageState extends State<RealDebridSettingsPage> {
                                   ),
                                 ),
                                 if (_hiddenFromNav)
-                                  const Padding(
+                                  Padding(
                                     padding: EdgeInsets.fromLTRB(16, 0, 16, 16),
                                     child: SettingsInfoBanner(
                                       text:
@@ -715,7 +715,7 @@ class _RealDebridSettingsPageState extends State<RealDebridSettingsPage> {
                                   SettingsSelectDropdown(
                                     value: _fileSelection,
                                     onChanged: _saveSelection,
-                                    options: const [
+                                    options: [
                                       SettingsSelectOption(
                                         'smart',
                                         'Smart (recommended)',
@@ -778,7 +778,7 @@ class _RealDebridSettingsPageState extends State<RealDebridSettingsPage> {
                                   SettingsSelectDropdown(
                                     value: _postTorrentAction,
                                     onChanged: _savePostAction,
-                                    options: const [
+                                    options: [
                                       SettingsSelectOption(
                                         'none',
                                         'None',

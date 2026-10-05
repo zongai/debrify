@@ -2489,7 +2489,7 @@ class _PikPakFilesScreenState extends State<PikPakFilesScreen> {
 
   Widget _buildLoadingIndicator() {
     if (_isLoadingMore) {
-      return const Padding(
+      return Padding(
         padding: EdgeInsets.symmetric(vertical: 16),
         child: Center(
           child: SizedBox(

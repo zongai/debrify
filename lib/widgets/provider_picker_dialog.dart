@@ -70,7 +70,7 @@ class _ProviderPickerDialogState extends State<_ProviderPickerDialog> {
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                const Padding(
+                Padding(
                   padding: EdgeInsets.fromLTRB(22, 22, 22, 4),
                   child: Text(
                     'Choose provider',

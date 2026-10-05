@@ -596,7 +596,7 @@ class _CatalogSeeAllScreenState extends State<CatalogSeeAllScreen> {
               isTelevision: widget.isTelevision,
               quiet: _quiet,
               focusNode: _sortNode,
-              options: const [
+              options: [
                 StremioDropdownOption(_sortDefault, 'Default'),
                 StremioDropdownOption(
                   _sortImdbDesc,

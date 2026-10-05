@@ -598,7 +598,7 @@ class _PremiumizeSettingsPageState extends State<PremiumizeSettingsPage> {
                                     ),
                                   ),
                                   if (_hiddenFromNav)
-                                    const Padding(
+                                    Padding(
                                       padding: EdgeInsets.fromLTRB(
                                         16,
                                         0,
@@ -689,7 +689,7 @@ class _PremiumizeSettingsPageState extends State<PremiumizeSettingsPage> {
                                     SettingsSelectDropdown(
                                       value: _postTorrentAction,
                                       onChanged: _savePostAction,
-                                      options: const [
+                                      options: [
                                         SettingsSelectOption(
                                           'none',
                                           'None',

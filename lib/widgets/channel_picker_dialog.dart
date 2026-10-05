@@ -290,7 +290,7 @@ class _ChannelPickerDialogState extends State<ChannelPickerDialog> {
         ),
         const Divider(height: 1, color: Color(0xFF1E293B)),
         if (_isLoading)
-          const Padding(
+          Padding(
             padding: EdgeInsets.all(40),
             child: CircularProgressIndicator(
               color: Color(0xFF10B981),
@@ -324,7 +324,7 @@ class _ChannelPickerDialogState extends State<ChannelPickerDialog> {
                   );
                 }),
                 if (_channels.isEmpty)
-                  const Padding(
+                  Padding(
                     padding: EdgeInsets.all(32),
                     child: Center(
                       child: Text(

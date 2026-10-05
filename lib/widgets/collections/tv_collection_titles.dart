@@ -677,7 +677,7 @@ class TvCollectionTitlesState extends State<TvCollectionTitles>
                 style: const TextStyle(color: _muted, fontSize: 11),
               ),
               if (widget.loadingMore)
-                const Padding(
+                Padding(
                   padding: EdgeInsets.only(left: 10),
                   child: SizedBox(
                     width: 14,

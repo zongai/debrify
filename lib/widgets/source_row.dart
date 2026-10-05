@@ -308,7 +308,7 @@ class _SourceRowState extends State<SourceRow> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             if (widget.isCurrentSource)
-              const Padding(
+              Padding(
                 padding: EdgeInsets.only(right: 11),
                 child: Icon(
                   Icons.check_circle_rounded,

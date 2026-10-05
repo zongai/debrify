@@ -775,7 +775,7 @@ class _IptvChannelRowState extends State<IptvChannelRow>
   Widget _buildFavTrailing() {
     final app = AppThemeScope.of(context);
     if (widget.isTelevision && widget.onLongPress != null && _focused) {
-      return const Padding(
+      return Padding(
         padding: EdgeInsets.only(left: 8),
         child: Text('HOLD OK · Options', style: TextStyle(fontSize: 10)),
       );

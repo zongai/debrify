@@ -418,7 +418,7 @@ class _ContinueWatchingSeeAllScreenState
               isTelevision: widget.isTelevision,
               quiet: _quiet,
               focusNode: _sortNode,
-              options: const [
+              options: [
                 StremioDropdownOption(_CwSort.lastWatched, AppLocalizations.of(context).t('Last Watched')),
                 StremioDropdownOption(_CwSort.az, 'A–Z'),
                 StremioDropdownOption(_CwSort.za, 'Z–A'),
@@ -431,7 +431,7 @@ class _ContinueWatchingSeeAllScreenState
               isTelevision: widget.isTelevision,
               quiet: _quiet,
               focusNode: _watchNode,
-              options: const [
+              options: [
                 StremioDropdownOption('all', AppLocalizations.of(context).t('All')),
                 StremioDropdownOption('watched', 'Watched'),
                 StremioDropdownOption('unwatched', 'Unwatched'),

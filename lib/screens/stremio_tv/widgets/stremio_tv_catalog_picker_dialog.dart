@@ -385,7 +385,7 @@ class _StremioTvCatalogPickerDialogState
           ),
           const SizedBox(height: 18),
           if (_loading)
-            const Padding(
+            Padding(
               padding: EdgeInsets.symmetric(vertical: 32),
               child: Center(child: CircularProgressIndicator()),
             )

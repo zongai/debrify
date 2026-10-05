@@ -541,7 +541,7 @@ class _AllDebridSettingsPageState extends State<AllDebridSettingsPage> {
                                   ),
                                 ),
                                 if (_hiddenFromNav)
-                                  const Padding(
+                                  Padding(
                                     padding: EdgeInsets.fromLTRB(16, 0, 16, 16),
                                     child: SettingsInfoBanner(
                                       text:
@@ -588,7 +588,7 @@ class _AllDebridSettingsPageState extends State<AllDebridSettingsPage> {
                                   SettingsSelectDropdown(
                                     value: _postTorrentAction,
                                     onChanged: _savePostAction,
-                                    options: const [
+                                    options: [
                                       SettingsSelectOption(
                                         'none',
                                         'None',

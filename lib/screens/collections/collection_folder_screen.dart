@@ -1084,7 +1084,7 @@ class _CollectionFolderScreenState extends State<CollectionFolderScreen> {
               if (_openingTitle != null)
                 Row(
                   children: [
-                    const Padding(
+                    Padding(
                       padding: EdgeInsets.all(12),
                       child: SizedBox(
                         width: 18,
@@ -1294,7 +1294,7 @@ class _CollectionFolderScreenState extends State<CollectionFolderScreen> {
     value: _sort,
     isTelevision: widget.isTelevision,
     focusNode: _sortNode,
-    options: const [
+    options: [
       StremioDropdownOption(_sortDefault, 'Default'),
       StremioDropdownOption(_sortImdbDesc, 'IMDb Rating · High → Low'),
       StremioDropdownOption(_sortImdbAsc, 'IMDb Rating · Low → High'),
@@ -1359,7 +1359,7 @@ class _CollectionFolderScreenState extends State<CollectionFolderScreen> {
                   value: _view,
                   isTelevision: widget.isTelevision,
                   focusNode: _viewNode,
-                  options: const [
+                  options: [
                     StremioDropdownOption(_View.all, 'All'),
                     StremioDropdownOption(_View.lists, 'Gallery'),
                   ],

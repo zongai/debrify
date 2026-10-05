@@ -1004,7 +1004,7 @@ class _SubtitlesTab extends StatelessWidget {
                   ),
                 ),
               if (slotsPending)
-                const Padding(
+                Padding(
                   padding: EdgeInsets.only(right: 8),
                   child: _ProviderChip.pending(),
                 ),
@@ -1809,7 +1809,7 @@ class _ProviderPendingTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Padding(
+    return Padding(
       padding: EdgeInsets.symmetric(vertical: 12),
       child: Center(
         child: SizedBox(

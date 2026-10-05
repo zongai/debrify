@@ -1066,7 +1066,7 @@ class _MdblistSeeAllScreenState extends State<MdblistSeeAllScreen> {
                 isTelevision: widget.isTelevision,
                 quiet: _quiet,
                 focusNode: _sortNode,
-                options: const [
+                options: [
                   StremioDropdownOption('score', 'MDBList Score'),
                   StremioDropdownOption('imdbpopular', 'IMDb Popular'),
                   StremioDropdownOption('imdbrating', 'IMDb Rating'),
@@ -1090,7 +1090,7 @@ class _MdblistSeeAllScreenState extends State<MdblistSeeAllScreen> {
                 isTelevision: widget.isTelevision,
                 quiet: _quiet,
                 focusNode: _sortNode,
-                options: const [
+                options: [
                   StremioDropdownOption(_Sort.natural, AppLocalizations.of(context).t('Default')),
                   StremioDropdownOption(_Sort.az, 'A–Z'),
                   StremioDropdownOption(_Sort.za, 'Z–A'),
@@ -1106,7 +1106,7 @@ class _MdblistSeeAllScreenState extends State<MdblistSeeAllScreen> {
                 isTelevision: widget.isTelevision,
                 quiet: _quiet,
                 focusNode: _orderNode,
-                options: const [
+                options: [
                   StremioDropdownOption('desc', 'Descending'),
                   StremioDropdownOption('asc', 'Ascending'),
                 ],

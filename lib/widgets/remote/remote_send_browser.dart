@@ -233,7 +233,7 @@ class _RemoteSendBrowserState extends State<RemoteSendBrowser> {
                 ),
             ],
             if (widget.loading)
-              const Padding(
+              Padding(
                 padding: EdgeInsets.all(20),
                 child: LinearProgressIndicator(),
               ),

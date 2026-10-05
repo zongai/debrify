@@ -336,7 +336,7 @@ class _MediaServerLibraryPanelState extends State<MediaServerLibraryPanel> {
                       label: 'Show',
                       value: _mode,
                       isTelevision: widget.isTelevision,
-                      options: const [
+                      options: [
                         StremioDropdownOption('browse', 'Library'),
                         StremioDropdownOption('recent', 'Recently added'),
                         StremioDropdownOption('resume', 'Continue watching'),
@@ -354,7 +354,7 @@ class _MediaServerLibraryPanelState extends State<MediaServerLibraryPanel> {
                         label: 'Sort',
                         value: _sort,
                         isTelevision: widget.isTelevision,
-                        options: const [
+                        options: [
                           StremioDropdownOption('SortName', 'Name A–Z'),
                           StremioDropdownOption('DateCreated', 'Newest added'),
                           StremioDropdownOption('ProductionYear', 'Year'),

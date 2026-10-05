@@ -646,7 +646,7 @@ class _StremioTvRepoBrowserDialogState
 
               // ── Repo list ──
               if (_loadingRepos)
-                const Padding(
+                Padding(
                   padding: EdgeInsets.symmetric(vertical: 24),
                   child: Center(
                     child: SizedBox(
@@ -797,7 +797,7 @@ class _StremioTvRepoBrowserDialogState
         children: [
           // Loading
           if (_loadingFiles)
-            const Padding(
+            Padding(
               padding: EdgeInsets.symmetric(vertical: 16),
               child: Center(
                 child: SizedBox(

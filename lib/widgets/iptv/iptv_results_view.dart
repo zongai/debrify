@@ -7249,7 +7249,7 @@ class IptvResultsViewState extends State<IptvResultsView>
             focusNode: _contentTypeFocusNode,
             onUpArrowPressed: widget.onUpArrowFromFilters,
             onDownArrowPressed: _focusFirstChannel,
-            options: const [
+            options: [
               StremioDropdownOption('live', 'Live TV'),
               StremioDropdownOption('vod', 'Movies'),
               StremioDropdownOption('series', 'Series'),

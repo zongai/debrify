@@ -465,7 +465,7 @@ class _SourceEditorState extends State<_SourceEditor> {
                 }, fallback: 'asc'),
               ],
             ] else
-              const Padding(
+              Padding(
                 padding: EdgeInsets.all(16),
                 child: Text(
                   'This provider is not supported. Its data will be preserved; choose a supported source to replace it.',

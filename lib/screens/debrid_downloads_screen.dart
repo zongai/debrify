@@ -3329,7 +3329,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
           itemBuilder: (context, index) {
             if (index == _torrents.length) {
               // Loading more indicator
-              return const Padding(
+              return Padding(
                 padding: EdgeInsets.all(16),
                 child: Center(child: CircularProgressIndicator()),
               );
@@ -3615,7 +3615,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
           itemBuilder: (context, index) {
             if (index == _downloads.length) {
               // Loading more indicator
-              return const Padding(
+              return Padding(
                 padding: EdgeInsets.all(16),
                 child: Center(child: CircularProgressIndicator()),
               );

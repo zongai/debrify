@@ -832,7 +832,7 @@ class _SettingsTvLayoutState extends State<SettingsTvLayout> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Padding(
+            Padding(
               padding: EdgeInsets.only(left: 12, right: 8, bottom: 20),
               child: SettingsRootHeader(compact: true),
             ),

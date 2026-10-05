@@ -960,12 +960,12 @@ class _PairedDevicesDialogState extends State<_PairedDevicesDialog> {
       content: SizedBox(
         width: 420,
         child: devices == null
-            ? const Padding(
+            ? Padding(
                 padding: EdgeInsets.all(24),
                 child: Center(child: CircularProgressIndicator()),
               )
             : devices.isEmpty
-            ? const Padding(
+            ? Padding(
                 padding: EdgeInsets.symmetric(vertical: 16),
                 child: Text(
                   'No devices have paired with this one yet. A device is '

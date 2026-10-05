@@ -310,7 +310,7 @@ class _IptvListPickerDialogState extends State<_IptvListPickerDialog> {
         _buildHeader(),
         const SizedBox(height: 16),
         if (_loading)
-          const Padding(
+          Padding(
             padding: EdgeInsets.symmetric(vertical: 28),
             child: Center(child: CircularProgressIndicator(strokeWidth: 2.5)),
           )

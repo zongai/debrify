@@ -395,7 +395,7 @@ class _TorboxSettingsPageState extends State<TorboxSettingsPage> {
                                     ),
                                   ),
                                   if (_hiddenFromNav)
-                                    const Padding(
+                                    Padding(
                                       padding: EdgeInsets.fromLTRB(
                                         16,
                                         0,
@@ -710,7 +710,7 @@ class _TorboxSettingsPageState extends State<TorboxSettingsPage> {
                                     SettingsSelectDropdown(
                                       value: _postTorrentAction,
                                       onChanged: _savePostAction,
-                                      options: const [
+                                      options: [
                                         SettingsSelectOption(
                                           'none',
                                           'None',

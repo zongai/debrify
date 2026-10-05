@@ -696,7 +696,7 @@ class _CollectionsSettingsPageState extends State<CollectionsSettingsPage> {
                         child: SettingsSelectDropdown(
                           key: ValueKey(_gifMode),
                           value: _gifMode.name,
-                          options: const [
+                          options: [
                             SettingsSelectOption('visible', 'Animate visible GIFs'),
                             SettingsSelectOption('focused', 'On focus or hover'),
                             SettingsSelectOption('off', 'Off'),

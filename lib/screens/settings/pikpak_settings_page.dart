@@ -165,7 +165,7 @@ class _PikPakSettingsPageState extends State<PikPakSettingsPage> {
                 children: [
                   Icon(Icons.folder_special, color: t.warning),
                   const SizedBox(width: 12),
-                  const Expanded(child: Text(AppLocalizations.of(context).t('Folder Restriction (Optional)'))),
+                  Expanded(child: Text(AppLocalizations.of(context).t('Folder Restriction (Optional)'))),
                 ],
               ),
               content: const Column(
@@ -592,7 +592,7 @@ class _PikPakSettingsPageState extends State<PikPakSettingsPage> {
                               ),
                             ),
                             if (_hiddenFromNav)
-                              const Padding(
+                              Padding(
                                 padding: EdgeInsets.fromLTRB(16, 0, 16, 16),
                                 child: SettingsInfoBanner(
                                   text:

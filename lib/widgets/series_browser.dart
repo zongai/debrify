@@ -2045,7 +2045,7 @@ class _SeriesBrowserState extends State<SeriesBrowser> {
           ),
         ),
         if (showDivider && !isCurrent && !expanded)
-          const Padding(
+          Padding(
             padding: EdgeInsets.symmetric(horizontal: 12),
             child: Divider(height: 1, thickness: 1, color: _BrowserColors.line),
           ),
@@ -2170,7 +2170,7 @@ class _SeriesBrowserState extends State<SeriesBrowser> {
               child: InkWell(
                 onTap: () => _onEpisodeTap(episode),
                 borderRadius: BorderRadius.circular(8),
-                child: const Padding(
+                child: Padding(
                   padding: EdgeInsets.symmetric(horizontal: 14, vertical: 7),
                   child: Row(
                     mainAxisSize: MainAxisSize.min,

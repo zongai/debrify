@@ -132,7 +132,7 @@ class _ProfileCard extends StatelessWidget {
                 style: Theme.of(context).textTheme.titleMedium,
               ),
               if (profile.hasPin)
-                const Padding(
+                Padding(
                   padding: EdgeInsets.only(top: 4),
                   child: Icon(Icons.lock_rounded, size: 16),
                 ),

@@ -951,7 +951,7 @@ class TorrentService {
               type: 'dropdown',
               label: 'Max Results',
               defaultValue: config.maxResults,
-              options: const [25, 50, 100, 200],
+              options: [25, 50, 100, 200],
             ),
           },
         ),

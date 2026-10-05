@@ -20395,7 +20395,7 @@ class _SearchScreenState extends State<SearchScreen>
 
   /// Bottom-of-board loading indicator shown while more catalog rows stream in.
   Widget _buildBoardFooter() {
-    return const Padding(
+    return Padding(
       padding: EdgeInsets.symmetric(vertical: 28),
       child: Center(
         child: SizedBox(

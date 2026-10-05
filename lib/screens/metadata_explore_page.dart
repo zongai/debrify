@@ -523,7 +523,7 @@ class _MetadataBrowsePageState extends State<MetadataBrowsePage> {
               quiet: quiet,
               isTelevision: widget.isTelevision,
               focusNode: _typeNode,
-              options: const [
+              options: [
                 StremioDropdownOption('movie', 'Movies'),
                 StremioDropdownOption('tv', 'TV shows'),
               ],
@@ -538,7 +538,7 @@ class _MetadataBrowsePageState extends State<MetadataBrowsePage> {
               quiet: quiet,
               isTelevision: widget.isTelevision,
               focusNode: _runtimeNode,
-              options: const [
+              options: [
                 StremioDropdownOption(false, 'Any runtime'),
                 StremioDropdownOption(true, 'Under two hours'),
               ],
@@ -710,7 +710,7 @@ class _MetadataBrowsePageState extends State<MetadataBrowsePage> {
               SliverToBoxAdapter(
                 child: Center(
                   child: _busy || _retryTimer != null
-                      ? const Padding(
+                      ? Padding(
                           padding: EdgeInsets.all(20),
                           child: CircularProgressIndicator(),
                         )

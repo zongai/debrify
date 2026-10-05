@@ -429,7 +429,7 @@ class _QuickPlaySettingsPageState extends State<QuickPlaySettingsPage> {
     child: SettingsSelectDropdown(
       focusNode: _playModeNode,
       value: _playMode,
-      options: const [
+      options: [
         SettingsSelectOption(
           'quick',
           'Quick Play',

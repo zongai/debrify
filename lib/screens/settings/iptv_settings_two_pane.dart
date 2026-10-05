@@ -29,7 +29,7 @@ class IptvAutoRefreshDialog extends StatelessWidget {
   Widget build(BuildContext context) => SimpleDialog(
     title: Text(AppLocalizations.of(context).t('Auto-refresh')),
     children: [
-      const Padding(
+      Padding(
         padding: EdgeInsets.fromLTRB(24, 0, 24, 16),
         child: Text(
           'Applies to all sources in this profile. '
@@ -1735,7 +1735,7 @@ class _RailEntryState extends State<_RailEntry> {
                     borderRadius: app.shape.br(9),
                   ),
                   child: widget.busy
-                      ? const Padding(
+                      ? Padding(
                           padding: EdgeInsets.all(9),
                           child: CircularProgressIndicator(strokeWidth: 2),
                         )

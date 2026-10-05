@@ -745,7 +745,7 @@ class _TraktSeeAllScreenState extends State<TraktSeeAllScreen> {
                 isTelevision: widget.isTelevision,
                 quiet: _quiet,
                 focusNode: _watchNode,
-                options: const [
+                options: [
                   StremioDropdownOption('all', AppLocalizations.of(context).t('All')),
                   StremioDropdownOption('watched', 'Watched'),
                   StremioDropdownOption('unwatched', 'Unwatched'),

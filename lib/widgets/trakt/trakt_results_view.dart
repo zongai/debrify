@@ -1425,7 +1425,7 @@ class TraktResultsViewState extends State<TraktResultsView> {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            const Padding(
+            Padding(
               padding: EdgeInsets.all(16),
               child: Text(
                 'Select Provider',
