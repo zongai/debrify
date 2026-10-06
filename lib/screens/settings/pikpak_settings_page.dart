@@ -164,7 +164,7 @@ class _PikPakSettingsPageState extends State<PikPakSettingsPage> {
               title: Row(
                 children: [
                   Icon(Icons.folder_special, color: t.warning),
-                  const SizedBox(width: 12),
+                  SizedBox(width: 12),
                   Expanded(child: Text(AppLocalizations.of(context).t('Folder Restriction (Optional)'))),
                 ],
               ),
@@ -210,7 +210,7 @@ class _PikPakSettingsPageState extends State<PikPakSettingsPage> {
                   child: FilledButton.icon(
                     focusNode: _folderRestrictionSelectButtonFocusNode,
                     onPressed: () => Navigator.pop(dialogContext, true),
-                    icon: const Icon(Icons.folder_open, size: 18),
+                    icon: Icon(Icons.folder_open, size: 18),
                     label: Text(AppLocalizations.of(context).t('Select Folder')),
                   ),
                 ),
@@ -964,7 +964,7 @@ class _PikPakSettingsPageState extends State<PikPakSettingsPage> {
                           child: OutlinedButton.icon(
                             focusNode: _logoutButtonFocusNode,
                             onPressed: _logout,
-                            icon: const Icon(Icons.logout),
+                            icon: Icon(Icons.logout),
                             label: Text(AppLocalizations.of(context).t('Logout')),
                             style: OutlinedButton.styleFrom(
                               foregroundColor: t.danger,

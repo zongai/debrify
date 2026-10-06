@@ -1253,7 +1253,7 @@ class _MdblistSeeAllScreenState extends State<MdblistSeeAllScreen> {
                   dimension: 14,
                   child: CircularProgressIndicator(strokeWidth: 2),
                 )
-              : const Icon(Icons.expand_more_rounded, size: 16),
+              : Icon(Icons.expand_more_rounded, size: 16),
           label: Text(AppLocalizations.of(context).t('More')),
         ),
       if (_canLike)
@@ -1273,7 +1273,7 @@ class _MdblistSeeAllScreenState extends State<MdblistSeeAllScreen> {
                   dimension: 14,
                   child: CircularProgressIndicator(strokeWidth: 2),
                 )
-              : const Icon(Icons.copy_rounded, size: 16),
+              : Icon(Icons.copy_rounded, size: 16),
           label: Text(AppLocalizations.of(context).t('Clone')),
         ),
       if (_showRandom && _page.items.isNotEmpty)

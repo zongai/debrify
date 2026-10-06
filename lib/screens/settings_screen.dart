@@ -6337,14 +6337,14 @@ class _SettingsScreenState extends State<SettingsScreen> {
               ),
               const SizedBox(height: 8),
               ListTile(
-                leading: const Icon(Icons.folder_rounded),
+                leading: Icon(Icons.folder_rounded),
                 title: Text(AppLocalizations.of(context).t('Download location')),
                 subtitle: Text(_downloadLocationSubtitle),
               ),
               const Divider(height: 1),
               ListTile(
                 autofocus: true,
-                leading: const Icon(Icons.drive_folder_upload_rounded),
+                leading: Icon(Icons.drive_folder_upload_rounded),
                 title: Text(AppLocalizations.of(context).t('Choose folder…')),
                 subtitle: Text(
                   _downloadLocationUsesSaf
@@ -6358,7 +6358,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
               ),
               if (currentTree != null)
                 ListTile(
-                  leading: const Icon(Icons.restart_alt_rounded),
+                  leading: Icon(Icons.restart_alt_rounded),
                   title: Text(AppLocalizations.of(context).t('Reset to default')),
                   subtitle: Text(
                     'Save to ${_defaultDownloadLocationLabel.replaceAll(' (default)', '')} again',
@@ -6913,7 +6913,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                             Navigator.of(sheetContext).pop();
                             _startAndroidUpdateDownload(release);
                           },
-                          icon: const Icon(Icons.system_update_alt_rounded),
+                          icon: Icon(Icons.system_update_alt_rounded),
                           label: Text(AppLocalizations.of(context).t('Download & Install')),
                         ),
                       OutlinedButton.icon(
@@ -6921,7 +6921,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                           Navigator.of(sheetContext).pop();
                           _openReleasesPage(release.htmlUrl);
                         },
-                        icon: const Icon(Icons.open_in_new_rounded),
+                        icon: Icon(Icons.open_in_new_rounded),
                         label: Text(AppLocalizations.of(context).t('Open Releases Page')),
                       ),
                     ],

@@ -276,9 +276,8 @@ class _EmptyResults extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             Icon(Icons.search_off_rounded, size: 40, color: t.dim2),
-            const SizedBox(height: 14),
-            Text(
-              AppLocalizations.of(context).t('No settings match "\$query"').replaceAll('\$query', query),
+            SizedBox(height: 14),
+            Text(AppLocalizations.of(context).t('No settings match "\$query"').replaceAll('\$query', query),
               textAlign: TextAlign.center,
               style: TextStyle(fontSize: 13.5, color: t.dim),
             ),

@@ -655,7 +655,7 @@ class _TorrentFiltersSheetState extends State<TorrentFiltersSheet> {
                       ),
                       padding: const EdgeInsets.symmetric(vertical: 14),
                     ),
-                    icon: const Icon(Icons.check_rounded),
+                    icon: Icon(Icons.check_rounded),
                     label: Text(AppLocalizations.of(context).t('Apply Filters')),
                   ),
                 ),

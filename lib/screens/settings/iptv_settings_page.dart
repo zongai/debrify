@@ -1517,7 +1517,7 @@ class _IptvSettingsPageState extends State<IptvSettingsPage>
             const Divider(height: 1),
             ListTile(
               autofocus: true,
-              leading: const Icon(Icons.drive_file_rename_outline_rounded),
+              leading: Icon(Icons.drive_file_rename_outline_rounded),
               title: Text(AppLocalizations.of(context).t('Rename')),
               onTap: () => Navigator.of(context).pop('rename'),
             ),
@@ -2596,7 +2596,7 @@ class _IptvSettingsPageState extends State<IptvSettingsPage>
                 onChanged: _setStartupEnabled,
               ),
               if (_startupEnabled) ...[
-                const Divider(height: 1),
+                Divider(height: 1),
                 RadioListTile<String>(
                   title: Text(AppLocalizations.of(context).t('Last watched channel')),
                   subtitle: Text(
@@ -2641,7 +2641,7 @@ class _IptvSettingsPageState extends State<IptvSettingsPage>
       padding: const EdgeInsets.all(16),
       children: [
         const SettingsSectionLabel('Continue watching'),
-        const SizedBox(height: 6),
+        SizedBox(height: 6),
         Card(
           child: SwitchListTile(
             title: Text(AppLocalizations.of(context).t('Track movies and series')),
@@ -2664,7 +2664,7 @@ class _IptvSettingsPageState extends State<IptvSettingsPage>
       padding: const EdgeInsets.all(16),
       children: [
         const SettingsSectionLabel('Channel preview'),
-        const SizedBox(height: 6),
+        SizedBox(height: 6),
         Card(
           child: SwitchListTile(
             title: Text(AppLocalizations.of(context).t('Play channel previews')),

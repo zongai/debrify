@@ -120,9 +120,8 @@ class _SeeAllRandomButtonState extends State<SeeAllRandomButton> {
         mainAxisSize: MainAxisSize.min,
         children: [
           _leadingIcon(16, app.fade(app.seeAll.accent2, dim)),
-          const SizedBox(width: 8),
-          Text(
-            AppLocalizations.of(context).t('Random'),
+          SizedBox(width: 8),
+          Text(AppLocalizations.of(context).t('Random'),
             style: TextStyle(
               color: app.fade(app.core.tx, dim),
               fontSize: 13,

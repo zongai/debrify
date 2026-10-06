@@ -1027,7 +1027,7 @@ class _WebDavFilesScreenState extends State<WebDavFilesScreen> {
             const SizedBox(height: 16),
             FilledButton.icon(
               onPressed: _openSettings,
-              icon: const Icon(Icons.settings_rounded),
+              icon: Icon(Icons.settings_rounded),
               label: Text(AppLocalizations.of(context).t('Open WebDAV Settings')),
             ),
           ],
@@ -1055,7 +1055,7 @@ class _WebDavFilesScreenState extends State<WebDavFilesScreen> {
           ),
           Expanded(
             child: _items.isEmpty
-                ? const Center(child: Text(AppLocalizations.of(context).t('No subfolders')))
+                ? Center(child: Text(AppLocalizations.of(context).t('No subfolders')))
                 : _buildItemList(),
           ),
         ],

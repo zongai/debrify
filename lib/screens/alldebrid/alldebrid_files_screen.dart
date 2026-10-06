@@ -1482,7 +1482,7 @@ class _AllDebridFilesScreenState extends State<AllDebridFilesScreen> {
           FilledButton.icon(
             focusNode: _deleteButtonFocusNode,
             onPressed: count > 0 ? _handleDeleteSelected : null,
-            icon: const Icon(Icons.delete_outline, size: 18),
+            icon: Icon(Icons.delete_outline, size: 18),
             label: Text(AppLocalizations.of(context).t('Delete')),
             style: FilledButton.styleFrom(
               backgroundColor: theme.colorScheme.error,
@@ -1664,7 +1664,7 @@ class _AllDebridFilesScreenState extends State<AllDebridFilesScreen> {
               ),
               const SizedBox(height: 16),
               Text(_error!, textAlign: TextAlign.center),
-              const SizedBox(height: 16),
+              SizedBox(height: 16),
               ElevatedButton(onPressed: _load, child: Text(AppLocalizations.of(context).t('Retry'))),
             ],
           ),
@@ -1826,7 +1826,7 @@ class _AllDebridFilesScreenState extends State<AllDebridFilesScreen> {
               ),
               const SizedBox(height: 16),
               Text(_linksError!, textAlign: TextAlign.center),
-              const SizedBox(height: 16),
+              SizedBox(height: 16),
               ElevatedButton(onPressed: _loadLinks, child: Text(AppLocalizations.of(context).t('Retry'))),
             ],
           ),

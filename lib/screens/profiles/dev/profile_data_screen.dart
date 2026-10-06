@@ -154,7 +154,7 @@ class _ProfileDataScreenState extends State<ProfileDataScreen> {
           FilledButton.icon(
             autofocus: true,
             onPressed: _load,
-            icon: const Icon(Icons.refresh),
+            icon: Icon(Icons.refresh),
             label: Text(AppLocalizations.of(context).t('Retry')),
           ),
         ],
@@ -217,7 +217,7 @@ class _ProfileDataScreenState extends State<ProfileDataScreen> {
                   ? null
                   : (value) => setState(() => _comparing = value),
             ),
-            const SizedBox(width: 8),
+            SizedBox(width: 8),
             const Expanded(child: Text(AppLocalizations.of(context).t('Compare with'))),
             if (_comparing)
               DropdownButton<String>(

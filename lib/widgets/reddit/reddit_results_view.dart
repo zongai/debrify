@@ -502,7 +502,7 @@ class RedditResultsViewState extends State<RedditResultsView> {
             const SizedBox(height: 16),
             FilledButton.icon(
               onPressed: _performSearch,
-              icon: const Icon(Icons.refresh),
+              icon: Icon(Icons.refresh),
               label: Text(AppLocalizations.of(context).t('Retry')),
             ),
           ],

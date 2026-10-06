@@ -584,7 +584,7 @@ class _SelfProfileSettingsPageState extends State<SelfProfileSettingsPage> {
                         onPressed: _busy
                             ? null
                             : () => setState(() => _pendingAvatarBytes = null),
-                        icon: const Icon(Icons.undo_rounded, size: 18),
+                        icon: Icon(Icons.undo_rounded, size: 18),
                         label: Text(AppLocalizations.of(context).t('Discard image')),
                       ),
                   ],

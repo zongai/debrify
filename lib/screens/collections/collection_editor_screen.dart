@@ -106,7 +106,7 @@ class _CollectionEditorScreenState extends State<CollectionEditorScreen> {
               ),
             OutlinedButton.icon(
               onPressed: () => _editFolder(),
-              icon: const Icon(Icons.create_new_folder_outlined),
+              icon: Icon(Icons.create_new_folder_outlined),
               label: Text(AppLocalizations.of(context).t('Add folder')),
             ),
           ],
@@ -211,7 +211,7 @@ class _FolderEditorState extends State<_FolderEditor> {
             ),
           OutlinedButton.icon(
             onPressed: () => _editSource(),
-            icon: const Icon(Icons.add),
+            icon: Icon(Icons.add),
             label: Text(AppLocalizations.of(context).t('Add source')),
           ),
         ],
@@ -427,7 +427,7 @@ class _SourceEditorState extends State<_SourceEditor> {
                   'COMPANY',
                   'NETWORK',
                 ].contains(_draft['tmdbSourceType'])) ...[
-                  const SizedBox(height: 16),
+                  SizedBox(height: 16),
                   Text(AppLocalizations.of(context).t('Filters (optional)')),
                   const Text(
                     'Separate IDs with commas for AND, or | for OR where supported by TMDB.',

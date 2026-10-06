@@ -379,9 +379,8 @@ class SettingsRootHeader extends StatelessWidget {
             letterSpacing: compact ? -0.6 : -0.8,
           ),
         ),
-        const SizedBox(height: 8),
-        Text(
-          AppLocalizations.of(context).t(
+        SizedBox(height: 8),
+        Text(AppLocalizations.of(context).t(
             'Services, screens and playback—tuned in one place.',
           ),
           style: TextStyle(
@@ -422,7 +421,7 @@ class _SettingsCategoryHeading extends StatelessWidget {
                 : t.accent.withValues(alpha: 0.9),
           ),
         ),
-        const SizedBox(height: 10),
+        SizedBox(height: 10),
         Text(AppLocalizations.of(context).t(definition.title),
           style: TextStyle(
             fontSize: compact ? 25 : 29,
@@ -433,9 +432,8 @@ class _SettingsCategoryHeading extends StatelessWidget {
         ),
         const SizedBox(height: 9),
         ConstrainedBox(
-          constraints: const BoxConstraints(maxWidth: 660),
-          child: Text(
-            AppLocalizations.of(context).t(definition.description),
+          constraints: BoxConstraints(maxWidth: 660),
+          child: Text(AppLocalizations.of(context).t(definition.description),
             style: TextStyle(
               fontSize: compact ? 11.5 : 12.5,
               height: 1.48,
@@ -511,10 +509,9 @@ class _SettingsSpotlightSearchButtonState
             child: Row(
               children: [
                 Icon(Icons.search_rounded, size: 18, color: foreground),
-                const SizedBox(width: 11),
+                SizedBox(width: 11),
                 Expanded(
-                  child: Text(
-                    AppLocalizations.of(context).t('Search settings'),
+                  child: Text(AppLocalizations.of(context).t('Search settings'),
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                     style: TextStyle(
@@ -649,9 +646,8 @@ class _SettingsRailItemState extends State<_SettingsRailItem> {
                           color: foreground,
                         ),
                       ),
-                      const SizedBox(height: 2),
-                      Text(
-                        AppLocalizations.of(context).t(widget.definition.subtitle),
+                      SizedBox(height: 2),
+                      Text(AppLocalizations.of(context).t(widget.definition.subtitle),
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(
@@ -810,9 +806,8 @@ class _SettingsCategoryCardState extends State<_SettingsCategoryCard> {
           fontWeight: FontWeight.w700,
         ),
       ),
-      const SizedBox(height: 4),
-      Text(
-        AppLocalizations.of(context).t(widget.definition.subtitle),
+      SizedBox(height: 4),
+      Text(AppLocalizations.of(context).t(widget.definition.subtitle),
         maxLines: 2,
         overflow: TextOverflow.ellipsis,
         style: TextStyle(
@@ -957,10 +952,9 @@ class _SettingsSpotlightSummaryCardState
                             : color,
                       ),
                     ),
-                    const SizedBox(width: 8),
+                    SizedBox(width: 8),
                     Expanded(
-                      child: Text(
-                        AppLocalizations.of(context).t(widget.eyebrow).toUpperCase(),
+                      child: Text(AppLocalizations.of(context).t(widget.eyebrow).toUpperCase(),
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(
@@ -976,18 +970,16 @@ class _SettingsSpotlightSummaryCardState
                     ),
                   ],
                 ),
-                const SizedBox(height: 12),
-                Text(
-                  AppLocalizations.of(context).t(widget.title),
+                SizedBox(height: 12),
+                Text(AppLocalizations.of(context).t(widget.title),
                   style: TextStyle(
                     fontSize: 17,
                     fontWeight: FontWeight.w700,
                     color: foreground,
                   ),
                 ),
-                const SizedBox(height: 6),
-                Text(
-                  AppLocalizations.of(context).t(widget.subtitle),
+                SizedBox(height: 6),
+                Text(AppLocalizations.of(context).t(widget.subtitle),
                   style: TextStyle(
                     fontSize: 10.5,
                     height: 1.45,

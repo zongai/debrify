@@ -482,7 +482,7 @@ class _WebDavSettingsPageState extends State<WebDavSettingsPage> {
                       _FocusRing(
                         child: OutlinedButton.icon(
                           onPressed: _newServer,
-                          icon: const Icon(Icons.add_rounded),
+                          icon: Icon(Icons.add_rounded),
                           label: Text(AppLocalizations.of(context).t('Add another server')),
                         ),
                       ),

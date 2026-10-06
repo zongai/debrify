@@ -169,7 +169,7 @@ class MobileClassicNav extends StatelessWidget {
                       // element is then dead and must not open anything.
                       if (context.mounted) _openEditSheet(context);
                     },
-                    icon: const Icon(Icons.edit_rounded, size: 14),
+                    icon: Icon(Icons.edit_rounded, size: 14),
                     label: Text(AppLocalizations.of(context).t('Edit bar')),
                     style: TextButton.styleFrom(
                       foregroundColor: app.shell.navLabel,
@@ -600,7 +600,7 @@ class _RemoteRow extends StatelessWidget {
               size: 18,
               color: app.fade(app.core.tx, 0.75),
             ),
-            const SizedBox(width: 10),
+            SizedBox(width: 10),
             Text(AppLocalizations.of(context).t('Remote control'),
               style: TextStyle(fontSize: 12.5, fontWeight: FontWeight.w700),
             ),

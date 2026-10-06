@@ -1226,10 +1226,9 @@ class _SeriesBrowserState extends State<SeriesBrowser> {
             size: 14,
             color: _BrowserColors.inkFaint,
           ),
-          const SizedBox(width: 8),
+          SizedBox(width: 8),
           Expanded(
-            child: Text(
-              AppLocalizations.of(context).t("Couldn't load episode details — check your connection."),
+            child: Text(AppLocalizations.of(context).t("Couldn't load episode details — check your connection."),
               maxLines: 2,
               overflow: TextOverflow.ellipsis,
               style: const TextStyle(

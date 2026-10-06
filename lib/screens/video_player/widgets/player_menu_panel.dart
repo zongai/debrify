@@ -1613,11 +1613,10 @@ class _ValueRow extends StatelessWidget {
                   color: Colors.white38,
                 ),
               ),
-              const SizedBox(width: 9),
+              SizedBox(width: 9),
             ],
             Expanded(
-              child: Text(
-                AppLocalizations.of(context).t(row.label),
+              child: Text(AppLocalizations.of(context).t(row.label),
                 style: TextStyle(
                   color: _ink.withValues(alpha: 0.40),
                   fontSize: 12,

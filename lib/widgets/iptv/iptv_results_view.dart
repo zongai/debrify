@@ -7800,7 +7800,7 @@ class IptvResultsViewState extends State<IptvResultsView>
               const SizedBox(height: 16),
               FilledButton.icon(
                 onPressed: _retryLoad,
-                icon: const Icon(Icons.refresh),
+                icon: Icon(Icons.refresh),
                 label: Text(AppLocalizations.of(context).t('Retry')),
               ),
             ],

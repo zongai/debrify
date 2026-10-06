@@ -589,7 +589,7 @@ class _MetadataBrowsePageState extends State<MetadataBrowsePage> {
         filters,
         Expanded(
           child: _profileChanged
-              ? const Center(
+              ? Center(
                   child: Text(AppLocalizations.of(context).t('Profile changed. Reopen Discover to continue.')),
                 )
               : _items.isEmpty
@@ -719,7 +719,7 @@ class _MetadataBrowsePageState extends State<MetadataBrowsePage> {
                       : _error != null
                       ? TextButton(onPressed: _load, child: Text(_error!))
                       : _more
-                      ? const SizedBox(height: 40)
+                      ? SizedBox(height: 40)
                       : _items.isEmpty
                       ? Text(AppLocalizations.of(context).t('No matching titles'))
                       : const SizedBox.shrink(),

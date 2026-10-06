@@ -6695,7 +6695,7 @@ class _TorboxDownloadsScreenState extends State<TorboxDownloadsScreen> {
           FilledButton.icon(
             focusNode: _deleteButtonFocusNode,
             onPressed: count > 0 ? _handleDeleteSelected : null,
-            icon: const Icon(Icons.delete_outline, size: 18),
+            icon: Icon(Icons.delete_outline, size: 18),
             label: Text(AppLocalizations.of(context).t('Delete')),
             style: FilledButton.styleFrom(
                   backgroundColor: theme.colorScheme.error,
@@ -6848,9 +6848,8 @@ class _TorboxDownloadsScreenState extends State<TorboxDownloadsScreen> {
               size: 48,
               color: app.fade(app.core.tx, 0.2),
             ),
-            const SizedBox(height: 12),
-            Text(
-              AppLocalizations.of(context).t('No results for "\$query"').replaceAll('\$query', _torrentSearchQuery),
+            SizedBox(height: 12),
+            Text(AppLocalizations.of(context).t('No results for "\$query"').replaceAll('\$query', _torrentSearchQuery),
               style: TextStyle(color: app.fade(app.core.tx, 0.5)),
             ),
           ],

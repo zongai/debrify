@@ -422,7 +422,7 @@ class YoutubeResultsViewState extends State<YoutubeResultsView>
               style: FilledButton.styleFrom(
                 backgroundColor: app.seeAll.accent,
               ),
-              icon: const Icon(Icons.refresh),
+              icon: Icon(Icons.refresh),
               label: Text(AppLocalizations.of(context).t('Retry')),
             ),
           ],

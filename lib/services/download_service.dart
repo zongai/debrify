@@ -1420,7 +1420,7 @@ class DownloadService {
                                         choice = 'granted';
                                         Navigator.of(ctx2).pop(true);
                                       },
-                                      icon: const Icon(Icons.check_circle),
+                                      icon: Icon(Icons.check_circle),
                                       label: Text(AppLocalizations.of(context).t('Allow')),
                                       style: ElevatedButton.styleFrom(
                                         padding: const EdgeInsets.symmetric(

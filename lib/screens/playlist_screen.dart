@@ -832,9 +832,8 @@ class _PlaylistScreenState extends State<PlaylistScreen> {
               fontWeight: FontWeight.w500,
             ),
           ),
-          const SizedBox(height: 8),
-          Text(
-            AppLocalizations.of(context).t('Try searching for "\$query" differently').replaceAll('\$query', query),
+          SizedBox(height: 8),
+          Text(AppLocalizations.of(context).t('Try searching for "\$query" differently').replaceAll('\$query', query),
             style: TextStyle(
               color: app.core.tx.withValues(alpha: 0.35),
               fontSize: 14,

@@ -551,17 +551,17 @@ class _TraktCalendarScreenState extends State<TraktCalendarScreen> {
       dense: dense,
       items: [
         if (_traktAuthed)
-          const DropdownMenuItem<String>(
+          DropdownMenuItem<String>(
             value: _sourceTrakt,
             child: Text(AppLocalizations.of(context).t('Trakt')),
           ),
         if (_simklAuthed)
-          const DropdownMenuItem<String>(
+          DropdownMenuItem<String>(
             value: _sourceSimkl,
             child: Text(AppLocalizations.of(context).t('Simkl')),
           ),
         if (_mdblistAuthed)
-          const DropdownMenuItem<String>(
+          DropdownMenuItem<String>(
             value: _sourceMdblist,
             child: Text(AppLocalizations.of(context).t('MDBList')),
           ),

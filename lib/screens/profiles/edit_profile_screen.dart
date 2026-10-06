@@ -1315,7 +1315,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                 if (widget.profile != null) ...[
                   _sectionLabel('Data'),
                   ListTile(
-                    leading: const Icon(Icons.info_outline_rounded),
+                    leading: Icon(Icons.info_outline_rounded),
                     title: Text(AppLocalizations.of(context).t('Diagnostics')),
                     subtitle: const Text(
                       'Registry, generation and lease state',
@@ -1857,7 +1857,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                         onPressed: _saving
                             ? null
                             : () => setState(() => _pendingAvatarBytes = null),
-                        icon: const Icon(Icons.undo_rounded),
+                        icon: Icon(Icons.undo_rounded),
                         label: Text(AppLocalizations.of(context).t('Discard picked image')),
                       ),
                     ),
@@ -2133,7 +2133,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                   alignment: Alignment.centerLeft,
                   child: TextButton.icon(
                     onPressed: _saving ? null : _removePinAsAdmin,
-                    icon: const Icon(Icons.lock_open_rounded),
+                    icon: Icon(Icons.lock_open_rounded),
                     label: Text(AppLocalizations.of(context).t('Admin reset: remove PIN')),
                   ),
                 ),
@@ -2372,7 +2372,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                       onPressed: _saving
                           ? null
                           : () => setState(() => _pendingAvatarBytes = null),
-                      icon: const Icon(Icons.undo_rounded, size: 18),
+                      icon: Icon(Icons.undo_rounded, size: 18),
                       label: Text(AppLocalizations.of(context).t('Discard picked image')),
                     ),
                 ],
@@ -2706,7 +2706,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
             ).colorScheme.onSurface.withValues(alpha: .5),
           ),
         ),
-        const Spacer(),
+        Spacer(),
         if (onAll != null)
           TextButton(onPressed: onAll, child: Text(AppLocalizations.of(context).t('All'))),
         if (onNone != null)

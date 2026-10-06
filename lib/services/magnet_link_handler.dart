@@ -159,7 +159,7 @@ class MagnetLinkHandler {
                 Navigator.of(context).pop();
                 _addUrlToRealDebrid(url, displayName);
               },
-              icon: const Icon(Icons.cloud_download),
+              icon: Icon(Icons.cloud_download),
               label: Text(AppLocalizations.of(context).t('RealDebrid')),
             ),
           if (services.hasTorbox)
@@ -168,7 +168,7 @@ class MagnetLinkHandler {
                 Navigator.of(context).pop();
                 _addUrlToTorbox(url, displayName);
               },
-              icon: const Icon(Icons.flash_on),
+              icon: Icon(Icons.flash_on),
               label: Text(AppLocalizations.of(context).t('Torbox')),
             ),
           if (services.hasPikPak)
@@ -177,7 +177,7 @@ class MagnetLinkHandler {
                 Navigator.of(context).pop();
                 _addUrlToPikPak(url, displayName);
               },
-              icon: const Icon(Icons.cloud_circle),
+              icon: Icon(Icons.cloud_circle),
               label: Text(AppLocalizations.of(context).t('PikPak')),
             ),
           if (services.hasPremiumize)
@@ -186,7 +186,7 @@ class MagnetLinkHandler {
                 Navigator.of(context).pop();
                 _addUrlToPremiumize(url, displayName);
               },
-              icon: const Icon(Icons.workspace_premium_rounded),
+              icon: Icon(Icons.workspace_premium_rounded),
               label: Text(AppLocalizations.of(context).t('Premiumize')),
             ),
           if (services.hasAllDebrid)
@@ -195,7 +195,7 @@ class MagnetLinkHandler {
                 Navigator.of(context).pop();
                 _addUrlToAllDebrid(url, displayName);
               },
-              icon: const Icon(Icons.all_inclusive_rounded),
+              icon: Icon(Icons.all_inclusive_rounded),
               label: Text(AppLocalizations.of(context).t('AllDebrid')),
             ),
           TextButton(
@@ -419,7 +419,7 @@ class MagnetLinkHandler {
                 Navigator.of(context).pop();
                 _addToRealDebrid(magnetUri, infohash, torrentName);
               },
-              icon: const Icon(Icons.cloud_download),
+              icon: Icon(Icons.cloud_download),
               label: Text(AppLocalizations.of(context).t('RealDebrid')),
             ),
           if (services.hasTorbox)
@@ -428,7 +428,7 @@ class MagnetLinkHandler {
                 Navigator.of(context).pop();
                 _addToTorbox(magnetUri, infohash, torrentName);
               },
-              icon: const Icon(Icons.flash_on),
+              icon: Icon(Icons.flash_on),
               label: Text(AppLocalizations.of(context).t('Torbox')),
             ),
           if (services.hasPikPak)
@@ -437,7 +437,7 @@ class MagnetLinkHandler {
                 Navigator.of(context).pop();
                 _addToPikPak(magnetUri, infohash, torrentName);
               },
-              icon: const Icon(Icons.cloud_circle),
+              icon: Icon(Icons.cloud_circle),
               label: Text(AppLocalizations.of(context).t('PikPak')),
             ),
           if (services.hasPremiumize)
@@ -446,7 +446,7 @@ class MagnetLinkHandler {
                 Navigator.of(context).pop();
                 _addToPremiumize(magnetUri, torrentName);
               },
-              icon: const Icon(Icons.workspace_premium_rounded),
+              icon: Icon(Icons.workspace_premium_rounded),
               label: Text(AppLocalizations.of(context).t('Premiumize')),
             ),
           if (services.hasAllDebrid)
@@ -455,7 +455,7 @@ class MagnetLinkHandler {
                 Navigator.of(context).pop();
                 _addToAllDebrid(magnetUri, torrentName);
               },
-              icon: const Icon(Icons.all_inclusive_rounded),
+              icon: Icon(Icons.all_inclusive_rounded),
               label: Text(AppLocalizations.of(context).t('AllDebrid')),
             ),
           TextButton(

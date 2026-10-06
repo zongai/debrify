@@ -216,7 +216,7 @@ class _ProfilesSettingsPageState extends State<ProfilesSettingsPage> {
           ),
           if (profile.isEnabled)
             ListTile(
-              leading: const Icon(Icons.swap_horiz_rounded),
+              leading: Icon(Icons.swap_horiz_rounded),
               title: Text(AppLocalizations.of(context).t('Switch to this profile')),
               onTap: () => Navigator.of(dialogContext).pop('switch'),
             ),
@@ -232,7 +232,7 @@ class _ProfilesSettingsPageState extends State<ProfilesSettingsPage> {
             onTap: () => Navigator.of(dialogContext).pop('toggle'),
           ),
           ListTile(
-            leading: const Icon(Icons.delete_outline_rounded),
+            leading: Icon(Icons.delete_outline_rounded),
             title: Text(AppLocalizations.of(context).t('Delete profile')),
             textColor: Theme.of(context).colorScheme.error,
             iconColor: Theme.of(context).colorScheme.error,

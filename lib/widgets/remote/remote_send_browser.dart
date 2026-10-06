@@ -131,7 +131,7 @@ class _RemoteSendBrowserState extends State<RemoteSendBrowser> {
                   onPressed: (widget.busy || widget.loading)
                       ? null
                       : () => setState(() => _group = null),
-                  icon: const Icon(Icons.arrow_back),
+                  icon: Icon(Icons.arrow_back),
                   label: Text(AppLocalizations.of(context).t('Send')),
                 ),
               ),

@@ -764,7 +764,7 @@ class _StremioTvLocalCatalogEditorDialogState
                   child: OutlinedButton.icon(
                     focusNode: removeFocusNode,
                     onPressed: () => _removeItem(index, item),
-                    icon: const Icon(Icons.delete_outline_rounded, size: 18),
+                    icon: Icon(Icons.delete_outline_rounded, size: 18),
                     label: Text(AppLocalizations.of(context).t('Remove')),
                     style: OutlinedButton.styleFrom(
                       foregroundColor: theme.colorScheme.error,
@@ -793,7 +793,7 @@ class _StremioTvLocalCatalogEditorDialogState
                 OutlinedButton.icon(
                   focusNode: removeFocusNode,
                   onPressed: () => _removeItem(index, item),
-                  icon: const Icon(Icons.delete_outline_rounded, size: 18),
+                  icon: Icon(Icons.delete_outline_rounded, size: 18),
                   label: Text(AppLocalizations.of(context).t('Remove')),
                   style: OutlinedButton.styleFrom(
                     foregroundColor: theme.colorScheme.error,

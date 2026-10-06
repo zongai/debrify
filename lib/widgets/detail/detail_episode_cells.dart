@@ -815,9 +815,8 @@ class DetailEpisodesStatus extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               Icon(Icons.tv_off_rounded, size: 40, color: t.tx3),
-              const SizedBox(height: 12),
-              Text(
-                AppLocalizations.of(context).t("Couldn't load episodes"),
+              SizedBox(height: 12),
+              Text(AppLocalizations.of(context).t("Couldn't load episodes"),
                 style: TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.w700,
@@ -849,7 +848,7 @@ class DetailEpisodesStatus extends StatelessWidget {
                       ),
                     ),
                     onPressed: onRetry,
-                    icon: const Icon(Icons.refresh_rounded, size: 18),
+                    icon: Icon(Icons.refresh_rounded, size: 18),
                     label: Text(AppLocalizations.of(context).t('Retry')),
                   ),
                   if (onSearchForSources != null)
@@ -867,7 +866,7 @@ class DetailEpisodesStatus extends StatelessWidget {
                         ),
                       ),
                       onPressed: onSearchForSources,
-                      icon: const Icon(Icons.search_rounded, size: 18),
+                      icon: Icon(Icons.search_rounded, size: 18),
                       label: Text(AppLocalizations.of(context).t('Search for sources')),
                     ),
                 ],

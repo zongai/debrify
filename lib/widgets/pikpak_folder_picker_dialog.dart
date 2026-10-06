@@ -317,7 +317,7 @@ class _PikPakFolderPickerDialogState extends State<PikPakFolderPickerDialog> {
                   height: 16,
                   child: CircularProgressIndicator(strokeWidth: 2),
                 ),
-                const SizedBox(width: 12),
+                SizedBox(width: 12),
                 Text(AppLocalizations.of(context).t('Creating folder "\$name"...').replaceAll('\$name', folderName)),
               ],
             ),
@@ -578,7 +578,7 @@ class _PikPakFolderPickerDialogState extends State<PikPakFolderPickerDialog> {
                                   const SizedBox(height: 16),
                                   ElevatedButton.icon(
                                     onPressed: _loadRootFolders,
-                                    icon: const Icon(Icons.refresh, size: 18),
+                                    icon: Icon(Icons.refresh, size: 18),
                                     label: Text(AppLocalizations.of(context).t('Retry')),
                                   ),
                                 ],
@@ -621,7 +621,7 @@ class _PikPakFolderPickerDialogState extends State<PikPakFolderPickerDialog> {
                           child: FilledButton.tonalIcon(
                             focusNode: _newFolderButtonFocusNode,
                             onPressed: _showNewFolderDialog,
-                            icon: const Icon(Icons.create_new_folder, size: 18),
+                            icon: Icon(Icons.create_new_folder, size: 18),
                             label: Text(AppLocalizations.of(context).t('New Folder')),
                             style: FilledButton.styleFrom(
                               padding: const EdgeInsets.symmetric(
@@ -1112,7 +1112,7 @@ class _NewFolderDialogState extends State<_NewFolderDialog> {
                   FilledButton.icon(
                     focusNode: _createButtonFocusNode,
                     onPressed: _validateAndSubmit,
-                    icon: const Icon(Icons.add, size: 18),
+                    icon: Icon(Icons.add, size: 18),
                     label: Text(AppLocalizations.of(context).t('Create')),
                   ),
                 ],

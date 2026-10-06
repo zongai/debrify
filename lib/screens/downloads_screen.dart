@@ -271,7 +271,7 @@ class _DownloadsScreenState extends State<DownloadsScreen>
                 onPressed: _busyGroupIds.isEmpty
                     ? () => _handleClearFinished(groups)
                     : null,
-                icon: const Icon(Icons.delete_sweep_rounded),
+                icon: Icon(Icons.delete_sweep_rounded),
                 label: Text(AppLocalizations.of(context).t('Clear All')),
               ),
             ],
@@ -592,7 +592,7 @@ class _DownloadsScreenState extends State<DownloadsScreen>
                             onPressed: (urlCtrl.text.trim().isEmpty)
                                 ? null
                                 : () => Navigator.of(context).pop(true),
-                            icon: const Icon(Icons.download_rounded),
+                            icon: Icon(Icons.download_rounded),
                             label: Text(AppLocalizations.of(context).t('Download')),
                             style: ElevatedButton.styleFrom(
                               padding: const EdgeInsets.symmetric(vertical: 14),

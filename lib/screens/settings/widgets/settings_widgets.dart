@@ -845,9 +845,8 @@ class SettingsPageHeader extends StatelessWidget {
                   letterSpacing: 0.2,
                 ),
               ),
-              const SizedBox(height: 3),
-              Text(
-                AppLocalizations.of(context).t(subtitle),
+              SizedBox(height: 3),
+              Text(AppLocalizations.of(context).t(subtitle),
                 style: TextStyle(fontSize: 12.5, height: 1.4, color: t.dim),
               ),
             ],
@@ -895,10 +894,9 @@ class SettingsInfoBanner extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Icon(icon, color: c, size: 18),
-          const SizedBox(width: 10),
+          SizedBox(width: 10),
           Expanded(
-            child: Text(
-              AppLocalizations.of(context).t(text),
+            child: Text(AppLocalizations.of(context).t(text),
               style: TextStyle(
                 fontSize: 12,
                 height: 1.45,
@@ -1666,9 +1664,8 @@ class _ConnectionCardState extends State<ConnectionCard> {
                                     : Theme.of(context).colorScheme.onSurface,
                               ),
                             ),
-                            const SizedBox(height: 3),
-                            Text(
-                              AppLocalizations.of(context).t(info.caption),
+                            SizedBox(height: 3),
+                            Text(AppLocalizations.of(context).t(info.caption),
                               maxLines: 1,
                               overflow: TextOverflow.ellipsis,
                               style: TextStyle(
@@ -1698,9 +1695,8 @@ class _ConnectionCardState extends State<ConnectionCard> {
                               : null,
                         ),
                       ),
-                      const SizedBox(width: 7),
-                      Text(
-                        AppLocalizations.of(context).t(info.status),
+                      SizedBox(width: 7),
+                      Text(AppLocalizations.of(context).t(info.status),
                         style: TextStyle(
                           fontSize: 11.5,
                           fontWeight: FontWeight.w700,

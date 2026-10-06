@@ -72,10 +72,9 @@ Future<void> showChannelCreatedShareDialog(
                 size: 20,
               ),
             ),
-            const SizedBox(width: 12),
+            SizedBox(width: 12),
             Expanded(
-              child: Text(
-                AppLocalizations.of(context).t('Channel "\$name" created').replaceAll('\$name', channel.name),
+              child: Text(AppLocalizations.of(context).t('Channel "\$name" created').replaceAll('\$name', channel.name),
                 style: const TextStyle(
                   fontWeight: FontWeight.w700,
                   fontSize: 18,

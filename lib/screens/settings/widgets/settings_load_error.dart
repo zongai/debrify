@@ -21,7 +21,7 @@ class SettingsLoadError extends StatelessWidget {
             'Unable to load settings. Please try again.',
             textAlign: TextAlign.center,
           ),
-          const SizedBox(height: 16),
+          SizedBox(height: 16),
           ElevatedButton(onPressed: onRetry, child: Text(AppLocalizations.of(context).t('Retry'))),
         ],
       ),

@@ -957,8 +957,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
           'Delete All Torrents',
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
-        content: const Text(
-          AppLocalizations.of(context).t('Are you sure you want to delete all torrents from Real Debrid? This action cannot be undone.'),
+        content: Text(AppLocalizations.of(context).t('Are you sure you want to delete all torrents from Real Debrid? This action cannot be undone.'),
           style: TextStyle(color: Colors.grey),
         ),
         actions: [
@@ -1157,8 +1156,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
           'Delete All Downloads',
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
-        content: const Text(
-          AppLocalizations.of(context).t('Are you sure you want to delete all downloads from Real Debrid? This action cannot be undone.'),
+        content: Text(AppLocalizations.of(context).t('Are you sure you want to delete all downloads from Real Debrid? This action cannot be undone.'),
           style: TextStyle(color: Colors.grey),
         ),
         actions: [
@@ -3001,7 +2999,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
           FilledButton.icon(
             focusNode: _deleteButtonFocusNode,
             onPressed: count > 0 ? _handleDeleteSelected : null,
-            icon: const Icon(Icons.delete_outline, size: 18),
+            icon: Icon(Icons.delete_outline, size: 18),
             label: Text(AppLocalizations.of(context).t('Delete')),
             style: FilledButton.styleFrom(
                   backgroundColor: theme.colorScheme.error,
@@ -4290,7 +4288,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
                     onPressed: () => Navigator.of(context).pop(),
                     style: OutlinedButton.styleFrom(
                       padding: const EdgeInsets.symmetric(vertical: 12),
-                      side: const BorderSide(color: Color(0xFF475569)),
+                      side: BorderSide(color: Color(0xFF475569)),
                     ),
                     child: Text(AppLocalizations.of(context).t('Cancel')),
                   ),
@@ -4301,7 +4299,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
                     onPressed: _showAdvancedMagnetDialog,
                     style: OutlinedButton.styleFrom(
                       padding: const EdgeInsets.symmetric(vertical: 12),
-                      side: const BorderSide(color: Color(0xFF475569)),
+                      side: BorderSide(color: Color(0xFF475569)),
                     ),
                     child: Text(AppLocalizations.of(context).t('Advanced')),
                   ),
@@ -4388,7 +4386,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
         content: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            const CircularProgressIndicator(),
+            CircularProgressIndicator(),
             const SizedBox(height: 16),
             Text(AppLocalizations.of(context).t('Processing magnet link...')),
             const SizedBox(height: 8),
@@ -4553,7 +4551,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
         content: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            const CircularProgressIndicator(),
+            CircularProgressIndicator(),
             const SizedBox(height: 16),
             Text(AppLocalizations.of(context).t('Processing magnet link...')),
             const SizedBox(height: 8),
@@ -4696,7 +4694,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
                     onPressed: () => Navigator.of(context).pop(),
                     style: OutlinedButton.styleFrom(
                       padding: const EdgeInsets.symmetric(vertical: 12),
-                      side: const BorderSide(color: Color(0xFF475569)),
+                      side: BorderSide(color: Color(0xFF475569)),
                     ),
                     child: Text(AppLocalizations.of(context).t('Cancel')),
                   ),
@@ -4776,7 +4774,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
         content: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            const CircularProgressIndicator(),
+            CircularProgressIndicator(),
             const SizedBox(height: 16),
             Text(AppLocalizations.of(context).t('Processing link...')),
             const SizedBox(height: 8),

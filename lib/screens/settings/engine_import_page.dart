@@ -124,7 +124,7 @@ class _EngineImportPageContentState extends State<EngineImportPageContent> {
       builder: (context) => AlertDialog(
         content: Row(
           children: [
-            const CircularProgressIndicator(),
+            CircularProgressIndicator(),
             const SizedBox(width: 16),
             Text(AppLocalizations.of(context).t('Importing \$name...').replaceAll('\$name', engine.displayName)),
           ],
@@ -301,7 +301,7 @@ class _EngineImportPageContentState extends State<EngineImportPageContent> {
           builder: (context) => AlertDialog(
             content: Row(
               children: [
-                const CircularProgressIndicator(),
+                CircularProgressIndicator(),
                 const SizedBox(width: 16),
                 Text(AppLocalizations.of(context).t('Importing \$name...').replaceAll('\$name', displayName)),
               ],
@@ -985,7 +985,7 @@ class _EngineImportPageState extends State<EngineImportPage> {
       builder: (context) => AlertDialog(
         content: Row(
           children: [
-            const CircularProgressIndicator(),
+            CircularProgressIndicator(),
             const SizedBox(width: 16),
             Text(AppLocalizations.of(context).t('Importing \$name...').replaceAll('\$name', engine.displayName)),
           ],
@@ -1185,7 +1185,7 @@ class _EngineImportPageState extends State<EngineImportPage> {
           builder: (context) => AlertDialog(
             content: Row(
               children: [
-                const CircularProgressIndicator(),
+                CircularProgressIndicator(),
                 const SizedBox(width: 16),
                 Text(AppLocalizations.of(context).t('Importing \$name...').replaceAll('\$name', displayName)),
               ],
@@ -1333,7 +1333,7 @@ class _EngineImportPageState extends State<EngineImportPage> {
                 child: FilledButton.icon(
                   focusNode: _retryButtonFocusNode,
                   onPressed: _loadEngines,
-                  icon: const Icon(Icons.refresh),
+                  icon: Icon(Icons.refresh),
                   label: Text(AppLocalizations.of(context).t('Retry')),
                 ),
               ),

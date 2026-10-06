@@ -6842,7 +6842,7 @@ class TorrentPlaybackService {
                   DialogTapGuard.markKeyAction();
                   Navigator.of(context).pop(true);
                 },
-                icon: const Icon(Icons.play_arrow),
+                icon: Icon(Icons.play_arrow),
                 label: Text(AppLocalizations.of(context).t('Play')),
               ),
             ],

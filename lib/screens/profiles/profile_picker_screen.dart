@@ -67,7 +67,7 @@ class ProfilePickerScreen extends StatelessWidget {
                     SizedBox(height: 24),
                     OutlinedButton.icon(
                       onPressed: onManage,
-                      icon: const Icon(Icons.manage_accounts_rounded),
+                      icon: Icon(Icons.manage_accounts_rounded),
                       label: Text(AppLocalizations.of(context).t('Manage profiles')),
                     ),
                   ],

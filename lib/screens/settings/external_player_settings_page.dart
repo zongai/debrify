@@ -3123,7 +3123,7 @@ class _ExternalPlayerSettingsPageState
                 width: double.infinity,
                 child: OutlinedButton.icon(
                   onPressed: _importCustomFont,
-                  icon: const Icon(Icons.file_upload_outlined),
+                  icon: Icon(Icons.file_upload_outlined),
                   label: Text(AppLocalizations.of(context).t('Import Custom Font (TTF/OTF)')),
                   // Default focus overlay is too faint for TV —
                   // paint an explicit accent ring + lit fill.
@@ -3380,7 +3380,7 @@ class _ExternalPlayerSettingsPageState
                     Expanded(
                       child: FilledButton.icon(
                         onPressed: _saveIOSCustomScheme,
-                        icon: const Icon(Icons.save_rounded),
+                        icon: Icon(Icons.save_rounded),
                         label: Text(AppLocalizations.of(context).t('Save')),
                       ),
                     ),
@@ -3565,7 +3565,7 @@ class _ExternalPlayerSettingsPageState
                     Expanded(
                       child: FilledButton.icon(
                         onPressed: _saveLinuxCustomCommand,
-                        icon: const Icon(Icons.save_rounded),
+                        icon: Icon(Icons.save_rounded),
                         label: Text(AppLocalizations.of(context).t('Save')),
                       ),
                     ),
@@ -3749,7 +3749,7 @@ class _ExternalPlayerSettingsPageState
                     Expanded(
                       child: FilledButton.icon(
                         onPressed: _saveWindowsCustomCommand,
-                        icon: const Icon(Icons.save_rounded),
+                        icon: Icon(Icons.save_rounded),
                         label: Text(AppLocalizations.of(context).t('Save')),
                       ),
                     ),
@@ -4032,7 +4032,7 @@ class _ExternalPlayerSettingsPageState
                     Expanded(
                       child: FilledButton.icon(
                         onPressed: _saveCustomCommand,
-                        icon: const Icon(Icons.save_rounded),
+                        icon: Icon(Icons.save_rounded),
                         label: Text(AppLocalizations.of(context).t('Save Command')),
                       ),
                     ),

@@ -1198,7 +1198,7 @@ class _SyncAndMigratePageState extends State<SyncAndMigratePage>
           ),
         ],
         if (active && _runtimeStatus != null) ...[
-          const SizedBox(height: 12),
+          SizedBox(height: 12),
           ExpansionTile(
             title: Text(AppLocalizations.of(context).t('Sync details')),
             childrenPadding: const EdgeInsets.fromLTRB(16, 0, 16, 16),

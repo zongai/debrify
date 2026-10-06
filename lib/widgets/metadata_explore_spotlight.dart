@@ -612,7 +612,7 @@ class _MetadataExploreSpotlightState extends State<MetadataExploreSpotlight> {
                             ))
                               OutlinedButton.icon(
                                 onPressed: widget.onDiscover,
-                                icon: const Icon(Icons.explore_outlined),
+                                icon: Icon(Icons.explore_outlined),
                                 label: Text(AppLocalizations.of(context).t('Discover movies and shows')),
                               ),
                           ],

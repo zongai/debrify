@@ -488,7 +488,7 @@ class _IptvCategoryOrderPageState extends State<IptvCategoryOrderPage> {
                 bannerTrailing: TextButton.icon(
                   focusNode: _resetNode,
                   onPressed: items.isEmpty || _saving ? null : _reset,
-                  icon: const Icon(Icons.restart_alt_rounded),
+                  icon: Icon(Icons.restart_alt_rounded),
                   label: Text(AppLocalizations.of(context).t('Provider order')),
                 ),
               ),

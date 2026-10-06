@@ -307,7 +307,7 @@ class _ImportedLaunchDetailState extends State<ImportedLaunchDetail> {
                       foregroundColor: Theme.of(context).colorScheme.error,
                     ),
                     onPressed: _saving ? null : _remove,
-                    icon: const Icon(Icons.delete_outline),
+                    icon: Icon(Icons.delete_outline),
                     label: Text(AppLocalizations.of(context).t('Remove animation')),
                   ),
                   FilledButton(
@@ -316,7 +316,7 @@ class _ImportedLaunchDetailState extends State<ImportedLaunchDetail> {
                   ),
                 ],
               ),
-              const SizedBox(height: 16),
+              SizedBox(height: 16),
               Text(AppLocalizations.of(context).t('Background')),
               Wrap(
                 spacing: 10,

@@ -293,7 +293,7 @@ class _ProfileRecoveryScreenState extends State<ProfileRecoveryScreen> {
                   FilledButton.icon(
                     onPressed: _busy ? null : _restoreBackup,
                     autofocus: widget.forceTvSafeInput,
-                    icon: const Icon(Icons.restore),
+                    icon: Icon(Icons.restore),
                     label: Text(AppLocalizations.of(context).t('Restore a backup')),
                   ),
                 if (!_hasDeviceVaultFailure) ...[
@@ -313,7 +313,7 @@ class _ProfileRecoveryScreenState extends State<ProfileRecoveryScreen> {
                   FilledButton.icon(
                     onPressed: _busy ? null : widget.onResetComplete,
                     autofocus: widget.forceTvSafeInput,
-                    icon: const Icon(Icons.close),
+                    icon: Icon(Icons.close),
                     label: Text(AppLocalizations.of(context).t('Close Debrify')),
                   )
                 else ...[

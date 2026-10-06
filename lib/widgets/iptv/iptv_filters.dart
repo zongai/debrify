@@ -1205,10 +1205,9 @@ class _CategoryPickerSheetState extends State<_CategoryPickerSheet> {
                       size: 14,
                       color: Theme.of(context).colorScheme.onSurfaceVariant,
                     ),
-                    const SizedBox(width: 6),
+                    SizedBox(width: 6),
                     Flexible(
-                      child: Text(
-                        AppLocalizations.of(context).t('Tap the menu (or long-press) for category options'),
+                      child: Text(AppLocalizations.of(context).t('Tap the menu (or long-press) for category options'),
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(

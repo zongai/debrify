@@ -1760,7 +1760,7 @@ class _PremiumizeFilesScreenState extends State<PremiumizeFilesScreen> {
           FilledButton.icon(
             focusNode: _deleteButtonFocusNode,
             onPressed: count > 0 ? _handleDeleteSelected : null,
-            icon: const Icon(Icons.delete_outline, size: 18),
+            icon: Icon(Icons.delete_outline, size: 18),
             label: Text(AppLocalizations.of(context).t('Delete')),
             style: FilledButton.styleFrom(
               backgroundColor: theme.colorScheme.error,
@@ -2066,7 +2066,7 @@ class _PremiumizeFilesScreenState extends State<PremiumizeFilesScreen> {
               padding: const EdgeInsets.fromLTRB(16, 8, 16, 0),
               child: TextButton.icon(
                 onPressed: _clearFinishedTransfers,
-                icon: const Icon(Icons.cleaning_services_outlined, size: 18),
+                icon: Icon(Icons.cleaning_services_outlined, size: 18),
                 label: Text(AppLocalizations.of(context).t('Clear finished')),
               ),
             ),
@@ -2226,7 +2226,7 @@ class _PremiumizeFilesScreenState extends State<PremiumizeFilesScreen> {
                     'Open Settings > Premiumize to configure',
                     isError: false,
                   ),
-                  icon: const Icon(Icons.settings),
+                  icon: Icon(Icons.settings),
                   label: Text(AppLocalizations.of(context).t('Go to Settings')),
                 ),
               ],
@@ -2265,7 +2265,7 @@ class _PremiumizeFilesScreenState extends State<PremiumizeFilesScreen> {
                   focusNode: _retryButtonFocusNode,
                   autofocus: true,
                   onPressed: _refresh,
-                  icon: const Icon(Icons.refresh),
+                  icon: Icon(Icons.refresh),
                   label: Text(AppLocalizations.of(context).t('Retry')),
                 ),
               ],

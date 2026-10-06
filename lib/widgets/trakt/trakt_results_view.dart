@@ -1433,7 +1433,7 @@ class TraktResultsViewState extends State<TraktResultsView> {
               ),
             ),
             ListTile(
-              leading: const Icon(Icons.cloud, color: Color(0xFF22C55E)),
+              leading: Icon(Icons.cloud, color: Color(0xFF22C55E)),
               title: Text(AppLocalizations.of(context).t('Real-Debrid')),
               onTap: () {
                 Navigator.of(sheetContext).pop();
@@ -2758,7 +2758,7 @@ class TraktResultsViewState extends State<TraktResultsView> {
               const SizedBox(height: 12),
               FilledButton.icon(
                 onPressed: () => _enterEpisodeMode(_selectedShow!),
-                icon: const Icon(Icons.refresh),
+                icon: Icon(Icons.refresh),
                 label: Text(AppLocalizations.of(context).t('Retry')),
               ),
             ],
@@ -2886,7 +2886,7 @@ class TraktResultsViewState extends State<TraktResultsView> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Icon(Icons.error_outline, size: 64, color: colorScheme.error),
-            const SizedBox(height: 16),
+            SizedBox(height: 16),
             Text(AppLocalizations.of(context).t('Failed to load list', style: theme.textTheme.titleMedium),
             const SizedBox(height: 8),
             Text(
@@ -2899,7 +2899,7 @@ class TraktResultsViewState extends State<TraktResultsView> {
             const SizedBox(height: 16),
             FilledButton.icon(
               onPressed: _fetchItems,
-              icon: const Icon(Icons.refresh),
+              icon: Icon(Icons.refresh),
               label: Text(AppLocalizations.of(context).t('Retry')),
             ),
           ],

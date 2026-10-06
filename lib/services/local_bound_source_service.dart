@@ -645,9 +645,8 @@ class LocalBoundSourceService {
                     'Choose Series Folder',
                     style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
                   ),
-                  const SizedBox(height: 4),
-                  Text(
-                    AppLocalizations.of(context).t('Multiple folders matched "\$title".').replaceAll('\$title', title),
+                  SizedBox(height: 4),
+                  Text(AppLocalizations.of(context).t('Multiple folders matched "\$title".').replaceAll('\$title', title),
                     style: const TextStyle(color: Colors.white54, fontSize: 12),
                   ),
                   const SizedBox(height: 12),

@@ -1171,9 +1171,8 @@ class _PikPakFilesScreenState extends State<PikPakFilesScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(AppLocalizations.of(context).t('What would you like to do with "\$fileName"?').replaceAll('\$fileName', fileName)),
-            const SizedBox(height: 16),
-            Text(
-              AppLocalizations.of(context).t('Move to Trash: File can be recovered later\nDelete Permanently: Cannot be undone'),
+            SizedBox(height: 16),
+            Text(AppLocalizations.of(context).t('Move to Trash: File can be recovered later\nDelete Permanently: Cannot be undone'),
               style: TextStyle(fontSize: 12, color: Colors.grey),
             ),
           ],
@@ -2364,7 +2363,7 @@ class _PikPakFilesScreenState extends State<PikPakFilesScreen> {
                   focusNode: _retryButtonFocusNode,
                   autofocus: true,
                   onPressed: _refreshFiles,
-                  icon: const Icon(Icons.refresh),
+                  icon: Icon(Icons.refresh),
                   label: Text(AppLocalizations.of(context).t('Retry')),
                   style: FilledButton.styleFrom().copyWith(
                     side: WidgetStateProperty.resolveWith((states) {
@@ -2444,7 +2443,7 @@ class _PikPakFilesScreenState extends State<PikPakFilesScreen> {
           FilledButton.icon(
             focusNode: _deleteButtonFocusNode,
             onPressed: count > 0 ? _handleDeleteSelected : null,
-            icon: const Icon(Icons.delete_outline, size: 18),
+            icon: Icon(Icons.delete_outline, size: 18),
             label: Text(AppLocalizations.of(context).t('Delete')),
             style: FilledButton.styleFrom(
                   backgroundColor: theme.colorScheme.error,
@@ -3272,7 +3271,7 @@ class _PikPakFilesScreenState extends State<PikPakFilesScreen> {
                   },
                   style: OutlinedButton.styleFrom(
                     padding: EdgeInsets.symmetric(vertical: 12),
-                    side: const BorderSide(color: Color(0xFF475569)),
+                    side: BorderSide(color: Color(0xFF475569)),
                   ),
                   child: Text(AppLocalizations.of(context).t('Cancel')),
                 ),
@@ -3359,7 +3358,7 @@ class _PikPakFilesScreenState extends State<PikPakFilesScreen> {
         content: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            const CircularProgressIndicator(color: Color(0xFFFFAA00)),
+            CircularProgressIndicator(color: Color(0xFFFFAA00)),
             const SizedBox(height: 16),
             Text(AppLocalizations.of(context).t('Adding to PikPak...')),
             const SizedBox(height: 8),

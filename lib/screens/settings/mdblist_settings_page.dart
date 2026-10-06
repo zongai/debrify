@@ -370,7 +370,7 @@ class _MdblistSettingsPageState extends State<MdblistSettingsPage> {
           child: OutlinedButton.icon(
             focusNode: _logoutButtonFocusNode,
             onPressed: _deleteKey,
-            icon: const Icon(Icons.logout),
+            icon: Icon(Icons.logout),
             label: Text(AppLocalizations.of(context).t('Logout')),
             style: OutlinedButton.styleFrom(
               foregroundColor: t.danger,
@@ -518,7 +518,7 @@ class _MdblistSettingsPageState extends State<MdblistSettingsPage> {
               radius: 12,
               child: OutlinedButton.icon(
                 onPressed: _openApiKeyPage,
-                icon: const Icon(Icons.open_in_new, size: 18),
+                icon: Icon(Icons.open_in_new, size: 18),
                 label: Text(AppLocalizations.of(context).t('Open mdblist.com/preferences')),
               ),
             ),

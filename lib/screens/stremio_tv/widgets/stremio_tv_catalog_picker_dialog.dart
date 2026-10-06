@@ -596,9 +596,8 @@ class _StremioTvCatalogPickerDialogState
               fontWeight: FontWeight.w700,
             ),
           ),
-          const SizedBox(height: 6),
-          Text(
-            AppLocalizations.of(context).t('Create a local Stremio TV channel for "\$name"').replaceAll('\$name', widget.item.name),
+          SizedBox(height: 6),
+          Text(AppLocalizations.of(context).t('Create a local Stremio TV channel for "\$name"').replaceAll('\$name', widget.item.name),
             style: theme.textTheme.bodyMedium?.copyWith(
               color: theme.colorScheme.onSurfaceVariant,
             ),

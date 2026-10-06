@@ -53,7 +53,7 @@ class IptvEmptyState extends StatelessWidget {
               const SizedBox(height: 24),
               FilledButton.icon(
                 onPressed: onAddPlaylist,
-                icon: const Icon(Icons.add),
+                icon: Icon(Icons.add),
                 label: Text(AppLocalizations.of(context).t('Add Playlist')),
               ),
             ],

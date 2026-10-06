@@ -13136,10 +13136,9 @@ class _SearchScreenState extends State<SearchScreen>
             color: Color(0xFF38BDF8),
             size: 18,
           ),
-          const SizedBox(width: 8),
+          SizedBox(width: 8),
           Expanded(
-            child: Text(
-              AppLocalizations.of(context).t(
+            child: Text(AppLocalizations.of(context).t(
                 'Showing Torbox cached results only. Disable "Check Torbox cache during searches" in Torbox settings to see every result.',
               ),
               style: TextStyle(
@@ -20863,7 +20862,7 @@ class _SearchScreenState extends State<SearchScreen>
               FilledButton.icon(
                 autofocus: widget.isTelevision,
                 onPressed: onRetry,
-                icon: const Icon(Icons.refresh),
+                icon: Icon(Icons.refresh),
                 label: Text(AppLocalizations.of(context).t('Try again')),
               ),
             ],

@@ -237,7 +237,7 @@ class _ManageProfilesScreenState extends State<ManageProfilesScreen> {
       ),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: profiles == null ? null : _edit,
-        icon: const Icon(Icons.person_add_rounded),
+        icon: Icon(Icons.person_add_rounded),
         label: Text(AppLocalizations.of(context).t('Create')),
       ),
       body: profiles == null

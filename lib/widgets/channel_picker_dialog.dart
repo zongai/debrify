@@ -429,9 +429,8 @@ class _ChannelPickerDialogState extends State<ChannelPickerDialog> {
             onDownArrow: () => _confirmButtonFocusNode.requestFocus(),
             ),
           ),
-          const SizedBox(height: 12),
-          Text(
-            AppLocalizations.of(context).t('Keyword: "\$keyword" will be auto-added').replaceAll('\$keyword', widget.searchKeyword),
+          SizedBox(height: 12),
+          Text(AppLocalizations.of(context).t('Keyword: "\$keyword" will be auto-added').replaceAll('\$keyword', widget.searchKeyword),
             style: const TextStyle(color: Colors.white54, fontSize: 12),
           ),
           const SizedBox(height: 20),

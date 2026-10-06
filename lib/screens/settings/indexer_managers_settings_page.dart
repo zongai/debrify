@@ -308,7 +308,7 @@ class _IndexerManagersSettingsPageState
         onPressed: () => _openEditor(),
         backgroundColor: t.accent,
         foregroundColor: onAccent,
-        icon: const Icon(Icons.add_rounded),
+        icon: Icon(Icons.add_rounded),
         label: Text(AppLocalizations.of(context).t('Add Engine')),
       ),
     );

@@ -624,7 +624,7 @@ class _StremioTvRepoBrowserDialogState
                     child: FilledButton.tonalIcon(
                       focusNode: _addBtnFocusNode,
                       onPressed: _addRepo,
-                      icon: const Icon(Icons.add, size: 18),
+                      icon: Icon(Icons.add, size: 18),
                       label: Text(AppLocalizations.of(context).t('Add')),
                     ),
                   ),

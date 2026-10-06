@@ -1140,7 +1140,7 @@ class _StremioAddonsPageContentState extends State<StremioAddonsPageContent> {
                 const SizedBox(height: 16),
                 FilledButton.icon(
                   onPressed: _loadAddons,
-                  icon: const Icon(Icons.refresh_rounded),
+                  icon: Icon(Icons.refresh_rounded),
                   label: Text(AppLocalizations.of(context).t('Retry')),
                 ),
               ],
@@ -1186,9 +1186,8 @@ class _StremioAddonsPageContentState extends State<StremioAddonsPageContent> {
                   letterSpacing: -0.2,
                 ),
               ),
-              const SizedBox(height: 6),
-              Text(
-                AppLocalizations.of(context).t('Add a manifest URL above, or import\nyour Stremio JSON export to get started.'),
+              SizedBox(height: 6),
+              Text(AppLocalizations.of(context).t('Add a manifest URL above, or import\nyour Stremio JSON export to get started.'),
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   color: Colors.white.withValues(alpha: 0.5),
@@ -1720,7 +1719,7 @@ class _StremioAddonsPageState extends State<StremioAddonsPage> {
                             color: Colors.white,
                           ),
                         )
-                      : const Icon(Icons.add),
+                      : Icon(Icons.add),
                   label: Text(AppLocalizations.of(context).t('Add')),
                 ),
               ),
@@ -1802,7 +1801,7 @@ class _StremioAddonsPageState extends State<StremioAddonsPage> {
               const SizedBox(height: 24),
               FilledButton.icon(
                 onPressed: _loadAddons,
-                icon: const Icon(Icons.refresh),
+                icon: Icon(Icons.refresh),
                 label: Text(AppLocalizations.of(context).t('Retry')),
               ),
             ],

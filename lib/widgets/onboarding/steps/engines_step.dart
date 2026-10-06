@@ -64,7 +64,7 @@ class EnginesStep extends StatelessWidget {
       );
     }
     if (engines.isEmpty) {
-      return const Center(
+      return Center(
         child: Text(AppLocalizations.of(context).t('No search engines are available right now.')),
       );
     }

@@ -199,7 +199,7 @@ class _RemoteKeyboardInputState extends State<RemoteKeyboardInput> {
               Expanded(
                 child: OutlinedButton.icon(
                   onPressed: _clearField,
-                  icon: const Icon(Icons.backspace_outlined, size: 18),
+                  icon: Icon(Icons.backspace_outlined, size: 18),
                   label: Text(AppLocalizations.of(context).t('Clear')),
                   style: OutlinedButton.styleFrom(
                     foregroundColor: AppThemeScope.of(
@@ -224,7 +224,7 @@ class _RemoteKeyboardInputState extends State<RemoteKeyboardInput> {
               Expanded(
                 child: ElevatedButton.icon(
                   onPressed: _sendEnter,
-                  icon: const Icon(Icons.keyboard_return, size: 18),
+                  icon: Icon(Icons.keyboard_return, size: 18),
                   label: Text(AppLocalizations.of(context).t('Enter')),
                   style: ElevatedButton.styleFrom(
                     backgroundColor: AppThemeScope.of(context).core.tx,

@@ -153,7 +153,7 @@ class SyncDeviceTile extends StatelessWidget {
                 if (onRename != null)
                   TextButton.icon(
                     onPressed: onRename,
-                    icon: const Icon(Icons.edit_outlined, size: 18),
+                    icon: Icon(Icons.edit_outlined, size: 18),
                     label: Text(AppLocalizations.of(context).t('Rename')),
                   ),
                 if (onRemove != null)
@@ -236,7 +236,7 @@ class _SyncDevicesDialogState extends State<SyncDevicesDialog> {
                 color: Theme.of(context).colorScheme.onSurfaceVariant,
               ),
             ),
-            const SizedBox(height: 20),
+            SizedBox(height: 20),
             if (widget.devices.isEmpty)
               Text(AppLocalizations.of(context).t('No devices to show yet. Run Sync now and try again.')),
             for (final device in widget.devices) ...[

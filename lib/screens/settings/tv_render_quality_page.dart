@@ -178,9 +178,8 @@ class _TvRenderQualityPageState extends State<TvRenderQualityPage> {
                     ),
                   ),
                 ],
-                const SizedBox(height: 10),
-                Text(
-                  AppLocalizations.of(context).t(
+                SizedBox(height: 10),
+                Text(AppLocalizations.of(context).t(
                     'On TVs with weaker graphics, "Sharper picture" also turns off the ambient trailers that play behind the home screen and detail pages — at full resolution there is no headroom left to blend video under the interface.',
                   ),
                   style: TextStyle(

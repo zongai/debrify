@@ -462,7 +462,7 @@ class _AllDebridSettingsPageState extends State<AllDebridSettingsPage> {
                                           child: OutlinedButton.icon(
                                             focusNode: _logoutButtonFocusNode,
                                             onPressed: _deleteKey,
-                                            icon: const Icon(Icons.logout),
+                                            icon: Icon(Icons.logout),
                                             label: Text(AppLocalizations.of(context).t('Logout')),
                                             style: OutlinedButton.styleFrom(
                                               foregroundColor: t.danger,

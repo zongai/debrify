@@ -87,9 +87,8 @@ class NetflixRadioTile extends StatelessWidget {
                         ),
                       ),
                       if (subtitle != null) ...[
-                        const SizedBox(height: 2),
-                        Text(
-                          AppLocalizations.of(context).t(subtitle!),
+                        SizedBox(height: 2),
+                        Text(AppLocalizations.of(context).t(subtitle!),
                           style: TextStyle(
                             color: Colors.white.withValues(alpha: 0.5),
                             fontSize: 11,
