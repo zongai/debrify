@@ -772,7 +772,7 @@ class DetailEpisodesStatus extends StatelessWidget {
   final FocusNode? retryNode;
   final VoidCallback? onUpEdge;
 
-  const DetailEpisodesStatus({
+  DetailEpisodesStatus({
     super.key,
     required this.loading,
     required this.onRetry,

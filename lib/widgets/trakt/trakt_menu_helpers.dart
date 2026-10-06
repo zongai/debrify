@@ -75,8 +75,8 @@ Future<int?> showTraktRatingDialog(BuildContext context) {
                     height: 52,
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: const Color(0xFF334155),
-                        foregroundColor: const Color(0xFFFBBF24),
+                        backgroundColor: Color(0xFF334155),
+                        foregroundColor: Color(0xFFFBBF24),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(12),
                         ),
@@ -85,7 +85,7 @@ Future<int?> showTraktRatingDialog(BuildContext context) {
                       onPressed: () => Navigator.of(dialogContext).pop(rating),
                       child: Text(
                         '$rating',
-                        style: const TextStyle(
+                        style: TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.w700,
                         ),
@@ -97,7 +97,7 @@ Future<int?> showTraktRatingDialog(BuildContext context) {
               SizedBox(height: 12),
               TextButton(
                 onPressed: () => Navigator.of(dialogContext).pop(),
-                child: const Text(
+                child: Text(
                   'Cancel',
                   style: TextStyle(color: Colors.white54),
                 ),

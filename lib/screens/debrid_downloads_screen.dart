@@ -219,7 +219,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
       // after 10s, pop and show an error. Only when we were actually deep-linked
       // (initialTorrentForOptions); when browsing from the Cloud hub there's no
       // target, so the torrents-list root is the resting state — no timeout.
-      Future.delayed(const Duration(seconds: 10), () {
+      Future.delayed(Duration(seconds: 10), () {
         if (mounted &&
             widget.isPushedRoute &&
             !widget.selectSourceMode &&
@@ -881,12 +881,12 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
         ),
         content: Text(
           AppLocalizations.of(context).t('Are you sure you want to delete "\$name" from Real Debrid? This action cannot be undone.').replaceAll('\$name', torrent.filename),
-          style: const TextStyle(color: Colors.grey),
+          style: TextStyle(color: Colors.grey),
         ),
         actions: [
           TextButton(
             onPressed: () => Navigator.of(context).pop(false),
-            child: const Text('Cancel', style: TextStyle(color: Colors.grey)),
+            child: Text('Cancel', style: TextStyle(color: Colors.grey)),
           ),
           TextButton(
             onPressed: () => Navigator.of(context).pop(true),
@@ -963,7 +963,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
         actions: [
           TextButton(
             onPressed: () => Navigator.of(context).pop(false),
-            child: const Text('Cancel', style: TextStyle(color: Colors.grey)),
+            child: Text('Cancel', style: TextStyle(color: Colors.grey)),
           ),
           TextButton(
             onPressed: () => Navigator.of(context).pop(true),
@@ -1162,7 +1162,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
         actions: [
           TextButton(
             onPressed: () => Navigator.of(context).pop(false),
-            child: const Text('Cancel', style: TextStyle(color: Colors.grey)),
+            child: Text('Cancel', style: TextStyle(color: Colors.grey)),
           ),
           TextButton(
             onPressed: () => Navigator.of(context).pop(true),
@@ -1357,12 +1357,12 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
         ),
         content: Text(
           AppLocalizations.of(context).t('Are you sure you want to delete "\$name" from Real Debrid? This action cannot be undone.').replaceAll('\$name', download.filename),
-          style: const TextStyle(color: Colors.grey),
+          style: TextStyle(color: Colors.grey),
         ),
         actions: [
           TextButton(
             onPressed: () => Navigator.of(context).pop(false),
-            child: const Text('Cancel', style: TextStyle(color: Colors.grey)),
+            child: Text('Cancel', style: TextStyle(color: Colors.grey)),
           ),
           TextButton(
             onPressed: () => Navigator.of(context).pop(true),
@@ -1494,12 +1494,12 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
         ),
         content: Text(
           AppLocalizations.of(context).t('Are you sure you want to delete \$count selected \$type? This action cannot be undone.').replaceAll('\$count', count.toString()).replaceAll('\$type', count == 1 ? itemType : itemTypePlural),
-          style: const TextStyle(color: Colors.grey),
+          style: TextStyle(color: Colors.grey),
         ),
         actions: [
           TextButton(
             onPressed: () => Navigator.of(context).pop(false),
-            child: const Text('Cancel', style: TextStyle(color: Colors.grey)),
+            child: Text('Cancel', style: TextStyle(color: Colors.grey)),
           ),
           TextButton(
             onPressed: () => Navigator.of(context).pop(true),
@@ -1883,8 +1883,8 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
                       size: 20,
                     ),
                   ),
-                  const SizedBox(width: 12),
-                  const Expanded(
+                  SizedBox(width: 12),
+                  Expanded(
                     child: Text(
                       'RAR Archive Detected',
                       style: TextStyle(fontWeight: FontWeight.bold),
@@ -1896,12 +1896,12 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
                 'This is a RAR archive that Real-Debrid has not extracted yet. '
                 'The folder structure shown represents the archive contents, but only the RAR file itself can be downloaded.\n\n'
                 'You can download the RAR archive to extract it locally.',
-                style: const TextStyle(color: Colors.grey),
+                style: TextStyle(color: Colors.grey),
               ),
               actions: [
                 TextButton(
                   onPressed: () => Navigator.of(ctx).pop(),
-                  child: const Text(
+                  child: Text(
                     'Cancel',
                     style: TextStyle(color: Colors.grey),
                   ),
@@ -2620,7 +2620,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
                         overflow: TextOverflow.ellipsis,
                       ),
                       if (result.path.isNotEmpty) ...[
-                        const SizedBox(height: 4),
+                        SizedBox(height: 4),
                         Text(
                           result.path,
                           style: TextStyle(
@@ -2800,7 +2800,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
           },
           child: IconButton(
             focusNode: _backButtonFocusNode,
-            icon: const Icon(Icons.arrow_back),
+            icon: Icon(Icons.arrow_back),
             onPressed: () => _handleBackNavigation(),
           ),
         ),
@@ -2815,7 +2815,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
             ),
           IconButton(
             focusNode: _refreshButtonFocusNode,
-            icon: const Icon(Icons.refresh),
+            icon: Icon(Icons.refresh),
             onPressed: _currentTorrent != null
                 ? () => _navigateIntoTorrent(_currentTorrent!)
                 : null,
@@ -2840,7 +2840,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
   }
 
   Widget _buildFolderLoadingView() {
-    return const CloudRowSkeletonList();
+    return CloudRowSkeletonList();
   }
 
   Widget _buildFolderContentsView() {
@@ -2990,7 +2990,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
               fontWeight: FontWeight.w600,
             ),
           ),
-          const Spacer(),
+          Spacer(),
           TextButton(
             onPressed: _toggleSelectAll,
             child: Text(_isAllSelected ? 'Deselect All' : 'Select All'),
@@ -3239,7 +3239,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
     Widget body;
 
     if (_isLoadingTorrents && _torrents.isEmpty) {
-      body = const CloudRowSkeletonList();
+      body = CloudRowSkeletonList();
     } else if (_torrentErrorMessage.isNotEmpty && _torrents.isEmpty) {
       body = Center(
         child: Padding(
@@ -3525,7 +3525,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
     Widget body;
 
     if (_isLoadingDownloads && _downloads.isEmpty) {
-      body = const CloudRowSkeletonList();
+      body = CloudRowSkeletonList();
     } else if (_downloadErrorMessage.isNotEmpty && _downloads.isEmpty) {
       body = Center(
         child: Padding(
@@ -4264,10 +4264,10 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
           children: [
             Container(
               decoration: BoxDecoration(
-                color: const Color(0xFF334155),
+                color: Color(0xFF334155),
                 borderRadius: BorderRadius.circular(12),
                 border: Border.all(
-                  color: const Color(0xFF475569).withValues(alpha: 0.3),
+                  color: Color(0xFF475569).withValues(alpha: 0.3),
                 ),
               ),
               child: TextField(
@@ -4312,7 +4312,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
                         : _addMagnetWithDefaultSelection,
                     style: FilledButton.styleFrom(
                       padding: const EdgeInsets.symmetric(vertical: 12),
-                      backgroundColor: const Color(0xFF6366F1),
+                      backgroundColor: Color(0xFF6366F1),
                     ),
                     child: _isAddingMagnet
                         ? SizedBox(
@@ -4664,7 +4664,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
                     ),
                     enabledBorder: OutlineInputBorder(
                       borderRadius: app.shape.br(8),
-                      borderSide: const BorderSide(color: Color(0xFF475569)),
+                      borderSide: BorderSide(color: Color(0xFF475569)),
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderRadius: app.shape.br(8),
@@ -4705,7 +4705,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
                     onPressed: _isAddingLink ? null : _addLink,
                     style: FilledButton.styleFrom(
                       padding: const EdgeInsets.symmetric(vertical: 12),
-                      backgroundColor: const Color(0xFF6366F1),
+                      backgroundColor: Color(0xFF6366F1),
                     ),
                     child: _isAddingLink
                         ? SizedBox(
@@ -4767,7 +4767,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
       builder: (context) => AlertDialog(
         backgroundColor: AppThemeScope.of(context).cloud.dialogSurface,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-        title: const Text(
+        title: Text(
           'Unrestricting Link',
           style: TextStyle(fontWeight: FontWeight.bold),
         ),

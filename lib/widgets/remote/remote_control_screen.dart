@@ -28,7 +28,7 @@ import '../../services/profiles/profile_runtime.dart';
 
 /// Full remote control UI modal
 class RemoteControlScreen extends StatefulWidget {
-  const RemoteControlScreen({super.key});
+  RemoteControlScreen({super.key});
 
   @override
   State<RemoteControlScreen> createState() => _RemoteControlScreenState();
@@ -70,7 +70,7 @@ class _RemoteControlScreenState extends State<RemoteControlScreen> {
       await state.switchToReceiverMode(name);
       if (!mounted) return;
       await Navigator.of(context).push(
-        MaterialPageRoute<void>(builder: (_) => const RemoteReceiveScreen()),
+        MaterialPageRoute<void>(builder: (_) => RemoteReceiveScreen()),
       );
     } catch (_) {
       if (mounted) {
@@ -710,7 +710,7 @@ class _RemoteControlScreenState extends State<RemoteControlScreen> {
       if (pick == null || pick.files.isEmpty || !mounted) return;
       final picked = pick.files.single;
       if (picked.size > ProfileAvatarIngest.maxInputBytes) {
-        throw const ProfileAvatarRejected(
+        throw ProfileAvatarRejected(
           'That image is too large to send. Choose one under 12 MB.',
         );
       }
@@ -813,7 +813,7 @@ class _RemoteControlScreenState extends State<RemoteControlScreen> {
         // Media controls
         _buildMediaControls(),
 
-        const SizedBox(height: 24),
+        SizedBox(height: 24),
 
         // Keyboard toggle and Back button row
         Row(

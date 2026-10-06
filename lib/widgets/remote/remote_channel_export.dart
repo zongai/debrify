@@ -230,7 +230,7 @@ class RemoteChannelExportState extends State<RemoteChannelExport> {
         // Small delay between channels to avoid UDP packet loss
         if (session.peerProtocolVersion < kReliableTransferProtocolVersion &&
             i < selectedChannels.length - 1) {
-          await Future.delayed(const Duration(milliseconds: 300));
+          await Future.delayed(Duration(milliseconds: 300));
         }
       }
 
@@ -244,10 +244,10 @@ class RemoteChannelExportState extends State<RemoteChannelExport> {
                     : 'Delivered $successCount channel${successCount != 1 ? 's' : ''} — confirm on TV',
               ),
               backgroundColor: supportsApplicationResult
-                  ? const Color(0xFF10B981)
-                  : const Color(0xFFF59E0B),
+                  ? Color(0xFF10B981)
+                  : Color(0xFFF59E0B),
               behavior: SnackBarBehavior.floating,
-              duration: const Duration(seconds: 3),
+              duration: Duration(seconds: 3),
             ),
           );
         } else if (successCount == 0) {
@@ -266,7 +266,7 @@ class RemoteChannelExportState extends State<RemoteChannelExport> {
                 '$successCount channel${successCount != 1 ? 's' : ''}, '
                 '$failCount failed',
               ),
-              backgroundColor: const Color(0xFFF59E0B),
+              backgroundColor: Color(0xFFF59E0B),
               behavior: SnackBarBehavior.floating,
             ),
           );
@@ -336,7 +336,7 @@ class RemoteChannelExportState extends State<RemoteChannelExport> {
             );
       if (!delivered || !waitForApplication) return delivered;
       return await resultCompleter.future.timeout(
-        const Duration(minutes: 2),
+        Duration(minutes: 2),
         onTimeout: () => false,
       );
     } finally {

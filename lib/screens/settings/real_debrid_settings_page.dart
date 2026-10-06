@@ -247,12 +247,12 @@ class _RealDebridSettingsPageState extends State<RealDebridSettingsPage> {
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text(
+                Text(
                   'This will hide the Real Debrid tab from navigation.',
                   style: TextStyle(fontWeight: FontWeight.w500),
                 ),
                 SizedBox(height: 12),
-                const SettingsInfoBanner(
+                SettingsInfoBanner(
                   text:
                       'To show Real Debrid again, you must logout and login. This is a security measure.',
                   tone: SettingsBannerTone.warning,
@@ -334,7 +334,7 @@ class _RealDebridSettingsPageState extends State<RealDebridSettingsPage> {
         policy: OrderedTraversalPolicy(),
         child: Center(
           child: ConstrainedBox(
-            constraints: const BoxConstraints(maxWidth: kSettingsMaxWidth),
+            constraints: BoxConstraints(maxWidth: kSettingsMaxWidth),
             child: ListView(
               padding: const EdgeInsets.all(16),
               children: [

@@ -146,7 +146,7 @@ class MagnetLinkHandler {
             SizedBox(height: 8),
             Text(
               displayName,
-              style: const TextStyle(fontSize: 12, fontStyle: FontStyle.italic),
+              style: TextStyle(fontSize: 12, fontStyle: FontStyle.italic),
               maxLines: 2,
               overflow: TextOverflow.ellipsis,
             ),
@@ -400,13 +400,13 @@ class MagnetLinkHandler {
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(
+            Text(
               'Which service would you like to use for this magnet link?',
             ),
             SizedBox(height: 8),
             Text(
               torrentName,
-              style: const TextStyle(fontSize: 12, fontStyle: FontStyle.italic),
+              style: TextStyle(fontSize: 12, fontStyle: FontStyle.italic),
               maxLines: 2,
               overflow: TextOverflow.ellipsis,
             ),

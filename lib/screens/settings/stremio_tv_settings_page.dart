@@ -54,14 +54,14 @@ class _StremioTvSettingsPageState extends State<StremioTvSettingsPage> {
       // Detect which providers are configured
       final providers = <MapEntry<String, String>>[];
       if (await StorageService.hasRealDebridCredential()) {
-        providers.add(const MapEntry('realdebrid', 'Real-Debrid'));
+        providers.add(MapEntry('realdebrid', 'Real-Debrid'));
       }
       if (await StorageService.hasTorboxCredential()) {
-        providers.add(const MapEntry('torbox', 'TorBox'));
+        providers.add(MapEntry('torbox', 'TorBox'));
       }
       final pikpakEnabled = await StorageService.getPikPakEnabled();
       if (pikpakEnabled) {
-        providers.add(const MapEntry('pikpak', 'PikPak'));
+        providers.add(MapEntry('pikpak', 'PikPak'));
       }
 
       setState(() {
@@ -228,13 +228,13 @@ class _StremioTvSettingsPageState extends State<StremioTvSettingsPage> {
               padding: const EdgeInsets.all(16),
               child: Center(
                 child: ConstrainedBox(
-                  constraints: const BoxConstraints(
+                  constraints: BoxConstraints(
                     maxWidth: kSettingsMaxWidth,
                   ),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const SettingsPageHeader(
+                      SettingsPageHeader(
                         icon: Icons.smart_display_rounded,
                         title: 'Stremio TV',
                         subtitle:
@@ -270,7 +270,7 @@ class _StremioTvSettingsPageState extends State<StremioTvSettingsPage> {
                                   DropdownButton<int>(
                                     value: _rotationMinutes,
                                     dropdownColor: t.panel2,
-                                    items: const [
+                                    items: [
                                       DropdownMenuItem(
                                         value: 30,
                                         child: Text(AppLocalizations.of(context).t('30 min')),
@@ -314,7 +314,7 @@ class _StremioTvSettingsPageState extends State<StremioTvSettingsPage> {
                                   DropdownButton<int>(
                                     value: _seriesRotationMinutes,
                                     dropdownColor: t.panel2,
-                                    items: const [
+                                    items: [
                                       DropdownMenuItem(
                                         value: 15,
                                         child: Text(AppLocalizations.of(context).t('15 min')),
@@ -355,27 +355,27 @@ class _StremioTvSettingsPageState extends State<StremioTvSettingsPage> {
                                 value: _autoRefresh,
                                 onChanged: _setAutoRefresh,
                               ),
-                              const Divider(height: 32),
+                              Divider(height: 32),
                               SwitchListTile(
                                 contentPadding: EdgeInsets.zero,
                                 title: Text(AppLocalizations.of(context).t('Hide Currently Playing')),
-                                subtitle: const Text(
+                                subtitle: Text(
                                   'Blur poster and hide details for a surprise when playing',
                                 ),
                                 value: _hideNowPlaying,
                                 onChanged: _setHideNowPlaying,
                               ),
-                              const Divider(height: 32),
+                              Divider(height: 32),
                               SwitchListTile(
                                 contentPadding: EdgeInsets.zero,
                                 title: Text(AppLocalizations.of(context).t('Random Episodes')),
-                                subtitle: const Text(
+                                subtitle: Text(
                                   'Pick a different episode every time instead of following the scheduled time slot',
                                 ),
                                 value: _randomEpisodes,
                                 onChanged: _setRandomEpisodes,
                               ),
-                              const Divider(height: 32),
+                              Divider(height: 32),
                               // Preferred quality dropdown
                               Row(
                                 children: [
@@ -415,7 +415,7 @@ class _StremioTvSettingsPageState extends State<StremioTvSettingsPage> {
                                   ),
                                 ],
                               ),
-                              const Divider(height: 32),
+                              Divider(height: 32),
                               // Start position dropdown
                               Row(
                                 children: [
@@ -464,7 +464,7 @@ class _StremioTvSettingsPageState extends State<StremioTvSettingsPage> {
                                 ],
                               ),
                               if (_availableProviders.isNotEmpty) ...[
-                                const Divider(height: 32),
+                                Divider(height: 32),
                                 // Debrid provider dropdown
                                 Row(
                                   children: [

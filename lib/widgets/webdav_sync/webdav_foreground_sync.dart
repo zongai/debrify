@@ -119,7 +119,7 @@ class _ForegroundSyncDialogState extends State<_ForegroundSyncDialog>
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         if (!_takingLonger && !_backgrounded) ...[
-          const LinearProgressIndicator(),
+          LinearProgressIndicator(),
           SizedBox(height: 16),
         ],
         ValueListenableBuilder<String>(
@@ -136,13 +136,13 @@ class _ForegroundSyncDialogState extends State<_ForegroundSyncDialog>
         ),
         if (_returned) ...[
           SizedBox(height: 12),
-          const Text(
+          Text(
             'Leaving the app may have interrupted the connection. '
             'Waiting for the current attempt to finish.',
           ),
         ],
         SizedBox(height: 12),
-        const Text(
+        Text(
           'Minimizing, locking, or closing the app can interrupt sync.',
         ),
       ],

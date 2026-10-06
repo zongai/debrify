@@ -126,7 +126,7 @@ class _RemoteAddonExportState extends State<RemoteAddonExport> {
       // The short delay mirrors the other export flows (let the addon packet
       // finish processing before the commit signal lands).
       if (session.peerProtocolVersion < kReliableTransferProtocolVersion) {
-        await Future<void>.delayed(const Duration(milliseconds: 300));
+        await Future<void>.delayed(Duration(milliseconds: 300));
       }
       final committed = await state.sendConfigCommandToDevice(
         ConfigCommand.complete,
@@ -137,7 +137,7 @@ class _RemoteAddonExportState extends State<RemoteAddonExport> {
 
       if (supportsApplicationResult) {
         final applied = await applicationResult.future.timeout(
-          const Duration(minutes: 2),
+          Duration(minutes: 2),
           onTimeout: () => false,
         );
         if (!applied) {
@@ -155,10 +155,10 @@ class _RemoteAddonExportState extends State<RemoteAddonExport> {
                   : 'Sent "${addon.displayName}" — confirm the import on TV',
             ),
             backgroundColor: supportsApplicationResult
-                ? const Color(0xFF10B981)
-                : const Color(0xFFF59E0B),
+                ? Color(0xFF10B981)
+                : Color(0xFFF59E0B),
             behavior: SnackBarBehavior.floating,
-            duration: const Duration(seconds: 2),
+            duration: Duration(seconds: 2),
           ),
         );
       }

@@ -1500,7 +1500,7 @@ class _IptvSettingsPageState extends State<IptvSettingsPage>
                   Expanded(
                     child: Text(
                       list.name,
-                      style: const TextStyle(
+                      style: TextStyle(
                         fontSize: 17,
                         fontWeight: FontWeight.w600,
                       ),
@@ -1514,7 +1514,7 @@ class _IptvSettingsPageState extends State<IptvSettingsPage>
                 ],
               ),
             ),
-            const Divider(height: 1),
+            Divider(height: 1),
             ListTile(
               autofocus: true,
               leading: Icon(Icons.drive_file_rename_outline_rounded),
@@ -2564,7 +2564,7 @@ class _IptvSettingsPageState extends State<IptvSettingsPage>
     return ListView(
       padding: const EdgeInsets.all(16),
       children: [
-        const SettingsSectionLabel('Hidden categories'),
+        SettingsSectionLabel('Hidden categories'),
         Text(
           'Open a category\'s menu (or long-press it) in the IPTV page\'s '
           'category picker, then choose Hide category. Nothing is deleted — '
@@ -2581,14 +2581,14 @@ class _IptvSettingsPageState extends State<IptvSettingsPage>
     return ListView(
       padding: const EdgeInsets.all(16),
       children: [
-        const SettingsSectionLabel('Startup'),
+        SettingsSectionLabel('Startup'),
         SizedBox(height: 6),
         Card(
           child: Column(
             children: [
               SwitchListTile(
                 title: Text(AppLocalizations.of(context).t('Start on a channel')),
-                subtitle: const Text(
+                subtitle: Text(
                   'Open straight into a live channel when the app starts. '
                   'Press BACK while it is tuning to stop.',
                 ),
@@ -2640,12 +2640,12 @@ class _IptvSettingsPageState extends State<IptvSettingsPage>
     return ListView(
       padding: const EdgeInsets.all(16),
       children: [
-        const SettingsSectionLabel('Continue watching'),
+        SettingsSectionLabel('Continue watching'),
         SizedBox(height: 6),
         Card(
           child: SwitchListTile(
             title: Text(AppLocalizations.of(context).t('Track movies and series')),
-            subtitle: const Text(
+            subtitle: Text(
               'Keeps a Continue watching shelf of the on-demand items you '
               'start, on Home and in IPTV. Off hides it and stops adding to '
               'it — nothing is deleted, and playback still resumes where '
@@ -2663,12 +2663,12 @@ class _IptvSettingsPageState extends State<IptvSettingsPage>
     return ListView(
       padding: const EdgeInsets.all(16),
       children: [
-        const SettingsSectionLabel('Channel preview'),
+        SettingsSectionLabel('Channel preview'),
         SizedBox(height: 6),
         Card(
           child: SwitchListTile(
             title: Text(AppLocalizations.of(context).t('Play channel previews')),
-            subtitle: const Text(
+            subtitle: Text(
               'Plays the focused channel in the side panel while you browse. '
               'This opens a provider stream and may count toward your '
               'connection limit. Fullscreen playback still works when off.',
@@ -2691,7 +2691,7 @@ class _IptvSettingsPageState extends State<IptvSettingsPage>
     return ListView(
       padding: const EdgeInsets.all(16),
       children: [
-        const SettingsSectionLabel('Recording'),
+        SettingsSectionLabel('Recording'),
         SizedBox(height: 6),
         Card(
           child: Column(
@@ -3864,7 +3864,7 @@ class _EditPlaylistDialogState extends State<_EditPlaylistDialog> {
           onUpArrow: up(_serverFocusNode),
           onDownArrow: down(_serverFocusNode),
         ),
-        const SizedBox(height: 12),
+        SizedBox(height: 12),
         TvTextField(
           controller: _usernameController,
           focusNode: _usernameFocusNode,
@@ -3883,7 +3883,7 @@ class _EditPlaylistDialogState extends State<_EditPlaylistDialog> {
           labelText: 'Password',
           hintText: 'your password',
           errorText: _passwordError,
-          prefixIcon: const Icon(Icons.lock),
+          prefixIcon: Icon(Icons.lock),
           obscureText: true,
           textInputAction: TextInputAction.next,
           onUpArrow: up(_passwordFocusNode),
@@ -3896,7 +3896,7 @@ class _EditPlaylistDialogState extends State<_EditPlaylistDialog> {
         focusNode: _epgFocusNode,
         labelText: 'EPG URL (XMLTV, optional)',
         hintText: 'https://example.com/guide.xml.gz',
-        prefixIcon: const Icon(Icons.calendar_view_day_outlined),
+        prefixIcon: Icon(Icons.calendar_view_day_outlined),
         textInputAction: TextInputAction.done,
         onSubmitted: (_) => _submit(),
         onUpArrow: up(_epgFocusNode),

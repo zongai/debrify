@@ -474,7 +474,7 @@ class RedditResultsViewState extends State<RedditResultsView> {
   Widget _buildContent() {
     // Empty state when nothing to show
     if (!_canLoad && _posts.isEmpty && !_isLoading) {
-      return const RedditEmptyState();
+      return RedditEmptyState();
     }
 
     // Loading

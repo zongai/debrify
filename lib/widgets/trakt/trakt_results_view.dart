@@ -1418,7 +1418,7 @@ class TraktResultsViewState extends State<TraktResultsView> {
     showModalBottomSheet<void>(
       context: context,
       backgroundColor: Color(0xFF1E293B),
-      shape: const RoundedRectangleBorder(
+      shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
       ),
       builder: (sheetContext) => SafeArea(
@@ -2711,7 +2711,7 @@ class TraktResultsViewState extends State<TraktResultsView> {
 
             // Select Source / Edit Source button
             if (_selectedShow != null && widget.onSelectSource != null) ...[
-              const SizedBox(width: 8),
+              SizedBox(width: 8),
               Builder(
                 builder: (context) {
                   final imdbId =

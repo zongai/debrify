@@ -622,7 +622,7 @@ class _ProfileSetupFlowState extends State<ProfileSetupFlow> {
             style: const TextStyle(color: Color(0xFFF87171), fontSize: 12),
           ),
         ],
-        const SizedBox(height: 12),
+        SizedBox(height: 12),
         // The DPAD grid has no gap-bridging: the footer must sit on the row
         // right after each step's last focusable row or a remote can never
         // reach it.
@@ -644,8 +644,8 @@ class _ProfileSetupFlowState extends State<ProfileSetupFlow> {
   Widget _navigation() {
     final style = TextButton.styleFrom(
       foregroundColor: Colors.white,
-      disabledForegroundColor: const Color(0x61FFFFFF),
-      minimumSize: const Size(44, 44),
+      disabledForegroundColor: Color(0x61FFFFFF),
+      minimumSize: Size(44, 44),
       padding: const EdgeInsets.symmetric(horizontal: 12),
     );
     return Focus(

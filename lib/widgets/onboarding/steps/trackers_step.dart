@@ -108,8 +108,8 @@ class TrackersStep extends StatelessWidget {
               ),
             ),
           ),
-          const SizedBox(height: 12),
-          const Text(
+          SizedBox(height: 12),
+          Text(
             'MDBList',
             style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
           ),
@@ -124,12 +124,12 @@ class TrackersStep extends StatelessWidget {
               color: Colors.white.withValues(alpha: 0.52),
             ),
           ),
-          const Spacer(),
+          Spacer(),
           Text(
             mdblistConnected ? 'Connected' : 'Connect with API key',
             style: TextStyle(
               color: mdblistConnected
-                  ? const Color(0xFF34D399)
+                  ? Color(0xFF34D399)
                   : Colors.white70,
               fontSize: 10.5,
             ),
@@ -174,7 +174,7 @@ class TrackersStep extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: 8),
-                const Text(
+                Text(
                   'Create or copy the key from mdblist.com/preferences.',
                   style: TextStyle(fontSize: 11),
                 ),

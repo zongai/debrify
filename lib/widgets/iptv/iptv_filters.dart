@@ -365,7 +365,7 @@ class _PlaylistDropdownState extends State<_PlaylistDropdown> {
       child: GestureDetector(
         onTap: _showPlaylistPicker,
         child: AnimatedContainer(
-          duration: const Duration(milliseconds: 150),
+          duration: Duration(milliseconds: 150),
           padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
           // House glass chip (kSeeAll board language). Constant border width —
           // a 1→2px focus ring resizes the chip and reflows the whole bar.
@@ -534,7 +534,7 @@ class _CategoryDropdownState extends State<_CategoryDropdown> {
       child: GestureDetector(
         onTap: _showCategoryPicker,
         child: AnimatedContainer(
-          duration: const Duration(milliseconds: 150),
+          duration: Duration(milliseconds: 150),
           padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
           decoration: BoxDecoration(
             color: app.seeAll.panel,
@@ -955,7 +955,7 @@ class _PlaylistPickerSheetState extends State<_PlaylistPickerSheet> {
 
                 // Add playlist button
                 if (widget.onAddPlaylist != null) ...[
-                  const Divider(),
+                  Divider(),
                   _FocusablePickerTile(
                     focusNode: _focusNodes.isNotEmpty ? _focusNodes.last : null,
                     label: AppLocalizations.of(context).t('Add Playlist'),

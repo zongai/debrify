@@ -524,7 +524,7 @@ class _StremioAddonsPageContentState extends State<StremioAddonsPageContent> {
                   value: _formatDate(addon.lastChecked!),
                 ),
               SizedBox(height: 16),
-              const Text(
+              Text(
                 'Manifest URL:',
                 style: TextStyle(fontWeight: FontWeight.bold),
               ),
@@ -1090,7 +1090,7 @@ class _StremioAddonsPageContentState extends State<StremioAddonsPageContent> {
 
   Widget _buildAddonsSliver() {
     if (_isLoading) {
-      return const SliverFillRemaining(
+      return SliverFillRemaining(
         hasScrollBody: false,
         child: Center(
           child: Padding(
@@ -1163,8 +1163,8 @@ class _StremioAddonsPageContentState extends State<StremioAddonsPageContent> {
                   shape: BoxShape.circle,
                   gradient: RadialGradient(
                     colors: [
-                      const Color(0xFFED1C24).withValues(alpha: 0.22),
-                      const Color(0xFFED1C24).withValues(alpha: 0.04),
+                      Color(0xFFED1C24).withValues(alpha: 0.22),
+                      Color(0xFFED1C24).withValues(alpha: 0.04),
                     ],
                   ),
                   border: Border.all(
@@ -1178,7 +1178,7 @@ class _StremioAddonsPageContentState extends State<StremioAddonsPageContent> {
                 ),
               ),
               SizedBox(height: 18),
-              const Text(
+              Text(
                 'No addons yet',
                 style: TextStyle(
                   fontSize: 16,
@@ -1587,7 +1587,7 @@ class _StremioAddonsPageState extends State<StremioAddonsPage> {
                   value: _formatDate(addon.lastChecked!),
                 ),
               SizedBox(height: 16),
-              const Text(
+              Text(
                 'Manifest URL:',
                 style: TextStyle(fontWeight: FontWeight.bold),
               ),
@@ -1673,7 +1673,7 @@ class _StremioAddonsPageState extends State<StremioAddonsPage> {
       children: [
         // Add addon section
         _buildAddSection(),
-        const Divider(height: 1),
+        Divider(height: 1),
         // Addons list
         Expanded(child: _buildAddonsList()),
       ],
@@ -1706,7 +1706,7 @@ class _StremioAddonsPageState extends State<StremioAddonsPage> {
               Expanded(child: _buildUrlTextField()),
               SizedBox(width: 12),
               FocusTraversalOrder(
-                order: const NumericFocusOrder(1),
+                order: NumericFocusOrder(1),
                 child: FilledButton.icon(
                   focusNode: _addButtonFocusNode,
                   onPressed: _isAdding ? null : _addAddon,
@@ -1732,12 +1732,12 @@ class _StremioAddonsPageState extends State<StremioAddonsPage> {
 
   Widget _buildUrlTextField() {
     return FocusTraversalOrder(
-      order: const NumericFocusOrder(0),
+      order: NumericFocusOrder(0),
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(8),
           border: _urlFieldFocused
-              ? Border.all(color: const Color(0xFFED1C24), width: 2)
+              ? Border.all(color: Color(0xFFED1C24), width: 2)
               : null,
         ),
         child: TvTextField(

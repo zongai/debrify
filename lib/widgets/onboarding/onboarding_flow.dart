@@ -396,7 +396,7 @@ class _InitialSetupFlowState extends State<InitialSetupFlow> {
           barrierDismissible: false,
           builder: (dialogContext) => AlertDialog(
             title: Text(AppLocalizations.of(context).t('Use this synced setup?')),
-            content: const Text(
+            content: Text(
               'Your profiles and connections on this device will be replaced '
               'with the setup from your other devices.',
             ),
@@ -595,7 +595,7 @@ class _InitialSetupFlowState extends State<InitialSetupFlow> {
       barrierDismissible: false,
       builder: (context) => AlertDialog(
         title: Text(AppLocalizations.of(context).t('Restrict PikPak to one folder?')),
-        content: const Text(
+        content: Text(
           'For extra privacy, Debrify can access one chosen folder instead of your whole PikPak drive. You can skip this now.',
         ),
         actions: [

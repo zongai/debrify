@@ -796,7 +796,7 @@ class VideoPlayerLauncher {
           barrierDismissible: false,
           builder: (dialogContext) => AlertDialog(
             title: Text(AppLocalizations.of(context).t('External player unavailable')),
-            content: const Text(
+            content: Text(
               'This server requires authentication. Debrify cannot pass '
               'the required authorization headers to another app, so this video '
               'will open in the Debrify player.',
@@ -1917,7 +1917,7 @@ class VideoPlayerLauncher {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content: Text(AppLocalizations.of(context).t('Failed to open DeoVR: \$e').replaceAll(r'\$e', e.toString())),
-            duration: const Duration(seconds: 2),
+            duration: Duration(seconds: 2),
           ),
         );
       }
@@ -1951,7 +1951,7 @@ class VideoPlayerLauncher {
           context: context,
           builder: (dialogContext) => AlertDialog(
             title: Text(AppLocalizations.of(context).t('Share stream with another app?')),
-            content: const Text(
+            content: Text(
               'This stream address may contain a short-lived account token. '
               'The selected player will be able to read it.',
             ),
@@ -2026,7 +2026,7 @@ class VideoPlayerLauncher {
                 },
               ),
               SizedBox(height: 16),
-              const Text(
+              Text(
                 'Stereo Mode',
                 style: TextStyle(fontWeight: FontWeight.w500),
               ),

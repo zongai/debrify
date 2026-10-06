@@ -166,7 +166,7 @@ class _KeyStepState extends State<KeyStep> {
 
   void _updateLanding() {
     widget.focusController.setLandingOverride(
-      widget.clipboardCandidate != null ? const OnboardCell(0, 1) : _fieldCell,
+      widget.clipboardCandidate != null ? OnboardCell(0, 1) : _fieldCell,
     );
   }
 

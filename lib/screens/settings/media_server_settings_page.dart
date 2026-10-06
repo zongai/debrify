@@ -18,7 +18,7 @@ import '../../widgets/tv_text_field.dart';
 import 'widgets/settings_widgets.dart';
 
 class MediaServerSettingsPage extends StatefulWidget {
-  const MediaServerSettingsPage({super.key});
+  MediaServerSettingsPage({super.key});
   @override
   State<MediaServerSettingsPage> createState() =>
       _MediaServerSettingsPageState();
@@ -195,7 +195,7 @@ class _MediaServerSettingsPageState extends State<MediaServerSettingsPage> {
                 AppLocalizations.of(context).mediaServersBlurb,
               ),
               SizedBox(height: 12),
-              const Text(
+              Text(
                 'Matching uses the server’s IMDb, TMDB or TVDB IDs and season/episode numbers. Missing IDs or different anime numbering may produce no match. Server transcoding is not included.',
               ),
               if (ProfileCollectionResourceFacade.active)
@@ -263,7 +263,7 @@ class _MediaServerSettingsPageState extends State<MediaServerSettingsPage> {
                 onPressed: _busy || !ProfileCollectionResourceFacade.active
                     ? null
                     : () => _edit(),
-                icon: const Icon(Icons.add),
+                icon: Icon(Icons.add),
                 label: Text(AppLocalizations.of(context).connectServer),
               ),
               SizedBox(height: 12),
@@ -271,7 +271,7 @@ class _MediaServerSettingsPageState extends State<MediaServerSettingsPage> {
                 onPressed: _busy || !ProfileCollectionResourceFacade.active
                     ? null
                     : () => _edit(null, MediaServerKind.plex),
-                icon: const Icon(Icons.link),
+                icon: Icon(Icons.link),
                 label: Text(AppLocalizations.of(context).plexLinkButton),
               ),
             ],

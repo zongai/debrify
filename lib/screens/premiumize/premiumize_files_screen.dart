@@ -1191,15 +1191,15 @@ class _PremiumizeFilesScreenState extends State<PremiumizeFilesScreen> {
                   hintStyle: TextStyle(color: Colors.grey[600]),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(8),
-                    borderSide: const BorderSide(color: Color(0xFF475569)),
+                    borderSide: BorderSide(color: Color(0xFF475569)),
                   ),
                   enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(8),
-                    borderSide: const BorderSide(color: Color(0xFF475569)),
+                    borderSide: BorderSide(color: Color(0xFF475569)),
                   ),
                   focusedBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(8),
-                    borderSide: const BorderSide(color: Color(0xFFFB923C)),
+                    borderSide: BorderSide(color: Color(0xFFFB923C)),
                   ),
                   contentPadding: const EdgeInsets.symmetric(
                     horizontal: 12,
@@ -1498,7 +1498,7 @@ class _PremiumizeFilesScreenState extends State<PremiumizeFilesScreen> {
       return CloudScaffold(
         appBar: AppBar(
           leading: IconButton(
-            icon: const Icon(Icons.arrow_back),
+            icon: Icon(Icons.arrow_back),
             onPressed: () => Navigator.of(context).pop(),
           ),
           title: Text(AppLocalizations.of(context).t('Opening folder...')),
@@ -1751,7 +1751,7 @@ class _PremiumizeFilesScreenState extends State<PremiumizeFilesScreen> {
               fontWeight: FontWeight.w600,
             ),
           ),
-          const Spacer(),
+          Spacer(),
           TextButton(
             onPressed: _toggleSelectAll,
             child: Text(_isAllSelected ? 'Deselect All' : 'Select All'),
@@ -2023,7 +2023,7 @@ class _PremiumizeFilesScreenState extends State<PremiumizeFilesScreen> {
 
   Widget _buildTransfersList() {
     if (_isLoadingTransfers && _transfers.isEmpty) {
-      return const Center(child: CircularProgressIndicator());
+      return Center(child: CircularProgressIndicator());
     }
     if (_transfers.isEmpty) {
       return ListView(

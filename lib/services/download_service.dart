@@ -1362,7 +1362,7 @@ class DownloadService {
                                       0xFF10B981,
                                     ).withValues(alpha: 0.9),
                                   ),
-                                  const SizedBox(width: 8),
+                                  SizedBox(width: 8),
                                   Text(
                                     'You can change this later in system settings',
                                     style: TextStyle(
@@ -1383,7 +1383,7 @@ class DownloadService {
                                     ),
                                   ),
                                   SizedBox(width: 4),
-                                  const Text("Don't ask again"),
+                                  Text("Don't ask again"),
                                 ],
                               ),
                               SizedBox(height: 10),
@@ -1398,7 +1398,7 @@ class DownloadService {
                                         Navigator.of(ctx2).pop(false);
                                       },
                                       style: OutlinedButton.styleFrom(
-                                        side: const BorderSide(
+                                        side: BorderSide(
                                           color: Color(0xFF334155),
                                         ),
                                         padding: const EdgeInsets.symmetric(

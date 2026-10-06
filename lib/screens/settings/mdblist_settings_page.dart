@@ -262,7 +262,7 @@ class _MdblistSettingsPageState extends State<MdblistSettingsPage> {
         mainAxisSize: MainAxisSize.min,
         children: [
           Icon(Icons.check_circle, color: t.success, size: 14),
-          const SizedBox(width: 4),
+          SizedBox(width: 4),
           Text('Connected', style: TextStyle(color: t.success, fontSize: 12)),
         ],
       ),

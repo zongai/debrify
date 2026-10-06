@@ -1082,7 +1082,7 @@ class _RemoteTransferAllState extends State<RemoteTransferAll> {
     }
     try {
       final result = await resultCompleter.future.timeout(
-        const Duration(seconds: 180),
+        Duration(seconds: 180),
       );
       if (!mounted) return;
       setState(() {
@@ -1379,16 +1379,16 @@ class _RemoteTransferAllState extends State<RemoteTransferAll> {
   void _toast(String msg, {bool error = false, bool warning = false}) {
     if (!mounted) return;
     final color = error
-        ? const Color(0xFFEF4444)
+        ? Color(0xFFEF4444)
         : warning
-        ? const Color(0xFFF59E0B)
-        : const Color(0xFF10B981);
+        ? Color(0xFFF59E0B)
+        : Color(0xFF10B981);
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         content: Text(msg),
         backgroundColor: color,
         behavior: SnackBarBehavior.floating,
-        duration: const Duration(seconds: 3),
+        duration: Duration(seconds: 3),
       ),
     );
   }
@@ -1479,7 +1479,7 @@ class _RemoteTransferAllState extends State<RemoteTransferAll> {
                     value: true,
                     enabled: !busy,
                     title: Text(AppLocalizations.of(context).t('All profiles & their data')),
-                    subtitle: const Text(
+                    subtitle: Text(
                       'Profiles, PINs, photos, settings, accounts, addons, TV channels and IPTV data.',
                     ),
                   ),
@@ -1487,7 +1487,7 @@ class _RemoteTransferAllState extends State<RemoteTransferAll> {
                   value: false,
                   enabled: !busy,
                   title: Text(AppLocalizations.of(context).t('Current profile’s setup only')),
-                  subtitle: const Text(
+                  subtitle: Text(
                     'Accounts, addons, tracking preferences, search and supported IPTV setup.',
                   ),
                 ),

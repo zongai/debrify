@@ -288,7 +288,7 @@ class _SettingsSpotlightShellState extends State<SettingsSpotlightShell> {
           },
         ),
         if (destructive.isNotEmpty) ...[
-          const SizedBox(height: 26),
+          SizedBox(height: 26),
           SettingsSectionLabel(
             'Danger zone',
             color: AppThemeScope.of(context).settings.danger,
@@ -319,10 +319,10 @@ class _SettingsSpotlightShellState extends State<SettingsSpotlightShell> {
               label: 'Back to settings categories',
               child: Material(
                 color: app.fade(app.core.tx, 0.08),
-                shape: const CircleBorder(),
+                shape: CircleBorder(),
                 child: InkWell(
                   onTap: _closeCompactDetail,
-                  customBorder: const CircleBorder(),
+                  customBorder: CircleBorder(),
                   child: SizedBox(
                     width: 42,
                     height: 42,
@@ -331,11 +331,11 @@ class _SettingsSpotlightShellState extends State<SettingsSpotlightShell> {
                 ),
               ),
             ),
-            const Spacer(),
+            Spacer(),
             IconButton(
               tooltip: AppLocalizations.of(context).t('Search settings'),
               onPressed: widget.onOpenSearch,
-              icon: const Icon(Icons.search_rounded),
+              icon: Icon(Icons.search_rounded),
             ),
           ],
         ),
@@ -349,7 +349,7 @@ class _SettingsSpotlightShellState extends State<SettingsSpotlightShell> {
 }
 
 class SettingsRootHeader extends StatelessWidget {
-  const SettingsRootHeader({super.key, this.compact = false});
+  SettingsRootHeader({super.key, this.compact = false});
 
   final bool compact;
 
@@ -595,7 +595,7 @@ class _SettingsRailItemState extends State<_SettingsRailItem> {
           onHover: (value) => setState(() => _hovered = value),
           borderRadius: radius,
           child: Container(
-            constraints: const BoxConstraints(minHeight: 50),
+            constraints: BoxConstraints(minHeight: 50),
             padding: const EdgeInsets.symmetric(horizontal: 11, vertical: 8),
             decoration: BoxDecoration(
               color: inverse
@@ -782,7 +782,7 @@ class _SettingsCategoryCardState extends State<_SettingsCategoryCard> {
                         foreground: foreground,
                         inverse: inverse,
                       ),
-                      const Spacer(),
+                      Spacer(),
                       _copy(foreground),
                     ],
                   ),

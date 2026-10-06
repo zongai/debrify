@@ -32,7 +32,7 @@ Future<void> offerRemoteWebDavSync(
   var paused = false;
   try {
     await (requireAdmin ??
-        const ProfileWebDavSyncSetupAuthorization().requireAdmin)();
+        ProfileWebDavSyncSetupAuthorization().requireAdmin)();
     if (!context.mounted || !isCurrent()) return;
     final selected = await showDialog<WebDavConfig>(
       context: context,
@@ -43,7 +43,7 @@ Future<void> offerRemoteWebDavSync(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text(
+              Text(
                 'Your server credentials are saved. Choose an account '
                 'to register this device and start sync. This can replace your '
                 'current sync connection. Existing remote profiles require '
@@ -53,7 +53,7 @@ Future<void> offerRemoteWebDavSync(
               for (final server in servers)
                 ListTile(
                   title: Text(server.name),
-                  trailing: const Icon(Icons.sync),
+                  trailing: Icon(Icons.sync),
                   onTap: () => Navigator.of(dialogContext).pop(server),
                 ),
             ],
@@ -69,7 +69,7 @@ Future<void> offerRemoteWebDavSync(
     );
     if (selected == null || !context.mounted || !isCurrent()) return;
     await (requireAdmin ??
-        const ProfileWebDavSyncSetupAuthorization().requireAdmin)();
+        ProfileWebDavSyncSetupAuthorization().requireAdmin)();
     if (!context.mounted || !isCurrent()) return;
     (pause ?? WebDavSyncRuntime.instance.pauseForReconfiguration)();
     paused = true;
@@ -88,7 +88,7 @@ Future<void> offerRemoteWebDavSync(
             barrierDismissible: false,
             builder: (dialogContext) => AlertDialog(
               title: Text(AppLocalizations.of(context).t('Use sync data from this account?')),
-              content: const Text(
+              content: Text(
                 'Existing profiles and connections on this '
                 'device, including the configuration just imported, will be '
                 'replaced by this account’s sync data. Create a manual backup '

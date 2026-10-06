@@ -25,7 +25,7 @@ class ProfilePickerScreen extends StatelessWidget {
       body: SafeArea(
         child: Center(
           child: ConstrainedBox(
-            constraints: const BoxConstraints(maxWidth: 980),
+            constraints: BoxConstraints(maxWidth: 980),
             child: Padding(
               padding: const EdgeInsets.all(28),
               child: Column(

@@ -756,7 +756,7 @@ class _AddonHubScreenState extends State<AddonHubScreen> {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(label, style: TextStyle(color: app.fade(app.core.tx, 0.7))),
-          Text(value, style: const TextStyle(fontWeight: FontWeight.w700)),
+          Text(value, style: TextStyle(fontWeight: FontWeight.w700)),
         ],
       ),
     );
@@ -1710,7 +1710,7 @@ class _AddonHubScreenState extends State<AddonHubScreen> {
                       ? '${addon.displayName} · Recommended'
                       : addon.displayName,
                 ),
-              const StremioDropdownOption(
+              StremioDropdownOption(
                 StremioService.automaticMetadataProvider,
                 'Automatic',
               ),

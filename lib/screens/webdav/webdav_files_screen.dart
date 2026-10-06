@@ -989,7 +989,7 @@ class _WebDavFilesScreenState extends State<WebDavFilesScreen> {
               behavior: HitTestBehavior.opaque,
               onTap: onTap,
               child: AnimatedContainer(
-                duration: const Duration(milliseconds: 120),
+                duration: Duration(milliseconds: 120),
                 width: 48,
                 height: 48,
                 alignment: Alignment.center,
@@ -1012,7 +1012,7 @@ class _WebDavFilesScreenState extends State<WebDavFilesScreen> {
   Widget _buildContent() {
     if (_loading) {
       // Padding matches the real ListView below so the swap doesn't jump.
-      return const CloudRowSkeletonList(
+      return CloudRowSkeletonList(
         padding: EdgeInsets.fromLTRB(16, 0, 16, 24),
       );
     }
@@ -1021,7 +1021,7 @@ class _WebDavFilesScreenState extends State<WebDavFilesScreen> {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            const Icon(Icons.cloud_off_rounded, size: 48),
+            Icon(Icons.cloud_off_rounded, size: 48),
             SizedBox(height: 12),
             Text(_error, textAlign: TextAlign.center),
             SizedBox(height: 16),
@@ -1044,7 +1044,7 @@ class _WebDavFilesScreenState extends State<WebDavFilesScreen> {
               child: FilledButton.icon(
                 focusNode: _chooseFolderFocusNode,
                 onPressed: _chooseCurrentFolder,
-                icon: const Icon(Icons.drive_folder_upload_rounded),
+                icon: Icon(Icons.drive_folder_upload_rounded),
                 label: Text(
                   _currentPath.isEmpty
                       ? 'Choose server root'

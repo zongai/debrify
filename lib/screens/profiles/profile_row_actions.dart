@@ -20,7 +20,7 @@ import '../../services/profiles/profile_registry.dart';
 /// the originals did; methods return true when something changed so callers
 /// know to reload.
 class ProfileRowActions {
-  const ProfileRowActions({
+  ProfileRowActions({
     required this.context,
     required this.registry,
     required this.authorization,
@@ -70,7 +70,7 @@ class ProfileRowActions {
                   'Public media records: ${dependencies.publicArtifacts}',
                 ),
                 if (dependencies.activeJobs > 0)
-                  const Text('\nFinish or cancel active jobs before deletion.'),
+                  Text('\nFinish or cancel active jobs before deletion.'),
                 if (dependencies.sharedResources > 0)
                   CheckboxListTile(
                     contentPadding: EdgeInsets.zero,
@@ -80,7 +80,7 @@ class ProfileRowActions {
                       '(${dependencies.sharedResources} connection'
                       '${dependencies.sharedResources == 1 ? '' : 's'})',
                     ),
-                    subtitle: const Text(
+                    subtitle: Text(
                       'Other profiles lose access to the connections this '
                       'profile shares; connections they own themselves are '
                       'untouched.',

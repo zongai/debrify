@@ -245,7 +245,7 @@ class _AllDebridSettingsPageState extends State<AllDebridSettingsPage> {
         padding: EdgeInsets.all(16),
         child: Center(
           child: ConstrainedBox(
-            constraints: const BoxConstraints(maxWidth: kSettingsMaxWidth),
+            constraints: BoxConstraints(maxWidth: kSettingsMaxWidth),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [

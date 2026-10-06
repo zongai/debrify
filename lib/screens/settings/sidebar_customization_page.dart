@@ -295,7 +295,7 @@ class _SidebarCustomizationPageState extends State<SidebarCustomizationPage> {
           child: Center(
             heightFactor: 1,
             child: ConstrainedBox(
-              constraints: const BoxConstraints(maxWidth: kSettingsMaxWidth),
+              constraints: BoxConstraints(maxWidth: kSettingsMaxWidth),
               child: Focus(
                 canRequestFocus: false,
                 skipTraversal: true,

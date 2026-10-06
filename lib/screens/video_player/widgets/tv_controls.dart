@@ -226,7 +226,7 @@ class _TvControlsState extends State<TvControls> {
           // A real scrim. The bar is only as tall as its content, so without
           // generous top padding inside the gradient the title lands on bright
           // video and the whole thing reads as unfinished.
-          decoration: const BoxDecoration(
+          decoration: BoxDecoration(
             gradient: LinearGradient(
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
@@ -271,7 +271,7 @@ class _TvControlsState extends State<TvControls> {
                 height: 13,
                 child: AnimatedOpacity(
                   opacity: _focusedLabel == null ? 0 : 1,
-                  duration: const Duration(milliseconds: 120),
+                  duration: Duration(milliseconds: 120),
                   child: Text(
                     _focusedLabel == null
                         ? ''

@@ -5,7 +5,7 @@ import 'package:flutter/services.dart';
 
 /// Native button traversal plus explicit TV remote Select activation.
 class ClearPinnedSourcesButton extends StatefulWidget {
-  const ClearPinnedSourcesButton({super.key, required this.onClear});
+  ClearPinnedSourcesButton({super.key, required this.onClear});
   final Future<void> Function() onClear;
 
   @override

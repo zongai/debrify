@@ -51,7 +51,7 @@ class _TextPromptDialogState extends State<TextPromptDialog> {
       scrollable: true,
       title: Text(widget.title),
       content: ConstrainedBox(
-        constraints: const BoxConstraints(maxWidth: 520),
+        constraints: BoxConstraints(maxWidth: 520),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -70,11 +70,11 @@ class _TextPromptDialogState extends State<TextPromptDialog> {
               onSubmitted: widget.multiline ? null : (_) => _submit(),
               decoration: InputDecoration(
                 hintText: widget.hint,
-                border: const OutlineInputBorder(),
+                border: OutlineInputBorder(),
               ),
             ),
             SizedBox(height: 8),
-            Text(widget.helper, style: const TextStyle(fontSize: 12)),
+            Text(widget.helper, style: TextStyle(fontSize: 12)),
           ],
         ),
       ),

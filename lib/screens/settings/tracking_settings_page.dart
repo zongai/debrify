@@ -317,13 +317,13 @@ class _TrackingSettingsPageState extends State<TrackingSettingsPage> {
                 selected: index == _selectedSection,
                 leading: Icon(icons[index]),
                 title: Text(labels[index]),
-                trailing: const Icon(Icons.chevron_right_rounded),
+                trailing: Icon(Icons.chevron_right_rounded),
                 onTap: () => setState(() => _selectedSection = index),
               ),
             ),
           ),
         ),
-        const VerticalDivider(width: 1),
+        VerticalDivider(width: 1),
         Expanded(
           child: ListView(
             padding: const EdgeInsets.fromLTRB(28, 20, 36, 28),

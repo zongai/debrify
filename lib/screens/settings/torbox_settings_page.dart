@@ -318,7 +318,7 @@ class _TorboxSettingsPageState extends State<TorboxSettingsPage> {
         children: [
           Center(
             child: ConstrainedBox(
-              constraints: const BoxConstraints(maxWidth: kSettingsMaxWidth),
+              constraints: BoxConstraints(maxWidth: kSettingsMaxWidth),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
@@ -490,7 +490,7 @@ class _TorboxSettingsPageState extends State<TorboxSettingsPage> {
                                         ).previousFocus(),
                                         decoration: InputDecoration(
                                           labelText: 'Torbox API Key',
-                                          prefixIcon: const Icon(
+                                          prefixIcon: Icon(
                                             Icons.security,
                                           ),
                                           suffixIcon: IconButton(

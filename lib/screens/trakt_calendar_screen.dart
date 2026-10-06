@@ -505,7 +505,7 @@ class _TraktCalendarScreenState extends State<TraktCalendarScreen> {
       switchInCurve: Curves.easeOutCubic,
       switchOutCurve: Curves.easeOutCubic,
       child: _isChangingMonth
-          ? const Center(
+          ? Center(
               key: ValueKey('changing-month'),
               child: CircularProgressIndicator(),
             )

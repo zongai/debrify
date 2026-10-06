@@ -318,7 +318,7 @@ class _SyncAndMigratePageState extends State<SyncAndMigratePage>
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  const Text(
+                  Text(
                     'Scan with your phone or open the link below for '
                     'Koofr setup, app passwords and connecting your devices.',
                   ),
@@ -332,9 +332,9 @@ class _SyncAndMigratePageState extends State<SyncAndMigratePage>
                   ),
                   SizedBox(height: 16),
                   if (PlatformUtil.isTelevision)
-                    const Text(_setupGuideUrl, textAlign: TextAlign.center)
+                    Text(_setupGuideUrl, textAlign: TextAlign.center)
                   else
-                    const SelectableText(
+                    SelectableText(
                       _setupGuideUrl,
                       textAlign: TextAlign.center,
                     ),
@@ -438,7 +438,7 @@ class _SyncAndMigratePageState extends State<SyncAndMigratePage>
           barrierDismissible: false,
           builder: (dialogContext) => AlertDialog(
             title: Text(AppLocalizations.of(context).t('Use sync data from this account?')),
-            content: const Text(
+            content: Text(
               'Existing profiles and connections on this device will be '
               'replaced. Create a manual backup first if you want to keep '
               'a copy of your current data. IPTV channel and '
@@ -471,7 +471,7 @@ class _SyncAndMigratePageState extends State<SyncAndMigratePage>
       context: context,
       builder: (dialogContext) => AlertDialog(
         title: Text(AppLocalizations.of(context).t('Forget WebDAV connection?')),
-        content: const Text(
+        content: Text(
           'Remove the saved connection from this device without contacting WebDAV. '
           'Your profiles and data stay here. You can then connect again.\n\n'
           'The old account may still list this device as connected. '
@@ -517,7 +517,7 @@ class _SyncAndMigratePageState extends State<SyncAndMigratePage>
       builder: (dialogContext) => AlertDialog(
         scrollable: true,
         title: Text(AppLocalizations.of(context).t('Log out of WebDAV sync?')),
-        content: const Text(
+        content: Text(
           'This device will stop syncing and leave the connected devices list. '
           'Its saved sync login will be removed.\n\n'
           'Your profiles and data stay on this device. Already synced data stays '
@@ -761,7 +761,7 @@ class _SyncAndMigratePageState extends State<SyncAndMigratePage>
           beforeSend: beforeSend,
         );
         if (inspection is! WebDavSyncFolderExisting) {
-          throw const WebDavSyncRootMissingException();
+          throw WebDavSyncRootMissingException();
         }
         return _syncService.configureExistingRoot(
           inspection: inspection,
@@ -837,7 +837,7 @@ class _SyncAndMigratePageState extends State<SyncAndMigratePage>
         builder: (dialogContext) => AlertDialog(
           scrollable: true,
           title: Text(AppLocalizations.of(context).t('Remove this device?')),
-          content: const Text(
+          content: Text(
             'Delete this device’s sync files and remove its registration. '
             'Its local data stays intact. When the device next connects, it '
             'will be signed out and must sign in again to rejoin. '
@@ -1194,7 +1194,7 @@ class _SyncAndMigratePageState extends State<SyncAndMigratePage>
           SizedBox(height: 8),
           Text(
             'Channels last synced ${_formatSyncTime(_runtimeStatus!.lastTvSyncMs!)}',
-            style: const TextStyle(fontSize: 12.5),
+            style: TextStyle(fontSize: 12.5),
           ),
         ],
         if (active && _runtimeStatus != null) ...[

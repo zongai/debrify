@@ -1288,7 +1288,7 @@ class _SourcesScreenState extends State<_SourcesScreen> {
             ListTile(
               leading: Icon(
                 bound ? Icons.link_off_rounded : Icons.link_rounded,
-                color: const Color(0xFFF59E0B),
+                color: Color(0xFFF59E0B),
               ),
               title: Text(bound ? 'Unpin source' : 'Pin as source'),
               subtitle: Text(
@@ -1361,7 +1361,7 @@ class _SourcesScreenState extends State<_SourcesScreen> {
               ListTile(
                 leading: Icon(
                   binding != null ? Icons.link_off_rounded : Icons.link_rounded,
-                  color: const Color(0xFFF59E0B),
+                  color: Color(0xFFF59E0B),
                 ),
                 title: Text(binding != null ? 'Unpin source' : 'Pin as source'),
                 subtitle: Text(
@@ -2194,7 +2194,7 @@ class _SourcesScreenState extends State<_SourcesScreen> {
                 PopupMenuButton<int>(
                   initialValue: _selectedSeason ?? 0,
                   tooltip: 'Season',
-                  color: const Color(0xFF1E1B2C),
+                  color: Color(0xFF1E1B2C),
                   onSelected: (v) {
                     final next = v == 0 ? null : v;
                     if (next == _selectedSeason) return;
@@ -2220,22 +2220,22 @@ class _SourcesScreenState extends State<_SourcesScreen> {
                             text: _selectedSeason == null
                                 ? 'All'
                                 : '$_selectedSeason',
-                            style: const TextStyle(color: Color(0xFFF1F1F6)),
+                            style: TextStyle(color: Color(0xFFF1F1F6)),
                           ),
                         ],
                       ),
-                      style: const TextStyle(
+                      style: TextStyle(
                         fontSize: 12,
                         fontWeight: FontWeight.w600,
                       ),
                     ),
                   ),
                 ),
-              const Spacer(),
+              Spacer(),
               PopupMenuButton<String>(
                 initialValue: _sortBy,
                 tooltip: 'Sort',
-                color: const Color(0xFF1E1B2C),
+                color: Color(0xFF1E1B2C),
                 onSelected: (v) {
                   _sortBy = v;
                   _rebuildVisible();

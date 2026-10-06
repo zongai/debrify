@@ -594,7 +594,7 @@ class _StremioTvLocalCatalogEditorDialogState
 
     Scrollable.ensureVisible(
       targetContext,
-      duration: const Duration(milliseconds: 200),
+      duration: Duration(milliseconds: 200),
       curve: Curves.easeOut,
       alignmentPolicy: ScrollPositionAlignmentPolicy.keepVisibleAtEnd,
     );
@@ -1625,7 +1625,7 @@ class _ImportUrlDialogState extends State<_ImportUrlDialog> {
     });
 
     try {
-      final resp = await http.get(uri).timeout(const Duration(seconds: 15));
+      final resp = await http.get(uri).timeout(Duration(seconds: 15));
       if (!mounted) return;
 
       if (resp.statusCode != 200) {
@@ -1942,7 +1942,7 @@ class _ImportJsonDialogState extends State<_ImportJsonDialog> {
               errorText: _error,
               contentPadding: const EdgeInsets.all(12),
             ),
-            style: const TextStyle(fontFamily: 'monospace', fontSize: 12),
+            style: TextStyle(fontFamily: 'monospace', fontSize: 12),
             autofocus: true,
           ),
         ],
@@ -2496,7 +2496,7 @@ class _ImportTraktDialogState extends State<_ImportTraktDialog> {
                                   strokeWidth: 2,
                                 ),
                               )
-                            : const Icon(Icons.add_rounded, size: 20),
+                            : Icon(Icons.add_rounded, size: 20),
                         onTap: _importing ? null : () => _importList(list),
                       );
                     },
@@ -2805,7 +2805,7 @@ class _ImportMdblistDialogState extends State<_ImportMdblistDialog> {
               )
             else
               ConstrainedBox(
-                constraints: const BoxConstraints(maxHeight: 300),
+                constraints: BoxConstraints(maxHeight: 300),
                 child: ListView.builder(
                   shrinkWrap: true,
                   itemCount: _lists.length,
@@ -2835,7 +2835,7 @@ class _ImportMdblistDialogState extends State<_ImportMdblistDialog> {
                               height: 20,
                               child: CircularProgressIndicator(strokeWidth: 2),
                             )
-                          : const Icon(Icons.add_rounded, size: 20),
+                          : Icon(Icons.add_rounded, size: 20),
                       onTap: _importing ? null : () => _importList(list),
                     );
                   },

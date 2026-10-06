@@ -1473,7 +1473,7 @@ class _AllDebridFilesScreenState extends State<AllDebridFilesScreen> {
               fontWeight: FontWeight.w600,
             ),
           ),
-          const Spacer(),
+          Spacer(),
           TextButton(
             onPressed: _toggleSelectAll,
             child: Text(_isAllSelected ? 'Deselect All' : 'Select All'),
@@ -1628,7 +1628,7 @@ class _AllDebridFilesScreenState extends State<AllDebridFilesScreen> {
         controller: _fileSearchController,
         focusNode: _fileSearchFocusNode,
         textInputAction: TextInputAction.search,
-        style: const TextStyle(fontSize: 14),
+        style: TextStyle(fontSize: 14),
         // D-pad exits (formerly a Focus/onKeyEvent wrapper): up to the back
         // button, down into the results.
         onUpArrow: () =>
@@ -1648,7 +1648,7 @@ class _AllDebridFilesScreenState extends State<AllDebridFilesScreen> {
       return _buildLinksView();
     }
     if (_loading) {
-      return const CloudRowSkeletonList();
+      return CloudRowSkeletonList();
     }
     if (_error != null) {
       return Center(
@@ -1788,7 +1788,7 @@ class _AllDebridFilesScreenState extends State<AllDebridFilesScreen> {
       meta: m.isReady ? Formatters.formatFileSize(m.size) : null,
       badges: [
         if (m.isError)
-          const CloudRowBadge('Failed', CloudBadgeKind.error)
+          CloudRowBadge('Failed', CloudBadgeKind.error)
         else if (!m.isReady)
           CloudRowBadge(
             'Downloading ${m.progressPercent}%',
@@ -1810,7 +1810,7 @@ class _AllDebridFilesScreenState extends State<AllDebridFilesScreen> {
   Widget _buildLinksView() {
     final app = AppThemeScope.of(context);
     if (_loadingLinks) {
-      return const CloudRowSkeletonList();
+      return CloudRowSkeletonList();
     }
     if (_linksError != null) {
       return Center(

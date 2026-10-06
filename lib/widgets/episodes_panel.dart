@@ -2060,7 +2060,7 @@ class EpisodesPanelState extends State<EpisodesPanel> {
                       side: WidgetStateProperty.resolveWith(
                         (states) => states.contains(WidgetState.focused)
                             ? BorderSide(color: t.focus, width: 2)
-                            : const BorderSide(color: Colors.white24),
+                            : BorderSide(color: Colors.white24),
                       ),
                     ),
                     onPressed: () => _fallbackToDirectSearch(show),
@@ -2277,7 +2277,7 @@ class EpisodesPanelState extends State<EpisodesPanel> {
             child: ListView(shrinkWrap: true, children: [
             ListTile(title: Text('Season $number')),
             for (var i = 0; i < providers.length; i++)
-              if (connected[i]) ListTile(leading: const Icon(Icons.done_all_rounded),
+              if (connected[i]) ListTile(leading: Icon(Icons.done_all_rounded),
                 autofocus: widget.isTelevision && !connected.take(i).any((value) => value),
                 enabled: targets[i] != null,
                 title: Text(targets[i] == null ? 'Watch status unavailable ${names[i]}'

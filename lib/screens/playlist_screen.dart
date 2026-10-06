@@ -792,7 +792,7 @@ class _PlaylistScreenState extends State<PlaylistScreen> {
               fontWeight: FontWeight.w500,
             ),
           ),
-          const SizedBox(height: 8),
+          SizedBox(height: 8),
           Text(
             'Add items from your debrid downloads',
             style: TextStyle(

@@ -5,7 +5,7 @@ import '../../l10n/app_localizations.dart';
 import 'widgets/settings_widgets.dart';
 
 class LanguageSettingsPage extends StatelessWidget {
-  const LanguageSettingsPage({super.key});
+  LanguageSettingsPage({super.key});
 
   @override
   Widget build(BuildContext context) {

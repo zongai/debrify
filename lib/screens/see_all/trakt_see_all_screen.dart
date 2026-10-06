@@ -674,7 +674,7 @@ class _TraktSeeAllScreenState extends State<TraktSeeAllScreen> {
                 if (_customLists.isNotEmpty)
                   StremioDropdownOption(_customGroupKey, 'Custom Lists'),
                 if (_likedLists.isNotEmpty)
-                  const StremioDropdownOption(_likedGroupKey, 'Liked Lists'),
+                  StremioDropdownOption(_likedGroupKey, 'Liked Lists'),
               ],
               onSelected: _onPrimary,
             ),
@@ -715,13 +715,13 @@ class _TraktSeeAllScreenState extends State<TraktSeeAllScreen> {
                   _Sort.natural,
                   _isCw ? AppLocalizations.of(context).t('Last Watched') : AppLocalizations.of(context).t('Default'),
                 ),
-                const StremioDropdownOption(_Sort.az, 'A–Z'),
-                const StremioDropdownOption(_Sort.za, 'Z–A'),
-                const StremioDropdownOption(
+                StremioDropdownOption(_Sort.az, 'A–Z'),
+                StremioDropdownOption(_Sort.za, 'Z–A'),
+                StremioDropdownOption(
                   _Sort.imdbDesc,
                   'IMDb Rating · High → Low',
                 ),
-                const StremioDropdownOption(
+                StremioDropdownOption(
                   _Sort.imdbAsc,
                   'IMDb Rating · Low → High',
                 ),
@@ -775,7 +775,7 @@ class _TraktSeeAllScreenState extends State<TraktSeeAllScreen> {
                 size: 44,
                 color: app.fade(app.core.tx, 0.25),
               ),
-              const SizedBox(height: 14),
+              SizedBox(height: 14),
               Text(
                 _emptyMessage(),
                 textAlign: TextAlign.center,

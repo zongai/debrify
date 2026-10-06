@@ -15,7 +15,7 @@ Future<RandomPlaybackMode?> showRandomPlaybackDialog(
 
 /// A bounded, scrollable choice dialog shared by touch and remote surfaces.
 class RandomPlaybackDialog extends StatelessWidget {
-  const RandomPlaybackDialog({super.key, required this.title});
+  RandomPlaybackDialog({super.key, required this.title});
 
   final String title;
 

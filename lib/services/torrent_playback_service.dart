@@ -6798,7 +6798,7 @@ class TorrentPlaybackService {
                   },
                 ),
                 SizedBox(height: 16),
-                const Text(
+                Text(
                   'Stereo Mode',
                   style: TextStyle(fontWeight: FontWeight.w500),
                 ),

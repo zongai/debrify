@@ -815,21 +815,21 @@ class _StremioTvScreenState extends State<StremioTvScreen> {
         return (
           label: 'Premiumize',
           code: 'PM',
-          color: const Color(0xFFF59E0B),
+          color: Color(0xFFF59E0B),
           cacheCheck: true,
         );
       case 'alldebrid':
         return (
           label: 'AllDebrid',
           code: 'AD',
-          color: const Color(0xFF26A69A),
+          color: Color(0xFF26A69A),
           cacheCheck: false,
         );
       case 'pikpak':
         return (
           label: 'PikPak',
           code: 'PP',
-          color: const Color(0xFF6366F1),
+          color: Color(0xFF6366F1),
           cacheCheck: false,
         );
       default:
@@ -2391,7 +2391,7 @@ class _StremioTvScreenState extends State<StremioTvScreen> {
           !channel.hasItems &&
           _loadingChannelIds.contains(channel.id) &&
           waitedMs < 8000) {
-        await Future.delayed(const Duration(milliseconds: 120));
+        await Future.delayed(Duration(milliseconds: 120));
         waitedMs += 120;
       }
       if (!mounted) return;
@@ -2949,7 +2949,7 @@ class _StremioTvScreenState extends State<StremioTvScreen> {
                                 menuChildren: [
                                   _topMenuItem(
                                     autofocus: true,
-                                    leadingIcon: const Icon(
+                                    leadingIcon: Icon(
                                       Icons.shuffle_rounded,
                                     ),
                                     controller: _menuController,

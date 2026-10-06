@@ -314,7 +314,7 @@ class _PikPakSettingsPageState extends State<PikPakSettingsPage> {
         context: context,
         builder: (context) => AlertDialog(
           title: Text(AppLocalizations.of(context).t('Security Restriction')),
-          content: const Text(
+          content: Text(
             'To change the folder restriction, you must logout and login again. This is a security measure to prevent unauthorized changes.',
           ),
           actions: [
@@ -333,7 +333,7 @@ class _PikPakSettingsPageState extends State<PikPakSettingsPage> {
 
     final result = await showDialog<Map<String, dynamic>>(
       context: context,
-      builder: (context) => const PikPakFolderPickerDialog(),
+      builder: (context) => PikPakFolderPickerDialog(),
     );
 
     if (result != null) {
@@ -357,7 +357,7 @@ class _PikPakSettingsPageState extends State<PikPakSettingsPage> {
       context: context,
       builder: (context) => AlertDialog(
         title: Text(AppLocalizations.of(context).t('Security Restriction')),
-        content: const Text(
+        content: Text(
           'To remove the folder restriction, you must logout and login again. This is a security measure to prevent unauthorized changes.',
         ),
         actions: [
@@ -392,7 +392,7 @@ class _PikPakSettingsPageState extends State<PikPakSettingsPage> {
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text(
+                Text(
                   'This will hide the PikPak tab from navigation.',
                   style: TextStyle(fontWeight: FontWeight.w500),
                 ),
@@ -763,7 +763,7 @@ class _PikPakSettingsPageState extends State<PikPakSettingsPage> {
                                     ? t.warning
                                     : null,
                               ),
-                              title: const Text(
+                              title: Text(
                                 'Restrict Access to Folder',
                                 style: TextStyle(fontWeight: FontWeight.w500),
                               ),
@@ -771,7 +771,7 @@ class _PikPakSettingsPageState extends State<PikPakSettingsPage> {
                                 _restrictedFolderId != null
                                     ? 'Restricted to: $_restrictedFolderName'
                                     : 'Full account access (all folders)',
-                                style: const TextStyle(fontSize: 13),
+                                style: TextStyle(fontSize: 13),
                               ),
                             ),
                             if (_restrictedFolderId != null)
@@ -785,7 +785,7 @@ class _PikPakSettingsPageState extends State<PikPakSettingsPage> {
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    const SettingsInfoBanner(
+                                    SettingsInfoBanner(
                                       text:
                                           'To change or remove this restriction, please logout and login again',
                                       tone: SettingsBannerTone.warning,
@@ -798,7 +798,7 @@ class _PikPakSettingsPageState extends State<PikPakSettingsPage> {
                                             child: OutlinedButton.icon(
                                               onPressed:
                                                   _selectRestrictedFolder,
-                                              icon: const Icon(
+                                              icon: Icon(
                                                 Icons.edit,
                                                 size: 18,
                                               ),
@@ -810,7 +810,7 @@ class _PikPakSettingsPageState extends State<PikPakSettingsPage> {
                                         _FocusRing(
                                           child: OutlinedButton.icon(
                                             onPressed: _clearRestrictedFolder,
-                                            icon: const Icon(
+                                            icon: Icon(
                                               Icons.clear,
                                               size: 18,
                                             ),
@@ -907,12 +907,12 @@ class _PikPakSettingsPageState extends State<PikPakSettingsPage> {
                           focusNode: _passwordFocusNode,
                           labelText: 'Password',
                           hintText: 'Your PikPak password',
-                          prefixIcon: const Icon(Icons.lock),
+                          prefixIcon: Icon(Icons.lock),
                           obscureText: true,
                           enabled: !_isConnecting,
                           onSubmitted: (_) => _login(),
                         ),
-                        const SizedBox(height: 24),
+                        SizedBox(height: 24),
                         _FocusRing(
                           child: FilledButton.icon(
                             focusNode: _loginButtonFocusNode,
@@ -925,7 +925,7 @@ class _PikPakSettingsPageState extends State<PikPakSettingsPage> {
                                       strokeWidth: 2,
                                     ),
                                   )
-                                : const Icon(Icons.login),
+                                : Icon(Icons.login),
                             label: Text(
                               _isConnecting ? 'Logging in...' : 'Login',
                             ),

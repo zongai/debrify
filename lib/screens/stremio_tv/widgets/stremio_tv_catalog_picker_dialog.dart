@@ -584,7 +584,7 @@ class _StremioTvCatalogPickerDialogState
   Widget _buildCreateView(ThemeData theme) {
     final app = AppThemeScope.of(context);
     return Padding(
-      key: const ValueKey('create'),
+      key: ValueKey('create'),
       padding: const EdgeInsets.all(20),
       child: Column(
         mainAxisSize: MainAxisSize.min,
@@ -652,7 +652,7 @@ class _StremioTvCatalogPickerDialogState
                               height: 16,
                               child: CircularProgressIndicator(strokeWidth: 2),
                             )
-                          : const Icon(Icons.check_rounded),
+                          : Icon(Icons.check_rounded),
                       label: Text(_saving ? 'Creating...' : 'Create'),
                     ),
                   ),

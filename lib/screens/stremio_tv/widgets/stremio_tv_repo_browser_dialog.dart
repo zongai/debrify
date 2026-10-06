@@ -583,7 +583,7 @@ class _StremioTvRepoBrowserDialogState
                   IconButton(
                     focusNode: _closeFocusNode,
                     onPressed: () => Navigator.of(context).pop(_changed),
-                    icon: const Icon(Icons.close),
+                    icon: Icon(Icons.close),
                     tooltip: 'Close',
                   ),
                 ],

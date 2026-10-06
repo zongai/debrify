@@ -224,7 +224,7 @@ class IptvZapBanner extends StatelessWidget {
             Text(
               '● LIVE',
               style: TextStyle(
-                color: const Color(0xFFFF6470),
+                color: Color(0xFFFF6470),
                 fontSize: s(11.5),
                 fontWeight: FontWeight.bold,
                 letterSpacing: 0.12 * s(11.5),

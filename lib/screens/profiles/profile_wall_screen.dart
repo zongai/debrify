@@ -405,7 +405,7 @@ class _WallTile extends StatelessWidget {
                 ],
               ),
             ),
-            const SizedBox(height: 10),
+            SizedBox(height: 10),
             Text(
               caption,
               maxLines: 1,

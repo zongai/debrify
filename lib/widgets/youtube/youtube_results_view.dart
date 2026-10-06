@@ -334,7 +334,7 @@ class YoutubeResultsViewState extends State<YoutubeResultsView>
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text(_downloadQualityMessage(streams)),
-          duration: const Duration(seconds: 7),
+          duration: Duration(seconds: 7),
         ),
       );
     } catch (e) {

@@ -172,7 +172,7 @@ Future<_ConflictChoice> _showConflictDialog(
               size: 16,
             ),
             SizedBox(width: 8),
-            const Text(
+            Text(
               'Recording conflict',
               style: TextStyle(fontWeight: FontWeight.w700),
             ),

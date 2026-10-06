@@ -5873,7 +5873,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen>
 
         return AlertDialog(
           backgroundColor: Color(0xFF141824),
-          title: const Text(
+          title: Text(
             'Shuffle Playback',
             style: TextStyle(color: Colors.white),
           ),
@@ -7461,7 +7461,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen>
     messenger.showSnackBar(
       SnackBar(
         content: Text(AppLocalizations.of(context).t('Preparing replay of "\$title"…').replaceAll('\$title', programme.title)),
-        duration: const Duration(seconds: 30),
+        duration: Duration(seconds: 30),
       ),
     );
     String? url;
@@ -7575,7 +7575,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen>
 
     final now = DateTime.now();
     final last = _lastIptvErrorShown;
-    if (last != null && now.difference(last) < const Duration(seconds: 6)) {
+    if (last != null && now.difference(last) < Duration(seconds: 6)) {
       return;
     }
     _lastIptvErrorShown = now;
@@ -15458,7 +15458,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen>
                       ignoring: true,
                       child: AnimatedOpacity(
                         opacity: active ? 1 : 0,
-                        duration: const Duration(milliseconds: 150),
+                        duration: Duration(milliseconds: 150),
                         child: Align(
                           alignment: Alignment.topCenter,
                           child: Padding(
@@ -15475,7 +15475,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen>
                                   BoxShadow(
                                     color: Colors.black.withValues(alpha: 0.3),
                                     blurRadius: 12,
-                                    offset: const Offset(0, 4),
+                                    offset: Offset(0, 4),
                                   ),
                                 ],
                               ),
@@ -15547,7 +15547,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen>
                       ignoring: true,
                       child: AnimatedOpacity(
                         opacity: text != null ? 1 : 0,
-                        duration: const Duration(milliseconds: 150),
+                        duration: Duration(milliseconds: 150),
                         child: Align(
                           alignment: Alignment.bottomCenter,
                           child: Padding(

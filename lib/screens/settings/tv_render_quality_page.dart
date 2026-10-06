@@ -132,12 +132,12 @@ class _TvRenderQualityPageState extends State<TvRenderQualityPage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const SettingsPageHeader(
+                SettingsPageHeader(
                   icon: Icons.hd_rounded,
                   title: 'Rendering',
                   subtitle: 'Trade sharpness for smoother navigation',
                 ),
-                const SizedBox(height: 24),
+                SizedBox(height: 24),
                 Focus(
                   focusNode: _firstCardMarker,
                   canRequestFocus: false,

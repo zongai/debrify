@@ -1276,7 +1276,7 @@ class _MergedDetailScreenState extends State<MergedDetailScreen>
       if (!playable) return;
       // Safety net: a stream that opens but never renders a first frame would
       // otherwise leave the spinner up forever.
-      Future.delayed(const Duration(seconds: 25), () {
+      Future.delayed(Duration(seconds: 25), () {
         if (current() && _trailerResolving) {
           setState(() => _trailerResolving = false);
         }

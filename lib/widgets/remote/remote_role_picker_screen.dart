@@ -243,7 +243,7 @@ class _RemoteRolePickerScreenState extends State<RemoteRolePickerScreen> {
                       Center(
                         child: TextButton.icon(
                           onPressed: () => showPairedDevicesDialog(context),
-                          icon: const Icon(
+                          icon: Icon(
                             Icons.phonelink_lock_rounded,
                             size: 18,
                           ),

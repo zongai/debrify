@@ -3111,7 +3111,7 @@ class _ExternalPlayerSettingsPageState
                 context,
                 label: 'Bold',
                 value: _subtitleBold ? 1 : 0,
-                items: const ['Off', 'On'],
+                items: ['Off', 'On'],
                 onChanged: (index) => _setSubtitleBold(index == 1),
                 focusNode: _subtitleBoldFocusNode,
                 isFocused: _subtitleBoldFocused,
@@ -3332,12 +3332,12 @@ class _ExternalPlayerSettingsPageState
                     ),
                   ],
                 ),
-                const SizedBox(height: 8),
+                SizedBox(height: 8),
                 Text(
                   'Define a custom URL scheme to launch videos',
                   style: theme.textTheme.bodyMedium?.copyWith(color: t.dim),
                 ),
-                const SizedBox(height: 16),
+                SizedBox(height: 16),
                 Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(14),
@@ -3346,7 +3346,7 @@ class _ExternalPlayerSettingsPageState
                             BoxShadow(
                               color: t.accent.withValues(alpha: 0.25),
                               blurRadius: 18,
-                              offset: const Offset(0, 8),
+                              offset: Offset(0, 8),
                             ),
                           ]
                         : null,
@@ -3363,7 +3363,7 @@ class _ExternalPlayerSettingsPageState
                       helperText: 'Use {url} for the video URL',
                       helperMaxLines: 2,
                       errorText: _iosSchemeError,
-                      prefixIcon: const Icon(Icons.link_rounded),
+                      prefixIcon: Icon(Icons.link_rounded),
                     ),
                     onChanged: (_) {
                       if (_iosSchemeError != null) {
@@ -3426,7 +3426,7 @@ class _ExternalPlayerSettingsPageState
                           color: t.dim,
                         ),
                       ),
-                      const SizedBox(height: 4),
+                      SizedBox(height: 4),
                       Text(
                         'customapp://stream?video={url}',
                         style: theme.textTheme.bodySmall?.copyWith(
@@ -3517,12 +3517,12 @@ class _ExternalPlayerSettingsPageState
                     ),
                   ],
                 ),
-                const SizedBox(height: 8),
+                SizedBox(height: 8),
                 Text(
                   'Define a custom command to launch videos',
                   style: theme.textTheme.bodyMedium?.copyWith(color: t.dim),
                 ),
-                const SizedBox(height: 16),
+                SizedBox(height: 16),
                 Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(14),
@@ -3531,7 +3531,7 @@ class _ExternalPlayerSettingsPageState
                             BoxShadow(
                               color: t.accent.withValues(alpha: 0.25),
                               blurRadius: 18,
-                              offset: const Offset(0, 8),
+                              offset: Offset(0, 8),
                             ),
                           ]
                         : null,
@@ -3548,7 +3548,7 @@ class _ExternalPlayerSettingsPageState
                       helperText: 'Use {url} for video URL, {title} for title',
                       helperMaxLines: 2,
                       errorText: _linuxCommandError,
-                      prefixIcon: const Icon(Icons.code_rounded),
+                      prefixIcon: Icon(Icons.code_rounded),
                     ),
                     onChanged: (_) {
                       if (_linuxCommandError != null) {
@@ -3701,12 +3701,12 @@ class _ExternalPlayerSettingsPageState
                     ),
                   ],
                 ),
-                const SizedBox(height: 8),
+                SizedBox(height: 8),
                 Text(
                   'Define a custom command to launch videos',
                   style: theme.textTheme.bodyMedium?.copyWith(color: t.dim),
                 ),
-                const SizedBox(height: 16),
+                SizedBox(height: 16),
                 Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(14),
@@ -3715,7 +3715,7 @@ class _ExternalPlayerSettingsPageState
                             BoxShadow(
                               color: t.accent.withValues(alpha: 0.25),
                               blurRadius: 18,
-                              offset: const Offset(0, 8),
+                              offset: Offset(0, 8),
                             ),
                           ]
                         : null,
@@ -3732,7 +3732,7 @@ class _ExternalPlayerSettingsPageState
                       helperText: 'Use {url} for video URL, {title} for title',
                       helperMaxLines: 2,
                       errorText: _windowsCommandError,
-                      prefixIcon: const Icon(Icons.code_rounded),
+                      prefixIcon: Icon(Icons.code_rounded),
                     ),
                     onChanged: (_) {
                       if (_windowsCommandError != null) {
@@ -3897,7 +3897,7 @@ class _ExternalPlayerSettingsPageState
                     child: Row(
                       children: [
                         Icon(Icons.apps_rounded, color: t.accent),
-                        const SizedBox(width: 12),
+                        SizedBox(width: 12),
                         Expanded(
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -3929,7 +3929,7 @@ class _ExternalPlayerSettingsPageState
                     Expanded(
                       child: FilledButton.icon(
                         onPressed: _browseForCustomApp,
-                        icon: const Icon(Icons.folder_open_rounded),
+                        icon: Icon(Icons.folder_open_rounded),
                         label: Text(
                           _customAppPath == null ? 'Browse' : 'Change',
                         ),
@@ -3990,7 +3990,7 @@ class _ExternalPlayerSettingsPageState
                             BoxShadow(
                               color: t.accent.withValues(alpha: 0.25),
                               blurRadius: 18,
-                              offset: const Offset(0, 8),
+                              offset: Offset(0, 8),
                             ),
                           ]
                         : null,
@@ -4015,7 +4015,7 @@ class _ExternalPlayerSettingsPageState
                       helperText: 'Use {url} for video URL, {title} for title',
                       helperMaxLines: 2,
                       errorText: _commandError,
-                      prefixIcon: const Icon(Icons.terminal_rounded),
+                      prefixIcon: Icon(Icons.terminal_rounded),
                     ),
                     onChanged: (_) {
                       if (_commandError != null) {
@@ -4172,7 +4172,7 @@ class _ExternalPlayerSettingsPageState
                   ],
                 ),
               ),
-              const Divider(height: 1),
+              Divider(height: 1),
               // Checkboxes
               _buildCheckboxTile(
                 context,

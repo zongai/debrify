@@ -294,7 +294,7 @@ class _PremiumizeSettingsPageState extends State<PremiumizeSettingsPage> {
         children: [
           Center(
             child: ConstrainedBox(
-              constraints: const BoxConstraints(maxWidth: kSettingsMaxWidth),
+              constraints: BoxConstraints(maxWidth: kSettingsMaxWidth),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
@@ -408,7 +408,7 @@ class _PremiumizeSettingsPageState extends State<PremiumizeSettingsPage> {
                                         ).previousFocus(),
                                         decoration: InputDecoration(
                                           labelText: 'Premiumize API Key',
-                                          prefixIcon: const Icon(
+                                          prefixIcon: Icon(
                                             Icons.security,
                                           ),
                                           suffixIcon: IconButton(
@@ -580,7 +580,7 @@ class _PremiumizeSettingsPageState extends State<PremiumizeSettingsPage> {
                                             : _hiddenFromNav
                                             ? 'Premiumize is hidden from navigation'
                                             : 'Show/hide Premiumize tab from navigation bar',
-                                        style: const TextStyle(fontSize: 13),
+                                        style: TextStyle(fontSize: 13),
                                       ),
                                       secondary: Icon(
                                         _hiddenFromNav
@@ -624,7 +624,7 @@ class _PremiumizeSettingsPageState extends State<PremiumizeSettingsPage> {
                                     child: SwitchListTile.adaptive(
                                       value: _checkCacheBeforeSearch,
                                       onChanged: _updateCacheCheck,
-                                      title: const Text(
+                                      title: Text(
                                         'Check Premiumize cache during searches',
                                       ),
                                       subtitle: Text(

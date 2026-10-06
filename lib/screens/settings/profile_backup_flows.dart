@@ -115,7 +115,7 @@ class ProfileBackupFlows {
   Future<void> _createWebDavProfileBackupUnchecked() async {
     final webDavTarget = await Navigator.of(context).push<WebDavPickerResult>(
       MaterialPageRoute(
-        builder: (_) => const WebDavFilesScreen(
+        builder: (_) => WebDavFilesScreen(
           isPushedRoute: true,
           pickerMode: WebDavPickerMode.selectFolder,
           dataSource: WebDavFilesDataSource(
@@ -151,7 +151,7 @@ class ProfileBackupFlows {
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text(
+              Text(
                 'Backs up all profiles and shared connections in an encrypted file. Downloads, recordings, '
                 'active jobs, device paths, and remote pairings are not '
                 'included.',
@@ -291,7 +291,7 @@ class ProfileBackupFlows {
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(
+            Text(
               'Creates a Debrify backup file (.debrify). It is not '
               'encrypted and contains your account credentials and '
               'connection passwords, so keep it private.\n\n'
@@ -1118,7 +1118,7 @@ class ProfileBackupFlows {
             '${omitted.isEmpty ? '' : 'Skipped: $omitted. '}'
             'Media/jobs were not restored.',
           ),
-          duration: const Duration(seconds: 6),
+          duration: Duration(seconds: 6),
         ),
       );
     }
@@ -1260,7 +1260,7 @@ class ProfileBackupFlows {
                     padding: const EdgeInsets.only(bottom: 8),
                     child: Text(
                       'Created: ${envelope['createdAt']}',
-                      style: const TextStyle(fontSize: 12),
+                      style: TextStyle(fontSize: 12),
                     ),
                   ),
                 TvTextField(

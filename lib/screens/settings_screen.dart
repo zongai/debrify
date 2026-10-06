@@ -5076,7 +5076,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
       return;
     }
     if (!mounted) return;
-    await pushSettingsPage(context, const MdblistSettingsPage());
+    await pushSettingsPage(context, MdblistSettingsPage());
     if (!mounted) return;
     await _loadSummaries();
   }
@@ -5103,7 +5103,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
           return ListTile(
             leading: Icon(
               icon,
-              color: selected ? const Color(0xFFC7BFFF) : null,
+              color: selected ? Color(0xFFC7BFFF) : null,
             ),
             title: Text(
               title,
@@ -5111,9 +5111,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 fontWeight: selected ? FontWeight.w800 : FontWeight.w600,
               ),
             ),
-            subtitle: Text(subtitle, style: const TextStyle(fontSize: 12)),
+            subtitle: Text(subtitle, style: TextStyle(fontSize: 12)),
             trailing: selected
-                ? const Icon(Icons.check_rounded, color: Color(0xFFC7BFFF))
+                ? Icon(Icons.check_rounded, color: Color(0xFFC7BFFF))
                 : null,
             onTap: () => Navigator.of(dialogContext).pop(value),
           );
@@ -5369,7 +5369,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
     if (!mounted) return;
     final loggedOut = await pushSettingsPage<bool>(
       context,
-      const PremiumizeSettingsPage(),
+      PremiumizeSettingsPage(),
     );
     if (!mounted) return;
     await _loadSummaries();
@@ -5383,7 +5383,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
     if (!mounted) return;
     final loggedOut = await pushSettingsPage<bool>(
       context,
-      const AllDebridSettingsPage(),
+      AllDebridSettingsPage(),
     );
     if (!mounted) return;
     await _loadSummaries();
@@ -5453,7 +5453,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
     }
     if (!await _ensureProfileFeature(ProfileFeature.backupRestore)) return;
     if (!mounted) return;
-    await pushSettingsPage(context, const SyncAndMigratePage());
+    await pushSettingsPage(context, SyncAndMigratePage());
   }
 
   Future<void> _createBackup() async {
@@ -5535,7 +5535,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     contentPadding: EdgeInsets.zero,
                     dense: true,
                     title: Text(AppLocalizations.of(context).t('Include credentials')),
-                    subtitle: const Text(
+                    subtitle: Text(
                       'Off: share your setup without your accounts. Skips '
                       'anything that embeds them: addons, Xtream providers, '
                       'indexers, starred channels and lists. M3U URLs are '
@@ -5594,7 +5594,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                       ),
                     )
                   else if (includeCredentials)
-                    const Text(
+                    Text(
                       'Credentials are stored in plain text. Keep this file '
                       'private and treat it like a password.',
                       style: TextStyle(fontSize: 12, color: Color(0xFFEF4444)),
@@ -5711,7 +5711,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text('Backup saved to $savedPath'),
-          duration: const Duration(seconds: 5),
+          duration: Duration(seconds: 5),
         ),
       );
     } catch (_) {
@@ -5814,7 +5814,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     padding: const EdgeInsets.only(bottom: 8),
                     child: Text(
                       'Created: ${envelope['createdAt']}',
-                      style: const TextStyle(fontSize: 12),
+                      style: TextStyle(fontSize: 12),
                     ),
                   ),
                 TvTextField(
@@ -6012,10 +6012,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 ),
               ),
             Text(AppLocalizations.of(context).t('This backup contains:')),
-            const SizedBox(height: 8),
+            SizedBox(height: 8),
             ..._backupSummaryLines(summary).map((line) => Text('• $line')),
             SizedBox(height: 12),
-            const Text(
+            Text(
               'Saved credentials (Real-Debrid, Torbox, Premiumize, AllDebrid, PikPak, Trakt, Simkl) will '
               'be overwritten. Addons, search engines, WebDAV servers, '
               'indexer managers, and IPTV providers you already have are kept '
@@ -6317,7 +6317,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
     await showModalBottomSheet<void>(
       context: context,
       backgroundColor: AppThemeScope.of(context).settings.sheetBg,
-      shape: const RoundedRectangleBorder(
+      shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
       ),
       builder: (ctx) {
@@ -6331,7 +6331,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 width: 44,
                 height: 5,
                 decoration: BoxDecoration(
-                  color: const Color(0xFF334155),
+                  color: Color(0xFF334155),
                   borderRadius: BorderRadius.circular(999),
                 ),
               ),
@@ -6341,7 +6341,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 title: Text(AppLocalizations.of(context).t('Download location')),
                 subtitle: Text(_downloadLocationSubtitle),
               ),
-              const Divider(height: 1),
+              Divider(height: 1),
               ListTile(
                 autofocus: true,
                 leading: Icon(Icons.drive_folder_upload_rounded),
@@ -6498,7 +6498,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
       context: context,
       builder: (context) => AlertDialog(
         title: Text(AppLocalizations.of(context).t('Clear download data?')),
-        content: const Text(
+        content: Text(
           'This removes queued entries and download history. Files already saved to disk stay untouched.',
         ),
         actions: [
@@ -6528,7 +6528,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
       context: context,
       builder: (context) => AlertDialog(
         title: Text(AppLocalizations.of(context).t('Clear playback data?')),
-        content: const Text(
+        content: Text(
           'This resets resume positions and cached playback preferences.',
         ),
         actions: [
@@ -6613,7 +6613,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text(
+                Text(
                   'All profiles, connections, jobs, schedules, private data, remote pairings, and device keys will be removed. Downloaded and recorded files remain on disk. The app will close and start fresh next launch.',
                 ),
                 SizedBox(height: 16),
@@ -6867,7 +6867,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     ),
                   ),
                   if (publishedLabel != null) ...[
-                    const SizedBox(height: 4),
+                    SizedBox(height: 4),
                     Text(
                       'Published $publishedLabel',
                       style: textTheme.bodySmall?.copyWith(

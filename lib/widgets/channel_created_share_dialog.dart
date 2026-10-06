@@ -53,7 +53,7 @@ Future<void> showChannelCreatedShareDialog(
     context: context,
     builder: (context) {
       return AlertDialog(
-        backgroundColor: const Color(0xFF0F172A),
+        backgroundColor: Color(0xFF0F172A),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(18),
           side: BorderSide(color: Colors.white.withValues(alpha: 0.08)),
@@ -63,10 +63,10 @@ Future<void> showChannelCreatedShareDialog(
             Container(
               padding: const EdgeInsets.all(8),
               decoration: BoxDecoration(
-                color: const Color(0xFF14B8A6).withValues(alpha: 0.2),
+                color: Color(0xFF14B8A6).withValues(alpha: 0.2),
                 borderRadius: BorderRadius.circular(8),
               ),
-              child: const Icon(
+              child: Icon(
                 Icons.check_circle_outline,
                 color: Color(0xFF14B8A6),
                 size: 20,
@@ -75,7 +75,7 @@ Future<void> showChannelCreatedShareDialog(
             SizedBox(width: 12),
             Expanded(
               child: Text(AppLocalizations.of(context).t('Channel "\$name" created').replaceAll('\$name', channel.name),
-                style: const TextStyle(
+                style: TextStyle(
                   fontWeight: FontWeight.w700,
                   fontSize: 18,
                 ),
@@ -101,7 +101,7 @@ Future<void> showChannelCreatedShareDialog(
               SizedBox(height: 16),
               SelectableText(
                 debrifyLink,
-                style: const TextStyle(color: Colors.white70, fontSize: 13),
+                style: TextStyle(color: Colors.white70, fontSize: 13),
               ),
             ],
           ],

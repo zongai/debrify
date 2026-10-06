@@ -1773,7 +1773,7 @@ class _CollectionFolderScreenState extends State<CollectionFolderScreen> {
         child: Padding(
           padding: const EdgeInsets.all(20),
           child: ConstrainedBox(
-            constraints: const BoxConstraints(maxWidth: 520),
+            constraints: BoxConstraints(maxWidth: 520),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [

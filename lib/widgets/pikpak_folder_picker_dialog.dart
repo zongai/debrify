@@ -321,7 +321,7 @@ class _PikPakFolderPickerDialogState extends State<PikPakFolderPickerDialog> {
                 Text(AppLocalizations.of(context).t('Creating folder "\$name"...').replaceAll('\$name', folderName)),
               ],
             ),
-            duration: const Duration(seconds: 30),
+            duration: Duration(seconds: 30),
           ),
         );
       }
@@ -342,7 +342,7 @@ class _PikPakFolderPickerDialogState extends State<PikPakFolderPickerDialog> {
           SnackBar(
             content: Text(AppLocalizations.of(context).t('Folder "\$name" created successfully!').replaceAll('\$name', newFolderName)),
             backgroundColor: Colors.green,
-            duration: const Duration(seconds: 2),
+            duration: Duration(seconds: 2),
           ),
         );
       }
@@ -534,7 +534,7 @@ class _PikPakFolderPickerDialogState extends State<PikPakFolderPickerDialog> {
                         ),
                       ],
                     ),
-                    const SizedBox(height: 12),
+                    SizedBox(height: 12),
 
                     // Current location indicator
                     Text(
@@ -617,7 +617,7 @@ class _PikPakFolderPickerDialogState extends State<PikPakFolderPickerDialog> {
                       children: [
                         // New Folder button on the left
                         FocusTraversalOrder(
-                          order: const NumericFocusOrder(1000),
+                          order: NumericFocusOrder(1000),
                           child: FilledButton.tonalIcon(
                             focusNode: _newFolderButtonFocusNode,
                             onPressed: _showNewFolderDialog,
@@ -637,7 +637,7 @@ class _PikPakFolderPickerDialogState extends State<PikPakFolderPickerDialog> {
                           mainAxisSize: MainAxisSize.min,
                           children: [
                             FocusTraversalOrder(
-                              order: const NumericFocusOrder(1001),
+                              order: NumericFocusOrder(1001),
                               child: TextButton(
                                 focusNode: _cancelButtonFocusNode,
                                 onPressed: () => Navigator.pop(context),
@@ -647,7 +647,7 @@ class _PikPakFolderPickerDialogState extends State<PikPakFolderPickerDialog> {
                             SizedBox(width: 12),
                             Flexible(
                               child: FocusTraversalOrder(
-                                order: const NumericFocusOrder(1002),
+                                order: NumericFocusOrder(1002),
                                 child: FilledButton.icon(
                                   focusNode: _confirmButtonFocusNode,
                                   onPressed: _selectedFolderId != null
@@ -1063,7 +1063,7 @@ class _NewFolderDialogState extends State<_NewFolderDialog> {
                   ],
                 ),
               ),
-              const SizedBox(height: 16),
+              SizedBox(height: 16),
 
               // Input field
               TvTextField(
@@ -1085,7 +1085,7 @@ class _NewFolderDialogState extends State<_NewFolderDialog> {
                       width: 2,
                     ),
                   ),
-                  prefixIcon: const Icon(Icons.drive_file_rename_outline),
+                  prefixIcon: Icon(Icons.drive_file_rename_outline),
                 ),
                 onChanged: (value) {
                   // Clear error when user types

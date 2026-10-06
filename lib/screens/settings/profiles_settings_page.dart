@@ -269,7 +269,7 @@ class _ProfilesSettingsPageState extends State<ProfilesSettingsPage> {
 
   Future<void> _sendToTv() async {
     await Navigator.of(context).push<void>(
-      MaterialPageRoute(builder: (_) => const RemoteControlScreen()),
+      MaterialPageRoute(builder: (_) => RemoteControlScreen()),
     );
   }
 

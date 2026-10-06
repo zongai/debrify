@@ -331,14 +331,14 @@ class _MetadataExploreSpotlightState extends State<MetadataExploreSpotlight> {
                     ),
                   ),
                 ),
-                const SizedBox(width: 16),
+                SizedBox(width: 16),
                 Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
                         '${row['name'] ?? ''}',
-                        style: const TextStyle(
+                        style: TextStyle(
                           color: Colors.white,
                           fontSize: 16,
                           fontWeight: FontWeight.w600,
@@ -347,7 +347,7 @@ class _MetadataExploreSpotlightState extends State<MetadataExploreSpotlight> {
                       if (row['job'] != null)
                         Text(
                           '${row['job']}',
-                          style: const TextStyle(
+                          style: TextStyle(
                             color: Colors.white60,
                             fontSize: 13,
                           ),
@@ -355,7 +355,7 @@ class _MetadataExploreSpotlightState extends State<MetadataExploreSpotlight> {
                     ],
                   ),
                 ),
-                const Icon(Icons.chevron_right, color: Colors.white60),
+                Icon(Icons.chevron_right, color: Colors.white60),
               ],
             ),
           ),
@@ -441,7 +441,7 @@ class _MetadataExploreSpotlightState extends State<MetadataExploreSpotlight> {
               child: ListView.separated(
                 scrollDirection: Axis.horizontal,
                 itemCount: providers.length,
-                separatorBuilder: (_, _) => const SizedBox(width: 16),
+                separatorBuilder: (_, _) => SizedBox(width: 16),
                 itemBuilder: (_, i) => SizedBox(
                   width: 100,
                   child: _ExploreTile(
@@ -469,7 +469,7 @@ class _MetadataExploreSpotlightState extends State<MetadataExploreSpotlight> {
                             maxLines: 2,
                             overflow: TextOverflow.ellipsis,
                             textAlign: TextAlign.center,
-                            style: const TextStyle(
+                            style: TextStyle(
                               color: Colors.white70,
                               fontSize: 12,
                             ),
@@ -483,7 +483,7 @@ class _MetadataExploreSpotlightState extends State<MetadataExploreSpotlight> {
             ),
           ],
           SizedBox(height: 12),
-          const Text(
+          Text(
             'Availability via JustWatch · TMDB',
             style: TextStyle(color: Colors.white54, fontSize: 12),
           ),
@@ -621,7 +621,7 @@ class _MetadataExploreSpotlightState extends State<MetadataExploreSpotlight> {
                         if (widget.loading)
                           data == null
                               ? Center(child: CircularProgressIndicator())
-                              : const LinearProgressIndicator(),
+                              : LinearProgressIndicator(),
                         if (widget.failed ||
                             (!widget.loading &&
                                 data?.unavailable.isNotEmpty == true))

@@ -256,10 +256,10 @@ class _ChannelPickerDialogState extends State<ChannelPickerDialog> {
                   ),
                   borderRadius: BorderRadius.circular(16),
                 ),
-                child: const Icon(Icons.connected_tv, color: Colors.white),
+                child: Icon(Icons.connected_tv, color: Colors.white),
               ),
-              const SizedBox(width: 14),
-              const Expanded(
+              SizedBox(width: 14),
+              Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -283,12 +283,12 @@ class _ChannelPickerDialogState extends State<ChannelPickerDialog> {
               ),
               IconButton(
                 onPressed: () => Navigator.of(context).pop(),
-                icon: const Icon(Icons.close_rounded, color: Colors.white54),
+                icon: Icon(Icons.close_rounded, color: Colors.white54),
               ),
             ],
           ),
         ),
-        const Divider(height: 1, color: Color(0xFF1E293B)),
+        Divider(height: 1, color: Color(0xFF1E293B)),
         if (_isLoading)
           Padding(
             padding: EdgeInsets.all(40),
@@ -407,22 +407,22 @@ class _ChannelPickerDialogState extends State<ChannelPickerDialog> {
             },
             decoration: InputDecoration(
               labelText: 'Channel Name',
-              labelStyle: const TextStyle(color: Colors.white60),
+              labelStyle: TextStyle(color: Colors.white60),
               hintText: 'e.g., Action Movies',
-              hintStyle: const TextStyle(color: Colors.white38),
+              hintStyle: TextStyle(color: Colors.white38),
               filled: true,
-              fillColor: const Color(0xFF111827),
+              fillColor: Color(0xFF111827),
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(12),
-                borderSide: const BorderSide(color: Color(0xFF1F2937)),
+                borderSide: BorderSide(color: Color(0xFF1F2937)),
               ),
               enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(12),
-                borderSide: const BorderSide(color: Color(0xFF1F2937)),
+                borderSide: BorderSide(color: Color(0xFF1F2937)),
               ),
               focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(12),
-                borderSide: const BorderSide(color: Color(0xFF10B981), width: 2),
+                borderSide: BorderSide(color: Color(0xFF10B981), width: 2),
               ),
             ),
             onUpArrow: () => _cancelButtonFocusNode.requestFocus(),
@@ -479,7 +479,7 @@ class _ChannelPickerDialogState extends State<ChannelPickerDialog> {
                   ),
                 ),
               ),
-              const SizedBox(width: 8),
+              SizedBox(width: 8),
               Focus(
                 focusNode: _confirmButtonFocusNode,
                 onFocusChange: (focused) {
@@ -508,8 +508,8 @@ class _ChannelPickerDialogState extends State<ChannelPickerDialog> {
                     onPressed: _isLoading ? null : _createChannel,
                     style: ElevatedButton.styleFrom(
                       backgroundColor: _confirmButtonFocused
-                          ? const Color(0xFF059669)
-                          : const Color(0xFF10B981),
+                          ? Color(0xFF059669)
+                          : Color(0xFF10B981),
                       foregroundColor: Colors.white,
                       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
                       shape: RoundedRectangleBorder(

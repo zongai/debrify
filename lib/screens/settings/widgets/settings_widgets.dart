@@ -808,7 +808,7 @@ class SettingsPageHeader extends StatelessWidget {
   final String title;
   final String subtitle;
 
-  const SettingsPageHeader({
+  SettingsPageHeader({
     super.key,
     required this.icon,
     required this.title,
@@ -839,7 +839,7 @@ class SettingsPageHeader extends StatelessWidget {
                 AppLocalizations.of(context).t(title),
                 // No color: inherits the ambient bodyMedium color, which is
                 // onSurface — and so follows Appearance → Text Brightness.
-                style: const TextStyle(
+                style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.w800,
                   letterSpacing: 0.2,
@@ -866,7 +866,7 @@ class SettingsInfoBanner extends StatelessWidget {
   final IconData icon;
   final SettingsBannerTone tone;
 
-  const SettingsInfoBanner({
+  SettingsInfoBanner({
     super.key,
     required this.text,
     this.icon = Icons.info_outline_rounded,
@@ -1032,7 +1032,7 @@ class SettingsHeader extends StatelessWidget {
           ),
         ),
         SizedBox(height: 10),
-        const Text(
+        Text(
           'Settings',
           // No color: inherits onSurface via the ambient DefaultTextStyle,
           // so it follows Appearance → Text Brightness.
@@ -1057,7 +1057,7 @@ class SettingsHeader extends StatelessWidget {
 class SettingsSectionLabel extends StatelessWidget {
   final String title;
   final Color? color;
-  const SettingsSectionLabel(this.title, {super.key, this.color});
+  SettingsSectionLabel(this.title, {super.key, this.color});
 
   @override
   Widget build(BuildContext context) {
@@ -1703,7 +1703,7 @@ class _ConnectionCardState extends State<ConnectionCard> {
                           color: stateColor,
                         ),
                       ),
-                      const SizedBox(width: 6),
+                      SizedBox(width: 6),
                       Icon(
                         Icons.chevron_right_rounded,
                         size: 20,
@@ -2774,7 +2774,7 @@ class _SkeletonTile extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
       child: Row(
-        children: const [
+        children: [
           Shimmer(
             width: 34,
             height: 34,
@@ -2805,7 +2805,7 @@ Future<void> showLegacyModeInfoDialog(BuildContext context) {
       backgroundColor: app.sheetSurface,
       title: Text(AppLocalizations.of(context).t('Running in legacy mode')),
       content: ConstrainedBox(
-        constraints: const BoxConstraints(maxWidth: 520),
+        constraints: BoxConstraints(maxWidth: 520),
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,

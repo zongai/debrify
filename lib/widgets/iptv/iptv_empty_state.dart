@@ -7,7 +7,7 @@ class IptvEmptyState extends StatelessWidget {
   final bool hasPlaylists;
   final VoidCallback? onAddPlaylist;
 
-  const IptvEmptyState({
+  IptvEmptyState({
     super.key,
     this.hasPlaylists = false,
     this.onAddPlaylist,

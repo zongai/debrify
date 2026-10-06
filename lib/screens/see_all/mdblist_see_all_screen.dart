@@ -1241,7 +1241,7 @@ class _MdblistSeeAllScreenState extends State<MdblistSeeAllScreen> {
                   dimension: 14,
                   child: CircularProgressIndicator(strokeWidth: 2),
                 )
-              : const Icon(Icons.search_rounded, size: 16),
+              : Icon(Icons.search_rounded, size: 16),
           label: Text(_catalogApplied ? 'Reapply' : 'Apply'),
         ),
       if (_isCatalog && !_page.exhausted)

@@ -457,7 +457,7 @@ class _WebDavSettingsPageState extends State<WebDavSettingsPage> {
                               onPressed: server.connectionReadOnly
                                   ? null
                                   : () => _editServer(server),
-                              icon: const Icon(Icons.edit_rounded),
+                              icon: Icon(Icons.edit_rounded),
                               // Visible DPAD focus for the bare icon action.
                               style: ButtonStyle(
                                 backgroundColor:
@@ -505,7 +505,7 @@ class _WebDavSettingsPageState extends State<WebDavSettingsPage> {
                         value: _hiddenFromNav,
                         onChanged: _enabled ? _setHidden : null,
                         title: Text(AppLocalizations.of(context).t('Hide from navigation')),
-                        subtitle: const Text(
+                        subtitle: Text(
                           'Keep configured but remove the tab',
                         ),
                       ),

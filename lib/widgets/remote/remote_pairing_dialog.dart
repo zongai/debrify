@@ -82,7 +82,7 @@ class _RemotePairingPanelState extends State<RemotePairingPanel> {
         children: [
           Text(
             '"${display.peerName}" wants to send settings',
-            style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w700),
+            style: TextStyle(fontSize: 15, fontWeight: FontWeight.w700),
           ),
           SizedBox(height: 4),
           Text(
@@ -95,7 +95,7 @@ class _RemotePairingPanelState extends State<RemotePairingPanel> {
           SizedBox(height: 14),
           Text(
             spaced,
-            style: const TextStyle(
+            style: TextStyle(
               fontSize: 44,
               fontWeight: FontWeight.w800,
               letterSpacing: 6,
@@ -361,7 +361,7 @@ class _GateBusyDialogState extends State<_GateBusyDialog> {
       canPop: false,
       child: AlertDialog(
         content: Row(
-          children: const [
+          children: [
             SizedBox(
               width: 22,
               height: 22,
@@ -545,7 +545,7 @@ Future<RemoteSession?> ensureAuthorizedSession(
   //    otherwise eat the refusal/pairing dialog pushed after it.
   final busyDismissed = ValueNotifier<bool>(false);
   Future<void>? busyClosed;
-  final busyReveal = Timer(const Duration(milliseconds: 250), () {
+  final busyReveal = Timer(Duration(milliseconds: 250), () {
     if (busyDismissed.value || !context.mounted) return;
     busyClosed = showDialog<void>(
       context: context,
@@ -725,7 +725,7 @@ Future<bool> _runPairingFlow(
         RemoteCommand(action: RemoteAction.pair, command: command, data: data),
       );
       if (!sent) throw TimeoutException('send failed');
-      final deadline = DateTime.now().add(const Duration(seconds: 3));
+      final deadline = DateTime.now().add(Duration(seconds: 3));
       try {
         while (true) {
           final left = deadline.difference(DateTime.now());
@@ -851,7 +851,7 @@ Future<bool> _runPairingFlow(
         while (verdict.$1 == PairCommand.err &&
             verdict.$2 == 'too_early' &&
             ++earlyRetries <= 5) {
-          await Future.delayed(const Duration(seconds: 2));
+          await Future.delayed(Duration(seconds: 2));
           verdict = await sendProofAwaitVerdict();
         }
       } on TimeoutException {
@@ -979,11 +979,11 @@ class _PairedDevicesDialogState extends State<_PairedDevicesDialog> {
                   for (final device in devices)
                     ListTile(
                       contentPadding: EdgeInsets.zero,
-                      leading: const Icon(Icons.smartphone_rounded),
+                      leading: Icon(Icons.smartphone_rounded),
                       title: Text(device.name),
                       subtitle: Text(
                         'Paired ${device.pairedAt.toLocal().toString().split(' ').first}',
-                        style: const TextStyle(fontSize: 12),
+                        style: TextStyle(fontSize: 12),
                       ),
                       trailing: TextButton(
                         onPressed: () => _forget(device),

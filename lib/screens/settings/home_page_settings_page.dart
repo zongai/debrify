@@ -843,7 +843,7 @@ class _HomePageSettingsPageState extends State<HomePageSettingsPage> {
                       ),
                   ],
                 ),
-                const SizedBox(height: 16),
+                SizedBox(height: 16),
 
                 // Ambient trailers. Every platform has BOTH surfaces — the
                 // Home hero spotlight and the Showcase detail page — and both

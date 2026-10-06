@@ -495,7 +495,7 @@ class _SimklSettingsPageState extends State<SimklSettingsPage> {
             ],
           ),
         ),
-        const SizedBox(height: 16),
+        SizedBox(height: 16),
 
         // Verification URL (focusable link)
         _SimklFocusRing(

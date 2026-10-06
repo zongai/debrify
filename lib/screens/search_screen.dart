@@ -13122,16 +13122,16 @@ class _SearchScreenState extends State<SearchScreen>
       margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
-        color: const Color(0xFF1E3A8A).withValues(alpha: 0.2),
+        color: Color(0xFF1E3A8A).withValues(alpha: 0.2),
         borderRadius: app.shape.br(8),
         border: Border.all(
-          color: const Color(0xFF38BDF8).withValues(alpha: 0.3),
+          color: Color(0xFF38BDF8).withValues(alpha: 0.3),
         ),
       ),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Icon(
+          Icon(
             Icons.info_outline_rounded,
             color: Color(0xFF38BDF8),
             size: 18,
@@ -13215,7 +13215,7 @@ class _SearchScreenState extends State<SearchScreen>
                             color: scheme.onSurface,
                           ),
                         ),
-                        const Spacer(),
+                        Spacer(),
                         TextButton(
                           onPressed: () => apply(() {
                             if (allOn) {

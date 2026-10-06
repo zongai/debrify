@@ -41,16 +41,16 @@ class ModeStep extends StatelessWidget {
           onPressed: onWebDavLogin,
         ),
         if (webDavError case final error?) ...[
-          const SizedBox(height: 8),
+          SizedBox(height: 8),
           Text(
             error,
-            style: const TextStyle(color: Colors.redAccent, fontSize: 11),
+            style: TextStyle(color: Colors.redAccent, fontSize: 11),
           ),
         ],
-        const SizedBox(height: 12),
+        SizedBox(height: 12),
         _ModeRow(
           controller: focusController,
-          cell: const OnboardCell(1, 0),
+          cell: OnboardCell(1, 0),
           icon: Icons.tune_rounded,
           title: 'Set it up here',
           subtitle:
@@ -60,7 +60,7 @@ class ModeStep extends StatelessWidget {
         SizedBox(height: 12),
         _ModeRow(
           controller: focusController,
-          cell: const OnboardCell(2, 0),
+          cell: OnboardCell(2, 0),
           icon: Icons.sync_alt_rounded,
           title: 'Bring it from another device',
           subtitle:
@@ -72,7 +72,7 @@ class ModeStep extends StatelessWidget {
           SizedBox(height: 12),
           _ModeRow(
             controller: focusController,
-            cell: const OnboardCell(3, 0),
+            cell: OnboardCell(3, 0),
             icon: Icons.restore_rounded,
             title: 'Restore from a backup',
             subtitle:

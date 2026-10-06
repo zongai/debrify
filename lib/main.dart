@@ -1367,7 +1367,7 @@ class _SupportCampaignDialogState extends State<_SupportCampaignDialog> {
           backgroundColor: theme.colorScheme.surface,
           title: Text(widget.campaign.title),
           content: ConstrainedBox(
-            constraints: const BoxConstraints(maxWidth: 420),
+            constraints: BoxConstraints(maxWidth: 420),
             child: Text(
               widget.campaign.message,
               style: theme.textTheme.bodyMedium?.copyWith(height: 1.45),
@@ -2190,7 +2190,7 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
               SnackBar(
                 content: Text(message),
                 backgroundColor: Colors.green,
-                duration: const Duration(seconds: 4),
+                duration: Duration(seconds: 4),
               ),
             );
           }
@@ -2274,7 +2274,7 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
                   : 'Failed to send addon to TV',
             ),
             backgroundColor: success ? Colors.green : Colors.red,
-            duration: const Duration(seconds: 3),
+            duration: Duration(seconds: 3),
           ),
         );
         return;
@@ -2313,7 +2313,7 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
           SnackBar(
             content: Text(AppLocalizations.of(context).t('Addon installed: \$name').replaceAll('\$name', addon.name)),
             backgroundColor: Colors.green,
-            duration: const Duration(seconds: 4),
+            duration: Duration(seconds: 4),
           ),
         );
       } catch (e) {
@@ -2510,7 +2510,7 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
     final markdownStyle = MarkdownStyleSheet.fromTheme(theme).copyWith(
       h2: textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w700),
       p: textTheme.bodyMedium?.copyWith(height: 1.4),
-      strong: const TextStyle(fontWeight: FontWeight.w700),
+      strong: TextStyle(fontWeight: FontWeight.w700),
     );
 
     await showDialog<void>(
@@ -2549,16 +2549,16 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
                     ),
                   ],
                   if (notes.isNotEmpty) ...[
-                    const SizedBox(height: 16),
+                    SizedBox(height: 16),
                     Text(
                       'Release notes',
                       style: textTheme.titleMedium?.copyWith(
                         fontWeight: FontWeight.w600,
                       ),
                     ),
-                    const SizedBox(height: 12),
+                    SizedBox(height: 12),
                     ConstrainedBox(
-                      constraints: const BoxConstraints(maxHeight: 220),
+                      constraints: BoxConstraints(maxHeight: 220),
                       child: SingleChildScrollView(
                         child: MarkdownBody(
                           data: notes,
@@ -2790,9 +2790,9 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
     await showDialog(
       context: ctx,
       builder: (dialogCtx) => AlertDialog(
-        backgroundColor: const Color(0xFF1E293B),
+        backgroundColor: Color(0xFF1E293B),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-        title: const Text(
+        title: Text(
           'Added to PikPak',
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
@@ -2802,12 +2802,12 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
           children: [
             Text(
               fileName,
-              style: const TextStyle(color: Colors.white70, fontSize: 14),
+              style: TextStyle(color: Colors.white70, fontSize: 14),
               maxLines: 3,
               overflow: TextOverflow.ellipsis,
             ),
             SizedBox(height: 16),
-            const Text(
+            Text(
               'What would you like to do?',
               style: TextStyle(color: Colors.grey, fontSize: 13),
             ),
@@ -3332,7 +3332,7 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
       case 18: // Discover (source-dropdown browser)
         return SearchScreen(isTelevision: _isAndroidTv, discoverMode: true);
       case 19: // Calendar (gated on Trakt OR Simkl auth in the nav below)
-        return const TraktCalendarScreen();
+        return TraktCalendarScreen();
       default:
         return _pages[index];
     }
@@ -3583,7 +3583,7 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
         return;
       }
       unawaited(
-        const MethodChannel(
+        MethodChannel(
           'debrify/tvsystem',
         ).invokeMethod<void>('suspend').catchError((_) {}),
       );
@@ -3769,7 +3769,7 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
                             builder: (context, target, child) =>
                                 TweenAnimationBuilder<double>(
                                   tween: Tween<double>(end: target),
-                                  duration: const Duration(milliseconds: 240),
+                                  duration: Duration(milliseconds: 240),
                                   curve: Curves.easeOut,
                                   child: child,
                                   builder: (context, t, kid) => Opacity(

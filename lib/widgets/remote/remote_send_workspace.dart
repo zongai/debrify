@@ -146,7 +146,7 @@ class _RemoteSendWorkspaceState extends State<RemoteSendWorkspace> {
                           child: Text('• ${choice.label}'),
                         ),
                       SizedBox(height: 12),
-                      const Text(
+                      Text(
                         'Setup items apply to the receiving device’s active profile. Keep both apps open and confirm the import there.',
                       ),
                       if (needsPassword)

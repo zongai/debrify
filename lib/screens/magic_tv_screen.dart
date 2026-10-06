@@ -3503,7 +3503,7 @@ class _DebrifyTVScreenState extends State<DebrifyTVScreen> {
                   (success) => ListTile(
                     contentPadding: EdgeInsets.zero,
                     dense: true,
-                    leading: const Icon(Icons.check_circle, size: 20),
+                    leading: Icon(Icons.check_circle, size: 20),
                     title: Text(success.channelName),
                     subtitle: Text(
                       '${success.keywordCount} keyword${success.keywordCount == 1 ? '' : 's'} • ${success.torrentCount} torrent${success.torrentCount == 1 ? '' : 's'}',
@@ -8301,8 +8301,8 @@ class _DebrifyTVScreenState extends State<DebrifyTVScreen> {
           style: MenuStyle(
             backgroundColor: WidgetStatePropertyAll(tv.noticeBg),
             surfaceTintColor: WidgetStatePropertyAll(Colors.transparent),
-            elevation: const WidgetStatePropertyAll(18),
-            padding: const WidgetStatePropertyAll(EdgeInsets.all(8)),
+            elevation: WidgetStatePropertyAll(18),
+            padding: WidgetStatePropertyAll(EdgeInsets.all(8)),
             shape: WidgetStatePropertyAll(
               RoundedRectangleBorder(
                 borderRadius: app.shape.br(18),
@@ -8314,7 +8314,7 @@ class _DebrifyTVScreenState extends State<DebrifyTVScreen> {
             MenuItemButton(
               autofocus: true,
               style: itemStyle,
-              leadingIcon: const Icon(Icons.cloud_download_rounded),
+              leadingIcon: Icon(Icons.cloud_download_rounded),
               onPressed: _isBusy
                   ? null
                   : () => _handleTopMenuAction(_DebrifyTvTopMenuAction.import),
@@ -8330,7 +8330,7 @@ class _DebrifyTVScreenState extends State<DebrifyTVScreen> {
             ),
             MenuItemButton(
               style: itemStyle,
-              leadingIcon: const Icon(Icons.add_rounded),
+              leadingIcon: Icon(Icons.add_rounded),
               onPressed: _isBusy
                   ? null
                   : () => _handleTopMenuAction(_DebrifyTvTopMenuAction.add),

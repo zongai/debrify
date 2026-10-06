@@ -55,7 +55,7 @@ class EnginesStep extends StatelessWidget {
     if (error != null) {
       return Center(
         child: ConstrainedBox(
-          constraints: const BoxConstraints(maxWidth: 420),
+          constraints: BoxConstraints(maxWidth: 420),
           child: Text(
             'The search-engine catalogue could not be loaded.\n$error',
             textAlign: TextAlign.center,

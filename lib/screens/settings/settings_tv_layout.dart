@@ -869,7 +869,7 @@ class _SettingsTvLayoutState extends State<SettingsTvLayout> {
           controller: _paneScroll,
           padding: EdgeInsets.fromLTRB(32, 30, 40, 40),
           child: ConstrainedBox(
-            constraints: const BoxConstraints(maxWidth: 900),
+            constraints: BoxConstraints(maxWidth: 900),
             child: Column(
               key: ValueKey<int>(selected),
               crossAxisAlignment: CrossAxisAlignment.start,

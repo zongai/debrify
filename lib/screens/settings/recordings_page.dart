@@ -284,7 +284,7 @@ class _RecordingsPageState extends State<RecordingsPage>
     );
     // The engine finalizes and publishes off-process; give it a beat, then
     // let the regular poll settle whatever this misses.
-    await Future<void>.delayed(const Duration(milliseconds: 1200));
+    await Future<void>.delayed(Duration(milliseconds: 1200));
     if (mounted) await _loadAll();
   }
 
@@ -369,7 +369,7 @@ class _RecordingsPageState extends State<RecordingsPage>
           ),
           TextButton(
             onPressed: () => Navigator.of(dialogContext).pop(true),
-            child: const Text('Delete', style: TextStyle(color: _kRec)),
+            child: Text('Delete', style: TextStyle(color: _kRec)),
           ),
         ],
       ),
@@ -585,10 +585,10 @@ class _RecordingsPageState extends State<RecordingsPage>
               title: Text(label),
               onTap: () => Navigator.of(dialogContext).pop(d),
             ),
-          const Divider(height: 12),
+          Divider(height: 12),
           ListTile(
             contentPadding: _kDialogRowPadding,
-            leading: const Icon(Icons.schedule_outlined, size: 20),
+            leading: Icon(Icons.schedule_outlined, size: 20),
             horizontalTitleGap: 10,
             minLeadingWidth: 0,
             title: Text(AppLocalizations.of(context).t('Pick end time…')),
@@ -601,7 +601,7 @@ class _RecordingsPageState extends State<RecordingsPage>
     if (choice is Duration) return choice;
 
     final endTime = await _pickTime(
-      initialTime: TimeOfDay.fromDateTime(start.add(const Duration(hours: 1))),
+      initialTime: TimeOfDay.fromDateTime(start.add(Duration(hours: 1))),
       helpText: 'End time',
     );
     if (endTime == null || !mounted) return null;
@@ -632,7 +632,7 @@ class _RecordingsPageState extends State<RecordingsPage>
     // The presets top out at 3h, so an all-day recording can only come from
     // here — usually a mis-set clock that rolled a few minutes into tomorrow.
     // Long recordings are legitimate (sport, overnight), so confirm, don't cap.
-    if (length > const Duration(hours: 6)) {
+    if (length > Duration(hours: 6)) {
       final hours = length.inHours;
       final minutes = length.inMinutes.remainder(60);
       final confirmed = await showDialog<bool>(

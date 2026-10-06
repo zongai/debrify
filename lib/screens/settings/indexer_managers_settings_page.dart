@@ -263,12 +263,12 @@ class _IndexerManagersSettingsPageState
         ),
       ],
       body: _loading
-          ? const Center(child: CircularProgressIndicator())
+          ? Center(child: CircularProgressIndicator())
           : SingleChildScrollView(
               padding: const EdgeInsets.all(16),
               child: Center(
                 child: ConstrainedBox(
-                  constraints: const BoxConstraints(
+                  constraints: BoxConstraints(
                     maxWidth: kSettingsMaxWidth,
                   ),
                   child: Column(
@@ -712,7 +712,7 @@ class _IndexerManagerEditorDialogState
                         keyboardType: TextInputType.number,
                         textInputAction: TextInputAction.next,
                       ),
-                      const SizedBox(height: 14),
+                      SizedBox(height: 14),
                       DropdownButtonFormField<int>(
                         value: _maxResults,
                         decoration: InputDecoration(

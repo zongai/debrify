@@ -119,12 +119,12 @@ class _ProfileDataScreenState extends State<ProfileDataScreen> {
         actions: <Widget>[
           IconButton(
             tooltip: 'Copy report',
-            icon: const Icon(Icons.copy_all_rounded),
+            icon: Icon(Icons.copy_all_rounded),
             onPressed: report == null ? null : () => _copy(report),
           ),
           IconButton(
             tooltip: 'Re-scan',
-            icon: const Icon(Icons.refresh_rounded),
+            icon: Icon(Icons.refresh_rounded),
             onPressed: _load,
           ),
         ],
@@ -170,12 +170,12 @@ class _ProfileDataScreenState extends State<ProfileDataScreen> {
       children: <Widget>[
         _ScopeBanner(report: report),
         if (findings.isNotEmpty) ...<Widget>[
-          const SizedBox(height: 12),
+          SizedBox(height: 12),
           ...findings.map((finding) => _FindingTile(finding: finding)),
         ],
-        const SizedBox(height: 12),
+        SizedBox(height: 12),
         _buildPicker(context, report),
-        const SizedBox(height: 12),
+        SizedBox(height: 12),
         TextField(
           decoration: InputDecoration(
             prefixIcon: Icon(Icons.search_rounded),
@@ -325,7 +325,7 @@ class _ProfileDataScreenState extends State<ProfileDataScreen> {
     Widget bucket(String title, List<String> bucketKeys, Color? tint) => Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        const SizedBox(height: 12),
+        SizedBox(height: 12),
         Text(
           '$title · ${bucketKeys.length}',
           style: Theme.of(context).textTheme.labelLarge,

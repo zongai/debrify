@@ -1410,7 +1410,7 @@ class _SpotlightLiveTimelineState extends State<SpotlightLiveTimeline> {
                     ],
                   ),
                 ),
-                const SizedBox(width: 8),
+                SizedBox(width: 8),
                 Expanded(
                   child: Text(
                     _dayHeading(_windowStart),
@@ -1427,7 +1427,7 @@ class _SpotlightLiveTimelineState extends State<SpotlightLiveTimeline> {
                     canRequestFocus: false,
                     onKeyEvent: _onNowKeyEvent,
                     child: TextButton(
-                      key: const ValueKey('spotlight-jump-to-now'),
+                      key: ValueKey('spotlight-jump-to-now'),
                       focusNode: _nowFocusNode,
                       onFocusChange: (focused) {
                         if (focused) {

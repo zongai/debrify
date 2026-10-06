@@ -248,7 +248,7 @@ class _MetadataSettingsPageState extends State<MetadataSettingsPage> {
       body: prefs == null
           ? Center(
               child: _error == null
-                  ? const CircularProgressIndicator()
+                  ? CircularProgressIndicator()
                   : TextButton(onPressed: _load, child: Text('$_error Retry')),
             )
           : ListView(
@@ -277,7 +277,7 @@ class _MetadataSettingsPageState extends State<MetadataSettingsPage> {
                   ),
                 SwitchListTile(
                   title: Text(AppLocalizations.of(context).t('Use other sources when unavailable')),
-                  subtitle: const Text(
+                  subtitle: Text(
                     'Allow fallback when your selected provider has no information.',
                   ),
                   value: prefs.fallback,
@@ -285,7 +285,7 @@ class _MetadataSettingsPageState extends State<MetadataSettingsPage> {
                       ? null
                       : (value) => _save(prefs.copyWith(fallback: value)),
                 ),
-                const Divider(),
+                Divider(),
                 Padding(
                   padding: EdgeInsets.all(16),
                   child: Text(AppLocalizations.of(context).t('TMDB language and region')),
@@ -343,7 +343,7 @@ class _MetadataSettingsPageState extends State<MetadataSettingsPage> {
                   enabled: region,
                   disabledReason: 'Enable Where to watch or TMDB discovery to change this.',
                 ),
-                const Divider(),
+                Divider(),
                 Padding(
                   padding: EdgeInsets.all(16),
                   child: Text(AppLocalizations.of(context).t('Optional features')),

@@ -278,14 +278,14 @@ class LocalBoundSourceService {
     final progress = DialogRoute<void>(
       context: context,
       barrierDismissible: false,
-      builder: (_) => const PopScope(
+      builder: (dialogContext) => PopScope(
         canPop: false,
         child: AlertDialog(
           content: Row(
             children: [
               CircularProgressIndicator(),
               SizedBox(width: 20),
-              Expanded(child: Text(AppLocalizations.of(context).t('Reading local folder…'))),
+              Expanded(child: Text(AppLocalizations.of(dialogContext).t('Reading local folder…'))),
             ],
           ),
         ),
@@ -535,11 +535,11 @@ class LocalBoundSourceService {
       context: context,
       builder: (dialogContext) {
         return AlertDialog(
-          backgroundColor: const Color(0xFF1E293B),
+          backgroundColor: Color(0xFF1E293B),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(16),
           ),
-          title: const Text(
+          title: Text(
             'Choose the Show Folder',
             style: TextStyle(fontWeight: FontWeight.w700),
           ),
@@ -629,19 +629,19 @@ class LocalBoundSourceService {
       context: context,
       builder: (dialogContext) {
         return Dialog(
-          backgroundColor: const Color(0xFF1E293B),
+          backgroundColor: Color(0xFF1E293B),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(16),
           ),
           child: ConstrainedBox(
-            constraints: const BoxConstraints(maxWidth: 520, maxHeight: 560),
+            constraints: BoxConstraints(maxWidth: 520, maxHeight: 560),
             child: Padding(
               padding: const EdgeInsets.all(16),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text(
+                  Text(
                     'Choose Series Folder',
                     style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
                   ),

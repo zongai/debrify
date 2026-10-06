@@ -27,7 +27,7 @@ class DockChip extends StatelessWidget {
   final DockMetrics metrics;
   final DockPalette palette;
 
-  const DockChip({
+  DockChip({
     super.key,
     required this.icon,
     required this.label,

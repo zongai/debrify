@@ -896,7 +896,7 @@ class RemoteConfigExportState extends State<RemoteConfigExport> {
       if (successCount > 0) {
         // Small delay to ensure previous commands are processed
         if (session.peerProtocolVersion < kReliableTransferProtocolVersion) {
-          await Future.delayed(const Duration(milliseconds: 500));
+          await Future.delayed(Duration(milliseconds: 500));
         }
         final completed = supportsApplicationResult
             ? await sendRemoteTransferCompletion(
@@ -914,7 +914,7 @@ class RemoteConfigExportState extends State<RemoteConfigExport> {
         }
         if (supportsApplicationResult) {
           final result = await applicationResult.future.timeout(
-            const Duration(minutes: 3),
+            Duration(minutes: 3),
             onTimeout: () =>
                 (ok: false, message: 'No application result received from TV'),
           );
@@ -933,10 +933,10 @@ class RemoteConfigExportState extends State<RemoteConfigExport> {
                     : 'Delivered ${results.join(", ")} — confirm on TV',
               ),
               backgroundColor: supportsApplicationResult
-                  ? const Color(0xFF10B981)
-                  : const Color(0xFFF59E0B),
+                  ? Color(0xFF10B981)
+                  : Color(0xFFF59E0B),
               behavior: SnackBarBehavior.floating,
-              duration: const Duration(seconds: 3),
+              duration: Duration(seconds: 3),
             ),
           );
         } else if (successCount == 0) {
@@ -953,7 +953,7 @@ class RemoteConfigExportState extends State<RemoteConfigExport> {
                 '${supportsApplicationResult ? 'Applied' : 'Delivered'} '
                 '${results.join(", ")}, but some failed',
               ),
-              backgroundColor: const Color(0xFFF59E0B),
+              backgroundColor: Color(0xFFF59E0B),
               behavior: SnackBarBehavior.floating,
             ),
           );

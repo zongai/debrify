@@ -482,7 +482,7 @@ class _TraktSettingsPageState extends State<TraktSettingsPage> {
             ],
           ),
         ),
-        const SizedBox(height: 16),
+        SizedBox(height: 16),
 
         // Verification URL (focusable link)
         _FocusRing(

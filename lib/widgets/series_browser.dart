@@ -1221,7 +1221,7 @@ class _SeriesBrowserState extends State<SeriesBrowser> {
       padding: EdgeInsets.fromLTRB(hPad, 0, hPad, 8),
       child: Row(
         children: [
-          const Icon(
+          Icon(
             Icons.cloud_off_rounded,
             size: 14,
             color: _BrowserColors.inkFaint,

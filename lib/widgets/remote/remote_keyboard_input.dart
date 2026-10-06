@@ -157,7 +157,7 @@ class _RemoteKeyboardInputState extends State<RemoteKeyboardInput> {
             controller: _textController,
             focusNode: _focusNode,
             onChanged: _onTextChanged,
-            style: const TextStyle(fontSize: 16),
+            style: TextStyle(fontSize: 16),
             decoration: InputDecoration(
               hintText: 'Start typing...',
               hintStyle: TextStyle(

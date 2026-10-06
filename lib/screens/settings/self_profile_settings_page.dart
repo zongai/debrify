@@ -281,7 +281,7 @@ class _SelfProfileSettingsPageState extends State<SelfProfileSettingsPage> {
       context: context,
       builder: (dialogContext) => AlertDialog(
         title: Text(AppLocalizations.of(context).t('Remove PIN protection?')),
-        content: const Text(
+        content: Text(
           'Anyone using this device will be able to open this profile.',
         ),
         actions: [
@@ -388,7 +388,7 @@ class _SelfProfileSettingsPageState extends State<SelfProfileSettingsPage> {
             Center(
               child: SelectableText(
                 code,
-                style: const TextStyle(
+                style: TextStyle(
                   fontFamily: 'monospace',
                   fontSize: 24,
                   fontWeight: FontWeight.w700,
@@ -574,8 +574,8 @@ class _SelfProfileSettingsPageState extends State<SelfProfileSettingsPage> {
                     if (ProfileAvatarPolicy.userImagesSupported)
                       OutlinedButton.icon(
                         onPressed: _busy ? null : _pickAvatarImage,
-                        icon: const Icon(Icons.image_outlined, size: 18),
-                        label: const Text(
+                        icon: Icon(Icons.image_outlined, size: 18),
+                        label: Text(
                           'Choose image or GIF (this device only)',
                         ),
                       ),

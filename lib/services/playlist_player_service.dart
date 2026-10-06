@@ -2354,7 +2354,7 @@ class PlaylistPlayerService {
       for (int attempt = 0; attempt < 5; attempt++) {
         recovered = await TorboxService.getTorrentById(apiKey, newId);
         if (recovered != null) break;
-        await Future.delayed(const Duration(milliseconds: 300));
+        await Future.delayed(Duration(milliseconds: 300));
       }
 
       if (recovered == null) {

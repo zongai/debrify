@@ -135,7 +135,7 @@ class _StartupChannelDialog extends StatelessWidget {
       content: SizedBox(
         width: 420,
         child: choices.isEmpty
-            ? const Text(
+            ? Text(
                 'No live channels saved yet.\n\n'
                 'Hold OK (or long-press) a channel on the IPTV page to star it '
                 'or add it to a list, then pick it here.',
@@ -153,10 +153,10 @@ class _StartupChannelDialog extends StatelessWidget {
                             width: 44,
                             child: Text(
                               'CH $number',
-                              style: const TextStyle(fontSize: 11),
+                              style: TextStyle(fontSize: 11),
                             ),
                           )
-                        : const Icon(Icons.live_tv_rounded, size: 20),
+                        : Icon(Icons.live_tv_rounded, size: 20),
                     title: Text(
                       choice.name,
                       maxLines: 1,

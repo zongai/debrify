@@ -1329,7 +1329,7 @@ class _EngineImportPageState extends State<EngineImportPage> {
               ),
               SizedBox(height: 24),
               FocusTraversalOrder(
-                order: const NumericFocusOrder(0),
+                order: NumericFocusOrder(0),
                 child: FilledButton.icon(
                   focusNode: _retryButtonFocusNode,
                   onPressed: _loadEngines,

@@ -27,12 +27,12 @@ class NetflixRadioTile extends StatelessWidget {
       margin: const EdgeInsets.only(bottom: 8),
       decoration: BoxDecoration(
         color: isSelected
-            ? const Color(0xFFE50914).withValues(alpha: 0.2)
+            ? Color(0xFFE50914).withValues(alpha: 0.2)
             : Colors.transparent,
         borderRadius: BorderRadius.circular(12),
         border: Border.all(
           color: isSelected
-              ? const Color(0xFFE50914)
+              ? Color(0xFFE50914)
               : Colors.white.withValues(alpha: 0.1),
           width: 1,
         ),
@@ -53,7 +53,7 @@ class NetflixRadioTile extends StatelessWidget {
                     shape: BoxShape.circle,
                     border: Border.all(
                       color: isSelected
-                          ? const Color(0xFFE50914)
+                          ? Color(0xFFE50914)
                           : Colors.white.withValues(alpha: 0.5),
                       width: 2,
                     ),
@@ -61,7 +61,7 @@ class NetflixRadioTile extends StatelessWidget {
                   child: isSelected
                       ? Container(
                           margin: const EdgeInsets.all(4),
-                          decoration: const BoxDecoration(
+                          decoration: BoxDecoration(
                             shape: BoxShape.circle,
                             color: Color(0xFFE50914),
                           ),

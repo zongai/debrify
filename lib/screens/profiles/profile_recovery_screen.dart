@@ -27,7 +27,7 @@ class ProfileRecoveryScreen extends StatefulWidget {
   final bool forceTvSafeInput;
   final DeviceVaultFailure? deviceVaultFailure;
 
-  const ProfileRecoveryScreen({
+  ProfileRecoveryScreen({
     super.key,
     required this.onRecovered,
     required this.onResetComplete,
@@ -219,7 +219,7 @@ class _ProfileRecoveryScreenState extends State<ProfileRecoveryScreen> {
       context: context,
       builder: (dialogContext) => AlertDialog(
         title: Text(AppLocalizations.of(context).t('Erase private app data?')),
-        content: const Text(
+        content: Text(
           'This removes profiles, credentials, settings, jobs, and private app data. Completed media files are retained. This cannot be undone.',
         ),
         actions: [
@@ -265,14 +265,14 @@ class _ProfileRecoveryScreenState extends State<ProfileRecoveryScreen> {
     body: SafeArea(
       child: Center(
         child: ConstrainedBox(
-          constraints: const BoxConstraints(maxWidth: 620),
+          constraints: BoxConstraints(maxWidth: 620),
           child: Padding(
             padding: const EdgeInsets.all(28),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                const Icon(Icons.health_and_safety_outlined, size: 56),
+                Icon(Icons.health_and_safety_outlined, size: 56),
                 SizedBox(height: 20),
                 Text(
                   'Profile recovery required',
@@ -301,7 +301,7 @@ class _ProfileRecoveryScreenState extends State<ProfileRecoveryScreen> {
                   OutlinedButton.icon(
                     onPressed: _busy ? null : _continueWithRecoveryAdmin,
                     autofocus: widget.forceTvSafeInput && PlatformUtil.isTvOS,
-                    icon: const Icon(Icons.admin_panel_settings_outlined),
+                    icon: Icon(Icons.admin_panel_settings_outlined),
                     label: Text(
                       PlatformUtil.isTvOS
                           ? 'Start Recovery Admin for Remote restore'

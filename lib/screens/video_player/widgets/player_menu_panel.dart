@@ -1500,10 +1500,10 @@ class _RailRow extends StatelessWidget {
       onTap: onTap,
       child: AnimatedScale(
         scale: focused ? 1.03 : 1.0,
-        duration: const Duration(milliseconds: 160),
+        duration: Duration(milliseconds: 160),
         curve: Curves.easeOutCubic,
         child: AnimatedContainer(
-          duration: const Duration(milliseconds: 140),
+          duration: Duration(milliseconds: 140),
           curve: Curves.easeOut,
           margin: const EdgeInsets.symmetric(vertical: 1.5),
           padding: const EdgeInsets.symmetric(horizontal: 13, vertical: 10),
@@ -1519,7 +1519,7 @@ class _RailRow extends StatelessWidget {
                     BoxShadow(
                       color: Colors.black.withValues(alpha: 0.5),
                       blurRadius: 22,
-                      offset: const Offset(0, 7),
+                      offset: Offset(0, 7),
                     ),
                   ]
                 : null,
@@ -1637,10 +1637,10 @@ class _ValueRow extends StatelessWidget {
       onTap: onTap,
       child: AnimatedScale(
         scale: focused ? 1.02 : 1.0,
-        duration: const Duration(milliseconds: 160),
+        duration: Duration(milliseconds: 160),
         curve: Curves.easeOutCubic,
         child: AnimatedContainer(
-          duration: const Duration(milliseconds: 140),
+          duration: Duration(milliseconds: 140),
           curve: Curves.easeOut,
           margin: const EdgeInsets.symmetric(vertical: 1.5),
           padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
@@ -1652,7 +1652,7 @@ class _ValueRow extends StatelessWidget {
                     BoxShadow(
                       color: Colors.black.withValues(alpha: 0.45),
                       blurRadius: 20,
-                      offset: const Offset(0, 6),
+                      offset: Offset(0, 6),
                     ),
                   ]
                 : null,

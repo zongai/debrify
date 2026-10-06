@@ -74,7 +74,7 @@ class _LinuxVaultScreenState extends State<LinuxVaultScreen> {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   const Icon(Icons.lock_outline_rounded, size: 48),
-                  const SizedBox(height: 20),
+                  SizedBox(height: 20),
                   Text(
                     widget.existingVault
                         ? 'Unlock profiles'
@@ -82,7 +82,7 @@ class _LinuxVaultScreenState extends State<LinuxVaultScreen> {
                     textAlign: TextAlign.center,
                     style: Theme.of(context).textTheme.headlineSmall,
                   ),
-                  const SizedBox(height: 10),
+                  SizedBox(height: 10),
                   Text(
                     widget.existingVault
                         ? 'Enter your existing passphrase once to open your saved connections. Automatic unlock skips this step on future launches.'

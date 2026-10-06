@@ -223,7 +223,7 @@ class BulkAddProgressController {
                     child: Row(
                       children: [
                         Icon(icon, color: iconColor, size: 16),
-                        const SizedBox(width: 8),
+                        SizedBox(width: 8),
                         Expanded(
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,

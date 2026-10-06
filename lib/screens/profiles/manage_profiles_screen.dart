@@ -244,7 +244,7 @@ class _ManageProfilesScreenState extends State<ManageProfilesScreen> {
           ? Center(
               child: _initialLoadFailed
                   ? Text(AppLocalizations.of(context).t('Profile management authorization expired'))
-                  : const CircularProgressIndicator(),
+                  : CircularProgressIndicator(),
             )
           : Column(
               children: <Widget>[
@@ -252,7 +252,7 @@ class _ManageProfilesScreenState extends State<ManageProfilesScreen> {
                   child: ListView.separated(
                     padding: const EdgeInsets.fromLTRB(16, 12, 16, 96),
                     itemCount: profiles.length,
-                    separatorBuilder: (_, __) => const Divider(height: 1),
+                    separatorBuilder: (_, __) => Divider(height: 1),
                     itemBuilder: (context, index) {
                       final profile = profiles[index];
                       return ListTile(

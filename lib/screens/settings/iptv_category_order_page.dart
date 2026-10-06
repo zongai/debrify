@@ -459,7 +459,7 @@ class _IptvCategoryOrderPageState extends State<IptvCategoryOrderPage> {
         Expanded(
           child: Center(
             child: ConstrainedBox(
-              constraints: const BoxConstraints(maxWidth: 1000),
+              constraints: BoxConstraints(maxWidth: 1000),
               child: ManualOrderList(
                 // Keyed per catalog: switching tabs resets selection and
                 // search and re-runs the TV first-row autofocus.

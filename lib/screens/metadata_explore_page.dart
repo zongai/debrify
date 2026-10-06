@@ -595,7 +595,7 @@ class _MetadataBrowsePageState extends State<MetadataBrowsePage> {
               : _items.isEmpty
               ? Center(
                   child: waiting
-                      ? const CircularProgressIndicator()
+                      ? CircularProgressIndicator()
                       : _error != null
                       ? retry
                       : Text(AppLocalizations.of(context).t('No matching titles')),
@@ -692,7 +692,7 @@ class _MetadataBrowsePageState extends State<MetadataBrowsePage> {
               SliverPadding(
                 padding: const EdgeInsets.all(20),
                 sliver: SliverGrid(
-                  gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+                  gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
                     maxCrossAxisExtent: 180,
                     childAspectRatio: 2 / 3,
                     crossAxisSpacing: 12,
@@ -763,7 +763,7 @@ class _MetadataTitleTileState extends State<_MetadataTitleTile> {
     try {
       final item = await CollectionNativeSourceService.instance
           .resolveIdentity(widget.item)
-          .timeout(const Duration(seconds: 4), onTimeout: () => widget.item);
+          .timeout(Duration(seconds: 4), onTimeout: () => widget.item);
       if (mounted &&
           scope == ProfileRuntime.scope.value &&
           ModalRoute.of(context)?.isCurrent == true) {

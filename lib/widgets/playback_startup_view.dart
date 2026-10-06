@@ -151,7 +151,7 @@ class PlaybackStartupView extends StatelessWidget {
                                               ? 'CONNECTING TO ANOTHER SOURCE'
                                               : 'OPENING YOUR STREAM',
                                           key: ValueKey(retrying),
-                                          style: const TextStyle(
+                                          style: TextStyle(
                                             color: Color(0xff80d4bc),
                                             fontSize: 11,
                                             letterSpacing: 2,
@@ -164,7 +164,7 @@ class PlaybackStartupView extends StatelessWidget {
                                         retrying
                                             ? 'The previous source couldn’t start. Trying an alternative.'
                                             : 'Connecting and waiting for the first frames.',
-                                        style: const TextStyle(
+                                        style: TextStyle(
                                           color: Colors.white70,
                                           fontSize: 14,
                                         ),
@@ -175,7 +175,7 @@ class PlaybackStartupView extends StatelessWidget {
                                         child: LinearProgressIndicator(
                                           value: reduced ? 0.5 : null,
                                           minHeight: 2,
-                                          color: const Color(0xff80d4bc),
+                                          color: Color(0xff80d4bc),
                                           backgroundColor: Colors.white12,
                                         ),
                                       ),

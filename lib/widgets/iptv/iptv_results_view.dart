@@ -3291,13 +3291,13 @@ class IptvResultsViewState extends State<IptvResultsView>
           _showChip(
             _CatalogChipState.success,
             'Default category cleared',
-            autoHide: const Duration(milliseconds: 2500),
+            autoHide: Duration(milliseconds: 2500),
           );
         } else {
           _showChip(
             _CatalogChipState.failure,
             'Couldn\'t clear the default — try again',
-            autoHide: const Duration(milliseconds: 3500),
+            autoHide: Duration(milliseconds: 3500),
           );
         }
       case 'hide':
@@ -7763,7 +7763,7 @@ class IptvResultsViewState extends State<IptvResultsView>
 
     // Empty state when no playlist selected
     if (_selectedPlaylist == null) {
-      return const IptvEmptyState(hasPlaylists: true);
+      return IptvEmptyState(hasPlaylists: true);
     }
 
     // Loading

@@ -233,7 +233,7 @@ class _TorrentFiltersSheetState extends State<TorrentFiltersSheet> {
         heightFactor: 0.75,
         child: Container(
           decoration: BoxDecoration(
-            color: const Color(0xFF0F172A),
+            color: Color(0xFF0F172A),
             borderRadius: const BorderRadius.vertical(top: Radius.circular(24)),
             border: Border.all(color: Colors.white.withValues(alpha: 0.05)),
           ),
@@ -244,7 +244,7 @@ class _TorrentFiltersSheetState extends State<TorrentFiltersSheet> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const Text(
+                  Text(
                     'Filter Results',
                     style: TextStyle(
                       fontSize: 18,
@@ -612,7 +612,7 @@ class _TorrentFiltersSheetState extends State<TorrentFiltersSheet> {
                                           Text(option.title),
                                           Text(
                                             option.subtitle,
-                                            style: const TextStyle(fontSize: 10),
+                                            style: TextStyle(fontSize: 10),
                                           ),
                                         ],
                                       ),
@@ -649,7 +649,7 @@ class _TorrentFiltersSheetState extends State<TorrentFiltersSheet> {
                     onPressed: _apply,
                     style: ElevatedButton.styleFrom(
                       foregroundColor: Colors.white,
-                      backgroundColor: const Color(0xFF2563EB),
+                      backgroundColor: Color(0xFF2563EB),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(12),
                       ),

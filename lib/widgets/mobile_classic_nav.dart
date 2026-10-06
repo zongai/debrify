@@ -128,7 +128,7 @@ class MobileClassicNav extends StatelessWidget {
     showModalBottomSheet<void>(
       context: context,
       backgroundColor: app.shell.navSheetBg,
-      shape: const RoundedRectangleBorder(
+      shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(18)),
       ),
       builder: (sheetContext) => SafeArea(
@@ -160,7 +160,7 @@ class MobileClassicNav extends StatelessWidget {
                       color: app.fade(app.core.tx, 0.35),
                     ),
                   ),
-                  const Spacer(),
+                  Spacer(),
                   TextButton.icon(
                     onPressed: () {
                       Navigator.of(sheetContext).pop();
@@ -320,7 +320,7 @@ class MobileClassicNav extends StatelessWidget {
                           color: app.fade(app.core.tx, 0.35),
                         ),
                       ),
-                      const Spacer(),
+                      Spacer(),
                       TextButton(
                         onPressed: () {
                           Navigator.of(sheetContext).pop();
@@ -328,7 +328,7 @@ class MobileClassicNav extends StatelessWidget {
                         },
                         style: TextButton.styleFrom(
                           foregroundColor: app.shell.navLabel,
-                          textStyle: const TextStyle(
+                          textStyle: TextStyle(
                             fontSize: 12,
                             fontWeight: FontWeight.w800,
                           ),
@@ -557,7 +557,7 @@ class _SheetCell extends StatelessWidget {
               size: 20,
               color: active ? app.shell.navLabel : app.fade(app.core.tx, 0.75),
             ),
-            const SizedBox(height: 5),
+            SizedBox(height: 5),
             Text(
               label,
               maxLines: 1,

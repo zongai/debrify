@@ -152,7 +152,7 @@ class _PikPakFilesScreenState extends State<PikPakFilesScreen> {
       // Set up timeout - only when DEEP-LINKED into a specific folder
       // (initialFolderId). Browsing from the Cloud hub has no target, so the
       // root is the resting state — no spurious auto-close.
-      Future.delayed(const Duration(seconds: 10), () {
+      Future.delayed(Duration(seconds: 10), () {
         if (mounted &&
             widget.isPushedRoute &&
             widget.initialFolderId != null &&
@@ -1296,7 +1296,7 @@ class _PikPakFilesScreenState extends State<PikPakFilesScreen> {
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
         title: Text(
           'Delete $count $itemType',
-          style: const TextStyle(fontWeight: FontWeight.bold),
+          style: TextStyle(fontWeight: FontWeight.bold),
         ),
         content: Column(
           mainAxisSize: MainAxisSize.min,
@@ -1304,10 +1304,10 @@ class _PikPakFilesScreenState extends State<PikPakFilesScreen> {
           children: [
             Text(
               'What would you like to do with $count selected $itemType?',
-              style: const TextStyle(color: Colors.grey),
+              style: TextStyle(color: Colors.grey),
             ),
             SizedBox(height: 16),
-            const Text(
+            Text(
               'Move to Trash: Files can be recovered later\nDelete Permanently: Cannot be undone',
               style: TextStyle(fontSize: 12, color: Colors.grey),
             ),
@@ -1317,7 +1317,7 @@ class _PikPakFilesScreenState extends State<PikPakFilesScreen> {
           TextButton(
             autofocus: true,
             onPressed: () => Navigator.of(context).pop(),
-            child: const Text('Cancel', style: TextStyle(color: Colors.grey)),
+            child: Text('Cancel', style: TextStyle(color: Colors.grey)),
           ),
           TextButton(
             onPressed: () => Navigator.of(context).pop('trash'),
@@ -2050,7 +2050,7 @@ class _PikPakFilesScreenState extends State<PikPakFilesScreen> {
                         overflow: TextOverflow.ellipsis,
                       ),
                       if (result.path.isNotEmpty) ...[
-                        const SizedBox(height: 4),
+                        SizedBox(height: 4),
                         Text(
                           result.path,
                           style: TextStyle(
@@ -2268,7 +2268,7 @@ class _PikPakFilesScreenState extends State<PikPakFilesScreen> {
                       // nothing to show gets the shimmer skeleton;
                       // pull-to-refresh keeps its items and skips it.
                       child: _isLoading && _files.isEmpty
-                          ? const CloudRowSkeletonList()
+                          ? CloudRowSkeletonList()
                           : _files.isEmpty
                           ? _buildEmpty()
                           : _buildFileList(),
@@ -2397,7 +2397,7 @@ class _PikPakFilesScreenState extends State<PikPakFilesScreen> {
               isInFolder ? 'Folder is Empty' : 'No Files Yet',
               style: Theme.of(context).textTheme.headlineSmall,
             ),
-            const SizedBox(height: 16),
+            SizedBox(height: 16),
             Text(
               isInFolder
                   ? 'This folder doesn\'t contain any files or subfolders.'
@@ -2434,7 +2434,7 @@ class _PikPakFilesScreenState extends State<PikPakFilesScreen> {
               fontWeight: FontWeight.w600,
             ),
           ),
-          const Spacer(),
+          Spacer(),
           TextButton(
             onPressed: _toggleSelectAll,
             child: Text(_isAllSelected ? 'Deselect All' : 'Select All'),
@@ -3234,15 +3234,15 @@ class _PikPakFilesScreenState extends State<PikPakFilesScreen> {
                   hintStyle: TextStyle(color: Colors.grey[600]),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(8),
-                    borderSide: const BorderSide(color: Color(0xFF475569)),
+                    borderSide: BorderSide(color: Color(0xFF475569)),
                   ),
                   enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(8),
-                    borderSide: const BorderSide(color: Color(0xFF475569)),
+                    borderSide: BorderSide(color: Color(0xFF475569)),
                   ),
                   focusedBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(8),
-                    borderSide: const BorderSide(color: Color(0xFFFFAA00)),
+                    borderSide: BorderSide(color: Color(0xFFFFAA00)),
                   ),
                   contentPadding: const EdgeInsets.symmetric(
                     horizontal: 12,

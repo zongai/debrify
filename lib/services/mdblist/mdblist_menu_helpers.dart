@@ -89,7 +89,7 @@ List<MdblistMenuOption> buildMdblistMenuOptions({
       icon: status?.rating != null
           ? Icons.star_outline_rounded
           : Icons.star_rounded,
-      color: const Color(0xFFFBBF24),
+      color: Color(0xFFFBBF24),
       label: status?.rating != null
           ? 'Remove MDBList rating'
           : 'Rate on MDBList',
@@ -102,7 +102,7 @@ List<MdblistMenuOption> buildMdblistMenuOptions({
       icon: status?.collected == true
           ? Icons.inventory_2_outlined
           : Icons.inventory_2_rounded,
-      color: const Color(0xFFA78BFA),
+      color: Color(0xFFA78BFA),
       label: status?.collected == true
           ? 'Remove from MDBList Collection'
           : isSeries
@@ -118,14 +118,14 @@ List<MdblistMenuOption> buildMdblistMenuOptions({
         icon: status?.dropped == true
             ? Icons.restore_rounded
             : Icons.cancel_outlined,
-        color: const Color(0xFFF87171),
+        color: Color(0xFFF87171),
         label: status?.dropped == true
             ? 'Restore show on MDBList'
             : 'Drop show on MDBList',
         caption: status?.dropped == true ? 'Restore' : 'Drop',
       ),
     if (inContinueWatching)
-      const MdblistMenuOption(
+      MdblistMenuOption(
         action: MdblistItemMenuAction.removeFromContinueWatching,
         icon: Icons.remove_circle_outline_rounded,
         color: Color(0xFFF87171),
@@ -212,7 +212,7 @@ Future<void> handleMdblistMenuAction(
           context: context,
           builder: (ctx) => AlertDialog(
             title: Text(AppLocalizations.of(context).t('Collect this show?')),
-            content: const Text(
+            content: Text(
               'MDBList will add every aired episode to your collection.',
             ),
             actions: [

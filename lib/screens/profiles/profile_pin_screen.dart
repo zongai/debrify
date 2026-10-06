@@ -162,7 +162,7 @@ class _ProfilePinScreenState extends State<ProfilePinScreen> {
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text(
+                Text(
                   'Enter the recovery code shown when this PIN was set. '
                   'It removes the PIN so you can set a new one.',
                 ),
@@ -476,7 +476,7 @@ class _ProfilePinScreenState extends State<ProfilePinScreen> {
     _backspaceKey(),
     _zeroKey(),
     _PinKey(
-      key: const ValueKey('profile-pin-submit'),
+      key: ValueKey('profile-pin-submit'),
       icon: Icons.check_rounded,
       semanticLabel: 'Unlock profile',
       wash: _wash,
@@ -507,8 +507,8 @@ class _ProfilePinScreenState extends State<ProfilePinScreen> {
             ? null
             : Text(
                 _error!,
-                key: const Key('profile-pin-error'),
-                style: const TextStyle(color: Color(0xFFFF8A97), fontSize: 12),
+                key: Key('profile-pin-error'),
+                style: TextStyle(color: Color(0xFFFF8A97), fontSize: 12),
               ),
       ),
       if (widget.onRecovery != null)

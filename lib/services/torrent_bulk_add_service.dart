@@ -796,14 +796,14 @@ class TorrentBulkAddService {
                         height: 1.45,
                       ),
                     ),
-                    const SizedBox(height: 12),
+                    SizedBox(height: 12),
                     Container(
                       padding: const EdgeInsets.all(12),
                       decoration: BoxDecoration(
-                        color: const Color(0xFFFB923C).withValues(alpha: 0.1),
+                        color: Color(0xFFFB923C).withValues(alpha: 0.1),
                         borderRadius: BorderRadius.circular(10),
                         border: Border.all(
-                          color: const Color(0xFFFB923C).withValues(alpha: 0.3),
+                          color: Color(0xFFFB923C).withValues(alpha: 0.3),
                         ),
                       ),
                       child: Row(
@@ -813,7 +813,7 @@ class TorrentBulkAddService {
                             Icons.info_outline_rounded,
                             size: 18,
                             color:
-                                const Color(0xFFFB923C).withValues(alpha: 0.9),
+                                Color(0xFFFB923C).withValues(alpha: 0.9),
                           ),
                           SizedBox(width: 10),
                           Expanded(
@@ -851,7 +851,7 @@ class TorrentBulkAddService {
                   Navigator.of(dialogContext).pop(true);
                 },
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color(0xFFFB923C),
+                  backgroundColor: Color(0xFFFB923C),
                   foregroundColor: Colors.white,
                 ),
                 child: Text(AppLocalizations.of(context).t('Continue')),

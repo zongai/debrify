@@ -186,7 +186,7 @@ class _DebrifyTvSettingsPageState extends State<DebrifyTvSettingsPage> {
         // State-resolved accent border + lit fill so DPAD focus is
         // unmistakable on TV (default focus overlay is too faint).
         style: ButtonStyle(
-          padding: const WidgetStatePropertyAll(
+          padding: WidgetStatePropertyAll(
             EdgeInsets.symmetric(vertical: 16),
           ),
           backgroundColor: WidgetStateProperty.resolveWith(
@@ -197,7 +197,7 @@ class _DebrifyTvSettingsPageState extends State<DebrifyTvSettingsPage> {
             (states) => states.contains(WidgetState.focused)
                 ? BorderSide(color: t.accent, width: 1.5)
                 : BorderSide(
-                    color: const Color(0xFFB4A0FF).withValues(alpha: 0.3),
+                    color: Color(0xFFB4A0FF).withValues(alpha: 0.3),
                   ),
           ),
         ),

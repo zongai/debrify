@@ -95,7 +95,7 @@ class _ImportedLaunchAnimationsState extends State<ImportedLaunchAnimations> {
       // Android's picker reports this when no OPEN_DOCUMENT provider exists,
       // even with FileType.any. TV firmware often ships without one.
       if (PlatformUtil.isTelevision && error.code == 'invalid_format_type') {
-        throw const LaunchImportException(
+        throw LaunchImportException(
           'No file picker is available on this TV. Send the animation from a paired Debrify phone or computer using Send to TV.',
         );
       }
@@ -105,12 +105,12 @@ class _ImportedLaunchAnimationsState extends State<ImportedLaunchAnimations> {
     final selected = result.files.single;
     try {
       if (selected.size > LaunchLimits.compressedBytes) {
-        throw const LaunchImportException(
+        throw LaunchImportException(
           'Animation files must be 10 MiB or smaller.',
         );
       }
       if (selected.path == null) {
-        throw const LaunchImportException(
+        throw LaunchImportException(
           'Copy the animation to local storage, then try again.',
         );
       }
@@ -162,7 +162,7 @@ class _ImportedLaunchAnimationsState extends State<ImportedLaunchAnimations> {
   Widget build(BuildContext context) => SettingsSection(
     title: 'Imported animations',
     children: [
-      if (_busy) const LinearProgressIndicator(),
+      if (_busy) LinearProgressIndicator(),
       if (!PlatformUtil.isTvOS)
         SettingsTile(
           icon: Icons.file_open_outlined,
@@ -192,7 +192,7 @@ class _ImportedLaunchAnimationsState extends State<ImportedLaunchAnimations> {
               context: context,
               builder: (context) => AlertDialog(
                 title: Text(AppLocalizations.of(context).t('Reset animation library?')),
-                content: const Text(
+                content: Text(
                   'Installed animations will need to be imported again. Your built-in animations are unaffected.',
                 ),
                 actions: [
@@ -254,7 +254,7 @@ class _ImportedLaunchDetailState extends State<ImportedLaunchDetail> {
       padding: const EdgeInsets.all(20),
       child: Center(
         child: ConstrainedBox(
-          constraints: const BoxConstraints(maxWidth: 900),
+          constraints: BoxConstraints(maxWidth: 900),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [

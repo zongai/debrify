@@ -239,7 +239,7 @@ class _TvActionSurfaceState extends State<_TvActionSurface> {
                 Scrollable.ensureVisible(
                   context,
                   alignment: .35,
-                  duration: const Duration(milliseconds: 180),
+                  duration: Duration(milliseconds: 180),
                   curve: Curves.easeOutCubic,
                 );
               }
@@ -616,7 +616,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
       final file = pick.files.single;
       pickerCopy = file.path;
       if (file.size > ProfileAvatarIngest.maxInputBytes) {
-        throw const ProfileAvatarRejected(
+        throw ProfileAvatarRejected(
           'That image is too large to open. Choose one under 12 MB.',
         );
       }
@@ -648,7 +648,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
     final inline = picked.bytes;
     if (inline != null) {
       if (inline.length > ProfileAvatarIngest.maxInputBytes) {
-        throw const ProfileAvatarRejected(
+        throw ProfileAvatarRejected(
           'That image is too large to open. Choose one under 12 MB.',
         );
       }
@@ -656,13 +656,13 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
     }
     final path = picked.path;
     if (path == null || path.isEmpty) {
-      throw const ProfileAvatarRejected('That file could not be read.');
+      throw ProfileAvatarRejected('That file could not be read.');
     }
     final builder = BytesBuilder(copy: false);
     var length = 0;
     await for (final chunk in File(path).openRead()) {
       if (length > ProfileAvatarIngest.maxInputBytes - chunk.length) {
-        throw const ProfileAvatarRejected(
+        throw ProfileAvatarRejected(
           'That image is too large to open. Choose one under 12 MB.',
         );
       }
@@ -693,7 +693,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
             Center(
               child: SelectableText(
                 code,
-                style: const TextStyle(
+                style: TextStyle(
                   fontFamily: 'monospace',
                   fontSize: 26,
                   fontWeight: FontWeight.w700,
@@ -1203,7 +1203,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
             child: ListView(
               padding: EdgeInsets.all(20),
               children: [
-                if (_saving) const LinearProgressIndicator(),
+                if (_saving) LinearProgressIndicator(),
                 _sectionLabel('Avatar'),
                 _buildAvatarSection(),
                 _sectionLabel('Identity'),
@@ -1227,7 +1227,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                 _sectionLabel('Role'),
                 _buildRoleCards(),
                 if (EditProfileScreen.showFeaturePolicyControls) ...[
-                  const SizedBox(height: 12),
+                  SizedBox(height: 12),
                   for (final feature in editableFeatures)
                     CheckboxListTile(
                       value:
@@ -1841,8 +1841,8 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                         _EnsureVisibleOnFocus(
                           child: OutlinedButton.icon(
                             onPressed: _saving ? null : _pickAvatarImage,
-                            icon: const Icon(Icons.image_outlined),
-                            label: const Text(
+                            icon: Icon(Icons.image_outlined),
+                            label: Text(
                               'Choose image or GIF (this device only)',
                             ),
                           ),
@@ -2089,7 +2089,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
 
   Widget _buildTvLockSection() => Center(
     child: ConstrainedBox(
-      constraints: const BoxConstraints(maxWidth: 900),
+      constraints: BoxConstraints(maxWidth: 900),
       child: _tvPanel(
         child: SingleChildScrollView(
           padding: const EdgeInsets.all(30),
@@ -2109,7 +2109,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
               ),
               SizedBox(height: 24),
               TvTextField(
-                key: const ValueKey('tv-profile-pin'),
+                key: ValueKey('tv-profile-pin'),
                 controller: _pin,
                 onLeftArrow: _returnToTvRail,
                 onRightArrow: () => _moveTvContent(TraversalDirection.right),
@@ -2156,7 +2156,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                   ).colorScheme.surfaceContainerHighest,
                 ),
               ),
-              const SizedBox(height: 16),
+              SizedBox(height: 16),
               _TvAutoLockField(
                 value: _inactivityMinutes,
                 onChanged: (value) =>
@@ -2193,7 +2193,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
               if (_setupLoadError != null)
                 _EnsureVisibleOnFocus(
                   child: ListTile(
-                    leading: const Icon(Icons.error_outline_rounded),
+                    leading: Icon(Icons.error_outline_rounded),
                     title: Text(_setupLoadError!),
                     trailing: TextButton(
                       onPressed: _loadSetupOptions,
@@ -2263,7 +2263,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                               ],
                             ),
                           ),
-                          const Icon(Icons.chevron_right_rounded, size: 32),
+                          Icon(Icons.chevron_right_rounded, size: 32),
                         ],
                       ),
                     ),
@@ -2337,7 +2337,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                         fit: BoxFit.cover,
                         cacheWidth: 168,
                         cacheHeight: 168,
-                        errorBuilder: (_, __, ___) => const ColoredBox(
+                        errorBuilder: (_, __, ___) => ColoredBox(
                           color: Color(0xFF31435F),
                           child: Icon(Icons.broken_image_outlined),
                         ),
@@ -2362,8 +2362,8 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                   if (userImages)
                     OutlinedButton.icon(
                       onPressed: _saving ? null : _pickAvatarImage,
-                      icon: const Icon(Icons.image_outlined, size: 18),
-                      label: const Text(
+                      icon: Icon(Icons.image_outlined, size: 18),
+                      label: Text(
                         'Choose image or GIF (this device only)',
                       ),
                     ),
@@ -2508,7 +2508,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(title, style: Theme.of(context).textTheme.titleSmall),
-              const SizedBox(height: 4),
+              SizedBox(height: 4),
               Text(
                 description,
                 style: Theme.of(context).textTheme.bodySmall?.copyWith(

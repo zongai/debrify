@@ -265,8 +265,8 @@ class _DownloadsScreenState extends State<DownloadsScreen>
           padding: EdgeInsets.fromLTRB(12, 12, 12, 0),
           child: Row(
             children: [
-              const Text('Finished', style: TextStyle(fontWeight: FontWeight.w600)),
-              const Spacer(),
+              Text('Finished', style: TextStyle(fontWeight: FontWeight.w600)),
+              Spacer(),
               TextButton.icon(
                 onPressed: _busyGroupIds.isEmpty
                     ? () => _handleClearFinished(groups)
@@ -539,7 +539,7 @@ class _DownloadsScreenState extends State<DownloadsScreen>
                         filename: nameCtrl.text.trim(),
                         host: Uri.tryParse(urlCtrl.text.trim())?.host ?? '',
                       ),
-                    const SizedBox(height: 16),
+                    SizedBox(height: 16),
                     _StyledField(
                       controller: urlCtrl,
                       label: 'Download URL',
@@ -2344,11 +2344,11 @@ class _DownloadTile extends StatelessWidget {
                 minHeight: 6,
                 borderRadius: app.shape.br(8),
               ),
-              const SizedBox(height: 4),
+              SizedBox(height: 4),
               Text('Moving ${(moveProgress! * 100).toStringAsFixed(0)}%',
                   style: TextStyle(color: app.core.tx.withValues(alpha: 0.7), fontSize: 12)),
             ],
-            const SizedBox(height: 10),
+            SizedBox(height: 10),
             // Rich stats row
             if (isActive)
               Wrap(

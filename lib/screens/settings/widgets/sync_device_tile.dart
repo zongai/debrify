@@ -8,7 +8,7 @@ import '../../../services/webdav_sync/webdav_sync_device_names.dart';
 import '../../../widgets/tv_text_field.dart';
 
 class SyncDeviceNameDialog extends StatefulWidget {
-  const SyncDeviceNameDialog({super.key, required this.initialName});
+  SyncDeviceNameDialog({super.key, required this.initialName});
   final String initialName;
   @override
   State<SyncDeviceNameDialog> createState() => _SyncDeviceNameDialogState();
@@ -42,7 +42,7 @@ class _SyncDeviceNameDialogState extends State<SyncDeviceNameDialog> {
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text(
+          Text(
             'Choose a name such as “Living room TV”. It will appear on your connected devices. To rename another device, open this setting on that device.',
           ),
           SizedBox(height: 16),
@@ -191,7 +191,7 @@ String syncDeviceLastSynced(int timestampMs, DateTime now) {
 }
 
 class SyncDevicesDialog extends StatefulWidget {
-  const SyncDevicesDialog({
+  SyncDevicesDialog({
     super.key,
     required this.devices,
     required this.canRename,
@@ -209,7 +209,7 @@ class _SyncDevicesDialogState extends State<SyncDevicesDialog> {
   @override
   void initState() {
     super.initState();
-    _timer = Timer.periodic(const Duration(seconds: 30), (_) {
+    _timer = Timer.periodic(Duration(seconds: 30), (_) {
       if (mounted) setState(() {});
     });
   }

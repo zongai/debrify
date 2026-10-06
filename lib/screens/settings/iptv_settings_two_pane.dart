@@ -21,7 +21,7 @@ const iptvAutoRefreshExplanation =
 
 /// Shared picker for phone and TV settings, including keyboard/DPAD input.
 class IptvAutoRefreshDialog extends StatelessWidget {
-  const IptvAutoRefreshDialog({super.key, required this.intervalHours});
+  IptvAutoRefreshDialog({super.key, required this.intervalHours});
 
   final int intervalHours;
 

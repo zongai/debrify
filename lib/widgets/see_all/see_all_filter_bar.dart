@@ -113,7 +113,7 @@ class _SeeAllFilterBarState extends State<SeeAllFilterBar> {
       context: context,
       backgroundColor: app.seeAll.panel,
       isScrollControlled: true,
-      shape: const RoundedRectangleBorder(
+      shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(18)),
       ),
       builder: (sheetContext) {

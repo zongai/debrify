@@ -259,7 +259,7 @@ class _TorboxDownloadsScreenState extends State<TorboxDownloadsScreen> {
       // Set up timeout - only when DEEP-LINKED into a specific torrent
       // (initialTorrentToOpen). Browsing from the Cloud hub has no target, so
       // the root list is the resting state — no spurious auto-close.
-      Future.delayed(const Duration(seconds: 10), () {
+      Future.delayed(Duration(seconds: 10), () {
         if (mounted &&
             widget.isPushedRoute &&
             !widget.selectSourceMode &&
@@ -504,7 +504,7 @@ class _TorboxDownloadsScreenState extends State<TorboxDownloadsScreen> {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text(AppLocalizations.of(context).t('Failed to copy link: \$e').replaceAll(r'\$e', _formatTorboxError(e))),
-          backgroundColor: const Color(0xFFEF4444),
+          backgroundColor: Color(0xFFEF4444),
         ),
       );
     }
@@ -644,7 +644,7 @@ class _TorboxDownloadsScreenState extends State<TorboxDownloadsScreen> {
                                       option.label,
                                       style: TextStyle(
                                         color: option.destructive
-                                            ? const Color(0xFFEF4444)
+                                            ? Color(0xFFEF4444)
                                             : Theme.of(
                                                 context,
                                               ).colorScheme.onSurface,
@@ -962,10 +962,10 @@ class _TorboxDownloadsScreenState extends State<TorboxDownloadsScreen> {
             Container(
               padding: const EdgeInsets.all(8),
               decoration: BoxDecoration(
-                color: const Color(0xFF7C3AED),
+                color: Color(0xFF7C3AED),
                 borderRadius: app.shape.br(8),
               ),
-              child: const Icon(Icons.check, color: Colors.white, size: 16),
+              child: Icon(Icons.check, color: Colors.white, size: 16),
             ),
             SizedBox(width: 12),
             Expanded(
@@ -980,7 +980,7 @@ class _TorboxDownloadsScreenState extends State<TorboxDownloadsScreen> {
         behavior: SnackBarBehavior.floating,
         shape: RoundedRectangleBorder(borderRadius: app.shape.br(12)),
         margin: const EdgeInsets.all(16),
-        duration: const Duration(seconds: 3),
+        duration: Duration(seconds: 3),
       ),
     );
   }
@@ -1381,7 +1381,7 @@ class _TorboxDownloadsScreenState extends State<TorboxDownloadsScreen> {
                     ? file.shortName
                     : FileUtils.getFileName(file.name);
                 return ListTile(
-                  leading: const Icon(Icons.play_circle_outline),
+                  leading: Icon(Icons.play_circle_outline),
                   title: Text(
                     fileName,
                     maxLines: 2,
@@ -1979,12 +1979,12 @@ class _TorboxDownloadsScreenState extends State<TorboxDownloadsScreen> {
         ),
         content: Text(
           AppLocalizations.of(context).t('Are you sure you want to delete \$count selected \$type? This action cannot be undone.').replaceAll('\$count', count.toString()).replaceAll('\$type', count == 1 ? itemType : itemTypePlural),
-          style: const TextStyle(color: Colors.grey),
+          style: TextStyle(color: Colors.grey),
         ),
         actions: [
           TextButton(
             onPressed: () => Navigator.of(context).pop(false),
-            child: const Text('Cancel', style: TextStyle(color: Colors.grey)),
+            child: Text('Cancel', style: TextStyle(color: Colors.grey)),
           ),
           TextButton(
             onPressed: () => Navigator.of(context).pop(true),
@@ -2182,7 +2182,7 @@ class _TorboxDownloadsScreenState extends State<TorboxDownloadsScreen> {
                     ),
                   ),
                 ),
-                const SizedBox(height: 16),
+                SizedBox(height: 16),
                 TvTextField(
                   controller: _webNameController,
                   // D-pad exits (formerly a Focus/onKeyEvent wrapper).
@@ -2870,7 +2870,7 @@ class _TorboxDownloadsScreenState extends State<TorboxDownloadsScreen> {
                                     borderRadius: app.shape.br(16),
                                   ),
                                 ),
-                                child: const Text(
+                                child: Text(
                                   'Close',
                                   style: TextStyle(
                                     color: Color(0xFF6366F1),
@@ -3055,7 +3055,7 @@ class _TorboxDownloadsScreenState extends State<TorboxDownloadsScreen> {
             content: Text(
               'Error: ${e.toString().replaceFirst('Exception: ', '')}',
             ),
-            backgroundColor: const Color(0xFFEF4444),
+            backgroundColor: Color(0xFFEF4444),
           ),
         );
       }
@@ -3999,7 +3999,7 @@ class _TorboxDownloadsScreenState extends State<TorboxDownloadsScreen> {
   Widget _buildSectionHeader(String title) {
     return Text(
       title,
-      style: const TextStyle(
+      style: TextStyle(
         fontSize: 14,
         fontWeight: FontWeight.w700,
         letterSpacing: 0.2,
@@ -4015,19 +4015,19 @@ class _TorboxDownloadsScreenState extends State<TorboxDownloadsScreen> {
           Container(
             padding: const EdgeInsets.all(20),
             decoration: BoxDecoration(
-              gradient: const LinearGradient(
+              gradient: LinearGradient(
                 colors: [Color(0xFF6366F1), Color(0xFF8B5CF6)],
               ),
               borderRadius: BorderRadius.circular(20),
             ),
-            child: const Icon(
+            child: Icon(
               Icons.folder_off_rounded,
               color: Colors.white,
               size: 28,
             ),
           ),
           SizedBox(height: 16),
-          const Text(
+          Text(
             'No files available yet',
             style: TextStyle(fontWeight: FontWeight.w600),
           ),
@@ -4046,7 +4046,7 @@ class _TorboxDownloadsScreenState extends State<TorboxDownloadsScreen> {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         content: Text(AppLocalizations.of(context).t('\$action support coming soon').replaceAll('\$action', action)),
-        duration: const Duration(seconds: 2),
+        duration: Duration(seconds: 2),
       ),
     );
   }
@@ -4195,7 +4195,7 @@ class _TorboxDownloadsScreenState extends State<TorboxDownloadsScreen> {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content: Text(errorMessage),
-            backgroundColor: const Color(0xFFB91C1C),
+            backgroundColor: Color(0xFFB91C1C),
           ),
         );
         return;
@@ -6217,13 +6217,13 @@ class _TorboxDownloadsScreenState extends State<TorboxDownloadsScreen> {
 
     // Loading state
     if (_isLoading && _currentItems.isEmpty) {
-      return const CloudRowSkeletonList();
+      return CloudRowSkeletonList();
     }
 
     // Error state
     if (_errorMessage.isNotEmpty && _currentItems.isEmpty && !_initialLoad) {
       return ListView(
-        physics: const AlwaysScrollableScrollPhysics(),
+        physics: AlwaysScrollableScrollPhysics(),
         padding: const EdgeInsets.all(24),
         children: [
           Icon(
@@ -6305,13 +6305,13 @@ class _TorboxDownloadsScreenState extends State<TorboxDownloadsScreen> {
   Widget _buildWebDownloadsList() {
     // Loading state
     if (_isLoadingWebDownloads && _webDownloads.isEmpty) {
-      return const CloudRowSkeletonList();
+      return CloudRowSkeletonList();
     }
 
     // Error state
     if (_webDownloadErrorMessage.isNotEmpty && _webDownloads.isEmpty) {
       return ListView(
-        physics: const AlwaysScrollableScrollPhysics(),
+        physics: AlwaysScrollableScrollPhysics(),
         padding: const EdgeInsets.all(24),
         children: [
           Icon(
@@ -6686,7 +6686,7 @@ class _TorboxDownloadsScreenState extends State<TorboxDownloadsScreen> {
               fontWeight: FontWeight.w600,
             ),
           ),
-          const Spacer(),
+          Spacer(),
           TextButton(
             onPressed: _toggleSelectAll,
             child: Text(_isAllSelected ? 'Deselect All' : 'Select All'),

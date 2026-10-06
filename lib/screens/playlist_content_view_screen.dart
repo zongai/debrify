@@ -1574,11 +1574,11 @@ class _PlaylistContentViewScreenState extends State<PlaylistContentViewScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Icon(Icons.error_outline, size: 48, color: Colors.red),
+              Icon(Icons.error_outline, size: 48, color: Colors.red),
               SizedBox(height: 16),
               Text(
                 _errorMessage!,
-                style: const TextStyle(color: Colors.red),
+                style: TextStyle(color: Colors.red),
                 textAlign: TextAlign.center,
               ),
               SizedBox(height: 16),
@@ -3353,10 +3353,10 @@ class _PlaylistContentViewScreenState extends State<PlaylistContentViewScreen> {
                   ? 'Episode marked as unwatched'
                   : 'Episode marked as watched',
             ),
-            duration: const Duration(seconds: 2),
+            duration: Duration(seconds: 2),
             backgroundColor: isCurrentlyFinished
-                ? const Color(0xFF6366F1)
-                : const Color(0xFF4CAF50),
+                ? Color(0xFF6366F1)
+                : Color(0xFF4CAF50),
           ),
         );
       }

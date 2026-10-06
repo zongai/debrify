@@ -168,7 +168,7 @@ final class _WebDavSyncLoginScreenState extends State<WebDavSyncLoginScreen> {
         padding: EdgeInsets.all(16),
         child: Center(
           child: ConstrainedBox(
-            constraints: const BoxConstraints(maxWidth: 560),
+            constraints: BoxConstraints(maxWidth: 560),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
@@ -189,7 +189,7 @@ final class _WebDavSyncLoginScreenState extends State<WebDavSyncLoginScreen> {
                   SizedBox(height: 16),
                 ] else ...[
                   DropdownButtonFormField<WebDavSyncProviderPreset>(
-                    key: const ValueKey('webdav-sync-provider'),
+                    key: ValueKey('webdav-sync-provider'),
                     initialValue: _provider,
                     decoration: InputDecoration(labelText: 'Provider'),
                     items: [
@@ -242,10 +242,10 @@ final class _WebDavSyncLoginScreenState extends State<WebDavSyncLoginScreen> {
                       style: TextStyle(color: Colors.amber),
                     ),
                   ],
-                  const SizedBox(height: 16),
+                  SizedBox(height: 16),
                 ],
                 TvTextField(
-                  key: const ValueKey('webdav-sync-username'),
+                  key: ValueKey('webdav-sync-username'),
                   controller: _username,
                   enabled: !_connecting,
                   autofocus: true,
@@ -260,7 +260,7 @@ final class _WebDavSyncLoginScreenState extends State<WebDavSyncLoginScreen> {
                 ),
                 SizedBox(height: 16),
                 TvTextField(
-                  key: const ValueKey('webdav-sync-password'),
+                  key: ValueKey('webdav-sync-password'),
                   controller: _password,
                   enabled: !_connecting,
                   obscureText: true,
@@ -278,7 +278,7 @@ final class _WebDavSyncLoginScreenState extends State<WebDavSyncLoginScreen> {
                 ),
                 if (_error case final error?) ...[
                   SizedBox(height: 12),
-                  Text(error, style: const TextStyle(color: Colors.redAccent)),
+                  Text(error, style: TextStyle(color: Colors.redAccent)),
                 ],
                 SizedBox(height: 20),
                 Align(
