@@ -1,6 +1,8 @@
 import '../../theme/app_looks.dart';
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 
 import '../../services/analytics_service.dart';
 import '../../services/storage_service.dart';
@@ -117,8 +119,7 @@ class _AppThemePageState extends State<AppThemePage> {
                           size: 22, color: t.accent2),
                       const SizedBox(width: 10),
                       Expanded(
-                        child: Text(
-                          'App Theme',
+                        child: Text(AppLocalizations.of(context).t('App Theme'),
                           style: TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.w700,
@@ -131,9 +132,7 @@ class _AppThemePageState extends State<AppThemePage> {
                   const SizedBox(height: 6),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 8),
-                    child: Text(
-                      'One look for the whole app — experimental. The video '
-                      'player keeps its own dark theme, so controls stay '
+                    child: Text(AppLocalizations.of(context).t('One look for the whole app — experimental. The video ')'player keeps its own dark theme, so controls stay '
                       'readable over any video.',
                       style: TextStyle(
                         fontSize: 12.5,
@@ -167,7 +166,7 @@ class _AppThemePageState extends State<AppThemePage> {
                           _optionRow(
                             app: app,
                             id: AppThemes.legacyId,
-                            label: 'Debrify Classic',
+                            label: AppLocalizations.of(context).t('Debrify Classic'),
                             subtitle:
                                 'Today\'s Debrify, untouched. Details pages '
                                 'keep their own theme choice.',
@@ -195,9 +194,7 @@ class _AppThemePageState extends State<AppThemePage> {
                   const SizedBox(height: 14),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 8),
-                    child: Text(
-                      'Picking a theme here also sets the Details Theme to '
-                      'match, so movie and series pages agree with the app. '
+                    child: Text(AppLocalizations.of(context).t('Picking a theme here also sets the Details Theme to ')'match, so movie and series pages agree with the app. '
                       'Switching back to Debrify Classic keeps that details '
                       'choice.',
                       style: TextStyle(
@@ -236,9 +233,7 @@ class _AppThemePageState extends State<AppThemePage> {
           Icon(Icons.info_outline_rounded, size: 17, color: t.dim),
           const SizedBox(width: 10),
           Expanded(
-            child: Text(
-              'Your Details Page is set to Classic, which keeps its own look — '
-              'so themes will not apply to movie and series pages. Pick any '
+            child: Text(AppLocalizations.of(context).t('Your Details Page is set to Classic, which keeps its own look — ')'so themes will not apply to movie and series pages. Pick any '
               'other layout under Appearance → Details Page.',
               style: TextStyle(fontSize: 12.5, height: 1.45, color: t.dim),
             ),

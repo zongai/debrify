@@ -288,19 +288,19 @@ class _SimklSettingsPageState extends State<SimklSettingsPage> {
     final t = app.settings;
     if (_loading) {
       return SettingsPageScaffold(
-        title: 'Simkl Settings',
+        title: AppLocalizations.of(context).t('Simkl Settings'),
         body: Center(child: CircularProgressIndicator()),
       );
     }
     if (_loadFailed) {
       return SettingsPageScaffold(
-        title: 'Simkl Settings',
+        title: AppLocalizations.of(context).t('Simkl Settings'),
         body: SettingsLoadError(onRetry: _loadSettings),
       );
     }
 
     return SettingsPageScaffold(
-      title: 'Simkl Settings',
+      title: AppLocalizations.of(context).t('Simkl Settings'),
       body: ListView(
         padding: EdgeInsets.all(16),
         children: [
@@ -312,9 +312,8 @@ class _SimklSettingsPageState extends State<SimklSettingsPage> {
                 children: [
                   SettingsPageHeader(
                     icon: Icons.sync_rounded,
-                    title: 'Simkl Integration',
-                    subtitle:
-                        'Connect your Simkl account to sync watchlists and track what you watch.',
+                    title: AppLocalizations.of(context).t('Simkl Integration'),
+                    subtitle: AppLocalizations.of(context).t('Connect your Simkl account to sync watchlists and track what you watch.'),
                   ),
                   const SizedBox(height: 24),
 
@@ -452,8 +451,7 @@ class _SimklSettingsPageState extends State<SimklSettingsPage> {
           ),
           child: Column(
             children: [
-              Text(
-                'Enter this code:',
+              Text(AppLocalizations.of(context).t('Enter this code:'),
                 style: TextStyle(fontSize: 14, color: t.dim),
               ),
               const SizedBox(height: 8),
@@ -521,8 +519,7 @@ class _SimklSettingsPageState extends State<SimklSettingsPage> {
           ),
         ),
         SizedBox(height: 4),
-        Text(
-          'on your phone or computer',
+        Text(AppLocalizations.of(context).t('on your phone or computer'),
           style: TextStyle(fontSize: 13, color: t.dim),
         ),
         SizedBox(height: 12),

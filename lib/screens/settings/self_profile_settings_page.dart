@@ -281,8 +281,7 @@ class _SelfProfileSettingsPageState extends State<SelfProfileSettingsPage> {
       context: context,
       builder: (dialogContext) => AlertDialog(
         title: Text(AppLocalizations.of(context).t('Remove PIN protection?')),
-        content: Text(
-          'Anyone using this device will be able to open this profile.',
+        content: Text(AppLocalizations.of(context).t('Anyone using this device will be able to open this profile.'),
         ),
         actions: [
           TextButton(
@@ -416,7 +415,7 @@ class _SelfProfileSettingsPageState extends State<SelfProfileSettingsPage> {
   @override
   Widget build(BuildContext context) {
     return SettingsPageScaffold(
-      title: 'Edit your profile',
+      title: AppLocalizations.of(context).t('Edit your profile'),
       body: _loadError != null
           ? Center(child: Text(_loadError!))
           : SingleChildScrollView(
@@ -429,12 +428,12 @@ class _SelfProfileSettingsPageState extends State<SelfProfileSettingsPage> {
                     children: [
                       SettingsPageHeader(
                         icon: Icons.manage_accounts_rounded,
-                        title: 'Your profile',
-                        subtitle: 'Your name, picture and private PIN',
+                        title: AppLocalizations.of(context).t('Your profile'),
+                        subtitle: AppLocalizations.of(context).t('Your name, picture and private PIN'),
                       ),
                       const SizedBox(height: 24),
                       SettingsSection(
-                        title: 'Identity',
+                        title: AppLocalizations.of(context).t('Identity'),
                         children: [
                           _avatarEditor(),
                           Padding(
@@ -454,8 +453,8 @@ class _SelfProfileSettingsPageState extends State<SelfProfileSettingsPage> {
                           SettingsTile(
                             key: const ValueKey('self-profile-save-identity'),
                             icon: Icons.save_rounded,
-                            title: 'Save name and avatar',
-                            subtitle: 'Only this profile is changed',
+                            title: AppLocalizations.of(context).t('Save name and avatar'),
+                            subtitle: AppLocalizations.of(context).t('Only this profile is changed'),
                             enabled: !_busy,
                             onTap: _saveIdentity,
                           ),
@@ -463,7 +462,7 @@ class _SelfProfileSettingsPageState extends State<SelfProfileSettingsPage> {
                       ),
                       const SizedBox(height: 18),
                       SettingsSection(
-                        title: 'PIN protection',
+                        title: AppLocalizations.of(context).t('PIN protection'),
                         children: [
                           Padding(
                             padding: const EdgeInsets.all(16),
@@ -473,7 +472,7 @@ class _SelfProfileSettingsPageState extends State<SelfProfileSettingsPage> {
                                   _pinField(
                                     key: 'self-profile-current-pin',
                                     controller: _currentPin,
-                                    label: 'Current PIN',
+                                    label: AppLocalizations.of(context).t('Current PIN'),
                                   ),
                                   const SizedBox(height: 12),
                                 ],
@@ -488,7 +487,7 @@ class _SelfProfileSettingsPageState extends State<SelfProfileSettingsPage> {
                                 _pinField(
                                   key: 'self-profile-confirm-pin',
                                   controller: _confirmPin,
-                                  label: 'Confirm new PIN',
+                                  label: AppLocalizations.of(context).t('Confirm new PIN'),
                                 ),
                               ],
                             ),
@@ -507,8 +506,8 @@ class _SelfProfileSettingsPageState extends State<SelfProfileSettingsPage> {
                             SettingsTile(
                               key: const ValueKey('self-profile-remove-pin'),
                               icon: Icons.lock_open_rounded,
-                              title: 'Remove PIN',
-                              subtitle: 'Current PIN required',
+                              title: AppLocalizations.of(context).t('Remove PIN'),
+                              subtitle: AppLocalizations.of(context).t('Current PIN required'),
                               destructive: true,
                               enabled: !_busy,
                               onTap: _removePin,
@@ -575,8 +574,7 @@ class _SelfProfileSettingsPageState extends State<SelfProfileSettingsPage> {
                       OutlinedButton.icon(
                         onPressed: _busy ? null : _pickAvatarImage,
                         icon: Icon(Icons.image_outlined, size: 18),
-                        label: Text(
-                          'Choose image or GIF (this device only)',
+                        label: Text(AppLocalizations.of(context).t('Choose image or GIF (this device only)'),
                         ),
                       ),
                     if (pending != null)

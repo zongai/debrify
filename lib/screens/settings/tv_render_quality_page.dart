@@ -115,7 +115,7 @@ class _TvRenderQualityPageState extends State<TvRenderQualityPage> {
     final t = AppThemeScope.of(context).settings;
     if (_loading) {
       return SettingsPageScaffold(
-        title: 'Rendering',
+        title: AppLocalizations.of(context).t('Rendering'),
         body: Center(child: CircularProgressIndicator()),
       );
     }
@@ -123,7 +123,7 @@ class _TvRenderQualityPageState extends State<TvRenderQualityPage> {
     final currently = _currentlyLine;
 
     return SettingsPageScaffold(
-      title: 'Rendering',
+      title: AppLocalizations.of(context).t('Rendering'),
       body: SingleChildScrollView(
         padding: EdgeInsets.all(16),
         child: Center(
@@ -135,7 +135,7 @@ class _TvRenderQualityPageState extends State<TvRenderQualityPage> {
                 SettingsPageHeader(
                   icon: Icons.hd_rounded,
                   title: 'Rendering',
-                  subtitle: 'Trade sharpness for smoother navigation',
+                  subtitle: AppLocalizations.of(context).t('Trade sharpness for smoother navigation'),
                 ),
                 SizedBox(height: 24),
                 Focus(
@@ -151,9 +151,7 @@ class _TvRenderQualityPageState extends State<TvRenderQualityPage> {
                   ),
                 ),
                 SizedBox(height: 14),
-                Text(
-                  'TVs have far weaker graphics than phones, and drawing the '
-                  'whole interface at 4K or 1080p is what makes some of them '
+                Text(AppLocalizations.of(context).t('TVs have far weaker graphics than phones, and drawing the ')'whole interface at 4K or 1080p is what makes some of them '
                   'feel heavy. Drawing at 720p and letting the TV scale the '
                   'picture up costs a lot less per frame, so menus and rows '
                   'move more smoothly — at the price of softer text and art. '

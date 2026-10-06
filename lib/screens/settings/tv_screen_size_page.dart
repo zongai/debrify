@@ -88,13 +88,13 @@ class _TvScreenSizePageState extends State<TvScreenSizePage> {
     final t = AppThemeScope.of(context).settings;
     if (_loading) {
       return SettingsPageScaffold(
-        title: 'Screen Size',
+        title: AppLocalizations.of(context).t('Screen Size'),
         body: Center(child: CircularProgressIndicator()),
       );
     }
 
     return SettingsPageScaffold(
-      title: 'Screen Size',
+      title: AppLocalizations.of(context).t('Screen Size'),
       body: SingleChildScrollView(
         padding: EdgeInsets.all(16),
         child: Center(
@@ -105,8 +105,8 @@ class _TvScreenSizePageState extends State<TvScreenSizePage> {
               children: [
                 SettingsPageHeader(
                   icon: Icons.fit_screen_rounded,
-                  title: 'Screen Size',
-                  subtitle: 'How large Debrify is drawn on this TV',
+                  title: AppLocalizations.of(context).t('Screen Size'),
+                  subtitle: AppLocalizations.of(context).t('How large Debrify is drawn on this TV'),
                 ),
                 const SizedBox(height: 24),
                 Focus(
@@ -122,9 +122,7 @@ class _TvScreenSizePageState extends State<TvScreenSizePage> {
                   ),
                 ),
                 const SizedBox(height: 14),
-                Text(
-                  'TVs report a high pixel density, so the app is drawn large '
-                  'by default. A smaller size fits more on screen without '
+                Text(AppLocalizations.of(context).t('TVs report a high pixel density, so the app is drawn large ')'by default. A smaller size fits more on screen without '
                   'changing any layout. Takes effect the next time Debrify '
                   'starts.',
                   style: TextStyle(

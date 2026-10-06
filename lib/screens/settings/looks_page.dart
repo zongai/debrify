@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 
 import '../../services/analytics_service.dart';
 import '../../theme/app_looks.dart';
@@ -81,7 +83,7 @@ class _LooksPageState extends State<LooksPage> {
     // is a lie the user has no way to detect.
     final active = edits == 0 ? AppLooks.active() : null;
     return SettingsPageScaffold(
-      title: 'Looks',
+      title: AppLocalizations.of(context).t('Looks'),
       body: SingleChildScrollView(
         padding: EdgeInsets.all(16),
         child: Center(
@@ -92,8 +94,8 @@ class _LooksPageState extends State<LooksPage> {
               children: [
                 SettingsPageHeader(
                   icon: Icons.auto_awesome_rounded,
-                  title: 'Looks',
-                  subtitle: 'One pick that dresses the whole app',
+                  title: AppLocalizations.of(context).t('Looks'),
+                  subtitle: AppLocalizations.of(context).t('One pick that dresses the whole app'),
                 ),
                 const SizedBox(height: 18),
                 if (active == null)
@@ -142,7 +144,7 @@ class _LooksPageState extends State<LooksPage> {
                   children: [
                     SettingsTile(
                       icon: Icons.tune_rounded,
-                      title: 'Advanced',
+                      title: AppLocalizations.of(context).t('Advanced'),
                       subtitle: edits == 0
                           ? 'Edit individual tokens — colour, shape, motion'
                           : '$edits ${edits == 1 ? "token" : "tokens"} '
@@ -158,9 +160,7 @@ class _LooksPageState extends State<LooksPage> {
                   ],
                 ),
                 const SizedBox(height: 14),
-                Text(
-                  'A Look sets the app theme, the details page, the launch '
-                  'ident and the TV layouts together, so they agree with each '
+                Text(AppLocalizations.of(context).t('A Look sets the app theme, the details page, the launch ')'ident and the TV layouts together, so they agree with each '
                   'other. It only touches what it names — anything else you '
                   'have set is left alone, and every individual picker is '
                   'still below.',

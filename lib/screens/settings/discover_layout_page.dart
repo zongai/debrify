@@ -2,6 +2,8 @@ import 'widgets/settings_load_error.dart';
 import '../../theme/app_looks.dart';
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 
 import '../../services/analytics_service.dart';
 import '../../services/main_page_bridge.dart';
@@ -132,19 +134,19 @@ class _DiscoverLayoutPageState extends State<DiscoverLayoutPage> {
     final t = AppThemeScope.of(context).settings;
     if (_loading) {
       return SettingsPageScaffold(
-        title: 'Discover Layout',
+        title: AppLocalizations.of(context).t('Discover Layout'),
         body: Center(child: CircularProgressIndicator()),
       );
     }
     if (_loadFailed) {
       return SettingsPageScaffold(
-        title: 'Discover Layout',
+        title: AppLocalizations.of(context).t('Discover Layout'),
         body: SettingsLoadError(onRetry: _load),
       );
     }
 
     return SettingsPageScaffold(
-      title: 'Discover Layout',
+      title: AppLocalizations.of(context).t('Discover Layout'),
       body: SingleChildScrollView(
         padding: EdgeInsets.all(16),
         child: Center(
@@ -155,8 +157,8 @@ class _DiscoverLayoutPageState extends State<DiscoverLayoutPage> {
               children: [
                 SettingsPageHeader(
                   icon: Icons.explore_rounded,
-                  title: 'Discover Layout',
-                  subtitle: 'How the Discover tab browses on this TV',
+                  title: AppLocalizations.of(context).t('Discover Layout'),
+                  subtitle: AppLocalizations.of(context).t('How the Discover tab browses on this TV'),
                 ),
                 const SizedBox(height: 24),
                 Focus(
@@ -172,9 +174,7 @@ class _DiscoverLayoutPageState extends State<DiscoverLayoutPage> {
                   ),
                 ),
                 const SizedBox(height: 14),
-                Text(
-                  'Applies immediately — press Back and switch to the Discover '
-                  'tab to see it. Both layouts keep the same filter line, and '
+                Text(AppLocalizations.of(context).t('Applies immediately — press Back and switch to the Discover ')'tab to see it. Both layouts keep the same filter line, and '
                   'Stage shows the focused title on the whole screen instead '
                   'of in a side rail.',
                   style: TextStyle(fontSize: 12.5, height: 1.45, color: t.dim),

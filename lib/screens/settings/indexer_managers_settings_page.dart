@@ -252,7 +252,7 @@ class _IndexerManagersSettingsPageState
   @override
   Widget build(BuildContext context) {
     return SettingsPageScaffold(
-      title: 'Indexer Managers',
+      title: AppLocalizations.of(context).t('Indexer Managers'),
       actions: [
         IconButton(
           focusNode: _addButtonFocus,
@@ -318,8 +318,7 @@ class _IndexerManagersSettingsPageState
     return SettingsPageHeader(
       icon: Icons.manage_search_rounded,
       title: 'Indexer Managers',
-      subtitle:
-          'Connect public or private indexers through Jackett and Prowlarr. Enabled engines appear in the torrent search source picker.',
+      subtitle: AppLocalizations.of(context).t('Connect public or private indexers through Jackett and Prowlarr. Enabled engines appear in the torrent search source picker.'),
     );
   }
 
@@ -333,15 +332,13 @@ class _IndexerManagersSettingsPageState
           children: [
             Icon(Icons.search_off_rounded, size: 40, color: t.dim2),
             const SizedBox(height: 12),
-            Text(
-              'No indexer managers yet',
+            Text(AppLocalizations.of(context).t('No indexer managers yet'),
               style: Theme.of(
                 context,
               ).textTheme.titleMedium?.copyWith(color: app.core.tx),
             ),
             const SizedBox(height: 8),
-            Text(
-              'Add a reachable Jackett or Prowlarr server to search its indexers directly from Debrify.',
+            Text(AppLocalizations.of(context).t('Add a reachable Jackett or Prowlarr server to search its indexers directly from Debrify.'),
               textAlign: TextAlign.center,
               style: Theme.of(
                 context,

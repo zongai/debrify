@@ -219,8 +219,7 @@ class _ProfileRecoveryScreenState extends State<ProfileRecoveryScreen> {
       context: context,
       builder: (dialogContext) => AlertDialog(
         title: Text(AppLocalizations.of(context).t('Erase private app data?')),
-        content: Text(
-          'This removes profiles, credentials, settings, jobs, and private app data. Completed media files are retained. This cannot be undone.',
+        content: Text(AppLocalizations.of(context).t('This removes profiles, credentials, settings, jobs, and private app data. Completed media files are retained. This cannot be undone.'),
         ),
         actions: [
           TextButton(
@@ -274,8 +273,7 @@ class _ProfileRecoveryScreenState extends State<ProfileRecoveryScreen> {
               children: [
                 Icon(Icons.health_and_safety_outlined, size: 56),
                 SizedBox(height: 20),
-                Text(
-                  'Profile recovery required',
+                Text(AppLocalizations.of(context).t('Profile recovery required'),
                   textAlign: TextAlign.center,
                   style: Theme.of(context).textTheme.headlineSmall,
                 ),

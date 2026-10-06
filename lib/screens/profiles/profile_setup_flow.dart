@@ -791,9 +791,7 @@ class _ProfileSetupFlowState extends State<ProfileSetupFlow> {
           ],
         ),
         const SizedBox(height: 10),
-        Text(
-          'GIFs and photos live in the full editor — living art animates on '
-          'the profile screen.',
+        Text(AppLocalizations.of(context).t('GIFs and photos live in the full editor — living art animates on ')'the profile screen.',
           style: TextStyle(
             fontSize: 11,
             color: Colors.white.withValues(alpha: 0.42),
@@ -806,7 +804,7 @@ class _ProfileSetupFlowState extends State<ProfileSetupFlow> {
             selected: _copyDefaults,
             check: true,
             onActivate: () => setState(() => _copyDefaults = !_copyDefaults),
-            title: 'Start from my settings',
+            title: AppLocalizations.of(context).t('Start from my settings'),
             description:
                 'Copy appearance and player defaults — theme, TV scale, '
                 'subtitle language — from your profile. Off = stock '
@@ -903,7 +901,7 @@ class _ProfileSetupFlowState extends State<ProfileSetupFlow> {
           row: 0,
           selected: !_keywordSearch,
           onActivate: () => setState(() => _keywordSearch = false),
-          title: 'By title, in their catalogs',
+          title: AppLocalizations.of(context).t('By title, in their catalogs'),
           description:
               'Type a name, get the poster — from the sources this profile '
               'has. No release lists.',
@@ -913,7 +911,7 @@ class _ProfileSetupFlowState extends State<ProfileSetupFlow> {
           row: 1,
           selected: _keywordSearch,
           onActivate: () => setState(() => _keywordSearch = true),
-          title: 'Plus keyword search',
+          title: AppLocalizations.of(context).t('Plus keyword search'),
           description:
               'Raw release search across the profile\'s torrent engines, '
               'ugly names and all.',
@@ -1142,16 +1140,16 @@ class _ProfileSetupFlowState extends State<ProfileSetupFlow> {
         _reviewAction(
           row: 0,
           icon: Icons.tune_rounded,
-          title: 'Re-run the questions',
-          subtitle: 'Walk the five steps again with the current answers',
+          title: AppLocalizations.of(context).t('Re-run the questions'),
+          subtitle: AppLocalizations.of(context).t('Walk the five steps again with the current answers'),
           onActivate: () => _go(_QStep.identity),
         ),
         if (_isEdit)
           _reviewAction(
             row: 1,
             icon: Icons.manage_accounts_rounded,
-            title: 'Full editor',
-            subtitle: 'PIN, avatars, shared sources & torrent engines',
+            title: AppLocalizations.of(context).t('Full editor'),
+            subtitle: AppLocalizations.of(context).t('PIN, avatars, shared sources & torrent engines'),
             onActivate: _openFullEditor,
           ),
       ],

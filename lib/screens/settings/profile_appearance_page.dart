@@ -110,7 +110,7 @@ class _ProfileAppearancePageState extends State<ProfileAppearancePage> {
   @override
   Widget build(BuildContext context) {
     return SettingsPageScaffold(
-      title: 'Profile Appearance',
+      title: AppLocalizations.of(context).t('Profile Appearance'),
       body: _loading
           ? const Center(child: CircularProgressIndicator())
           : SingleChildScrollView(
@@ -125,9 +125,8 @@ class _ProfileAppearancePageState extends State<ProfileAppearancePage> {
                     children: [
                       SettingsPageHeader(
                         icon: Icons.switch_account_rounded,
-                        title: 'Profile picker',
-                        subtitle:
-                            'How Debrify welcomes everyone on this device',
+                        title: AppLocalizations.of(context).t('Profile picker'),
+                        subtitle: AppLocalizations.of(context).t('How Debrify welcomes everyone on this device'),
                       ),
                       const SizedBox(height: 24),
                       Focus(
@@ -135,7 +134,7 @@ class _ProfileAppearancePageState extends State<ProfileAppearancePage> {
                         canRequestFocus: false,
                         skipTraversal: true,
                         child: SettingsSection(
-                          title: 'Layout',
+                          title: AppLocalizations.of(context).t('Layout'),
                           children: [
                             for (final option in ProfileGateStyle.options)
                               SettingsTile(
@@ -158,13 +157,12 @@ class _ProfileAppearancePageState extends State<ProfileAppearancePage> {
                       if (PlatformUtil.isTvOS && _mayManageTopShelf) ...[
                         const SizedBox(height: 18),
                         SettingsSection(
-                          title: 'Apple TV',
+                          title: AppLocalizations.of(context).t('Apple TV'),
                           children: [
                             SettingsToggleTile(
                               icon: Icons.tv_rounded,
-                              title: 'Personalized Top Shelf',
-                              subtitle:
-                                  'Show the unlocked active profile on the Apple TV Home Screen',
+                              title: AppLocalizations.of(context).t('Personalized Top Shelf'),
+                              subtitle: AppLocalizations.of(context).t('Show the unlocked active profile on the Apple TV Home Screen'),
                               value: _topShelfEnabled,
                               onChanged: _setTopShelf,
                               subtitleMaxLines: 2,

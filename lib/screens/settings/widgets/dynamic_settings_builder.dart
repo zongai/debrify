@@ -225,16 +225,14 @@ class _DynamicSettingsBuilderState extends State<DynamicSettingsBuilder> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  'No Search Engines Configured',
+                Text(AppLocalizations.of(context).t('No Search Engines Configured'),
                   style: Theme.of(context).textTheme.titleMedium?.copyWith(
                     fontWeight: FontWeight.w600,
                     color: t.dim,
                   ),
                 ),
                 const SizedBox(height: 4),
-                Text(
-                  'Search engine configurations will appear here once loaded.',
+                Text(AppLocalizations.of(context).t('Search engine configurations will appear here once loaded.'),
                   style: Theme.of(
                     context,
                   ).textTheme.bodySmall?.copyWith(color: t.dim),
@@ -495,8 +493,7 @@ class _DynamicSettingsBuilderState extends State<DynamicSettingsBuilder> {
                       ),
                     ),
                     const SizedBox(height: 2),
-                    Text(
-                      'Select how many results to fetch',
+                    Text(AppLocalizations.of(context).t('Select how many results to fetch'),
                       style: Theme.of(
                         context,
                       ).textTheme.bodySmall?.copyWith(color: t.dim),
@@ -797,15 +794,13 @@ class DynamicTvSettingsBuilderState extends State<DynamicTvSettingsBuilder> {
 
           // Per-engine TV settings
           if (_tvEnabledEngines.isNotEmpty) ...[
-            Text(
-              'Engine TV Mode Settings',
+            Text(AppLocalizations.of(context).t('Engine TV Mode Settings'),
               style: Theme.of(
                 context,
               ).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 8),
-            Text(
-              'Configure TV mode limits for each search engine',
+            Text(AppLocalizations.of(context).t('Configure TV mode limits for each search engine'),
               style: Theme.of(
                 context,
               ).textTheme.bodyMedium?.copyWith(color: t.dim),
@@ -848,13 +843,11 @@ class DynamicTvSettingsBuilderState extends State<DynamicTvSettingsBuilder> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                        'Global TV Mode Settings',
+                      Text(AppLocalizations.of(context).t('Global TV Mode Settings'),
                         style: Theme.of(context).textTheme.titleMedium
                             ?.copyWith(fontWeight: FontWeight.bold),
                       ),
-                      Text(
-                        'Settings that apply to all TV mode searches',
+                      Text(AppLocalizations.of(context).t('Settings that apply to all TV mode searches'),
                         style: Theme.of(
                           context,
                         ).textTheme.bodySmall?.copyWith(color: t.dim),
@@ -869,8 +862,8 @@ class DynamicTvSettingsBuilderState extends State<DynamicTvSettingsBuilder> {
 
             // Keyword Threshold
             _buildGlobalSliderSetting(
-              label: 'Keyword Threshold',
-              subtitle: 'Below this: fetch more per keyword. Above: fetch less',
+              label: AppLocalizations.of(context).t('Keyword Threshold'),
+              subtitle: AppLocalizations.of(context).t('Below this: fetch more per keyword. Above: fetch less'),
               value: _keywordThreshold,
               min: 1,
               max: 50,
@@ -888,8 +881,8 @@ class DynamicTvSettingsBuilderState extends State<DynamicTvSettingsBuilder> {
 
             // Batch Size
             _buildGlobalSliderSetting(
-              label: 'Batch Size',
-              subtitle: 'Number of keywords to process per batch',
+              label: AppLocalizations.of(context).t('Batch Size'),
+              subtitle: AppLocalizations.of(context).t('Number of keywords to process per batch'),
               value: _batchSize,
               min: 1,
               max: 10,
@@ -907,8 +900,8 @@ class DynamicTvSettingsBuilderState extends State<DynamicTvSettingsBuilder> {
 
             // Min Torrents Per Keyword
             _buildGlobalSliderSetting(
-              label: 'Min Torrents Per Keyword',
-              subtitle: 'Skip keywords with fewer results than this',
+              label: AppLocalizations.of(context).t('Min Torrents Per Keyword'),
+              subtitle: AppLocalizations.of(context).t('Skip keywords with fewer results than this'),
               value: _minTorrentsPerKeyword,
               min: 1,
               max: 50,
@@ -926,8 +919,8 @@ class DynamicTvSettingsBuilderState extends State<DynamicTvSettingsBuilder> {
 
             // Max Keywords (Quick Play)
             _buildGlobalSliderSetting(
-              label: 'Max Keywords (Quick Play)',
-              subtitle: 'Maximum keywords allowed for quick play mode',
+              label: AppLocalizations.of(context).t('Max Keywords (Quick Play)'),
+              subtitle: AppLocalizations.of(context).t('Maximum keywords allowed for quick play mode'),
               value: _maxKeywords,
               min: 1,
               max: 20,
@@ -945,8 +938,8 @@ class DynamicTvSettingsBuilderState extends State<DynamicTvSettingsBuilder> {
 
             // Avoid NSFW
             _buildGlobalToggleSetting(
-              label: 'Avoid NSFW Content',
-              subtitle: 'Filter out adult content from results',
+              label: AppLocalizations.of(context).t('Avoid NSFW Content'),
+              subtitle: AppLocalizations.of(context).t('Filter out adult content from results'),
               value: _avoidNsfw,
               icon: Icons.shield_rounded,
               onChanged: (value) async {
@@ -962,9 +955,8 @@ class DynamicTvSettingsBuilderState extends State<DynamicTvSettingsBuilder> {
 
             // Background torrent prefetch
             _buildGlobalToggleSetting(
-              label: 'Prepare Torrents in Background',
-              subtitle:
-                  'Add upcoming Real-Debrid and AllDebrid torrents for faster playback',
+              label: AppLocalizations.of(context).t('Prepare Torrents in Background'),
+              subtitle: AppLocalizations.of(context).t('Add upcoming Real-Debrid and AllDebrid torrents for faster playback'),
               value: _backgroundPrefetchEnabled,
               icon: Icons.cloud_sync_rounded,
               onChanged: (value) async {
@@ -1209,8 +1201,8 @@ class DynamicTvSettingsBuilderState extends State<DynamicTvSettingsBuilder> {
               // Small Channel Limit
               _buildEngineLimitSetting(
                 engineId: engineId,
-                label: 'Small Channel Limit',
-                subtitle: 'Max results for small channel mode',
+                label: AppLocalizations.of(context).t('Small Channel Limit'),
+                subtitle: AppLocalizations.of(context).t('Max results for small channel mode'),
                 settingKey: 'small_channel',
                 currentValue:
                     _smallChannelMax[engineId] ??
@@ -1230,8 +1222,8 @@ class DynamicTvSettingsBuilderState extends State<DynamicTvSettingsBuilder> {
               // Large Channel Limit
               _buildEngineLimitSetting(
                 engineId: engineId,
-                label: 'Large Channel Limit',
-                subtitle: 'Max results for large channel mode',
+                label: AppLocalizations.of(context).t('Large Channel Limit'),
+                subtitle: AppLocalizations.of(context).t('Max results for large channel mode'),
                 settingKey: 'large_channel',
                 currentValue:
                     _largeChannelMax[engineId] ??
@@ -1251,8 +1243,8 @@ class DynamicTvSettingsBuilderState extends State<DynamicTvSettingsBuilder> {
               // Quick Play Limit
               _buildEngineLimitSetting(
                 engineId: engineId,
-                label: 'Quick Play Limit',
-                subtitle: 'Max results for quick play mode',
+                label: AppLocalizations.of(context).t('Quick Play Limit'),
+                subtitle: AppLocalizations.of(context).t('Max results for quick play mode'),
                 settingKey: 'quick_play',
                 currentValue:
                     _quickPlayMax[engineId] ?? tvMode.quickPlay.maxResults,
@@ -1353,16 +1345,14 @@ class DynamicTvSettingsBuilderState extends State<DynamicTvSettingsBuilder> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  'No TV Mode Engines',
+                Text(AppLocalizations.of(context).t('No TV Mode Engines'),
                   style: Theme.of(context).textTheme.titleMedium?.copyWith(
                     fontWeight: FontWeight.w600,
                     color: t.dim,
                   ),
                 ),
                 const SizedBox(height: 4),
-                Text(
-                  'No search engines with TV mode configuration found.',
+                Text(AppLocalizations.of(context).t('No search engines with TV mode configuration found.'),
                   style: Theme.of(
                     context,
                   ).textTheme.bodySmall?.copyWith(color: t.dim),

@@ -76,8 +76,7 @@ class _TrackingSettingsPageState extends State<TrackingSettingsPage> {
     if (fellBack || values[6] as bool) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text(
-            'Your selected progress tracker is disconnected. Using Smart.',
+          content: Text(AppLocalizations.of(context).t('Your selected progress tracker is disconnected. Using Smart.'),
           ),
         ),
       );
@@ -144,7 +143,7 @@ class _TrackingSettingsPageState extends State<TrackingSettingsPage> {
   }
 
   Widget _scrobbleSection() => SettingsSection(
-    title: 'Scrobble',
+    title: AppLocalizations.of(context).t('Scrobble'),
     blurb:
         'Which services record what you watch. Debrify always keeps its own progress.',
     children: [
@@ -172,7 +171,7 @@ class _TrackingSettingsPageState extends State<TrackingSettingsPage> {
   );
 
   Widget _progressSection() => SettingsSection(
-    title: 'Progress source',
+    title: AppLocalizations.of(context).t('Progress source'),
     blurb:
         'Controls resume, Continue Watching progress, and the bars and ✓ ticks '
         'in episode lists. Which rows appear on Home stays yours to choose in '
@@ -227,7 +226,7 @@ class _TrackingSettingsPageState extends State<TrackingSettingsPage> {
   );
 
   Widget _ticksSection() => SettingsSection(
-    title: 'Watched ticks',
+    title: AppLocalizations.of(context).t('Watched ticks'),
     blurb:
         'Which histories draw the ✓ on posters — Home, Search, Discover and '
         'detail pages. Episode lists follow your Progress source instead.',
@@ -252,7 +251,7 @@ class _TrackingSettingsPageState extends State<TrackingSettingsPage> {
   );
 
   Widget _hideWatchedSection() => SettingsSection(
-    title: 'Hide watched',
+    title: AppLocalizations.of(context).t('Hide watched'),
     blurb:
         'Remove finished movies and shows from Home rows, Search, Discover '
         'and See All. Uses the same histories as the ✓ ticks above. Continue '

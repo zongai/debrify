@@ -247,8 +247,7 @@ class _RealDebridSettingsPageState extends State<RealDebridSettingsPage> {
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  'This will hide the Real Debrid tab from navigation.',
+                Text(AppLocalizations.of(context).t('This will hide the Real Debrid tab from navigation.'),
                   style: TextStyle(fontWeight: FontWeight.w500),
                 ),
                 SizedBox(height: 12),
@@ -299,8 +298,7 @@ class _RealDebridSettingsPageState extends State<RealDebridSettingsPage> {
         builder: (context) => AlertDialog(
           title: Text(AppLocalizations.of(context).t('Security Restriction')),
           content: SingleChildScrollView(
-            child: Text(
-              'To show Real Debrid in navigation again, you must logout and login. This is a security measure to prevent unauthorized changes.',
+            child: Text(AppLocalizations.of(context).t('To show Real Debrid in navigation again, you must logout and login. This is a security measure to prevent unauthorized changes.'),
               style: Theme.of(context).textTheme.bodyMedium,
             ),
           ),
@@ -324,12 +322,12 @@ class _RealDebridSettingsPageState extends State<RealDebridSettingsPage> {
     final t = AppThemeScope.of(context).settings;
     if (_loading) {
       return SettingsPageScaffold(
-        title: 'Real Debrid Settings',
+        title: AppLocalizations.of(context).t('Real Debrid Settings'),
         body: Center(child: CircularProgressIndicator()),
       );
     }
     return SettingsPageScaffold(
-      title: 'Real Debrid Settings',
+      title: AppLocalizations.of(context).t('Real Debrid Settings'),
       body: FocusTraversalGroup(
         policy: OrderedTraversalPolicy(),
         child: Center(
@@ -347,8 +345,7 @@ class _RealDebridSettingsPageState extends State<RealDebridSettingsPage> {
                       value: _integrationEnabled,
                       onChanged: (value) => _updateIntegrationEnabled(value),
                       title: Text(AppLocalizations.of(context).t('Enable Real Debrid')),
-                      subtitle: const Text(
-                        'Turn this off to hide Real Debrid options across the app.',
+                      subtitle: Text(AppLocalizations.of(context).t('Turn this off to hide Real Debrid options across the app.'),
                       ),
                       contentPadding: const EdgeInsets.symmetric(
                         horizontal: 20,
@@ -381,8 +378,7 @@ class _RealDebridSettingsPageState extends State<RealDebridSettingsPage> {
                                     onChanged: _savedApiKey != null
                                         ? _toggleHideFromNav
                                         : null,
-                                    title: const Text(
-                                      'Hide from Navigation',
+                                    title: Text(AppLocalizations.of(context).t('Hide from Navigation'),
                                       style: TextStyle(
                                         fontWeight: FontWeight.w500,
                                       ),
@@ -434,8 +430,7 @@ class _RealDebridSettingsPageState extends State<RealDebridSettingsPage> {
                                         size: 20,
                                       ),
                                       const SizedBox(width: 8),
-                                      Text(
-                                        'API Key',
+                                      Text(AppLocalizations.of(context).t('API Key'),
                                         style: Theme.of(context)
                                             .textTheme
                                             .titleMedium
@@ -472,8 +467,7 @@ class _RealDebridSettingsPageState extends State<RealDebridSettingsPage> {
                                                 size: 14,
                                               ),
                                               const SizedBox(width: 4),
-                                              Text(
-                                                'Connected',
+                                              Text(AppLocalizations.of(context).t('Connected'),
                                                 style: TextStyle(
                                                   color: t.success,
                                                   fontSize: 12,
@@ -659,8 +653,7 @@ class _RealDebridSettingsPageState extends State<RealDebridSettingsPage> {
                                           size: 20,
                                         ),
                                         const SizedBox(width: 8),
-                                        Text(
-                                          'Account Information',
+                                        Text(AppLocalizations.of(context).t('Account Information'),
                                           style: Theme.of(context)
                                               .textTheme
                                               .titleMedium
@@ -694,8 +687,7 @@ class _RealDebridSettingsPageState extends State<RealDebridSettingsPage> {
                                         size: 20,
                                       ),
                                       const SizedBox(width: 8),
-                                      Text(
-                                        'Real Debrid File Selection',
+                                      Text(AppLocalizations.of(context).t('Real Debrid File Selection'),
                                         style: Theme.of(context)
                                             .textTheme
                                             .titleMedium
@@ -706,8 +698,7 @@ class _RealDebridSettingsPageState extends State<RealDebridSettingsPage> {
                                     ],
                                   ),
                                   const SizedBox(height: 8),
-                                  Text(
-                                    'Choose how Real Debrid handles file selection when adding torrents',
+                                  Text(AppLocalizations.of(context).t('Choose how Real Debrid handles file selection when adding torrents'),
                                     style: Theme.of(context).textTheme.bodySmall
                                         ?.copyWith(color: t.dim),
                                   ),
@@ -757,8 +748,7 @@ class _RealDebridSettingsPageState extends State<RealDebridSettingsPage> {
                                         size: 20,
                                       ),
                                       const SizedBox(width: 8),
-                                      Text(
-                                        'Post-Torrent Action',
+                                      Text(AppLocalizations.of(context).t('Post-Torrent Action'),
                                         style: Theme.of(context)
                                             .textTheme
                                             .titleMedium
@@ -769,8 +759,7 @@ class _RealDebridSettingsPageState extends State<RealDebridSettingsPage> {
                                     ],
                                   ),
                                   const SizedBox(height: 8),
-                                  Text(
-                                    'Choose what happens after adding a torrent to Real Debrid',
+                                  Text(AppLocalizations.of(context).t('Choose what happens after adding a torrent to Real Debrid'),
                                     style: Theme.of(context).textTheme.bodySmall
                                         ?.copyWith(color: t.dim),
                                   ),
@@ -835,8 +824,7 @@ class _RealDebridSettingsPageState extends State<RealDebridSettingsPage> {
                                         size: 20,
                                       ),
                                       const SizedBox(width: 8),
-                                      Text(
-                                        'Content Filter Bypass',
+                                      Text(AppLocalizations.of(context).t('Content Filter Bypass'),
                                         style: Theme.of(context)
                                             .textTheme
                                             .titleMedium
@@ -847,9 +835,7 @@ class _RealDebridSettingsPageState extends State<RealDebridSettingsPage> {
                                     ],
                                   ),
                                   const SizedBox(height: 8),
-                                  Text(
-                                    'Real-Debrid blocks torrents with certain filename patterns (WEB-DL, WEBRip, BDRip, HDRip, etc.). '
-                                    'When enabled, Quick Play will skip torrents likely to be blocked, '
+                                  Text(AppLocalizations.of(context).t('Real-Debrid blocks torrents with certain filename patterns (WEB-DL, WEBRip, BDRip, HDRip, etc.). ')'When enabled, Quick Play will skip torrents likely to be blocked, '
                                     'trying only ones that should work.',
                                     style: Theme.of(context).textTheme.bodySmall
                                         ?.copyWith(color: t.dim),
@@ -859,11 +845,9 @@ class _RealDebridSettingsPageState extends State<RealDebridSettingsPage> {
                                     fill: true,
                                     radius: 12,
                                     child: SwitchListTile(
-                                      title: const Text(
-                                        'Skip blocked torrents',
+                                      title: Text(AppLocalizations.of(context).t('Skip blocked torrents'),
                                       ),
-                                      subtitle: const Text(
-                                        'Filter out WEB-DL, WEBRip, BDRip, HDRip, DVDRip and similar tags during Quick Play',
+                                      subtitle: Text(AppLocalizations.of(context).t('Filter out WEB-DL, WEBRip, BDRip, HDRip, DVDRip and similar tags during Quick Play'),
                                       ),
                                       value: _skipBlockedTorrents,
                                       onChanged: (v) async {
@@ -896,8 +880,7 @@ class _RealDebridSettingsPageState extends State<RealDebridSettingsPage> {
                                         size: 20,
                                       ),
                                       const SizedBox(width: 8),
-                                      Text(
-                                        'How to get your API key',
+                                      Text(AppLocalizations.of(context).t('How to get your API key'),
                                         style: Theme.of(context)
                                             .textTheme
                                             .titleMedium

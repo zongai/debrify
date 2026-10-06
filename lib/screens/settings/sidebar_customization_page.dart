@@ -191,9 +191,7 @@ class _SidebarCustomizationPageState extends State<SidebarCustomizationPage> {
       context: context,
       builder: (dialogContext) => AlertDialog(
         title: Text(AppLocalizations.of(context).t('Reset sidebar?')),
-        content: Text(
-          'This restores the original order and every default name on both '
-          'TV and desktop.',
+        content: Text(AppLocalizations.of(context).t('This restores the original order and every default name on both ')'TV and desktop.',
         ),
         actions: [
           TextButton(
@@ -281,13 +279,13 @@ class _SidebarCustomizationPageState extends State<SidebarCustomizationPage> {
   Widget build(BuildContext context) {
     if (_loading) {
       return SettingsPageScaffold(
-        title: 'Sidebar Items',
+        title: AppLocalizations.of(context).t('Sidebar Items'),
         body: Center(child: CircularProgressIndicator()),
       );
     }
     final t = AppThemeScope.of(context).settings;
     return SettingsPageScaffold(
-      title: 'Sidebar Items',
+      title: AppLocalizations.of(context).t('Sidebar Items'),
       bottomNavigationBar: SafeArea(
         top: false,
         child: Padding(
@@ -332,9 +330,8 @@ class _SidebarCustomizationPageState extends State<SidebarCustomizationPage> {
                   padding: EdgeInsets.fromLTRB(16, 12, 16, 0),
                   child: SettingsPageHeader(
                     icon: Icons.low_priority_rounded,
-                    title: 'Make the sidebar yours',
-                    subtitle:
-                        'Order and names are shared by TV and desktop for '
+                    title: AppLocalizations.of(context).t('Make the sidebar yours'),
+                    subtitle: AppLocalizations.of(context).t('Order and names are shared by TV and desktop for ')
                         'this profile. Availability still follows connections '
                         'and profile access.',
                   ),
@@ -484,12 +481,12 @@ class _SidebarCustomizationPageState extends State<SidebarCustomizationPage> {
                                           ),
                                           if (picked)
                                             _StatusBadge(
-                                              label: 'MOVING',
+                                              label: AppLocalizations.of(context).t('MOVING'),
                                               color: t.accent2,
                                             )
                                           else if (customized)
                                             _StatusBadge(
-                                              label: 'RENAMED',
+                                              label: AppLocalizations.of(context).t('RENAMED'),
                                               color: t.accent2,
                                             ),
                                           const SizedBox(width: 8),

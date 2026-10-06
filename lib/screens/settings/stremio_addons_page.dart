@@ -227,29 +227,29 @@ class _StremioAddonsPageContentState extends State<StremioAddonsPageContent> {
           children: [
             _ImportResultRow(
               icon: Icons.inventory_2_outlined,
-              label: 'Found',
+              label: AppLocalizations.of(context).t('Found'),
               value: '${result.discovered}',
             ),
             _ImportResultRow(
               icon: Icons.check_circle_outline,
-              label: 'Imported',
+              label: AppLocalizations.of(context).t('Imported'),
               value: '${result.imported}',
             ),
             _ImportResultRow(
               icon: Icons.copy_all_outlined,
-              label: 'Already installed',
+              label: AppLocalizations.of(context).t('Already installed'),
               value: '${result.skippedDuplicates}',
             ),
             if (result.skippedUnsupported > 0)
               _ImportResultRow(
                 icon: Icons.block_outlined,
-                label: 'Unsupported',
+                label: AppLocalizations.of(context).t('Unsupported'),
                 value: '${result.skippedUnsupported}',
               ),
             if (result.failed > 0)
               _ImportResultRow(
                 icon: Icons.error_outline,
-                label: 'Failed',
+                label: AppLocalizations.of(context).t('Failed'),
                 value: '${result.failed}',
                 color: theme.colorScheme.error,
               ),
@@ -499,33 +499,32 @@ class _StremioAddonsPageContentState extends State<StremioAddonsPageContent> {
                 Text(addon.description!),
                 SizedBox(height: 16),
               ],
-              _DetailRow(label: 'ID', value: addon.id),
+              _DetailRow(label: AppLocalizations.of(context).t('ID'), value: addon.id),
               if (addon.version != null)
-                _DetailRow(label: 'Version', value: addon.version!),
+                _DetailRow(label: AppLocalizations.of(context).t('Version'), value: addon.version!),
               _DetailRow(
-                label: 'Types',
+                label: AppLocalizations.of(context).t('Types'),
                 value: addon.types.isEmpty ? 'None' : addon.types.join(', '),
               ),
               _DetailRow(
-                label: 'Resources',
+                label: AppLocalizations.of(context).t('Resources'),
                 value: addon.resources.isEmpty
                     ? 'None'
                     : addon.resources.join(', '),
               ),
               if (addon.idPrefixes != null && addon.idPrefixes!.isNotEmpty)
                 _DetailRow(
-                  label: 'ID Prefixes',
+                  label: AppLocalizations.of(context).t('ID Prefixes'),
                   value: addon.idPrefixes!.join(', '),
                 ),
-              _DetailRow(label: 'Added', value: _formatDate(addon.addedAt)),
+              _DetailRow(label: AppLocalizations.of(context).t('Added'), value: _formatDate(addon.addedAt)),
               if (addon.lastChecked != null)
                 _DetailRow(
-                  label: 'Last Checked',
+                  label: AppLocalizations.of(context).t('Last Checked'),
                   value: _formatDate(addon.lastChecked!),
                 ),
               SizedBox(height: 16),
-              Text(
-                'Manifest URL:',
+              Text(AppLocalizations.of(context).t('Manifest URL:'),
                 style: TextStyle(fontWeight: FontWeight.bold),
               ),
               SizedBox(height: 4),
@@ -538,8 +537,7 @@ class _StremioAddonsPageContentState extends State<StremioAddonsPageContent> {
                   ),
                 )
               else
-                Text(
-                  'Hidden for this shared profile',
+                Text(AppLocalizations.of(context).t('Hidden for this shared profile'),
                   style: TextStyle(
                     fontSize: 12,
                     color: Theme.of(context).colorScheme.onSurfaceVariant,
@@ -702,16 +700,14 @@ class _StremioAddonsPageContentState extends State<StremioAddonsPageContent> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      'Add Stremio Addon',
+                    Text(AppLocalizations.of(context).t('Add Stremio Addon'),
                       style: theme.textTheme.titleMedium?.copyWith(
                         fontWeight: FontWeight.w700,
                         letterSpacing: -0.2,
                       ),
                     ),
                     const SizedBox(height: 2),
-                    Text(
-                      'Paste a manifest URL to install',
+                    Text(AppLocalizations.of(context).t('Paste a manifest URL to install'),
                       style: TextStyle(
                         color: Colors.white.withValues(alpha: 0.55),
                         fontSize: 12.5,
@@ -920,16 +916,14 @@ class _StremioAddonsPageContentState extends State<StremioAddonsPageContent> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      'Import Stremio export',
+                    Text(AppLocalizations.of(context).t('Import Stremio export'),
                       style: theme.textTheme.titleSmall?.copyWith(
                         fontWeight: FontWeight.w700,
                         letterSpacing: -0.1,
                       ),
                     ),
                     const SizedBox(height: 3),
-                    Text(
-                      'Bulk-import from a Stremio JSON export, or clear all installed addons.',
+                    Text(AppLocalizations.of(context).t('Bulk-import from a Stremio JSON export, or clear all installed addons.'),
                       style: TextStyle(
                         color: Colors.white.withValues(alpha: 0.55),
                         fontSize: 12,
@@ -1124,8 +1118,7 @@ class _StremioAddonsPageContentState extends State<StremioAddonsPageContent> {
                   color: theme.colorScheme.error,
                 ),
                 SizedBox(height: 12),
-                Text(
-                  'Failed to load addons',
+                Text(AppLocalizations.of(context).t('Failed to load addons'),
                   style: theme.textTheme.titleMedium,
                 ),
                 SizedBox(height: 6),
@@ -1178,8 +1171,7 @@ class _StremioAddonsPageContentState extends State<StremioAddonsPageContent> {
                 ),
               ),
               SizedBox(height: 18),
-              Text(
-                'No addons yet',
+              Text(AppLocalizations.of(context).t('No addons yet'),
                 style: TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.w700,
@@ -1246,8 +1238,7 @@ class _StremioAddonsPageContentState extends State<StremioAddonsPageContent> {
             ),
           ),
           const SizedBox(width: 10),
-          Text(
-            'Your Addons',
+          Text(AppLocalizations.of(context).t('Your Addons'),
             style: theme.textTheme.titleMedium?.copyWith(
               fontWeight: FontWeight.w700,
               letterSpacing: -0.2,
@@ -1562,33 +1553,32 @@ class _StremioAddonsPageState extends State<StremioAddonsPage> {
                 Text(addon.description!),
                 SizedBox(height: 16),
               ],
-              _DetailRow(label: 'ID', value: addon.id),
+              _DetailRow(label: AppLocalizations.of(context).t('ID'), value: addon.id),
               if (addon.version != null)
-                _DetailRow(label: 'Version', value: addon.version!),
+                _DetailRow(label: AppLocalizations.of(context).t('Version'), value: addon.version!),
               _DetailRow(
-                label: 'Types',
+                label: AppLocalizations.of(context).t('Types'),
                 value: addon.types.isEmpty ? 'None' : addon.types.join(', '),
               ),
               _DetailRow(
-                label: 'Resources',
+                label: AppLocalizations.of(context).t('Resources'),
                 value: addon.resources.isEmpty
                     ? 'None'
                     : addon.resources.join(', '),
               ),
               if (addon.idPrefixes != null && addon.idPrefixes!.isNotEmpty)
                 _DetailRow(
-                  label: 'ID Prefixes',
+                  label: AppLocalizations.of(context).t('ID Prefixes'),
                   value: addon.idPrefixes!.join(', '),
                 ),
-              _DetailRow(label: 'Added', value: _formatDate(addon.addedAt)),
+              _DetailRow(label: AppLocalizations.of(context).t('Added'), value: _formatDate(addon.addedAt)),
               if (addon.lastChecked != null)
                 _DetailRow(
-                  label: 'Last Checked',
+                  label: AppLocalizations.of(context).t('Last Checked'),
                   value: _formatDate(addon.lastChecked!),
                 ),
               SizedBox(height: 16),
-              Text(
-                'Manifest URL:',
+              Text(AppLocalizations.of(context).t('Manifest URL:'),
                 style: TextStyle(fontWeight: FontWeight.bold),
               ),
               SizedBox(height: 4),
@@ -1601,8 +1591,7 @@ class _StremioAddonsPageState extends State<StremioAddonsPage> {
                   ),
                 )
               else
-                Text(
-                  'Hidden for this shared profile',
+                Text(AppLocalizations.of(context).t('Hidden for this shared profile'),
                   style: TextStyle(
                     fontSize: 12,
                     color: Theme.of(context).colorScheme.onSurfaceVariant,
@@ -1686,15 +1675,13 @@ class _StremioAddonsPageState extends State<StremioAddonsPage> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            'Add Stremio Addon',
+          Text(AppLocalizations.of(context).t('Add Stremio Addon'),
             style: Theme.of(
               context,
             ).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.bold),
           ),
           SizedBox(height: 8),
-          Text(
-            'Paste the addon manifest URL. Configure the addon on its website first, then paste the personalized URL here.',
+          Text(AppLocalizations.of(context).t('Paste the addon manifest URL. Configure the addon on its website first, then paste the personalized URL here.'),
             style: TextStyle(
               color: Theme.of(context).colorScheme.onSurfaceVariant,
               fontSize: 13,
@@ -1786,8 +1773,7 @@ class _StremioAddonsPageState extends State<StremioAddonsPage> {
                 color: Theme.of(context).colorScheme.error,
               ),
               SizedBox(height: 16),
-              Text(
-                'Failed to load addons',
+              Text(AppLocalizations.of(context).t('Failed to load addons'),
                 style: Theme.of(context).textTheme.titleLarge,
               ),
               SizedBox(height: 8),
@@ -1823,13 +1809,11 @@ class _StremioAddonsPageState extends State<StremioAddonsPage> {
                 color: Theme.of(context).colorScheme.onSurfaceVariant,
               ),
               const SizedBox(height: 16),
-              Text(
-                'No addons configured',
+              Text(AppLocalizations.of(context).t('No addons configured'),
                 style: Theme.of(context).textTheme.titleMedium,
               ),
               const SizedBox(height: 8),
-              Text(
-                'Add a Stremio addon URL above to get started',
+              Text(AppLocalizations.of(context).t('Add a Stremio addon URL above to get started'),
                 style: TextStyle(
                   color: Theme.of(context).colorScheme.onSurfaceVariant,
                 ),
@@ -1852,8 +1836,7 @@ class _StremioAddonsPageState extends State<StremioAddonsPage> {
               children: [
                 Icon(Icons.extension, size: 20, color: const Color(0xFFED1C24)),
                 const SizedBox(width: 8),
-                Text(
-                  'Your Addons',
+                Text(AppLocalizations.of(context).t('Your Addons'),
                   style: Theme.of(context).textTheme.titleMedium?.copyWith(
                     fontWeight: FontWeight.bold,
                   ),
@@ -2350,7 +2333,7 @@ class _AddonOptionsSheetState extends State<_AddonOptionsSheet> {
                 child: _OptionTile(
                   focusNode: _updateFocusNode,
                   icon: Icons.refresh,
-                  label: 'Update',
+                  label: AppLocalizations.of(context).t('Update'),
                   onTap: widget.onUpdate,
                 ),
               ),
@@ -2360,7 +2343,7 @@ class _AddonOptionsSheetState extends State<_AddonOptionsSheet> {
               child: _OptionTile(
                 focusNode: _detailsFocusNode,
                 icon: Icons.info_outline,
-                label: 'View Details',
+                label: AppLocalizations.of(context).t('View Details'),
                 onTap: widget.onDetails,
               ),
             ),
@@ -2370,7 +2353,7 @@ class _AddonOptionsSheetState extends State<_AddonOptionsSheet> {
                 child: _OptionTile(
                   focusNode: _deleteFocusNode,
                   icon: Icons.delete_outline,
-                  label: 'Remove',
+                  label: AppLocalizations.of(context).t('Remove'),
                   isDestructive: true,
                   onTap: widget.onDelete,
                 ),

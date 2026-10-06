@@ -172,23 +172,19 @@ class _PikPakSettingsPageState extends State<PikPakSettingsPage> {
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    'For enhanced security, you can restrict PikPak access to a specific folder.',
+                  Text(AppLocalizations.of(context).t('For enhanced security, you can restrict PikPak access to a specific folder.'),
                     style: TextStyle(fontSize: 14),
                   ),
                   SizedBox(height: 16),
-                  Text(
-                    '• Full Access: Browse all files in your account',
+                  Text(AppLocalizations.of(context).t('• Full Access: Browse all files in your account'),
                     style: TextStyle(fontSize: 13),
                   ),
                   SizedBox(height: 8),
-                  Text(
-                    '• Restricted: Only access files in one folder',
+                  Text(AppLocalizations.of(context).t('• Restricted: Only access files in one folder'),
                     style: TextStyle(fontSize: 13),
                   ),
                   SizedBox(height: 16),
-                  Text(
-                    'Note: You must logout and login again to change this later.',
+                  Text(AppLocalizations.of(context).t('Note: You must logout and login again to change this later.'),
                     style: TextStyle(
                       fontSize: 12,
                       color: Colors.grey,
@@ -314,8 +310,7 @@ class _PikPakSettingsPageState extends State<PikPakSettingsPage> {
         context: context,
         builder: (context) => AlertDialog(
           title: Text(AppLocalizations.of(context).t('Security Restriction')),
-          content: Text(
-            'To change the folder restriction, you must logout and login again. This is a security measure to prevent unauthorized changes.',
+          content: Text(AppLocalizations.of(context).t('To change the folder restriction, you must logout and login again. This is a security measure to prevent unauthorized changes.'),
           ),
           actions: [
             _FocusRing(
@@ -357,8 +352,7 @@ class _PikPakSettingsPageState extends State<PikPakSettingsPage> {
       context: context,
       builder: (context) => AlertDialog(
         title: Text(AppLocalizations.of(context).t('Security Restriction')),
-        content: Text(
-          'To remove the folder restriction, you must logout and login again. This is a security measure to prevent unauthorized changes.',
+        content: Text(AppLocalizations.of(context).t('To remove the folder restriction, you must logout and login again. This is a security measure to prevent unauthorized changes.'),
         ),
         actions: [
           _FocusRing(
@@ -392,8 +386,7 @@ class _PikPakSettingsPageState extends State<PikPakSettingsPage> {
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  'This will hide the PikPak tab from navigation.',
+                Text(AppLocalizations.of(context).t('This will hide the PikPak tab from navigation.'),
                   style: TextStyle(fontWeight: FontWeight.w500),
                 ),
                 SizedBox(height: 12),
@@ -409,8 +402,7 @@ class _PikPakSettingsPageState extends State<PikPakSettingsPage> {
                       Icon(Icons.info_outline, size: 18, color: t.warning),
                       SizedBox(width: 8),
                       Expanded(
-                        child: Text(
-                          'To show PikPak again, you must logout and login. This is a security measure.',
+                        child: Text(AppLocalizations.of(context).t('To show PikPak again, you must logout and login. This is a security measure.'),
                           style: TextStyle(fontSize: 13, color: t.warning),
                         ),
                       ),
@@ -456,8 +448,7 @@ class _PikPakSettingsPageState extends State<PikPakSettingsPage> {
         builder: (context) => AlertDialog(
           title: Text(AppLocalizations.of(context).t('Security Restriction')),
           content: SingleChildScrollView(
-            child: Text(
-              'To show PikPak in navigation again, you must logout and login. This is a security measure to prevent unauthorized changes.',
+            child: Text(AppLocalizations.of(context).t('To show PikPak in navigation again, you must logout and login. This is a security measure to prevent unauthorized changes.'),
               style: Theme.of(context).textTheme.bodyMedium,
             ),
           ),
@@ -492,13 +483,13 @@ class _PikPakSettingsPageState extends State<PikPakSettingsPage> {
     final t = app.settings;
     if (_loading) {
       return SettingsPageScaffold(
-        title: 'PikPak Settings',
+        title: AppLocalizations.of(context).t('PikPak Settings'),
         body: Center(child: CircularProgressIndicator()),
       );
     }
 
     return SettingsPageScaffold(
-      title: 'PikPak Settings',
+      title: AppLocalizations.of(context).t('PikPak Settings'),
       body: FocusTraversalGroup(
         policy: OrderedTraversalPolicy(),
         child: ListView(
@@ -507,8 +498,7 @@ class _PikPakSettingsPageState extends State<PikPakSettingsPage> {
             SettingsPageHeader(
               icon: Icons.cloud_rounded,
               title: 'PikPak Integration',
-              subtitle:
-                  'Send magnet links directly to your PikPak cloud storage.',
+              subtitle: AppLocalizations.of(context).t('Send magnet links directly to your PikPak cloud storage.'),
             ),
             const SizedBox(height: 24),
 
@@ -517,8 +507,7 @@ class _PikPakSettingsPageState extends State<PikPakSettingsPage> {
               child: _FocusRing(
                 child: SwitchListTile(
                   focusNode: _enableToggleFocusNode,
-                  title: const Text(
-                    'Enable PikPak Integration',
+                  title: Text(AppLocalizations.of(context).t('Enable PikPak Integration'),
                     style: TextStyle(fontWeight: FontWeight.w500),
                   ),
                   subtitle: Text(
@@ -571,8 +560,7 @@ class _PikPakSettingsPageState extends State<PikPakSettingsPage> {
                                 onChanged: _isConnected
                                     ? _toggleHideFromNav
                                     : null,
-                                title: const Text(
-                                  'Hide from Navigation',
+                                title: Text(AppLocalizations.of(context).t('Hide from Navigation'),
                                   style: TextStyle(fontWeight: FontWeight.w500),
                                 ),
                                 subtitle: Text(
@@ -609,8 +597,7 @@ class _PikPakSettingsPageState extends State<PikPakSettingsPage> {
                       Card(
                         child: _FocusRing(
                           child: SwitchListTile(
-                            title: const Text(
-                              'Show Only Video Files',
+                            title: Text(AppLocalizations.of(context).t('Show Only Video Files'),
                               style: TextStyle(fontWeight: FontWeight.w500),
                             ),
                             subtitle: Text(
@@ -643,8 +630,7 @@ class _PikPakSettingsPageState extends State<PikPakSettingsPage> {
                       Card(
                         child: _FocusRing(
                           child: SwitchListTile(
-                            title: const Text(
-                              'Ignore Videos Under 100MB',
+                            title: Text(AppLocalizations.of(context).t('Ignore Videos Under 100MB'),
                               style: TextStyle(fontWeight: FontWeight.w500),
                             ),
                             subtitle: Text(
@@ -688,8 +674,7 @@ class _PikPakSettingsPageState extends State<PikPakSettingsPage> {
                                     size: 20,
                                   ),
                                   const SizedBox(width: 8),
-                                  Text(
-                                    'Post-Torrent Action',
+                                  Text(AppLocalizations.of(context).t('Post-Torrent Action'),
                                     style: Theme.of(context)
                                         .textTheme
                                         .titleMedium
@@ -698,8 +683,7 @@ class _PikPakSettingsPageState extends State<PikPakSettingsPage> {
                                 ],
                               ),
                               const SizedBox(height: 8),
-                              Text(
-                                'Choose what happens after adding a torrent to PikPak',
+                              Text(AppLocalizations.of(context).t('Choose what happens after adding a torrent to PikPak'),
                                 style: Theme.of(
                                   context,
                                 ).textTheme.bodySmall?.copyWith(color: t.dim),
@@ -763,8 +747,7 @@ class _PikPakSettingsPageState extends State<PikPakSettingsPage> {
                                     ? t.warning
                                     : null,
                               ),
-                              title: Text(
-                                'Restrict Access to Folder',
+                              title: Text(AppLocalizations.of(context).t('Restrict Access to Folder'),
                                 style: TextStyle(fontWeight: FontWeight.w500),
                               ),
                               subtitle: Text(
@@ -842,8 +825,7 @@ class _PikPakSettingsPageState extends State<PikPakSettingsPage> {
                                         Icons.folder_open,
                                         size: 18,
                                       ),
-                                      label: const Text(
-                                        'Select Folder to Restrict',
+                                      label: Text(AppLocalizations.of(context).t('Select Folder to Restrict'),
                                       ),
                                     ),
                                   ),
@@ -884,8 +866,7 @@ class _PikPakSettingsPageState extends State<PikPakSettingsPage> {
                       const SizedBox(height: 24),
 
                       if (!_isConnected) ...[
-                        const Text(
-                          'PikPak Account',
+                        Text(AppLocalizations.of(context).t('PikPak Account'),
                           style: TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.bold,
@@ -947,8 +928,7 @@ class _PikPakSettingsPageState extends State<PikPakSettingsPage> {
                               if (mounted) {
                                 ScaffoldMessenger.of(context).showSnackBar(
                                   SnackBar(
-                                    content: Text(
-                                      'Device ID cleared. Try logging in again.',
+                                    content: Text(AppLocalizations.of(context).t('Device ID cleared. Try logging in again.'),
                                     ),
                                   ),
                                 );
@@ -979,8 +959,7 @@ class _PikPakSettingsPageState extends State<PikPakSettingsPage> {
                       const Divider(),
                       const SizedBox(height: 16),
 
-                      const Text(
-                        'How It Works',
+                      Text(AppLocalizations.of(context).t('How It Works'),
                         style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
@@ -1000,8 +979,7 @@ class _PikPakSettingsPageState extends State<PikPakSettingsPage> {
                       const Divider(),
                       const SizedBox(height: 16),
 
-                      const Text(
-                        'About PikPak',
+                      Text(AppLocalizations.of(context).t('About PikPak'),
                         style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.bold,

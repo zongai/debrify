@@ -17,8 +17,7 @@ class SettingsLoadError extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Text(
-            'Unable to load settings. Please try again.',
+          Text(AppLocalizations.of(context).t('Unable to load settings. Please try again.'),
             textAlign: TextAlign.center,
           ),
           SizedBox(height: 16),

@@ -124,8 +124,7 @@ class _LinuxVaultScreenState extends State<LinuxVaultScreen> {
                     CheckboxListTile(
                       contentPadding: EdgeInsets.zero,
                       title: Text(AppLocalizations.of(context).t('Unlock automatically on this device')),
-                      subtitle: const Text(
-                        'Stores access to the vault on this device. Your passphrase will no longer protect it.',
+                      subtitle: Text(AppLocalizations.of(context).t('Stores access to the vault on this device. Your passphrase will no longer protect it.'),
                       ),
                       value: _autoUnlock,
                       onChanged: _busy

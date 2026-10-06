@@ -369,7 +369,7 @@ class _RecordingsPageState extends State<RecordingsPage>
           ),
           TextButton(
             onPressed: () => Navigator.of(dialogContext).pop(true),
-            child: Text('Delete', style: TextStyle(color: _kRec)),
+            child: Text(AppLocalizations.of(context).t('Delete'), style: TextStyle(color: _kRec)),
           ),
         ],
       ),
@@ -422,7 +422,7 @@ class _RecordingsPageState extends State<RecordingsPage>
     if (!mounted) return;
     final choice = await showIptvStartupChannelPicker(
       context,
-      title: 'Record which channel?',
+      title: AppLocalizations.of(context).t('Record which channel?'),
     );
     if (choice == null || !mounted) return;
 
@@ -508,11 +508,10 @@ class _RecordingsPageState extends State<RecordingsPage>
     if (result.errorCode == 'exact_alarms_required') {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text(
-            'Allow "Alarms & reminders" for Debrify to schedule recordings',
+          content: Text(AppLocalizations.of(context).t('Allow "Alarms & reminders" for Debrify to schedule recordings'),
           ),
           action: SnackBarAction(
-            label: 'Settings',
+            label: AppLocalizations.of(context).t('Settings'),
             onPressed: () =>
                 unawaited(LiveRecordingService.openExactAlarmSettings()),
           ),
@@ -826,7 +825,7 @@ class _RecordingsPageState extends State<RecordingsPage>
                         ],
                         if (liveCount > 0) ...[
                           _SectionHeader(
-                            label: 'RECORDING NOW',
+                            label: AppLocalizations.of(context).t('RECORDING NOW'),
                             chip: '$liveCount LIVE',
                             chipColor: _kRec,
                           ),
@@ -862,7 +861,7 @@ class _RecordingsPageState extends State<RecordingsPage>
                           const SizedBox(height: 18),
                         ],
                         _SectionHeader(
-                          label: 'SCHEDULED',
+                          label: AppLocalizations.of(context).t('SCHEDULED'),
                           chip: _schedules.isEmpty
                               ? null
                               : '${_schedules.length} UPCOMING',
@@ -894,7 +893,7 @@ class _RecordingsPageState extends State<RecordingsPage>
                             ),
                         const SizedBox(height: 18),
                         _SectionHeader(
-                          label: 'LIBRARY',
+                          label: AppLocalizations.of(context).t('LIBRARY'),
                           chip: _library.isEmpty
                               ? null
                               : '${_library.length} · ${_fmtBytes(totalBytes)}',
@@ -1005,8 +1004,7 @@ class _HubBar extends StatelessWidget {
           SizedBox(width: 10),
           const Icon(Icons.fiber_manual_record_rounded, color: _kRec, size: 16),
           const SizedBox(width: 8),
-          const Text(
-            'Recordings',
+          Text(AppLocalizations.of(context).t('Recordings'),
             style: TextStyle(
               color: Colors.white,
               fontSize: 19,
@@ -1017,7 +1015,7 @@ class _HubBar extends StatelessWidget {
           const Spacer(),
           _HubButton(
             icon: Icons.add_rounded,
-            label: 'Schedule',
+            label: AppLocalizations.of(context).t('Schedule'),
             filled: true,
             onPressed: onSchedule,
             onDown: onScheduleDown,
@@ -1194,7 +1192,7 @@ class _LiveCard extends StatelessWidget {
           const SizedBox(width: 12),
           _HubButton(
             icon: Icons.stop_rounded,
-            label: 'Stop',
+            label: AppLocalizations.of(context).t('Stop'),
             danger: true,
             autofocus: autofocus,
             onPressed: onStop,
@@ -1645,8 +1643,7 @@ class _EmptyDvr extends StatelessWidget {
         ),
         const SizedBox(height: 22),
         const Center(
-          child: Text(
-            'Your DVR is empty',
+          child: Text(AppLocalizations.of(context).t('Your DVR is empty'),
             style: TextStyle(
               color: Colors.white,
               fontSize: 18,
@@ -1675,7 +1672,7 @@ class _EmptyDvr extends StatelessWidget {
         Center(
           child: _HubButton(
             icon: Icons.add_rounded,
-            label: 'Schedule a recording',
+            label: AppLocalizations.of(context).t('Schedule a recording'),
             filled: true,
             autofocus: PlatformUtil.isTelevision,
             onPressed: onSchedule,
@@ -1718,8 +1715,7 @@ class _BatteryBanner extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text(
-                    'A recording stopped early',
+                  Text(AppLocalizations.of(context).t('A recording stopped early'),
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 13,
@@ -1727,9 +1723,7 @@ class _BatteryBanner extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 2),
-                  Text(
-                    'The phone likely put Debrify to sleep mid-capture. Tap '
-                    'to exclude Debrify from battery optimization so long '
+                  Text(AppLocalizations.of(context).t('The phone likely put Debrify to sleep mid-capture. Tap ')'to exclude Debrify from battery optimization so long '
                     'recordings run to the end.',
                     style: TextStyle(
                       color: Colors.white.withValues(alpha: 0.55),
@@ -1821,8 +1815,7 @@ class _AlarmBannerState extends State<_AlarmBanner> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text(
-                      'Exact alarms are off',
+                    Text(AppLocalizations.of(context).t('Exact alarms are off'),
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 13,

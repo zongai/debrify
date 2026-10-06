@@ -529,13 +529,13 @@ class _HomePageSettingsPageState extends State<HomePageSettingsPage> {
   Widget build(BuildContext context) {
     if (_loading) {
       return SettingsPageScaffold(
-        title: 'Home Page Settings',
+        title: AppLocalizations.of(context).t('Home Page Settings'),
         body: Center(child: CircularProgressIndicator()),
       );
     }
 
     return SettingsPageScaffold(
-      title: 'Home Page Settings',
+      title: AppLocalizations.of(context).t('Home Page Settings'),
       body: SingleChildScrollView(
         padding: EdgeInsets.all(16),
         child: Center(
@@ -546,8 +546,8 @@ class _HomePageSettingsPageState extends State<HomePageSettingsPage> {
               children: [
                 SettingsPageHeader(
                   icon: Icons.home_rounded,
-                  title: 'Home Screen',
-                  subtitle: 'Layout, rows, and what shows when the app opens',
+                  title: AppLocalizations.of(context).t('Home Screen'),
+                  subtitle: AppLocalizations.of(context).t('Layout, rows, and what shows when the app opens'),
                 ),
                 SizedBox(height: 24),
 
@@ -579,7 +579,7 @@ class _HomePageSettingsPageState extends State<HomePageSettingsPage> {
                     // SettingsTile (not bare ListTile) so DPAD focus shows.
                     SettingsTile(
                       icon: Icons.dashboard_customize_rounded,
-                      title: 'Home Rows',
+                      title: AppLocalizations.of(context).t('Home Rows'),
                       subtitle: _gatheringHomeRows
                           ? 'Loading your lists…'
                           : 'Choose and arrange what appears on Home',
@@ -594,7 +594,7 @@ class _HomePageSettingsPageState extends State<HomePageSettingsPage> {
                     // in place.
                     SettingsTile(
                       icon: Icons.slideshow_rounded,
-                      title: 'Hero Source',
+                      title: AppLocalizations.of(context).t('Hero Source'),
                       subtitle: _spotlightLayoutActive
                           ? spotlightHeroSourceLabel(_heroSource)
                           : 'Only used by the Spotlight home layout',
@@ -607,12 +607,12 @@ class _HomePageSettingsPageState extends State<HomePageSettingsPage> {
                 SizedBox(height: 16),
                 if (_spotlightLayoutActive) ...[
                   SettingsSection(
-                    title: 'Spotlight Animations',
+                    title: AppLocalizations.of(context).t('Spotlight Animations'),
                     children: [
                       SettingsToggleTile(
                         icon: Icons.ac_unit_rounded,
-                        title: 'Enable animations',
-                        subtitle: 'Animate Home and Spotlight collection backgrounds. '
+                        title: AppLocalizations.of(context).t('Enable animations'),
+                        subtitle: AppLocalizations.of(context).t('Animate Home and Spotlight collection backgrounds. ')
                             'Keep this off on low-end TVs or devices with limited memory, '
                             'as animations may slow down Home.',
                         subtitleMaxLines: 6,
@@ -653,7 +653,7 @@ class _HomePageSettingsPageState extends State<HomePageSettingsPage> {
                   const SizedBox(height: 16),
                 ],
                 SettingsSection(
-                  title: 'Home Cards',
+                  title: AppLocalizations.of(context).t('Home Cards'),
                   children: [
                     if (_spotlightLayoutActive && spotlightUsesRichCards(
                       viewport: MediaQuery.sizeOf(context),
@@ -662,32 +662,30 @@ class _HomePageSettingsPageState extends State<HomePageSettingsPage> {
                     ))
                       SettingsToggleTile(
                         icon: Icons.description_outlined,
-                        title: 'Expand Focused Card',
-                        subtitle: 'Widen the active card and show its description while scrolling, hovering, or using the remote',
+                        title: AppLocalizations.of(context).t('Expand Focused Card'),
+                        subtitle: AppLocalizations.of(context).t('Widen the active card and show its description while scrolling, hovering, or using the remote'),
                         value: _spotlightFocusDetails,
                         onChanged: _setSpotlightFocusDetails,
                       ),
                     SettingsToggleTile(
                       icon: Icons.view_carousel_rounded,
-                      title: 'Landscape Cards',
-                      subtitle:
-                          'Use wide 16:9 artwork instead of portrait posters',
+                      title: AppLocalizations.of(context).t('Landscape Cards'),
+                      subtitle: AppLocalizations.of(context).t('Use wide 16:9 artwork instead of portrait posters'),
                       value:
                           _homeCardOrientation == HomeCardOrientation.landscape,
                       onChanged: _setHomeLandscapeCards,
                     ),
                     SettingsToggleTile(
                       icon: Icons.subtitles_off_rounded,
-                      title: 'Hide Titles and Ratings',
-                      subtitle:
-                          'Remove title and rating text from cards on Home',
+                      title: AppLocalizations.of(context).t('Hide Titles and Ratings'),
+                      subtitle: AppLocalizations.of(context).t('Remove title and rating text from cards on Home'),
                       value: _hideCardTitlesAndRatings,
                       onChanged: _setHideCardTitlesAndRatings,
                     ),
                     SettingsToggleTile(
                       icon: Icons.label_off_rounded,
-                      title: 'Hide Catalog Add-on Names',
-                      subtitle: 'Remove source labels beside Home row headings',
+                      title: AppLocalizations.of(context).t('Hide Catalog Add-on Names'),
+                      subtitle: AppLocalizations.of(context).t('Remove source labels beside Home row headings'),
                       value: _hideCatalogAddonNames,
                       onChanged: _setHideCatalogAddonNames,
                     ),
@@ -735,9 +733,8 @@ class _HomePageSettingsPageState extends State<HomePageSettingsPage> {
                   children: [
                     SettingsToggleTile(
                       icon: Icons.credit_card_off_rounded,
-                      title: 'Hide Provider Cards',
-                      subtitle:
-                          'Hide debrid service status cards on the home screen',
+                      title: AppLocalizations.of(context).t('Hide Provider Cards'),
+                      subtitle: AppLocalizations.of(context).t('Hide debrid service status cards on the home screen'),
                       value: _hideProviderCards,
                       onChanged: (value) => _toggleHideProviderCards(value),
                     ),
@@ -751,9 +748,8 @@ class _HomePageSettingsPageState extends State<HomePageSettingsPage> {
                   children: [
                     SettingsToggleTile(
                       icon: Icons.history_rounded,
-                      title: 'Continue Watching',
-                      subtitle:
-                          'Show and track recently watched items on the home screen',
+                      title: AppLocalizations.of(context).t('Continue Watching'),
+                      subtitle: AppLocalizations.of(context).t('Show and track recently watched items on the home screen'),
                       value: _continueWatchingEnabled,
                       onChanged: (value) async {
                         try {
@@ -776,9 +772,8 @@ class _HomePageSettingsPageState extends State<HomePageSettingsPage> {
                     ),
                     SettingsToggleTile(
                       icon: Icons.touch_app_rounded,
-                      title: 'Hold to Quick Play',
-                      subtitle:
-                          'Play immediately when holding a Continue Watching '
+                      title: AppLocalizations.of(context).t('Hold to Quick Play'),
+                      subtitle: AppLocalizations.of(context).t('Play immediately when holding a Continue Watching ')
                           'card instead of showing the action menu',
                       subtitleMaxLines: 2,
                       value: _holdToQuickPlay,
@@ -803,9 +798,8 @@ class _HomePageSettingsPageState extends State<HomePageSettingsPage> {
                     // only for connected accounts, keeping the section short.
                     if (_continueWatchingEnabled)
                       _mergeCwTile(
-                        title: 'One Continue Watching Row',
-                        subtitle:
-                            'Combine the Movies and Series rows into a '
+                        title: AppLocalizations.of(context).t('One Continue Watching Row'),
+                        subtitle: AppLocalizations.of(context).t('Combine the Movies and Series rows into a ')
                             'single row, newest first',
                         provider: 'local',
                         value: _cwMergeLocal,
@@ -813,9 +807,8 @@ class _HomePageSettingsPageState extends State<HomePageSettingsPage> {
                       ),
                     if (_traktConnected)
                       _mergeCwTile(
-                        title: 'One Trakt Row',
-                        subtitle:
-                            'Combine Trakt Continue Watching Movies and '
+                        title: AppLocalizations.of(context).t('One Trakt Row'),
+                        subtitle: AppLocalizations.of(context).t('Combine Trakt Continue Watching Movies and ')
                             'Shows into a single row',
                         provider: 'trakt',
                         value: _cwMergeTrakt,
@@ -823,9 +816,8 @@ class _HomePageSettingsPageState extends State<HomePageSettingsPage> {
                       ),
                     if (_simklConnected)
                       _mergeCwTile(
-                        title: 'One Simkl Row',
-                        subtitle:
-                            'Combine Simkl Continue Watching Movies and '
+                        title: AppLocalizations.of(context).t('One Simkl Row'),
+                        subtitle: AppLocalizations.of(context).t('Combine Simkl Continue Watching Movies and ')
                             'Shows into a single row',
                         provider: 'simkl',
                         value: _cwMergeSimkl,
@@ -833,9 +825,8 @@ class _HomePageSettingsPageState extends State<HomePageSettingsPage> {
                       ),
                     if (_mdblistConnected)
                       _mergeCwTile(
-                        title: 'One MDBList Row',
-                        subtitle:
-                            'Combine MDBList Continue Watching Movies and '
+                        title: AppLocalizations.of(context).t('One MDBList Row'),
+                        subtitle: AppLocalizations.of(context).t('Combine MDBList Continue Watching Movies and ')
                             'Shows into a single row',
                         provider: 'mdblist',
                         value: _cwMergeMdblist,
@@ -863,7 +854,7 @@ class _HomePageSettingsPageState extends State<HomePageSettingsPage> {
                     // row is where a phone user on cellular turns it off.
                     SettingsToggleTile(
                       icon: Icons.smart_display_rounded,
-                      title: 'Trailer on Home Spotlight',
+                      title: AppLocalizations.of(context).t('Trailer on Home Spotlight'),
                       subtitle: PlatformUtil.isTelevision
                           ? 'When you rest on a title, its trailer plays in '
                                 'the hero at the top of Home and in Discover.'
@@ -893,9 +884,8 @@ class _HomePageSettingsPageState extends State<HomePageSettingsPage> {
                     ),
                     SettingsToggleTile(
                       icon: Icons.movie_filter_rounded,
-                      title: 'Trailer on Detail Page',
-                      subtitle:
-                          'Play a trailer behind the movie/series detail '
+                      title: AppLocalizations.of(context).t('Trailer on Detail Page'),
+                      subtitle: AppLocalizations.of(context).t('Play a trailer behind the movie/series detail ')
                           'page. Falls back to the poster when off or '
                           'unavailable.',
                       subtitleMaxLines: 2,
@@ -921,7 +911,7 @@ class _HomePageSettingsPageState extends State<HomePageSettingsPage> {
                     if (_ambientTrailerEnabled) ...[
                       SettingsToggleTile(
                         icon: Icons.volume_up_rounded,
-                        title: 'Trailer Sound',
+                        title: AppLocalizations.of(context).t('Trailer Sound'),
                         // Name the surface rather than say "the trailer" — the
                         // IPTV guide's live channel preview is a feed, not a
                         // trailer, and deliberately ignores this.
@@ -991,9 +981,8 @@ class _HomePageSettingsPageState extends State<HomePageSettingsPage> {
                     if (PlatformUtil.isTelevision)
                       SettingsToggleTile(
                         icon: Icons.layers_rounded,
-                        title: 'Native Trailer Surface',
-                        subtitle:
-                            'Render trailers on a hardware surface for smoother '
+                        title: AppLocalizations.of(context).t('Native Trailer Surface'),
+                        subtitle: AppLocalizations.of(context).t('Render trailers on a hardware surface for smoother ')
                             'playback. Turn off if trailers glitch. Takes '
                             'effect after restarting the app.',
                         subtitleMaxLines: 3,

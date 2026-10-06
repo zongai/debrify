@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 
 import '../../models/tv_hero_artwork_quality.dart';
 import '../../services/analytics_service.dart';
@@ -91,7 +93,7 @@ class _TvHeroArtworkQualityPageState extends State<TvHeroArtworkQualityPage> {
   Widget build(BuildContext context) {
     final t = AppThemeScope.of(context).settings;
     return SettingsPageScaffold(
-      title: 'Hero Artwork Quality',
+      title: AppLocalizations.of(context).t('Hero Artwork Quality'),
       body: SingleChildScrollView(
         padding: EdgeInsets.all(16),
         child: Center(
@@ -102,9 +104,8 @@ class _TvHeroArtworkQualityPageState extends State<TvHeroArtworkQualityPage> {
               children: [
                 SettingsPageHeader(
                   icon: Icons.photo_size_select_large_rounded,
-                  title: 'Hero Artwork Quality',
-                  subtitle:
-                      'Balance sharper Home artwork against TV memory use',
+                  title: AppLocalizations.of(context).t('Hero Artwork Quality'),
+                  subtitle: AppLocalizations.of(context).t('Balance sharper Home artwork against TV memory use'),
                 ),
                 const SizedBox(height: 24),
                 Focus(
@@ -120,9 +121,7 @@ class _TvHeroArtworkQualityPageState extends State<TvHeroArtworkQualityPage> {
                   ),
                 ),
                 const SizedBox(height: 14),
-                Text(
-                  'The source image is unchanged. This controls the maximum '
-                  'size Debrify decodes into memory for Home hero and stage '
+                Text(AppLocalizations.of(context).t('The source image is unchanged. This controls the maximum ')'size Debrify decodes into memory for Home hero and stage '
                   'artwork. Portrait poster fallbacks are also height-bounded '
                   'to avoid oversized textures. Changes apply immediately.',
                   style: TextStyle(fontSize: 12.5, height: 1.45, color: t.dim),

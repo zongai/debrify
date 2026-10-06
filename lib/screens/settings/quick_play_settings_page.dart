@@ -297,12 +297,12 @@ class _QuickPlaySettingsPageState extends State<QuickPlaySettingsPage> {
   Widget build(BuildContext context) {
     if (_loading) {
       return SettingsPageScaffold(
-        title: 'Quick Play',
+        title: AppLocalizations.of(context).t('Quick Play'),
         body: Center(child: CircularProgressIndicator()),
       );
     }
     return SettingsPageScaffold(
-      title: 'Quick Play',
+      title: AppLocalizations.of(context).t('Quick Play'),
       body: SingleChildScrollView(
         padding: EdgeInsets.fromLTRB(
           PlatformUtil.isTelevision ? 36 : 16,
@@ -318,9 +318,8 @@ class _QuickPlaySettingsPageState extends State<QuickPlaySettingsPage> {
               children: [
                 SettingsPageHeader(
                   icon: Icons.bolt_rounded,
-                  title: 'Quick Play',
-                  subtitle:
-                      'Choose what Debrify plays automatically. Movies and series have separate rules.',
+                  title: AppLocalizations.of(context).t('Quick Play'),
+                  subtitle: AppLocalizations.of(context).t('Choose what Debrify plays automatically. Movies and series have separate rules.'),
                 ),
                 SizedBox(height: 22),
                 _heading(
@@ -331,11 +330,11 @@ class _QuickPlaySettingsPageState extends State<QuickPlaySettingsPage> {
                 const SizedBox(height: 10),
                 _playModeSelect(),
                 const SizedBox(height: 24),
-                SettingsSection(title: 'Sources', children: [
+                SettingsSection(title: AppLocalizations.of(context).t('Sources'), children: [
                   SettingsToggleTile(
                     icon: Icons.image_outlined,
-                    title: 'Show add-on logos',
-                    subtitle: 'Show the provider logo and name beside each source',
+                    title: AppLocalizations.of(context).t('Show add-on logos'),
+                    subtitle: AppLocalizations.of(context).t('Show the provider logo and name beside each source'),
                     value: _addonLogos,
                     onChanged: (value) async {
                       await StorageService.setShowAddonLogos(value);
@@ -345,8 +344,8 @@ class _QuickPlaySettingsPageState extends State<QuickPlaySettingsPage> {
                   ),
                   SettingsToggleTile(
                     icon: Icons.notes_rounded,
-                    title: 'Use add-on text formatting',
-                    subtitle: 'Show original stream names, line breaks and emojis from add-ons such as AIOStreams',
+                    title: AppLocalizations.of(context).t('Use add-on text formatting'),
+                    subtitle: AppLocalizations.of(context).t('Show original stream names, line breaks and emojis from add-ons such as AIOStreams'),
                     value: _addonText,
                     onChanged: (value) async {
                       await StorageService.setUseAddonTextFormatting(value);
@@ -391,9 +390,8 @@ class _QuickPlaySettingsPageState extends State<QuickPlaySettingsPage> {
                 _ActionRow(
                   node: _reset,
                   icon: Icons.restore_rounded,
-                  title: 'Restore defaults',
-                  subtitle:
-                      'Reset Movie and Series rules, switches, and priority order',
+                  title: AppLocalizations.of(context).t('Restore defaults'),
+                  subtitle: AppLocalizations.of(context).t('Reset Movie and Series rules, switches, and priority order'),
                   expanded: false,
                   onTap: _restore,
                 ),
@@ -468,7 +466,7 @@ class _QuickPlaySettingsPageState extends State<QuickPlaySettingsPage> {
               key: const ValueKey('quick-play-tab-movie'),
               node: _movieTab,
               selected: !_series,
-              label: 'Movies',
+              label: AppLocalizations.of(context).t('Movies'),
               onTap: () => setState(() {
                 _series = false;
                 _pickedKey = null;
@@ -480,7 +478,7 @@ class _QuickPlaySettingsPageState extends State<QuickPlaySettingsPage> {
               key: ValueKey('quick-play-tab-series'),
               node: _seriesTab,
               selected: _series,
-              label: 'Series',
+              label: AppLocalizations.of(context).t('Series'),
               onTap: () => setState(() {
                 _series = true;
                 _pickedKey = null;
@@ -498,7 +496,7 @@ class _QuickPlaySettingsPageState extends State<QuickPlaySettingsPage> {
         SettingsToggleTile(
           focusNode: _torrentToggle,
           icon: Icons.download_rounded,
-          title: 'Prefer torrents',
+          title: AppLocalizations.of(context).t('Prefer torrents'),
           subtitle: _preferTorrents
               ? 'Try torrents in Addon Priority order; direct links are the fallback.'
               : 'Follow Addon Priority and each provider’s returned stream order.',
@@ -511,7 +509,7 @@ class _QuickPlaySettingsPageState extends State<QuickPlaySettingsPage> {
           SettingsToggleTile(
             focusNode: _packToggle,
             icon: Icons.inventory_2_rounded,
-            title: 'Prefer season packs',
+            title: AppLocalizations.of(context).t('Prefer season packs'),
             subtitle: _rules.preferSeriesPacks
                 ? 'Grab a whole season when available — later episodes start instantly.'
                 : 'Fetch just the episode; packs are only used when nothing else is found.',
@@ -565,8 +563,7 @@ class _QuickPlaySettingsPageState extends State<QuickPlaySettingsPage> {
     if (_ordered.isEmpty) {
       return _Panel(
         padding: const EdgeInsets.all(16),
-        child: Text(
-          'No torrent engines or streaming addons installed yet — add some from the Addons hub and they will appear here.',
+        child: Text(AppLocalizations.of(context).t('No torrent engines or streaming addons installed yet — add some from the Addons hub and they will appear here.'),
           style: TextStyle(color: t.dim),
         ),
       );
@@ -733,8 +730,7 @@ class _PriorityRowState extends State<_PriorityRow> {
                   if (widget.picked)
                     Padding(
                       padding: const EdgeInsets.only(right: 8),
-                      child: Text(
-                        'Moving…',
+                      child: Text(AppLocalizations.of(context).t('Moving…'),
                         style: TextStyle(
                           color: t.accent2,
                           fontSize: 11.5,

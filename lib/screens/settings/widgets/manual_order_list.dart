@@ -756,8 +756,7 @@ class _ManualOrderRowState extends State<ManualOrderRow> {
                   if (widget.picked)
                     Padding(
                       padding: const EdgeInsets.only(right: 8),
-                      child: Text(
-                        'Moving…',
+                      child: Text(AppLocalizations.of(context).t('Moving…'),
                         style: TextStyle(
                           color: t.accent2,
                           fontSize: 12,
@@ -768,8 +767,7 @@ class _ManualOrderRowState extends State<ManualOrderRow> {
                   if ((dropTarget || widget.placeTarget) && !widget.picked)
                     Padding(
                       padding: const EdgeInsets.only(right: 8),
-                      child: Text(
-                        'Place here',
+                      child: Text(AppLocalizations.of(context).t('Place here'),
                         style: TextStyle(
                           color: t.accent2,
                           fontSize: 12,

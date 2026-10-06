@@ -1383,7 +1383,7 @@ class _IptvSettingsPageState extends State<IptvSettingsPage>
   Future<void> _createListForProfile() async {
     final name = await showIptvListNameDialog(
       context: context,
-      title: 'New list',
+      title: AppLocalizations.of(context).t('New list'),
       confirmLabel: 'Create',
       existingNames: [for (final list in _lists) list.name],
     );
@@ -1400,7 +1400,7 @@ class _IptvSettingsPageState extends State<IptvSettingsPage>
   Future<void> _renameListForProfile(IptvListMeta list) async {
     final name = await showIptvListNameDialog(
       context: context,
-      title: 'Rename list',
+      title: AppLocalizations.of(context).t('Rename list'),
       confirmLabel: 'Save',
       initialValue: list.name,
       existingNames: [for (final entry in _lists) entry.name],
@@ -1535,7 +1535,7 @@ class _IptvSettingsPageState extends State<IptvSettingsPage>
               ),
             ListTile(
               leading: Icon(Icons.delete_outline_rounded, color: t.danger),
-              title: Text('Delete', style: TextStyle(color: t.danger)),
+              title: Text(AppLocalizations.of(context).t('Delete'), style: TextStyle(color: t.danger)),
               subtitle: Text(AppLocalizations.of(context).t('The channels themselves are kept')),
               onTap: () => Navigator.of(context).pop('delete'),
             ),
@@ -1603,8 +1603,7 @@ class _IptvSettingsPageState extends State<IptvSettingsPage>
               Icon(Icons.bookmark_border_rounded, color: t.dim2),
               const SizedBox(width: 12),
               Expanded(
-                child: Text(
-                  'No lists yet — Favorites is always there.',
+                child: Text(AppLocalizations.of(context).t('No lists yet — Favorites is always there.'),
                   style: TextStyle(fontSize: 13, color: t.dim),
                 ),
               ),
@@ -1908,8 +1907,7 @@ class _IptvSettingsPageState extends State<IptvSettingsPage>
           color: t.accent2.withValues(alpha: 0.7),
         ),
         const SizedBox(height: 16),
-        Text(
-          'Select an M3U or M3U8 file from your device',
+        Text(AppLocalizations.of(context).t('Select an M3U or M3U8 file from your device'),
           style: TextStyle(fontSize: 14, color: t.dim),
           textAlign: TextAlign.center,
         ),
@@ -1919,7 +1917,7 @@ class _IptvSettingsPageState extends State<IptvSettingsPage>
           child: _TvFocusableButton(
             focusNode: _importFileButtonFocusNode,
             icon: Icons.file_open,
-            label: 'Browse Files',
+            label: AppLocalizations.of(context).t('Browse Files'),
             onPressed: _importFromFile,
             onUpArrow: () => _focusAndReveal(_fileTabFocusNode),
             onDownArrow:
@@ -2040,7 +2038,7 @@ class _IptvSettingsPageState extends State<IptvSettingsPage>
   Widget build(BuildContext context) {
     if (_loading) {
       return SettingsPageScaffold(
-        title: 'IPTV Playlists',
+        title: AppLocalizations.of(context).t('IPTV Playlists'),
         body: const Center(child: CircularProgressIndicator()),
       );
     }
@@ -2241,8 +2239,7 @@ class _IptvSettingsPageState extends State<IptvSettingsPage>
         SettingsPageHeader(
           icon: Icons.live_tv_rounded,
           title: 'IPTV Playlists',
-          subtitle:
-              'Sources, lists, startup and looks — everything IPTV in one '
+          subtitle: AppLocalizations.of(context).t('Sources, lists, startup and looks — everything IPTV in one ')
               'place.',
         ),
         SizedBox(height: 24),
@@ -2252,7 +2249,7 @@ class _IptvSettingsPageState extends State<IptvSettingsPage>
             SettingsTile(
               focusNode: _hubSourcesFocusNode,
               icon: Icons.playlist_play_rounded,
-              title: 'Sources',
+              title: AppLocalizations.of(context).t('Sources'),
               subtitle: _playlists.isEmpty
                   ? 'None yet — add your first playlist'
                   : '${_playlists.length} '
@@ -2278,21 +2275,21 @@ class _IptvSettingsPageState extends State<IptvSettingsPage>
             SettingsTile(
               icon: Icons.reorder_rounded,
               title: 'Channel order',
-              subtitle: 'Arrange Favorites and saved lists',
+              subtitle: AppLocalizations.of(context).t('Arrange Favorites and saved lists'),
               onTap: _openChannelOrder,
             ),
             if (_categoryOrderSources.isNotEmpty)
               SettingsTile(
                 icon: Icons.swap_vert_rounded,
                 title: 'Category order',
-                subtitle: 'Arrange categories by source',
+                subtitle: AppLocalizations.of(context).t('Arrange categories by source'),
                 onTap: () async =>
                     _enterPhoneSection(_PhoneSection.categoryOrder),
               ),
             if (_hideableSources.isNotEmpty)
               SettingsTile(
                 icon: Icons.visibility_off_rounded,
-                title: 'Hidden categories',
+                title: AppLocalizations.of(context).t('Hidden categories'),
                 subtitle: hiddenTotal == 0
                     ? 'Nothing hidden'
                     : '$hiddenTotal '
@@ -2321,7 +2318,7 @@ class _IptvSettingsPageState extends State<IptvSettingsPage>
             ),
             SettingsTile(
               icon: Icons.history_toggle_off_rounded,
-              title: 'Continue watching',
+              title: AppLocalizations.of(context).t('Continue watching'),
               subtitle: _trackContinueWatching
                   ? 'Tracking movies and series'
                   : 'Off',
@@ -2346,7 +2343,7 @@ class _IptvSettingsPageState extends State<IptvSettingsPage>
             if (_recordingSectionVisible)
               SettingsTile(
                 icon: Icons.fiber_manual_record_rounded,
-                title: 'Recording',
+                title: AppLocalizations.of(context).t('Recording'),
                 subtitle: !_engineToggleVisible
                     ? (_scheduledCount == 0
                           ? 'Recordings'
@@ -2445,8 +2442,7 @@ class _IptvSettingsPageState extends State<IptvSettingsPage>
 
         // Playlists list
         SettingsSectionLabel('Your Playlists'),
-        Text(
-          'Tap the star to set a default playlist.',
+        Text(AppLocalizations.of(context).t('Tap the star to set a default playlist.'),
           style: TextStyle(fontSize: 12, color: t.dim),
         ),
         const SizedBox(height: 16),
@@ -2459,13 +2455,11 @@ class _IptvSettingsPageState extends State<IptvSettingsPage>
                 children: [
                   Icon(Icons.playlist_add, size: 48, color: t.dim2),
                   const SizedBox(height: 12),
-                  Text(
-                    'No playlists yet',
+                  Text(AppLocalizations.of(context).t('No playlists yet'),
                     style: TextStyle(fontSize: 14, color: t.dim),
                   ),
                   const SizedBox(height: 8),
-                  Text(
-                    'Add an M3U playlist URL above',
+                  Text(AppLocalizations.of(context).t('Add an M3U playlist URL above'),
                     style: TextStyle(fontSize: 12, color: t.dim2),
                   ),
                 ],
@@ -2490,9 +2484,7 @@ class _IptvSettingsPageState extends State<IptvSettingsPage>
       padding: const EdgeInsets.all(16),
       children: [
         SettingsSectionLabel('Your Lists'),
-        Text(
-          'Hold OK (or long-press) any channel to add it to a list. '
-          'Deleting a list never deletes its channels.',
+        Text(AppLocalizations.of(context).t('Hold OK (or long-press) any channel to add it to a list. ')'Deleting a list never deletes its channels.',
           style: TextStyle(fontSize: 12, color: t.dim),
         ),
         const SizedBox(height: 16),
@@ -2503,7 +2495,7 @@ class _IptvSettingsPageState extends State<IptvSettingsPage>
               _FocusableSettingsTile(
                 focusNode: _createListFocusNode,
                 icon: Icons.add_rounded,
-                label: 'Create list',
+                label: AppLocalizations.of(context).t('Create list'),
                 onTap: _createList,
               ),
             ],
@@ -2520,9 +2512,7 @@ class _IptvSettingsPageState extends State<IptvSettingsPage>
       padding: const EdgeInsets.all(16),
       children: [
         SettingsSectionLabel('Category order'),
-        Text(
-          'Choose a source, then arrange its category chips and guide '
-          'sections. Channels inside each category keep provider order.',
+        Text(AppLocalizations.of(context).t('Choose a source, then arrange its category chips and guide ')'sections. Channels inside each category keep provider order.',
           style: TextStyle(fontSize: 12, color: t.dim),
         ),
         const SizedBox(height: 16),
@@ -2588,9 +2578,7 @@ class _IptvSettingsPageState extends State<IptvSettingsPage>
             children: [
               SwitchListTile(
                 title: Text(AppLocalizations.of(context).t('Start on a channel')),
-                subtitle: Text(
-                  'Open straight into a live channel when the app starts. '
-                  'Press BACK while it is tuning to stop.',
+                subtitle: Text(AppLocalizations.of(context).t('Open straight into a live channel when the app starts. ')'Press BACK while it is tuning to stop.',
                 ),
                 value: _startupEnabled,
                 onChanged: _setStartupEnabled,
@@ -2645,9 +2633,7 @@ class _IptvSettingsPageState extends State<IptvSettingsPage>
         Card(
           child: SwitchListTile(
             title: Text(AppLocalizations.of(context).t('Track movies and series')),
-            subtitle: Text(
-              'Keeps a Continue watching shelf of the on-demand items you '
-              'start, on Home and in IPTV. Off hides it and stops adding to '
+            subtitle: Text(AppLocalizations.of(context).t('Keeps a Continue watching shelf of the on-demand items you ')'start, on Home and in IPTV. Off hides it and stops adding to '
               'it — nothing is deleted, and playback still resumes where '
               'you left off.',
             ),
@@ -2668,9 +2654,7 @@ class _IptvSettingsPageState extends State<IptvSettingsPage>
         Card(
           child: SwitchListTile(
             title: Text(AppLocalizations.of(context).t('Play channel previews')),
-            subtitle: Text(
-              'Plays the focused channel in the side panel while you browse. '
-              'This opens a provider stream and may count toward your '
+            subtitle: Text(AppLocalizations.of(context).t('Plays the focused channel in the side panel while you browse. ')'This opens a provider stream and may count toward your '
               'connection limit. Fullscreen playback still works when off.',
             ),
             value: _channelPreviewEnabled,
@@ -2699,9 +2683,7 @@ class _IptvSettingsPageState extends State<IptvSettingsPage>
               if (_engineToggleVisible)
                 SwitchListTile(
                   title: Text(AppLocalizations.of(context).t('Background recording engine')),
-                  subtitle: const Text(
-                    'Recordings keep running when you zap or leave the '
-                    'app, and programmes can be scheduled from the TV '
+                  subtitle: Text(AppLocalizations.of(context).t('Recordings keep running when you zap or leave the ')'app, and programmes can be scheduled from the TV '
                     'guide. Off returns to player-tied recording. Uses an '
                     'extra connection to your provider.',
                   ),
@@ -3056,8 +3038,7 @@ class _TvFocusableTabBarState extends State<_TvFocusableTabBar> {
                               color: isSelected ? t.accent2 : t.dim,
                             ),
                             const SizedBox(width: 8),
-                            Text(
-                              'From URL',
+                            Text(AppLocalizations.of(context).t('From URL'),
                               style: theme.textTheme.bodyMedium?.copyWith(
                                 color: isSelected ? app.core.tx : t.dim,
                                 fontWeight: isSelected
@@ -3152,8 +3133,7 @@ class _TvFocusableTabBarState extends State<_TvFocusableTabBar> {
                               color: isSelected ? t.accent2 : t.dim,
                             ),
                             const SizedBox(width: 8),
-                            Text(
-                              'From File',
+                            Text(AppLocalizations.of(context).t('From File'),
                               style: theme.textTheme.bodyMedium?.copyWith(
                                 color: isSelected ? app.core.tx : t.dim,
                                 fontWeight: isSelected
@@ -3244,8 +3224,7 @@ class _TvFocusableTabBarState extends State<_TvFocusableTabBar> {
                               ),
                               const SizedBox(width: 8),
                               Flexible(
-                                child: Text(
-                                  'Xtream Login',
+                                child: Text(AppLocalizations.of(context).t('Xtream Login'),
                                   style: theme.textTheme.bodyMedium?.copyWith(
                                     color: isSelected ? app.core.tx : t.dim,
                                     fontWeight: isSelected
@@ -3425,8 +3404,7 @@ class _FocusablePlaylistTileState extends State<_FocusablePlaylistTile> {
                   Icon(Icons.lock_outline, size: 12, color: t.dim),
                   SizedBox(width: 4),
                   Expanded(
-                    child: Text(
-                      'Shared connection • credentials hidden',
+                    child: Text(AppLocalizations.of(context).t('Shared connection • credentials hidden'),
                       style: TextStyle(fontSize: 12, color: t.dim),
                     ),
                   ),
@@ -3444,8 +3422,7 @@ class _FocusablePlaylistTileState extends State<_FocusablePlaylistTile> {
                 ] else if (widget.playlist.isLocalFile) ...[
                   Icon(Icons.sd_card, size: 12, color: t.dim),
                   const SizedBox(width: 4),
-                  Text(
-                    'Local file',
+                  Text(AppLocalizations.of(context).t('Local file'),
                     style: TextStyle(fontSize: 12, color: t.dim),
                   ),
                 ] else
@@ -3460,13 +3437,11 @@ class _FocusablePlaylistTileState extends State<_FocusablePlaylistTile> {
               ],
             ),
             if ((widget.playlist.epgUrl ?? '').isNotEmpty)
-              Text(
-                'Custom EPG URL set',
+              Text(AppLocalizations.of(context).t('Custom EPG URL set'),
                 style: TextStyle(color: t.dim, fontSize: 12),
               ),
             if (widget.isDefault)
-              Text(
-                'Default playlist',
+              Text(AppLocalizations.of(context).t('Default playlist'),
                 style: TextStyle(color: t.warning, fontSize: 12),
               ),
           ],

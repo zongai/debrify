@@ -673,8 +673,7 @@ class _CinematicHeader extends StatelessWidget {
         ),
       ),
       const SizedBox(height: 18),
-      const Text(
-        AppLocalizations.of(context).t('Who\'s watching?'),
+      Text(AppLocalizations.of(context).t('Who\'s watching?'),
         style: TextStyle(
           fontSize: 32,
           fontWeight: FontWeight.w800,
@@ -1823,8 +1822,7 @@ class _StagePinChip extends StatelessWidget {
             color: Colors.white.withValues(alpha: .8),
           ),
           SizedBox(width: fontSize * .4),
-          Text(
-            'PIN',
+          Text(AppLocalizations.of(context).t('PIN'),
             style: TextStyle(
               color: Colors.white.withValues(alpha: .8),
               fontSize: fontSize,

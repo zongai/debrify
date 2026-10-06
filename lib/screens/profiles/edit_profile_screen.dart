@@ -306,8 +306,7 @@ class _TvAutoLockField extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  'Auto-lock',
+                Text(AppLocalizations.of(context).t('Auto-lock'),
                   style: Theme.of(context).textTheme.labelLarge,
                 ),
                 const SizedBox(height: 8),
@@ -1219,8 +1218,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                   SwitchListTile(
                     value: _copyDefaults,
                     title: Text(AppLocalizations.of(context).t('Copy appearance and playback defaults')),
-                    subtitle: const Text(
-                      'Does not copy accounts, history, downloads, paths, or IDs.',
+                    subtitle: Text(AppLocalizations.of(context).t('Does not copy accounts, history, downloads, paths, or IDs.'),
                     ),
                     onChanged: (value) => setState(() => _copyDefaults = value),
                   ),
@@ -1317,8 +1315,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                   ListTile(
                     leading: Icon(Icons.info_outline_rounded),
                     title: Text(AppLocalizations.of(context).t('Diagnostics')),
-                    subtitle: const Text(
-                      'Registry, generation and lease state',
+                    subtitle: Text(AppLocalizations.of(context).t('Registry, generation and lease state'),
                     ),
                     onTap: _showDiagnostics,
                   ),
@@ -1749,16 +1746,13 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  'Pages & abilities',
+                Text(AppLocalizations.of(context).t('Pages & abilities'),
                   style: Theme.of(context).textTheme.headlineSmall?.copyWith(
                     fontWeight: FontWeight.w700,
                   ),
                 ),
                 const SizedBox(height: 6),
-                Text(
-                  'Choose what this profile sees and can do. Playback always '
-                  'keeps working through its granted sources.',
+                Text(AppLocalizations.of(context).t('Choose what this profile sees and can do. Playback always ')'keeps working through its granted sources.',
                   style: Theme.of(context).textTheme.bodyLarge,
                 ),
                 group('SEARCH'),
@@ -1832,8 +1826,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                     runSpacing: 10,
                     crossAxisAlignment: WrapCrossAlignment.center,
                     children: [
-                      Text(
-                        'Choose an avatar',
+                      Text(AppLocalizations.of(context).t('Choose an avatar'),
                         style: Theme.of(context).textTheme.headlineSmall
                             ?.copyWith(fontWeight: FontWeight.w700),
                       ),
@@ -1842,8 +1835,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                           child: OutlinedButton.icon(
                             onPressed: _saving ? null : _pickAvatarImage,
                             icon: Icon(Icons.image_outlined),
-                            label: Text(
-                              'Choose image or GIF (this device only)',
+                            label: Text(AppLocalizations.of(context).t('Choose image or GIF (this device only)'),
                             ),
                           ),
                         ),
@@ -1876,7 +1868,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                     ],
                   ),
                   const SizedBox(height: 22),
-                  Text('Name', style: Theme.of(context).textTheme.titleMedium),
+                  Text(AppLocalizations.of(context).t('Name'), style: Theme.of(context).textTheme.titleMedium),
                   const SizedBox(height: 8),
                   TvTextField(
                     key: const ValueKey('tv-profile-name'),
@@ -1893,7 +1885,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                     decoration: InputDecoration(hintText: 'Profile name'),
                   ),
                   const SizedBox(height: 20),
-                  Text('Role', style: Theme.of(context).textTheme.titleMedium),
+                  Text(AppLocalizations.of(context).t('Role'), style: Theme.of(context).textTheme.titleMedium),
                   const SizedBox(height: 8),
                   _buildTvRoleCards(),
                   if (widget.profile == null) ...[
@@ -1901,8 +1893,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                     _EnsureVisibleOnFocus(
                       child: SwitchListTile(
                         value: _copyDefaults,
-                        title: const Text(
-                          'Copy appearance and playback defaults',
+                        title: Text(AppLocalizations.of(context).t('Copy appearance and playback defaults'),
                         ),
                         onChanged: (value) =>
                             setState(() => _copyDefaults = value),
@@ -2096,15 +2087,13 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                'Profile lock',
+              Text(AppLocalizations.of(context).t('Profile lock'),
                 style: Theme.of(context).textTheme.headlineSmall?.copyWith(
                   fontWeight: FontWeight.w700,
                 ),
               ),
               SizedBox(height: 8),
-              Text(
-                'Choose when this profile asks for its PIN.',
+              Text(AppLocalizations.of(context).t('Choose when this profile asks for its PIN.'),
                 style: Theme.of(context).textTheme.bodyLarge,
               ),
               SizedBox(height: 24),
@@ -2178,15 +2167,13 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                'Profile access',
+              Text(AppLocalizations.of(context).t('Profile access'),
                 style: Theme.of(context).textTheme.headlineSmall?.copyWith(
                   fontWeight: FontWeight.w700,
                 ),
               ),
               SizedBox(height: 6),
-              Text(
-                'Choose which engines and connections this profile can use.',
+              Text(AppLocalizations.of(context).t('Choose which engines and connections this profile can use.'),
                 style: Theme.of(context).textTheme.bodyLarge,
               ),
               SizedBox(height: 14),
@@ -2223,8 +2210,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                'Profile data',
+              Text(AppLocalizations.of(context).t('Profile data'),
                 style: Theme.of(context).textTheme.headlineSmall?.copyWith(
                   fontWeight: FontWeight.w700,
                 ),
@@ -2253,12 +2239,10 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text(
-                                  'Diagnostics',
+                                Text(AppLocalizations.of(context).t('Diagnostics'),
                                   style: Theme.of(context).textTheme.titleLarge,
                                 ),
-                                const Text(
-                                  'Registry, generation and lease state',
+                                Text(AppLocalizations.of(context).t('Registry, generation and lease state'),
                                 ),
                               ],
                             ),
@@ -2363,8 +2347,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                     OutlinedButton.icon(
                       onPressed: _saving ? null : _pickAvatarImage,
                       icon: Icon(Icons.image_outlined, size: 18),
-                      label: Text(
-                        'Choose image or GIF (this device only)',
+                      label: Text(AppLocalizations.of(context).t('Choose image or GIF (this device only)'),
                       ),
                     ),
                   if (pending != null)
@@ -2555,8 +2538,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
           ListTile(
             leading: Icon(Icons.travel_explore_rounded),
             title: Text(AppLocalizations.of(context).t('No torrent engines installed')),
-            subtitle: Text(
-              'Install engines in the Admin profile before assigning them.',
+            subtitle: Text(AppLocalizations.of(context).t('Install engines in the Admin profile before assigning them.'),
             ),
           )
         else
@@ -2649,8 +2631,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
     }
     final widgets = <Widget>[
       const SizedBox(height: 10),
-      Text(
-        'Tracker and cloud access can modify the upstream account.',
+      Text(AppLocalizations.of(context).t('Tracker and cloud access can modify the upstream account.'),
         style: Theme.of(context).textTheme.bodySmall,
       ),
     ];

@@ -261,7 +261,7 @@ class _FilterSettingsPageState extends State<FilterSettingsPage> {
     final t = AppThemeScope.of(context).settings;
     if (_loading) {
       return SettingsPageScaffold(
-        title: 'Filters',
+        title: AppLocalizations.of(context).t('Filters'),
         body: Center(child: CircularProgressIndicator()),
       );
     }
@@ -274,7 +274,7 @@ class _FilterSettingsPageState extends State<FilterSettingsPage> {
         _selectedRanges.isNotEmpty;
 
     return SettingsPageScaffold(
-      title: 'Filters',
+      title: AppLocalizations.of(context).t('Filters'),
       actions: [
         if (hasFilters)
           Focus(
@@ -319,42 +319,42 @@ class _FilterSettingsPageState extends State<FilterSettingsPage> {
                 children: [
                   SettingsPageHeader(
                     icon: Icons.filter_list_rounded,
-                    title: 'Default Filters',
-                    subtitle: 'Set default filters for torrent search results',
+                    title: AppLocalizations.of(context).t('Default Filters'),
+                    subtitle: AppLocalizations.of(context).t('Set default filters for torrent search results'),
                   ),
                   const SizedBox(height: 24),
                   _buildSection(
                     context,
-                    title: 'Quality',
-                    subtitle: 'Filter by video resolution',
+                    title: AppLocalizations.of(context).t('Quality'),
+                    subtitle: AppLocalizations.of(context).t('Filter by video resolution'),
                     children: _buildQualityChips(),
                   ),
                   SizedBox(height: 20),
                   _buildSection(
                     context,
-                    title: 'Rip / Source',
-                    subtitle: 'Filter by release type',
+                    title: AppLocalizations.of(context).t('Rip / Source'),
+                    subtitle: AppLocalizations.of(context).t('Filter by release type'),
                     children: _buildSourceChips(),
                   ),
                   const SizedBox(height: 20),
                   _buildSection(
                     context,
-                    title: 'Language',
-                    subtitle: 'Filter by audio language',
+                    title: AppLocalizations.of(context).t('Language'),
+                    subtitle: AppLocalizations.of(context).t('Filter by audio language'),
                     children: _buildLanguageChips(),
                   ),
                   SizedBox(height: 20),
                   _buildSection(
                     context,
-                    title: 'Dynamic range',
-                    subtitle: 'Pick SDR alone to exclude HDR sources',
+                    title: AppLocalizations.of(context).t('Dynamic range'),
+                    subtitle: AppLocalizations.of(context).t('Pick SDR alone to exclude HDR sources'),
                     children: _buildRangeChips(),
                   ),
                   const SizedBox(height: 20),
                   _buildSection(
                     context,
-                    title: 'Size',
-                    subtitle: 'Skipped for TV series — pack sizes are unreliable',
+                    title: AppLocalizations.of(context).t('Size'),
+                    subtitle: AppLocalizations.of(context).t('Skipped for TV series — pack sizes are unreliable'),
                     children: _buildSizeChips(),
                   ),
                   const SizedBox(height: 20),

@@ -1,6 +1,8 @@
 import '../../theme/app_looks.dart';
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 
 import '../../services/analytics_service.dart';
 import '../../services/storage_service.dart';
@@ -121,13 +123,13 @@ class _IptvStylePageState extends State<IptvStylePage> {
     final t = AppThemeScope.of(context).settings;
     if (_loading) {
       return SettingsPageScaffold(
-        title: 'IPTV Appearance',
+        title: AppLocalizations.of(context).t('IPTV Appearance'),
         body: Center(child: CircularProgressIndicator()),
       );
     }
 
     return SettingsPageScaffold(
-      title: 'IPTV Appearance',
+      title: AppLocalizations.of(context).t('IPTV Appearance'),
       body: SingleChildScrollView(
         padding: EdgeInsets.all(16),
         child: Center(
@@ -138,8 +140,8 @@ class _IptvStylePageState extends State<IptvStylePage> {
               children: [
                 SettingsPageHeader(
                   icon: Icons.style_rounded,
-                  title: 'IPTV Appearance',
-                  subtitle: 'How the IPTV page looks on TV and desktop',
+                  title: AppLocalizations.of(context).t('IPTV Appearance'),
+                  subtitle: AppLocalizations.of(context).t('How the IPTV page looks on TV and desktop'),
                 ),
                 const SizedBox(height: 24),
                 Focus(
@@ -155,9 +157,7 @@ class _IptvStylePageState extends State<IptvStylePage> {
                   ),
                 ),
                 const SizedBox(height: 14),
-                Text(
-                  'Applies the next time the IPTV page opens. Phones keep '
-                  'the classic list either way.',
+                Text(AppLocalizations.of(context).t('Applies the next time the IPTV page opens. Phones keep ')'the classic list either way.',
                   style: TextStyle(fontSize: 12.5, height: 1.45, color: t.dim),
                 ),
               ],

@@ -307,7 +307,7 @@ class _ProfilesSettingsPageState extends State<ProfilesSettingsPage> {
   Widget build(BuildContext context) {
     final profiles = _profiles ?? const <UserProfile>[];
     return SettingsPageScaffold(
-      title: 'Profiles',
+      title: AppLocalizations.of(context).t('Profiles'),
       actions: _mayManage
           ? [
               PopupMenuButton<String>(
@@ -339,7 +339,7 @@ class _ProfilesSettingsPageState extends State<ProfilesSettingsPage> {
                     children: [
                       SettingsPageHeader(
                         icon: Icons.people_alt_rounded,
-                        title: 'Profiles',
+                        title: AppLocalizations.of(context).t('Profiles'),
                         subtitle:
                             'People, access and this device\'s sign-in behavior',
                       ),
@@ -400,15 +400,15 @@ class _ProfilesSettingsPageState extends State<ProfilesSettingsPage> {
   }
 
   Widget _currentProfileSection(UserProfile active) => SettingsSection(
-    title: 'Current profile',
+    title: AppLocalizations.of(context).t('Current profile'),
     children: [
       _CurrentProfileIdentity(profile: active),
       SettingsTile(
         key: ValueKey('profiles-switch'),
         focusNode: _firstActionFocus,
         icon: Icons.swap_horiz_rounded,
-        title: 'Switch profile',
-        subtitle: 'Choose who is watching now',
+        title: AppLocalizations.of(context).t('Switch profile'),
+        subtitle: AppLocalizations.of(context).t('Choose who is watching now'),
         onTap: () async => _switchProfile(),
       ),
       SettingsTile(
@@ -430,7 +430,7 @@ class _ProfilesSettingsPageState extends State<ProfilesSettingsPage> {
         .where((profile) => profile.id != _active?.id)
         .toList(growable: false);
     return SettingsSection(
-      title: 'Other profiles',
+      title: AppLocalizations.of(context).t('Other profiles'),
       children: [
         for (final profile in others)
           _ProfileRosterTile(
@@ -453,8 +453,8 @@ class _ProfilesSettingsPageState extends State<ProfilesSettingsPage> {
           SettingsTile(
             key: ValueKey('profiles-create'),
             icon: Icons.person_add_alt_rounded,
-            title: 'Create a profile',
-            subtitle: 'Admin, Member or Kid',
+            title: AppLocalizations.of(context).t('Create a profile'),
+            subtitle: AppLocalizations.of(context).t('Admin, Member or Kid'),
             onTap: _create,
           ),
       ],
@@ -462,15 +462,14 @@ class _ProfilesSettingsPageState extends State<ProfilesSettingsPage> {
   }
 
   Widget _behaviorSection() => SettingsSection(
-    title: 'Profile behavior',
+    title: AppLocalizations.of(context).t('Profile behavior'),
     children: [
       if (_mayManage && DeviceKeyProvider.isLinux)
         SettingsToggleTile(
           key: const ValueKey('profiles-linux-auto-unlock'),
           icon: Icons.lock_open_rounded,
-          title: 'Unlock automatically on this device',
-          subtitle:
-              'Stores vault access locally. Turn off to require a passphrase on each launch.',
+          title: AppLocalizations.of(context).t('Unlock automatically on this device'),
+          subtitle: AppLocalizations.of(context).t('Stores vault access locally. Turn off to require a passphrase on each launch.'),
           value: DeviceKeyProvider.linuxAutoUnlockEnabled,
           onChanged: _setVaultAutoUnlock,
         ),
@@ -478,7 +477,7 @@ class _ProfilesSettingsPageState extends State<ProfilesSettingsPage> {
         key: const ValueKey('profiles-always-ask'),
         icon: Icons.login_rounded,
         title: 'Ask who\'s watching at startup',
-        subtitle: 'Show the profile picker when Debrify opens',
+        subtitle: AppLocalizations.of(context).t('Show the profile picker when Debrify opens'),
         value: ProfileGateAlwaysAsk.cached,
         onChanged: (value) async {
           await ProfileGateAlwaysAsk.set(value);
@@ -489,13 +488,13 @@ class _ProfilesSettingsPageState extends State<ProfilesSettingsPage> {
   );
 
   Widget _householdSection() => SettingsSection(
-    title: 'Household',
+    title: AppLocalizations.of(context).t('Household'),
     children: [
       SettingsTile(
         key: const ValueKey('profiles-send-tv'),
         icon: Icons.cast_rounded,
-        title: 'Send profiles to TV',
-        subtitle: 'Profiles, connections and PINs',
+        title: AppLocalizations.of(context).t('Send profiles to TV'),
+        subtitle: AppLocalizations.of(context).t('Profiles, connections and PINs'),
         onTap: _sendToTv,
       ),
     ],
@@ -562,8 +561,7 @@ class _CurrentProfileIdentity extends StatelessWidget {
               color: t.success.withValues(alpha: 0.12),
               borderRadius: BorderRadius.circular(999),
             ),
-            child: Text(
-              'Active',
+            child: Text(AppLocalizations.of(context).t('Active'),
               style: TextStyle(
                 color: t.success,
                 fontSize: 10,

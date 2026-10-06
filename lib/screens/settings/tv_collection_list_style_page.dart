@@ -97,7 +97,7 @@ class _TvCollectionListStylePageState extends State<TvCollectionListStylePage> {
 
   @override
   Widget build(BuildContext context) => SettingsPageScaffold(
-    title: 'Collection list style',
+    title: AppLocalizations.of(context).t('Collection list style'),
     body: _failed
         ? SettingsLoadError(onRetry: _load)
         : _style == null
@@ -112,13 +112,12 @@ class _TvCollectionListStylePageState extends State<TvCollectionListStylePage> {
                   children: [
                     SettingsPageHeader(
                       icon: Icons.view_carousel_outlined,
-                      title: 'Collection list style',
-                      subtitle:
-                          'How movies and series appear inside collection lists on TVs, desktops and tablets',
+                      title: AppLocalizations.of(context).t('Collection list style'),
+                      subtitle: AppLocalizations.of(context).t('How movies and series appear inside collection lists on TVs, desktops and tablets'),
                     ),
                     const SizedBox(height: 24),
                     SettingsSection(
-                      title: 'Style',
+                      title: AppLocalizations.of(context).t('Style'),
                       children: [
                         for (final entry in choices.entries)
                           SettingsTile(
@@ -134,8 +133,7 @@ class _TvCollectionListStylePageState extends State<TvCollectionListStylePage> {
                       ],
                     ),
                     const SizedBox(height: 16),
-                    const Text(
-                      'Applies when you next open a collection list on a large screen. Phones keep the poster grid.',
+                    Text(AppLocalizations.of(context).t('Applies when you next open a collection list on a large screen. Phones keep the poster grid.'),
                     ),
                   ],
                 ),

@@ -431,7 +431,7 @@ class _EngineImportPageContentState extends State<EngineImportPageContent> {
           children: [
             CircularProgressIndicator(color: Color(0xFFED1C24)),
             SizedBox(height: 16),
-            Text('Loading engines...', style: TextStyle(color: Colors.white70)),
+            Text(AppLocalizations.of(context).t('Loading engines...'), style: TextStyle(color: Colors.white70)),
           ],
         ),
       );
@@ -451,8 +451,7 @@ class _EngineImportPageContentState extends State<EngineImportPageContent> {
                 color: Color(0xFFED1C24),
               ),
               const SizedBox(height: 12),
-              const Text(
-                'Failed to load engines',
+              Text(AppLocalizations.of(context).t('Failed to load engines'),
                 style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700),
               ),
               const SizedBox(height: 6),
@@ -469,7 +468,7 @@ class _EngineImportPageContentState extends State<EngineImportPageContent> {
                 focusNode: _retryButtonFocusNode,
                 onPressed: _loadEngines,
                 icon: Icons.refresh_rounded,
-                label: 'Retry',
+                label: AppLocalizations.of(context).t('Retry'),
                 filled: true,
               ),
             ],
@@ -559,8 +558,7 @@ class _EngineImportPageContentState extends State<EngineImportPageContent> {
             ),
           ),
           const SizedBox(height: 18),
-          const Text(
-            'No engines available',
+          Text(AppLocalizations.of(context).t('No engines available'),
             style: TextStyle(
               fontSize: 16,
               fontWeight: FontWeight.w700,
@@ -590,7 +588,7 @@ class _EngineImportPageContentState extends State<EngineImportPageContent> {
             focusNode: _importLocalButtonFocusNode,
             onPressed: _importFromLocalFile,
             icon: Icons.folder_open_rounded,
-            label: 'Import from File',
+            label: AppLocalizations.of(context).t('Import from File'),
             filled: true,
           ),
         ),
@@ -600,7 +598,7 @@ class _EngineImportPageContentState extends State<EngineImportPageContent> {
             focusNode: _refreshButtonFocusNode,
             onPressed: _loadEngines,
             icon: Icons.refresh_rounded,
-            label: 'Refresh',
+            label: AppLocalizations.of(context).t('Refresh'),
             filled: false,
           ),
         ),
@@ -834,8 +832,7 @@ class _EngineImportPageContentState extends State<EngineImportPageContent> {
                   children: [
                     Icon(Icons.download_rounded, color: Colors.white, size: 14),
                     SizedBox(width: 4),
-                    Text(
-                      'Import',
+                    Text(AppLocalizations.of(context).t('Import'),
                       style: TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.w700,
@@ -1315,8 +1312,7 @@ class _EngineImportPageState extends State<EngineImportPage> {
                 color: Theme.of(context).colorScheme.error,
               ),
               SizedBox(height: 16),
-              Text(
-                'Failed to load engines',
+              Text(AppLocalizations.of(context).t('Failed to load engines'),
                 style: Theme.of(context).textTheme.titleLarge,
               ),
               SizedBox(height: 8),
@@ -1384,13 +1380,11 @@ class _EngineImportPageState extends State<EngineImportPage> {
                     color: Theme.of(context).colorScheme.onSurfaceVariant,
                   ),
                   const SizedBox(height: 16),
-                  Text(
-                    'No engines available',
+                  Text(AppLocalizations.of(context).t('No engines available'),
                     style: Theme.of(context).textTheme.titleMedium,
                   ),
                   const SizedBox(height: 8),
-                  Text(
-                    'Check your internet connection and try again',
+                  Text(AppLocalizations.of(context).t('Check your internet connection and try again'),
                     style: TextStyle(
                       color: Theme.of(context).colorScheme.onSurfaceVariant,
                     ),
@@ -1536,8 +1530,7 @@ class _EngineImportPageState extends State<EngineImportPage> {
                   color: Theme.of(context).colorScheme.primaryContainer,
                   borderRadius: BorderRadius.circular(8),
                 ),
-                child: Text(
-                  'Import',
+                child: Text(AppLocalizations.of(context).t('Import'),
                   style: TextStyle(
                     color: Theme.of(context).colorScheme.onPrimaryContainer,
                     fontWeight: FontWeight.w600,

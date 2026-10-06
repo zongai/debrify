@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 
 import '../../services/analytics_service.dart';
 import '../../utils/platform_util.dart';
@@ -41,7 +43,7 @@ class _PlaybackSettingsPageState extends State<PlaybackSettingsPage> {
 
   @override
   Widget build(BuildContext context) => SettingsPageScaffold(
-    title: 'Playback',
+    title: AppLocalizations.of(context).t('Playback'),
     body: SingleChildScrollView(
       padding: EdgeInsets.all(16),
       child: Center(
@@ -52,8 +54,8 @@ class _PlaybackSettingsPageState extends State<PlaybackSettingsPage> {
             children: [
               SettingsPageHeader(
                 icon: Icons.play_circle_outline_rounded,
-                title: 'Playback',
-                subtitle: 'Player, video, audio and subtitles',
+                title: AppLocalizations.of(context).t('Playback'),
+                subtitle: AppLocalizations.of(context).t('Player, video, audio and subtitles'),
               ),
               const SizedBox(height: 24),
               SettingsSection(

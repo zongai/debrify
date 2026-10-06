@@ -256,9 +256,7 @@ class _MetadataSettingsPageState extends State<MetadataSettingsPage> {
               children: [
                 Padding(
                   padding: EdgeInsets.all(16),
-                  child: Text(
-                    'Choose who supplies each part of a title. Current behaviour keeps your existing setup. '
-                    'These choices do not change playback or watched progress.',
+                  child: Text(AppLocalizations.of(context).t('Choose who supplies each part of a title. Current behaviour keeps your existing setup. ')'These choices do not change playback or watched progress.',
                   ),
                 ),
                 if (_error != null)
@@ -277,8 +275,7 @@ class _MetadataSettingsPageState extends State<MetadataSettingsPage> {
                   ),
                 SwitchListTile(
                   title: Text(AppLocalizations.of(context).t('Use other sources when unavailable')),
-                  subtitle: Text(
-                    'Allow fallback when your selected provider has no information.',
+                  subtitle: Text(AppLocalizations.of(context).t('Allow fallback when your selected provider has no information.'),
                   ),
                   value: prefs.fallback,
                   onChanged: _saving

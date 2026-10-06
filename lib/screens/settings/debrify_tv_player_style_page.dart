@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 
 import '../../services/analytics_service.dart';
 import '../../services/storage_service.dart';
@@ -124,13 +126,13 @@ class _DebrifyTvPlayerStylePageState extends State<DebrifyTvPlayerStylePage> {
     final t = AppThemeScope.of(context).settings;
     if (_loading) {
       return SettingsPageScaffold(
-        title: 'Debrify TV Player',
+        title: AppLocalizations.of(context).t('Debrify TV Player'),
         body: Center(child: CircularProgressIndicator()),
       );
     }
 
     return SettingsPageScaffold(
-      title: 'Debrify TV Player',
+      title: AppLocalizations.of(context).t('Debrify TV Player'),
       body: SingleChildScrollView(
         padding: EdgeInsets.all(16),
         child: Center(
@@ -141,9 +143,8 @@ class _DebrifyTvPlayerStylePageState extends State<DebrifyTvPlayerStylePage> {
               children: [
                 SettingsPageHeader(
                   icon: Icons.live_tv_rounded,
-                  title: 'Debrify TV Player',
-                  subtitle:
-                      'How the playback screen looks while a channel airs',
+                  title: AppLocalizations.of(context).t('Debrify TV Player'),
+                  subtitle: AppLocalizations.of(context).t('How the playback screen looks while a channel airs'),
                 ),
                 const SizedBox(height: 24),
                 Focus(
@@ -159,9 +160,7 @@ class _DebrifyTvPlayerStylePageState extends State<DebrifyTvPlayerStylePage> {
                   ),
                 ),
                 const SizedBox(height: 14),
-                Text(
-                  'Applies to the next playback session. Every style shows '
-                  'the fetched show or movie name instead of the release '
+                Text(AppLocalizations.of(context).t('Applies to the next playback session. Every style shows ')'the fetched show or movie name instead of the release '
                   'filename.',
                   style: TextStyle(
                     fontSize: 12.5,

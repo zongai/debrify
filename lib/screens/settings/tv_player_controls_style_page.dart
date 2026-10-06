@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 
 import '../../services/analytics_service.dart';
 import '../../services/storage_service.dart';
@@ -130,13 +132,13 @@ class _TvPlayerControlsStylePageState extends State<TvPlayerControlsStylePage> {
     final t = AppThemeScope.of(context).settings;
     if (_loading) {
       return SettingsPageScaffold(
-        title: 'Player Controls',
+        title: AppLocalizations.of(context).t('Player Controls'),
         body: Center(child: CircularProgressIndicator()),
       );
     }
 
     return SettingsPageScaffold(
-      title: 'Player Controls',
+      title: AppLocalizations.of(context).t('Player Controls'),
       body: SingleChildScrollView(
         padding: EdgeInsets.all(16),
         child: Center(
@@ -147,9 +149,8 @@ class _TvPlayerControlsStylePageState extends State<TvPlayerControlsStylePage> {
               children: [
                 SettingsPageHeader(
                   icon: Icons.tune_rounded,
-                  title: 'Player Controls',
-                  subtitle:
-                      'The on-screen controls during playback on this TV',
+                  title: AppLocalizations.of(context).t('Player Controls'),
+                  subtitle: AppLocalizations.of(context).t('The on-screen controls during playback on this TV'),
                 ),
                 const SizedBox(height: 24),
                 Focus(
@@ -165,9 +166,7 @@ class _TvPlayerControlsStylePageState extends State<TvPlayerControlsStylePage> {
                   ),
                 ),
                 const SizedBox(height: 14),
-                Text(
-                  'Applies to the next playback session. Live TV keeps the '
-                  'Legacy controls for now.',
+                Text(AppLocalizations.of(context).t('Applies to the next playback session. Live TV keeps the ')'Legacy controls for now.',
                   style: TextStyle(
                     fontSize: 12.5,
                     height: 1.45,

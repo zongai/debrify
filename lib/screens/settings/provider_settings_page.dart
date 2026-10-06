@@ -1,6 +1,8 @@
 import 'widgets/settings_load_error.dart';
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 import 'package:flutter/services.dart';
 import '../../services/analytics_service.dart';
 import '../../services/pikpak_api_service.dart';
@@ -209,13 +211,13 @@ class _ProviderSettingsPageState extends State<ProviderSettingsPage> {
   Widget build(BuildContext context) {
     if (_loading) {
       return SettingsPageScaffold(
-        title: 'Default Provider',
+        title: AppLocalizations.of(context).t('Default Provider'),
         body: Center(child: CircularProgressIndicator()),
       );
     }
     if (_loadFailed) {
       return SettingsPageScaffold(
-        title: 'Default Provider',
+        title: AppLocalizations.of(context).t('Default Provider'),
         body: SettingsLoadError(onRetry: _loadSettings),
       );
     }
@@ -228,7 +230,7 @@ class _ProviderSettingsPageState extends State<ProviderSettingsPage> {
         _pikpakAvailable;
 
     return SettingsPageScaffold(
-      title: 'Default Provider',
+      title: AppLocalizations.of(context).t('Default Provider'),
       body: FocusTraversalGroup(
         policy: OrderedTraversalPolicy(),
         child: SingleChildScrollView(
@@ -241,8 +243,8 @@ class _ProviderSettingsPageState extends State<ProviderSettingsPage> {
                 children: [
                   SettingsPageHeader(
                     icon: Icons.cloud_sync_rounded,
-                    title: 'Default Provider',
-                    subtitle: 'Configure default provider for adding torrents',
+                    title: AppLocalizations.of(context).t('Default Provider'),
+                    subtitle: AppLocalizations.of(context).t('Configure default provider for adding torrents'),
                   ),
                   const SizedBox(height: 24),
                   if (!hasAnyProvider) ...[
@@ -250,9 +252,8 @@ class _ProviderSettingsPageState extends State<ProviderSettingsPage> {
                   ] else ...[
                     _buildSection(
                       context,
-                      title: 'Default Torrent Provider',
-                      subtitle:
-                          'Choose which service to use when adding torrents',
+                      title: AppLocalizations.of(context).t('Default Torrent Provider'),
+                      subtitle: AppLocalizations.of(context).t('Choose which service to use when adding torrents'),
                       children: _buildProviderOptions(),
                     ),
                     const SizedBox(height: 16),
@@ -315,8 +316,8 @@ class _ProviderSettingsPageState extends State<ProviderSettingsPage> {
         focusNode: _providerFocusNodes[nodeIndex],
         isFocused: _focusedIndex == nodeIndex,
         icon: Icons.help_outline_rounded,
-        title: 'Ask every time',
-        subtitle: 'Show provider selection dialog',
+        title: AppLocalizations.of(context).t('Ask every time'),
+        subtitle: AppLocalizations.of(context).t('Show provider selection dialog'),
         selected: _selectedProvider == 'none',
         onSelected: () => _selectProvider('none'),
       ),
@@ -331,8 +332,8 @@ class _ProviderSettingsPageState extends State<ProviderSettingsPage> {
           focusNode: _providerFocusNodes[nodeIndex],
           isFocused: _focusedIndex == nodeIndex,
           icon: Icons.flash_on_rounded,
-          title: 'Torbox',
-          subtitle: 'Fast cloud torrent service',
+          title: AppLocalizations.of(context).t('Torbox'),
+          subtitle: AppLocalizations.of(context).t('Fast cloud torrent service'),
           selected: _selectedProvider == 'torbox',
           onSelected: () => _selectProvider('torbox'),
         ),
@@ -348,8 +349,8 @@ class _ProviderSettingsPageState extends State<ProviderSettingsPage> {
           focusNode: _providerFocusNodes[nodeIndex],
           isFocused: _focusedIndex == nodeIndex,
           icon: Icons.cloud_rounded,
-          title: 'Real-Debrid',
-          subtitle: 'Premium link generator',
+          title: AppLocalizations.of(context).t('Real-Debrid'),
+          subtitle: AppLocalizations.of(context).t('Premium link generator'),
           selected: _selectedProvider == 'debrid',
           onSelected: () => _selectProvider('debrid'),
         ),
@@ -365,8 +366,8 @@ class _ProviderSettingsPageState extends State<ProviderSettingsPage> {
           focusNode: _providerFocusNodes[nodeIndex],
           isFocused: _focusedIndex == nodeIndex,
           icon: Icons.workspace_premium_rounded,
-          title: 'Premiumize',
-          subtitle: 'Premium cloud downloader',
+          title: AppLocalizations.of(context).t('Premiumize'),
+          subtitle: AppLocalizations.of(context).t('Premium cloud downloader'),
           selected: _selectedProvider == 'premiumize',
           onSelected: () => _selectProvider('premiumize'),
         ),
@@ -382,8 +383,8 @@ class _ProviderSettingsPageState extends State<ProviderSettingsPage> {
           focusNode: _providerFocusNodes[nodeIndex],
           isFocused: _focusedIndex == nodeIndex,
           icon: Icons.all_inclusive_rounded,
-          title: 'AllDebrid',
-          subtitle: 'Premium link generator',
+          title: AppLocalizations.of(context).t('AllDebrid'),
+          subtitle: AppLocalizations.of(context).t('Premium link generator'),
           selected: _selectedProvider == 'alldebrid',
           onSelected: () => _selectProvider('alldebrid'),
         ),
@@ -399,8 +400,8 @@ class _ProviderSettingsPageState extends State<ProviderSettingsPage> {
           focusNode: _providerFocusNodes[nodeIndex],
           isFocused: _focusedIndex == nodeIndex,
           icon: Icons.folder_rounded,
-          title: 'PikPak',
-          subtitle: 'Cloud storage service',
+          title: AppLocalizations.of(context).t('PikPak'),
+          subtitle: AppLocalizations.of(context).t('Cloud storage service'),
           selected: _selectedProvider == 'pikpak',
           onSelected: () => _selectProvider('pikpak'),
         ),
@@ -428,8 +429,7 @@ class _ProviderSettingsPageState extends State<ProviderSettingsPage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  'No providers connected',
+                Text(AppLocalizations.of(context).t('No providers connected'),
                   style: TextStyle(
                     fontSize: 15,
                     fontWeight: FontWeight.w700,
@@ -437,8 +437,7 @@ class _ProviderSettingsPageState extends State<ProviderSettingsPage> {
                   ),
                 ),
                 const SizedBox(height: 4),
-                Text(
-                  'Connect Real-Debrid, Torbox, Premiumize, AllDebrid, or PikPak in Settings to use this feature.',
+                Text(AppLocalizations.of(context).t('Connect Real-Debrid, Torbox, Premiumize, AllDebrid, or PikPak in Settings to use this feature.'),
                   style: TextStyle(
                     fontSize: 13,
                     height: 1.4,

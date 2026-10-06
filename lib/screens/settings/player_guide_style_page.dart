@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 
 import '../../services/analytics_service.dart';
 import '../../services/storage_service.dart';
@@ -124,13 +126,13 @@ class _PlayerGuideStylePageState extends State<PlayerGuideStylePage> {
     final t = AppThemeScope.of(context).settings;
     if (_loading) {
       return SettingsPageScaffold(
-        title: 'Player Guide',
+        title: AppLocalizations.of(context).t('Player Guide'),
         body: Center(child: CircularProgressIndicator()),
       );
     }
 
     return SettingsPageScaffold(
-      title: 'Player Guide',
+      title: AppLocalizations.of(context).t('Player Guide'),
       body: SingleChildScrollView(
         padding: EdgeInsets.all(16),
         child: Center(
@@ -141,9 +143,8 @@ class _PlayerGuideStylePageState extends State<PlayerGuideStylePage> {
               children: [
                 SettingsPageHeader(
                   icon: Icons.smart_display_rounded,
-                  title: 'Player Guide',
-                  subtitle:
-                      'How the channel banner and in-player guide look '
+                  title: AppLocalizations.of(context).t('Player Guide'),
+                  subtitle: AppLocalizations.of(context).t('How the channel banner and in-player guide look ')
                       'during live TV',
                 ),
                 const SizedBox(height: 24),
@@ -161,9 +162,7 @@ class _PlayerGuideStylePageState extends State<PlayerGuideStylePage> {
                   ),
                 ),
                 const SizedBox(height: 14),
-                Text(
-                  'Applies to the next playback session — on this device '
-                  'and on Android TV.',
+                Text(AppLocalizations.of(context).t('Applies to the next playback session — on this device ')'and on Android TV.',
                   style: TextStyle(
                     fontSize: 12.5,
                     height: 1.45,

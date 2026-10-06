@@ -311,7 +311,7 @@ class _IptvHiddenCategoriesPageState extends State<IptvHiddenCategoriesPage> {
   @override
   Widget build(BuildContext context) {
     return SettingsPageScaffold(
-      title: 'Hidden categories',
+      title: AppLocalizations.of(context).t('Hidden categories'),
       body: _loading
           ? const Center(child: CircularProgressIndicator())
           : _buildBody(),
@@ -395,7 +395,7 @@ class _IptvHiddenCategoriesPageState extends State<IptvHiddenCategoriesPage> {
               ),
               _FocusableTextButton(
                 focusNode: _showAllNode,
-                label: 'Show all',
+                label: AppLocalizations.of(context).t('Show all'),
                 enabled: _canShowAll,
                 onTap: _showAll,
                 onNavigateRight: _canHideAll ? _hideAllNode.requestFocus : null,
@@ -404,7 +404,7 @@ class _IptvHiddenCategoriesPageState extends State<IptvHiddenCategoriesPage> {
               const SizedBox(width: 8),
               _FocusableTextButton(
                 focusNode: _hideAllNode,
-                label: 'Hide all',
+                label: AppLocalizations.of(context).t('Hide all'),
                 enabled: _canHideAll,
                 onTap: _hideAll,
                 onNavigateLeft: _canShowAll ? _showAllNode.requestFocus : null,

@@ -318,9 +318,7 @@ class _SyncAndMigratePageState extends State<SyncAndMigratePage>
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Text(
-                    'Scan with your phone or open the link below for '
-                    'Koofr setup, app passwords and connecting your devices.',
+                  Text(AppLocalizations.of(context).t('Scan with your phone or open the link below for ')'Koofr setup, app passwords and connecting your devices.',
                   ),
                   SizedBox(height: 20),
                   Image.asset(
@@ -438,9 +436,7 @@ class _SyncAndMigratePageState extends State<SyncAndMigratePage>
           barrierDismissible: false,
           builder: (dialogContext) => AlertDialog(
             title: Text(AppLocalizations.of(context).t('Use sync data from this account?')),
-            content: Text(
-              'Existing profiles and connections on this device will be '
-              'replaced. Create a manual backup first if you want to keep '
+            content: Text(AppLocalizations.of(context).t('Existing profiles and connections on this device will be ')'replaced. Create a manual backup first if you want to keep '
               'a copy of your current data. IPTV channel and '
               'guide caches rebuild; Debrify TV channels are not included.',
             ),
@@ -471,9 +467,7 @@ class _SyncAndMigratePageState extends State<SyncAndMigratePage>
       context: context,
       builder: (dialogContext) => AlertDialog(
         title: Text(AppLocalizations.of(context).t('Forget WebDAV connection?')),
-        content: Text(
-          'Remove the saved connection from this device without contacting WebDAV. '
-          'Your profiles and data stay here. You can then connect again.\n\n'
+        content: Text(AppLocalizations.of(context).t('Remove the saved connection from this device without contacting WebDAV. ')'Your profiles and data stay here. You can then connect again.\n\n'
           'The old account may still list this device as connected. '
           'Data on WebDAV and your other devices will not be changed.',
         ),
@@ -517,9 +511,7 @@ class _SyncAndMigratePageState extends State<SyncAndMigratePage>
       builder: (dialogContext) => AlertDialog(
         scrollable: true,
         title: Text(AppLocalizations.of(context).t('Log out of WebDAV sync?')),
-        content: Text(
-          'This device will stop syncing and leave the connected devices list. '
-          'Its saved sync login will be removed.\n\n'
+        content: Text(AppLocalizations.of(context).t('This device will stop syncing and leave the connected devices list. ')'Its saved sync login will be removed.\n\n'
           'Your profiles and data stay on this device. Already synced data stays '
           'on WebDAV so you and your other devices can use it later. Changes '
           'that have not synced stay only on this device.\n\n'
@@ -542,7 +534,7 @@ class _SyncAndMigratePageState extends State<SyncAndMigratePage>
     try {
       await runWebDavForegroundSync(
         context,
-        title: 'Logging out of WebDAV',
+        title: AppLocalizations.of(context).t('Logging out of WebDAV'),
         stage: 'Unregistering this device and removing its saved login…',
         operation: (_) => controller.logout(),
       );
@@ -569,7 +561,7 @@ class _SyncAndMigratePageState extends State<SyncAndMigratePage>
                 ? 'Logout could not be confirmed. Retry or choose Forget connection to disconnect on this device.'
                 : _userFacingSyncError(error),
           ),
-          action: SnackBarAction(label: 'Retry', onPressed: _logout),
+          action: SnackBarAction(label: AppLocalizations.of(context).t('Retry'), onPressed: _logout),
         ),
       );
     } finally {
@@ -614,7 +606,7 @@ class _SyncAndMigratePageState extends State<SyncAndMigratePage>
                   !report.localPublicationConfirmed ||
                   report.localChangeFollowUp ||
                   report.localProfilesSuppressed
-              ? SnackBarAction(label: 'Retry', onPressed: _syncNow)
+              ? SnackBarAction(label: AppLocalizations.of(context).t('Retry'), onPressed: _syncNow)
               : null,
         ),
       );
@@ -800,7 +792,7 @@ class _SyncAndMigratePageState extends State<SyncAndMigratePage>
     try {
       final devices = await runWebDavForegroundSync(
         context,
-        title: 'Loading devices',
+        title: AppLocalizations.of(context).t('Loading devices'),
         stage: 'Checking the devices connected to this account…',
         operation: (_) => management.listDevices(),
       );
@@ -820,7 +812,7 @@ class _SyncAndMigratePageState extends State<SyncAndMigratePage>
         if (!mounted || name == null) return;
         await runWebDavForegroundSync(
           context,
-          title: 'Renaming device',
+          title: AppLocalizations.of(context).t('Renaming device'),
           stage: 'Saving the name for your connected devices…',
           operation: (_) => (management as WebDavSyncDeviceNamingController)
               .renameThisDevice(name),
@@ -837,9 +829,7 @@ class _SyncAndMigratePageState extends State<SyncAndMigratePage>
         builder: (dialogContext) => AlertDialog(
           scrollable: true,
           title: Text(AppLocalizations.of(context).t('Remove this device?')),
-          content: Text(
-            'Delete this device’s sync files and remove its registration. '
-            'Its local data stays intact. When the device next connects, it '
+          content: Text(AppLocalizations.of(context).t('Delete this device’s sync files and remove its registration. ')'Its local data stays intact. When the device next connects, it '
             'will be signed out and must sign in again to rejoin. '
             'Update all devices first: older app versions cannot enforce remote removal.',
           ),
@@ -858,7 +848,7 @@ class _SyncAndMigratePageState extends State<SyncAndMigratePage>
       if (confirmed != true || !mounted) return;
       await runWebDavForegroundSync(
         context,
-        title: 'Removing device',
+        title: AppLocalizations.of(context).t('Removing device'),
         stage: 'Removing this device from the list…',
         operation: (_) => management.forgetDevice(target),
       );
@@ -882,7 +872,7 @@ class _SyncAndMigratePageState extends State<SyncAndMigratePage>
         content: Text(_userFacingSyncError(error)),
         action: onRetry == null
             ? null
-            : SnackBarAction(label: 'Retry', onPressed: onRetry),
+            : SnackBarAction(label: AppLocalizations.of(context).t('Retry'), onPressed: onRetry),
         backgroundColor: Colors.red,
       ),
     );
@@ -991,7 +981,7 @@ class _SyncAndMigratePageState extends State<SyncAndMigratePage>
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         SettingsSection(
-          title: 'WebDAV sync',
+          title: AppLocalizations.of(context).t('WebDAV sync'),
           blurb: active
               ? 'Your profiles, shared settings and watch progress sync automatically while the app is open. Appearance stays on this device.'
               : 'Keep your profiles, shared settings and watch progress together across your devices. Appearance stays on each device.',
@@ -1063,7 +1053,7 @@ class _SyncAndMigratePageState extends State<SyncAndMigratePage>
               SettingsTile(
                 icon: Icons.login_rounded,
                 title: finishingFirstSync ? 'Continue setup' : 'Connect WebDAV',
-                subtitle: 'Use Koofr or another WebDAV provider',
+                subtitle: AppLocalizations.of(context).t('Use Koofr or another WebDAV provider'),
                 enabled: !_syncBusy,
                 onTap: _configureSync,
               ),
@@ -1071,7 +1061,7 @@ class _SyncAndMigratePageState extends State<SyncAndMigratePage>
               SettingsTile(
                 icon: Icons.key_rounded,
                 title: 'Update password',
-                subtitle: 'Restore access to your WebDAV account',
+                subtitle: AppLocalizations.of(context).t('Restore access to your WebDAV account'),
                 enabled: !_syncBusy,
                 onTap: _repairCredentials,
               ),
@@ -1079,7 +1069,7 @@ class _SyncAndMigratePageState extends State<SyncAndMigratePage>
               SettingsTile(
                 icon: Icons.sync,
                 title: 'Sync now',
-                subtitle: 'Send your changes and check for updates',
+                subtitle: AppLocalizations.of(context).t('Send your changes and check for updates'),
                 enabled:
                     !_syncBusy && !_logoutPending && _syncActivation != null,
                 onTap: _syncNow,
@@ -1087,7 +1077,7 @@ class _SyncAndMigratePageState extends State<SyncAndMigratePage>
             SettingsTile(
               icon: Icons.menu_book_rounded,
               title: 'Setup guide',
-              subtitle: 'Koofr setup, app passwords and connecting devices',
+              subtitle: AppLocalizations.of(context).t('Koofr setup, app passwords and connecting devices'),
               trailing: Icon(
                 PlatformUtil.isTelevision
                     ? Icons.qr_code_rounded
@@ -1101,13 +1091,12 @@ class _SyncAndMigratePageState extends State<SyncAndMigratePage>
         if (active && !_logoutPending) ...[
           SizedBox(height: 16),
           SettingsSection(
-            title: 'Diagnostics',
+            title: AppLocalizations.of(context).t('Diagnostics'),
             children: [
               SettingsToggleTile(
                 icon: Icons.upload_file_outlined,
-                title: 'Upload diagnostic logs to WebDAV',
-                subtitle:
-                    'This device only. Saves one rolling file in logs/ every 5 minutes while the app is open. Anyone with folder access can read it.',
+                title: AppLocalizations.of(context).t('Upload diagnostic logs to WebDAV'),
+                subtitle: AppLocalizations.of(context).t('This device only. Saves one rolling file in logs/ every 5 minutes while the app is open. Anyone with folder access can read it.'),
                 subtitleMaxLines: 4,
                 value: _logUploadEnabled,
                 onChanged: _setLogUpload,
@@ -1116,8 +1105,7 @@ class _SyncAndMigratePageState extends State<SyncAndMigratePage>
                 SettingsTile(
                   icon: Icons.cloud_upload_outlined,
                   title: _logUploading ? 'Uploading logs…' : 'Upload logs now',
-                  subtitle:
-                      'Replace this device’s file with its latest diagnostic history',
+                  subtitle: AppLocalizations.of(context).t('Replace this device’s file with its latest diagnostic history'),
                   enabled: !_logUploading && !_logSettingsBusy && !_syncBusy,
                   onTap: _uploadLogsNow,
                 ),
@@ -1134,20 +1122,20 @@ class _SyncAndMigratePageState extends State<SyncAndMigratePage>
         if (_syncBinding != null) ...[
           const SizedBox(height: 16),
           SettingsSection(
-            title: 'Account and devices',
+            title: AppLocalizations.of(context).t('Account and devices'),
             children: [
               if (active && _management != null)
                 SettingsTile(
                   icon: Icons.devices_other,
                   title: 'Connected devices',
-                  subtitle: 'Manage devices using this sync account',
+                  subtitle: AppLocalizations.of(context).t('Manage devices using this sync account'),
                   enabled: !_syncBusy && !_logoutPending,
                   onTap: _manageDevices,
                 ),
               SettingsTile(
                 icon: Icons.manage_accounts_outlined,
-                title: 'Change account',
-                subtitle: 'Use a different WebDAV account',
+                title: AppLocalizations.of(context).t('Change account'),
+                subtitle: AppLocalizations.of(context).t('Use a different WebDAV account'),
                 enabled: !_syncBusy,
                 onTap: _configureSync,
               ),
@@ -1155,7 +1143,7 @@ class _SyncAndMigratePageState extends State<SyncAndMigratePage>
                 SettingsTile(
                   icon: Icons.logout_rounded,
                   title: _logoutPending ? 'Retry logout' : 'Log out',
-                  subtitle: 'Stop syncing and forget this saved login',
+                  subtitle: AppLocalizations.of(context).t('Stop syncing and forget this saved login'),
                   enabled: !_syncBusy,
                   onTap: _logout,
                 ),
@@ -1163,8 +1151,7 @@ class _SyncAndMigratePageState extends State<SyncAndMigratePage>
                 SettingsTile(
                   icon: Icons.link_off_rounded,
                   title: 'Forget connection',
-                  subtitle:
-                      'Disconnect on this device if WebDAV is unavailable',
+                  subtitle: AppLocalizations.of(context).t('Disconnect on this device if WebDAV is unavailable'),
                   enabled: !_syncBusy,
                   onTap: () async {
                     await _forgetConnection();
@@ -1175,7 +1162,7 @@ class _SyncAndMigratePageState extends State<SyncAndMigratePage>
         ],
         SizedBox(height: 16),
         SettingsSection(
-          title: 'Debrify TV channels',
+          title: AppLocalizations.of(context).t('Debrify TV channels'),
           blurb:
               'Channels and saved torrent pools transfer only when you sync them here. Run this on both devices after changing channels.',
           children: [
@@ -1206,8 +1193,7 @@ class _SyncAndMigratePageState extends State<SyncAndMigratePage>
             children: [
               Text(_pollStatusMessage(_runtimeStatus!)),
               const SizedBox(height: 8),
-              const Text(
-                'IPTV playlists, favorites and watch history sync automatically. Channel listings and TV guides are downloaded separately on each device.',
+              Text(AppLocalizations.of(context).t('IPTV playlists, favorites and watch history sync automatically. Channel listings and TV guides are downloaded separately on each device.'),
               ),
             ],
           ),
@@ -1253,7 +1239,7 @@ class _SyncAndMigratePageState extends State<SyncAndMigratePage>
   @override
   Widget build(BuildContext context) {
     return SettingsPageScaffold(
-      title: 'Sync and Migrate',
+      title: AppLocalizations.of(context).t('Sync and Migrate'),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16),
         child: Center(

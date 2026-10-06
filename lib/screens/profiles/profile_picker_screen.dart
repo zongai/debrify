@@ -31,8 +31,7 @@ class ProfilePickerScreen extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(
-                    'Who’s watching?',
+                  Text(AppLocalizations.of(context).t('Who’s watching?'),
                     style: Theme.of(context).textTheme.headlineMedium,
                   ),
                   SizedBox(height: 32),

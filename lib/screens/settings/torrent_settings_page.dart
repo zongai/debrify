@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 import '../../services/analytics_service.dart';
 import '../../utils/platform_util.dart';
 import 'indexer_managers_settings_page.dart';
@@ -39,7 +41,7 @@ class _TorrentSettingsPageState extends State<TorrentSettingsPage> {
   @override
   Widget build(BuildContext context) {
     return SettingsPageScaffold(
-      title: 'Engines',
+      title: AppLocalizations.of(context).t('Engines'),
       body: SingleChildScrollView(
         padding: EdgeInsets.all(16),
         child: Center(
@@ -50,9 +52,8 @@ class _TorrentSettingsPageState extends State<TorrentSettingsPage> {
               children: [
                 SettingsPageHeader(
                   icon: Icons.search_rounded,
-                  title: 'Search Engine Defaults',
-                  subtitle:
-                      'Configure which search engines are enabled by default',
+                  title: AppLocalizations.of(context).t('Search Engine Defaults'),
+                  subtitle: AppLocalizations.of(context).t('Configure which search engines are enabled by default'),
                 ),
 
                 const SizedBox(height: 24),
@@ -62,8 +63,8 @@ class _TorrentSettingsPageState extends State<TorrentSettingsPage> {
                   children: [
                     SettingsTile(
                       icon: Icons.manage_search_rounded,
-                      title: 'Indexer Managers',
-                      subtitle: 'Add Jackett or Prowlarr search sources',
+                      title: AppLocalizations.of(context).t('Indexer Managers'),
+                      subtitle: AppLocalizations.of(context).t('Add Jackett or Prowlarr search sources'),
                       focusNode: _firstTileFocus,
                       onTap: () async {
                         await pushSettingsPage(

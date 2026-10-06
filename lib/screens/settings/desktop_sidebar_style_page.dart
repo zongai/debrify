@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 
 import '../../services/analytics_service.dart';
 import '../../services/main_page_bridge.dart';
@@ -84,13 +86,13 @@ class _DesktopSidebarStylePageState extends State<DesktopSidebarStylePage> {
     final t = AppThemeScope.of(context).settings;
     if (_loading) {
       return SettingsPageScaffold(
-        title: 'Sidebar Style',
+        title: AppLocalizations.of(context).t('Sidebar Style'),
         body: Center(child: CircularProgressIndicator()),
       );
     }
 
     return SettingsPageScaffold(
-      title: 'Sidebar Style',
+      title: AppLocalizations.of(context).t('Sidebar Style'),
       body: SingleChildScrollView(
         padding: EdgeInsets.all(16),
         child: Center(
@@ -101,9 +103,8 @@ class _DesktopSidebarStylePageState extends State<DesktopSidebarStylePage> {
               children: [
                 SettingsPageHeader(
                   icon: Icons.view_sidebar_rounded,
-                  title: 'Sidebar Style',
-                  subtitle:
-                      'How navigation is drawn in wide windows — desktop '
+                  title: AppLocalizations.of(context).t('Sidebar Style'),
+                  subtitle: AppLocalizations.of(context).t('How navigation is drawn in wide windows — desktop ')
                       'and tablets',
                 ),
                 SizedBox(height: 24),
@@ -116,13 +117,12 @@ class _DesktopSidebarStylePageState extends State<DesktopSidebarStylePage> {
                 ),
                 const SizedBox(height: 18),
                 SettingsSection(
-                  title: 'Items',
+                  title: AppLocalizations.of(context).t('Items'),
                   children: [
                     SettingsTile(
                       icon: Icons.low_priority_rounded,
-                      title: 'Order & Names',
-                      subtitle:
-                          'Rearrange destinations and rename sidebar labels',
+                      title: AppLocalizations.of(context).t('Order & Names'),
+                      subtitle: AppLocalizations.of(context).t('Rearrange destinations and rename sidebar labels'),
                       trailing: const Icon(Icons.chevron_right_rounded),
                       onTap: () => pushSettingsPage(
                         context,
@@ -132,9 +132,7 @@ class _DesktopSidebarStylePageState extends State<DesktopSidebarStylePage> {
                   ],
                 ),
                 const SizedBox(height: 14),
-                Text(
-                  'Applies immediately. Phones keep their bottom '
-                  'navigation; the TV rail has its own style in TV '
+                Text(AppLocalizations.of(context).t('Applies immediately. Phones keep their bottom ')'navigation; the TV rail has its own style in TV '
                   'settings.',
                   style: TextStyle(fontSize: 12.5, height: 1.45, color: t.dim),
                 ),

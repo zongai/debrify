@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 import 'package:flutter/services.dart';
 
 import '../../services/analytics_service.dart';
@@ -250,7 +252,7 @@ class _ThemeTokensPageState extends State<ThemeTokensPage> {
     final classic = AppThemeController.instance.isLegacy;
 
     return SettingsPageScaffold(
-      title: 'Advanced',
+      title: AppLocalizations.of(context).t('Advanced'),
       body: SingleChildScrollView(
         padding: EdgeInsets.all(16),
         child: Center(
@@ -261,8 +263,8 @@ class _ThemeTokensPageState extends State<ThemeTokensPage> {
               children: [
                 SettingsPageHeader(
                   icon: Icons.tune_rounded,
-                  title: 'Advanced',
-                  subtitle: 'Every token a Look sets, one at a time',
+                  title: AppLocalizations.of(context).t('Advanced'),
+                  subtitle: AppLocalizations.of(context).t('Every token a Look sets, one at a time'),
                 ),
                 const SizedBox(height: 18),
 
@@ -309,7 +311,7 @@ class _ThemeTokensPageState extends State<ThemeTokensPage> {
                         SettingsTile(
                           icon: Icons.undo_rounded,
                           title: 'Reset ${section.title.toLowerCase()}',
-                          subtitle: 'Give this section back to the Look',
+                          subtitle: AppLocalizations.of(context).t('Give this section back to the Look'),
                           onTap: () => _resetSection(section),
                         ),
                     ],
@@ -317,9 +319,7 @@ class _ThemeTokensPageState extends State<ThemeTokensPage> {
                   const SizedBox(height: 14),
                 ],
 
-                Text(
-                  'Anything you do not touch follows the Look, including after '
-                  'the Look itself is updated. Picking a Look again clears '
+                Text(AppLocalizations.of(context).t('Anything you do not touch follows the Look, including after ')'the Look itself is updated. Picking a Look again clears '
                   'these.',
                   style: TextStyle(
                     fontSize: 12.5,
@@ -355,7 +355,7 @@ class _ThemeTokensPageState extends State<ThemeTokensPage> {
       title: knob.label,
       subtitle: subtitle,
       trailing: following
-          ? Text('Look',
+          ? Text(AppLocalizations.of(context).t('Look'),
               style: TextStyle(fontSize: 12, color: app.settings.dim))
           : knob.isColour
               ? _Dot(color: ThemePalette.colorOf(value))
@@ -477,8 +477,7 @@ class _RescueRowState extends State<_RescueRow> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text(
-                      'Reset everything',
+                    Text(AppLocalizations.of(context).t('Reset everything'),
                       style: TextStyle(
                         fontSize: 15,
                         fontWeight: FontWeight.w600,
@@ -596,7 +595,7 @@ class _SwatchPageState extends State<_SwatchPage> {
                     children: [
                       SettingsTile(
                         icon: Icons.auto_awesome_rounded,
-                        title: 'Follow the Look',
+                        title: AppLocalizations.of(context).t('Follow the Look'),
                         subtitle: selected == null
                             ? 'Currently following'
                             : 'Give this colour back to the Look',
@@ -796,7 +795,7 @@ class _OptionPageState extends State<_OptionPage> {
                   children: [
                     SettingsTile(
                       icon: Icons.auto_awesome_rounded,
-                      title: 'Follow the Look',
+                      title: AppLocalizations.of(context).t('Follow the Look'),
                       subtitle: selected == null
                           ? 'Currently following'
                           : 'Give this back to the Look',

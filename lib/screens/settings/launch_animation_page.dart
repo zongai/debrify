@@ -101,7 +101,7 @@ class _LaunchAnimationPageState extends State<LaunchAnimationPage> {
   @override
   Widget build(BuildContext context) {
     return SettingsPageScaffold(
-      title: 'Launch Animation',
+      title: AppLocalizations.of(context).t('Launch Animation'),
       // The split exists for DPAD: in one column the list scrolls the preview
       // off the top exactly when you start walking the options, so you choose
       // an ident you can no longer see. Pinning the preview beside the list
@@ -213,7 +213,7 @@ class _LaunchAnimationPageState extends State<LaunchAnimationPage> {
   Widget _header() => SettingsPageHeader(
     icon: Icons.rocket_launch_rounded,
     title: 'Launch Animation',
-    subtitle: 'The ident Debrify plays while it starts',
+    subtitle: AppLocalizations.of(context).t('The ident Debrify plays while it starts'),
   );
 
   /// Whether the ident wears its own colours or the app theme's.
@@ -225,7 +225,7 @@ class _LaunchAnimationPageState extends State<LaunchAnimationPage> {
     final app = AppThemeScope.of(context);
     final themed = _palette == 'theme';
     return SettingsSection(
-      title: 'Built-in animation colour',
+      title: AppLocalizations.of(context).t('Built-in animation colour'),
       children: [
         SettingsToggleTile(
           icon: Icons.palette_outlined,

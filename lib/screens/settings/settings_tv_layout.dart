@@ -807,8 +807,7 @@ class _SettingsTvLayoutState extends State<SettingsTvLayout> {
                   ),
                 ),
                 const SizedBox(width: 7),
-                Text(
-                  'Changes save automatically',
+                Text(AppLocalizations.of(context).t('Changes save automatically'),
                   style: TextStyle(
                     fontFamily: 'JetBrainsMono',
                     fontSize: 8,
@@ -1006,13 +1005,13 @@ class _SettingsTvLayoutState extends State<SettingsTvLayout> {
         return [
           SettingsLookHero(
             label: widget.looksLabel,
-            subtitle: 'Full-bleed art, borderless focus, and ambient detail.',
+            subtitle: AppLocalizations.of(context).t('Full-bleed art, borderless focus, and ambient detail.'),
             onTap: widget.onOpenLooks,
             focusNode: _paneNodes[0],
           ),
           SizedBox(height: 18),
           SettingsSection(
-            title: 'Presets',
+            title: AppLocalizations.of(context).t('Presets'),
             blurb:
                 'One pick that sets the theme, layouts and launch '
                 'animation together.',
@@ -1032,7 +1031,7 @@ class _SettingsTvLayoutState extends State<SettingsTvLayout> {
           // indexes `_paneNodes` directly and a test asserts the indices are
           // contiguous from zero, because a gap is a row the remote skips.
           SettingsSection(
-            title: 'Theme',
+            title: AppLocalizations.of(context).t('Theme'),
             blurb: 'Colour, focus and motion. Applies everywhere in the app.',
             children: [
               SettingsTile.spec(
@@ -1057,7 +1056,7 @@ class _SettingsTvLayoutState extends State<SettingsTvLayout> {
           ),
           SizedBox(height: 18),
           SettingsSection(
-            title: 'Screen layouts',
+            title: AppLocalizations.of(context).t('Screen layouts'),
             blurb: 'Where things sit. Each screen is chosen separately.',
             children: [
               SettingsTile.spec(
@@ -1074,7 +1073,7 @@ class _SettingsTvLayoutState extends State<SettingsTvLayout> {
               ),
               SettingsTile.spec(
                 SettingsRows.collectionListStyle,
-                subtitle: 'Grid · Gallery · Filmstrip · Journal',
+                subtitle: AppLocalizations.of(context).t('Grid · Gallery · Filmstrip · Journal'),
                 onTap:
                     widget.onOpenCollectionListStyle ??
                     () => pushSettingsPage(
@@ -1135,7 +1134,7 @@ class _SettingsTvLayoutState extends State<SettingsTvLayout> {
           ),
           const SizedBox(height: 18),
           SettingsSection(
-            title: 'Display',
+            title: AppLocalizations.of(context).t('Display'),
             blurb:
                 'How this device draws. These affect performance, not '
                 'style.',
@@ -1170,7 +1169,7 @@ class _SettingsTvLayoutState extends State<SettingsTvLayout> {
           if (PlatformUtil.isAndroidTvCached) ...[
             SizedBox(height: 18),
             SettingsSection(
-              title: 'Player',
+              title: AppLocalizations.of(context).t('Player'),
               blurb: 'The on-screen controls during playback on this TV.',
               children: [
                 SettingsTile.spec(
@@ -1312,7 +1311,7 @@ class _SettingsTvLayoutState extends State<SettingsTvLayout> {
                 SettingsTile.spec(
                   SettingsRowContent(
                     icon: Icons.info_outline_rounded,
-                    title: 'Profiles unavailable',
+                    title: AppLocalizations.of(context).t('Profiles unavailable'),
                     // First line only: the reason's second line can be a
                     // stack frame, and the row is one-line copy.
                     subtitle: ProfileBootstrap.legacyReasonSummary
@@ -1818,8 +1817,7 @@ class _RailSearchItemState extends State<_RailSearchItem> {
                     ),
                     const SizedBox(width: 13),
                     Expanded(
-                      child: Text(
-                        'Search settings',
+                      child: Text(AppLocalizations.of(context).t('Search settings'),
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(

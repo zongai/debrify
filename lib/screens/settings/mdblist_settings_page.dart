@@ -175,13 +175,13 @@ class _MdblistSettingsPageState extends State<MdblistSettingsPage> {
   Widget build(BuildContext context) {
     if (_loading) {
       return SettingsPageScaffold(
-        title: 'MDBList Settings',
+        title: AppLocalizations.of(context).t('MDBList Settings'),
         body: Center(child: CircularProgressIndicator()),
       );
     }
 
     return SettingsPageScaffold(
-      title: 'MDBList Settings',
+      title: AppLocalizations.of(context).t('MDBList Settings'),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16),
         child: Center(
@@ -192,9 +192,8 @@ class _MdblistSettingsPageState extends State<MdblistSettingsPage> {
               children: [
                 SettingsPageHeader(
                   icon: Icons.playlist_add_check_circle_outlined,
-                  title: 'MDBList Integration',
-                  subtitle:
-                      'Connect your MDBList account to browse your lists inside '
+                  title: AppLocalizations.of(context).t('MDBList Integration'),
+                  subtitle: AppLocalizations.of(context).t('Connect your MDBList account to browse your lists inside ')
                       'Discover and Stremio TV.',
                 ),
                 const SizedBox(height: 24),
@@ -226,8 +225,7 @@ class _MdblistSettingsPageState extends State<MdblistSettingsPage> {
               children: [
                 Icon(Icons.key, color: t.accent2, size: 20),
                 const SizedBox(width: 8),
-                Text(
-                  'API Key',
+                Text(AppLocalizations.of(context).t('API Key'),
                   style: Theme.of(context).textTheme.titleMedium?.copyWith(
                     fontWeight: FontWeight.w600,
                   ),
@@ -263,7 +261,7 @@ class _MdblistSettingsPageState extends State<MdblistSettingsPage> {
         children: [
           Icon(Icons.check_circle, color: t.success, size: 14),
           SizedBox(width: 4),
-          Text('Connected', style: TextStyle(color: t.success, fontSize: 12)),
+          Text(AppLocalizations.of(context).t('Connected'), style: TextStyle(color: t.success, fontSize: 12)),
         ],
       ),
     );
@@ -416,8 +414,7 @@ class _MdblistSettingsPageState extends State<MdblistSettingsPage> {
               children: [
                 Icon(Icons.account_circle, color: t.accent2, size: 20),
                 const SizedBox(width: 8),
-                Text(
-                  'Account',
+                Text(AppLocalizations.of(context).t('Account'),
                   style: Theme.of(context).textTheme.titleMedium?.copyWith(
                     fontWeight: FontWeight.w600,
                   ),
@@ -494,8 +491,7 @@ class _MdblistSettingsPageState extends State<MdblistSettingsPage> {
                 Icon(Icons.help_outline, color: t.accent2, size: 20),
                 SizedBox(width: 8),
                 Expanded(
-                  child: Text(
-                    'How to get your MDBList API key',
+                  child: Text(AppLocalizations.of(context).t('How to get your MDBList API key'),
                     style: Theme.of(context).textTheme.titleMedium?.copyWith(
                       fontWeight: FontWeight.w600,
                     ),

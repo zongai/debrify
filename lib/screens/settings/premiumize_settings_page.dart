@@ -192,8 +192,7 @@ class _PremiumizeSettingsPageState extends State<PremiumizeSettingsPage> {
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  'This will hide the Premiumize tab from navigation.',
+                Text(AppLocalizations.of(context).t('This will hide the Premiumize tab from navigation.'),
                   style: TextStyle(fontWeight: FontWeight.w500),
                 ),
                 SizedBox(height: 12),
@@ -238,8 +237,7 @@ class _PremiumizeSettingsPageState extends State<PremiumizeSettingsPage> {
         builder: (context) => AlertDialog(
           title: Text(AppLocalizations.of(context).t('Security Restriction')),
           content: SingleChildScrollView(
-            child: Text(
-              'To show Premiumize in navigation again, you must logout and login. This is a security measure to prevent unauthorized changes.',
+            child: Text(AppLocalizations.of(context).t('To show Premiumize in navigation again, you must logout and login. This is a security measure to prevent unauthorized changes.'),
               style: Theme.of(context).textTheme.bodyMedium,
             ),
           ),
@@ -280,7 +278,7 @@ class _PremiumizeSettingsPageState extends State<PremiumizeSettingsPage> {
     final t = AppThemeScope.of(context).settings;
     if (_loading) {
       return SettingsPageScaffold(
-        title: 'Premiumize Settings',
+        title: AppLocalizations.of(context).t('Premiumize Settings'),
         body: Center(child: CircularProgressIndicator()),
       );
     }
@@ -288,7 +286,7 @@ class _PremiumizeSettingsPageState extends State<PremiumizeSettingsPage> {
     final user = PremiumizeAccountService.currentUser;
 
     return SettingsPageScaffold(
-      title: 'Premiumize Settings',
+      title: AppLocalizations.of(context).t('Premiumize Settings'),
       body: ListView(
         padding: EdgeInsets.all(16),
         children: [
@@ -307,8 +305,7 @@ class _PremiumizeSettingsPageState extends State<PremiumizeSettingsPage> {
                         value: _integrationEnabled,
                         onChanged: (value) => _updateIntegrationEnabled(value),
                         title: Text(AppLocalizations.of(context).t('Enable Premiumize')),
-                        subtitle: const Text(
-                          'Turn this off to hide Premiumize options across the app.',
+                        subtitle: Text(AppLocalizations.of(context).t('Turn this off to hide Premiumize options across the app.'),
                         ),
                         contentPadding: const EdgeInsets.symmetric(
                           horizontal: 20,
@@ -344,8 +341,7 @@ class _PremiumizeSettingsPageState extends State<PremiumizeSettingsPage> {
                                           size: 20,
                                         ),
                                         const SizedBox(width: 8),
-                                        Text(
-                                          'API Key',
+                                        Text(AppLocalizations.of(context).t('API Key'),
                                           style: Theme.of(context)
                                               .textTheme
                                               .titleMedium
@@ -381,8 +377,7 @@ class _PremiumizeSettingsPageState extends State<PremiumizeSettingsPage> {
                                                   size: 14,
                                                 ),
                                                 const SizedBox(width: 4),
-                                                Text(
-                                                  'Connected',
+                                                Text(AppLocalizations.of(context).t('Connected'),
                                                   style: TextStyle(
                                                     color: t.success,
                                                     fontSize: 12,
@@ -568,8 +563,7 @@ class _PremiumizeSettingsPageState extends State<PremiumizeSettingsPage> {
                                       onChanged: _savedApiKey != null
                                           ? _toggleHideFromNav
                                           : null,
-                                      title: const Text(
-                                        'Hide from Navigation',
+                                      title: Text(AppLocalizations.of(context).t('Hide from Navigation'),
                                         style: TextStyle(
                                           fontWeight: FontWeight.w500,
                                         ),
@@ -624,8 +618,7 @@ class _PremiumizeSettingsPageState extends State<PremiumizeSettingsPage> {
                                     child: SwitchListTile.adaptive(
                                       value: _checkCacheBeforeSearch,
                                       onChanged: _updateCacheCheck,
-                                      title: Text(
-                                        'Check Premiumize cache during searches',
+                                      title: Text(AppLocalizations.of(context).t('Check Premiumize cache during searches'),
                                       ),
                                       subtitle: Text(
                                         AppLocalizations.of(context).t(
@@ -639,9 +632,7 @@ class _PremiumizeSettingsPageState extends State<PremiumizeSettingsPage> {
                                       horizontal: 16,
                                       vertical: 4,
                                     ),
-                                    child: Text(
-                                      'Cache checks are free (no fair-use cost). If a check '
-                                      'fails, results stay usable.',
+                                    child: Text(AppLocalizations.of(context).t('Cache checks are free (no fair-use cost). If a check ')'fails, results stay usable.',
                                       style: Theme.of(context)
                                           .textTheme
                                           .bodySmall
@@ -666,8 +657,7 @@ class _PremiumizeSettingsPageState extends State<PremiumizeSettingsPage> {
                                           size: 20,
                                         ),
                                         const SizedBox(width: 8),
-                                        Text(
-                                          'Post-Torrent Action',
+                                        Text(AppLocalizations.of(context).t('Post-Torrent Action'),
                                           style: Theme.of(context)
                                               .textTheme
                                               .titleMedium
@@ -678,8 +668,7 @@ class _PremiumizeSettingsPageState extends State<PremiumizeSettingsPage> {
                                       ],
                                     ),
                                     const SizedBox(height: 8),
-                                    Text(
-                                      'Choose what happens after adding a torrent to Premiumize',
+                                    Text(AppLocalizations.of(context).t('Choose what happens after adding a torrent to Premiumize'),
                                       style: Theme.of(context)
                                           .textTheme
                                           .bodySmall
@@ -744,8 +733,7 @@ class _PremiumizeSettingsPageState extends State<PremiumizeSettingsPage> {
                                             size: 20,
                                           ),
                                           const SizedBox(width: 8),
-                                          Text(
-                                            'Account Information',
+                                          Text(AppLocalizations.of(context).t('Account Information'),
                                             style: Theme.of(context)
                                                 .textTheme
                                                 .titleMedium
@@ -777,8 +765,7 @@ class _PremiumizeSettingsPageState extends State<PremiumizeSettingsPage> {
                                           size: 20,
                                         ),
                                         const SizedBox(width: 8),
-                                        Text(
-                                          'How to get your Premiumize API key',
+                                        Text(AppLocalizations.of(context).t('How to get your Premiumize API key'),
                                           style: Theme.of(context)
                                               .textTheme
                                               .titleMedium

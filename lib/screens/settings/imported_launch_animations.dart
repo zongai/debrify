@@ -160,14 +160,14 @@ class _ImportedLaunchAnimationsState extends State<ImportedLaunchAnimations> {
 
   @override
   Widget build(BuildContext context) => SettingsSection(
-    title: 'Imported animations',
+    title: AppLocalizations.of(context).t('Imported animations'),
     children: [
       if (_busy) LinearProgressIndicator(),
       if (!PlatformUtil.isTvOS)
         SettingsTile(
           icon: Icons.file_open_outlined,
           title: 'Import .lottie file',
-          subtitle: 'Up to 5 seconds · 10 MiB · plays offline',
+          subtitle: AppLocalizations.of(context).t('Up to 5 seconds · 10 MiB · plays offline'),
           onTap: () async {
             if (!_busy) unawaited(_import());
           },
@@ -175,8 +175,7 @@ class _ImportedLaunchAnimationsState extends State<ImportedLaunchAnimations> {
       if (PlatformUtil.isTelevision)
         Padding(
           padding: EdgeInsets.all(16),
-          child: Text(
-            'You can also send an animation from a paired Debrify phone or computer. Open its imported animation and choose Send to TV.',
+          child: Text(AppLocalizations.of(context).t('You can also send an animation from a paired Debrify phone or computer. Open its imported animation and choose Send to TV.'),
           ),
         ),
       if (_error != null)
@@ -185,15 +184,13 @@ class _ImportedLaunchAnimationsState extends State<ImportedLaunchAnimations> {
         SettingsTile(
           icon: Icons.refresh,
           title: 'Reset library index',
-          subtitle:
-              'Preserves the damaged index. You will need to import your animation files again.',
+          subtitle: AppLocalizations.of(context).t('Preserves the damaged index. You will need to import your animation files again.'),
           onTap: () => _run(() async {
             final confirmed = await showDialog<bool>(
               context: context,
               builder: (context) => AlertDialog(
                 title: Text(AppLocalizations.of(context).t('Reset animation library?')),
-                content: Text(
-                  'Installed animations will need to be imported again. Your built-in animations are unaffected.',
+                content: Text(AppLocalizations.of(context).t('Installed animations will need to be imported again. Your built-in animations are unaffected.'),
                 ),
                 actions: [
                   TextButton(
@@ -216,7 +213,7 @@ class _ImportedLaunchAnimationsState extends State<ImportedLaunchAnimations> {
               ? Icons.check_circle
               : Icons.animation,
           title: entry.name,
-          subtitle: 'Preview, replay and choose',
+          subtitle: AppLocalizations.of(context).t('Preview, replay and choose'),
           onTap: () async {
             if (!_busy) unawaited(_preview(entry));
           },
@@ -354,8 +351,7 @@ class _ImportedLaunchDetailState extends State<ImportedLaunchDetail> {
                 ],
               ),
               const SizedBox(height: 12),
-              const Text(
-                'Plays once, then holds its final frame while Home loads. Artwork is fitted without cropping. Imported colors do not follow the app theme.',
+              Text(AppLocalizations.of(context).t('Plays once, then holds its final frame while Home loads. Artwork is fitted without cropping. Imported colors do not follow the app theme.'),
               ),
               for (final warning in {
                 ...widget.entry.warnings,
@@ -397,8 +393,7 @@ class _ImportedLaunchDetailState extends State<ImportedLaunchDetail> {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text(
-              'Imported on the receiving device. Preview and select it in Launch Animation settings.',
+            content: Text(AppLocalizations.of(context).t('Imported on the receiving device. Preview and select it in Launch Animation settings.'),
             ),
           ),
         );
@@ -447,8 +442,7 @@ class _ImportedLaunchDetailState extends State<ImportedLaunchDetail> {
       context: context,
       builder: (context) => AlertDialog(
         title: Text('Remove ${widget.entry.name}?'),
-        content: Text(
-          'This removes the animation from this device. Profiles using it will use their built-in animation.',
+        content: Text(AppLocalizations.of(context).t('This removes the animation from this device. Profiles using it will use their built-in animation.'),
         ),
         actions: [
           TextButton(

@@ -1,6 +1,8 @@
 import '../../theme/app_looks.dart';
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 
 import '../../services/analytics_service.dart';
 import '../../services/storage_service.dart';
@@ -214,13 +216,13 @@ class _DetailPageStylePageState extends State<DetailPageStylePage> {
     final t = AppThemeScope.of(context).settings;
     if (_loading) {
       return SettingsPageScaffold(
-        title: 'Details Page',
+        title: AppLocalizations.of(context).t('Details Page'),
         body: Center(child: CircularProgressIndicator()),
       );
     }
 
     return SettingsPageScaffold(
-      title: 'Details Page',
+      title: AppLocalizations.of(context).t('Details Page'),
       body: SingleChildScrollView(
         padding: EdgeInsets.all(16),
         child: Center(
@@ -231,9 +233,8 @@ class _DetailPageStylePageState extends State<DetailPageStylePage> {
               children: [
                 SettingsPageHeader(
                   icon: Icons.article_rounded,
-                  title: 'Details Page',
-                  subtitle:
-                      'Choose the layout and what appears when you open a movie or series',
+                  title: AppLocalizations.of(context).t('Details Page'),
+                  subtitle: AppLocalizations.of(context).t('Choose the layout and what appears when you open a movie or series'),
                 ),
                 const SizedBox(height: 24),
                 Focus(
@@ -241,7 +242,7 @@ class _DetailPageStylePageState extends State<DetailPageStylePage> {
                   canRequestFocus: false,
                   skipTraversal: true,
                   child: SettingsSection(
-                    title: 'Layout',
+                    title: AppLocalizations.of(context).t('Layout'),
                     children: [
                       for (final choice in _choices) _optionRow(choice),
                     ],
@@ -249,13 +250,13 @@ class _DetailPageStylePageState extends State<DetailPageStylePage> {
                 ),
                 const SizedBox(height: 24),
                 SettingsSection(
-                  title: 'Visible sections',
+                  title: AppLocalizations.of(context).t('Visible sections'),
                   children: [
                     SettingsToggleTile(
                       key: const ValueKey('detail-show-where-to-watch'),
                       icon: Icons.live_tv_rounded,
-                      title: 'Where to watch',
-                      subtitle: 'Subscription, free and ad-supported services',
+                      title: AppLocalizations.of(context).t('Where to watch'),
+                      subtitle: AppLocalizations.of(context).t('Subscription, free and ad-supported services'),
                       value: _sections.whereToWatch,
                       onChanged: (value) =>
                           _setSections(_sections.copyWith(whereToWatch: value)),
@@ -263,8 +264,8 @@ class _DetailPageStylePageState extends State<DetailPageStylePage> {
                     SettingsToggleTile(
                       key: const ValueKey('detail-show-rent'),
                       icon: Icons.key_rounded,
-                      title: 'Rent',
-                      subtitle: 'Services where the title can be rented',
+                      title: AppLocalizations.of(context).t('Rent'),
+                      subtitle: AppLocalizations.of(context).t('Services where the title can be rented'),
                       value: _sections.rent,
                       onChanged: (value) =>
                           _setSections(_sections.copyWith(rent: value)),
@@ -272,8 +273,8 @@ class _DetailPageStylePageState extends State<DetailPageStylePage> {
                     SettingsToggleTile(
                       key: const ValueKey('detail-show-buy'),
                       icon: Icons.shopping_bag_outlined,
-                      title: 'Buy',
-                      subtitle: 'Services where the title can be purchased',
+                      title: AppLocalizations.of(context).t('Buy'),
+                      subtitle: AppLocalizations.of(context).t('Services where the title can be purchased'),
                       value: _sections.buy,
                       onChanged: (value) =>
                           _setSections(_sections.copyWith(buy: value)),
@@ -281,8 +282,8 @@ class _DetailPageStylePageState extends State<DetailPageStylePage> {
                     SettingsToggleTile(
                       key: const ValueKey('detail-show-availability-link'),
                       icon: Icons.open_in_new_rounded,
-                      title: 'Availability via JustWatch · TMDB',
-                      subtitle: 'Show the external availability card',
+                      title: AppLocalizations.of(context).t('Availability via JustWatch · TMDB'),
+                      subtitle: AppLocalizations.of(context).t('Show the external availability card'),
                       value: _sections.availabilityLink,
                       onChanged: (value) => _setSections(
                         _sections.copyWith(availabilityLink: value),
@@ -292,8 +293,8 @@ class _DetailPageStylePageState extends State<DetailPageStylePage> {
                     SettingsToggleTile(
                       key: const ValueKey('detail-show-did-you-know'),
                       icon: Icons.lightbulb_outline_rounded,
-                      title: 'Did You Know',
-                      subtitle: 'Trivia, goofs and memorable quotes',
+                      title: AppLocalizations.of(context).t('Did You Know'),
+                      subtitle: AppLocalizations.of(context).t('Trivia, goofs and memorable quotes'),
                       value: _sections.didYouKnow,
                       onChanged: (value) =>
                           _setSections(_sections.copyWith(didYouKnow: value)),
@@ -301,9 +302,7 @@ class _DetailPageStylePageState extends State<DetailPageStylePage> {
                   ],
                 ),
                 const SizedBox(height: 14),
-                Text(
-                  'Applies the next time you open a movie or series — on this '
-                  'device and on Android TV.',
+                Text(AppLocalizations.of(context).t('Applies the next time you open a movie or series — on this ')'device and on Android TV.',
                   style: TextStyle(
                     fontSize: 12.5,
                     height: 1.45,

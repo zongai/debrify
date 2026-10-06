@@ -178,9 +178,7 @@ class _AllDebridSettingsPageState extends State<AllDebridSettingsPage> {
         context: context,
         builder: (ctx) => AlertDialog(
           title: Text(AppLocalizations.of(context).t('Hide AllDebrid from navigation?')),
-          content: Text(
-            'The AllDebrid tab will be removed from the navigation bar. To show '
-            'it again you will need to log out and log back in.',
+          content: Text(AppLocalizations.of(context).t('The AllDebrid tab will be removed from the navigation bar. To show ')'it again you will need to log out and log back in.',
           ),
           actions: [
             _FocusRing(
@@ -232,7 +230,7 @@ class _AllDebridSettingsPageState extends State<AllDebridSettingsPage> {
     final t = AppThemeScope.of(context).settings;
     if (_loading) {
       return SettingsPageScaffold(
-        title: 'AllDebrid Settings',
+        title: AppLocalizations.of(context).t('AllDebrid Settings'),
         body: Center(child: CircularProgressIndicator()),
       );
     }
@@ -240,7 +238,7 @@ class _AllDebridSettingsPageState extends State<AllDebridSettingsPage> {
     final user = AllDebridAccountService.currentUser;
 
     return SettingsPageScaffold(
-      title: 'AllDebrid Settings',
+      title: AppLocalizations.of(context).t('AllDebrid Settings'),
       body: SingleChildScrollView(
         padding: EdgeInsets.all(16),
         child: Center(
@@ -258,8 +256,7 @@ class _AllDebridSettingsPageState extends State<AllDebridSettingsPage> {
                       value: _integrationEnabled,
                       onChanged: (value) => _updateIntegrationEnabled(value),
                       title: Text(AppLocalizations.of(context).t('Enable AllDebrid')),
-                      subtitle: Text(
-                        'Turn this off to hide AllDebrid options across the app.',
+                      subtitle: Text(AppLocalizations.of(context).t('Turn this off to hide AllDebrid options across the app.'),
                       ),
                       contentPadding: const EdgeInsets.symmetric(
                         horizontal: 20,
@@ -295,8 +292,7 @@ class _AllDebridSettingsPageState extends State<AllDebridSettingsPage> {
                                         size: 20,
                                       ),
                                       const SizedBox(width: 8),
-                                      Text(
-                                        'API Key',
+                                      Text(AppLocalizations.of(context).t('API Key'),
                                         style: Theme.of(context)
                                             .textTheme
                                             .titleMedium
@@ -333,8 +329,7 @@ class _AllDebridSettingsPageState extends State<AllDebridSettingsPage> {
                                                 size: 14,
                                               ),
                                               const SizedBox(width: 4),
-                                              Text(
-                                                'Connected',
+                                              Text(AppLocalizations.of(context).t('Connected'),
                                                 style: TextStyle(
                                                   color: t.success,
                                                   fontSize: 12,
@@ -514,8 +509,7 @@ class _AllDebridSettingsPageState extends State<AllDebridSettingsPage> {
                                     onChanged: _savedApiKey != null
                                         ? _toggleHideFromNav
                                         : null,
-                                    title: const Text(
-                                      'Hide from Navigation',
+                                    title: Text(AppLocalizations.of(context).t('Hide from Navigation'),
                                       style: TextStyle(
                                         fontWeight: FontWeight.w500,
                                       ),
@@ -567,8 +561,7 @@ class _AllDebridSettingsPageState extends State<AllDebridSettingsPage> {
                                         size: 20,
                                       ),
                                       const SizedBox(width: 8),
-                                      Text(
-                                        'Post-Torrent Action',
+                                      Text(AppLocalizations.of(context).t('Post-Torrent Action'),
                                         style: Theme.of(context)
                                             .textTheme
                                             .titleMedium
@@ -579,8 +572,7 @@ class _AllDebridSettingsPageState extends State<AllDebridSettingsPage> {
                                     ],
                                   ),
                                   const SizedBox(height: 8),
-                                  Text(
-                                    'Choose what happens after adding a torrent to AllDebrid',
+                                  Text(AppLocalizations.of(context).t('Choose what happens after adding a torrent to AllDebrid'),
                                     style: Theme.of(context).textTheme.bodySmall
                                         ?.copyWith(color: t.dim),
                                   ),
@@ -632,8 +624,7 @@ class _AllDebridSettingsPageState extends State<AllDebridSettingsPage> {
                                           size: 20,
                                         ),
                                         const SizedBox(width: 8),
-                                        Text(
-                                          'Account Information',
+                                        Text(AppLocalizations.of(context).t('Account Information'),
                                           style: Theme.of(context)
                                               .textTheme
                                               .titleMedium
@@ -666,8 +657,7 @@ class _AllDebridSettingsPageState extends State<AllDebridSettingsPage> {
                                       ),
                                       const SizedBox(width: 8),
                                       Expanded(
-                                        child: Text(
-                                          'How to get your AllDebrid API key',
+                                        child: Text(AppLocalizations.of(context).t('How to get your AllDebrid API key'),
                                           style: Theme.of(context)
                                               .textTheme
                                               .titleMedium

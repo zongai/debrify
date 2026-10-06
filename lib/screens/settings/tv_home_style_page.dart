@@ -1,6 +1,8 @@
 import '../../theme/app_looks.dart';
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 
 import '../../services/analytics_service.dart';
 import '../../services/main_page_bridge.dart';
@@ -178,7 +180,7 @@ class _TvHomeStylePageState extends State<TvHomeStylePage> {
     final t = AppThemeScope.of(context).settings;
     if (_loading) {
       return SettingsPageScaffold(
-        title: 'Home Layout',
+        title: AppLocalizations.of(context).t('Home Layout'),
         body: Center(child: CircularProgressIndicator()),
       );
     }
@@ -191,7 +193,7 @@ class _TvHomeStylePageState extends State<TvHomeStylePage> {
     final active = tv ? _style : effectiveOffTvHomeStyle(_style);
 
     return SettingsPageScaffold(
-      title: 'Home Layout',
+      title: AppLocalizations.of(context).t('Home Layout'),
       body: SingleChildScrollView(
         padding: EdgeInsets.all(16),
         child: Center(
@@ -202,7 +204,7 @@ class _TvHomeStylePageState extends State<TvHomeStylePage> {
               children: [
                 SettingsPageHeader(
                   icon: Icons.view_quilt_rounded,
-                  title: 'Home Layout',
+                  title: AppLocalizations.of(context).t('Home Layout'),
                   subtitle: tv
                       ? 'How the Home screen is arranged on this TV'
                       : 'How the Home tab is arranged on this device',

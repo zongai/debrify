@@ -1044,8 +1044,7 @@ class _HomeSectionsFilterPageState extends State<HomeSectionsFilterPage> {
     final entries = _arrangeEntries;
     if (entries.isEmpty) {
       return Center(
-        child: Text(
-          'Turn on at least one row before arranging.',
+        child: Text(AppLocalizations.of(context).t('Turn on at least one row before arranging.'),
           style: TextStyle(color: Colors.white.withValues(alpha: 0.6)),
         ),
       );

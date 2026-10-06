@@ -42,8 +42,7 @@ class _SyncDeviceNameDialogState extends State<SyncDeviceNameDialog> {
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            'Choose a name such as “Living room TV”. It will appear on your connected devices. To rename another device, open this setting on that device.',
+          Text(AppLocalizations.of(context).t('Choose a name such as “Living room TV”. It will appear on your connected devices. To rename another device, open this setting on that device.'),
           ),
           SizedBox(height: 16),
           TvTextField(
@@ -139,8 +138,7 @@ class SyncDeviceTile extends StatelessWidget {
         Text(status, style: Theme.of(context).textTheme.bodySmall),
         if (!isRegistered) ...[
           SizedBox(height: 6),
-          Text(
-            'Saved data retained. Remove to free a device slot.',
+          Text(AppLocalizations.of(context).t('Saved data retained. Remove to free a device slot.'),
             style: Theme.of(context).textTheme.bodySmall,
           ),
         ],
@@ -230,8 +228,7 @@ class _SyncDevicesDialogState extends State<SyncDevicesDialog> {
         child: ListView(
           shrinkWrap: true,
           children: [
-            Text(
-              'Devices sharing your sync account.',
+            Text(AppLocalizations.of(context).t('Devices sharing your sync account.'),
               style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                 color: Theme.of(context).colorScheme.onSurfaceVariant,
               ),

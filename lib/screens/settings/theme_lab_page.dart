@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 
 import '../../services/storage_service.dart';
 import '../../theme/app_surface.dart';
@@ -60,14 +62,14 @@ class _ThemeLabPageState extends State<ThemeLabPage> {
     final live = AppThemeScope.of(context);
     final shown = _built ?? live;
     return SettingsPageScaffold(
-      title: 'Theme Lab',
+      title: AppLocalizations.of(context).t('Theme Lab'),
       body: ListView(
         padding: EdgeInsets.fromLTRB(16, 8, 16, 40),
         children: [
           SettingsPageHeader(
             icon: Icons.science_rounded,
             title: 'Theme Lab',
-            subtitle: 'The looks, live, on real widgets',
+            subtitle: AppLocalizations.of(context).t('The looks, live, on real widgets'),
           ),
           const SizedBox(height: 14),
           _picker(live),
@@ -93,12 +95,12 @@ class _ThemeLabPageState extends State<ThemeLabPage> {
   /// looking at.
   Widget _feedback() {
     return SettingsSection(
-      title: 'Feedback',
+      title: AppLocalizations.of(context).t('Feedback'),
       children: [
         SettingsToggleTile(
           icon: Icons.volume_up_rounded,
           title: 'Interface sounds',
-          subtitle: 'Only Console ticks today; every other look is silent',
+          subtitle: AppLocalizations.of(context).t('Only Console ticks today; every other look is silent'),
           value: StorageService.uiSoundsCached,
           onChanged: (v) async {
             await StorageService.setUiSounds(v);
@@ -108,7 +110,7 @@ class _ThemeLabPageState extends State<ThemeLabPage> {
         SettingsToggleTile(
           icon: Icons.vibration_rounded,
           title: 'Haptics',
-          subtitle: 'Phones and tablets only — a remote has no actuator',
+          subtitle: AppLocalizations.of(context).t('Phones and tablets only — a remote has no actuator'),
           value: StorageService.uiHapticsCached,
           onChanged: (v) async {
             await StorageService.setUiHaptics(v);
@@ -122,13 +124,13 @@ class _ThemeLabPageState extends State<ThemeLabPage> {
 
   Widget _picker(AppTheme live) {
     return SettingsSection(
-      title: 'Preview',
+      title: AppLocalizations.of(context).t('Preview'),
       children: [
         SettingsTile(
           icon: _preview == null
               ? Icons.radio_button_checked_rounded
               : Icons.radio_button_unchecked_rounded,
-          title: 'Live theme',
+          title: AppLocalizations.of(context).t('Live theme'),
           subtitle: live.label,
           onTap: () async => _select(null),
         ),
@@ -195,8 +197,7 @@ class _PreviewState extends State<_Preview> {
                   mainAxisSize: MainAxisSize.min,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      'CONTINUE WATCHING',
+                    Text(AppLocalizations.of(context).t('CONTINUE WATCHING'),
                       style: TextStyle(
                         fontSize: 9.5,
                         letterSpacing: 2,
@@ -205,8 +206,7 @@ class _PreviewState extends State<_Preview> {
                       ),
                     ),
                     const SizedBox(height: 6),
-                    Text(
-                      'The Long Night',
+                    Text(AppLocalizations.of(context).t('The Long Night'),
                       style: app.type.display(
                         TextStyle(
                           fontSize: 24,
@@ -279,8 +279,7 @@ class _PreviewState extends State<_Preview> {
                       Icon(Icons.play_arrow_rounded, color: app.core.tx, size: 18),
                       const SizedBox(width: 8),
                       Expanded(
-                        child: Text(
-                          'Resume · 48 min left',
+                        child: Text(AppLocalizations.of(context).t('Resume · 48 min left'),
                           style: TextStyle(color: app.core.tx, fontSize: 12.5),
                         ),
                       ),
@@ -293,8 +292,7 @@ class _PreviewState extends State<_Preview> {
                           color: app.core.accent,
                           borderRadius: app.shape.brPill,
                         ),
-                        child: Text(
-                          '4K',
+                        child: Text(AppLocalizations.of(context).t('4K'),
                           style: TextStyle(
                             fontSize: 9.5,
                             fontWeight: FontWeight.w800,
@@ -307,9 +305,7 @@ class _PreviewState extends State<_Preview> {
                 ),
                 if (tv) ...[
                   const SizedBox(height: 12),
-                  Text(
-                    'On this device the TV policies apply: no blur, no grain, '
-                    'no grading, and static skeletons.',
+                  Text(AppLocalizations.of(context).t('On this device the TV policies apply: no blur, no grain, ')'no grading, and static skeletons.',
                     style: TextStyle(fontSize: 11, color: app.core.tx3),
                   ),
                 ],
@@ -366,7 +362,7 @@ class _Inspector extends StatelessWidget {
     final t = theme;
     final tv = PlatformUtil.isTelevision;
     return SettingsSection(
-      title: 'Derived',
+      title: AppLocalizations.of(context).t('Derived'),
       children: [
         _row(t, 'separation', [
           for (final f in SurfaceFamily.values)

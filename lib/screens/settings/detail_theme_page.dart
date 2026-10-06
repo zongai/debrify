@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 
 import '../../services/analytics_service.dart';
 import '../../services/storage_service.dart';
@@ -100,13 +102,13 @@ class _DetailThemePageState extends State<DetailThemePage> {
     final st = AppThemeScope.of(context).settings;
     if (_loading) {
       return SettingsPageScaffold(
-        title: 'Details Theme',
+        title: AppLocalizations.of(context).t('Details Theme'),
         body: Center(child: CircularProgressIndicator()),
       );
     }
 
     return SettingsPageScaffold(
-      title: 'Details Theme',
+      title: AppLocalizations.of(context).t('Details Theme'),
       body: SingleChildScrollView(
         padding: EdgeInsets.all(16),
         child: Center(
@@ -117,9 +119,8 @@ class _DetailThemePageState extends State<DetailThemePage> {
               children: [
                 SettingsPageHeader(
                   icon: Icons.palette_rounded,
-                  title: 'Details Theme',
-                  subtitle:
-                      'The colours, type and shapes a movie or series page is '
+                  title: AppLocalizations.of(context).t('Details Theme'),
+                  subtitle: AppLocalizations.of(context).t('The colours, type and shapes a movie or series page is ')
                       'drawn in',
                 ),
                 if (_classicActive) ...[
@@ -135,26 +136,22 @@ class _DetailThemePageState extends State<DetailThemePage> {
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
                       SettingsSection(
-                        title: 'Complete looks',
+                        title: AppLocalizations.of(context).t('Complete looks'),
                         children: [for (final t in _complete) _optionRow(t)],
                       ),
                       Padding(
                         padding: const EdgeInsets.fromLTRB(2, 6, 2, 14),
-                        child: Text(
-                          'Change structure, focus and motion — not just '
-                          'colour.',
+                        child: Text(AppLocalizations.of(context).t('Change structure, focus and motion — not just ')'colour.',
                           style: TextStyle(fontSize: 12, color: st.dim),
                         ),
                       ),
                       SettingsSection(
-                        title: 'Palettes',
+                        title: AppLocalizations.of(context).t('Palettes'),
                         children: [for (final t in _palettes) _optionRow(t)],
                       ),
                       Padding(
                         padding: const EdgeInsets.fromLTRB(2, 6, 2, 0),
-                        child: Text(
-                          'Recolour the app; layout and motion stay as they '
-                          'are.',
+                        child: Text(AppLocalizations.of(context).t('Recolour the app; layout and motion stay as they ')'are.',
                           style: TextStyle(fontSize: 12, color: st.dim),
                         ),
                       ),
@@ -162,9 +159,7 @@ class _DetailThemePageState extends State<DetailThemePage> {
                   ),
                 ),
                 const SizedBox(height: 14),
-                Text(
-                  'Applies the next time you open a movie or series — on this '
-                  'device and on Android TV.',
+                Text(AppLocalizations.of(context).t('Applies the next time you open a movie or series — on this ')'device and on Android TV.',
                   style: TextStyle(
                     fontSize: 12.5,
                     height: 1.45,
@@ -196,9 +191,7 @@ class _DetailThemePageState extends State<DetailThemePage> {
           Icon(Icons.info_outline_rounded, size: 17, color: app.settings.dim),
           const SizedBox(width: 10),
           Expanded(
-            child: Text(
-              'Your details page is set to Classic, which keeps its own look. '
-              'Pick any alternate layout under Details Page to see a theme '
+            child: Text(AppLocalizations.of(context).t('Your details page is set to Classic, which keeps its own look. ')'Pick any alternate layout under Details Page to see a theme '
               'applied.',
               style: TextStyle(
                 fontSize: 12.5,

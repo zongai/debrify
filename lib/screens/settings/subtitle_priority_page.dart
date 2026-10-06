@@ -146,7 +146,7 @@ class _SubtitlePriorityPageState extends State<SubtitlePriorityPage> {
         if (!didPop) _cancel();
       },
       child: SettingsPageScaffold(
-        title: 'Subtitle priority',
+        title: AppLocalizations.of(context).t('Subtitle priority'),
         body: _loading
             ? Center(child: CircularProgressIndicator())
             : SingleChildScrollView(
@@ -161,9 +161,8 @@ class _SubtitlePriorityPageState extends State<SubtitlePriorityPage> {
                       children: [
                         SettingsPageHeader(
                           icon: Icons.low_priority_rounded,
-                          title: 'Subtitle priority',
-                          subtitle:
-                              'Try sources from top to bottom for your subtitle language. No Preference tries English first, then another available track within each source.',
+                          title: AppLocalizations.of(context).t('Subtitle priority'),
+                          subtitle: AppLocalizations.of(context).t('Try sources from top to bottom for your subtitle language. No Preference tries English first, then another available track within each source.'),
                         ),
                         const SizedBox(height: 20),
                         if (_error != null)

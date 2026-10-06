@@ -281,13 +281,13 @@ class _TraktSettingsPageState extends State<TraktSettingsPage> {
     final t = app.settings;
     if (_loading) {
       return SettingsPageScaffold(
-        title: 'Trakt Settings',
+        title: AppLocalizations.of(context).t('Trakt Settings'),
         body: Center(child: CircularProgressIndicator()),
       );
     }
 
     return SettingsPageScaffold(
-      title: 'Trakt Settings',
+      title: AppLocalizations.of(context).t('Trakt Settings'),
       body: ListView(
         padding: EdgeInsets.all(16),
         children: [
@@ -299,9 +299,8 @@ class _TraktSettingsPageState extends State<TraktSettingsPage> {
                 children: [
                   SettingsPageHeader(
                     icon: Icons.sync_rounded,
-                    title: 'Trakt Integration',
-                    subtitle:
-                        'Connect your Trakt account to sync watchlists and track what you watch.',
+                    title: AppLocalizations.of(context).t('Trakt Integration'),
+                    subtitle: AppLocalizations.of(context).t('Connect your Trakt account to sync watchlists and track what you watch.'),
                   ),
                   const SizedBox(height: 24),
 
@@ -439,8 +438,7 @@ class _TraktSettingsPageState extends State<TraktSettingsPage> {
           ),
           child: Column(
             children: [
-              Text(
-                'Enter this code:',
+              Text(AppLocalizations.of(context).t('Enter this code:'),
                 style: TextStyle(fontSize: 14, color: t.dim),
               ),
               const SizedBox(height: 8),
@@ -508,8 +506,7 @@ class _TraktSettingsPageState extends State<TraktSettingsPage> {
           ),
         ),
         SizedBox(height: 4),
-        Text(
-          'on your phone or computer',
+        Text(AppLocalizations.of(context).t('on your phone or computer'),
           style: TextStyle(fontSize: 13, color: t.dim),
         ),
         SizedBox(height: 12),

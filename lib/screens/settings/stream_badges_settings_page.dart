@@ -137,7 +137,7 @@ class _StreamBadgesSettingsPageState extends State<StreamBadgesSettingsPage> {
 
   Future<void> _importFromUrl() => _guarded(() async {
     final url = await _prompt(
-      title: 'Import from link',
+      title: AppLocalizations.of(context).t('Import from link'),
       hint: 'https://raw.githubusercontent.com/…/badges.json',
       helper:
           'A direct link to a badges.json file. Link sources can be '
@@ -151,7 +151,7 @@ class _StreamBadgesSettingsPageState extends State<StreamBadgesSettingsPage> {
 
   Future<void> _importFromPaste() => _guarded(() async {
     final text = await _prompt(
-      title: 'Paste badges JSON',
+      title: AppLocalizations.of(context).t('Paste badges JSON'),
       hint: '{ "groups": [ … ], "filters": [ … ] }',
       helper: 'Paste the contents of a badges.json file.',
       multiline: true,
@@ -284,7 +284,7 @@ class _StreamBadgesSettingsPageState extends State<StreamBadgesSettingsPage> {
   Future<void> _removeAll() async {
     if (_sources.isEmpty) return;
     final confirmed = await _confirm(
-      title: 'Remove all badge sources?',
+      title: AppLocalizations.of(context).t('Remove all badge sources?'),
       body: 'Every imported ruleset is deleted from this profile.',
       action: 'Remove all',
     );
@@ -426,13 +426,13 @@ class _StreamBadgesSettingsPageState extends State<StreamBadgesSettingsPage> {
   Widget build(BuildContext context) {
     if (_loading) {
       return SettingsPageScaffold(
-        title: 'Stream badges',
+        title: AppLocalizations.of(context).t('Stream badges'),
         body: Center(child: CircularProgressIndicator()),
       );
     }
     if (_loadError != null) {
       return SettingsPageScaffold(
-        title: 'Stream badges',
+        title: AppLocalizations.of(context).t('Stream badges'),
         body: Center(
           child: Padding(
             padding: EdgeInsets.all(24),
@@ -444,7 +444,7 @@ class _StreamBadgesSettingsPageState extends State<StreamBadgesSettingsPage> {
                 TextButton(
                   onPressed: () => _guarded(() async {
                     if (!await _confirm(
-                      title: 'Reset badge presets?',
+                      title: AppLocalizations.of(context).t('Reset badge presets?'),
                       body: 'Remove the saved badge presets from this profile?',
                       action: 'Reset',
                     )) {
@@ -463,7 +463,7 @@ class _StreamBadgesSettingsPageState extends State<StreamBadgesSettingsPage> {
       );
     }
     return SettingsPageScaffold(
-      title: 'Stream badges',
+      title: AppLocalizations.of(context).t('Stream badges'),
       body: SingleChildScrollView(
         padding: EdgeInsets.all(16),
         child: Center(
@@ -474,9 +474,8 @@ class _StreamBadgesSettingsPageState extends State<StreamBadgesSettingsPage> {
               children: [
                 SettingsPageHeader(
                   icon: Icons.sell_rounded,
-                  title: 'Stream badges',
-                  subtitle:
-                      'Label sources with chips from a Nuvio-style badges.json '
+                  title: AppLocalizations.of(context).t('Stream badges'),
+                  subtitle: AppLocalizations.of(context).t('Label sources with chips from a Nuvio-style badges.json ')
                       '— provider, format, resolution, HDR, audio, language',
                 ),
                 SizedBox(height: 24),
@@ -497,7 +496,7 @@ class _StreamBadgesSettingsPageState extends State<StreamBadgesSettingsPage> {
                   children: [
                     SettingsToggleTile(
                       icon: Icons.sell_rounded,
-                      title: 'Show stream badges',
+                      title: AppLocalizations.of(context).t('Show stream badges'),
                       subtitle: _sources.isEmpty
                           ? 'Import a badges file below to start'
                           : 'Chips from your imported rulesets on every source',
@@ -508,7 +507,7 @@ class _StreamBadgesSettingsPageState extends State<StreamBadgesSettingsPage> {
                 ),
                 const SizedBox(height: 16),
                 SettingsSection(
-                  title: 'Import',
+                  title: AppLocalizations.of(context).t('Import'),
                   blurb:
                       'A badges file is a list of regular-expression rules; a '
                       'rule that matches a source\'s name or description adds '
@@ -516,7 +515,7 @@ class _StreamBadgesSettingsPageState extends State<StreamBadgesSettingsPage> {
                   children: [
                     SettingsTile(
                       icon: Icons.link_rounded,
-                      title: 'Import from link',
+                      title: AppLocalizations.of(context).t('Import from link'),
                       subtitle: _busy
                           ? 'Importing…'
                           : 'Paste a raw badges.json URL (refreshable)',
@@ -526,15 +525,15 @@ class _StreamBadgesSettingsPageState extends State<StreamBadgesSettingsPage> {
                     ),
                     SettingsTile(
                       icon: Icons.upload_file_rounded,
-                      title: 'Import from file',
-                      subtitle: 'Pick a badges.json on this device',
+                      title: AppLocalizations.of(context).t('Import from file'),
+                      subtitle: AppLocalizations.of(context).t('Pick a badges.json on this device'),
                       enabled: !_busy,
                       onTap: _importFromFile,
                     ),
                     SettingsTile(
                       icon: Icons.content_paste_rounded,
-                      title: 'Paste JSON',
-                      subtitle: 'Paste the file contents directly',
+                      title: AppLocalizations.of(context).t('Paste JSON'),
+                      subtitle: AppLocalizations.of(context).t('Paste the file contents directly'),
                       enabled: !_busy,
                       onTap: _importFromPaste,
                     ),
@@ -542,7 +541,7 @@ class _StreamBadgesSettingsPageState extends State<StreamBadgesSettingsPage> {
                 ),
                 const SizedBox(height: 16),
                 SettingsSection(
-                  title: 'Your rulesets',
+                  title: AppLocalizations.of(context).t('Your rulesets'),
                   blurb: _sources.isEmpty
                       ? 'Nothing imported yet. Rulesets apply in the order '
                             'listed; tap one to refresh, disable or delete it.'
@@ -561,8 +560,7 @@ class _StreamBadgesSettingsPageState extends State<StreamBadgesSettingsPage> {
                     if (_sources.isEmpty)
                       Padding(
                         padding: EdgeInsets.all(16),
-                        child: Text(
-                          'No rulesets yet.',
+                        child: Text(AppLocalizations.of(context).t('No rulesets yet.'),
                           style: TextStyle(fontSize: 13),
                         ),
                       ),
@@ -571,12 +569,12 @@ class _StreamBadgesSettingsPageState extends State<StreamBadgesSettingsPage> {
                 if (_sources.isNotEmpty) ...[
                   const SizedBox(height: 16),
                   SettingsSection(
-                    title: 'Danger Zone',
+                    title: AppLocalizations.of(context).t('Danger Zone'),
                     children: [
                       SettingsTile(
                         icon: Icons.delete_sweep_rounded,
-                        title: 'Remove all rulesets',
-                        subtitle: 'Delete every imported badges file',
+                        title: AppLocalizations.of(context).t('Remove all rulesets'),
+                        subtitle: AppLocalizations.of(context).t('Delete every imported badges file'),
                         destructive: true,
                         onTap: _removeAll,
                       ),

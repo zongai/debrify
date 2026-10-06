@@ -147,7 +147,7 @@ class _SettingsSearchPageState extends State<SettingsSearchPage> {
   Widget build(BuildContext context) {
     final filtered = _filtered;
     return SettingsPageScaffold(
-      title: 'Search Settings',
+      title: AppLocalizations.of(context).t('Search Settings'),
       body: Column(
         children: [
           Padding(

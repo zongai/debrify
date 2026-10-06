@@ -77,7 +77,7 @@ class _DebrifyTvSettingsPageState extends State<DebrifyTvSettingsPage> {
   @override
   Widget build(BuildContext context) {
     return SettingsPageScaffold(
-      title: 'Debrify TV',
+      title: AppLocalizations.of(context).t('Debrify TV'),
       body: FocusScope(
         node: _bodyScope,
         child: FocusTraversalGroup(
@@ -125,7 +125,7 @@ class _DebrifyTvSettingsPageState extends State<DebrifyTvSettingsPage> {
     return SettingsPageHeader(
       icon: Icons.tv_rounded,
       title: 'Debrify TV Configuration',
-      subtitle: 'Configure search engines and result limits',
+      subtitle: AppLocalizations.of(context).t('Configure search engines and result limits'),
     );
   }
 
@@ -146,8 +146,7 @@ class _DebrifyTvSettingsPageState extends State<DebrifyTvSettingsPage> {
             children: [
               Icon(Icons.info_outline, size: 20, color: t.accent2),
               SizedBox(width: 8),
-              Text(
-                'Performance Tips',
+              Text(AppLocalizations.of(context).t('Performance Tips'),
                 style: Theme.of(context).textTheme.titleSmall?.copyWith(
                   fontWeight: FontWeight.w600,
                   color: app.core.tx,
@@ -220,8 +219,7 @@ class _DebrifyTvSettingsPageState extends State<DebrifyTvSettingsPage> {
       context: context,
       builder: (context) => AlertDialog(
         title: Text(AppLocalizations.of(context).t('Reset Settings')),
-        content: Text(
-          'Are you sure you want to reset all Debrify TV settings to their default values?',
+        content: Text(AppLocalizations.of(context).t('Are you sure you want to reset all Debrify TV settings to their default values?'),
         ),
         actions: [
           TextButton(

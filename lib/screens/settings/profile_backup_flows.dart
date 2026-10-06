@@ -84,8 +84,7 @@ class ProfileBackupFlows {
       if (PlatformUtil.isTvOS) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text(
-              'Apple TV profile backups use the authenticated Remote transfer flow.',
+            content: Text(AppLocalizations.of(context).t('Apple TV profile backups use the authenticated Remote transfer flow.'),
             ),
           ),
         );
@@ -151,9 +150,7 @@ class ProfileBackupFlows {
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                'Backs up all profiles and shared connections in an encrypted file. Downloads, recordings, '
-                'active jobs, device paths, and remote pairings are not '
+              Text(AppLocalizations.of(context).t('Backs up all profiles and shared connections in an encrypted file. Downloads, recordings, ')'active jobs, device paths, and remote pairings are not '
                 'included.',
               ),
               SizedBox(height: 12),
@@ -249,9 +246,7 @@ class ProfileBackupFlows {
         if (!context.mounted) return;
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text(
-              'All-profile backup uploaded to '
-              '${webDavTarget.config.name}/${uploaded.remotePath}'
+            content: Text(AppLocalizations.of(context).t('All-profile backup uploaded to ')'${webDavTarget.config.name}/${uploaded.remotePath}'
               '${archive.cachesPruned ? '. Provider channel lists and TV guides will refresh after a restore.' : '.'}',
             ),
           ),
@@ -291,9 +286,7 @@ class ProfileBackupFlows {
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              'Creates a Debrify backup file (.debrify). It is not '
-              'encrypted and contains your account credentials and '
+            Text(AppLocalizations.of(context).t('Creates a Debrify backup file (.debrify). It is not ')'encrypted and contains your account credentials and '
               'connection passwords, so keep it private.\n\n'
               'Included: all profiles and shared connections, settings, Debrify TV channels with '
               'their saved hashes, IPTV playlists, favorites, lists, '
@@ -365,9 +358,7 @@ class ProfileBackupFlows {
         if (!context.mounted) return;
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text(
-              'All-profile backup saved'
-              '${result.cachesPruned ? '. Provider channel lists and TV guides will refresh after a restore.' : '.'}',
+            content: Text(AppLocalizations.of(context).t('All-profile backup saved')'${result.cachesPruned ? '. Provider channel lists and TV guides will refresh after a restore.' : '.'}',
             ),
             duration: Duration(seconds: result.cachesPruned ? 7 : 4),
           ),
@@ -591,8 +582,7 @@ class ProfileBackupFlows {
     if (source == _ProfileBackupSource.localFile && PlatformUtil.isTvOS) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text(
-            'Apple TV restores profile packages through authenticated Remote transfer.',
+          content: Text(AppLocalizations.of(context).t('Apple TV restores profile packages through authenticated Remote transfer.'),
           ),
         ),
       );

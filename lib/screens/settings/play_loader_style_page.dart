@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 
 import '../../services/analytics_service.dart';
 import '../../services/play_loader_style.dart';
@@ -82,13 +84,13 @@ class _PlayLoaderStylePageState extends State<PlayLoaderStylePage> {
     final t = AppThemeScope.of(context).settings;
     if (_loading) {
       return SettingsPageScaffold(
-        title: 'Play Loader',
+        title: AppLocalizations.of(context).t('Play Loader'),
         body: Center(child: CircularProgressIndicator()),
       );
     }
 
     return SettingsPageScaffold(
-      title: 'Play Loader',
+      title: AppLocalizations.of(context).t('Play Loader'),
       body: SingleChildScrollView(
         padding: EdgeInsets.all(16),
         child: Center(
@@ -99,9 +101,8 @@ class _PlayLoaderStylePageState extends State<PlayLoaderStylePage> {
               children: [
                 SettingsPageHeader(
                   icon: Icons.play_circle_outline_rounded,
-                  title: 'Play Loader',
-                  subtitle:
-                      'What you see between pressing Play and the picture '
+                  title: AppLocalizations.of(context).t('Play Loader'),
+                  subtitle: AppLocalizations.of(context).t('What you see between pressing Play and the picture ')
                       'starting',
                 ),
                 const SizedBox(height: 24),
@@ -118,9 +119,7 @@ class _PlayLoaderStylePageState extends State<PlayLoaderStylePage> {
                   ),
                 ),
                 const SizedBox(height: 14),
-                Text(
-                  'Marquee uses the backdrop and logo art the details page '
-                  'already loaded. Titles without that artwork fall back to '
+                Text(AppLocalizations.of(context).t('Marquee uses the backdrop and logo art the details page ')'already loaded. Titles without that artwork fall back to '
                   'the poster, exactly like Classic.',
                   style: TextStyle(fontSize: 12.5, height: 1.45, color: t.dim),
                 ),

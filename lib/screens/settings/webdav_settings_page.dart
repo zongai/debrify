@@ -294,12 +294,12 @@ class _WebDavSettingsPageState extends State<WebDavSettingsPage> {
     final t = AppThemeScope.of(context).settings;
     if (_loading) {
       return SettingsPageScaffold(
-        title: 'WebDAV',
+        title: AppLocalizations.of(context).t('WebDAV'),
         body: Center(child: CircularProgressIndicator()),
       );
     }
     return SettingsPageScaffold(
-      title: 'WebDAV',
+      title: AppLocalizations.of(context).t('WebDAV'),
       body: SingleChildScrollView(
         padding: EdgeInsets.all(16),
         child: Center(
@@ -350,9 +350,7 @@ class _WebDavSettingsPageState extends State<WebDavSettingsPage> {
                             ),
                             const SizedBox(width: 8),
                             Expanded(
-                              child: Text(
-                                'Insecure HTTP — your WebDAV username, '
-                                'password, and files travel without transport '
+                              child: Text(AppLocalizations.of(context).t('Insecure HTTP — your WebDAV username, ')'password, and files travel without transport '
                                 'encryption.',
                                 style: TextStyle(
                                   color: t.warning,
@@ -505,8 +503,7 @@ class _WebDavSettingsPageState extends State<WebDavSettingsPage> {
                         value: _hiddenFromNav,
                         onChanged: _enabled ? _setHidden : null,
                         title: Text(AppLocalizations.of(context).t('Hide from navigation')),
-                        subtitle: Text(
-                          'Keep configured but remove the tab',
+                        subtitle: Text(AppLocalizations.of(context).t('Keep configured but remove the tab'),
                         ),
                       ),
                     ),
@@ -515,8 +512,7 @@ class _WebDavSettingsPageState extends State<WebDavSettingsPage> {
                         value: _showVideosOnly,
                         onChanged: _setShowVideosOnly,
                         title: Text(AppLocalizations.of(context).t('Show videos only')),
-                        subtitle: const Text(
-                          'Hide non-video files while browsing',
+                        subtitle: Text(AppLocalizations.of(context).t('Hide non-video files while browsing'),
                         ),
                       ),
                     ),

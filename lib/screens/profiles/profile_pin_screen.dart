@@ -162,9 +162,7 @@ class _ProfilePinScreenState extends State<ProfilePinScreen> {
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  'Enter the recovery code shown when this PIN was set. '
-                  'It removes the PIN so you can set a new one.',
+                Text(AppLocalizations.of(context).t('Enter the recovery code shown when this PIN was set. ')'It removes the PIN so you can set a new one.',
                 ),
                 SizedBox(height: 12),
                 TvTextField(
@@ -343,8 +341,7 @@ class _ProfilePinScreenState extends State<ProfilePinScreen> {
           ? CrossAxisAlignment.center
           : CrossAxisAlignment.start,
       children: [
-        Text(
-          'PROFILE LOCKED',
+        Text(AppLocalizations.of(context).t('PROFILE LOCKED'),
           style: TextStyle(
             color: Color.lerp(_wash, Colors.white, .22),
             fontSize: compact ? 9.5 : 11,
@@ -353,8 +350,7 @@ class _ProfilePinScreenState extends State<ProfilePinScreen> {
           ),
         ),
         SizedBox(height: compact ? 10 : 16),
-        Text(
-          'Welcome back,',
+        Text(AppLocalizations.of(context).t('Welcome back,'),
           key: const Key('profile-pin-title'),
           style: TextStyle(
             color: const Color(0xFFF4F0E8),
@@ -651,8 +647,7 @@ class _ProfilePinScreenState extends State<ProfilePinScreen> {
             Expanded(child: _statusAndRecovery()),
             Padding(
               padding: const EdgeInsets.only(top: 8),
-              child: Text(
-                '◀ ▶ move  ·  ▼ unlock  ·  OK press',
+              child: Text(AppLocalizations.of(context).t('◀ ▶ move  ·  ▼ unlock  ·  OK press'),
                 style: TextStyle(
                   color: Colors.white.withValues(alpha: .3),
                   fontSize: 11,

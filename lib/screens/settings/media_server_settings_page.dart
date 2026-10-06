@@ -172,8 +172,7 @@ class _MediaServerSettingsPageState extends State<MediaServerSettingsPage> {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text(
-              'Could not disconnect. If this connection is shared, manage its sharing in Profiles first.',
+            content: Text(AppLocalizations.of(context).t('Could not disconnect. If this connection is shared, manage its sharing in Profiles first.'),
             ),
           ),
         );
@@ -195,15 +194,13 @@ class _MediaServerSettingsPageState extends State<MediaServerSettingsPage> {
                 AppLocalizations.of(context).mediaServersBlurb,
               ),
               SizedBox(height: 12),
-              Text(
-                'Matching uses the server’s IMDb, TMDB or TVDB IDs and season/episode numbers. Missing IDs or different anime numbering may produce no match. Server transcoding is not included.',
+              Text(AppLocalizations.of(context).t('Matching uses the server’s IMDb, TMDB or TVDB IDs and season/episode numbers. Missing IDs or different anime numbering may produce no match. Server transcoding is not included.'),
               ),
               if (ProfileCollectionResourceFacade.active)
                 SettingsToggleTile(
                   icon: Icons.sync,
                   title: 'Sync server watch progress',
-                  subtitle:
-                      'For this Debrify profile: resume from the selected server and report playback/watched status back. Shared connections update the same server user. Applies to new playback sessions; no background library sync.',
+                  subtitle: AppLocalizations.of(context).t('For this Debrify profile: resume from the selected server and report playback/watched status back. Shared connections update the same server user. Applies to new playback sessions; no background library sync.'),
                   subtitleMaxLines: 5,
                   value: _watchSync,
                   onChanged: _setWatchSync,
@@ -214,8 +211,7 @@ class _MediaServerSettingsPageState extends State<MediaServerSettingsPage> {
                 TextButton(onPressed: _load, child: Text(AppLocalizations.of(context).retry)),
               ],
               if (!ProfileCollectionResourceFacade.active)
-                Text(
-                  'An active Debrify profile is required to store server credentials securely.',
+                Text(AppLocalizations.of(context).t('An active Debrify profile is required to store server credentials securely.'),
                 ),
               for (final resource in _connections)
                 Card(

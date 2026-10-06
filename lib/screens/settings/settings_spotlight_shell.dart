@@ -316,7 +316,7 @@ class _SettingsSpotlightShellState extends State<SettingsSpotlightShell> {
           children: [
             Semantics(
               button: true,
-              label: 'Back to settings categories',
+              label: AppLocalizations.of(context).t('Back to settings categories'),
               child: Material(
                 color: app.fade(app.core.tx, 0.08),
                 shape: CircleBorder(),

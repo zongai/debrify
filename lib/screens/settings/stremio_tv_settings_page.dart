@@ -221,7 +221,7 @@ class _StremioTvSettingsPageState extends State<StremioTvSettingsPage> {
     final app = AppThemeScope.of(context);
     final t = app.settings;
     return SettingsPageScaffold(
-      title: 'Stremio TV Settings',
+      title: AppLocalizations.of(context).t('Stremio TV Settings'),
       body: _loading
           ? Center(child: CircularProgressIndicator())
           : SingleChildScrollView(
@@ -236,9 +236,8 @@ class _StremioTvSettingsPageState extends State<StremioTvSettingsPage> {
                     children: [
                       SettingsPageHeader(
                         icon: Icons.smart_display_rounded,
-                        title: 'Stremio TV',
-                        subtitle:
-                            'Configure how Stremio addon catalogs are displayed as TV channels.',
+                        title: AppLocalizations.of(context).t('Stremio TV'),
+                        subtitle: AppLocalizations.of(context).t('Configure how Stremio addon catalogs are displayed as TV channels.'),
                       ),
                       SizedBox(height: 24),
                       // Settings card
@@ -248,8 +247,7 @@ class _StremioTvSettingsPageState extends State<StremioTvSettingsPage> {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text(
-                                'Channel Settings',
+                              Text(AppLocalizations.of(context).t('Channel Settings'),
                                 style: TextStyle(
                                   fontSize: 14,
                                   fontWeight: FontWeight.w700,
@@ -349,8 +347,7 @@ class _StremioTvSettingsPageState extends State<StremioTvSettingsPage> {
                               SwitchListTile(
                                 contentPadding: EdgeInsets.zero,
                                 title: Text(AppLocalizations.of(context).t('Auto-refresh')),
-                                subtitle: Text(
-                                  'Automatically refresh progress bars and detect rotation changes',
+                                subtitle: Text(AppLocalizations.of(context).t('Automatically refresh progress bars and detect rotation changes'),
                                 ),
                                 value: _autoRefresh,
                                 onChanged: _setAutoRefresh,
@@ -359,8 +356,7 @@ class _StremioTvSettingsPageState extends State<StremioTvSettingsPage> {
                               SwitchListTile(
                                 contentPadding: EdgeInsets.zero,
                                 title: Text(AppLocalizations.of(context).t('Hide Currently Playing')),
-                                subtitle: Text(
-                                  'Blur poster and hide details for a surprise when playing',
+                                subtitle: Text(AppLocalizations.of(context).t('Blur poster and hide details for a surprise when playing'),
                                 ),
                                 value: _hideNowPlaying,
                                 onChanged: _setHideNowPlaying,
@@ -369,8 +365,7 @@ class _StremioTvSettingsPageState extends State<StremioTvSettingsPage> {
                               SwitchListTile(
                                 contentPadding: EdgeInsets.zero,
                                 title: Text(AppLocalizations.of(context).t('Random Episodes')),
-                                subtitle: Text(
-                                  'Pick a different episode every time instead of following the scheduled time slot',
+                                subtitle: Text(AppLocalizations.of(context).t('Pick a different episode every time instead of following the scheduled time slot'),
                                 ),
                                 value: _randomEpisodes,
                                 onChanged: _setRandomEpisodes,
@@ -512,8 +507,7 @@ class _StremioTvSettingsPageState extends State<StremioTvSettingsPage> {
                           padding: const EdgeInsets.symmetric(horizontal: 16),
                           child: SwitchListTile(
                             title: Text(AppLocalizations.of(context).t('Try torrents first')),
-                            subtitle: const Text(
-                              'Resolve torrents via debrid before trying direct streams',
+                            subtitle: Text(AppLocalizations.of(context).t('Resolve torrents via debrid before trying direct streams'),
                             ),
                             value: _torrentsFirst,
                             onChanged: (v) async {
