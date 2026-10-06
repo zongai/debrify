@@ -891,6 +891,8 @@ class PlexClient {
     required bool isMovie,
     int? season,
     int? episode,
+    String? title,
+    String? year,
     Future<void> Function()? authorize,
     DateTime? deadline,
   }) async {
@@ -898,23 +900,43 @@ class PlexClient {
     final matches = <Map<String, dynamic>>[];
     for (final guid in guids) {
       if (deadline != null && DateTime.now().isAfter(deadline)) break;
-      final data = await _getJson(
-        account.baseUrl,
-        'library/all',
-        deviceId: account.deviceId,
-        token: account.token,
-        query: {
-          'guid': guid,
-          'type': isMovie ? '1' : '2', // 1=movie, 2=show
-          'includeGuids': '1',
-        },
-        authorize: authorize,
-      );
-      for (final row in _containerChildren(data)) {
-        matches.add(mapMetadata(row));
+      for (final typeFilter in <String?>[isMovie ? '1' : '2', null]) {
+        if (deadline != null && DateTime.now().isAfter(deadline)) break;
+        final data = await _getJson(
+          account.baseUrl,
+          'library/all',
+          deviceId: account.deviceId,
+          token: account.token,
+          query: {
+            'guid': guid,
+            if (typeFilter != null) 'type': typeFilter,
+            'includeGuids': '1',
+          },
+          authorize: authorize,
+        );
+        for (final row in _containerChildren(data)) {
+          matches.add(mapMetadata(row));
+        }
+        if (matches.isNotEmpty) break;
       }
       if (matches.isNotEmpty) break;
     }
+
+    if (matches.isEmpty && title != null && title.trim().isNotEmpty) {
+      matches.addAll(
+        await _findItemsByTitle(
+          account,
+          title: title.trim(),
+          year: year,
+          provider: provider,
+          providerId: providerId,
+          isMovie: isMovie,
+          authorize: authorize,
+          deadline: deadline,
+        ),
+      );
+    }
+
     if (isMovie) {
       return matches.where((m) => m['Type'] == 'Movie').toList();
     }
@@ -1173,19 +1195,28 @@ class PlexClient {
 
   static List<String> _guidCandidates(String provider, String providerId) {
     final p = provider.toLowerCase();
-    final id = providerId.trim();
+    var id = providerId.trim();
+    // Accept both "tt1392190" and bare numeric ids.
+    if (p == 'imdb' && !id.startsWith('tt') && RegExp(r'^\d+$').hasMatch(id)) {
+      id = 'tt$id';
+    }
     final out = <String>[];
     if (p == 'imdb') {
       out.addAll([
         'imdb://$id',
         'com.plexapp.agents.imdb://$id?lang=en',
         'com.plexapp.agents.imdb://$id',
+        // Some agents store without the tt prefix.
+        if (id.startsWith('tt')) 'imdb://${id.substring(2)}',
+        if (id.startsWith('tt'))
+          'com.plexapp.agents.imdb://${id.substring(2)}?lang=en',
       ]);
     } else if (p == 'tmdb') {
       out.addAll([
         'tmdb://$id',
         'com.plexapp.agents.themoviedb://$id?lang=en',
         'com.plexapp.agents.themoviedb://$id',
+        'themoviedb://$id',
       ]);
     } else if (p == 'tvdb') {
       out.addAll([
@@ -1197,6 +1228,108 @@ class PlexClient {
       out.add('$p://$id');
     }
     return out;
+  }
+
+  /// Hub search when primary guid lookup misses (new Plex movie agent).
+  Future<List<Map<String, dynamic>>> _findItemsByTitle(
+    MediaServerAccount account, {
+    required String title,
+    String? year,
+    required String provider,
+    required String providerId,
+    required bool isMovie,
+    Future<void> Function()? authorize,
+    DateTime? deadline,
+  }) async {
+    if (deadline != null && DateTime.now().isAfter(deadline)) {
+      return const [];
+    }
+    final data = await _getJson(
+      account.baseUrl,
+      'hubs/search',
+      deviceId: account.deviceId,
+      token: account.token,
+      query: {
+        'query': title,
+        'limit': '25',
+        'includeGuids': '1',
+      },
+      authorize: authorize,
+    );
+    final wantType = isMovie ? 'Movie' : 'Series';
+    final providerKey = provider.toLowerCase();
+    var wantId = providerId.trim().toLowerCase();
+    if (providerKey == 'imdb' &&
+        !wantId.startsWith('tt') &&
+        RegExp(r'^\d+$').hasMatch(wantId)) {
+      wantId = 'tt$wantId';
+    }
+    final yearInt = int.tryParse(year?.trim() ?? '');
+    final titleKey = title.trim().toLowerCase();
+    final hits = <Map<String, dynamic>>[];
+    // hubs/search: MediaContainer.Hub[] each with Metadata[] (no nested
+    // MediaContainer). Fall back to top-level Metadata when present.
+    final container = data['MediaContainer'];
+    final hubs = container is Map
+        ? (container['Hub'] ?? container['hub'])
+        : (data['Hub'] ?? data['hub']);
+    final hubList = hubs is List ? hubs : const [];
+    final topMeta = container is Map
+        ? (container['Metadata'] ?? container['Directory'])
+        : null;
+    final rowMaps = <Map>[];
+    for (final hub in hubList) {
+      if (hub is! Map) continue;
+      final meta = hub['Metadata'] ?? hub['Directory'];
+      if (meta is List) {
+        for (final row in meta) {
+          if (row is Map) rowMaps.add(row);
+        }
+      }
+    }
+    if (topMeta is List) {
+      for (final row in topMeta) {
+        if (row is Map) rowMaps.add(row);
+      }
+    }
+    for (final row in rowMaps) {
+      final mapped = mapMetadata(Map<String, dynamic>.from(row));
+      if (mapped['Type'] != wantType) continue;
+      final ids = mapped['ProviderIds'];
+      var idMatch = false;
+      if (ids is Map) {
+        final raw = ids[providerKey]?.toString().toLowerCase() ??
+            ids[provider]?.toString().toLowerCase() ??
+            '';
+        idMatch = raw == wantId ||
+            raw.endsWith(wantId) ||
+            (wantId.startsWith('tt') && raw == wantId.substring(2));
+      }
+      final name = (mapped['Name'] as String? ?? '').trim().toLowerCase();
+      final y = mapped['ProductionYear'] as int?;
+      final yearMatch = yearInt == null || y == null || y == yearInt;
+      final nameMatch = name == titleKey ||
+          name.contains(titleKey) ||
+          titleKey.contains(name);
+      if (idMatch || (nameMatch && yearMatch)) {
+        hits.add(mapped);
+      }
+    }
+    // Prefer exact provider-id hits.
+    final exact = [
+      for (final h in hits)
+        if ((h['ProviderIds'] is Map) &&
+            ((h['ProviderIds'] as Map)[providerKey]
+                        ?.toString()
+                        .toLowerCase() ==
+                    wantId ||
+                (h['ProviderIds'] as Map)['imdb']
+                        ?.toString()
+                        .toLowerCase() ==
+                    wantId))
+          h,
+    ];
+    return exact.isNotEmpty ? exact : hits;
   }
 
   // ---------------------------------------------------------------------------

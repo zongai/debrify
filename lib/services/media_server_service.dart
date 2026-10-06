@@ -518,6 +518,8 @@ class MediaServerService {
     required bool isMovie,
     int? season,
     int? episode,
+    String? title,
+    String? year,
     String? resourceFilter,
     void Function(String, List<Torrent>)? onBatch,
   }) async {
@@ -597,6 +599,8 @@ class MediaServerService {
             isMovie: isMovie,
             season: season,
             episode: episode,
+            title: title,
+            year: year,
             authorize: check,
             cacheScope: (
               scope,

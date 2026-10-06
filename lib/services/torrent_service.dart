@@ -494,6 +494,8 @@ class TorrentService {
           isMovie: isMovie,
           season: season,
           episode: episode,
+          // Title/year optional on this entry point — guid-first; callers that
+          // know the catalog title use searchStremioAddonsOnly.
           onBatch: onBatch,
         ),
       );
@@ -630,6 +632,8 @@ class TorrentService {
     int? episode,
     List<int>? availableSeasons,
     String? contentType,
+    String? title,
+    String? year,
     Duration? timeout,
     bool preserveOrder = false,
     SearchBatchCallback? onBatch,
@@ -650,6 +654,8 @@ class TorrentService {
             isMovie: isMovie,
             season: season,
             episode: episode,
+            title: title,
+            year: year,
             onBatch: onBatch,
           )
         : Future.value(<String, dynamic>{});

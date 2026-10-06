@@ -443,6 +443,8 @@ class MediaServerClient {
     required bool isMovie,
     int? season,
     int? episode,
+    String? title,
+    String? year,
     Future<void> Function()? authorize,
     Object? cacheScope,
     void Function()? onIncomplete,
@@ -467,6 +469,8 @@ class MediaServerClient {
         isMovie: isMovie,
         season: season,
         episode: episode,
+        title: title,
+        year: year,
         authorize: authorize,
         deadline: deadline,
       );
