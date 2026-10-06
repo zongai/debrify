@@ -1916,7 +1916,7 @@ class VideoPlayerLauncher {
       if (context.mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text(AppLocalizations.of(context).t('Failed to open DeoVR: $e').replaceAll(r'\$e', e.toString())),
+            content: Text(AppLocalizations.of(context).t('Failed to open DeoVR: \$e').replaceAll(r'\$e', e.toString())),
             duration: const Duration(seconds: 2),
           ),
         );

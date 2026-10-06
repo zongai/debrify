@@ -422,7 +422,7 @@ class LemmyResultsViewState extends State<LemmyResultsView> {
     } catch (e) {
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(AppLocalizations.of(context).t('Download failed: $e').replaceAll(r'\$e', e.toString()))),
+        SnackBar(content: Text(AppLocalizations.of(context).t('Download failed: \$e').replaceAll(r'\$e', e.toString()))),
       );
     }
   }

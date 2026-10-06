@@ -1261,7 +1261,7 @@ class _StremioTvScreenState extends State<StremioTvScreen> {
       if (!mounted) return;
       ScaffoldMessenger.of(
         context,
-      ).showSnackBar(SnackBar(content: Text(AppLocalizations.of(context).t('Error searching streams: $e').replaceAll(r'\$e', e.toString()))));
+      ).showSnackBar(SnackBar(content: Text(AppLocalizations.of(context).t('Error searching streams: \$e').replaceAll(r'\$e', e.toString()))));
     }
   }
 

@@ -503,7 +503,7 @@ class _TorboxDownloadsScreenState extends State<TorboxDownloadsScreen> {
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text(AppLocalizations.of(context).t('Failed to copy link: $e').replaceAll(r'\$e', _formatTorboxError(e))),
+          content: Text(AppLocalizations.of(context).t('Failed to copy link: \$e').replaceAll(r'\$e', _formatTorboxError(e))),
           backgroundColor: const Color(0xFFEF4444),
         ),
       );
@@ -528,7 +528,7 @@ class _TorboxDownloadsScreenState extends State<TorboxDownloadsScreen> {
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text(AppLocalizations.of(context).t('Failed to copy ZIP link: $e').replaceAll(r'\$e', _formatTorboxError(e))),
+          content: Text(AppLocalizations.of(context).t('Failed to copy ZIP link: \$e').replaceAll(r'\$e', _formatTorboxError(e))),
           backgroundColor: const Color(0xFFEF4444),
         ),
       );
@@ -721,7 +721,7 @@ class _TorboxDownloadsScreenState extends State<TorboxDownloadsScreen> {
         if (!mounted) return;
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text(AppLocalizations.of(context).t('Failed to play file: $e').replaceAll(r'\$e', _formatTorboxError(e))),
+            content: Text(AppLocalizations.of(context).t('Failed to play file: \$e').replaceAll(r'\$e', _formatTorboxError(e))),
             backgroundColor: const Color(0xFFEF4444),
           ),
         );
@@ -805,7 +805,7 @@ class _TorboxDownloadsScreenState extends State<TorboxDownloadsScreen> {
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text(AppLocalizations.of(context).t('Failed to prepare stream: $e').replaceAll(r'\$e', _formatTorboxError(e))),
+          content: Text(AppLocalizations.of(context).t('Failed to prepare stream: \$e').replaceAll(r'\$e', _formatTorboxError(e))),
           backgroundColor: const Color(0xFFEF4444),
         ),
       );
@@ -934,7 +934,7 @@ class _TorboxDownloadsScreenState extends State<TorboxDownloadsScreen> {
       if (!mounted) return;
       ScaffoldMessenger.of(
         context,
-      ).showSnackBar(SnackBar(content: Text(AppLocalizations.of(context).t('Failed to delete torrents: $e').replaceAll(r'$e', e.toString()))));
+      ).showSnackBar(SnackBar(content: Text(AppLocalizations.of(context).t('Failed to delete torrents: \$e').replaceAll(r'$e', e.toString()))));
     }
   }
 
@@ -1037,7 +1037,7 @@ class _TorboxDownloadsScreenState extends State<TorboxDownloadsScreen> {
 
       ScaffoldMessenger.of(
         context,
-      ).showSnackBar(SnackBar(content: Text(AppLocalizations.of(context).t('Failed to delete torrent: $e').replaceAll(r'$e', e.toString()))));
+      ).showSnackBar(SnackBar(content: Text(AppLocalizations.of(context).t('Failed to delete torrent: \$e').replaceAll(r'$e', e.toString()))));
     }
   }
 

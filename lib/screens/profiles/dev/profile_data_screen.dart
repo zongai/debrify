@@ -218,7 +218,7 @@ class _ProfileDataScreenState extends State<ProfileDataScreen> {
                   : (value) => setState(() => _comparing = value),
             ),
             SizedBox(width: 8),
-            const Expanded(child: Text(AppLocalizations.of(context).t('Compare with'))),
+            Expanded(child: Text(AppLocalizations.of(context).t('Compare with'))),
             if (_comparing)
               DropdownButton<String>(
                 value: aliases.contains(_compareWith) ? _compareWith : null,

@@ -318,7 +318,7 @@ class _AddonHubScreenState extends State<AddonHubScreen> {
       if (!mounted) return;
       messenger.showSnackBar(
         SnackBar(
-          content: Text(AppLocalizations.of(context).t('Failed to install: $e').replaceAll(r'$e', e.toString())),
+          content: Text(AppLocalizations.of(context).t('Failed to install: \$e').replaceAll(r'$e', e.toString())),
           backgroundColor: Colors.red,
         ),
       );
@@ -363,7 +363,7 @@ class _AddonHubScreenState extends State<AddonHubScreen> {
       if (!mounted) return;
       messenger.showSnackBar(
         SnackBar(
-          content: Text(AppLocalizations.of(context).t('Failed to delete: $e').replaceAll(r'\$e', e.toString())),
+          content: Text(AppLocalizations.of(context).t('Failed to delete: \$e').replaceAll(r'\$e', e.toString())),
           backgroundColor: Colors.red,
         ),
       );
@@ -783,7 +783,7 @@ class _AddonHubScreenState extends State<AddonHubScreen> {
       if (!mounted) return;
       messenger.showSnackBar(
         SnackBar(
-          content: Text(AppLocalizations.of(context).t('Update failed: $e').replaceAll(r'$e', e.toString())),
+          content: Text(AppLocalizations.of(context).t('Update failed: \$e').replaceAll(r'$e', e.toString())),
           backgroundColor: Colors.red,
         ),
       );
@@ -802,7 +802,7 @@ class _AddonHubScreenState extends State<AddonHubScreen> {
       if (!mounted) return;
       messenger.showSnackBar(
         SnackBar(
-          content: Text(AppLocalizations.of(context).t('Failed to check sharing: $e').replaceAll(r'$e', e.toString())),
+          content: Text(AppLocalizations.of(context).t('Failed to check sharing: \$e').replaceAll(r'$e', e.toString())),
           backgroundColor: Colors.red,
         ),
       );
@@ -847,7 +847,7 @@ class _AddonHubScreenState extends State<AddonHubScreen> {
       if (!mounted) return;
       messenger.showSnackBar(
         SnackBar(
-          content: Text(AppLocalizations.of(context).t('Failed to delete: $e').replaceAll(r'\$e', e.toString())),
+          content: Text(AppLocalizations.of(context).t('Failed to delete: \$e').replaceAll(r'\$e', e.toString())),
           backgroundColor: Colors.red,
         ),
       );
@@ -927,7 +927,7 @@ class _AddonHubScreenState extends State<AddonHubScreen> {
       if (!mounted) return;
       messenger.showSnackBar(
         SnackBar(
-          content: Text(AppLocalizations.of(context).t('Could not rename addon: $error').replaceAll(r'$error', error.toString())),
+          content: Text(AppLocalizations.of(context).t('Could not rename addon: \$error').replaceAll(r'$error', error.toString())),
           backgroundColor: Colors.red,
         ),
       );
@@ -969,7 +969,7 @@ class _AddonHubScreenState extends State<AddonHubScreen> {
       if (!mounted) return;
       messenger.showSnackBar(
         SnackBar(
-          content: Text(AppLocalizations.of(context).t('Failed to check sharing: $e').replaceAll(r'$e', e.toString())),
+          content: Text(AppLocalizations.of(context).t('Failed to check sharing: \$e').replaceAll(r'$e', e.toString())),
           backgroundColor: Colors.red,
         ),
       );
@@ -1013,7 +1013,7 @@ class _AddonHubScreenState extends State<AddonHubScreen> {
       if (!mounted) return;
       messenger.showSnackBar(
         SnackBar(
-          content: Text(AppLocalizations.of(context).t('Failed to remove: $e').replaceAll(r'\$e', e.toString())),
+          content: Text(AppLocalizations.of(context).t('Failed to remove: \$e').replaceAll(r'\$e', e.toString())),
           backgroundColor: Colors.red,
         ),
       );
@@ -1749,7 +1749,7 @@ class _AddonHubScreenState extends State<AddonHubScreen> {
       setState(() => _metadataProviderPreference = previous);
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text(AppLocalizations.of(context).t('Couldn\'t save metadata provider: $e').replaceAll(r'\$e', e.toString())),
+          content: Text(AppLocalizations.of(context).t('Couldn\'t save metadata provider: \$e').replaceAll(r'\$e', e.toString())),
           backgroundColor: Colors.red,
         ),
       );
