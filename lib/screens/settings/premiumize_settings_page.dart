@@ -627,10 +627,10 @@ class _PremiumizeSettingsPageState extends State<PremiumizeSettingsPage> {
                                       title: const Text(
                                         'Check Premiumize cache during searches',
                                       ),
-                                      subtitle: const Text(
-                                        'Show a "PM" badge on torrent search results that are '
-                                        'already cached on Premiumize, so you know which ones '
-                                        'play instantly.',
+                                      subtitle: Text(
+                                        AppLocalizations.of(context).t(
+                                          'Show a "PM" badge on torrent search results that are already cached on Premiumize, so you know which ones play instantly.',
+                                        ),
                                       ),
                                     ),
                                   ),

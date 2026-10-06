@@ -13139,8 +13139,9 @@ class _SearchScreenState extends State<SearchScreen>
           const SizedBox(width: 8),
           Expanded(
             child: Text(
-              'Showing Torbox cached results only. Disable "Check Torbox cache '
-              'during searches" in Torbox settings to see every result.',
+              AppLocalizations.of(context).t(
+                'Showing Torbox cached results only. Disable "Check Torbox cache during searches" in Torbox settings to see every result.',
+              ),
               style: TextStyle(
                 fontSize: 12,
                 color: app.fade(app.core.tx, 0.85),

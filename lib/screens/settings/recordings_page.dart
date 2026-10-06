@@ -381,7 +381,7 @@ class _RecordingsPageState extends State<RecordingsPage>
     if (!mounted) return;
     if (!ok) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text("Couldn't delete the recording")),
+        SnackBar(content: Text(AppLocalizations.of(context).t("Couldn't delete the recording"))),
       );
     }
     await _loadAll();

@@ -121,8 +121,11 @@ Future<bool> confirmSimklTitleRemoval(
     builder: (dialogContext) => AlertDialog(
       title: Text(AppLocalizations.of(context).t('Remove from Simkl?')),
       content: Text(
-        'Removing "$title" from Simkl permanently clears its list status, '
-        'watched history, rating, and saved playback progress.',
+        AppLocalizations.of(context)
+            .t(
+              'Removing "\$title" from Simkl permanently clears its list status, watched history, rating, and saved playback progress.',
+            )
+            .replaceAll('\$title', title),
       ),
       actions: [
         TextButton(

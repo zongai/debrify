@@ -89,7 +89,7 @@ class ServicesStep extends StatelessWidget {
           shape: ParallaxShape.pill,
           radius: BorderRadius.circular(18),
           builder: (context, focused) =>
-              OnboardPillSurface(focused: focused, label: "I don't have any"),
+              OnboardPillSurface(focused: focused, label: AppLocalizations.of(context).t("I don't have any")),
         ),
         const SizedBox(width: 10),
         OnboardFocusable(
