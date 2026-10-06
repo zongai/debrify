@@ -286,7 +286,7 @@ class _StremioAddonsPageContentState extends State<StremioAddonsPageContent> {
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text('Failed to check addon sharing: $e'),
+          content: Text(AppLocalizations.of(context).t('Failed to check addon sharing: $e').replaceAll(r'$e', e.toString())),
           backgroundColor: Colors.red,
         ),
       );
@@ -341,7 +341,7 @@ class _StremioAddonsPageContentState extends State<StremioAddonsPageContent> {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text('Failed to delete addons: $e'),
+            content: Text(AppLocalizations.of(context).t('Failed to delete addons: $e').replaceAll(r'$e', e.toString())),
             backgroundColor: Colors.red,
           ),
         );
@@ -408,7 +408,7 @@ class _StremioAddonsPageContentState extends State<StremioAddonsPageContent> {
       if (mounted) {
         messenger.showSnackBar(
           SnackBar(
-            content: Text('Update failed: $e'),
+            content: Text(AppLocalizations.of(context).t('Update failed: \$e').replaceAll('\$e', e.toString())),
             backgroundColor: Colors.red,
           ),
         );
@@ -428,7 +428,7 @@ class _StremioAddonsPageContentState extends State<StremioAddonsPageContent> {
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text('Failed to check addon sharing: $e'),
+          content: Text(AppLocalizations.of(context).t('Failed to check addon sharing: $e').replaceAll(r'$e', e.toString())),
           backgroundColor: Colors.red,
         ),
       );
@@ -477,7 +477,7 @@ class _StremioAddonsPageContentState extends State<StremioAddonsPageContent> {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text('Failed to remove addon: $e'),
+            content: Text(AppLocalizations.of(context).t('Failed to remove addon: $e').replaceAll(r'$e', e.toString())),
             backgroundColor: Colors.red,
           ),
         );
@@ -1188,7 +1188,7 @@ class _StremioAddonsPageContentState extends State<StremioAddonsPageContent> {
               ),
               const SizedBox(height: 6),
               Text(
-                'Add a manifest URL above, or import\nyour Stremio JSON export to get started.',
+                AppLocalizations.of(context).t('Add a manifest URL above, or import\nyour Stremio JSON export to get started.'),
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   color: Colors.white.withValues(alpha: 0.5),
@@ -1470,7 +1470,7 @@ class _StremioAddonsPageState extends State<StremioAddonsPage> {
       if (mounted) {
         messenger.showSnackBar(
           SnackBar(
-            content: Text('Update failed: $e'),
+            content: Text(AppLocalizations.of(context).t('Update failed: \$e').replaceAll('\$e', e.toString())),
             backgroundColor: Colors.red,
           ),
         );
@@ -1490,7 +1490,7 @@ class _StremioAddonsPageState extends State<StremioAddonsPage> {
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text('Failed to check addon sharing: $e'),
+          content: Text(AppLocalizations.of(context).t('Failed to check addon sharing: $e').replaceAll(r'$e', e.toString())),
           backgroundColor: Colors.red,
         ),
       );
@@ -1541,7 +1541,7 @@ class _StremioAddonsPageState extends State<StremioAddonsPage> {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text('Failed to remove addon: $e'),
+            content: Text(AppLocalizations.of(context).t('Failed to remove addon: $e').replaceAll(r'$e', e.toString())),
             backgroundColor: Colors.red,
           ),
         );

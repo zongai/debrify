@@ -88,7 +88,7 @@ class _StremioTvSettingsPageState extends State<StremioTvSettingsPage> {
       if (mounted) {
         ScaffoldMessenger.of(
           context,
-        ).showSnackBar(SnackBar(content: Text('Failed to load settings: $e')));
+        ).showSnackBar(SnackBar(content: Text(AppLocalizations.of(context).t('Failed to load settings: $e').replaceAll(r'\$e', e.toString()))));
       }
     }
   }
@@ -101,7 +101,7 @@ class _StremioTvSettingsPageState extends State<StremioTvSettingsPage> {
       if (mounted) {
         ScaffoldMessenger.of(
           context,
-        ).showSnackBar(SnackBar(content: Text('Failed to save setting: $e')));
+        ).showSnackBar(SnackBar(content: Text(AppLocalizations.of(context).t('Failed to save setting: $e').replaceAll(r'\$e', e.toString()))));
       }
     }
   }
@@ -114,7 +114,7 @@ class _StremioTvSettingsPageState extends State<StremioTvSettingsPage> {
       if (mounted) {
         ScaffoldMessenger.of(
           context,
-        ).showSnackBar(SnackBar(content: Text('Failed to save setting: $e')));
+        ).showSnackBar(SnackBar(content: Text(AppLocalizations.of(context).t('Failed to save setting: $e').replaceAll(r'\$e', e.toString()))));
       }
     }
   }
@@ -127,7 +127,7 @@ class _StremioTvSettingsPageState extends State<StremioTvSettingsPage> {
       if (mounted) {
         ScaffoldMessenger.of(
           context,
-        ).showSnackBar(SnackBar(content: Text('Failed to save setting: $e')));
+        ).showSnackBar(SnackBar(content: Text(AppLocalizations.of(context).t('Failed to save setting: $e').replaceAll(r'\$e', e.toString()))));
       }
     }
   }
@@ -140,7 +140,7 @@ class _StremioTvSettingsPageState extends State<StremioTvSettingsPage> {
       if (mounted) {
         ScaffoldMessenger.of(
           context,
-        ).showSnackBar(SnackBar(content: Text('Failed to save setting: $e')));
+        ).showSnackBar(SnackBar(content: Text(AppLocalizations.of(context).t('Failed to save setting: $e').replaceAll(r'\$e', e.toString()))));
       }
     }
   }
@@ -153,7 +153,7 @@ class _StremioTvSettingsPageState extends State<StremioTvSettingsPage> {
       if (mounted) {
         ScaffoldMessenger.of(
           context,
-        ).showSnackBar(SnackBar(content: Text('Failed to save setting: $e')));
+        ).showSnackBar(SnackBar(content: Text(AppLocalizations.of(context).t('Failed to save setting: $e').replaceAll(r'\$e', e.toString()))));
       }
     }
   }
@@ -166,7 +166,7 @@ class _StremioTvSettingsPageState extends State<StremioTvSettingsPage> {
       if (mounted) {
         ScaffoldMessenger.of(
           context,
-        ).showSnackBar(SnackBar(content: Text('Failed to save setting: $e')));
+        ).showSnackBar(SnackBar(content: Text(AppLocalizations.of(context).t('Failed to save setting: $e').replaceAll(r'\$e', e.toString()))));
       }
     }
   }
@@ -179,7 +179,7 @@ class _StremioTvSettingsPageState extends State<StremioTvSettingsPage> {
       if (mounted) {
         ScaffoldMessenger.of(
           context,
-        ).showSnackBar(SnackBar(content: Text('Failed to save setting: $e')));
+        ).showSnackBar(SnackBar(content: Text(AppLocalizations.of(context).t('Failed to save setting: $e').replaceAll(r'\$e', e.toString()))));
       }
     }
   }
@@ -192,7 +192,7 @@ class _StremioTvSettingsPageState extends State<StremioTvSettingsPage> {
       if (mounted) {
         ScaffoldMessenger.of(
           context,
-        ).showSnackBar(SnackBar(content: Text('Failed to save setting: $e')));
+        ).showSnackBar(SnackBar(content: Text(AppLocalizations.of(context).t('Failed to save setting: $e').replaceAll(r'\$e', e.toString()))));
       }
     }
   }

@@ -3365,7 +3365,7 @@ class _PlaylistContentViewScreenState extends State<PlaylistContentViewScreen> {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text('Error updating watched state: ${e.toString()}'),
+            content: Text(AppLocalizations.of(context).t('Error updating watched state: $e').replaceAll(r'\$e', e.toString())),
             backgroundColor: Colors.red,
           ),
         );
@@ -3482,7 +3482,7 @@ class _PlaylistContentViewScreenState extends State<PlaylistContentViewScreen> {
       if (mounted) {
         ScaffoldMessenger.of(
           context,
-        ).showSnackBar(SnackBar(content: Text('Error: ${e.toString()}')));
+        ).showSnackBar(SnackBar(content: Text(AppLocalizations.of(context).t('Error: $e').replaceAll(r'\$e', e.toString()))));
       }
     }
   }

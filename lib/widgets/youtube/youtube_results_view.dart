@@ -340,7 +340,7 @@ class YoutubeResultsViewState extends State<YoutubeResultsView>
     } catch (e) {
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Download failed: $e')),
+        SnackBar(content: Text(AppLocalizations.of(context).t('Download failed: $e').replaceAll(r'\$e', e.toString()))),
       );
     }
   }

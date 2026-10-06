@@ -419,7 +419,7 @@ class RedditResultsViewState extends State<RedditResultsView> {
     } catch (e) {
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Download failed: $e')),
+        SnackBar(content: Text(AppLocalizations.of(context).t('Download failed: $e').replaceAll(r'\$e', e.toString()))),
       );
     }
   }

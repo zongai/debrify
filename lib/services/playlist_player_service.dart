@@ -191,7 +191,7 @@ class PlaylistPlayerService {
           } else {
             ScaffoldMessenger.of(
               context,
-            ).showSnackBar(SnackBar(content: Text('Error: ${e.toString()}')));
+            ).showSnackBar(SnackBar(content: Text(AppLocalizations.of(context).t('Error: $e').replaceAll(r'\$e', e.toString()))));
           }
         }
         return;
@@ -556,7 +556,7 @@ class PlaylistPlayerService {
       if (context.mounted) {
         ScaffoldMessenger.of(
           context,
-        ).showSnackBar(SnackBar(content: Text('Error: ${e.toString()}')));
+        ).showSnackBar(SnackBar(content: Text(AppLocalizations.of(context).t('Error: $e').replaceAll(r'\$e', e.toString()))));
       }
       return;
     }
@@ -2374,7 +2374,7 @@ class PlaylistPlayerService {
     } catch (e) {
       if (context.mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Torbox recovery error: ${e.toString()}')),
+          SnackBar(content: Text(AppLocalizations.of(context).t('Torbox recovery error: $e').replaceAll(r'\$e', e.toString()))),
         );
       }
       return null;

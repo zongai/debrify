@@ -734,7 +734,7 @@ class _ExternalPlayerSettingsPageState
       if (mounted) {
         ScaffoldMessenger.of(
           context,
-        ).showSnackBar(SnackBar(content: Text('Failed to load settings: $e')));
+        ).showSnackBar(SnackBar(content: Text(AppLocalizations.of(context).t('Failed to load settings: $e').replaceAll(r'\$e', e.toString()))));
       }
     }
   }
@@ -749,7 +749,7 @@ class _ExternalPlayerSettingsPageState
       if (mounted) {
         ScaffoldMessenger.of(
           context,
-        ).showSnackBar(SnackBar(content: Text('Failed to save setting: $e')));
+        ).showSnackBar(SnackBar(content: Text(AppLocalizations.of(context).t('Failed to save setting: $e').replaceAll(r'\$e', e.toString()))));
       }
     }
   }
@@ -764,7 +764,7 @@ class _ExternalPlayerSettingsPageState
       if (mounted) {
         ScaffoldMessenger.of(
           context,
-        ).showSnackBar(SnackBar(content: Text('Failed to save setting: $e')));
+        ).showSnackBar(SnackBar(content: Text(AppLocalizations.of(context).t('Failed to save setting: $e').replaceAll(r'\$e', e.toString()))));
       }
     }
   }
@@ -898,7 +898,7 @@ class _ExternalPlayerSettingsPageState
       if (mounted) {
         ScaffoldMessenger.of(
           context,
-        ).showSnackBar(SnackBar(content: Text('Failed to save setting: $e')));
+        ).showSnackBar(SnackBar(content: Text(AppLocalizations.of(context).t('Failed to save setting: $e').replaceAll(r'\$e', e.toString()))));
       }
     }
   }
@@ -974,7 +974,7 @@ class _ExternalPlayerSettingsPageState
       if (mounted) {
         ScaffoldMessenger.of(
           context,
-        ).showSnackBar(SnackBar(content: Text('Failed to save setting: $e')));
+        ).showSnackBar(SnackBar(content: Text(AppLocalizations.of(context).t('Failed to save setting: $e').replaceAll(r'\$e', e.toString()))));
       }
     }
   }
@@ -1050,7 +1050,7 @@ class _ExternalPlayerSettingsPageState
       if (mounted) {
         ScaffoldMessenger.of(
           context,
-        ).showSnackBar(SnackBar(content: Text('Failed to save setting: $e')));
+        ).showSnackBar(SnackBar(content: Text(AppLocalizations.of(context).t('Failed to save setting: $e').replaceAll(r'\$e', e.toString()))));
       }
     }
   }
@@ -3472,7 +3472,7 @@ class _ExternalPlayerSettingsPageState
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16),
                 child: Text(
-                  'Select the player to open videos with. Players marked as "Installed" were detected on your system.',
+                  AppLocalizations.of(context).t('Select the player to open videos with. Players marked as "Installed" were detected on your system.'),
                   style: theme.textTheme.bodySmall?.copyWith(color: t.dim),
                 ),
               ),

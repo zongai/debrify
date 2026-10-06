@@ -2887,7 +2887,7 @@ class TraktResultsViewState extends State<TraktResultsView> {
           children: [
             Icon(Icons.error_outline, size: 64, color: colorScheme.error),
             const SizedBox(height: 16),
-            Text('Failed to load list', style: theme.textTheme.titleMedium),
+            Text(AppLocalizations.of(context).t('Failed to load list', style: theme.textTheme.titleMedium),
             const SizedBox(height: 8),
             Text(
               _errorMessage!,

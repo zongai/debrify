@@ -15489,7 +15489,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen>
                                   ),
                                   SizedBox(width: 8),
                                   Text(
-                                    '2× Speed',
+                                    AppLocalizations.of(context).t('2× Speed'),
                                     style: TextStyle(
                                       color: Colors.white,
                                       fontSize: 16,

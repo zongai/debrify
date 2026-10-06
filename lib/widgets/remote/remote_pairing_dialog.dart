@@ -573,7 +573,7 @@ Future<RemoteSession?> ensureAuthorizedSession(
     debugPrint('RemoteGate: handshake threw — $gateError');
     if (context.mounted) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Could not reach the TV: $gateError')),
+        SnackBar(content: Text(AppLocalizations.of(context).t('Could not reach the TV: \$e').replaceAll(r'\$e', gateError.toString()))),
       );
     }
     return null;

@@ -6914,7 +6914,7 @@ class TorrentPlaybackService {
       if (context.mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text('Failed to open with DeoVR: $e'),
+            content: Text(AppLocalizations.of(context).t('Failed to open with DeoVR: $e').replaceAll(r'\$e', e.toString())),
             backgroundColor: Colors.red,
           ),
         );
