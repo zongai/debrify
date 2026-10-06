@@ -1056,6 +1056,34 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen>
   /// right-hand one was painted from launch state a zap never refreshed.
   bool get _iptvZapBannerOwnsIdentity => _currentIptvChannel?.isLive == true;
 
+  /// Live IPTV usually has a single elementary stream — hide Audio/Subs until
+  /// media_kit reports something the user can actually switch.
+  bool get _tracksControlUseful {
+    final live = _currentIptvChannel?.isLive == true;
+    if (!live || _iptvStartOverActive) return true;
+    try {
+      final tracks = _player.state.tracks;
+      bool real(String id) {
+        final v = id.trim().toLowerCase();
+        return v.isNotEmpty && v != 'auto' && v != 'no' && v != 'none';
+      }
+      final audios = tracks.audio.where((tr) => real(tr.id)).length;
+      final subs = tracks.subtitle.where((tr) => real(tr.id)).length;
+      return audios >= 2 || subs >= 1;
+    } catch (_) {
+      return false;
+    }
+  }
+
+  VoidCallback? get _onShowTracksAction =>
+      _tracksControlUseful ? () => _showTracksSheet(context) : null;
+
+  bool get _hideSpeedForLiveIptv {
+    final live = _currentIptvChannel?.isLive == true;
+    return live && !_iptvStartOverActive;
+  }
+
+
   /// Streams switch is IPTV-live only — never on Discover / movie Sources.
   bool get _canShowIptvStreamSources {
     final ch = _currentIptvChannel;
@@ -1570,6 +1598,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen>
   StreamSubscription? _trackSub;
   StreamSubscription? _completedSub;
   StreamSubscription? _bufferingSub;
+  StreamSubscription? _tracksUiSub;
   StreamSubscription? _iptvErrorSub;
   StreamSubscription? _rendererStartupErrorSub;
 
@@ -4089,6 +4118,13 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen>
         _onPlaybackEnded();
       }
     });
+    
+    _tracksUiSub = player.stream.tracks.listen((_) {
+      if (!mounted) return;
+      // Live IPTV: reveal Audio/Subs once selectable tracks appear.
+      if (_currentIptvChannel?.isLive == true) setState(() {});
+    });
+
     _bufferingSub = player.stream.buffering.listen((isBuffering) {
       if (isCurrent()) {
         PlayerVisibility.playbackState(
@@ -12237,6 +12273,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen>
     _tvosDecodeRemedy?.dispose();
     _tvosDecodeRemedy = null;
     _completedSub?.cancel();
+    _tracksUiSub?.cancel();
     _bufferingSub?.cancel();
     _iptvErrorSub?.cancel();
     _rendererStartupErrorSub?.cancel();
@@ -13344,7 +13381,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen>
               onInteract: _scheduleAutoHide,
               scrubPreview: _tvScrubTarget,
               onPlayPause: _togglePlay,
-              onShowTracks: () => _showTracksSheet(context),
+              onShowTracks: _onShowTracksAction,
               onSpeed: _onSpeedButton,
               onAspect: _onAspectButton,
               onSleepTimer: _showSleepTimerSheet,
@@ -15721,7 +15758,8 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen>
                                       _canFetchEpisodes,
                                   onShowPlaylist: () =>
                                       _showPlaylistSheet(context),
-                                  onShowTracks: () => _showTracksSheet(context),
+                                  onShowTracks: _onShowTracksAction,
+                                  hideSpeed: _hideSpeedForLiveIptv,
                                   onSeekBarChangedStart: () {
                                     _isSeekingWithSlider = true;
                                     // The viewer owns the position from the
@@ -15818,7 +15856,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen>
                                       (_iptvZapBannerOwnsIdentity &&
                                           !_iptvStartOverTimelineVisible),
                                   // Same call the native dock makes for live.
-                                  hideSpeed: _iptvZapBannerOwnsIdentity,
+                                  hideSpeed: _hideSpeedForLiveIptv,
                                   // Shuffle picks from _activePlaylist, which an
                                   // IPTV session never has — the button could only
                                   // ever open a menu that does nothing.

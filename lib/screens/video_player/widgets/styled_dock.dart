@@ -63,7 +63,7 @@ class StyledDock extends StatelessWidget {
   final VoidCallback onAspect;
   final VoidCallback onSpeed;
   final VoidCallback onSleepTimer;
-  final VoidCallback onShowTracks;
+  final VoidCallback? onShowTracks;
   final VoidCallback onShowPlaylist;
   final VoidCallback onRandom;
   final VoidCallback onRotate;
@@ -154,7 +154,7 @@ class StyledDock extends StatelessWidget {
     required this.onAspect,
     required this.onSpeed,
     required this.onSleepTimer,
-    required this.onShowTracks,
+    this.onShowTracks,
     required this.onShowPlaylist,
     required this.onRandom,
     required this.onRotate,
@@ -276,7 +276,8 @@ class StyledDock extends StatelessWidget {
         _Tool(Icons.tv_rounded, 'Next channel', onNextChannel!),
       if (hasPlaylist)
         _Tool(Icons.playlist_play_rounded, 'Episodes', onShowPlaylist),
-      _Tool(Icons.subtitles_rounded, 'Subtitles & audio', onShowTracks),
+      if (onShowTracks != null)
+        _Tool(Icons.subtitles_rounded, 'Subtitles & audio', onShowTracks!),
       _Tool(
         Icons.aspect_ratio_rounded,
         'Aspect ratio',

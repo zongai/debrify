@@ -32,7 +32,7 @@ class Controls extends StatelessWidget {
   final bool isLandscape;
   final VoidCallback onRotate;
   final VoidCallback onShowPlaylist;
-  final VoidCallback onShowTracks;
+  final VoidCallback? onShowTracks;
   final bool hasPlaylist;
   final VoidCallback onSeekBarChangedStart;
   final ValueChanged<double> onSeekBarChanged;
@@ -140,7 +140,7 @@ class Controls extends StatelessWidget {
     required this.isLandscape,
     required this.onRotate,
     required this.onShowPlaylist,
-    required this.onShowTracks,
+    this.onShowTracks,
     required this.hasPlaylist,
     required this.onSeekBarChangedStart,
     required this.onSeekBarChanged,
@@ -710,13 +710,15 @@ class Controls extends StatelessWidget {
                                   isCompact: true,
                                 ),
 
-                                // Audio & subtitles button
-                                NetflixControlButton(
-                                  icon: Icons.subtitles_rounded,
-                                  label: 'Audio & Subs',
-                                  onPressed: onShowTracks,
-                                  isCompact: true,
-                                ),
+                                // Audio & subtitles — omitted for live IPTV
+                                // when the stream has no selectable tracks.
+                                if (onShowTracks != null)
+                                  NetflixControlButton(
+                                    icon: Icons.subtitles_rounded,
+                                    label: 'Audio & Subs',
+                                    onPressed: onShowTracks!,
+                                    isCompact: true,
+                                  ),
 
                                 // Playlist button
                                 if (hasPlaylist)
