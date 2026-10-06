@@ -696,8 +696,11 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen>
   /// When multi-source live is still buffering / not playing, try the next URL.
   Timer? _iptvSourceFailoverTimer;
   /// First mirror try is quicker; later tries stay a bit more patient.
-  static const Duration _iptvSourceFailoverDelayFast = Duration(seconds: 5);
-  static const Duration _iptvSourceFailoverDelay = Duration(seconds: 8);
+  /// First pass across all mirrors: swap if no picture within this window.
+  static const Duration _iptvSourceFailoverDelayFast = Duration(seconds: 3);
+
+  /// After every mirror has been tried once, wait longer before rotating again.
+  static const Duration _iptvSourceFailoverDelay = Duration(seconds: 6);
   /// Sources already tried in this slow-load / recovery pass (cleared on
   /// healthy playback or a real channel zap).
   final Set<int> _iptvTriedSourceIndexes = <int>{};
@@ -799,8 +802,9 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen>
     _iptvSourceFailoverTimer = null;
   }
 
-  /// If a multi-source live channel is still not healthy after a short wait,
-  /// advance to the next mirror (plexios-style). Cancelled when playback flows.
+  /// If a multi-source live channel still has no picture after a short wait,
+  /// advance to the next mirror. First pass uses 3s per source; once every
+  /// mirror has been tried, later passes use 6s. Cancelled when playback flows.
   void _armIptvSourceFailover({bool urgent = false}) {
     _cancelIptvSourceFailover();
     final channel = _currentIptvChannel;
@@ -809,6 +813,8 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen>
     }
     final armedIndex = _iptvSourceIndex;
     final ticket = _iptvSwitchTicket;
+    // Pass 0 = first tour of every source (3s). After a full cycle, 6s.
+    // [urgent] keeps the short window for error-driven arms.
     final delay = (urgent || _iptvFailoverPass == 0)
         ? _iptvSourceFailoverDelayFast
         : _iptvSourceFailoverDelay;
@@ -817,26 +823,38 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen>
       if (_iptvSourceIndex != armedIndex) return;
       final playing = _player.state.playing;
       final buffering = _player.state.buffering;
-      // Healthy playback — stop rotating mirrors.
-      if (playing && !buffering) {
+      // Prefer a real video frame when the backend reports size.
+      final videoW = _player.state.width;
+      final hasPicture =
+          playing && !buffering && (videoW == null || videoW > 0);
+      if (hasPicture) {
         _resetIptvSourceFailoverPass();
         return;
       }
       if (!_advanceIptvSource()) {
-        // Full cycle exhausted — recovery machine still owns further retries
-        // on the last tried URL; clear the pass so a later stall can rotate again.
+        // Full cycle exhausted — start another pass at 6s per source.
         _iptvTriedSourceIndexes.clear();
-        _iptvFailoverPass++;
+        _iptvFailoverPass = (_iptvFailoverPass < 1) ? 1 : _iptvFailoverPass + 1;
+        final n = channel.sources.length;
+        if (n > 0) {
+          setState(() => _iptvSourceIndex = (_iptvSourceIndex + 1) % n);
+        }
+        _iptvReconnectText.value =
+            'Retrying sources (${_iptvSourceIndex + 1}/${channel.sources.length})…';
+        _iptvDiag.note(
+          'slow_load failover pass $_iptvFailoverPass → source ${_iptvSourceIndex + 1}/${channel.sources.length}',
+        );
+        _performIptvLiveRetune('slow_load', 1);
+        _armIptvSourceFailover();
         return;
       }
-      _iptvFailoverPass++;
       _iptvReconnectText.value =
           'Switching source ${_iptvSourceIndex + 1}/${channel.sources.length}…';
       _iptvDiag.note(
         'slow_load failover → source ${_iptvSourceIndex + 1}/${channel.sources.length}',
       );
       _performIptvLiveRetune('slow_load', 1);
-      // Arm again for the new source.
+      // Arm again for the new source (still pass 0 until a full cycle completes).
       _armIptvSourceFailover();
     });
   }
