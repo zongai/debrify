@@ -593,9 +593,8 @@ class CommunityChannelsDialogState extends State<CommunityChannelsDialog> {
         .toDouble();
     return DebrifyTvSpotlightDialog(
       eyebrow: 'Import · community',
-      title: 'Browse community channels',
-      subtitle:
-          'Fetch a repository, choose one or several channels, then import them together.',
+      title: AppLocalizations.of(context).t('Browse community channels'),
+      subtitle: AppLocalizations.of(context).t('Fetch a repository, choose one or several channels, then import them together.'),
       icon: Icons.people_alt_rounded,
       maxWidth: 900,
       maxHeightFactor: .94,
@@ -603,7 +602,7 @@ class CommunityChannelsDialogState extends State<CommunityChannelsDialog> {
       actions: [
         DebrifyTvDialogButton(
           focusNode: _cancelButtonFocusNode,
-          label: 'Cancel',
+          label: AppLocalizations.of(context).t('Cancel'),
           onPressed: () => Navigator.of(context).pop(),
         ),
         DebrifyTvDialogButton(
@@ -686,8 +685,7 @@ class CommunityChannelsDialogState extends State<CommunityChannelsDialog> {
                         checkColor: focused
                             ? app.core.tx
                             : app.inkOn(tv.accent),
-                        title: Text(
-                          'Select all',
+                        title: Text(AppLocalizations.of(context).t('Select all'),
                           style: TextStyle(
                             color: ink,
                             fontWeight: FontWeight.w700,

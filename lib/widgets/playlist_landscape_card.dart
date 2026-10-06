@@ -746,7 +746,7 @@ class _LandscapeActionSheetState extends State<_LandscapeActionSheet>
           // Play button
           _LandscapeGlassButton(
             icon: Icons.play_arrow_rounded,
-            label: 'Play',
+            label: AppLocalizations.of(context).t('Play'),
             focusNode: _focusNodes[index++],
             autofocus: true,
             onTap: widget.onPlay,
@@ -754,7 +754,7 @@ class _LandscapeActionSheetState extends State<_LandscapeActionSheet>
           // View Files
           _LandscapeGlassButton(
             icon: Icons.folder_outlined,
-            label: 'View Files',
+            label: AppLocalizations.of(context).t('View Files'),
             focusNode: _focusNodes[index++],
             onTap: widget.onView,
           ),
@@ -762,14 +762,14 @@ class _LandscapeActionSheetState extends State<_LandscapeActionSheet>
           if (widget.hasProgress)
             _LandscapeGlassButton(
               icon: Icons.refresh_rounded,
-              label: 'Clear Progress',
+              label: AppLocalizations.of(context).t('Clear Progress'),
               focusNode: _focusNodes[index++],
               onTap: widget.onClearProgress!,
             ),
           // Delete
           _LandscapeGlassButton(
             icon: Icons.delete_outline_rounded,
-            label: 'Delete',
+            label: AppLocalizations.of(context).t('Delete'),
             isDanger: true,
             focusNode: _focusNodes[index],
             onTap: widget.onDelete,

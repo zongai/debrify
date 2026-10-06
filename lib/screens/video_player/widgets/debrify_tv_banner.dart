@@ -91,8 +91,7 @@ class DebrifyTvBanner extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisSize: MainAxisSize.min,
               children: [
-                Text(
-                  'DEBRIFY TV',
+                Text(AppLocalizations.of(context).t('DEBRIFY TV'),
                   style: TextStyle(
                     color: _ink.withValues(alpha: 0.42),
                     fontSize: s(9.5),

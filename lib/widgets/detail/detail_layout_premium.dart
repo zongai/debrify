@@ -714,7 +714,7 @@ class _DetailPremiumState extends State<DetailPremium> {
     // column, so RIGHT crosses from here too instead of dead-stopping.
     onRight: _sidePane ? _focusCollection : null,
     child: DetailGhostButton(
-      label: 'Parents Guide',
+      label: AppLocalizations.of(context).t('Parents Guide'),
       icon: Icons.family_restroom_rounded,
       focusNode: _guideNode,
       onTap: _showParentsGuide,
@@ -863,7 +863,7 @@ class _DetailPremiumState extends State<DetailPremium> {
                           tracking: -.2,
                         ),
                       ),
-                      Text('AT A GLANCE', style: _t.dataStyle(size: 8.5)),
+                      Text(AppLocalizations.of(context).t('AT A GLANCE'), style: _t.dataStyle(size: 8.5)),
                     ],
                   ),
                   const SizedBox(width: 15),
@@ -1183,7 +1183,7 @@ class _DetailPremiumState extends State<DetailPremium> {
     final recs = _m.recommendations;
     if (recs.isEmpty || _m.onRecommendationTap == null) {
       return Center(
-        child: Text('No recommendations yet', style: _t.bodyStyle()),
+        child: Text(AppLocalizations.of(context).t('No recommendations yet'), style: _t.bodyStyle()),
       );
     }
     final width = size.isPhone ? 76.0 : 88.0;
@@ -1226,7 +1226,7 @@ class _DetailPremiumState extends State<DetailPremium> {
     final recs = _m.recommendations;
     if (recs.isEmpty || _m.onRecommendationTap == null) {
       return Center(
-        child: Text('No recommendations yet', style: _t.bodyStyle()),
+        child: Text(AppLocalizations.of(context).t('No recommendations yet'), style: _t.bodyStyle()),
       );
     }
     return ListView.separated(

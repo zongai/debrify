@@ -269,7 +269,7 @@ class _RemoteTransferAllState extends State<RemoteTransferAll> {
         items.add(
           _TransferItem(
             key: ConfigCommand.realDebrid,
-            label: 'Real-Debrid',
+            label: AppLocalizations.of(context).t('Real-Debrid'),
             icon: Icons.speed,
             color: const Color(0xFF10B981),
           ),
@@ -279,7 +279,7 @@ class _RemoteTransferAllState extends State<RemoteTransferAll> {
         items.add(
           _TransferItem(
             key: ConfigCommand.torbox,
-            label: 'Torbox',
+            label: AppLocalizations.of(context).t('Torbox'),
             icon: Icons.inventory_2,
             color: const Color(0xFFF59E0B),
           ),
@@ -289,7 +289,7 @@ class _RemoteTransferAllState extends State<RemoteTransferAll> {
         items.add(
           _TransferItem(
             key: ConfigCommand.premiumize,
-            label: 'Premiumize',
+            label: AppLocalizations.of(context).t('Premiumize'),
             icon: Icons.workspace_premium_rounded,
             color: const Color(0xFFFB923C),
           ),
@@ -299,7 +299,7 @@ class _RemoteTransferAllState extends State<RemoteTransferAll> {
         items.add(
           _TransferItem(
             key: ConfigCommand.allDebrid,
-            label: 'AllDebrid',
+            label: AppLocalizations.of(context).t('AllDebrid'),
             icon: Icons.all_inclusive_rounded,
             color: const Color(0xFF26A69A),
           ),
@@ -309,7 +309,7 @@ class _RemoteTransferAllState extends State<RemoteTransferAll> {
         items.add(
           _TransferItem(
             key: ConfigCommand.pikpak,
-            label: 'PikPak',
+            label: AppLocalizations.of(context).t('PikPak'),
             icon: Icons.cloud,
             color: const Color(0xFF3B82F6),
           ),
@@ -354,7 +354,7 @@ class _RemoteTransferAllState extends State<RemoteTransferAll> {
       items.add(
         _TransferItem(
           key: ConfigCommand.trackingPreferences,
-          label: 'Tracking preferences',
+          label: AppLocalizations.of(context).t('Tracking preferences'),
           icon: Icons.sync_alt_rounded,
           color: const Color(0xFF38BDF8),
         ),
@@ -720,13 +720,13 @@ class _RemoteTransferAllState extends State<RemoteTransferAll> {
         if (!completed) {
           applicationResult = (
             ok: false,
-            message: 'The TV refused the transfer completion',
+            message: AppLocalizations.of(context).t('The TV refused the transfer completion'),
           );
         } else if (supportsApplicationResult) {
           applicationResult = await resultCompleter.future.timeout(
             const Duration(minutes: 3),
             onTimeout: () =>
-                (ok: false, message: 'No application result received from TV'),
+                (ok: false, message: AppLocalizations.of(context).t('No application result received from TV')),
           );
         }
       } finally {
@@ -1013,7 +1013,7 @@ class _RemoteTransferAllState extends State<RemoteTransferAll> {
           ConfigCommand.profileGraph,
           targetIp,
           encoded.payload,
-          label: 'All profiles',
+          label: AppLocalizations.of(context).t('All profiles'),
           resultRequestId: requestId,
         );
       }
@@ -1126,9 +1126,7 @@ class _RemoteTransferAllState extends State<RemoteTransferAll> {
           barrierDismissible: false,
           builder: (dialogContext) => AlertDialog(
             title: Text(AppLocalizations.of(context).t('Continue without Debrify TV?')),
-            content: Text(
-              'This profile transfer had to be compacted to fit on the TV. '
-              'Debrify TV will not be included: ${omission.contentsLabel} '
+            content: Text(AppLocalizations.of(context).t('This profile transfer had to be compacted to fit on the TV. ')'Debrify TV will not be included: ${omission.contentsLabel} '
               'will be left out. No empty channels will be created.\n\n'
               'You can cancel and open Debrify TV → Export first to save a '
               'ZIP containing the channels and their playable pools. After '
@@ -1329,7 +1327,7 @@ class _RemoteTransferAllState extends State<RemoteTransferAll> {
           ConfigCommand.iptvPlaylists,
           targetIp,
           jsonEncode(payload),
-          label: 'IPTV providers',
+          label: AppLocalizations.of(context).t('IPTV providers'),
           transferRequestId: transferRequestId,
         );
       case ConfigCommand.iptvFavorites:
@@ -1342,7 +1340,7 @@ class _RemoteTransferAllState extends State<RemoteTransferAll> {
           ConfigCommand.iptvFavorites,
           targetIp,
           jsonEncode(payload),
-          label: 'IPTV favorites',
+          label: AppLocalizations.of(context).t('IPTV favorites'),
           transferRequestId: transferRequestId,
         );
       case ConfigCommand.iptvLists:
@@ -1355,7 +1353,7 @@ class _RemoteTransferAllState extends State<RemoteTransferAll> {
           ConfigCommand.iptvLists,
           targetIp,
           jsonEncode(payload),
-          label: 'IPTV lists',
+          label: AppLocalizations.of(context).t('IPTV lists'),
           transferRequestId: transferRequestId,
         );
       case ConfigCommand.streamBadges:
@@ -1368,7 +1366,7 @@ class _RemoteTransferAllState extends State<RemoteTransferAll> {
           ConfigCommand.streamBadges,
           targetIp,
           jsonEncode(payload),
-          label: 'Stream badges',
+          label: AppLocalizations.of(context).t('Stream badges'),
           transferRequestId: transferRequestId,
         );
       default:
@@ -1439,8 +1437,7 @@ class _RemoteTransferAllState extends State<RemoteTransferAll> {
             label: Text(AppLocalizations.of(context).t('Send')),
           ),
         ),
-        Text(
-          'Send everything',
+        Text(AppLocalizations.of(context).t('Send everything'),
           style: TextStyle(
             color: app.core.tx,
             fontSize: 22,
@@ -1448,8 +1445,7 @@ class _RemoteTransferAllState extends State<RemoteTransferAll> {
           ),
         ),
         SizedBox(height: 10),
-        Text(
-          'Choose how much to send.',
+        Text(AppLocalizations.of(context).t('Choose how much to send.'),
           style: TextStyle(color: app.settings.dim),
         ),
         if (_loading)
@@ -1479,16 +1475,14 @@ class _RemoteTransferAllState extends State<RemoteTransferAll> {
                     value: true,
                     enabled: !busy,
                     title: Text(AppLocalizations.of(context).t('All profiles & their data')),
-                    subtitle: Text(
-                      'Profiles, PINs, photos, settings, accounts, addons, TV channels and IPTV data.',
+                    subtitle: Text(AppLocalizations.of(context).t('Profiles, PINs, photos, settings, accounts, addons, TV channels and IPTV data.'),
                     ),
                   ),
                 RadioListTile<bool>(
                   value: false,
                   enabled: !busy,
                   title: Text(AppLocalizations.of(context).t('Current profile’s setup only')),
-                  subtitle: Text(
-                    'Accounts, addons, tracking preferences, search and supported IPTV setup.',
+                  subtitle: Text(AppLocalizations.of(context).t('Accounts, addons, tracking preferences, search and supported IPTV setup.'),
                   ),
                 ),
               ],
@@ -1503,8 +1497,7 @@ class _RemoteTransferAllState extends State<RemoteTransferAll> {
                   ? null
                   : (value) => setState(() => _includeSync = value ?? true),
               title: Text(AppLocalizations.of(context).t('Include WebDAV sync')),
-              subtitle: const Text(
-                'Login and enabled or paused state. Requires all profiles.',
+              subtitle: Text(AppLocalizations.of(context).t('Login and enabled or paused state. Requires all profiles.'),
               ),
             ),
           if (!_includeProfiles && _hasPikpak)
@@ -1527,13 +1520,11 @@ class _RemoteTransferAllState extends State<RemoteTransferAll> {
                 trailing: busy || _done ? Text(item.status.name) : null,
               ),
             if (_iptvFileImported > 0)
-              Text(
-                'File-imported IPTV playlists are included when sending all profiles.',
+              Text(AppLocalizations.of(context).t('File-imported IPTV playlists are included when sending all profiles.'),
                 style: TextStyle(color: app.settings.dim),
               ),
           ],
-          Text(
-            'The receiving device asks before importing. Keep both apps open until it finishes.',
+          Text(AppLocalizations.of(context).t('The receiving device asks before importing. Keep both apps open until it finishes.'),
             style: TextStyle(color: app.settings.dim),
           ),
           const SizedBox(height: 20),

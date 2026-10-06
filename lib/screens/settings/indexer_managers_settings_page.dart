@@ -689,7 +689,7 @@ class _IndexerManagerEditorDialogState
                             context,
                             InputDecoration(
                               labelText: 'Jackett indexer ID',
-                              hintText: 'all',
+                              hintText: AppLocalizations.of(context).t('all'),
                             ),
                           ),
                           textInputAction: TextInputAction.next,

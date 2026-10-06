@@ -189,7 +189,7 @@ class _WebDavFilesScreenState extends State<WebDavFilesScreen> {
       });
       return;
     }
-    await _loadPath('', title: 'WebDAV', replaceStack: true);
+    await _loadPath('', title: AppLocalizations.of(context).t('WebDAV'), replaceStack: true);
   }
 
   Future<void> _loadPath(
@@ -377,7 +377,7 @@ class _WebDavFilesScreenState extends State<WebDavFilesScreen> {
       _searchController.clear();
       _searchActive = false;
     });
-    await _loadPath('', title: 'WebDAV', replaceStack: true);
+    await _loadPath('', title: AppLocalizations.of(context).t('WebDAV'), replaceStack: true);
   }
 
   void _openFolder(WebDavItem item) {
@@ -751,9 +751,7 @@ class _WebDavFilesScreenState extends State<WebDavFilesScreen> {
                     color: Colors.orange.withValues(alpha: 0.45),
                   ),
                 ),
-                child: const Text(
-                  'Insecure HTTP: your WebDAV username, password, and backup '
-                  'travel without transport encryption.',
+                child: Text(AppLocalizations.of(context).t('Insecure HTTP: your WebDAV username, password, and backup ')'travel without transport encryption.',
                 ),
               ),
             Expanded(child: _buildContent()),
@@ -1106,25 +1104,25 @@ class _WebDavFilesScreenState extends State<WebDavFilesScreen> {
       if (canPlay)
         CloudRowAction(
           icon: Icons.play_arrow_rounded,
-          label: 'Play',
+          label: AppLocalizations.of(context).t('Play'),
           showInStrip: true,
           onSelected: () => _playItem(item),
         ),
       CloudRowAction(
         icon: Icons.download_rounded,
-        label: 'Download',
+        label: AppLocalizations.of(context).t('Download'),
         showInStrip: true,
         onSelected: () => _downloadItem(item),
       ),
       if (canPlay)
         CloudRowAction(
           icon: Icons.playlist_add,
-          label: 'Add to Playlist',
+          label: AppLocalizations.of(context).t('Add to Playlist'),
           onSelected: () => _addItemToPlaylist(item),
         ),
       CloudRowAction(
         icon: Icons.delete_outline,
-        label: 'Delete',
+        label: AppLocalizations.of(context).t('Delete'),
         destructive: true,
         onSelected: () => _deleteItem(item),
       ),

@@ -123,8 +123,7 @@ class _AddonsScreenState extends State<ClassicAddonsScreen>
         elevation: 0,
         scrolledUnderElevation: 0,
         surfaceTintColor: Colors.transparent,
-        title: const Text(
-          'Addons',
+        title: Text(AppLocalizations.of(context).t('Addons'),
           style: TextStyle(
             fontWeight: FontWeight.w700,
             letterSpacing: -0.3,

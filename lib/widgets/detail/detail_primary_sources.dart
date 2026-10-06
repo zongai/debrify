@@ -39,8 +39,7 @@ Future<DetailPrimarySourceChoice?> showDetailPrimarySourcesSheet(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      'Choose sources',
+                    Text(AppLocalizations.of(context).t('Choose sources'),
                       style: TextStyle(
                         color: app.core.tx,
                         fontSize: 18,
@@ -64,7 +63,7 @@ Future<DetailPrimarySourceChoice?> showDetailPrimarySourcesSheet(
               _SourceChoiceRow(
                 autofocus: isTelevision,
                 icon: Icons.inventory_2_rounded,
-                label: 'Season pack sources',
+                label: AppLocalizations.of(context).t('Season pack sources'),
                 description: 'Browse complete-series and full-season results.',
                 onTap: () => Navigator.of(
                   sheetContext,
@@ -72,7 +71,7 @@ Future<DetailPrimarySourceChoice?> showDetailPrimarySourcesSheet(
               ),
               _SourceChoiceRow(
                 icon: Icons.video_library_rounded,
-                label: 'Episode sources',
+                label: AppLocalizations.of(context).t('Episode sources'),
                 description: episodeLabel == null
                     ? 'Browse sources for the episode Play would open.'
                     : 'Browse sources for $episodeLabel.',

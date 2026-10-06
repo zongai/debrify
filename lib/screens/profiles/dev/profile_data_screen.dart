@@ -179,7 +179,7 @@ class _ProfileDataScreenState extends State<ProfileDataScreen> {
         TextField(
           decoration: InputDecoration(
             prefixIcon: Icon(Icons.search_rounded),
-            hintText: 'Filter keys',
+            hintText: AppLocalizations.of(context).t('Filter keys'),
             isDense: true,
             border: OutlineInputBorder(),
           ),
@@ -289,7 +289,7 @@ class _ProfileDataScreenState extends State<ProfileDataScreen> {
       ],
     );
     if (rows.isEmpty) {
-      return <Widget>[header, const _Empty(message: 'No keys match.')];
+      return <Widget>[header, const _Empty(message: AppLocalizations.of(context).t('No keys match.'))];
     }
     return <Widget>[
       header,

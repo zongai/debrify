@@ -93,7 +93,7 @@ class _MovieCollectionBrowserState extends State<MovieCollectionBrowser> {
             children: [
               const Icon(Icons.local_movies, color: Colors.white),
               const SizedBox(width: 8),
-              const Text('Movie Files', style: TextStyle(fontWeight: FontWeight.w700, fontSize: 18)),
+              Text(AppLocalizations.of(context).t('Movie Files'), style: TextStyle(fontWeight: FontWeight.w700, fontSize: 18)),
               const Spacer(),
               PopupMenuButton<int>(
                 color: const Color(0xFF1A1A1A),
@@ -202,7 +202,7 @@ class _MovieCollectionBrowserState extends State<MovieCollectionBrowser> {
                                     Container(
                                       padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
                                       decoration: BoxDecoration(color: const Color(0xFF059669).withValues(alpha: 0.15), borderRadius: BorderRadius.circular(6), border: Border.all(color: const Color(0xFF059669).withValues(alpha: 0.6))),
-                                      child: Row(children: const [Icon(Icons.check_circle, size: 12, color: Color(0xFF10B981)), SizedBox(width: 4), Text('Finished', style: TextStyle(color: Color(0xFF10B981), fontSize: 10, fontWeight: FontWeight.w600))]),
+                                      child: Row(children: const [Icon(Icons.check_circle, size: 12, color: Color(0xFF10B981)), SizedBox(width: 4), Text(AppLocalizations.of(context).t('Finished'), style: TextStyle(color: Color(0xFF10B981), fontSize: 10, fontWeight: FontWeight.w600))]),
                                     ),
                                   ] else if (resumable) ...[
                                     const SizedBox(width: 6),

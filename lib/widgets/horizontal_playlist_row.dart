@@ -143,8 +143,7 @@ class _HorizontalPlaylistRowState extends State<HorizontalPlaylistRow> {
               child: Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Text(
-                    'See all',
+                  Text(AppLocalizations.of(context).t('See all'),
                     style: TextStyle(
                       color: const Color(0xFFE50914).withValues(alpha: 0.9),
                       fontSize: 14,

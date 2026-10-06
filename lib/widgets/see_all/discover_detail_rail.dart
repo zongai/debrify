@@ -717,8 +717,7 @@ class _RailContent extends StatelessWidget {
                           ),
                         )
                       else
-                        Text(
-                          'No description available.',
+                        Text(AppLocalizations.of(context).t('No description available.'),
                           style: TextStyle(
                             color: app.fade(app.core.tx, 0.35),
                             fontSize: 13,
@@ -1058,8 +1057,7 @@ class _ImdbChip extends StatelessWidget {
               color: const Color(0xFFF5C518),
               borderRadius: BorderRadius.circular(4),
             ),
-            child: const Text(
-              'IMDb',
+            child: Text(AppLocalizations.of(context).t('IMDb'),
               style: TextStyle(
                 color: Color(0xFF161616),
                 fontSize: 9,
@@ -1142,8 +1140,7 @@ class _RailEmpty extends StatelessWidget {
             Icon(Icons.travel_explore_rounded,
                 size: 40, color: app.fade(app.home.focus, 0.55)),
             const SizedBox(height: 14),
-            Text(
-              'Browse to preview',
+            Text(AppLocalizations.of(context).t('Browse to preview'),
               style: TextStyle(
                 color: app.fade(app.core.tx, 0.7),
                 fontSize: 15,
@@ -1151,8 +1148,7 @@ class _RailEmpty extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 6),
-            Text(
-              'Highlight a title on the right to see its backdrop, plot and details here.',
+            Text(AppLocalizations.of(context).t('Highlight a title on the right to see its backdrop, plot and details here.'),
               textAlign: TextAlign.center,
               style: TextStyle(
                 color: app.fade(app.core.tx, 0.4),

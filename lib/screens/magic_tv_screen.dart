@@ -1858,20 +1858,17 @@ class _DebrifyTVScreenState extends State<DebrifyTVScreen> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          'Playback filters',
+        Text(AppLocalizations.of(context).t('Playback filters'),
           style: Theme.of(
             context,
           ).textTheme.titleSmall?.copyWith(fontWeight: FontWeight.w600),
         ),
         const SizedBox(height: 2),
-        Text(
-          'Applies to channels and quick play. If nothing matches, Debrify TV '
-          'plays what it can rather than showing an empty channel.',
+        Text(AppLocalizations.of(context).t('Applies to channels and quick play. If nothing matches, Debrify TV ')'plays what it can rather than showing an empty channel.',
           style: labelStyle,
         ),
         const SizedBox(height: 10),
-        Text('Quality', style: labelStyle),
+        Text(AppLocalizations.of(context).t('Quality'), style: labelStyle),
         const SizedBox(height: 6),
         Wrap(
           spacing: 8,
@@ -1887,7 +1884,7 @@ class _DebrifyTVScreenState extends State<DebrifyTVScreen> {
           ],
         ),
         const SizedBox(height: 12),
-        Text('File size (per episode/movie)', style: labelStyle),
+        Text(AppLocalizations.of(context).t('File size (per episode/movie)'), style: labelStyle),
         const SizedBox(height: 6),
         Wrap(
           spacing: 8,
@@ -1961,33 +1958,33 @@ class _DebrifyTVScreenState extends State<DebrifyTVScreen> {
       children: [
         providerChip(
           value: _providerRealDebrid,
-          label: 'Real Debrid',
+          label: AppLocalizations.of(context).t('Real Debrid'),
           available: _rdAvailable,
           unavailableMessage:
               'Enable Real Debrid and add an API key in Settings.',
         ),
         providerChip(
           value: _providerTorbox,
-          label: 'Torbox',
+          label: AppLocalizations.of(context).t('Torbox'),
           available: _torboxAvailable,
           unavailableMessage: 'Enable Torbox and add an API key in Settings.',
         ),
         providerChip(
           value: _providerPikPak,
-          label: 'PikPak',
+          label: AppLocalizations.of(context).t('PikPak'),
           available: _pikpakAvailable,
           unavailableMessage: 'Log in to PikPak in Settings.',
         ),
         providerChip(
           value: _providerPremiumize,
-          label: 'Premiumize',
+          label: AppLocalizations.of(context).t('Premiumize'),
           available: _premiumizeAvailable,
           unavailableMessage:
               'Enable Premiumize and add an API key in Settings.',
         ),
         providerChip(
           value: _providerAllDebrid,
-          label: 'AllDebrid',
+          label: AppLocalizations.of(context).t('AllDebrid'),
           available: _allDebridAvailable,
           unavailableMessage:
               'Enable AllDebrid and add an API key in Settings.',
@@ -2139,8 +2136,7 @@ class _DebrifyTVScreenState extends State<DebrifyTVScreen> {
                     ? 'Channel editor · new'
                     : 'Channel editor · ${existing.channelNumber.toString().padLeft(2, '0')}',
                 title: existing == null ? 'Create a channel' : 'Edit channel',
-                subtitle:
-                    'Keywords are search terms. Add one or several and Debrify will pool the results.',
+                subtitle: AppLocalizations.of(context).t('Keywords are search terms. Add one or several and Debrify will pool the results.'),
                 icon: Icons.tv_rounded,
                 maxWidth: 720,
                 child: Column(
@@ -2182,8 +2178,7 @@ class _DebrifyTVScreenState extends State<DebrifyTVScreen> {
                       ),
                     ),
                     const SizedBox(height: 4),
-                    Text(
-                      'Tip: type a keyword and press Enter. Add multiples by separating with commas.',
+                    Text(AppLocalizations.of(context).t('Tip: type a keyword and press Enter. Add multiples by separating with commas.'),
                       style: TextStyle(color: tv.textFaint, fontSize: 11),
                     ),
                     const SizedBox(height: 8),
@@ -2217,7 +2212,7 @@ class _DebrifyTVScreenState extends State<DebrifyTVScreen> {
                             controller: keywordInputController,
                             focusNode: channelKeywordFocus,
                             decoration: InputDecoration(
-                              hintText: 'Add keyword',
+                              hintText: AppLocalizations.of(context).t('Add keyword'),
                               prefixIcon: Icon(Icons.add_rounded),
                             ),
                             style: TextStyle(color: app.core.tx),
@@ -2284,9 +2279,9 @@ class _DebrifyTVScreenState extends State<DebrifyTVScreen> {
                     ),
                     SizedBox(height: 18),
                     DebrifyTvDialogSection(
-                      label: 'Channel settings',
+                      label: AppLocalizations.of(context).t('Channel settings'),
                       child: SwitchRow(
-                        title: 'Avoid NSFW content',
+                        title: AppLocalizations.of(context).t('Avoid NSFW content'),
                         subtitle: _viewerForcesNsfw
                             ? 'Always on for this profile'
                             : 'Best-effort filter while building this channel',
@@ -2308,11 +2303,11 @@ class _DebrifyTVScreenState extends State<DebrifyTVScreen> {
                 ),
                 actions: [
                   DebrifyTvDialogButton(
-                    label: 'Cancel',
+                    label: AppLocalizations.of(context).t('Cancel'),
                     onPressed: () => Navigator.of(dialogContext).pop(),
                   ),
                   DebrifyTvDialogButton(
-                    label: 'Save channel',
+                    label: AppLocalizations.of(context).t('Save channel'),
                     icon: Icons.check_rounded,
                     tone: DebrifyTvDialogButtonTone.primary,
                     onPressed: submit,
@@ -2433,9 +2428,8 @@ class _DebrifyTVScreenState extends State<DebrifyTVScreen> {
         },
         child: DebrifyTvSpotlightDialog(
           eyebrow: 'Channel export · Apple TV',
-          title: 'Export from another device',
-          subtitle:
-              'Apple TV does not expose a location where Debrify can save a '
+          title: AppLocalizations.of(context).t('Export from another device'),
+          subtitle: AppLocalizations.of(context).t('Apple TV does not expose a location where Debrify can save a ')
               'portable ZIP. Export the channels from Debrify on a phone or '
               'computer, or send them through Remote.',
           icon: Icons.tv_rounded,
@@ -2443,7 +2437,7 @@ class _DebrifyTVScreenState extends State<DebrifyTVScreen> {
           actions: <Widget>[
             DebrifyTvDialogButton(
               autofocus: true,
-              label: 'Close',
+              label: AppLocalizations.of(context).t('Close'),
               onPressed: () => Navigator.of(dialogContext).pop(),
             ),
           ],
@@ -3240,9 +3234,8 @@ class _DebrifyTVScreenState extends State<DebrifyTVScreen> {
             final app = AppThemeScope.of(context);
             return DebrifyTvSpotlightDialog(
               eyebrow: 'Import · from a link',
-              title: 'Paste a channel link',
-              subtitle:
-                  'Use a debrify:// share link or an http(s) URL to a supported channel file.',
+              title: AppLocalizations.of(context).t('Paste a channel link'),
+              subtitle: AppLocalizations.of(context).t('Use a debrify:// share link or an http(s) URL to a supported channel file.'),
               icon: Icons.link_rounded,
               maxWidth: 650,
               child: Column(
@@ -3265,8 +3258,7 @@ class _DebrifyTVScreenState extends State<DebrifyTVScreen> {
                     keyboardType: TextInputType.url,
                   ),
                   SizedBox(height: 14),
-                  Text(
-                    'Supported: .zip · .yaml · .txt · .debrify',
+                  Text(AppLocalizations.of(context).t('Supported: .zip · .yaml · .txt · .debrify'),
                     style: TextStyle(
                       fontFamily: 'JetBrainsMono',
                       fontSize: 10,
@@ -3277,11 +3269,11 @@ class _DebrifyTVScreenState extends State<DebrifyTVScreen> {
               ),
               actions: [
                 DebrifyTvDialogButton(
-                  label: 'Cancel',
+                  label: AppLocalizations.of(context).t('Cancel'),
                   onPressed: () => Navigator.of(dialogContext).pop(),
                 ),
                 DebrifyTvDialogButton(
-                  label: 'Import',
+                  label: AppLocalizations.of(context).t('Import'),
                   icon: Icons.download_rounded,
                   tone: DebrifyTvDialogButtonTone.primary,
                   onPressed: () {
@@ -3516,8 +3508,7 @@ class _DebrifyTVScreenState extends State<DebrifyTVScreen> {
               ],
               if (failureRows.isNotEmpty) ...[
                 if (hasSuccess) const SizedBox(height: 12),
-                Text(
-                  'Issues detected:',
+                Text(AppLocalizations.of(context).t('Issues detected:'),
                   style: const TextStyle(fontWeight: FontWeight.w600),
                 ),
                 const SizedBox(height: 6),
@@ -3540,7 +3531,7 @@ class _DebrifyTVScreenState extends State<DebrifyTVScreen> {
           actions: [
             DebrifyTvDialogButton(
               autofocus: true,
-              label: 'Close',
+              label: AppLocalizations.of(context).t('Close'),
               onPressed: () => Navigator.of(dialogContext).pop(),
             ),
           ],
@@ -3644,7 +3635,7 @@ class _DebrifyTVScreenState extends State<DebrifyTVScreen> {
           actions: [
             DebrifyTvDialogButton(
               autofocus: true,
-              label: 'Cancel',
+              label: AppLocalizations.of(context).t('Cancel'),
               onPressed: () => Navigator.of(dialogContext).pop(false),
             ),
             DebrifyTvDialogButton(
@@ -3671,8 +3662,7 @@ class _DebrifyTVScreenState extends State<DebrifyTVScreen> {
     final confirmed = await _showDebrifyTvConfirmation(
       eyebrow: 'Channel library · destructive action',
       title: 'Delete ${channel.name}?',
-      message:
-          'This removes the channel, its saved keywords, and its cached title pool. This cannot be undone.',
+      message: AppLocalizations.of(context).t('This removes the channel, its saved keywords, and its cached title pool. This cannot be undone.'),
       confirmLabel: 'Delete channel',
       icon: Icons.delete_outline_rounded,
       danger: true,
@@ -3740,8 +3730,7 @@ class _DebrifyTVScreenState extends State<DebrifyTVScreen> {
             eyebrow:
                 'Share channel · ${channel.channelNumber.toString().padLeft(2, '0')}',
             title: channel.name,
-            subtitle:
-                'Anyone on Debrify can paste this link to import the channel and its saved pool.',
+            subtitle: AppLocalizations.of(context).t('Anyone on Debrify can paste this link to import the channel and its saved pool.'),
             icon: Icons.share_rounded,
             maxWidth: 720,
             child: Column(
@@ -3772,15 +3761,15 @@ class _DebrifyTVScreenState extends State<DebrifyTVScreen> {
                   runSpacing: 8,
                   children: [
                     _SpotlightMetaPill(
-                      label: 'Link size',
+                      label: AppLocalizations.of(context).t('Link size'),
                       value: _formatBytes(estimatedSize),
                     ),
                     _SpotlightMetaPill(
-                      label: 'Compression',
+                      label: AppLocalizations.of(context).t('Compression'),
                       value: '${compressionRatio.toStringAsFixed(1)}×',
                     ),
                     _SpotlightMetaPill(
-                      label: 'Keywords',
+                      label: AppLocalizations.of(context).t('Keywords'),
                       value: '${channel.keywords.length}',
                     ),
                   ],
@@ -3789,12 +3778,12 @@ class _DebrifyTVScreenState extends State<DebrifyTVScreen> {
             ),
             actions: [
               DebrifyTvDialogButton(
-                label: 'Close',
+                label: AppLocalizations.of(context).t('Close'),
                 onPressed: () => Navigator.of(dialogContext).pop(),
               ),
               DebrifyTvDialogButton(
                 autofocus: true,
-                label: 'Copy link',
+                label: AppLocalizations.of(context).t('Copy link'),
                 icon: Icons.copy_rounded,
                 tone: DebrifyTvDialogButtonTone.primary,
                 onPressed: () {
@@ -3903,7 +3892,7 @@ class _DebrifyTVScreenState extends State<DebrifyTVScreen> {
 
     final confirmed = await _showDebrifyTvConfirmation(
       eyebrow: 'Channel library · ${_channels.length} channels',
-      title: 'Delete every channel?',
+      title: AppLocalizations.of(context).t('Delete every channel?'),
       message:
           'This removes all ${_channels.length} channels and every cached title pool. This cannot be undone.',
       confirmLabel: 'Delete all',
@@ -4450,7 +4439,7 @@ class _DebrifyTVScreenState extends State<DebrifyTVScreen> {
         _progressSheetContext = ctx;
         return CachedLoadingDialog(
           eyebrow: 'Quick play · $providerLabel',
-          title: 'Searching for something to play',
+          title: AppLocalizations.of(context).t('Searching for something to play'),
           subtitle:
               'Debrify is searching your keywords, applying filters, and checking $providerLabel.',
           onCancel: () => _cancelActiveWatch(dialogContext: ctx),
@@ -4491,8 +4480,7 @@ class _DebrifyTVScreenState extends State<DebrifyTVScreen> {
         _log('❌ Real Debrid API key not found - please add it in Settings');
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text(
-              'Please add your Real Debrid API key in Settings first!',
+            content: Text(AppLocalizations.of(context).t('Please add your Real Debrid API key in Settings first!'),
             ),
           ),
         );
@@ -4941,8 +4929,7 @@ class _DebrifyTVScreenState extends State<DebrifyTVScreen> {
         });
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text(
-              'No results found. Try different keywords or check your internet connection.',
+            content: Text(AppLocalizations.of(context).t('No results found. Try different keywords or check your internet connection.'),
             ),
             backgroundColor: Colors.red,
             duration: Duration(seconds: 4),
@@ -4976,8 +4963,7 @@ class _DebrifyTVScreenState extends State<DebrifyTVScreen> {
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text(
-            'Please add your Real Debrid API key in Settings first!',
+          content: Text(AppLocalizations.of(context).t('Please add your Real Debrid API key in Settings first!'),
           ),
         ),
       );
@@ -5112,8 +5098,7 @@ class _DebrifyTVScreenState extends State<DebrifyTVScreen> {
           MainPageBridge.notifyAutoLaunchFailed('No playable streams found');
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
-              content: Text(
-                'No playable streams found. Try different keywords or check your internet connection.',
+              content: Text(AppLocalizations.of(context).t('No playable streams found. Try different keywords or check your internet connection.'),
               ),
               backgroundColor: Colors.red,
               duration: Duration(seconds: 4),
@@ -7844,8 +7829,7 @@ class _DebrifyTVScreenState extends State<DebrifyTVScreen> {
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text(
-            'Please add your Real Debrid API key in Settings first!',
+          content: Text(AppLocalizations.of(context).t('Please add your Real Debrid API key in Settings first!'),
           ),
         ),
       );
@@ -7919,8 +7903,7 @@ class _DebrifyTVScreenState extends State<DebrifyTVScreen> {
           });
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
-              content: Text(
-                'All torrents failed to process. Try different keywords or check your internet connection.',
+              content: Text(AppLocalizations.of(context).t('All torrents failed to process. Try different keywords or check your internet connection.'),
               ),
               backgroundColor: Colors.red,
               duration: Duration(seconds: 4),
@@ -8357,7 +8340,7 @@ class _DebrifyTVScreenState extends State<DebrifyTVScreen> {
             final focused = _channelMenuFocusNode.hasFocus;
 
             return Tooltip(
-              message: 'Options',
+              message: AppLocalizations.of(context).t('Options'),
               child: GestureDetector(
                 onTap: () {
                   if (controller.isOpen) {
@@ -8485,7 +8468,7 @@ class _DebrifyTVScreenState extends State<DebrifyTVScreen> {
                 onSubmitted: (_) => _focusBelowChannelSearch(),
                 onDownArrow: _focusBelowChannelSearch,
                 decoration: InputDecoration(
-                  hintText: 'Search channels...',
+                  hintText: AppLocalizations.of(context).t('Search channels...'),
                   hintStyle: TextStyle(
                     color: app.core.tx.withValues(alpha: 0.3),
                   ),
@@ -8597,8 +8580,7 @@ class _DebrifyTVScreenState extends State<DebrifyTVScreen> {
                     color: app.core.tx.withValues(alpha: 0.7),
                   ),
                   const SizedBox(width: 8),
-                  Text(
-                    'All Channels',
+                  Text(AppLocalizations.of(context).t('All Channels'),
                     style: TextStyle(
                       fontSize: 14,
                       fontWeight: FontWeight.w600,
@@ -8681,8 +8663,7 @@ class _DebrifyTVScreenState extends State<DebrifyTVScreen> {
         children: [
           Icon(Icons.tv_rounded, size: 120, color: app.core.tx.withAlpha(51)),
           SizedBox(height: 24),
-          Text(
-            'No channels yet',
+          Text(AppLocalizations.of(context).t('No channels yet'),
             style: TextStyle(
               fontSize: 28,
               fontWeight: FontWeight.w600,
@@ -8690,15 +8671,14 @@ class _DebrifyTVScreenState extends State<DebrifyTVScreen> {
             ),
           ),
           const SizedBox(height: 12),
-          Text(
-            'Import channels or create your first channel to get started',
+          Text(AppLocalizations.of(context).t('Import channels or create your first channel to get started'),
             style: TextStyle(fontSize: 16, color: tv.textFaint),
           ),
           const SizedBox(height: 32),
           TvFocusableButton(
             onPressed: _handleAddChannel,
             icon: Icons.add_rounded,
-            label: 'Add Channel',
+            label: AppLocalizations.of(context).t('Add Channel'),
             backgroundColor: tv.accent,
             width: 200,
           ),
@@ -8735,8 +8715,7 @@ class _DebrifyTVScreenState extends State<DebrifyTVScreen> {
                 color: tv.favorite.withValues(alpha: 0.9),
               ),
               const SizedBox(width: 8),
-              Text(
-                'Favorites',
+              Text(AppLocalizations.of(context).t('Favorites'),
                 style: TextStyle(
                   fontSize: 14,
                   fontWeight: FontWeight.w600,
@@ -9031,7 +9010,7 @@ class _DebrifyTVScreenState extends State<DebrifyTVScreen> {
           eyebrow:
               'Channel actions · ${channel.channelNumber.toString().padLeft(2, '0')}',
           title: channel.name,
-          subtitle: 'Manage this channel without leaving the current view.',
+          subtitle: AppLocalizations.of(context).t('Manage this channel without leaving the current view.'),
           icon: Icons.tune_rounded,
           maxWidth: 680,
           child: Column(
@@ -9056,8 +9035,8 @@ class _DebrifyTVScreenState extends State<DebrifyTVScreen> {
               const SizedBox(height: 10),
               DebrifyTvDialogOptionCard(
                 icon: Icons.edit_rounded,
-                title: 'Edit channel',
-                subtitle: 'Change its name, keywords, or content filter.',
+                title: AppLocalizations.of(context).t('Edit channel'),
+                subtitle: AppLocalizations.of(context).t('Change its name, keywords, or content filter.'),
                 tag: 'Edit',
                 onPressed: () {
                   Navigator.of(dialogContext).pop();
@@ -9067,8 +9046,8 @@ class _DebrifyTVScreenState extends State<DebrifyTVScreen> {
               const SizedBox(height: 10),
               DebrifyTvDialogOptionCard(
                 icon: Icons.share_rounded,
-                title: 'Share channel',
-                subtitle: 'Create a portable Debrify link for this pool.',
+                title: AppLocalizations.of(context).t('Share channel'),
+                subtitle: AppLocalizations.of(context).t('Create a portable Debrify link for this pool.'),
                 tag: 'Link',
                 onPressed: () {
                   Navigator.of(dialogContext).pop();
@@ -9078,8 +9057,8 @@ class _DebrifyTVScreenState extends State<DebrifyTVScreen> {
               SizedBox(height: 10),
               DebrifyTvDialogOptionCard(
                 icon: Icons.delete_outline_rounded,
-                title: 'Delete channel',
-                subtitle: 'Remove this channel and its cached title pool.',
+                title: AppLocalizations.of(context).t('Delete channel'),
+                subtitle: AppLocalizations.of(context).t('Remove this channel and its cached title pool.'),
                 tag: 'Careful',
                 danger: true,
                 onPressed: () {
@@ -9091,7 +9070,7 @@ class _DebrifyTVScreenState extends State<DebrifyTVScreen> {
           ),
           actions: [
             DebrifyTvDialogButton(
-              label: 'Close',
+              label: AppLocalizations.of(context).t('Close'),
               onPressed: () => Navigator.of(dialogContext).pop(),
             ),
           ],
@@ -9121,8 +9100,7 @@ class _DebrifyTVScreenState extends State<DebrifyTVScreen> {
               child: Icon(Icons.add_rounded, size: 32, color: tv.textDim),
             ),
             const SizedBox(height: 12),
-            Text(
-              'Add Channel',
+            Text(AppLocalizations.of(context).t('Add Channel'),
               style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.w600,
@@ -9252,8 +9230,7 @@ class _DebrifyTVScreenState extends State<DebrifyTVScreen> {
               ],
             ),
             const SizedBox(height: 10),
-            Text(
-              'Content provider',
+            Text(AppLocalizations.of(context).t('Content provider'),
               style: Theme.of(
                 context,
               ).textTheme.titleSmall?.copyWith(fontWeight: FontWeight.w600),
@@ -9262,8 +9239,8 @@ class _DebrifyTVScreenState extends State<DebrifyTVScreen> {
             _providerChoiceChips(scope, dialogSetState: dialogSetState),
             const SizedBox(height: 16),
             SwitchRow(
-              title: 'Start from random timestamp',
-              subtitle: 'Each Debrify TV video starts at a random point',
+              title: AppLocalizations.of(context).t('Start from random timestamp'),
+              subtitle: AppLocalizations.of(context).t('Each Debrify TV video starts at a random point'),
               value: startRandom,
               onChanged: (v) => setStartRandom(v),
             ),
@@ -9284,7 +9261,7 @@ class _DebrifyTVScreenState extends State<DebrifyTVScreen> {
             if (includeNsfwToggle && isQuickScope) ...[
               const SizedBox(height: 8),
               SwitchRow(
-                title: 'Avoid NSFW content',
+                title: AppLocalizations.of(context).t('Avoid NSFW content'),
                 subtitle: _viewerForcesNsfw
                     ? 'Always on for this profile'
                     : 'Filter adult/inappropriate torrents • Best effort, not 100% accurate',
@@ -9308,7 +9285,7 @@ class _DebrifyTVScreenState extends State<DebrifyTVScreen> {
             DebrifyTvDialogButton(
               expand: true,
               icon: Icons.restore_rounded,
-              label: 'Reset to defaults',
+              label: AppLocalizations.of(context).t('Reset to defaults'),
               onPressed: () async {
                 final defaultProvider = _determineDefaultProvider(
                   null,
@@ -9400,7 +9377,7 @@ class _DebrifyTVScreenState extends State<DebrifyTVScreen> {
             final app = AppThemeScope.of(context);
             return DebrifyTvSpotlightDialog(
               eyebrow: 'Quick play · no channel needed',
-              title: 'Play anything',
+              title: AppLocalizations.of(context).t('Play anything'),
               subtitle:
                   'Enter up to $_quickPlayMaxKeywords search terms. Nothing is saved when playback ends.',
               icon: Icons.play_arrow_rounded,
@@ -9422,7 +9399,7 @@ class _DebrifyTVScreenState extends State<DebrifyTVScreen> {
                     keyboardInkOnAccent: app.inkOn(app.settings.accent),
                     decoration: InputDecoration(
                       labelText: 'Keywords',
-                      hintText: 'Comma separated keywords',
+                      hintText: AppLocalizations.of(context).t('Comma separated keywords'),
                     ),
                     onDownArrow: () {
                       final ctx = keywordFocusNode.context;
@@ -9444,7 +9421,7 @@ class _DebrifyTVScreenState extends State<DebrifyTVScreen> {
                   ),
                   SizedBox(height: 12),
                   SwitchRow(
-                    title: 'Avoid NSFW content',
+                    title: AppLocalizations.of(context).t('Avoid NSFW content'),
                     subtitle: _viewerForcesNsfw
                         ? 'Always on for this profile'
                         : 'Best-effort filter while searching',
@@ -9466,11 +9443,11 @@ class _DebrifyTVScreenState extends State<DebrifyTVScreen> {
               ),
               actions: [
                 DebrifyTvDialogButton(
-                  label: 'Cancel',
+                  label: AppLocalizations.of(context).t('Cancel'),
                   onPressed: () => Navigator.of(dialogContext).pop(),
                 ),
                 DebrifyTvDialogButton(
-                  label: 'Play now',
+                  label: AppLocalizations.of(context).t('Play now'),
                   icon: Icons.play_arrow_rounded,
                   tone: DebrifyTvDialogButtonTone.primary,
                   onPressed: () async {
@@ -9528,22 +9505,21 @@ class _DebrifyTVScreenState extends State<DebrifyTVScreen> {
           builder: (context, setDialogState) {
             return DebrifyTvSpotlightDialog(
               eyebrow: 'Debrify TV · applies to every channel',
-              title: 'Channel playback',
-              subtitle:
-                  'Choose the provider, filters, and starting behavior used when a channel tunes.',
+              title: AppLocalizations.of(context).t('Channel playback'),
+              subtitle: AppLocalizations.of(context).t('Choose the provider, filters, and starting behavior used when a channel tunes.'),
               icon: Icons.settings_rounded,
               maxWidth: 920,
               maxHeightFactor: .94,
               child: _buildSettingsCard(
                 scope: _SettingsScope.channels,
                 includeNsfwToggle: false,
-                title: 'Playback rules',
+                title: AppLocalizations.of(context).t('Playback rules'),
                 dialogSetState: setDialogState,
               ),
               actions: [
                 DebrifyTvDialogButton(
                   autofocus: true,
-                  label: 'Done',
+                  label: AppLocalizations.of(context).t('Done'),
                   icon: Icons.check_rounded,
                   tone: DebrifyTvDialogButtonTone.primary,
                   onPressed: () => Navigator.of(dialogContext).pop(),

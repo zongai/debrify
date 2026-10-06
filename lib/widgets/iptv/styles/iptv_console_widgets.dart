@@ -102,7 +102,7 @@ class _IptvConsoleStatusBarState extends State<IptvConsoleStatusBar> {
           const SizedBox(width: 10),
           Text('${_fmtCount(widget.channelCount)} CH', style: label(t.fgFaint)),
           const SizedBox(width: 22),
-          Text('LIVE TV', style: label(t.fgDim)),
+          Text(AppLocalizations.of(context).t('LIVE TV'), style: label(t.fgDim)),
           if (widget.recCount > 0) ...[
             const SizedBox(width: 22),
             Container(
@@ -493,8 +493,7 @@ class _TimelineCell extends StatelessWidget {
               ),
               if (programme.hasArchive && isPast)
                 Flexible(
-                  child: Text(
-                    'REPLAY',
+                  child: Text(AppLocalizations.of(context).t('REPLAY'),
                     overflow: TextOverflow.clip,
                     softWrap: false,
                     style: TextStyle(

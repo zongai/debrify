@@ -30,16 +30,14 @@ class YoutubeEmptyState extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 24),
-            const Text(
-              'YouTube',
+            Text(AppLocalizations.of(context).t('YouTube'),
               style: TextStyle(
                 fontSize: 24,
                 fontWeight: FontWeight.bold,
               ),
             ),
             const SizedBox(height: 8),
-            Text(
-              'Search for any video — streamed on-device, no account needed',
+            Text(AppLocalizations.of(context).t('Search for any video — streamed on-device, no account needed'),
               style: TextStyle(
                 color: app.youtube.textDim,
                 fontSize: 14,

@@ -311,8 +311,7 @@ class MobileClassicNav extends StatelessWidget {
                   ),
                   Row(
                     children: [
-                      Text(
-                        'EDIT NAVIGATION',
+                      Text(AppLocalizations.of(context).t('EDIT NAVIGATION'),
                         style: TextStyle(
                           fontSize: 11,
                           fontWeight: FontWeight.w800,
@@ -339,8 +338,7 @@ class MobileClassicNav extends StatelessWidget {
                     ],
                   ),
                   const SizedBox(height: 6),
-                  Text(
-                    'IN YOUR BAR — pick up to 3 (Home and More are fixed)',
+                  Text(AppLocalizations.of(context).t('IN YOUR BAR — pick up to 3 (Home and More are fixed)'),
                     style: TextStyle(
                       fontSize: 10,
                       fontWeight: FontWeight.w800,
@@ -376,15 +374,14 @@ class MobileClassicNav extends StatelessWidget {
                           ),
                         const _EditChip(
                           icon: Icons.grid_view_rounded,
-                          label: 'More',
+                          label: AppLocalizations.of(context).t('More'),
                           fixed: true,
                         ),
                       ],
                     ),
                   ),
                   const SizedBox(height: 14),
-                  Text(
-                    'IN THE MENU',
+                  Text(AppLocalizations.of(context).t('IN THE MENU'),
                     style: TextStyle(
                       fontSize: 10,
                       fontWeight: FontWeight.w800,
@@ -417,9 +414,7 @@ class MobileClassicNav extends StatelessWidget {
                   ),
                   const SizedBox(height: 10),
                   Center(
-                    child: Text(
-                      'Tap to move · a tab that gets disabled later falls '
-                      'back to the defaults',
+                    child: Text(AppLocalizations.of(context).t('Tap to move · a tab that gets disabled later falls ')'back to the defaults',
                       style: TextStyle(
                         fontSize: 10,
                         color: app.fade(app.core.tx, 0.3),

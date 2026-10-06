@@ -308,15 +308,12 @@ class _CloudScreenState extends State<CloudScreen> {
               ),
             ),
             const SizedBox(height: 20),
-            const Text(
-              'No cloud providers connected',
+            Text(AppLocalizations.of(context).t('No cloud providers connected'),
               textAlign: TextAlign.center,
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
             ),
             const SizedBox(height: 8),
-            Text(
-              'Connect Real Debrid, Torbox, Premiumize, AllDebrid, PikPak, or '
-              'WebDAV in Settings to manage your cloud files here.',
+            Text(AppLocalizations.of(context).t('Connect Real Debrid, Torbox, Premiumize, AllDebrid, PikPak, or ')'WebDAV in Settings to manage your cloud files here.',
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 14,
@@ -339,8 +336,7 @@ class _CloudScreenState extends State<CloudScreen> {
           children: [
             Padding(
               padding: EdgeInsets.fromLTRB(4, 0, 4, 2),
-              child: Text(
-                'Cloud',
+              child: Text(AppLocalizations.of(context).t('Cloud'),
                 style: TextStyle(
                   fontSize: 30,
                   fontWeight: FontWeight.w800,
@@ -350,8 +346,7 @@ class _CloudScreenState extends State<CloudScreen> {
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(4, 0, 4, 20),
-              child: Text(
-                'Choose a provider to manage its files',
+              child: Text(AppLocalizations.of(context).t('Choose a provider to manage its files'),
                 style: TextStyle(
                   fontSize: 14.5,
                   color: app.fade(app.core.tx, 0.5),

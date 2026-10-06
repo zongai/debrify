@@ -886,7 +886,7 @@ class IptvResultsViewState extends State<IptvResultsView>
   Future<void> _promptCreateList() async {
     final name = await showIptvListNameDialog(
       context: context,
-      title: 'New list',
+      title: AppLocalizations.of(context).t('New list'),
       confirmLabel: 'Create',
       existingNames: [for (final list in _lists) list.name],
     );
@@ -2485,8 +2485,7 @@ class IptvResultsViewState extends State<IptvResultsView>
             // would make every quick load look slow.
             if (elapsed >= _slowLoadHint) ...[
               const SizedBox(height: 14),
-              Text(
-                'Large playlists can take a minute on TV devices.',
+              Text(AppLocalizations.of(context).t('Large playlists can take a minute on TV devices.'),
                 textAlign: TextAlign.center,
                 style: theme.textTheme.bodySmall?.copyWith(
                   color: theme.colorScheme.onSurfaceVariant,
@@ -3260,8 +3259,7 @@ class IptvResultsViewState extends State<IptvResultsView>
             ),
             ListTile(
               leading: Icon(Icons.visibility_off_outlined, color: app.core.tx),
-              title: Text(
-                'Hide category…',
+              title: Text(AppLocalizations.of(context).t('Hide category…'),
                 style: TextStyle(color: app.core.tx),
               ),
               onTap: () => Navigator.of(dialogContext).pop('hide'),
@@ -3320,8 +3318,7 @@ class IptvResultsViewState extends State<IptvResultsView>
       context: context,
       builder: (dialogContext) => AlertDialog(
         backgroundColor: app.iptv.modalBg,
-        title: Text(
-          'Hide this category?',
+        title: Text(AppLocalizations.of(context).t('Hide this category?'),
           style: TextStyle(color: app.core.tx, fontWeight: FontWeight.w700),
         ),
         content: Text(
@@ -4366,9 +4363,7 @@ class IptvResultsViewState extends State<IptvResultsView>
       if (url == null) {
         messenger.showSnackBar(
           SnackBar(
-            content: Text(
-              'Replay not available — the panel did not answer for '
-              '"${programme.title}"',
+            content: Text(AppLocalizations.of(context).t('Replay not available — the panel did not answer for ')'"${programme.title}"',
             ),
           ),
         );
@@ -5256,8 +5251,7 @@ class IptvResultsViewState extends State<IptvResultsView>
       context: context,
       builder: (dialogContext) => AlertDialog(
         backgroundColor: app.iptv.modalBg,
-        title: Text(
-          'Record programme',
+        title: Text(AppLocalizations.of(context).t('Record programme'),
           style: TextStyle(color: app.core.tx, fontWeight: FontWeight.w700),
         ),
         content: Text(
@@ -5435,8 +5429,7 @@ class IptvResultsViewState extends State<IptvResultsView>
                   color: Theme.of(context).colorScheme.error,
                 ),
                 SizedBox(height: 16),
-                Text(
-                  'Could not open IPTV',
+                Text(AppLocalizations.of(context).t('Could not open IPTV'),
                   style: Theme.of(context).textTheme.titleMedium,
                 ),
                 SizedBox(height: 8),
@@ -6222,7 +6215,7 @@ class IptvResultsViewState extends State<IptvResultsView>
   ) {
     if (channel.contentType == 'series') {
       return (
-        label: 'Open',
+        label: AppLocalizations.of(context).t('Open'),
         icon: Icons.open_in_new_rounded,
         action: () => unawaited(_playChannel(channel)),
       );
@@ -6231,14 +6224,14 @@ class IptvResultsViewState extends State<IptvResultsView>
       final now = DateTime.now();
       if (programme.airsAt(now)) {
         return (
-          label: 'Watch',
+          label: AppLocalizations.of(context).t('Watch'),
           icon: Icons.play_arrow_rounded,
           action: () => unawaited(_playChannel(channel)),
         );
       }
       if (IptvEpgService.isCatchupAvailable(channel, programme)) {
         return (
-          label: 'Replay',
+          label: AppLocalizations.of(context).t('Replay'),
           icon: Icons.replay_rounded,
           action: () => unawaited(_playCatchup(channel, programme)),
         );
@@ -6247,20 +6240,20 @@ class IptvResultsViewState extends State<IptvResultsView>
         final recordProgramme = _recordProgrammeActionFor(channel);
         if (recordProgramme != null) {
           return (
-            label: 'Record',
+            label: AppLocalizations.of(context).t('Record'),
             icon: Icons.fiber_manual_record_rounded,
             action: () => recordProgramme(programme),
           );
         }
       }
       return (
-        label: 'Guide',
+        label: AppLocalizations.of(context).t('Guide'),
         icon: Icons.calendar_month_rounded,
         action: () => _openSchedulePane(channel),
       );
     }
     return (
-      label: 'Watch',
+      label: AppLocalizations.of(context).t('Watch'),
       icon: Icons.play_arrow_rounded,
       action: () => unawaited(_playChannel(channel)),
     );
@@ -6272,7 +6265,7 @@ class IptvResultsViewState extends State<IptvResultsView>
     final desktopCapture = _desktopCaptureFor(channel);
     if (desktopCapture != null) {
       return (
-        label: 'Stop',
+        label: AppLocalizations.of(context).t('Stop'),
         icon: Icons.stop_rounded,
         action: () => unawaited(_stageStopDesktopRecording(desktopCapture)),
       );
@@ -6282,7 +6275,7 @@ class IptvResultsViewState extends State<IptvResultsView>
         : null;
     if (androidTask != null) {
       return (
-        label: 'Stop',
+        label: AppLocalizations.of(context).t('Stop'),
         icon: Icons.stop_rounded,
         action: () =>
             unawaited(_stageStopAndroidRecording(channel, androidTask)),
@@ -6290,7 +6283,7 @@ class IptvResultsViewState extends State<IptvResultsView>
     }
     if (_pageCanRecord && _channelEngineRecordable(channel)) {
       return (
-        label: 'Record',
+        label: AppLocalizations.of(context).t('Record'),
         icon: Icons.fiber_manual_record_rounded,
         action: () => unawaited(_stageRecordNow(channel)),
       );
@@ -6401,13 +6394,13 @@ class IptvResultsViewState extends State<IptvResultsView>
               if (canSave && _customLists.isNotEmpty)
                 nextTile(
                   icon: Icons.bookmark_add_outlined,
-                  label: 'Save to list',
+                  label: AppLocalizations.of(context).t('Save to list'),
                   onPressed: () => unawaited(_openListPicker(channel)),
                 ),
               if (IptvEpgService.isEpgCapable(channel))
                 nextTile(
                   icon: Icons.calendar_month_rounded,
-                  label: 'Full guide',
+                  label: AppLocalizations.of(context).t('Full guide'),
                   onPressed: () => _openSchedulePane(channel),
                 ),
             ],
@@ -7248,7 +7241,7 @@ class IptvResultsViewState extends State<IptvResultsView>
         ),
         if (_selectedPlaylist?.isXtreamCodes ?? false)
           StremioDropdown<String>(
-            label: 'type',
+            label: AppLocalizations.of(context).t('type'),
             value: _selectedContentType,
             quiet: true,
             isTelevision: widget.isTelevision,
@@ -7264,7 +7257,7 @@ class IptvResultsViewState extends State<IptvResultsView>
           ),
         if (_categories.isNotEmpty)
           StremioDropdown<String>(
-            label: 'category',
+            label: AppLocalizations.of(context).t('category'),
             value: _effectiveCategory ?? '',
             quiet: true,
             isTelevision: widget.isTelevision,
@@ -7785,8 +7778,7 @@ class IptvResultsViewState extends State<IptvResultsView>
                 color: Theme.of(context).colorScheme.error,
               ),
               SizedBox(height: 16),
-              Text(
-                'Failed to load playlist',
+              Text(AppLocalizations.of(context).t('Failed to load playlist'),
                 style: Theme.of(context).textTheme.titleMedium,
               ),
               SizedBox(height: 8),
@@ -8294,8 +8286,7 @@ class _SpotlightCategoryPickerDialogState
                 child: Row(
                   children: [
                     Expanded(
-                      child: Text(
-                        'Choose category',
+                      child: Text(AppLocalizations.of(context).t('Choose category'),
                         style: TextStyle(
                           color: t.fg,
                           fontWeight: FontWeight.w800,
@@ -8327,8 +8318,7 @@ class _SpotlightCategoryPickerDialogState
                         selected: selected,
                         selectedTileColor: t.selectedTint,
                         leading: Icon(Icons.apps_rounded, color: t.accent),
-                        title: Text(
-                          'All channels',
+                        title: Text(AppLocalizations.of(context).t('All channels'),
                           style: TextStyle(color: t.fg),
                         ),
                         trailing: Text(
@@ -8375,9 +8365,7 @@ class _SpotlightCategoryPickerDialogState
                 Divider(height: 1, color: t.hairline),
                 Padding(
                   padding: const EdgeInsets.fromLTRB(24, 8, 24, 10),
-                  child: Text(
-                    'Select a category, then use ••• to set it as the default '
-                    'or hide it.',
+                  child: Text(AppLocalizations.of(context).t('Select a category, then use ••• to set it as the default ')'or hide it.',
                     style: TextStyle(color: t.fgFaint, fontSize: 11),
                   ),
                 ),
@@ -8465,8 +8453,7 @@ class _IptvStageFloorState extends State<_IptvStageFloor>
                 color: app.core.tx.withValues(alpha: 0.22),
               ),
               const SizedBox(height: 10),
-              Text(
-                'Browse channels to preview',
+              Text(AppLocalizations.of(context).t('Browse channels to preview'),
                 style: TextStyle(
                   color: app.core.tx.withValues(alpha: 0.45),
                   fontSize: 12.5,

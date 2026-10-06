@@ -337,8 +337,7 @@ class _DetailHoldHintPill extends StatelessWidget {
             color: Colors.white.withValues(alpha: 0.92),
           ),
           const SizedBox(width: 6),
-          Text(
-            'Long press for more actions',
+          Text(AppLocalizations.of(context).t('Long press for more actions'),
             style: TextStyle(
               color: Colors.white.withValues(alpha: 0.92),
               fontSize: 12,
@@ -451,8 +450,7 @@ class DetailEpisodeThumb extends StatelessWidget {
                   color: t.callout,
                   borderRadius: t.brSm,
                 ),
-                child: Text(
-                  'UP NEXT',
+                child: Text(AppLocalizations.of(context).t('UP NEXT'),
                   style: TextStyle(
                     color: t.calloutText,
                     fontSize: 8,
@@ -824,8 +822,7 @@ class DetailEpisodesStatus extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 6),
-              Text(
-                'The episode list is unavailable right now.',
+              Text(AppLocalizations.of(context).t('The episode list is unavailable right now.'),
                 textAlign: TextAlign.center,
                 style: t.bodyStyle(size: 12.5),
               ),

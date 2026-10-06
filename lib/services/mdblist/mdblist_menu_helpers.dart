@@ -53,7 +53,7 @@ List<MdblistMenuOption> buildMdblistMenuOptions({
   return [
     const MdblistMenuOption(action: MdblistItemMenuAction.clearWatchProgress,
       icon: Icons.restart_alt_rounded, color: Color(0xFFEF4444),
-      label: 'Clear watch progress on MDBList', caption: 'Clear progress'),
+      label: AppLocalizations.of(context).t('Clear watch progress on MDBList'), caption: 'Clear progress'),
     MdblistMenuOption(
       action: status?.inWatchlist == true
           ? MdblistItemMenuAction.removeFromWatchlist
@@ -129,7 +129,7 @@ List<MdblistMenuOption> buildMdblistMenuOptions({
         action: MdblistItemMenuAction.removeFromContinueWatching,
         icon: Icons.remove_circle_outline_rounded,
         color: Color(0xFFF87171),
-        label: 'Remove from MDBList Continue Watching',
+        label: AppLocalizations.of(context).t('Remove from MDBList Continue Watching'),
         caption: 'Remove',
       ),
   ];
@@ -212,8 +212,7 @@ Future<void> handleMdblistMenuAction(
           context: context,
           builder: (ctx) => AlertDialog(
             title: Text(AppLocalizations.of(context).t('Collect this show?')),
-            content: Text(
-              'MDBList will add every aired episode to your collection.',
+            content: Text(AppLocalizations.of(context).t('MDBList will add every aired episode to your collection.'),
             ),
             actions: [
               TextButton(

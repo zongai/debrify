@@ -271,8 +271,7 @@ class _PlaylistScreenState extends State<PlaylistScreen> {
           borderRadius: app.shape.br(18),
           side: BorderSide(color: app.fade(app.core.tx, 0.08)),
         ),
-        title: Text(
-          'Remove from playlist?',
+        title: Text(AppLocalizations.of(context).t('Remove from playlist?'),
           style: TextStyle(fontWeight: FontWeight.w700),
         ),
         content: Text(
@@ -372,8 +371,7 @@ class _PlaylistScreenState extends State<PlaylistScreen> {
           borderRadius: app.shape.br(18),
           side: BorderSide(color: app.fade(app.core.tx, 0.08)),
         ),
-        title: Text(
-          'Clear watch progress?',
+        title: Text(AppLocalizations.of(context).t('Clear watch progress?'),
           style: TextStyle(fontWeight: FontWeight.w700),
         ),
         content: Text(
@@ -622,7 +620,7 @@ class _PlaylistScreenState extends State<PlaylistScreen> {
                         keyboardInk: app.core.tx,
                         keyboardInkOnAccent: app.inkOn(app.settings.accent),
                         decoration: InputDecoration(
-                          hintText: 'Search...',
+                          hintText: AppLocalizations.of(context).t('Search...'),
                           hintStyle: TextStyle(
                             color: app.core.tx.withValues(alpha: 0.3),
                           ),
@@ -784,8 +782,7 @@ class _PlaylistScreenState extends State<PlaylistScreen> {
             ),
           ),
           const SizedBox(height: 20),
-          Text(
-            'No items in playlist',
+          Text(AppLocalizations.of(context).t('No items in playlist'),
             style: TextStyle(
               color: app.core.tx.withValues(alpha: 0.6),
               fontSize: 17,
@@ -793,8 +790,7 @@ class _PlaylistScreenState extends State<PlaylistScreen> {
             ),
           ),
           SizedBox(height: 8),
-          Text(
-            'Add items from your debrid downloads',
+          Text(AppLocalizations.of(context).t('Add items from your debrid downloads'),
             style: TextStyle(
               color: app.core.tx.withValues(alpha: 0.35),
               fontSize: 14,
@@ -824,8 +820,7 @@ class _PlaylistScreenState extends State<PlaylistScreen> {
             ),
           ),
           SizedBox(height: 20),
-          Text(
-            'No results found',
+          Text(AppLocalizations.of(context).t('No results found'),
             style: TextStyle(
               color: app.core.tx.withValues(alpha: 0.6),
               fontSize: 17,

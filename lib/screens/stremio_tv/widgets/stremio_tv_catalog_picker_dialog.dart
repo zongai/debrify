@@ -368,8 +368,7 @@ class _StremioTvCatalogPickerDialogState
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Text(
-            'Add to Stremio TV',
+          Text(AppLocalizations.of(context).t('Add to Stremio TV'),
             style: theme.textTheme.titleLarge?.copyWith(
               fontWeight: FontWeight.w700,
             ),
@@ -404,16 +403,15 @@ class _StremioTvCatalogPickerDialogState
                 theme,
                 focusNode: _newChannelFocusNode,
                 icon: Icons.add_circle_outline_rounded,
-                title: 'New Channel',
-                subtitle: 'Create a new local channel from this item',
+                title: AppLocalizations.of(context).t('New Channel'),
+                subtitle: AppLocalizations.of(context).t('Create a new local channel from this item'),
                 enabled: !_saving,
                 onTap: _openCreateView,
               ),
             ),
             const SizedBox(height: 12),
             if (_catalogs.isNotEmpty) ...[
-              Text(
-                'Add to Existing Channel',
+              Text(AppLocalizations.of(context).t('Add to Existing Channel'),
                 style: theme.textTheme.titleSmall?.copyWith(
                   fontWeight: FontWeight.w600,
                 ),
@@ -455,7 +453,7 @@ class _StremioTvCatalogPickerDialogState
                     },
                     decoration: InputDecoration(
                       labelText: 'Search channels',
-                      hintText: 'Filter by channel name',
+                      hintText: AppLocalizations.of(context).t('Filter by channel name'),
                       prefixIcon: const Icon(Icons.search_rounded),
                       border: const OutlineInputBorder(),
                       suffixIcon: _searchController.text.isEmpty
@@ -536,8 +534,7 @@ class _StremioTvCatalogPickerDialogState
               if (filteredIndices.isEmpty)
                 Padding(
                   padding: EdgeInsets.only(top: 12),
-                  child: Text(
-                    'No matching channels found.',
+                  child: Text(AppLocalizations.of(context).t('No matching channels found.'),
                     style: theme.textTheme.bodyMedium?.copyWith(
                       color: theme.colorScheme.onSurfaceVariant,
                     ),
@@ -590,8 +587,7 @@ class _StremioTvCatalogPickerDialogState
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Text(
-            'New Channel',
+          Text(AppLocalizations.of(context).t('New Channel'),
             style: theme.textTheme.titleLarge?.copyWith(
               fontWeight: FontWeight.w700,
             ),
@@ -629,7 +625,7 @@ class _StremioTvCatalogPickerDialogState
                 },
                 decoration: InputDecoration(
                   labelText: 'Channel name',
-                  hintText: 'My Weekend Picks',
+                  hintText: AppLocalizations.of(context).t('My Weekend Picks'),
                   border: OutlineInputBorder(),
                 ),
               ),
@@ -833,7 +829,7 @@ class _StremioTvLocalCatalogEditor {
       (catalog) => (catalog['name'] as String?) == trimmedName,
     )) {
       return const StremioTvCatalogPickerResult(
-        message: 'A channel with that name already exists',
+        message: AppLocalizations.of(context).t('A channel with that name already exists'),
         duplicate: true,
       );
     }

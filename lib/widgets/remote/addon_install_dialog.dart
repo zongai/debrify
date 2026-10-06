@@ -193,7 +193,7 @@ class _AddonInstallDialogState extends State<AddonInstallDialog> {
               if (widget.showThisDevice) ...[
                 _buildCompactTile(
                   icon: Icons.smartphone,
-                  title: 'This device',
+                  title: AppLocalizations.of(context).t('This device'),
                   trailing: const Icon(
                     Icons.arrow_forward_ios,
                     size: 14,
@@ -209,8 +209,7 @@ class _AddonInstallDialogState extends State<AddonInstallDialog> {
               // TV section
               Row(
                 children: [
-                  Text(
-                    'SEND TO TV',
+                  Text(AppLocalizations.of(context).t('SEND TO TV'),
                     style: TextStyle(
                       color: Colors.white.withValues(alpha: 0.4),
                       fontSize: 11,
@@ -234,8 +233,7 @@ class _AddonInstallDialogState extends State<AddonInstallDialog> {
                           ),
                         ),
                         const SizedBox(width: 6),
-                        Text(
-                          'Scanning',
+                        Text(AppLocalizations.of(context).t('Scanning'),
                           style: TextStyle(
                             color: Colors.white.withValues(alpha: 0.4),
                             fontSize: 11,
@@ -255,8 +253,7 @@ class _AddonInstallDialogState extends State<AddonInstallDialog> {
                             color: Colors.white.withValues(alpha: 0.4),
                           ),
                           const SizedBox(width: 4),
-                          Text(
-                            'Rescan',
+                          Text(AppLocalizations.of(context).t('Rescan'),
                             style: TextStyle(
                               color: Colors.white.withValues(alpha: 0.4),
                               fontSize: 11,
@@ -326,8 +323,7 @@ class _AddonInstallDialogState extends State<AddonInstallDialog> {
                   style: TextButton.styleFrom(
                     padding: const EdgeInsets.symmetric(vertical: 12),
                   ),
-                  child: Text(
-                    'Cancel',
+                  child: Text(AppLocalizations.of(context).t('Cancel'),
                     style: TextStyle(
                       color: Colors.white.withValues(alpha: 0.5),
                       fontSize: 14,

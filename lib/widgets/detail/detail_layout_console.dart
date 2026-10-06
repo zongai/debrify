@@ -238,8 +238,7 @@ class _DetailConsoleState extends State<DetailConsole> {
       mainAxisSize: MainAxisSize.min,
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text(
-          'CONTINUE WATCHING',
+        Text(AppLocalizations.of(context).t('CONTINUE WATCHING'),
           style: TextStyle(
             // CALLOUT: "CONTINUE WATCHING" is an attention flag, not a
             // measurement — a theme may colour it apart from progress.

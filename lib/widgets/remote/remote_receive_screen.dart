@@ -78,8 +78,7 @@ class _RemoteReceiveScreenState extends State<RemoteReceiveScreen>
         elevation: 0,
         scrolledUnderElevation: 0,
         surfaceTintColor: Colors.transparent,
-        title: const Text(
-          'Receiving',
+        title: Text(AppLocalizations.of(context).t('Receiving'),
           style: TextStyle(fontWeight: FontWeight.w700, letterSpacing: -0.3),
         ),
       ),
@@ -345,8 +344,7 @@ class _StopButtonState extends State<_StopButton> {
             children: [
               Icon(Icons.stop_rounded, size: 18, color: accent),
               SizedBox(width: 8),
-              Text(
-                'Stop receiving',
+              Text(AppLocalizations.of(context).t('Stop receiving'),
                 style: TextStyle(
                   color: accent,
                   fontWeight: FontWeight.w700,

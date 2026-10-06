@@ -28,9 +28,7 @@ Future<int?> showRecordingLimitPicker(BuildContext context) async {
       children: [
         Padding(
           padding: const EdgeInsets.fromLTRB(24, 0, 24, 10),
-          child: Text(
-            'Every recording is an extra connection to your provider, on '
-            'top of what you\'re watching. Many IPTV accounts allow only '
+          child: Text(AppLocalizations.of(context).t('Every recording is an extra connection to your provider, on ')'top of what you\'re watching. Many IPTV accounts allow only '
             '1–3 connections — set more than yours allows and the provider '
             'may block streams; parallel recordings also strain the '
             'network and the box.',
@@ -172,8 +170,7 @@ Future<_ConflictChoice> _showConflictDialog(
               size: 16,
             ),
             SizedBox(width: 8),
-            Text(
-              'Recording conflict',
+            Text(AppLocalizations.of(context).t('Recording conflict'),
               style: TextStyle(fontWeight: FontWeight.w700),
             ),
           ],

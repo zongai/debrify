@@ -457,8 +457,7 @@ class LemmyResultsViewState extends State<LemmyResultsView> {
         if (_posts.isNotEmpty && !widget.isTelevision)
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
-            child: Text(
-              'Long press to download',
+            child: Text(AppLocalizations.of(context).t('Long press to download'),
               style: Theme.of(context).textTheme.bodySmall?.copyWith(
                 color: Theme.of(context).colorScheme.onSurfaceVariant,
               ),
@@ -518,8 +517,7 @@ class LemmyResultsViewState extends State<LemmyResultsView> {
               color: Theme.of(context).colorScheme.onSurfaceVariant,
             ),
             const SizedBox(height: 16),
-            Text(
-              'No videos found',
+            Text(AppLocalizations.of(context).t('No videos found'),
               style: Theme.of(context).textTheme.titleMedium,
             ),
             const SizedBox(height: 8),

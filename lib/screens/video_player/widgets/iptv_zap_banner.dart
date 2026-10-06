@@ -221,8 +221,7 @@ class IptvZapBanner extends StatelessWidget {
         SizedBox(height: s(5)),
         Row(
           children: [
-            Text(
-              '● LIVE',
+            Text(AppLocalizations.of(context).t('● LIVE'),
               style: TextStyle(
                 color: Color(0xFFFF6470),
                 fontSize: s(11.5),
@@ -530,8 +529,7 @@ class IptvZapBanner extends StatelessWidget {
           ),
         ),
         if (isRecording)
-          Text(
-            '  ● REC',
+          Text(AppLocalizations.of(context).t('  ● REC'),
             style: TextStyle(
               color: t.rec,
               fontSize: s(11),
@@ -696,8 +694,7 @@ class IptvZapBanner extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.baseline,
           textBaseline: TextBaseline.alphabetic,
           children: [
-            Text(
-              'NOW',
+            Text(AppLocalizations.of(context).t('NOW'),
               style: TextStyle(
                 color: t.fgFaint,
                 fontSize: s(10),
@@ -844,7 +841,7 @@ class IptvZapBanner extends StatelessWidget {
         Text(AppLocalizations.of(context).t('● LIVE'), style: tag(t.live)),
         if (isRecording) ...[
           SizedBox(width: s(10)),
-          Text('● REC', style: tag(t.rec)),
+          Text(AppLocalizations.of(context).t('● REC'), style: tag(t.rec)),
         ],
       ],
     );

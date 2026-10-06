@@ -112,8 +112,7 @@ class _RemoteRolePickerScreenState extends State<RemoteRolePickerScreen> {
     if (!mounted) return;
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
-        content: Text(
-          'Could not start Remote. Allow local network access and retry.',
+        content: Text(AppLocalizations.of(context).t('Could not start Remote. Allow local network access and retry.'),
         ),
       ),
     );
@@ -128,8 +127,7 @@ class _RemoteRolePickerScreenState extends State<RemoteRolePickerScreen> {
         elevation: 0,
         scrolledUnderElevation: 0,
         surfaceTintColor: Colors.transparent,
-        title: const Text(
-          'Remote',
+        title: Text(AppLocalizations.of(context).t('Remote'),
           style: TextStyle(fontWeight: FontWeight.w700, letterSpacing: -0.3),
         ),
       ),
@@ -146,8 +144,7 @@ class _RemoteRolePickerScreenState extends State<RemoteRolePickerScreen> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       SizedBox(height: 8),
-                      const Text(
-                        'How will this device take part?',
+                      Text(AppLocalizations.of(context).t('How will this device take part?'),
                         style: TextStyle(
                           fontSize: 22,
                           fontWeight: FontWeight.w800,
@@ -155,9 +152,7 @@ class _RemoteRolePickerScreenState extends State<RemoteRolePickerScreen> {
                         ),
                       ),
                       const SizedBox(height: 8),
-                      Text(
-                        'Either device can control the other or share setup. '
-                        'Pick a role to continue.',
+                      Text(AppLocalizations.of(context).t('Either device can control the other or share setup. ')'Pick a role to continue.',
                         style: TextStyle(
                           color: Colors.white.withValues(alpha: 0.55),
                           fontSize: 14,
@@ -174,9 +169,8 @@ class _RemoteRolePickerScreenState extends State<RemoteRolePickerScreen> {
                                 child: _RoleCard(
                                   focusNode: _sendFocus,
                                   icon: Icons.send_rounded,
-                                  title: 'Send',
-                                  subtitle:
-                                      'Control another device or push your '
+                                  title: AppLocalizations.of(context).t('Send'),
+                                  subtitle: AppLocalizations.of(context).t('Control another device or push your ')
                                       'addons, channels, and setup to it.',
                                   bullets: [
                                     'Navigate with a D-pad',
@@ -191,9 +185,8 @@ class _RemoteRolePickerScreenState extends State<RemoteRolePickerScreen> {
                                 child: _RoleCard(
                                   focusNode: _recvFocus,
                                   icon: Icons.download_rounded,
-                                  title: 'Receive',
-                                  subtitle:
-                                      'Let another device control this one or '
+                                  title: AppLocalizations.of(context).t('Receive'),
+                                  subtitle: AppLocalizations.of(context).t('Let another device control this one or ')
                                       'send its setup to it.',
                                   bullets: const [
                                     'Show as a target on the network',
@@ -210,9 +203,8 @@ class _RemoteRolePickerScreenState extends State<RemoteRolePickerScreen> {
                         _RoleCard(
                           focusNode: _sendFocus,
                           icon: Icons.send_rounded,
-                          title: 'Send',
-                          subtitle:
-                              'Control another device or push your addons, '
+                          title: AppLocalizations.of(context).t('Send'),
+                          subtitle: AppLocalizations.of(context).t('Control another device or push your addons, ')
                               'channels, and setup to it.',
                           bullets: const [
                             'Navigate with a D-pad',
@@ -225,9 +217,8 @@ class _RemoteRolePickerScreenState extends State<RemoteRolePickerScreen> {
                         _RoleCard(
                           focusNode: _recvFocus,
                           icon: Icons.download_rounded,
-                          title: 'Receive',
-                          subtitle:
-                              'Let another device control this one or send '
+                          title: AppLocalizations.of(context).t('Receive'),
+                          subtitle: AppLocalizations.of(context).t('Let another device control this one or send ')
                               'its setup to it.',
                           bullets: const [
                             'Show as a target on the network',
@@ -462,8 +453,7 @@ class _NetworkHint extends StatelessWidget {
           ),
           const SizedBox(width: 10),
           Expanded(
-            child: Text(
-              'Both devices need to be on the same Wi-Fi network.',
+            child: Text(AppLocalizations.of(context).t('Both devices need to be on the same Wi-Fi network.'),
               style: TextStyle(
                 color: Colors.white.withValues(alpha: 0.55),
                 fontSize: 12.5,

@@ -70,7 +70,7 @@ class _ChannelCreationDialogState extends State<ChannelCreationDialog> {
     return DebrifyTvSpotlightDialog(
       eyebrow: 'Tuning · building channel',
       title: widget.channelName,
-      subtitle: 'Fetching titles, applying filters, and preparing the pool.',
+      subtitle: AppLocalizations.of(context).t('Fetching titles, applying filters, and preparing the pool.'),
       icon: Icons.auto_awesome_rounded,
       maxWidth: 620,
       child: Column(

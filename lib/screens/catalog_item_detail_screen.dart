@@ -1334,7 +1334,7 @@ class _CatalogItemDetailScreenState extends State<CatalogItemDetailScreen>
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(width: 70, child: Text('Director', style: labelStyle)),
+                SizedBox(width: 70, child: Text(AppLocalizations.of(context).t('Director'), style: labelStyle)),
                 Expanded(child: Text(extra.director!, style: valueStyle)),
               ],
             ),
@@ -1344,7 +1344,7 @@ class _CatalogItemDetailScreenState extends State<CatalogItemDetailScreen>
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(width: 70, child: Text('Stars', style: labelStyle)),
+                SizedBox(width: 70, child: Text(AppLocalizations.of(context).t('Stars'), style: labelStyle)),
                 Expanded(
                   child: Text(
                     extra.stars.take(4).join(', '),
@@ -1655,8 +1655,7 @@ class _CatalogItemDetailScreenState extends State<CatalogItemDetailScreen>
                   height: 16,
                   borderRadius: BorderRadius.circular(4),
                 )
-              : Text(
-                  'More Like This',
+              : Text(AppLocalizations.of(context).t('More Like This'),
                   style: TextStyle(
                     color: Colors.white.withValues(alpha: 0.92),
                     fontSize: _wide && !tight ? 18 : 15,
@@ -2739,8 +2738,7 @@ class _QuickActions extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisSize: MainAxisSize.min,
       children: [
-        Text(
-          'QUICK ACTIONS',
+        Text(AppLocalizations.of(context).t('QUICK ACTIONS'),
           style: TextStyle(
             color: Colors.white.withValues(alpha: 0.5),
             fontSize: 10,
@@ -2912,8 +2910,7 @@ class _QuickActionState extends State<_QuickAction> {
                                 width: 1.5,
                               ),
                             ),
-                            child: const Text(
-                              'TRAKT',
+                            child: Text(AppLocalizations.of(context).t('TRAKT'),
                               style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 7,
@@ -2961,8 +2958,7 @@ class _MdblistQuickActions extends StatelessWidget {
   Widget build(BuildContext context) => Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
-      Text(
-        'MDBLIST ACTIONS',
+      Text(AppLocalizations.of(context).t('MDBLIST ACTIONS'),
         style: TextStyle(
           color: Colors.white.withValues(alpha: 0.5),
           fontSize: 10,
@@ -3011,8 +3007,7 @@ class _SimklQuickActions extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisSize: MainAxisSize.min,
       children: [
-        Text(
-          'SIMKL ACTIONS',
+        Text(AppLocalizations.of(context).t('SIMKL ACTIONS'),
           style: TextStyle(
             color: Colors.white.withValues(alpha: 0.5),
             fontSize: 10,
@@ -3181,8 +3176,7 @@ class _SimklQuickActionState extends State<_SimklQuickAction> {
                               width: 1.5,
                             ),
                           ),
-                          child: const Text(
-                            'SIMKL',
+                          child: Text(AppLocalizations.of(context).t('SIMKL'),
                             style: TextStyle(
                               color: Colors.black,
                               fontSize: 7,

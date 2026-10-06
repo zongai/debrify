@@ -1950,8 +1950,7 @@ class SpotlightBoardState extends State<SpotlightBoard> with MetadataPresentatio
                                   ),
                                 ),
                                 SizedBox(width: 9),
-                                Text(
-                                  'Loading more',
+                                Text(AppLocalizations.of(context).t('Loading more'),
                                   style: TextStyle(
                                     color: Colors.white,
                                     fontSize: 13,
@@ -2917,8 +2916,7 @@ class _HeroOpenPill extends StatelessWidget {
           children: [
             Icon(Icons.play_arrow_rounded, size: 20, color: Colors.black),
             SizedBox(width: 6),
-            Text(
-              'Open',
+            Text(AppLocalizations.of(context).t('Open'),
               style: TextStyle(
                 fontSize: 15,
                 fontWeight: FontWeight.w600,

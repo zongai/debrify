@@ -996,7 +996,7 @@ class _CollectionFolderScreenState extends State<CollectionFolderScreen> {
                   children: [
                     Expanded(
                       child: SeeAllHeader(
-                        title: 'Collections',
+                        title: AppLocalizations.of(context).t('Collections'),
                         editorial: true,
                         editorialGutter: _headerGutter,
                         subtitle: [
@@ -1288,7 +1288,7 @@ class _CollectionFolderScreenState extends State<CollectionFolderScreen> {
   );
 
   Widget _sortChip() => StremioDropdown<String>(
-    label: 'Sort',
+    label: AppLocalizations.of(context).t('Sort'),
     editorial: _styledCollectionList,
     icon: Icons.swap_vert_rounded,
     value: _sort,
@@ -1319,7 +1319,7 @@ class _CollectionFolderScreenState extends State<CollectionFolderScreen> {
           buildChips: () => [
             if (widget.sourceKey == null)
               StremioDropdown<int>(
-                label: 'Folder',
+                label: AppLocalizations.of(context).t('Folder'),
                 editorial: _styledCollectionList,
                 icon: Icons.folder_rounded,
                 value: _folderIndex,
@@ -1335,7 +1335,7 @@ class _CollectionFolderScreenState extends State<CollectionFolderScreen> {
             if (_tabs) ...[
               if (_rails.isNotEmpty && widget.sourceKey == null)
                 StremioDropdown<int>(
-                  label: 'List',
+                  label: AppLocalizations.of(context).t('List'),
                   editorial: _styledCollectionList,
                   icon: Icons.format_list_bulleted_rounded,
                   value: _tab,
@@ -1353,7 +1353,7 @@ class _CollectionFolderScreenState extends State<CollectionFolderScreen> {
             ] else ...[
               if (_offersAll)
                 StremioDropdown<_View>(
-                  label: 'View',
+                  label: AppLocalizations.of(context).t('View'),
                   editorial: _styledCollectionList,
                   icon: Icons.view_carousel_outlined,
                   value: _view,

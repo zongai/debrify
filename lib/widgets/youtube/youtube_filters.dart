@@ -48,7 +48,7 @@ class YoutubeFiltersBar extends StatelessWidget {
           child: Row(
             children: [
               StremioDropdown<int>(
-                label: 'Quality',
+                label: AppLocalizations.of(context).t('Quality'),
                 value: selectedHeight,
                 options: [
                   for (final h in kYoutubeQualities)

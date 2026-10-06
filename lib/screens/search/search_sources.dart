@@ -1401,8 +1401,7 @@ class _SourcesScreenState extends State<_SourcesScreen> {
                   color: Color(0xFF60A5FA),
                 ),
                 title: Text(AppLocalizations.of(context).t('Download to device')),
-                subtitle: Text(
-                  'Save this stream to your device',
+                subtitle: Text(AppLocalizations.of(context).t('Save this stream to your device'),
                   style: TextStyle(color: app.fade(app.core.tx, 0.5)),
                 ),
                 onTap: () {
@@ -1556,7 +1555,7 @@ class _SourcesScreenState extends State<_SourcesScreen> {
     return [
       CinemaSourceProvider(
         id: null,
-        label: 'All sources',
+        label: AppLocalizations.of(context).t('All sources'),
         count: _torrents.length,
       ),
       for (final key in keys)
@@ -1813,8 +1812,7 @@ class _SourcesScreenState extends State<_SourcesScreen> {
             child: CircularProgressIndicator(strokeWidth: 1.6),
           ),
           const SizedBox(width: 8),
-          Text(
-            'Still searching sources…',
+          Text(AppLocalizations.of(context).t('Still searching sources…'),
             style: TextStyle(
               fontSize: 11.5,
               color: app.fade(app.core.tx, 0.55),
@@ -2095,8 +2093,7 @@ class _SourcesScreenState extends State<_SourcesScreen> {
                       _sourceFilter = null;
                       _rebuildVisible();
                     },
-                    child: Text(
-                      'All',
+                    child: Text(AppLocalizations.of(context).t('All'),
                       style: TextStyle(
                         color: _sourceFilter == null ? app.inkOn(accent) : dim,
                         fontSize: 12.5,
@@ -2333,8 +2330,7 @@ class _SourcesScreenState extends State<_SourcesScreen> {
                               color: tint,
                             ),
                             const SizedBox(width: 5),
-                            Text(
-                              'Filter',
+                            Text(AppLocalizations.of(context).t('Filter'),
                               style: TextStyle(
                                 fontSize: 12,
                                 fontWeight: FontWeight.w600,
@@ -2407,8 +2403,7 @@ class _SourcesScreenState extends State<_SourcesScreen> {
               _filters = const TorrentFilterState.empty();
               _rebuildVisible();
             },
-            child: Text(
-              'Clear',
+            child: Text(AppLocalizations.of(context).t('Clear'),
               style: TextStyle(
                 color: accent,
                 fontSize: 10.5,
@@ -2821,7 +2816,7 @@ class _SourcesScreenState extends State<_SourcesScreen> {
         onSubmitted: _submitKeyword,
         style: TextStyle(color: scheme.onSurface),
         decoration: InputDecoration(
-          hintText: 'Search torrents by keyword',
+          hintText: AppLocalizations.of(context).t('Search torrents by keyword'),
           prefixIcon: const Icon(Icons.search_rounded),
           suffixIcon: IconButton(
             tooltip: 'Search',
@@ -3203,14 +3198,14 @@ class _SrcDialogShell extends StatelessWidget {
                         if (onEnableAll != null)
                           _SrcActionChip(
                             icon: Icons.done_all_rounded,
-                            label: 'Enable all',
+                            label: AppLocalizations.of(context).t('Enable all'),
                             onTap: onEnableAll!,
                           ),
                         if (onDisableAll != null) ...[
                           const SizedBox(width: 8),
                           _SrcActionChip(
                             icon: Icons.remove_done_rounded,
-                            label: 'Disable all',
+                            label: AppLocalizations.of(context).t('Disable all'),
                             onTap: onDisableAll!,
                           ),
                         ],
@@ -3224,7 +3219,7 @@ class _SrcDialogShell extends StatelessWidget {
                     alignment: Alignment.centerRight,
                     child: _SrcActionChip(
                       icon: Icons.check_rounded,
-                      label: 'Done',
+                      label: AppLocalizations.of(context).t('Done'),
                       filled: true,
                       onTap: () => Navigator.of(context).pop(),
                     ),
@@ -3343,8 +3338,8 @@ class _CatalogSourcesDialogState extends State<_CatalogSourcesDialog> {
       );
     }
     return _SrcDialogShell(
-      title: 'Search sources',
-      subtitle: 'Choose which addons catalog search queries.',
+      title: AppLocalizations.of(context).t('Search sources'),
+      subtitle: AppLocalizations.of(context).t('Choose which addons catalog search queries.'),
       onEnableAll: _addons.isEmpty ? null : _enableAll,
       onDisableAll: _addons.isEmpty ? null : _disableAll,
       body: body,
@@ -3431,8 +3426,8 @@ class _KeywordSourcesDialogState extends State<_KeywordSourcesDialog> {
       );
     }
     return _SrcDialogShell(
-      title: 'Search sources',
-      subtitle: 'Choose which trackers keyword search queries.',
+      title: AppLocalizations.of(context).t('Search sources'),
+      subtitle: AppLocalizations.of(context).t('Choose which trackers keyword search queries.'),
       onEnableAll: _engines.isEmpty ? null : () => _setAll(true),
       onDisableAll: _engines.isEmpty ? null : () => _setAll(false),
       body: body,

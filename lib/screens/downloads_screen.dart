@@ -265,7 +265,7 @@ class _DownloadsScreenState extends State<DownloadsScreen>
           padding: EdgeInsets.fromLTRB(12, 12, 12, 0),
           child: Row(
             children: [
-              Text('Finished', style: TextStyle(fontWeight: FontWeight.w600)),
+              Text(AppLocalizations.of(context).t('Finished'), style: TextStyle(fontWeight: FontWeight.w600)),
               Spacer(),
               TextButton.icon(
                 onPressed: _busyGroupIds.isEmpty
@@ -512,7 +512,7 @@ class _DownloadsScreenState extends State<DownloadsScreen>
                           Icon(Icons.download_for_offline_rounded, color: app.downloads.onAccent),
                           const SizedBox(width: 10),
                           Expanded(
-                            child: Text('Add Download',
+                            child: Text(AppLocalizations.of(context).t('Add Download'),
                                 style: TextStyle(
                                     color: app.downloads.onAccent,
                                     fontSize: 18,
@@ -542,7 +542,7 @@ class _DownloadsScreenState extends State<DownloadsScreen>
                     SizedBox(height: 16),
                     _StyledField(
                       controller: urlCtrl,
-                      label: 'Download URL',
+                      label: AppLocalizations.of(context).t('Download URL'),
                       hint: 'https://example.com/file',
                       icon: Icons.link,
                       onChanged: (_) => recompute(setLocal),
@@ -550,7 +550,7 @@ class _DownloadsScreenState extends State<DownloadsScreen>
                     SizedBox(height: 12),
                     _StyledField(
                       controller: nameCtrl,
-                      label: 'File name',
+                      label: AppLocalizations.of(context).t('File name'),
                       hint: 'movie.mp4',
                       icon: Icons.insert_drive_file,
                       onChanged: (_) {
@@ -821,8 +821,7 @@ class _DownloadsScreenState extends State<DownloadsScreen>
                       size: 18,
                     ),
                     const SizedBox(width: 6),
-                    Text(
-                      'Add',
+                    Text(AppLocalizations.of(context).t('Add'),
                       style: TextStyle(
                         color: app.downloads.addAccent,
                         fontWeight: FontWeight.w600,
@@ -1954,7 +1953,7 @@ class _TorrentGroupCard extends StatelessWidget {
       chips.add(
         _InfoChip(
           icon: Icons.folder_off_rounded,
-          label: 'Move failed',
+          label: AppLocalizations.of(context).t('Move failed'),
           foreground: theme.colorScheme.error,
           background: theme.colorScheme.error.withValues(alpha: 0.12),
         ),
@@ -2115,8 +2114,7 @@ class _TorrentGroupCard extends StatelessWidget {
                     children: [
                       Icon(Icons.info_outline_rounded, size: 14, color: app.core.tx.withValues(alpha: 0.5)),
                       const SizedBox(width: 6),
-                      Text(
-                        'Pause unavailable for TorBox',
+                      Text(AppLocalizations.of(context).t('Pause unavailable for TorBox'),
                         style: TextStyle(
                           fontSize: 12,
                           color: app.core.tx.withValues(alpha: 0.5),
@@ -2439,7 +2437,7 @@ class _DownloadTile extends StatelessWidget {
                       await onChanged();
                     },
                     icon: const Icon(Icons.stop_circle, color: Colors.red),
-                    label: const Text('Cancel',
+                    label: Text(AppLocalizations.of(context).t('Cancel'),
                         style: TextStyle(color: Colors.red)),
                   ),
                 const Spacer(),

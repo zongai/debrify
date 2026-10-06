@@ -155,7 +155,7 @@ class _SpotlightPhoneArmState extends State<SpotlightPhoneArm> {
                 const SizedBox(height: 16),
                 _PhoneButton(
                   icon: Icons.play_arrow_rounded,
-                  label: 'Quick Play',
+                  label: AppLocalizations.of(context).t('Quick Play'),
                   primary: true,
                   onTap: view.busy ? null : view.onQuickPlay,
                 ),
@@ -172,24 +172,24 @@ class _SpotlightPhoneArmState extends State<SpotlightPhoneArm> {
                   actions: [
                     _PhoneAction(
                       icon: Icons.add_rounded,
-                      label: 'Add',
+                      label: AppLocalizations.of(context).t('Add'),
                       onTap: view.busy ? null : view.onAdd,
                     ),
                     _PhoneAction(
                       icon: Icons.cloud_download_rounded,
-                      label: 'Import',
+                      label: AppLocalizations.of(context).t('Import'),
                       onTap: view.busy ? null : view.onImport,
                     ),
                     _PhoneAction(
                       icon: Icons.folder_zip_rounded,
-                      label: 'Export',
+                      label: AppLocalizations.of(context).t('Export'),
                       onTap: view.busy || allChannels.isEmpty
                           ? null
                           : view.onExport,
                     ),
                     _PhoneAction(
                       icon: Icons.delete_sweep_rounded,
-                      label: 'Delete all',
+                      label: AppLocalizations.of(context).t('Delete all'),
                       onTap: view.busy || allChannels.isEmpty
                           ? null
                           : view.onDeleteAll,
@@ -200,9 +200,7 @@ class _SpotlightPhoneArmState extends State<SpotlightPhoneArm> {
                 if (allChannels.isEmpty)
                   Padding(
                     padding: const EdgeInsets.only(top: 40),
-                    child: Text(
-                      'Make a channel out of anything you can name — '
-                      'Add or Import above.',
+                    child: Text(AppLocalizations.of(context).t('Make a channel out of anything you can name — ')'Add or Import above.',
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         fontSize: 18,
@@ -454,7 +452,7 @@ class _PhoneSearchField extends StatelessWidget {
       onChanged: onChanged,
       style: TextStyle(fontSize: 14, color: app.core.tx),
       decoration: InputDecoration(
-        hintText: 'Search channels',
+        hintText: AppLocalizations.of(context).t('Search channels'),
         hintStyle: TextStyle(color: tv.textFaint),
         prefixIcon: Icon(Icons.search_rounded, size: 20, color: tv.textFaint),
         suffixIcon: controller.text.isEmpty
@@ -516,8 +514,7 @@ class _PhoneHeader extends StatelessWidget {
         FittedBox(
           alignment: Alignment.centerLeft,
           fit: BoxFit.scaleDown,
-          child: Text(
-            'Channels',
+          child: Text(AppLocalizations.of(context).t('Channels'),
             maxLines: 1,
             style: TextStyle(
               fontSize: 34,
@@ -820,7 +817,7 @@ class _ChannelSheet extends StatelessWidget {
             const SizedBox(height: 18),
             _PhoneButton(
               icon: Icons.play_arrow_rounded,
-              label: 'Tune in',
+              label: AppLocalizations.of(context).t('Tune in'),
               primary: true,
               onTap: view.busy
                   ? null
@@ -838,12 +835,12 @@ class _ChannelSheet extends StatelessWidget {
                 ),
                 _PhoneAction(
                   icon: Icons.edit_rounded,
-                  label: 'Edit',
+                  label: AppLocalizations.of(context).t('Edit'),
                   onTap: () => popThen(() => view.onEdit(channel)),
                 ),
                 _PhoneAction(
                   icon: Icons.share_rounded,
-                  label: 'Share',
+                  label: AppLocalizations.of(context).t('Share'),
                   onTap: () => popThen(() => view.onShare(channel)),
                 ),
               ],
@@ -1135,8 +1132,7 @@ class _DeleteButton extends StatelessWidget {
                   width: 1,
                 ),
               ),
-              child: const Text(
-                'Delete channel',
+              child: Text(AppLocalizations.of(context).t('Delete channel'),
                 style: TextStyle(
                   fontSize: 13,
                   fontWeight: FontWeight.w700,

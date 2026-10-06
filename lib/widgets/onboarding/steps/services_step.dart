@@ -101,7 +101,7 @@ class ServicesStep extends StatelessWidget {
           radius: BorderRadius.circular(18),
           builder: (context, focused) => OnboardPillSurface(
             focused: focused,
-            label: 'Continue  ›',
+            label: AppLocalizations.of(context).t('Continue  ›'),
             primary: true,
             enabled: selection.isNotEmpty,
           ),

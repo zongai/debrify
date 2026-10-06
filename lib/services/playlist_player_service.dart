@@ -235,8 +235,7 @@ class PlaylistPlayerService {
           if (context.mounted) {
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(
-                content: Text(
-                  'This is an archived torrent. Please extract it first.',
+                content: Text(AppLocalizations.of(context).t('This is an archived torrent. Please extract it first.'),
                 ),
               ),
             );
@@ -674,8 +673,7 @@ class PlaylistPlayerService {
       if (!context.mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text(
-            'Add your Torbox API key in Settings to play playlist items.',
+          content: Text(AppLocalizations.of(context).t('Add your Torbox API key in Settings to play playlist items.'),
           ),
         ),
       );
@@ -944,8 +942,7 @@ class PlaylistPlayerService {
       if (!context.mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text(
-            'Please login to PikPak in Settings to play playlist items.',
+          content: Text(AppLocalizations.of(context).t('Please login to PikPak in Settings to play playlist items.'),
           ),
         ),
       );
@@ -1321,8 +1318,7 @@ class PlaylistPlayerService {
       if (!context.mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text(
-            'Add your Premiumize API key in Settings to play playlist items.',
+          content: Text(AppLocalizations.of(context).t('Add your Premiumize API key in Settings to play playlist items.'),
           ),
         ),
       );
@@ -1597,8 +1593,7 @@ class PlaylistPlayerService {
       if (!context.mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text(
-            'Add your Premiumize API key in Settings to play playlist items.',
+          content: Text(AppLocalizations.of(context).t('Add your Premiumize API key in Settings to play playlist items.'),
           ),
         ),
       );

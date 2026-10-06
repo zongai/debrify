@@ -497,8 +497,7 @@ class _PikPakLoadingContentState extends State<_PikPakLoadingContent>
         const SizedBox(height: 28),
 
         // Title
-        const Text(
-          'Processing on PikPak',
+        Text(AppLocalizations.of(context).t('Processing on PikPak'),
           style: TextStyle(
             color: Colors.white,
             fontSize: 18,
@@ -552,8 +551,7 @@ class _PikPakLoadingContentState extends State<_PikPakLoadingContent>
           onPressed: () {
             Navigator.of(context).pop('background');
           },
-          child: Text(
-            'Run in Background',
+          child: Text(AppLocalizations.of(context).t('Run in Background'),
             style: TextStyle(
               color: Colors.white.withValues(alpha: 0.6),
               fontSize: 13,
@@ -576,8 +574,7 @@ class _PikPakLoadingContentState extends State<_PikPakLoadingContent>
 
         const SizedBox(height: 20),
 
-        const Text(
-          'Taking longer than expected',
+        Text(AppLocalizations.of(context).t('Taking longer than expected'),
           style: TextStyle(
             color: Colors.white,
             fontSize: 18,
@@ -590,8 +587,7 @@ class _PikPakLoadingContentState extends State<_PikPakLoadingContent>
 
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 48),
-          child: Text(
-            'This torrent is still processing. What would you like to do?',
+          child: Text(AppLocalizations.of(context).t('This torrent is still processing. What would you like to do?'),
             style: TextStyle(
               color: Colors.white.withValues(alpha: 0.5),
               fontSize: 13,
@@ -609,7 +605,7 @@ class _PikPakLoadingContentState extends State<_PikPakLoadingContent>
           mainAxisSize: MainAxisSize.min,
           children: [
             _buildTimeoutButton(
-              label: 'Keep Waiting',
+              label: AppLocalizations.of(context).t('Keep Waiting'),
               icon: Icons.hourglass_top_rounded,
               onTap: () {
                 widget.showTimeoutOptions.value = false;
@@ -617,7 +613,7 @@ class _PikPakLoadingContentState extends State<_PikPakLoadingContent>
             ),
             const SizedBox(width: 12),
             _buildTimeoutButton(
-              label: 'View Later',
+              label: AppLocalizations.of(context).t('View Later'),
               icon: Icons.schedule_rounded,
               onTap: () {
                 Navigator.of(context).pop('view_later');
@@ -625,7 +621,7 @@ class _PikPakLoadingContentState extends State<_PikPakLoadingContent>
             ),
             const SizedBox(width: 12),
             _buildTimeoutButton(
-              label: 'Cancel',
+              label: AppLocalizations.of(context).t('Cancel'),
               icon: Icons.close_rounded,
               color: const Color(0xFFEF4444),
               onTap: () {

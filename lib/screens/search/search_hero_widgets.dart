@@ -1,3 +1,4 @@
+import '../../l10n/app_localizations.dart';
 part of '../search_screen.dart';
 
 class _HeroSpotlight extends StatefulWidget {
@@ -909,8 +910,7 @@ class _HeroSpotlightState extends State<_HeroSpotlight>
           color: const Color(0xFFF5C518),
           borderRadius: BorderRadius.circular(4),
         ),
-        child: const Text(
-          'IMDb',
+        child: Text(AppLocalizations.of(context).t('IMDb'),
           style: TextStyle(
             fontSize: 9.5,
             fontWeight: FontWeight.w800,

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 import 'package:flutter/services.dart';
 
 import '../../theme/app_theme_scope.dart';
@@ -156,7 +158,7 @@ class _IptvListNameDialogState extends State<_IptvListNameDialog> {
                     // shorthands' alphas are 8-bit, so `withValues(0.6)` would
                     // be a different value, not the same colour.
                     labelStyle: TextStyle(color: app.core.tx.withAlpha(0x99)),
-                    hintText: 'e.g. Kids, Sports, Weekend',
+                    hintText: AppLocalizations.of(context).t('e.g. Kids, Sports, Weekend'),
                     hintStyle: TextStyle(color: app.core.tx.withAlpha(0x61)),
                     errorText: _error,
                     filled: true,
@@ -183,7 +185,7 @@ class _IptvListNameDialogState extends State<_IptvListNameDialog> {
                 children: [
                   _NameDialogButton(
                     focusNode: _cancelNode,
-                    label: 'Cancel',
+                    label: AppLocalizations.of(context).t('Cancel'),
                     onTap: () => Navigator.of(context).pop(),
                   ),
                   const SizedBox(width: 10),

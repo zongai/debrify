@@ -35,8 +35,7 @@ Future<bool> showNotCachedDialog(
                 ),
               ),
               const SizedBox(height: 16),
-              Text(
-                'Torrent Not Cached',
+              Text(AppLocalizations.of(context).t('Torrent Not Cached'),
                 style: Theme.of(ctx).textTheme.titleLarge?.copyWith(
                   fontWeight: FontWeight.bold,
                 ),
@@ -75,8 +74,7 @@ Future<bool> showNotCachedDialog(
                           );
                         }),
                       ),
-                      child: const Text(
-                        'Cancel',
+                      child: Text(AppLocalizations.of(context).t('Cancel'),
                         style: TextStyle(color: Colors.white70),
                       ),
                     ),
@@ -109,8 +107,7 @@ Future<bool> showNotCachedDialog(
                           );
                         }),
                       ),
-                      child: const Text(
-                        'Add Anyway',
+                      child: Text(AppLocalizations.of(context).t('Add Anyway'),
                         style: TextStyle(color: Colors.white),
                       ),
                     ),

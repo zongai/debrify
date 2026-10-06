@@ -783,7 +783,7 @@ class _IptvChannelRowState extends State<IptvChannelRow>
     if (widget.isTelevision && widget.onLongPress != null && _focused) {
       return Padding(
         padding: EdgeInsets.only(left: 8),
-        child: Text('HOLD OK · Options', style: TextStyle(fontSize: 10)),
+        child: Text(AppLocalizations.of(context).t('HOLD OK · Options'), style: TextStyle(fontSize: 10)),
       );
     }
     // Describes what HOLD OK will actually do, so the hint can't promise a
@@ -1407,8 +1407,7 @@ class _FavHint extends StatelessWidget {
         if (!holding)
           Padding(
             padding: const EdgeInsets.only(right: 6),
-            child: Text(
-              'HOLD OK',
+            child: Text(AppLocalizations.of(context).t('HOLD OK'),
               style: TextStyle(
                 color: chrome.withValues(alpha: 0.95),
                 fontSize: 9,
@@ -1610,7 +1609,7 @@ class _FavButton extends StatelessWidget {
       // The icon is a heart but the action is "choose where this goes", and
       // nothing else on the row says so. The schedule button beside it is
       // already labelled, so this matches rather than introduces a habit.
-      message: 'Save to a list',
+      message: AppLocalizations.of(context).t('Save to a list'),
       // Hover only. Left at the default, Tooltip registers its own
       // LongPressGestureRecognizer on pointer-down for touch devices; it sits
       // deeper than the row's GestureDetector, so its timer fires first, it

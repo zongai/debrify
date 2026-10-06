@@ -455,15 +455,12 @@ class _StartupFailureApp extends StatelessWidget {
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                const Text(
-                  'Debrify could not start safely. Close the app and try again. '
-                  'If this continues, restart the device before changing any data.',
+                Text(AppLocalizations.of(context).t('Debrify could not start safely. Close the app and try again. ')'If this continues, restart the device before changing any data.',
                   textAlign: TextAlign.center,
                 ),
                 if (detail != null) ...[
                   const SizedBox(height: 20),
-                  const Text(
-                    'Please share this with support:',
+                  Text(AppLocalizations.of(context).t('Please share this with support:'),
                     textAlign: TextAlign.center,
                     style: TextStyle(fontSize: 12, color: Colors.white54),
                   ),
@@ -528,8 +525,7 @@ class _MigrationUpdateScreen extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 30),
-                  const Text(
-                    'Finishing the update…',
+                  Text(AppLocalizations.of(context).t('Finishing the update…'),
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       color: Colors.white,
@@ -538,9 +534,7 @@ class _MigrationUpdateScreen extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 14),
-                  Text(
-                    'Debrify is upgrading your library for this new version. '
-                    'This launch can take up to 5 minutes on large setups — '
+                  Text(AppLocalizations.of(context).t('Debrify is upgrading your library for this new version. ')'This launch can take up to 5 minutes on large setups — '
                     'please don’t close the app or turn off the device. '
                     'This only happens once.',
                     textAlign: TextAlign.center,
@@ -1138,7 +1132,7 @@ class _DebrifyAppState extends State<DebrifyApp> {
       navigatorKey: _navigatorKey,
       scaffoldMessengerKey: _scaffoldMessengerKey,
       navigatorObservers: [appRouteObserver, AppSurfaceRouteObserver()],
-      title: 'Debrify',
+      title: AppLocalizations.of(context).t('Debrify'),
       debugShowCheckedModeBanner: false,
       // Performance optimizations for TV with TV-aware text scaling
       builder: (context, child) {
@@ -2550,8 +2544,7 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
                   ],
                   if (notes.isNotEmpty) ...[
                     SizedBox(height: 16),
-                    Text(
-                      'Release notes',
+                    Text(AppLocalizations.of(context).t('Release notes'),
                       style: textTheme.titleMedium?.copyWith(
                         fontWeight: FontWeight.w600,
                       ),
@@ -2792,8 +2785,7 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
       builder: (dialogCtx) => AlertDialog(
         backgroundColor: Color(0xFF1E293B),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-        title: Text(
-          'Added to PikPak',
+        title: Text(AppLocalizations.of(context).t('Added to PikPak'),
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
         content: Column(
@@ -2807,8 +2799,7 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
               overflow: TextOverflow.ellipsis,
             ),
             SizedBox(height: 16),
-            Text(
-              'What would you like to do?',
+            Text(AppLocalizations.of(context).t('What would you like to do?'),
               style: TextStyle(color: Colors.grey, fontSize: 13),
             ),
           ],
@@ -2827,8 +2818,7 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
               style: FilledButton.styleFrom(
                 backgroundColor: const Color(0xFFFFAA00),
               ),
-              child: const Text(
-                'Open in PikPak',
+              child: Text(AppLocalizations.of(context).t('Open in PikPak'),
                 style: TextStyle(color: Colors.black),
               ),
             ),
@@ -3312,7 +3302,7 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
       case 14: // YouTube
         return BrowseScreen(
           tabIndex: 14,
-          hintText: 'Search YouTube...',
+          hintText: AppLocalizations.of(context).t('Search YouTube...'),
           submitOnly: true,
           isTelevision: _isAndroidTv,
           viewBuilder: (args) => YoutubeResultsView(
@@ -3368,8 +3358,7 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
   void _showIntegrationRequiredSnack() {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
-        content: Text(
-          'Connect Real Debrid, Torbox, Premiumize, PikPak, or WebDAV in Settings to unlock more tabs.',
+        content: Text(AppLocalizations.of(context).t('Connect Real Debrid, Torbox, Premiumize, PikPak, or WebDAV in Settings to unlock more tabs.'),
         ),
       ),
     );

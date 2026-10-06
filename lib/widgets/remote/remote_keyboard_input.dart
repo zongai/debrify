@@ -116,8 +116,7 @@ class _RemoteKeyboardInputState extends State<RemoteKeyboardInput> {
               ),
               const SizedBox(width: 12),
               const Expanded(
-                child: Text(
-                  'TV Keyboard',
+                child: Text(AppLocalizations.of(context).t('TV Keyboard'),
                   style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
                 ),
               ),
@@ -142,8 +141,7 @@ class _RemoteKeyboardInputState extends State<RemoteKeyboardInput> {
 
           const SizedBox(height: 12),
 
-          Text(
-            'Type here to send text to TV',
+          Text(AppLocalizations.of(context).t('Type here to send text to TV'),
             style: TextStyle(
               color: AppThemeScope.of(context).core.tx.withValues(alpha: 0.5),
               fontSize: 12,
@@ -159,7 +157,7 @@ class _RemoteKeyboardInputState extends State<RemoteKeyboardInput> {
             onChanged: _onTextChanged,
             style: TextStyle(fontSize: 16),
             decoration: InputDecoration(
-              hintText: 'Start typing...',
+              hintText: AppLocalizations.of(context).t('Start typing...'),
               hintStyle: TextStyle(
                 color: AppThemeScope.of(context).core.tx.withValues(alpha: 0.3),
               ),

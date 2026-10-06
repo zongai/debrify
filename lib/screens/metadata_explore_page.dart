@@ -221,8 +221,7 @@ class _MetadataExplorePageState extends State<MetadataExplorePage> {
     if (_profileChanged) {
       return Scaffold(
         appBar: AppBar(title: Text(AppLocalizations.of(context).t('Explore'))),
-        body: const Center(child: Text(
-          'Profile changed. Go back to browse your current profile.',
+        body: const Center(child: Text(AppLocalizations.of(context).t('Profile changed. Go back to browse your current profile.'),
         )),
       );
     }
@@ -241,7 +240,7 @@ class _MetadataExplorePageState extends State<MetadataExplorePage> {
       ),
       onDiscover: () => Navigator.of(context).push(MaterialPageRoute<void>(
         builder: (_) => MetadataBrowsePage(
-          title: 'Discover', kind: 'discover', preferences: _preferences,
+          title: AppLocalizations.of(context).t('Discover'), kind: 'discover', preferences: _preferences,
           onOpen: widget.onOpen, isTelevision: widget.isTelevision,
         ),
       )),
@@ -475,7 +474,7 @@ class _MetadataBrowsePageState extends State<MetadataBrowsePage> {
   }
 
   Widget _buildLanguageDropdown({bool quiet = false}) => StremioDropdown<String>(
-    label: 'Language',
+    label: AppLocalizations.of(context).t('Language'),
     value: _language,
     quiet: quiet,
     isTelevision: widget.isTelevision,
@@ -520,7 +519,7 @@ class _MetadataBrowsePageState extends State<MetadataBrowsePage> {
               (_language.isNotEmpty ? 1 : 0),
           buildChips: () => [
             StremioDropdown<String>(
-              label: 'Type',
+              label: AppLocalizations.of(context).t('Type'),
               value: _type,
               quiet: quiet,
               isTelevision: widget.isTelevision,
@@ -535,7 +534,7 @@ class _MetadataBrowsePageState extends State<MetadataBrowsePage> {
               },
             ),
             StremioDropdown<bool>(
-              label: 'Runtime',
+              label: AppLocalizations.of(context).t('Runtime'),
               value: _short,
               quiet: quiet,
               isTelevision: widget.isTelevision,
@@ -640,8 +639,7 @@ class _MetadataBrowsePageState extends State<MetadataBrowsePage> {
     appBar: AppBar(title: Text(widget.title)),
     body: _profileChanged
         ? Center(
-            child: Text(
-              'Profile changed. Go back to browse your current profile.',
+            child: Text(AppLocalizations.of(context).t('Profile changed. Go back to browse your current profile.'),
             ),
           )
         : CustomScrollView(
@@ -870,7 +868,7 @@ class _MetadataExploreButtonState extends State<MetadataExploreButton> {
         MaterialPageRoute<void>(
           builder: (_) => widget.discoveryOnly
               ? MetadataBrowsePage(
-                  title: 'TMDB Discover',
+                  title: AppLocalizations.of(context).t('TMDB Discover'),
                   kind: 'discover',
                   preferences: prefs,
                   onOpen: widget.onOpen!,

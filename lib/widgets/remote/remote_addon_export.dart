@@ -204,15 +204,13 @@ class _RemoteAddonExportState extends State<RemoteAddonExport> {
         const SizedBox(height: 16),
 
         // Title
-        Text(
-          'Stremio Addons',
+        Text(AppLocalizations.of(context).t('Stremio Addons'),
           style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
         ),
 
         const SizedBox(height: 8),
 
-        Text(
-          'Tap an addon to install it on your TV',
+        Text(AppLocalizations.of(context).t('Tap an addon to install it on your TV'),
           style: TextStyle(
             color: Colors.white.withValues(alpha: 0.6),
             fontSize: 14,
@@ -260,16 +258,14 @@ class _RemoteAddonExportState extends State<RemoteAddonExport> {
               ),
             ),
             const SizedBox(height: 16),
-            Text(
-              'No addons installed',
+            Text(AppLocalizations.of(context).t('No addons installed'),
               style: TextStyle(
                 color: Colors.white.withValues(alpha: 0.7),
                 fontSize: 16,
               ),
             ),
             const SizedBox(height: 8),
-            Text(
-              'Install addons from the Addons tab first',
+            Text(AppLocalizations.of(context).t('Install addons from the Addons tab first'),
               style: TextStyle(
                 color: Colors.white.withValues(alpha: 0.5),
                 fontSize: 14,
@@ -379,8 +375,7 @@ class _RemoteAddonExportState extends State<RemoteAddonExport> {
                           size: 14,
                         ),
                         const SizedBox(width: 4),
-                        const Text(
-                          'Send',
+                        Text(AppLocalizations.of(context).t('Send'),
                           style: TextStyle(
                             color: Color(0xFF6366F1),
                             fontSize: 12,

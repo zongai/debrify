@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../l10n/app_localizations.dart';
+
 import '../models/alldebrid_user.dart';
 
 class AllDebridAccountStatusWidget extends StatelessWidget {
@@ -61,13 +63,13 @@ class AllDebridAccountStatusWidget extends StatelessWidget {
           children: [
             _StatusChip(
               icon: Icons.verified,
-              label: 'Status',
+              label: AppLocalizations.of(context).t('Status'),
               value: user.subscriptionStatus,
               color: user.hasActivePremium ? Colors.green : Colors.amber,
             ),
             _StatusChip(
               icon: Icons.stars,
-              label: 'Points',
+              label: AppLocalizations.of(context).t('Points'),
               value: '${user.fidelityPoints}',
             ),
           ],
@@ -75,12 +77,12 @@ class AllDebridAccountStatusWidget extends StatelessWidget {
         const SizedBox(height: 12),
         _InfoRow(
           icon: Icons.schedule,
-          label: 'Premium Expires',
+          label: AppLocalizations.of(context).t('Premium Expires'),
           value: user.formattedPremiumExpiry,
         ),
         _InfoRow(
           icon: Icons.stars,
-          label: 'Fidelity Points',
+          label: AppLocalizations.of(context).t('Fidelity Points'),
           value: '${user.fidelityPoints}',
         ),
       ],

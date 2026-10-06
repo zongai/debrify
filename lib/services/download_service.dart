@@ -1313,8 +1313,7 @@ class DownloadService {
                                     ),
                                     SizedBox(width: 10),
                                     Expanded(
-                                      child: Text(
-                                        'Allow background downloads',
+                                      child: Text(AppLocalizations.of(context).t('Allow background downloads'),
                                         style: TextStyle(
                                           fontSize: 18,
                                           fontWeight: FontWeight.bold,
@@ -1325,8 +1324,7 @@ class DownloadService {
                                 ),
                               ),
                               const SizedBox(height: 16),
-                              Text(
-                                'To keep downloads running reliably in the background, allow the app to ignore battery optimizations.',
+                              Text(AppLocalizations.of(context).t('To keep downloads running reliably in the background, allow the app to ignore battery optimizations.'),
                                 style: TextStyle(
                                   color: Colors.white.withValues(alpha: 0.85),
                                 ),
@@ -1342,8 +1340,7 @@ class DownloadService {
                                     ).withValues(alpha: 0.9),
                                   ),
                                   const SizedBox(width: 8),
-                                  Text(
-                                    'Keeps long downloads alive',
+                                  Text(AppLocalizations.of(context).t('Keeps long downloads alive'),
                                     style: TextStyle(
                                       color: Colors.white.withValues(
                                         alpha: 0.8,
@@ -1363,8 +1360,7 @@ class DownloadService {
                                     ).withValues(alpha: 0.9),
                                   ),
                                   SizedBox(width: 8),
-                                  Text(
-                                    'You can change this later in system settings',
+                                  Text(AppLocalizations.of(context).t('You can change this later in system settings'),
                                     style: TextStyle(
                                       color: Colors.white.withValues(
                                         alpha: 0.8,
@@ -1468,8 +1464,7 @@ class DownloadService {
         if (context != null) {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
-              content: Text(
-                'You can enable background downloads later in Settings.',
+              content: Text(AppLocalizations.of(context).t('You can enable background downloads later in Settings.'),
               ),
             ),
           );

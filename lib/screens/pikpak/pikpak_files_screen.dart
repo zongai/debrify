@@ -202,8 +202,7 @@ class _PikPakFilesScreenState extends State<PikPakFilesScreen> {
           children: [
             CircularProgressIndicator(),
             SizedBox(height: 16),
-            Text(
-              'Checking PikPak source...',
+            Text(AppLocalizations.of(context).t('Checking PikPak source...'),
               style: TextStyle(color: Colors.white),
             ),
           ],
@@ -885,8 +884,7 @@ class _PikPakFilesScreenState extends State<PikPakFilesScreen> {
             children: [
               CircularProgressIndicator(),
               SizedBox(height: 16),
-              Text(
-                'Preparing download...',
+              Text(AppLocalizations.of(context).t('Preparing download...'),
                 style: TextStyle(color: Colors.white),
               ),
             ],
@@ -970,8 +968,7 @@ class _PikPakFilesScreenState extends State<PikPakFilesScreen> {
           children: [
             CircularProgressIndicator(),
             SizedBox(height: 16),
-            Text(
-              'Scanning folder for files...',
+            Text(AppLocalizations.of(context).t('Scanning folder for files...'),
               style: TextStyle(color: Colors.white),
             ),
           ],
@@ -1317,7 +1314,7 @@ class _PikPakFilesScreenState extends State<PikPakFilesScreen> {
           TextButton(
             autofocus: true,
             onPressed: () => Navigator.of(context).pop(),
-            child: Text('Cancel', style: TextStyle(color: Colors.grey)),
+            child: Text(AppLocalizations.of(context).t('Cancel'), style: TextStyle(color: Colors.grey)),
           ),
           TextButton(
             onPressed: () => Navigator.of(context).pop('trash'),
@@ -1524,8 +1521,7 @@ class _PikPakFilesScreenState extends State<PikPakFilesScreen> {
     final app = AppThemeScope.of(context);
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
-        content: const Text(
-          'No series detected in this folder. Switching to Sort (A-Z) view.',
+        content: Text(AppLocalizations.of(context).t('No series detected in this folder. Switching to Sort (A-Z) view.'),
         ),
         duration: const Duration(seconds: 3),
         backgroundColor: app.cloud.dialogSurface,
@@ -1890,7 +1886,7 @@ class _PikPakFilesScreenState extends State<PikPakFilesScreen> {
                   ? () => _searchClearFocusNode.requestFocus()
                   : null,
               decoration: InputDecoration(
-                hintText: 'Search files...',
+                hintText: AppLocalizations.of(context).t('Search files...'),
                 prefixIcon: const Icon(Icons.search, color: Colors.grey),
                 filled: true,
                 fillColor: app.fade(app.core.tx, 0.06),
@@ -1970,8 +1966,7 @@ class _PikPakFilesScreenState extends State<PikPakFilesScreen> {
   Widget _buildSearchResults() {
     if (_searchController.text.isEmpty) {
       return const Center(
-        child: Text(
-          'Type to search files',
+        child: Text(AppLocalizations.of(context).t('Type to search files'),
           style: TextStyle(color: Colors.grey),
         ),
       );
@@ -1979,7 +1974,7 @@ class _PikPakFilesScreenState extends State<PikPakFilesScreen> {
 
     if (_searchResults.isEmpty) {
       return const Center(
-        child: Text('No files found', style: TextStyle(color: Colors.grey)),
+        child: Text(AppLocalizations.of(context).t('No files found'), style: TextStyle(color: Colors.grey)),
       );
     }
 
@@ -2189,8 +2184,7 @@ class _PikPakFilesScreenState extends State<PikPakFilesScreen> {
                   : _currentFolderName,
             ),
             if (_restrictedFolderId != null && !_isInVirtualFolder)
-              Text(
-                'Restricted Access',
+              Text(AppLocalizations.of(context).t('Restricted Access'),
                 style: TextStyle(fontSize: 12, color: Colors.amber),
               ),
           ],
@@ -2294,13 +2288,11 @@ class _PikPakFilesScreenState extends State<PikPakFilesScreen> {
               children: [
                 Icon(Icons.cloud_off, size: 64, color: Colors.grey.shade400),
                 SizedBox(height: 24),
-                Text(
-                  'PikPak Not Configured',
+                Text(AppLocalizations.of(context).t('PikPak Not Configured'),
                   style: Theme.of(context).textTheme.headlineSmall,
                 ),
                 SizedBox(height: 16),
-                Text(
-                  'Configure your PikPak account in Settings to view and manage files.',
+                Text(AppLocalizations.of(context).t('Configure your PikPak account in Settings to view and manage files.'),
                   textAlign: TextAlign.center,
                   style: TextStyle(color: Colors.grey.shade600),
                 ),
@@ -2348,8 +2340,7 @@ class _PikPakFilesScreenState extends State<PikPakFilesScreen> {
               children: [
                 Icon(Icons.error_outline, size: 64, color: Colors.red.shade400),
                 SizedBox(height: 24),
-                Text(
-                  'Failed to Load Files',
+                Text(AppLocalizations.of(context).t('Failed to Load Files'),
                   style: Theme.of(context).textTheme.headlineSmall,
                 ),
                 SizedBox(height: 16),
@@ -2504,8 +2495,7 @@ class _PikPakFilesScreenState extends State<PikPakFilesScreen> {
       return Padding(
         padding: const EdgeInsets.symmetric(vertical: 16),
         child: Center(
-          child: Text(
-            'Scroll for more',
+          child: Text(AppLocalizations.of(context).t('Scroll for more'),
             style: TextStyle(color: Colors.grey.shade500, fontSize: 12),
           ),
         ),
@@ -2550,8 +2540,7 @@ class _PikPakFilesScreenState extends State<PikPakFilesScreen> {
         title: name,
         meta: metaParts.isEmpty ? null : metaParts.join(' · '),
         extra: (!isComplete && !isVirtualFolder)
-            ? Text(
-                'Still downloading',
+            ? Text(AppLocalizations.of(context).t('Still downloading'),
                 style: TextStyle(color: Colors.orange.shade700, fontSize: 12.5),
               )
             : null,
@@ -2560,7 +2549,7 @@ class _PikPakFilesScreenState extends State<PikPakFilesScreen> {
             ? [
                 CloudRowAction(
                   icon: Icons.folder_open_rounded,
-                  label: 'Browse folder',
+                  label: AppLocalizations.of(context).t('Browse folder'),
                   onSelected: () => _navigateIntoFolder(file['id'], name),
                 ),
               ]
@@ -2577,7 +2566,7 @@ class _PikPakFilesScreenState extends State<PikPakFilesScreen> {
         if (isFolder || (isVideo && isComplete))
           CloudRowAction(
             icon: Icons.play_arrow_rounded,
-            label: 'Play',
+            label: AppLocalizations.of(context).t('Play'),
             showInStrip: true,
             onSelected: () {
               if (isFolder) {
@@ -2589,7 +2578,7 @@ class _PikPakFilesScreenState extends State<PikPakFilesScreen> {
           ),
         CloudRowAction(
           icon: Icons.download,
-          label: 'Download',
+          label: AppLocalizations.of(context).t('Download'),
           showInStrip: true,
           onSelected: () {
             if (isFolder) {
@@ -2601,12 +2590,12 @@ class _PikPakFilesScreenState extends State<PikPakFilesScreen> {
         ),
         CloudRowAction(
           icon: Icons.playlist_add,
-          label: 'Add to Playlist',
+          label: AppLocalizations.of(context).t('Add to Playlist'),
           onSelected: () => _handleAddToPlaylist(file),
         ),
         CloudRowAction(
           icon: Icons.delete_outline,
-          label: 'Delete',
+          label: AppLocalizations.of(context).t('Delete'),
           destructive: true,
           onSelected: () => _showDeleteDialog(file),
         ),
@@ -2635,8 +2624,7 @@ class _PikPakFilesScreenState extends State<PikPakFilesScreen> {
                   child: CircularProgressIndicator(strokeWidth: 2),
                 ),
                 const SizedBox(width: 8),
-                Text(
-                  'Downloading...',
+                Text(AppLocalizations.of(context).t('Downloading...'),
                   style: TextStyle(
                     color: Colors.orange.shade700,
                     fontSize: 12.5,
@@ -2705,8 +2693,7 @@ class _PikPakFilesScreenState extends State<PikPakFilesScreen> {
           children: [
             CircularProgressIndicator(),
             SizedBox(height: 16),
-            Text(
-              'Scanning folder for videos...',
+            Text(AppLocalizations.of(context).t('Scanning folder for videos...'),
               style: TextStyle(color: Colors.white),
             ),
           ],
@@ -2995,8 +2982,7 @@ class _PikPakFilesScreenState extends State<PikPakFilesScreen> {
           children: [
             CircularProgressIndicator(),
             SizedBox(height: 16),
-            Text(
-              'Scanning folder for videos...',
+            Text(AppLocalizations.of(context).t('Scanning folder for videos...'),
               style: TextStyle(color: Colors.white),
             ),
           ],
@@ -3204,16 +3190,14 @@ class _PikPakFilesScreenState extends State<PikPakFilesScreen> {
       builder: (context) => AlertDialog(
         backgroundColor: AppThemeScope.of(context).cloud.dialogSurface,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-        title: const Text(
-          'Add Link',
+        title: Text(AppLocalizations.of(context).t('Add Link'),
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
         content: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(
-              'Enter a link to download:',
+            Text(AppLocalizations.of(context).t('Enter a link to download:'),
               style: TextStyle(color: Colors.grey, fontSize: 14),
             ),
             const SizedBox(height: 12),
@@ -3254,8 +3238,7 @@ class _PikPakFilesScreenState extends State<PikPakFilesScreen> {
               ),
             ),
             SizedBox(height: 8),
-            Text(
-              'Supported: Magnet links, HTTP/HTTPS URLs',
+            Text(AppLocalizations.of(context).t('Supported: Magnet links, HTTP/HTTPS URLs'),
               style: TextStyle(color: Colors.grey[600], fontSize: 12),
             ),
           ],
@@ -3293,8 +3276,7 @@ class _PikPakFilesScreenState extends State<PikPakFilesScreen> {
                             color: Colors.white,
                           ),
                         )
-                      : const Text(
-                          'Add',
+                      : Text(AppLocalizations.of(context).t('Add'),
                           style: TextStyle(color: Colors.black),
                         ),
                 ),

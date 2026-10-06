@@ -109,13 +109,11 @@ class TrackersStep extends StatelessWidget {
             ),
           ),
           SizedBox(height: 12),
-          Text(
-            'MDBList',
+          Text(AppLocalizations.of(context).t('MDBList'),
             style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
           ),
           SizedBox(height: 5),
-          Text(
-            'Syncs watch progress, ratings, lists, and Up Next with an API key.',
+          Text(AppLocalizations.of(context).t('Syncs watch progress, ratings, lists, and Up Next with an API key.'),
             maxLines: 3,
             overflow: TextOverflow.ellipsis,
             style: TextStyle(
@@ -174,8 +172,7 @@ class TrackersStep extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: 8),
-                Text(
-                  'Create or copy the key from mdblist.com/preferences.',
+                Text(AppLocalizations.of(context).t('Create or copy the key from mdblist.com/preferences.'),
                   style: TextStyle(fontSize: 11),
                 ),
               ],
@@ -325,7 +322,7 @@ class TrackersStep extends StatelessWidget {
           radius: BorderRadius.circular(18),
           builder: (context, focused) => OnboardPillSurface(
             focused: focused,
-            label: 'Done  ›',
+            label: AppLocalizations.of(context).t('Done  ›'),
             primary: true,
           ),
         ),
@@ -455,8 +452,7 @@ class _TrackerCardBody extends StatelessWidget {
         maxLines: 2,
         style: const TextStyle(color: Color(0xFFF87171), fontSize: 10),
       ),
-      _ => Text(
-        'Connect',
+      _ => Text(AppLocalizations.of(context).t('Connect'),
         style: TextStyle(
           color: scheme.onSurface,
           fontSize: 11,

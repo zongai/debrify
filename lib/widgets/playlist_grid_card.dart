@@ -815,7 +815,7 @@ class _PlaylistActionSheetState extends State<_PlaylistActionSheet>
           // Play button
           _GlassButton(
             icon: Icons.play_arrow_rounded,
-            label: 'Play',
+            label: AppLocalizations.of(context).t('Play'),
             focusNode: _focusNodes[index++],
             autofocus: true,
             onTap: widget.onPlay,
@@ -823,7 +823,7 @@ class _PlaylistActionSheetState extends State<_PlaylistActionSheet>
           // View Files
           _GlassButton(
             icon: Icons.folder_outlined,
-            label: 'View Files',
+            label: AppLocalizations.of(context).t('View Files'),
             focusNode: _focusNodes[index++],
             onTap: widget.onView,
           ),
@@ -840,14 +840,14 @@ class _PlaylistActionSheetState extends State<_PlaylistActionSheet>
           if (widget.hasProgress)
             _GlassButton(
               icon: Icons.refresh_rounded,
-              label: 'Clear Progress',
+              label: AppLocalizations.of(context).t('Clear Progress'),
               focusNode: _focusNodes[index++],
               onTap: widget.onClearProgress!,
             ),
           // Delete
           _GlassButton(
             icon: Icons.delete_outline_rounded,
-            label: 'Delete',
+            label: AppLocalizations.of(context).t('Delete'),
             isDanger: true,
             focusNode: _focusNodes[index],
             onTap: widget.onDelete,

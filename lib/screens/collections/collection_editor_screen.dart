@@ -92,8 +92,7 @@ class _CollectionEditorScreenState extends State<CollectionEditorScreen> {
             _toggle(_draft, 'focusGlowEnabled', 'Focus glow', true),
             _toggle(_draft, 'showAllTab', 'Show merged All view', true),
             SizedBox(height: 20),
-            Text(
-              'Folders',
+            Text(AppLocalizations.of(context).t('Folders'),
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
             for (var i = 0; i < _folders.length; i++)
@@ -197,8 +196,7 @@ class _FolderEditorState extends State<_FolderEditor> {
           _text(_draft, 'focusVideoUrl', 'Focus video URL', url: true),
           _toggle(_draft, 'focusVideoEnabled', 'Play focus video', true),
           SizedBox(height: 20),
-          Text(
-            'Sources',
+          Text(AppLocalizations.of(context).t('Sources'),
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
           for (var i = 0; i < _sources.length; i++)
@@ -429,8 +427,7 @@ class _SourceEditorState extends State<_SourceEditor> {
                 ].contains(_draft['tmdbSourceType'])) ...[
                   SizedBox(height: 16),
                   Text(AppLocalizations.of(context).t('Filters (optional)')),
-                  const Text(
-                    'Separate IDs with commas for AND, or | for OR where supported by TMDB.',
+                  Text(AppLocalizations.of(context).t('Separate IDs with commas for AND, or | for OR where supported by TMDB.'),
                   ),
                   for (final e in _filters.entries)
                     _text(
@@ -467,8 +464,7 @@ class _SourceEditorState extends State<_SourceEditor> {
             ] else
               Padding(
                 padding: EdgeInsets.all(16),
-                child: Text(
-                  'This provider is not supported. Its data will be preserved; choose a supported source to replace it.',
+                child: Text(AppLocalizations.of(context).t('This provider is not supported. Its data will be preserved; choose a supported source to replace it.'),
                 ),
               ),
           ],

@@ -172,7 +172,7 @@ class _ProfilePinScreenState extends State<ProfilePinScreen> {
                   keyboardSubmitLabel: 'Recover',
                   decoration: InputDecoration(
                     labelText: 'Recovery code',
-                    hintText: 'XXXXX-XXXXX',
+                    hintText: AppLocalizations.of(context).t('XXXXX-XXXXX'),
                     errorText: errorText,
                   ),
                   onSubmitted: (_) => submit(),

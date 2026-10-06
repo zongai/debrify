@@ -67,8 +67,7 @@ class LocalBoundSourceService {
                   const SizedBox(height: 14),
                   const Align(
                     alignment: Alignment.centerLeft,
-                    child: Text(
-                      'Local Movie Source',
+                    child: Text(AppLocalizations.of(context).t('Local Movie Source'),
                       style: TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.w700,
@@ -78,8 +77,7 @@ class LocalBoundSourceService {
                   const SizedBox(height: 4),
                   const Align(
                     alignment: Alignment.centerLeft,
-                    child: Text(
-                      'Choose a video file or browse a folder.',
+                    child: Text(AppLocalizations.of(context).t('Choose a video file or browse a folder.'),
                       style: TextStyle(color: Colors.white54, fontSize: 12),
                     ),
                   ),
@@ -88,8 +86,8 @@ class LocalBoundSourceService {
                     autofocus: true,
                     icon: Icons.movie_creation_outlined,
                     color: const Color(0xFF34D399),
-                    title: 'Pick Video File',
-                    subtitle: 'Bind one local movie file',
+                    title: AppLocalizations.of(context).t('Pick Video File'),
+                    subtitle: AppLocalizations.of(context).t('Bind one local movie file'),
                     onTap: () =>
                         Navigator.of(sheetContext).pop(_LocalPickMode.file),
                   ),
@@ -97,7 +95,7 @@ class LocalBoundSourceService {
                   _LocalPickTile(
                     icon: Icons.folder_open_rounded,
                     color: const Color(0xFF60A5FA),
-                    title: 'Pick Folder',
+                    title: AppLocalizations.of(context).t('Pick Folder'),
                     subtitle: Platform.isAndroid
                         ? 'Choose a movie file inside a folder'
                         : 'Match by filename, then use the largest match',
@@ -539,8 +537,7 @@ class LocalBoundSourceService {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(16),
           ),
-          title: Text(
-            'Choose the Show Folder',
+          title: Text(AppLocalizations.of(context).t('Choose the Show Folder'),
             style: TextStyle(fontWeight: FontWeight.w700),
           ),
           content: Column(
@@ -553,21 +550,20 @@ class LocalBoundSourceService {
               ),
               const SizedBox(height: 12),
               _ExpectationRow(
-                label: 'Good',
+                label: AppLocalizations.of(context).t('Good'),
                 value: 'TV Shows/$title/',
                 color: Color(0xFF34D399),
               ),
               const SizedBox(height: 6),
               _ExpectationRow(
-                label: 'Not',
+                label: AppLocalizations.of(context).t('Not'),
                 value: pickedFolderName.isEmpty
                     ? 'TV Shows/'
                     : '$pickedFolderName/',
                 color: Color(0xFFF87171),
               ),
               const SizedBox(height: 12),
-              const Text(
-                'Episode files inside can still be named S01E01.mkv, S01E02.mkv, and so on.',
+              Text(AppLocalizations.of(context).t('Episode files inside can still be named S01E01.mkv, S01E02.mkv, and so on.'),
                 style: TextStyle(color: Colors.white54, fontSize: 12),
               ),
             ],
@@ -641,8 +637,7 @@ class LocalBoundSourceService {
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    'Choose Series Folder',
+                  Text(AppLocalizations.of(context).t('Choose Series Folder'),
                     style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
                   ),
                   SizedBox(height: 4),
@@ -689,8 +684,7 @@ class LocalBoundSourceService {
                     alignment: Alignment.centerRight,
                     child: TextButton(
                       onPressed: () => Navigator.of(dialogContext).pop(),
-                      child: const Text(
-                        'Cancel',
+                      child: Text(AppLocalizations.of(context).t('Cancel'),
                         style: TextStyle(color: Colors.white54),
                       ),
                     ),
@@ -725,13 +719,11 @@ class LocalBoundSourceService {
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text(
-                    'Choose Local File',
+                  Text(AppLocalizations.of(context).t('Choose Local File'),
                     style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
                   ),
                   const SizedBox(height: 4),
-                  const Text(
-                    'No confident filename match was found.',
+                  Text(AppLocalizations.of(context).t('No confident filename match was found.'),
                     style: TextStyle(color: Colors.white54, fontSize: 12),
                   ),
                   const SizedBox(height: 12),
@@ -772,8 +764,7 @@ class LocalBoundSourceService {
                     alignment: Alignment.centerRight,
                     child: TextButton(
                       onPressed: () => Navigator.of(dialogContext).pop(),
-                      child: const Text(
-                        'Cancel',
+                      child: Text(AppLocalizations.of(context).t('Cancel'),
                         style: TextStyle(color: Colors.white54),
                       ),
                     ),

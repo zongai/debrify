@@ -6225,7 +6225,7 @@ class TorrentPlaybackService {
   static VideoPlayerLaunchArgs playerArgsForTesting(
     PlaybackMeta? meta, {
     Map<String, String>? httpHeaders,
-  }) => _playerArgs(videoUrl: 'video', title: 'Title', meta: meta, httpHeaders: httpHeaders);
+  }) => _playerArgs(videoUrl: 'video', title: AppLocalizations.of(context).t('Title'), meta: meta, httpHeaders: httpHeaders);
 
   /// Providers with credentials configured (in this service's precedence
   /// order) plus the user's saved default when it's still configured — the
@@ -6768,8 +6768,7 @@ class TorrentPlaybackService {
                   overflow: TextOverflow.ellipsis,
                 ),
                 const SizedBox(height: 16),
-                const Text(
-                  'Screen Type',
+                Text(AppLocalizations.of(context).t('Screen Type'),
                   style: TextStyle(fontWeight: FontWeight.w500),
                 ),
                 const SizedBox(height: 8),
@@ -6798,8 +6797,7 @@ class TorrentPlaybackService {
                   },
                 ),
                 SizedBox(height: 16),
-                Text(
-                  'Stereo Mode',
+                Text(AppLocalizations.of(context).t('Stereo Mode'),
                   style: TextStyle(fontWeight: FontWeight.w500),
                 ),
                 SizedBox(height: 8),
@@ -7624,8 +7622,8 @@ class TorrentPlaybackService {
         DebridActionItem(
           icon: Icons.play_circle_fill_rounded,
           color: const Color(0xFF10B981),
-          title: 'Play now',
-          subtitle: 'Stream it right away.',
+          title: AppLocalizations.of(context).t('Play now'),
+          subtitle: AppLocalizations.of(context).t('Stream it right away.'),
           pillLabel: 'Play',
           enabled: hasVideo,
           onTap: () => unawaited(
@@ -7646,7 +7644,7 @@ class TorrentPlaybackService {
           DebridActionItem(
             icon: Icons.download_rounded,
             color: const Color(0xFF3B82F6),
-            title: 'Download to device',
+            title: AppLocalizations.of(context).t('Download to device'),
             subtitle: 'Grab the file(s) via ${_label(provider)}.',
             pillLabel: 'Download',
             onTap: () => unawaited(_download(context, r, torrent, provider)),
@@ -7654,8 +7652,8 @@ class TorrentPlaybackService {
         DebridActionItem(
           icon: Icons.playlist_add_rounded,
           color: const Color(0xFF8B5CF6),
-          title: 'Add to playlist',
-          subtitle: 'Save it to your playlist for later.',
+          title: AppLocalizations.of(context).t('Add to playlist'),
+          subtitle: AppLocalizations.of(context).t('Save it to your playlist for later.'),
           pillLabel: 'Playlist',
           enabled: hasVideo,
           onTap: () => unawaited(
@@ -7665,8 +7663,8 @@ class TorrentPlaybackService {
         DebridActionItem(
           icon: Icons.connected_tv,
           color: const Color(0xFF14B8A6),
-          title: 'Add to channel',
-          subtitle: 'Cache this torrent in a Debrify TV channel.',
+          title: AppLocalizations.of(context).t('Add to channel'),
+          subtitle: AppLocalizations.of(context).t('Cache this torrent in a Debrify TV channel.'),
           onTap: () => unawaited(
             DebrifyTvChannelAddService.addTorrentsToChannel(
               context,
@@ -7681,8 +7679,8 @@ class TorrentPlaybackService {
           DebridActionItem(
             icon: Icons.folder_zip_rounded,
             color: const Color(0xFFA78BFA),
-            title: 'Download as ZIP',
-            subtitle: 'Download all files as a ZIP to this device.',
+            title: AppLocalizations.of(context).t('Download as ZIP'),
+            subtitle: AppLocalizations.of(context).t('Download all files as a ZIP to this device.'),
             onTap: () => unawaited(
               _downloadTorboxZip(context, r.torboxTorrentId!, name),
             ),
@@ -7690,8 +7688,8 @@ class TorrentPlaybackService {
           DebridActionItem(
             icon: Icons.link_rounded,
             color: const Color(0xFFEC4899),
-            title: 'Copy Download Link (Zip)',
-            subtitle: 'Copy ZIP download link to clipboard.',
+            title: AppLocalizations.of(context).t('Copy Download Link (Zip)'),
+            subtitle: AppLocalizations.of(context).t('Copy ZIP download link to clipboard.'),
             onTap: () =>
                 unawaited(_copyTorboxZipLink(context, r.torboxTorrentId!)),
           ),
@@ -7701,15 +7699,15 @@ class TorrentPlaybackService {
           DebridActionItem(
             icon: Icons.cloud_upload_rounded,
             color: const Color(0xFFF59E0B),
-            title: 'Transfer to Premiumize',
-            subtitle: 'Add this torrent to your Premiumize cloud.',
+            title: AppLocalizations.of(context).t('Transfer to Premiumize'),
+            subtitle: AppLocalizations.of(context).t('Add this torrent to your Premiumize cloud.'),
             onTap: () => unawaited(_premiumizeTransfer(context, magnet)),
           ),
           DebridActionItem(
             icon: Icons.folder_zip_rounded,
             color: const Color(0xFFA78BFA),
-            title: 'Download as ZIP',
-            subtitle: 'Transfer to cloud and download all files as a ZIP.',
+            title: AppLocalizations.of(context).t('Download as ZIP'),
+            subtitle: AppLocalizations.of(context).t('Transfer to cloud and download all files as a ZIP.'),
             onTap: () => unawaited(
               _premiumizeZip(context, magnet, name, copyOnly: false),
             ),
@@ -7717,8 +7715,8 @@ class TorrentPlaybackService {
           DebridActionItem(
             icon: Icons.link_rounded,
             color: const Color(0xFFEC4899),
-            title: 'Copy ZIP Link',
-            subtitle: 'Copy ZIP download link to clipboard.',
+            title: AppLocalizations.of(context).t('Copy ZIP Link'),
+            subtitle: AppLocalizations.of(context).t('Copy ZIP download link to clipboard.'),
             onTap: () => unawaited(
               _premiumizeZip(context, magnet, name, copyOnly: true),
             ),
@@ -7728,7 +7726,7 @@ class TorrentPlaybackService {
           DebridActionItem(
             icon: Icons.open_in_new_rounded,
             color: const Color(0xFF6366F1),
-            title: 'Open in provider tab',
+            title: AppLocalizations.of(context).t('Open in provider tab'),
             subtitle: r.isRarArchive
                 ? 'Not available for RAR archives'
                 : 'View it in ${_label(provider)}.',

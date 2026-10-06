@@ -46,15 +46,14 @@ class ImportChannelsDialogState extends State<ImportChannelsDialog> {
   Widget build(BuildContext context) {
     return DebrifyTvSpotlightDialog(
       eyebrow: 'Import · three ways in',
-      title: 'Where is it coming from?',
-      subtitle:
-          'Bring in a saved channel file, paste a share link, or browse the community collection.',
+      title: AppLocalizations.of(context).t('Where is it coming from?'),
+      subtitle: AppLocalizations.of(context).t('Bring in a saved channel file, paste a share link, or browse the community collection.'),
       icon: Icons.cloud_download_rounded,
       maxWidth: 760,
       actions: [
         DebrifyTvDialogButton(
           focusNode: _cancelFocusNode,
-          label: 'Cancel',
+          label: AppLocalizations.of(context).t('Cancel'),
           icon: Icons.close_rounded,
           onPressed: () => Navigator.of(context).pop(),
         ),
@@ -67,8 +66,8 @@ class ImportChannelsDialogState extends State<ImportChannelsDialog> {
               autofocus: !widget.isAndroidTv,
               focusNode: _deviceFocusNode,
               icon: Icons.folder_open_rounded,
-              title: 'From storage',
-              subtitle: 'A .zip, .yaml, .txt, or .debrify file on this device.',
+              title: AppLocalizations.of(context).t('From storage'),
+              subtitle: AppLocalizations.of(context).t('A .zip, .yaml, .txt, or .debrify file on this device.'),
               tag: constraints.maxWidth < 320 ? null : 'File picker',
               vertical: threeColumns,
               onPressed: () =>
@@ -77,8 +76,8 @@ class ImportChannelsDialogState extends State<ImportChannelsDialog> {
             DebrifyTvDialogOptionCard(
               focusNode: _linkFocusNode,
               icon: Icons.link_rounded,
-              title: 'From a link',
-              subtitle: 'A debrify:// share link or an http(s) channel URL.',
+              title: AppLocalizations.of(context).t('From a link'),
+              subtitle: AppLocalizations.of(context).t('A debrify:// share link or an http(s) channel URL.'),
               tag: constraints.maxWidth < 320 ? null : 'Paste or type',
               vertical: threeColumns,
               onPressed: () =>
@@ -87,9 +86,8 @@ class ImportChannelsDialogState extends State<ImportChannelsDialog> {
             DebrifyTvDialogOptionCard(
               focusNode: _communityFocusNode,
               icon: Icons.people_alt_rounded,
-              title: 'From the community',
-              subtitle:
-                  'Browse ready-made channels and import several at once.',
+              title: AppLocalizations.of(context).t('From the community'),
+              subtitle: AppLocalizations.of(context).t('Browse ready-made channels and import several at once.'),
               tag: constraints.maxWidth < 320 ? null : 'Browse',
               vertical: threeColumns,
               onPressed: () =>

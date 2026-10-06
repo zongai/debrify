@@ -462,7 +462,7 @@ class _TVMazeSearchDialogState extends State<TVMazeSearchDialog> {
               keyboardInk: app.core.tx,
               keyboardInkOnAccent: app.inkOn(app.settings.accent),
               decoration: InputDecoration(
-                hintText: 'Enter show name...',
+                hintText: AppLocalizations.of(context).t('Enter show name...'),
                 hintStyle: TextStyle(color: app.playlist.ink3),
                 filled: true,
                 // A veil, not playlist.fieldFill (that role is opaque slate).
@@ -539,8 +539,7 @@ class _TVMazeSearchDialogState extends State<TVMazeSearchDialog> {
                                     size: 64,
                                   ),
                                   const SizedBox(height: 16),
-                                  Text(
-                                    'Search for a TV show to fix metadata',
+                                  Text(AppLocalizations.of(context).t('Search for a TV show to fix metadata'),
                                     style: TextStyle(
                                       color: app.playlist.ink3,
                                       fontSize: 16,

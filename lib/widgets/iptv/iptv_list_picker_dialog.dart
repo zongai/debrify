@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 import 'package:flutter/services.dart';
 
 import '../../services/iptv_media_store.dart';
@@ -279,8 +281,7 @@ class _IptvListPickerDialogState extends State<_IptvListPickerDialog> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                'Add to list',
+              Text(AppLocalizations.of(context).t('Add to list'),
                 style: TextStyle(
                   color: app.core.tx,
                   fontSize: 17,
@@ -339,7 +340,7 @@ class _IptvListPickerDialogState extends State<_IptvListPickerDialog> {
                     ),
                   _ListRow(
                     focusNode: _createRowNode,
-                    label: 'Create new list',
+                    label: AppLocalizations.of(context).t('Create new list'),
                     icon: Icons.add_rounded,
                     iconColor: _accent,
                     checked: false,
@@ -364,7 +365,7 @@ class _IptvListPickerDialogState extends State<_IptvListPickerDialog> {
           alignment: Alignment.centerRight,
           child: _DialogButton(
             focusNode: _cancelNode,
-            label: 'Done',
+            label: AppLocalizations.of(context).t('Done'),
             accent: _accent,
             filled: true,
             onTap: _close,
@@ -423,7 +424,7 @@ class _IptvListPickerDialogState extends State<_IptvListPickerDialog> {
               // shorthands' alphas are 8-bit, so `withValues(0.6)` would be a
               // different value, not the same colour.
               labelStyle: TextStyle(color: app.core.tx.withAlpha(0x99)),
-              hintText: 'e.g. Kids, Sports, Weekend',
+              hintText: AppLocalizations.of(context).t('e.g. Kids, Sports, Weekend'),
               hintStyle: TextStyle(color: app.core.tx.withAlpha(0x61)),
               errorText: _nameError,
               filled: true,
@@ -450,7 +451,7 @@ class _IptvListPickerDialogState extends State<_IptvListPickerDialog> {
           children: [
             _DialogButton(
               focusNode: _cancelNode,
-              label: 'Cancel',
+              label: AppLocalizations.of(context).t('Cancel'),
               accent: _accent,
               onTap: () {
                 setState(() {
@@ -462,7 +463,7 @@ class _IptvListPickerDialogState extends State<_IptvListPickerDialog> {
             const SizedBox(width: 10),
             _DialogButton(
               focusNode: _confirmNode,
-              label: 'Create & add',
+              label: AppLocalizations.of(context).t('Create & add'),
               accent: _accent,
               filled: true,
               onTap: _createAndAdd,

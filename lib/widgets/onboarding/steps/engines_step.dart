@@ -101,8 +101,7 @@ class EnginesStep extends StatelessWidget {
 
   Widget buildFooter(BuildContext context) {
     if (loading) {
-      return Text(
-        'Loading the live catalogue…',
+      return Text(AppLocalizations.of(context).t('Loading the live catalogue…'),
         textAlign: TextAlign.right,
         style: TextStyle(
           color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.5),
@@ -123,7 +122,7 @@ class EnginesStep extends StatelessWidget {
               shape: ParallaxShape.pill,
               radius: BorderRadius.circular(18),
               builder: (context, focused) =>
-                  OnboardPillSurface(focused: focused, label: 'Try again'),
+                  OnboardPillSurface(focused: focused, label: AppLocalizations.of(context).t('Try again')),
             ),
             const SizedBox(width: 10),
             OnboardFocusable(
@@ -134,7 +133,7 @@ class EnginesStep extends StatelessWidget {
               radius: BorderRadius.circular(18),
               builder: (context, focused) => OnboardPillSurface(
                 focused: focused,
-                label: 'Skip engines  ›',
+                label: AppLocalizations.of(context).t('Skip engines  ›'),
                 primary: true,
               ),
             ),

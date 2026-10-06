@@ -746,7 +746,7 @@ class TraktResultsViewState extends State<TraktResultsView> {
         action: TraktItemMenuAction.addToStremioTv,
         icon: Icons.live_tv_rounded,
         color: Color(0xFF22C55E),
-        label: 'Add to Stremio TV',
+        label: AppLocalizations.of(context).t('Add to Stremio TV'),
         caption: 'Stremio TV',
       ),
       if (isSeries)
@@ -754,7 +754,7 @@ class TraktResultsViewState extends State<TraktResultsView> {
           action: TraktItemMenuAction.searchPacks,
           icon: Icons.inventory_2_rounded,
           color: Color(0xFFFBBF24),
-          label: 'Search Season Packs',
+          label: AppLocalizations.of(context).t('Search Season Packs'),
           caption: 'Packs',
         ),
 
@@ -765,7 +765,7 @@ class TraktResultsViewState extends State<TraktResultsView> {
             action: TraktItemMenuAction.removeFromWatchlist,
             icon: Icons.bookmark_remove_rounded,
             color: Color(0xFFFBBF24),
-            label: 'Remove from Trakt Watchlist',
+            label: AppLocalizations.of(context).t('Remove from Trakt Watchlist'),
             caption: 'Watchlist',
             isTrakt: true,
           )
@@ -774,7 +774,7 @@ class TraktResultsViewState extends State<TraktResultsView> {
             action: TraktItemMenuAction.addToWatchlist,
             icon: Icons.bookmark_add_rounded,
             color: Color(0xFFFBBF24),
-            label: 'Add to Trakt Watchlist',
+            label: AppLocalizations.of(context).t('Add to Trakt Watchlist'),
             caption: 'Watchlist',
             isTrakt: true,
           ),
@@ -783,7 +783,7 @@ class TraktResultsViewState extends State<TraktResultsView> {
             action: TraktItemMenuAction.removeFromCollection,
             icon: Icons.library_add_check_rounded,
             color: Color(0xFF60A5FA),
-            label: 'Remove from Trakt Collection',
+            label: AppLocalizations.of(context).t('Remove from Trakt Collection'),
             caption: 'Collection',
             isTrakt: true,
           )
@@ -792,7 +792,7 @@ class TraktResultsViewState extends State<TraktResultsView> {
             action: TraktItemMenuAction.addToCollection,
             icon: Icons.video_library_rounded,
             color: Color(0xFF60A5FA),
-            label: 'Add to Trakt Collection',
+            label: AppLocalizations.of(context).t('Add to Trakt Collection'),
             caption: 'Collection',
             isTrakt: true,
           ),
@@ -801,7 +801,7 @@ class TraktResultsViewState extends State<TraktResultsView> {
             action: TraktItemMenuAction.markUnwatched,
             icon: Icons.visibility_off_rounded,
             color: Color(0xFF34D399),
-            label: 'Mark as Unwatched on Trakt',
+            label: AppLocalizations.of(context).t('Mark as Unwatched on Trakt'),
             caption: 'Unwatch',
             isTrakt: true,
           )
@@ -810,7 +810,7 @@ class TraktResultsViewState extends State<TraktResultsView> {
             action: TraktItemMenuAction.markWatched,
             icon: Icons.check_circle_rounded,
             color: Color(0xFF34D399),
-            label: 'Mark as Watched on Trakt',
+            label: AppLocalizations.of(context).t('Mark as Watched on Trakt'),
             caption: 'Watched',
             isTrakt: true,
           ),
@@ -819,7 +819,7 @@ class TraktResultsViewState extends State<TraktResultsView> {
             action: TraktItemMenuAction.removeRating,
             icon: Icons.star_border_rounded,
             color: Color(0xFFFBBF24),
-            label: 'Remove Trakt Rating',
+            label: AppLocalizations.of(context).t('Remove Trakt Rating'),
             caption: 'Rating',
             isTrakt: true,
           )
@@ -828,7 +828,7 @@ class TraktResultsViewState extends State<TraktResultsView> {
             action: TraktItemMenuAction.rate,
             icon: Icons.star_rounded,
             color: Color(0xFFFBBF24),
-            label: 'Rate on Trakt',
+            label: AppLocalizations.of(context).t('Rate on Trakt'),
             caption: 'Rate',
             isTrakt: true,
           ),
@@ -837,7 +837,7 @@ class TraktResultsViewState extends State<TraktResultsView> {
             action: TraktItemMenuAction.removeFromList,
             icon: Icons.playlist_remove_rounded,
             color: Color(0xFFEC4899),
-            label: 'Remove from Trakt List',
+            label: AppLocalizations.of(context).t('Remove from Trakt List'),
             caption: 'List',
             isTrakt: true,
           )
@@ -846,7 +846,7 @@ class TraktResultsViewState extends State<TraktResultsView> {
             action: TraktItemMenuAction.addToList,
             icon: Icons.playlist_add_rounded,
             color: Color(0xFFEC4899),
-            label: 'Add to Trakt List…',
+            label: AppLocalizations.of(context).t('Add to Trakt List…'),
             caption: 'Add to List',
             isTrakt: true,
           ),
@@ -855,7 +855,7 @@ class TraktResultsViewState extends State<TraktResultsView> {
             action: TraktItemMenuAction.removeFromPlayback,
             icon: Icons.delete_outline_rounded,
             color: Color(0xFFEF4444),
-            label: 'Remove from Continue Watching',
+            label: AppLocalizations.of(context).t('Remove from Continue Watching'),
             caption: 'Remove',
             isTrakt: true,
           ),
@@ -1004,8 +1004,7 @@ class TraktResultsViewState extends State<TraktResultsView> {
           if (mounted) {
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(
-                content: Text(
-                  'No in-progress playback to remove — try marking the next episode as watched instead',
+                content: Text(AppLocalizations.of(context).t('No in-progress playback to remove — try marking the next episode as watched instead'),
                 ),
                 duration: Duration(seconds: 3),
               ),
@@ -1157,8 +1156,7 @@ class TraktResultsViewState extends State<TraktResultsView> {
                         const SizedBox(height: 4),
                         const Align(
                           alignment: Alignment.centerLeft,
-                          child: Text(
-                            'First match wins — reorder by priority',
+                          child: Text(AppLocalizations.of(context).t('First match wins — reorder by priority'),
                             style: TextStyle(
                               color: Colors.white38,
                               fontSize: 11,
@@ -1321,8 +1319,7 @@ class TraktResultsViewState extends State<TraktResultsView> {
                                   size: 18,
                                   color: Color(0xFFEF4444),
                                 ),
-                                label: const Text(
-                                  'Remove All',
+                                label: Text(AppLocalizations.of(context).t('Remove All'),
                                   style: TextStyle(color: Color(0xFFEF4444)),
                                 ),
                                 style: OutlinedButton.styleFrom(
@@ -1342,8 +1339,7 @@ class TraktResultsViewState extends State<TraktResultsView> {
                       const SizedBox(height: 8),
                       TextButton(
                         onPressed: () => Navigator.of(dialogContext).pop(),
-                        child: const Text(
-                          'Close',
+                        child: Text(AppLocalizations.of(context).t('Close'),
                           style: TextStyle(color: Colors.white54),
                         ),
                       ),
@@ -1427,8 +1423,7 @@ class TraktResultsViewState extends State<TraktResultsView> {
           children: [
             Padding(
               padding: EdgeInsets.all(16),
-              child: Text(
-                'Select Provider',
+              child: Text(AppLocalizations.of(context).t('Select Provider'),
                 style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
               ),
             ),
@@ -2546,16 +2541,14 @@ class TraktResultsViewState extends State<TraktResultsView> {
               color: Colors.white.withValues(alpha: 0.5),
             ),
             const SizedBox(height: 12),
-            Text(
-              'No matching items',
+            Text(AppLocalizations.of(context).t('No matching items'),
               style: TextStyle(
                 color: Colors.white.withValues(alpha: 0.7),
                 fontSize: 16,
               ),
             ),
             const SizedBox(height: 4),
-            Text(
-              'Try a different search term',
+            Text(AppLocalizations.of(context).t('Try a different search term'),
               style: TextStyle(
                 color: Colors.white.withValues(alpha: 0.4),
                 fontSize: 13,
@@ -2778,8 +2771,7 @@ class TraktResultsViewState extends State<TraktResultsView> {
               color: Colors.white.withValues(alpha: 0.5),
             ),
             const SizedBox(height: 12),
-            Text(
-              'No seasons found',
+            Text(AppLocalizations.of(context).t('No seasons found'),
               style: TextStyle(
                 color: Colors.white.withValues(alpha: 0.7),
                 fontSize: 16,
@@ -2847,13 +2839,11 @@ class TraktResultsViewState extends State<TraktResultsView> {
               color: colorScheme.onSurfaceVariant,
             ),
             SizedBox(height: 16),
-            Text(
-              'Connect your Trakt account',
+            Text(AppLocalizations.of(context).t('Connect your Trakt account'),
               style: theme.textTheme.titleMedium,
             ),
             SizedBox(height: 8),
-            Text(
-              'Log in to Trakt to browse your watchlist, collection, and more.',
+            Text(AppLocalizations.of(context).t('Log in to Trakt to browse your watchlist, collection, and more.'),
               style: theme.textTheme.bodyMedium?.copyWith(
                 color: colorScheme.onSurfaceVariant,
               ),
@@ -2924,7 +2914,7 @@ class TraktResultsViewState extends State<TraktResultsView> {
             color: colorScheme.onSurfaceVariant,
           ),
           const SizedBox(height: 16),
-          Text('No items found', style: theme.textTheme.titleMedium),
+          Text(AppLocalizations.of(context).t('No items found'), style: theme.textTheme.titleMedium),
           const SizedBox(height: 8),
           Text(
             _selectedListType == TraktListType.search

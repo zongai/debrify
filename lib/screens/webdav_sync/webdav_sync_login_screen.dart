@@ -163,7 +163,7 @@ final class _WebDavSyncLoginScreenState extends State<WebDavSyncLoginScreen> {
   @override
   Widget build(BuildContext context) {
     return SettingsPageScaffold(
-      title: 'WebDAV Sync login',
+      title: AppLocalizations.of(context).t('WebDAV Sync login'),
       body: SingleChildScrollView(
         padding: EdgeInsets.all(16),
         child: Center(
@@ -182,9 +182,7 @@ final class _WebDavSyncLoginScreenState extends State<WebDavSyncLoginScreen> {
                     ),
                   ),
                   SizedBox(height: 8),
-                  Text(
-                    'Sync folder: '
-                    '${widget.repairBinding!.location.folderPath}',
+                  Text(AppLocalizations.of(context).t('Sync folder: ')'${widget.repairBinding!.location.folderPath}',
                   ),
                   SizedBox(height: 16),
                 ] else ...[
@@ -216,9 +214,7 @@ final class _WebDavSyncLoginScreenState extends State<WebDavSyncLoginScreen> {
                 ],
                 if (!_isRepair &&
                     _provider == WebDavSyncProviderPreset.koofr) ...[
-                  const Text(
-                    'Koofr needs an app password — Koofr → Settings → '
-                    'Password → App passwords. Your username is your Koofr '
+                  Text(AppLocalizations.of(context).t('Koofr needs an app password — Koofr → Settings → ')'Password → App passwords. Your username is your Koofr '
                     'email.',
                   ),
                   const SizedBox(height: 16),

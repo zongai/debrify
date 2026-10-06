@@ -35,9 +35,8 @@ class ModeStep extends StatelessWidget {
           controller: focusController,
           cell: const OnboardCell(0, 0),
           icon: Icons.login_rounded,
-          title: 'Log in with WebDAV',
-          subtitle:
-              'Connect your sync account and pull your setup from your other devices.',
+          title: AppLocalizations.of(context).t('Log in with WebDAV'),
+          subtitle: AppLocalizations.of(context).t('Connect your sync account and pull your setup from your other devices.'),
           onPressed: onWebDavLogin,
         ),
         if (webDavError case final error?) ...[
@@ -52,9 +51,8 @@ class ModeStep extends StatelessWidget {
           controller: focusController,
           cell: OnboardCell(1, 0),
           icon: Icons.tune_rounded,
-          title: 'Set it up here',
-          subtitle:
-              'Connect your debrid service, pick search engines, and link a tracker.',
+          title: AppLocalizations.of(context).t('Set it up here'),
+          subtitle: AppLocalizations.of(context).t('Connect your debrid service, pick search engines, and link a tracker.'),
           onPressed: onSetupHere,
         ),
         SizedBox(height: 12),
@@ -62,9 +60,8 @@ class ModeStep extends StatelessWidget {
           controller: focusController,
           cell: OnboardCell(2, 0),
           icon: Icons.sync_alt_rounded,
-          title: 'Bring it from another device',
-          subtitle:
-              'Copy services, addons, channels, and preferences from Debrify on another device.',
+          title: AppLocalizations.of(context).t('Bring it from another device'),
+          subtitle: AppLocalizations.of(context).t('Copy services, addons, channels, and preferences from Debrify on another device.'),
           footnote: 'Both devices need to be on the same Wi-Fi.',
           onPressed: onImport,
         ),
@@ -74,9 +71,8 @@ class ModeStep extends StatelessWidget {
             controller: focusController,
             cell: OnboardCell(3, 0),
             icon: Icons.restore_rounded,
-            title: 'Restore from a backup',
-            subtitle:
-                'Choose a Debrify backup file to restore profiles, services, addons, channels, and preferences.',
+            title: AppLocalizations.of(context).t('Restore from a backup'),
+            subtitle: AppLocalizations.of(context).t('Choose a Debrify backup file to restore profiles, services, addons, channels, and preferences.'),
             onPressed: onRestore!,
           ),
         ],

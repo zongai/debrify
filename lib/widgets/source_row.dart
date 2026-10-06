@@ -608,8 +608,7 @@ class _SourceRowState extends State<SourceRow> {
       children: [
         Icon(Icons.play_arrow_rounded, size: 16, color: Colors.white),
         SizedBox(width: 5),
-        Text(
-          'Play',
+        Text(AppLocalizations.of(context).t('Play'),
           style: TextStyle(
             color: Colors.white,
             fontSize: 12,

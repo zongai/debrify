@@ -574,8 +574,7 @@ class _StremioTvRepoBrowserDialogState
                       size: 20, color: theme.colorScheme.primary),
                   const SizedBox(width: 10),
                   Expanded(
-                    child: Text(
-                      'Catalog Repos',
+                    child: Text(AppLocalizations.of(context).t('Catalog Repos'),
                       style: theme.textTheme.titleSmall
                           ?.copyWith(fontWeight: FontWeight.bold),
                     ),
@@ -665,16 +664,14 @@ class _StremioTvRepoBrowserDialogState
                           color: theme.colorScheme.onSurfaceVariant
                               .withValues(alpha: 0.35)),
                       const SizedBox(height: 8),
-                      Text(
-                        'No repos added yet',
+                      Text(AppLocalizations.of(context).t('No repos added yet'),
                         style: theme.textTheme.bodySmall?.copyWith(
                           color: theme.colorScheme.onSurfaceVariant,
                         ),
                         textAlign: TextAlign.center,
                       ),
                       const SizedBox(height: 2),
-                      Text(
-                        'Paste a GitHub or GitLab repo URL above',
+                      Text(AppLocalizations.of(context).t('Paste a GitHub or GitLab repo URL above'),
                         style: theme.textTheme.bodySmall?.copyWith(
                           color: theme.colorScheme.onSurfaceVariant
                               .withValues(alpha: 0.6),
@@ -811,8 +808,7 @@ class _StremioTvRepoBrowserDialogState
             if (_files.isEmpty)
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 12),
-                child: Text(
-                  'No .json files found',
+                child: Text(AppLocalizations.of(context).t('No .json files found'),
                   style: theme.textTheme.bodySmall?.copyWith(
                     color: theme.colorScheme.onSurfaceVariant,
                   ),
@@ -981,7 +977,7 @@ class _StremioTvRepoBrowserDialogState
                 },
           icon: Icon(Icons.delete_outline_rounded,
               size: 16, color: theme.colorScheme.error),
-          label: Text('Remove Repository',
+          label: Text(AppLocalizations.of(context).t('Remove Repository'),
               style: TextStyle(color: theme.colorScheme.error)),
           style: OutlinedButton.styleFrom(
             side: BorderSide(

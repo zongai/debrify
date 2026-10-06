@@ -750,12 +750,12 @@ class PlayerMenuPanelState extends State<PlayerMenuPanel>
       case PlayerMenuSection.shuffle:
         return [
           _MenuRow(
-            label: 'Play random once',
+            label: AppLocalizations.of(context).t('Play random once'),
             sublabel: 'Pick one random item, then resume normal order',
             onTap: () async => widget.onShuffleOnce(),
           ),
           _MenuRow(
-            label: 'Continuous shuffle',
+            label: AppLocalizations.of(context).t('Continuous shuffle'),
             sublabel: 'Keep picking random items after each one ends',
             selected: widget.continuousShuffle,
             onTap: () async => widget.onShuffleContinuousToggle(),
@@ -769,7 +769,7 @@ class PlayerMenuPanelState extends State<PlayerMenuPanel>
     if (_passthrough != null && widget.onAudioPassthroughChanged != null) {
       rows.add(
         _MenuRow(
-          label: 'Passthrough (AC3 · EAC3 · DTS)',
+          label: AppLocalizations.of(context).t('Passthrough (AC3 · EAC3 · DTS)'),
           sublabel:
               'Bitstream to your receiver. If you hear silence, '
               'turn this off.',
@@ -784,7 +784,7 @@ class PlayerMenuPanelState extends State<PlayerMenuPanel>
     }
     if (widget.audioTracks.isEmpty) {
       rows.add(
-        _MenuRow(label: 'No audio tracks in this file', note: true),
+        _MenuRow(label: AppLocalizations.of(context).t('No audio tracks in this file'), note: true),
       );
     } else {
       for (final t in widget.audioTracks) {
@@ -807,7 +807,7 @@ class PlayerMenuPanelState extends State<PlayerMenuPanel>
       final label = _identityLabel?.trim();
       rows.add(
         _MenuRow(
-          label: 'Wrong subtitles? Fix the title',
+          label: AppLocalizations.of(context).t('Wrong subtitles? Fix the title'),
           sublabel: label == null || label.isEmpty
               ? 'Title not detected — fix it to find subtitles'
               : label,
@@ -820,7 +820,7 @@ class PlayerMenuPanelState extends State<PlayerMenuPanel>
 
     rows.add(
       _MenuRow(
-        label: 'Off',
+        label: AppLocalizations.of(context).t('Off'),
         selected: _selectedSub == 'no',
         loading: _applyingSubId == 'no',
         onTap: _selectSubtitlesOff,
@@ -829,10 +829,10 @@ class PlayerMenuPanelState extends State<PlayerMenuPanel>
 
     if (widget.embeddedSubtitles.isEmpty) {
       rows.add(
-        _MenuRow(label: 'No embedded subtitles in this file', note: true),
+        _MenuRow(label: AppLocalizations.of(context).t('No embedded subtitles in this file'), note: true),
       );
     } else {
-      rows.add(_MenuRow(label: 'Embedded', header: true));
+      rows.add(_MenuRow(label: AppLocalizations.of(context).t('Embedded'), header: true));
       for (final t in widget.embeddedSubtitles) {
         rows.add(
           _MenuRow(
@@ -848,7 +848,7 @@ class PlayerMenuPanelState extends State<PlayerMenuPanel>
     final slots = _addonSlots;
     if (slots == null && _slotsFetchStarted) {
       rows.add(
-        _MenuRow(label: 'Searching add-ons…', loading: true, note: true),
+        _MenuRow(label: AppLocalizations.of(context).t('Searching add-ons…'), loading: true, note: true),
       );
     }
     for (final slot in slots ?? const <AddonSubtitleSlot>[]) {
@@ -856,12 +856,12 @@ class PlayerMenuPanelState extends State<PlayerMenuPanel>
       switch (slot.status) {
         case AddonSubtitleStatus.loading:
           rows.add(
-            _MenuRow(label: 'Fetching…', loading: true, note: true),
+            _MenuRow(label: AppLocalizations.of(context).t('Fetching…'), loading: true, note: true),
           );
         case AddonSubtitleStatus.failed:
           rows.add(
             _MenuRow(
-              label: 'Failed — retry',
+              label: AppLocalizations.of(context).t('Failed — retry'),
               sublabel: slot.error,
               destructiveDim: true,
               onTap: () async => _retryAddon(slot.addonId),
@@ -871,7 +871,7 @@ class PlayerMenuPanelState extends State<PlayerMenuPanel>
           if (slot.subtitles.isEmpty) {
             rows.add(
               _MenuRow(
-                label: 'No subtitles from this add-on',
+                label: AppLocalizations.of(context).t('No subtitles from this add-on'),
                 note: true,
               ),
             );
@@ -897,7 +897,7 @@ class PlayerMenuPanelState extends State<PlayerMenuPanel>
   List<_MenuRow> _styleRows() {
     final style = _style;
     if (style == null) {
-      return [_MenuRow(label: 'Loading…', loading: true, note: true)];
+      return [_MenuRow(label: AppLocalizations.of(context).t('Loading…'), loading: true, note: true)];
     }
     final svc = SubtitleSettingsService.instance;
 
@@ -981,7 +981,7 @@ class PlayerMenuPanelState extends State<PlayerMenuPanel>
         copy: (i) => style.copyWith(bgIndex: i),
       ),
       _MenuRow(
-        label: 'Font',
+        label: AppLocalizations.of(context).t('Font'),
         stepperValue: style.font.label,
         onDecrease: () async {
           final newIndex = await SubtitleFontService.instance.cycleFontDown();
@@ -1007,7 +1007,7 @@ class PlayerMenuPanelState extends State<PlayerMenuPanel>
         },
       ),
       _MenuRow(
-        label: 'Bold',
+        label: AppLocalizations.of(context).t('Bold'),
         stepperValue: style.bold ? 'On' : 'Off',
         onDecrease: () async {
           await svc.setBold(!style.bold);
@@ -1027,7 +1027,7 @@ class PlayerMenuPanelState extends State<PlayerMenuPanel>
         copy: (i) => style.copyWith(elevationIndex: i),
       ),
       _MenuRow(
-        label: 'Reset to defaults',
+        label: AppLocalizations.of(context).t('Reset to defaults'),
         destructiveDim: true,
         onTap: () async {
           await SubtitleSettingsService.instance.resetToDefaults();
@@ -1042,7 +1042,7 @@ class PlayerMenuPanelState extends State<PlayerMenuPanel>
     final counting = widget.sleepMode == SleepTimerMode.countdown;
     return [
       _MenuRow(
-        label: 'Off',
+        label: AppLocalizations.of(context).t('Off'),
         selected: widget.sleepMode == SleepTimerMode.off,
         onTap: () async => widget.onSleepSelected(SleepTimerSelection.off),
       ),
@@ -1063,7 +1063,7 @@ class PlayerMenuPanelState extends State<PlayerMenuPanel>
         ),
       if (widget.allowEndOfItem)
         _MenuRow(
-          label: 'End of episode',
+          label: AppLocalizations.of(context).t('End of episode'),
           sublabel: 'Stops after this one finishes',
           selected: widget.sleepMode == SleepTimerMode.endOfItem,
           onTap: () async => widget.onSleepSelected(
@@ -1341,8 +1341,7 @@ class PlayerMenuPanelState extends State<PlayerMenuPanel>
       children: [
         Padding(
           padding: const EdgeInsets.fromLTRB(24, 30, 24, 14),
-          child: Text(
-            'PLAYER MENU',
+          child: Text(AppLocalizations.of(context).t('PLAYER MENU'),
             style: TextStyle(
               color: _ink.withValues(alpha: 0.42),
               fontSize: 11,
@@ -1460,8 +1459,7 @@ class PlayerMenuPanelState extends State<PlayerMenuPanel>
   Widget _buildActionHint() {
     return Padding(
       padding: const EdgeInsets.fromLTRB(26, 4, 24, 0),
-      child: Text(
-        'Opens the sync controls over the video.',
+      child: Text(AppLocalizations.of(context).t('Opens the sync controls over the video.'),
         style: TextStyle(
           color: _ink.withValues(alpha: 0.45),
           fontSize: 12.5,

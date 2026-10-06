@@ -36,49 +36,49 @@ class SearchSourceOption {
   /// Create "All" option
   factory SearchSourceOption.all() => const SearchSourceOption(
     type: SearchSourceType.all,
-    label: 'All',
+    label: AppLocalizations.of(context).t('All'),
     icon: Icons.apps,
   );
 
   /// Create "Keyword" option
   factory SearchSourceOption.keyword() => const SearchSourceOption(
     type: SearchSourceType.keyword,
-    label: 'Keyword',
+    label: AppLocalizations.of(context).t('Keyword'),
     icon: Icons.search,
   );
 
   /// Create "Trakt" option
   factory SearchSourceOption.trakt() => const SearchSourceOption(
     type: SearchSourceType.trakt,
-    label: 'Trakt',
+    label: AppLocalizations.of(context).t('Trakt'),
     icon: Icons.movie_filter_rounded,
   );
 
   /// Create "Reddit" option
   factory SearchSourceOption.reddit() => const SearchSourceOption(
     type: SearchSourceType.reddit,
-    label: 'Reddit',
+    label: AppLocalizations.of(context).t('Reddit'),
     icon: Icons.play_circle_outline,
   );
 
   /// Create "Lemmy" option
   factory SearchSourceOption.lemmy() => const SearchSourceOption(
     type: SearchSourceType.lemmy,
-    label: 'Lemmy',
+    label: AppLocalizations.of(context).t('Lemmy'),
     icon: Icons.hub_outlined,
   );
 
   /// Create "YouTube" option
   factory SearchSourceOption.youtube() => const SearchSourceOption(
     type: SearchSourceType.youtube,
-    label: 'YouTube',
+    label: AppLocalizations.of(context).t('YouTube'),
     icon: Icons.smart_display_outlined,
   );
 
   /// Create "IPTV" option
   factory SearchSourceOption.iptv() => const SearchSourceOption(
     type: SearchSourceType.iptv,
-    label: 'IPTV',
+    label: AppLocalizations.of(context).t('IPTV'),
     icon: Icons.live_tv,
   );
 

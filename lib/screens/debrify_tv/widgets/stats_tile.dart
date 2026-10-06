@@ -47,8 +47,7 @@ class StatsTile extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisSize: MainAxisSize.min,
               children: [
-                const Text(
-                  'Search snapshot',
+                Text(AppLocalizations.of(context).t('Search snapshot'),
                   style: TextStyle(
                     fontWeight: FontWeight.w700,
                   ),

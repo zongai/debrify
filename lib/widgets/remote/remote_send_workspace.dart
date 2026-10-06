@@ -146,8 +146,7 @@ class _RemoteSendWorkspaceState extends State<RemoteSendWorkspace> {
                           child: Text('• ${choice.label}'),
                         ),
                       SizedBox(height: 12),
-                      Text(
-                        'Setup items apply to the receiving device’s active profile. Keep both apps open and confirm the import there.',
+                      Text(AppLocalizations.of(context).t('Setup items apply to the receiving device’s active profile. Keep both apps open and confirm the import there.'),
                       ),
                       if (needsPassword)
                         TextField(
@@ -267,8 +266,7 @@ class _RemoteSendWorkspaceState extends State<RemoteSendWorkspace> {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text(
-              'Transfer could not finish. Check the receiving device and retry.',
+            content: Text(AppLocalizations.of(context).t('Transfer could not finish. Check the receiving device and retry.'),
             ),
           ),
         );

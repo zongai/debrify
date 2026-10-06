@@ -68,8 +68,7 @@ class _ParentsGuideSectionState extends State<ParentsGuideSection> {
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisSize: MainAxisSize.min,
       children: [
-        Text(
-          'PARENTS GUIDE',
+        Text(AppLocalizations.of(context).t('PARENTS GUIDE'),
           style: TextStyle(
             // The shipped ALPHA with the theme's ink, so Signal is exactly the
             // 50% white it always was and a light theme gets 50% black.
@@ -225,8 +224,7 @@ class _CompassOverview extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisSize: MainAxisSize.min,
             children: [
-              Text(
-                'PARENTS GUIDE',
+              Text(AppLocalizations.of(context).t('PARENTS GUIDE'),
                 style: _compassDataStyle(
                   theme,
                   size: 9.5,
@@ -345,8 +343,7 @@ class _CompassDashboard extends StatelessWidget {
       children: [
         Row(
           children: [
-            Text(
-              'AT A GLANCE',
+            Text(AppLocalizations.of(context).t('AT A GLANCE'),
               style: _compassDataStyle(
                 theme,
                 size: 9,
@@ -357,8 +354,7 @@ class _CompassDashboard extends StatelessWidget {
             ),
             const Spacer(),
             if (interactive)
-              Text(
-                'Select a category',
+              Text(AppLocalizations.of(context).t('Select a category'),
                 style: _compassBodyStyle(theme, size: 10, color: tx2),
               ),
           ],
@@ -400,8 +396,7 @@ class _CompassDashboard extends StatelessWidget {
           _CompassDetail(category: selected, dense: dense, theme: theme),
         ] else if (categoriesWithNotes.isNotEmpty) ...[
           SizedBox(height: dense ? 14 : 18),
-          Text(
-            'SPOILER-SAFE NOTES',
+          Text(AppLocalizations.of(context).t('SPOILER-SAFE NOTES'),
             style: _compassDataStyle(
               theme,
               size: 9,
@@ -653,8 +648,7 @@ class _CompassDetail extends StatelessWidget {
             ),
             SizedBox(height: dense ? 8 : 10),
             if (items.isEmpty)
-              Text(
-                'No spoiler-safe advisory notes are available.',
+              Text(AppLocalizations.of(context).t('No spoiler-safe advisory notes are available.'),
                 style: _compassBodyStyle(
                   theme,
                   size: dense ? 10.5 : 11.5,

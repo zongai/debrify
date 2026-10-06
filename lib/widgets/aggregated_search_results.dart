@@ -797,8 +797,7 @@ class AggregatedSearchResultsState extends State<AggregatedSearchResults> {
                         const SizedBox(height: 4),
                         const Align(
                           alignment: Alignment.centerLeft,
-                          child: Text(
-                            'First match wins — reorder by priority',
+                          child: Text(AppLocalizations.of(context).t('First match wins — reorder by priority'),
                             style: TextStyle(
                               color: Colors.white38,
                               fontSize: 11,
@@ -962,8 +961,7 @@ class AggregatedSearchResultsState extends State<AggregatedSearchResults> {
                       const SizedBox(height: 8),
                       TextButton(
                         onPressed: () => Navigator.of(dialogContext).pop(),
-                        child: const Text(
-                          'Close',
+                        child: Text(AppLocalizations.of(context).t('Close'),
                           style: TextStyle(color: Colors.white54),
                         ),
                       ),
@@ -1063,8 +1061,7 @@ class AggregatedSearchResultsState extends State<AggregatedSearchResults> {
           children: [
             Padding(
               padding: EdgeInsets.all(16),
-              child: Text(
-                'Select Provider',
+              child: Text(AppLocalizations.of(context).t('Select Provider'),
                 style: TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.w600,
@@ -1073,8 +1070,7 @@ class AggregatedSearchResultsState extends State<AggregatedSearchResults> {
             ),
             ListTile(
               leading: const Icon(Icons.cloud, color: Color(0xFF22C55E)),
-              title: const Text(
-                'Real-Debrid',
+              title: Text(AppLocalizations.of(context).t('Real-Debrid'),
               ),
               onTap: () {
                 Navigator.of(sheetContext).pop();
@@ -1083,8 +1079,7 @@ class AggregatedSearchResultsState extends State<AggregatedSearchResults> {
             ),
             ListTile(
               leading: const Icon(Icons.cloud, color: Color(0xFF7C3AED)),
-              title: const Text(
-                'TorBox',
+              title: Text(AppLocalizations.of(context).t('TorBox'),
               ),
               onTap: () {
                 Navigator.of(sheetContext).pop();
@@ -1265,8 +1260,7 @@ class AggregatedSearchResultsState extends State<AggregatedSearchResults> {
                     color: theme.colorScheme.primary,
                   ),
                   const SizedBox(width: 8),
-                  Text(
-                    'Catalog Results',
+                  Text(AppLocalizations.of(context).t('Catalog Results'),
                     style: theme.textTheme.titleMedium?.copyWith(
                       fontWeight: FontWeight.w600,
                     ),
@@ -1388,15 +1382,13 @@ class AggregatedSearchResultsState extends State<AggregatedSearchResults> {
                     color: theme.colorScheme.onSurfaceVariant.withValues(alpha: 0.5),
                   ),
                   const SizedBox(height: 16),
-                  Text(
-                    'No catalog results found',
+                  Text(AppLocalizations.of(context).t('No catalog results found'),
                     style: theme.textTheme.titleMedium?.copyWith(
                       color: theme.colorScheme.onSurfaceVariant,
                     ),
                   ),
                   const SizedBox(height: 8),
-                  Text(
-                    'Try the keyword search above for torrent results',
+                  Text(AppLocalizations.of(context).t('Try the keyword search above for torrent results'),
                     style: theme.textTheme.bodyMedium?.copyWith(
                       color: theme.colorScheme.onSurfaceVariant.withValues(alpha:
                         0.7,

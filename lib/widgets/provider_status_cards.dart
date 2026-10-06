@@ -427,8 +427,7 @@ class _ProviderStatusCardsState extends State<ProviderStatusCards> {
               const SizedBox(width: 12),
               // Gradient title (plain text on TV)
               if (widget.isTelevision)
-                const Text(
-                  'Services',
+                Text(AppLocalizations.of(context).t('Services'),
                   style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.w700,
@@ -441,8 +440,7 @@ class _ProviderStatusCardsState extends State<ProviderStatusCards> {
                   shaderCallback: (bounds) => const LinearGradient(
                     colors: [Color(0xFF6366F1), Color(0xFF8B5CF6)],
                   ).createShader(bounds),
-                  child: const Text(
-                    'Services',
+                  child: Text(AppLocalizations.of(context).t('Services'),
                     style: TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.w700,
@@ -575,8 +573,7 @@ class _ProviderStatusCardsState extends State<ProviderStatusCards> {
                 color: Colors.white.withValues(alpha: 0.7),
               ),
               const SizedBox(width: 8),
-              Text(
-                'Debrid Services',
+              Text(AppLocalizations.of(context).t('Debrid Services'),
                 style: TextStyle(
                   fontSize: 14,
                   fontWeight: FontWeight.w600,
@@ -654,16 +651,14 @@ class _ProviderStatusCardsState extends State<ProviderStatusCards> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text(
-                  'Connect a Debrid Service',
+                Text(AppLocalizations.of(context).t('Connect a Debrid Service'),
                   style: TextStyle(
                     fontSize: 14,
                     fontWeight: FontWeight.w600,
                   ),
                 ),
                 const SizedBox(height: 2),
-                Text(
-                  'Add Real-Debrid, Torbox, Premiumize, or PikPak in Settings',
+                Text(AppLocalizations.of(context).t('Add Real-Debrid, Torbox, Premiumize, or PikPak in Settings'),
                   style: TextStyle(
                     fontSize: 12,
                     color: Colors.white.withValues(alpha: 0.6),
@@ -898,8 +893,7 @@ class _ProviderStatusCardsState extends State<ProviderStatusCards> {
                                       color: const Color(0xFF10B981).withValues(alpha: 0.8),
                                     ),
                                     const SizedBox(width: 3),
-                                    Text(
-                                      'Active',
+                                    Text(AppLocalizations.of(context).t('Active'),
                                       style: TextStyle(
                                         fontSize: 10,
                                         fontWeight: FontWeight.w500,

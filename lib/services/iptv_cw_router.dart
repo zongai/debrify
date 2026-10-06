@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../l10n/app_localizations.dart';
+
 import '../models/iptv_playlist.dart';
 import '../models/playlist_view_mode.dart';
 import '../screens/iptv/xtream_series_detail.dart';
@@ -99,7 +101,7 @@ class IptvCwRouter {
                 ]) ??
                 'Series',
             posterUrl: _nonEmpty(item['logoUrl'] as String?),
-            subtitle: 'IPTV',
+            subtitle: AppLocalizations.of(context).t('IPTV'),
             isSeries: true,
             progress: progress,
             seLabel: _seLabel(item['season'], item['episode']),

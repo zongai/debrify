@@ -441,8 +441,7 @@ class _TraktCalendarScreenState extends State<TraktCalendarScreen> {
       return const Center(
         child: Padding(
           padding: EdgeInsets.all(32),
-          child: Text(
-            'Connect Trakt, Simkl, or MDBList to see your calendar.',
+          child: Text(AppLocalizations.of(context).t('Connect Trakt, Simkl, or MDBList to see your calendar.'),
             textAlign: TextAlign.center,
             style: TextStyle(color: Colors.white70, fontSize: 16),
           ),
@@ -545,7 +544,7 @@ class _TraktCalendarScreenState extends State<TraktCalendarScreen> {
   Widget? _buildSourceSelector({bool dense = false}) {
     if (_authenticatedSourceCount < 2) return null;
     return _SelectorField<String>(
-      label: 'Source',
+      label: AppLocalizations.of(context).t('Source'),
       value: _source,
       focusNode: _sourceFocusNode,
       dense: dense,
@@ -624,8 +623,7 @@ class _TraktCalendarScreenState extends State<TraktCalendarScreen> {
             ),
           ),
           const SizedBox(height: 6),
-          Text(
-            'Browse only the days that have episodes airing.',
+          Text(AppLocalizations.of(context).t('Browse only the days that have episodes airing.'),
             style: TextStyle(
               color: app.core.tx.withValues(alpha: 0.68),
               fontSize: 11,
@@ -641,7 +639,7 @@ class _TraktCalendarScreenState extends State<TraktCalendarScreen> {
             children: [
               Expanded(
                 child: _SelectorField(
-                  label: 'Year',
+                  label: AppLocalizations.of(context).t('Year'),
                   value: _selectedYear,
                   focusNode: _yearFocusNode,
                   dense: true,
@@ -658,7 +656,7 @@ class _TraktCalendarScreenState extends State<TraktCalendarScreen> {
               SizedBox(width: 8),
               Expanded(
                 child: _SelectorField(
-                  label: 'Month',
+                  label: AppLocalizations.of(context).t('Month'),
                   value: _selectedMonth,
                   focusNode: _monthFocusNode,
                   dense: true,
@@ -773,8 +771,7 @@ class _TraktCalendarScreenState extends State<TraktCalendarScreen> {
           ),
           SizedBox(height: isCompact ? 6 : 8),
           if (!isCompact) ...[
-            Text(
-              'Pick a year and month, then browse only the days that actually have episodes airing. No grid, no jitter, just the schedule.',
+            Text(AppLocalizations.of(context).t('Pick a year and month, then browse only the days that actually have episodes airing. No grid, no jitter, just the schedule.'),
               style: TextStyle(
                 color: app.core.tx.withValues(alpha: 0.72),
                 fontSize: 14,
@@ -783,8 +780,7 @@ class _TraktCalendarScreenState extends State<TraktCalendarScreen> {
             ),
             const SizedBox(height: 16),
           ] else ...[
-            Text(
-              'Only days with actual episodes are shown.',
+            Text(AppLocalizations.of(context).t('Only days with actual episodes are shown.'),
               style: TextStyle(
                 color: app.core.tx.withValues(alpha: 0.68),
                 fontSize: 12,
@@ -802,7 +798,7 @@ class _TraktCalendarScreenState extends State<TraktCalendarScreen> {
               children: [
                 Expanded(
                   child: _SelectorField(
-                    label: 'Year',
+                    label: AppLocalizations.of(context).t('Year'),
                     value: _selectedYear,
                     focusNode: _yearFocusNode,
                     dense: true,
@@ -822,7 +818,7 @@ class _TraktCalendarScreenState extends State<TraktCalendarScreen> {
                 SizedBox(width: 10),
                 Expanded(
                   child: _SelectorField(
-                    label: 'Month',
+                    label: AppLocalizations.of(context).t('Month'),
                     value: _selectedMonth,
                     focusNode: _monthFocusNode,
                     dense: true,
@@ -850,7 +846,7 @@ class _TraktCalendarScreenState extends State<TraktCalendarScreen> {
                 SizedBox(
                   width: isWide ? 170 : 160,
                   child: _SelectorField(
-                    label: 'Year',
+                    label: AppLocalizations.of(context).t('Year'),
                     value: _selectedYear,
                     focusNode: _yearFocusNode,
                     items: [
@@ -869,7 +865,7 @@ class _TraktCalendarScreenState extends State<TraktCalendarScreen> {
                 SizedBox(
                   width: isWide ? 210 : 190,
                   child: _SelectorField(
-                    label: 'Month',
+                    label: AppLocalizations.of(context).t('Month'),
                     value: _selectedMonth,
                     focusNode: _monthFocusNode,
                     items: [
@@ -942,7 +938,7 @@ class _TraktCalendarScreenState extends State<TraktCalendarScreen> {
       SizedBox(
         width: dense ? 160 : 190,
         child: _SelectorField<CalendarTimeFormat>(
-          label: 'Time format',
+          label: AppLocalizations.of(context).t('Time format'),
           value: _timeFormat,
           focusNode: _timeFormatFocusNode,
           dense: dense,

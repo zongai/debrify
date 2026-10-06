@@ -411,8 +411,7 @@ class HomeTraktNowPlayingCardState extends State<HomeTraktNowPlayingCard>
                         children: [
                           Row(
                             children: [
-                              const Text(
-                                'TRAKT - WATCHING',
+                              Text(AppLocalizations.of(context).t('TRAKT - WATCHING'),
                                 style: TextStyle(
                                   color: _watchingGreen,
                                   fontSize: 8.5,

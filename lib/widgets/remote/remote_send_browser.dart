@@ -97,8 +97,7 @@ class _RemoteSendBrowserState extends State<RemoteSendBrowser> {
                 widget.onEverything,
               ),
               SizedBox(height: 22),
-              Text(
-                'Or send just what you need',
+              Text(AppLocalizations.of(context).t('Or send just what you need'),
                 style: TextStyle(
                   color: app.core.tx,
                   fontSize: 18,
@@ -206,8 +205,7 @@ class _RemoteSendBrowserState extends State<RemoteSendBrowser> {
                             onPressed: (widget.busy || widget.loading)
                                 ? null
                                 : () => widget.onSend([choice]),
-                            child: Text(
-                              'Send',
+                            child: Text(AppLocalizations.of(context).t('Send'),
                               semanticsLabel: 'Send ${choice.label} only',
                             ),
                           ),
@@ -227,8 +225,7 @@ class _RemoteSendBrowserState extends State<RemoteSendBrowser> {
                   ),
                 ),
               if (_group == RemoteSendGroup.setup && widget.filePlaylists > 0)
-                Text(
-                  'File-imported IPTV playlists are included in Send everything → All profiles.',
+                Text(AppLocalizations.of(context).t('File-imported IPTV playlists are included in Send everything → All profiles.'),
                   style: TextStyle(color: t.dim),
                 ),
             ],

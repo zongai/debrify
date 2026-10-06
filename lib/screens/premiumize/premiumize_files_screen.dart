@@ -1160,16 +1160,14 @@ class _PremiumizeFilesScreenState extends State<PremiumizeFilesScreen> {
       builder: (context) => AlertDialog(
         backgroundColor: AppThemeScope.of(context).cloud.dialogSurface,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-        title: const Text(
-          'Add to Premiumize',
+        title: Text(AppLocalizations.of(context).t('Add to Premiumize'),
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
         content: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(
-              'Enter a magnet or link to add to your cloud:',
+            Text(AppLocalizations.of(context).t('Enter a magnet or link to add to your cloud:'),
               style: TextStyle(color: Colors.grey, fontSize: 14),
             ),
             const SizedBox(height: 12),
@@ -1211,8 +1209,7 @@ class _PremiumizeFilesScreenState extends State<PremiumizeFilesScreen> {
               ),
             ),
             SizedBox(height: 8),
-            Text(
-              'Adding to cloud spends fair-use points (~1pt/GB).',
+            Text(AppLocalizations.of(context).t('Adding to cloud spends fair-use points (~1pt/GB).'),
               style: TextStyle(color: Colors.grey[600], fontSize: 12),
             ),
           ],
@@ -1230,7 +1227,7 @@ class _PremiumizeFilesScreenState extends State<PremiumizeFilesScreen> {
               backgroundColor: const Color(0xFFFB923C),
             ),
             onPressed: _isAddingLink ? null : _addLink,
-            child: const Text('Add', style: TextStyle(color: Colors.black)),
+            child: Text(AppLocalizations.of(context).t('Add'), style: TextStyle(color: Colors.black)),
           ),
         ],
       ),
@@ -1883,7 +1880,7 @@ class _PremiumizeFilesScreenState extends State<PremiumizeFilesScreen> {
     }
     if (_searchResults.isEmpty) {
       return const Center(
-        child: Text('No results found', style: TextStyle(color: Colors.grey)),
+        child: Text(AppLocalizations.of(context).t('No results found'), style: TextStyle(color: Colors.grey)),
       );
     }
     // Reuse the full file card so search results get the same Open / Play /
@@ -1946,7 +1943,7 @@ class _PremiumizeFilesScreenState extends State<PremiumizeFilesScreen> {
             ? [
                 CloudRowAction(
                   icon: Icons.folder_open_rounded,
-                  label: 'Browse folder',
+                  label: AppLocalizations.of(context).t('Browse folder'),
                   onSelected: () => _navigateIntoFolder(item),
                 ),
               ]
@@ -1964,7 +1961,7 @@ class _PremiumizeFilesScreenState extends State<PremiumizeFilesScreen> {
       if (item.isFolder || isVideo)
         CloudRowAction(
           icon: Icons.play_arrow_rounded,
-          label: 'Play',
+          label: AppLocalizations.of(context).t('Play'),
           showInStrip: true,
           onSelected: () {
             if (item.isFolder) {
@@ -1976,7 +1973,7 @@ class _PremiumizeFilesScreenState extends State<PremiumizeFilesScreen> {
         ),
       CloudRowAction(
         icon: Icons.download,
-        label: 'Download',
+        label: AppLocalizations.of(context).t('Download'),
         showInStrip: true,
         onSelected: () {
           if (item.isFolder) {
@@ -1989,12 +1986,12 @@ class _PremiumizeFilesScreenState extends State<PremiumizeFilesScreen> {
       if (item.isFolder || isVideo)
         CloudRowAction(
           icon: Icons.playlist_add,
-          label: 'Add to Playlist',
+          label: AppLocalizations.of(context).t('Add to Playlist'),
           onSelected: () => _addToPlaylist(item),
         ),
       CloudRowAction(
         icon: Icons.delete_outline,
-        label: 'Delete',
+        label: AppLocalizations.of(context).t('Delete'),
         destructive: true,
         onSelected: () => _showDeleteDialog(item),
       ),
@@ -2038,13 +2035,11 @@ class _PremiumizeFilesScreenState extends State<PremiumizeFilesScreen> {
                   color: Colors.grey.shade400,
                 ),
                 SizedBox(height: 16),
-                Text(
-                  'No Transfers',
+                Text(AppLocalizations.of(context).t('No Transfers'),
                   style: Theme.of(context).textTheme.headlineSmall,
                 ),
                 SizedBox(height: 8),
-                Text(
-                  'Magnets you add appear here while they download.',
+                Text(AppLocalizations.of(context).t('Magnets you add appear here while they download.'),
                   textAlign: TextAlign.center,
                   style: TextStyle(color: Colors.grey.shade600),
                 ),
@@ -2208,13 +2203,11 @@ class _PremiumizeFilesScreenState extends State<PremiumizeFilesScreen> {
               children: [
                 Icon(Icons.cloud_off, size: 64, color: Colors.grey.shade400),
                 SizedBox(height: 24),
-                Text(
-                  'Premiumize Not Configured',
+                Text(AppLocalizations.of(context).t('Premiumize Not Configured'),
                   style: Theme.of(context).textTheme.headlineSmall,
                 ),
                 SizedBox(height: 16),
-                Text(
-                  'Add your Premiumize API key in Settings to view and manage your cloud.',
+                Text(AppLocalizations.of(context).t('Add your Premiumize API key in Settings to view and manage your cloud.'),
                   textAlign: TextAlign.center,
                   style: TextStyle(color: Colors.grey.shade600),
                 ),
@@ -2250,8 +2243,7 @@ class _PremiumizeFilesScreenState extends State<PremiumizeFilesScreen> {
               children: [
                 Icon(Icons.error_outline, size: 64, color: Colors.red.shade400),
                 SizedBox(height: 24),
-                Text(
-                  'Failed to Load',
+                Text(AppLocalizations.of(context).t('Failed to Load'),
                   style: Theme.of(context).textTheme.headlineSmall,
                 ),
                 SizedBox(height: 16),

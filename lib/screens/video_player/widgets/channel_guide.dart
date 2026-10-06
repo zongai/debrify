@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../l10n/app_localizations.dart';
+
 
 import 'package:flutter/services.dart';
 import '../../../utils/tv_keys.dart';
@@ -277,8 +279,7 @@ class _ChannelGuideState extends State<ChannelGuide>
           const SizedBox(width: 14),
           // Title
           const Expanded(
-            child: Text(
-              'CHANNEL GUIDE',
+            child: Text(AppLocalizations.of(context).t('CHANNEL GUIDE'),
               style: TextStyle(
                 color: Colors.white,
                 fontSize: 16,
@@ -308,7 +309,7 @@ class _ChannelGuideState extends State<ChannelGuide>
         focusNode: _searchFocusNode,
         style: const TextStyle(color: Colors.white, fontSize: 14),
         decoration: InputDecoration(
-          hintText: 'Search channels...',
+          hintText: AppLocalizations.of(context).t('Search channels...'),
           hintStyle: TextStyle(color: Colors.white.withValues(alpha: 0.4)),
           prefixIcon: Icon(
             Icons.search,
@@ -347,8 +348,7 @@ class _ChannelGuideState extends State<ChannelGuide>
               size: 48,
             ),
             const SizedBox(height: 12),
-            Text(
-              'No channels found',
+            Text(AppLocalizations.of(context).t('No channels found'),
               style: TextStyle(
                 color: Colors.white.withValues(alpha: 0.5),
                 fontSize: 14,
@@ -480,8 +480,7 @@ class _ChannelListItem extends StatelessWidget {
                   ),
                   borderRadius: BorderRadius.circular(4),
                 ),
-                child: const Text(
-                  'NOW',
+                child: Text(AppLocalizations.of(context).t('NOW'),
                   style: TextStyle(
                     color: Colors.black,
                     fontSize: 10,

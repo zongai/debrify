@@ -231,7 +231,7 @@ class _DetailStageState extends State<DetailStage> {
             if (hasSources) ...[
               const SizedBox(width: 20),
               _TabButton(
-                label: 'Sources',
+                label: AppLocalizations.of(context).t('Sources'),
                 active: false,
                 focusNode: _sourcesNode,
                 trapLeft: tabs.isEmpty,

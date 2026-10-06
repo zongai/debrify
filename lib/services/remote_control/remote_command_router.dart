@@ -624,7 +624,7 @@ class RemoteCommandRouter {
             context,
             requestId: profileGraphRequestId,
             ok: false,
-            message: 'TV profile authorization is required',
+            message: AppLocalizations.of(context).t('TV profile authorization is required'),
           ),
         );
       } else if (action == RemoteAction.config && completeRequestId != null) {
@@ -633,7 +633,7 @@ class RemoteCommandRouter {
             context,
             data,
             ok: false,
-            message: 'TV profile authorization is required',
+            message: AppLocalizations.of(context).t('TV profile authorization is required'),
           ),
         );
       } else if (action == RemoteAction.config && channelRequestId != null) {
@@ -642,7 +642,7 @@ class RemoteCommandRouter {
             context,
             requestId: channelRequestId,
             ok: false,
-            message: 'TV profile authorization is required',
+            message: AppLocalizations.of(context).t('TV profile authorization is required'),
           ),
         );
       } else if (action == RemoteAction.config && startRequestId != null) {
@@ -651,7 +651,7 @@ class RemoteCommandRouter {
             context,
             requestId: startRequestId,
             ok: false,
-            message: 'TV profile authorization is required',
+            message: AppLocalizations.of(context).t('TV profile authorization is required'),
           ),
         );
       } else {
@@ -970,7 +970,7 @@ class RemoteCommandRouter {
           context,
           requestId: requestId,
           ok: false,
-          message: 'The TV could not start the configuration transfer',
+          message: AppLocalizations.of(context).t('The TV could not start the configuration transfer'),
         );
       }
       return;
@@ -1028,7 +1028,7 @@ class RemoteCommandRouter {
             context,
             data,
             ok: false,
-            message: 'The TV rejected the transfer completion',
+            message: AppLocalizations.of(context).t('The TV rejected the transfer completion'),
           );
           return;
         }
@@ -1055,7 +1055,7 @@ class RemoteCommandRouter {
             context,
             requestId: transferRequest.requestId,
             ok: false,
-            message: 'Some configuration packets did not reach the TV',
+            message: AppLocalizations.of(context).t('Some configuration packets did not reach the TV'),
           );
           _showSnackBar(
             'Configuration transfer was incomplete — send it again',
@@ -1071,7 +1071,7 @@ class RemoteCommandRouter {
               context,
               requestId: transferRequest.requestId,
               ok: false,
-              message: 'Some configuration packets did not reach the TV',
+              message: AppLocalizations.of(context).t('Some configuration packets did not reach the TV'),
             );
             _showSnackBar(
               'Configuration transfer was incomplete — send it again',
@@ -1538,7 +1538,7 @@ class RemoteCommandRouter {
         remoteContext,
         requestId: requestId,
         ok: false,
-        message: 'The TV is already importing profiles — wait for it',
+        message: AppLocalizations.of(context).t('The TV is already importing profiles — wait for it'),
       );
       return;
     }
@@ -1575,8 +1575,7 @@ class RemoteCommandRouter {
         remoteContext,
         requestId: requestId,
         ok: false,
-        message:
-            'The receiving device could not read the profile package. Retry the transfer.',
+        message: AppLocalizations.of(context).t('The receiving device could not read the profile package. Retry the transfer.'),
       );
       rethrow;
     } finally {
@@ -1614,7 +1613,7 @@ class RemoteCommandRouter {
         remoteContext,
         requestId: requestId,
         ok: false,
-        message: 'Finish setting up the TV, then resend',
+        message: AppLocalizations.of(context).t('Finish setting up the TV, then resend'),
       );
       return;
     }
@@ -1695,7 +1694,7 @@ class RemoteCommandRouter {
         remoteContext,
         requestId: requestId,
         ok: false,
-        message: 'TV profile authorization expired — resend',
+        message: AppLocalizations.of(context).t('TV profile authorization expired — resend'),
       );
       return;
     }
@@ -1714,7 +1713,7 @@ class RemoteCommandRouter {
         remoteContext,
         requestId: requestId,
         ok: false,
-        message: 'Open an Admin profile on the TV, then resend',
+        message: AppLocalizations.of(context).t('Open an Admin profile on the TV, then resend'),
       );
       return;
     }
@@ -1736,7 +1735,7 @@ class RemoteCommandRouter {
         remoteContext,
         requestId: requestId,
         ok: false,
-        message: 'Open the Debrify screen on the TV, then resend',
+        message: AppLocalizations.of(context).t('Open the Debrify screen on the TV, then resend'),
       );
       return;
     }
@@ -1820,7 +1819,7 @@ class RemoteCommandRouter {
         remoteContext,
         requestId: requestId,
         ok: false,
-        message: 'Declined on the TV',
+        message: AppLocalizations.of(context).t('Declined on the TV'),
       );
       return;
     }
@@ -1837,7 +1836,7 @@ class RemoteCommandRouter {
           context: context,
           barrierDismissible: false,
           builder: (_) =>
-              _RouterBusyDialog(message: 'Importing profiles…', done: done),
+              _RouterBusyDialog(message: AppLocalizations.of(context).t('Importing profiles…'), done: done),
         ),
       );
     }
@@ -1909,7 +1908,7 @@ class RemoteCommandRouter {
             remoteContext,
             requestId: requestId,
             ok: false,
-            message: 'Import failed on the TV; nothing was changed there',
+            message: AppLocalizations.of(context).t('Import failed on the TV; nothing was changed there'),
           );
           return;
         }
@@ -4335,7 +4334,7 @@ class RemoteCommandRouter {
           context,
           requestId: requestId,
           ok: true,
-          message: 'Channel imported on TV',
+          message: AppLocalizations.of(context).t('Channel imported on TV'),
         );
         return;
       }
@@ -4405,7 +4404,7 @@ class RemoteCommandRouter {
         context,
         requestId: requestId,
         ok: true,
-        message: 'Channel imported on TV',
+        message: AppLocalizations.of(context).t('Channel imported on TV'),
       );
     } catch (_) {
       debugPrint('RemoteCommandRouter: channel import failed');
@@ -4414,7 +4413,7 @@ class RemoteCommandRouter {
         context,
         requestId: requestId,
         ok: false,
-        message: 'The TV could not import the channel',
+        message: AppLocalizations.of(context).t('The TV could not import the channel'),
       );
     }
   }

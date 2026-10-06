@@ -330,18 +330,18 @@ class _AddonHubScreenState extends State<AddonHubScreen> {
     final confirmed = await showDialog<bool>(
       context: context,
       builder: (ctx) => _HubDialog(
-        title: 'Delete engine',
+        title: AppLocalizations.of(context).t('Delete engine'),
         content: Text(
           'Delete "${engine.displayName}"?',
           style: TextStyle(color: app.fade(app.core.tx, 0.75)),
         ),
         actions: [
           _HubDialogButton(
-            label: 'Cancel',
+            label: AppLocalizations.of(context).t('Cancel'),
             onTap: () => Navigator.of(ctx).pop(false),
           ),
           _HubDialogButton(
-            label: 'Delete',
+            label: AppLocalizations.of(context).t('Delete'),
             danger: true,
             onTap: () => Navigator.of(ctx).pop(true),
           ),
@@ -411,18 +411,18 @@ class _AddonHubScreenState extends State<AddonHubScreen> {
         final replace = await showDialog<bool>(
           context: context,
           builder: (ctx) => _HubDialog(
-            title: 'Engine already exists',
+            title: AppLocalizations.of(context).t('Engine already exists'),
             content: Text(
               AppLocalizations.of(context).t('Replace the existing "\$id"?').replaceAll('\$id', engineId),
               style: TextStyle(color: app.fade(app.core.tx, 0.75)),
             ),
             actions: [
               _HubDialogButton(
-                label: 'Cancel',
+                label: AppLocalizations.of(context).t('Cancel'),
                 onTap: () => Navigator.of(ctx).pop(false),
               ),
               _HubDialogButton(
-                label: 'Replace',
+                label: AppLocalizations.of(context).t('Replace'),
                 primary: true,
                 onTap: () => Navigator.of(ctx).pop(true),
               ),
@@ -618,9 +618,7 @@ class _AddonHubScreenState extends State<AddonHubScreen> {
       if (!mounted) return;
       messenger.showSnackBar(
         SnackBar(
-          content: Text(
-            'Configure link copied — open it in a browser, then '
-            'paste the configured URL into "Add addon".',
+          content: Text(AppLocalizations.of(context).t('Configure link copied — open it in a browser, then ')'paste the configured URL into "Add addon".',
           ),
           duration: Duration(seconds: 5),
         ),
@@ -634,7 +632,7 @@ class _AddonHubScreenState extends State<AddonHubScreen> {
     final url = await showDialog<String>(
       context: context,
       builder: (ctx) => _HubDialog(
-        title: 'Add addon',
+        title: AppLocalizations.of(context).t('Add addon'),
         content: TvTextField(
           controller: controller,
           autofocus: true,
@@ -655,11 +653,11 @@ class _AddonHubScreenState extends State<AddonHubScreen> {
         ),
         actions: [
           _HubDialogButton(
-            label: 'Cancel',
+            label: AppLocalizations.of(context).t('Cancel'),
             onTap: () => Navigator.of(ctx).pop(),
           ),
           _HubDialogButton(
-            label: 'Add',
+            label: AppLocalizations.of(context).t('Add'),
             primary: true,
             onTap: () => Navigator.of(ctx).pop(controller.text.trim()),
           ),
@@ -724,7 +722,7 @@ class _AddonHubScreenState extends State<AddonHubScreen> {
     return showDialog<void>(
       context: context,
       builder: (ctx) => _HubDialog(
-        title: 'Import complete',
+        title: AppLocalizations.of(context).t('Import complete'),
         content: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -739,7 +737,7 @@ class _AddonHubScreenState extends State<AddonHubScreen> {
         ),
         actions: [
           _HubDialogButton(
-            label: 'Done',
+            label: AppLocalizations.of(context).t('Done'),
             primary: true,
             onTap: () => Navigator.of(ctx).pop(),
           ),
@@ -813,7 +811,7 @@ class _AddonHubScreenState extends State<AddonHubScreen> {
     final confirmed = await showDialog<bool>(
       context: context,
       builder: (ctx) => _HubDialog(
-        title: 'Delete all addons?',
+        title: AppLocalizations.of(context).t('Delete all addons?'),
         content: Text(
           hasSharedAddons
               ? '$sharedCount addon${sharedCount == 1 ? ' is' : 's are'} '
@@ -825,11 +823,11 @@ class _AddonHubScreenState extends State<AddonHubScreen> {
         ),
         actions: [
           _HubDialogButton(
-            label: 'Cancel',
+            label: AppLocalizations.of(context).t('Cancel'),
             onTap: () => Navigator.of(ctx).pop(false),
           ),
           _HubDialogButton(
-            label: 'Delete all',
+            label: AppLocalizations.of(context).t('Delete all'),
             danger: true,
             onTap: () => Navigator.of(ctx).pop(true),
           ),
@@ -865,7 +863,7 @@ class _AddonHubScreenState extends State<AddonHubScreen> {
     final alias = await showDialog<String>(
       context: context,
       builder: (ctx) => _HubDialog(
-        title: 'Rename addon',
+        title: AppLocalizations.of(context).t('Rename addon'),
         content: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -876,7 +874,7 @@ class _AddonHubScreenState extends State<AddonHubScreen> {
               maxLength: 60,
               decoration: InputDecoration(
                 labelText: 'Display name',
-                hintText: 'For example, AIOStreams Main',
+                hintText: AppLocalizations.of(context).t('For example, AIOStreams Main'),
               ),
               onChanged: (next) => value = next,
               onFieldSubmitted: (next) => Navigator.of(ctx).pop(next.trim()),
@@ -896,15 +894,15 @@ class _AddonHubScreenState extends State<AddonHubScreen> {
         ),
         actions: [
           _HubDialogButton(
-            label: 'Use manifest name',
+            label: AppLocalizations.of(context).t('Use manifest name'),
             onTap: () => Navigator.of(ctx).pop(''),
           ),
           _HubDialogButton(
-            label: 'Cancel',
+            label: AppLocalizations.of(context).t('Cancel'),
             onTap: () => Navigator.of(ctx).pop(),
           ),
           _HubDialogButton(
-            label: 'Save',
+            label: AppLocalizations.of(context).t('Save'),
             primary: true,
             onTap: () => Navigator.of(ctx).pop(value.trim()),
           ),
@@ -980,7 +978,7 @@ class _AddonHubScreenState extends State<AddonHubScreen> {
     final confirmed = await showDialog<bool>(
       context: context,
       builder: (ctx) => _HubDialog(
-        title: 'Remove addon',
+        title: AppLocalizations.of(context).t('Remove addon'),
         content: Text(
           isShared
               ? '"${a.displayName}" is shared with $borrowerCount other '
@@ -991,11 +989,11 @@ class _AddonHubScreenState extends State<AddonHubScreen> {
         ),
         actions: [
           _HubDialogButton(
-            label: 'Cancel',
+            label: AppLocalizations.of(context).t('Cancel'),
             onTap: () => Navigator.of(ctx).pop(false),
           ),
           _HubDialogButton(
-            label: 'Remove',
+            label: AppLocalizations.of(context).t('Remove'),
             danger: true,
             onTap: () => Navigator.of(ctx).pop(true),
           ),
@@ -1101,7 +1099,7 @@ class _AddonHubScreenState extends State<AddonHubScreen> {
         ),
         actions: [
           _HubDialogButton(
-            label: 'Copy URL',
+            label: AppLocalizations.of(context).t('Copy URL'),
             onTap: () {
               Clipboard.setData(ClipboardData(text: a.manifestUrl));
               Navigator.of(ctx).pop();
@@ -1111,7 +1109,7 @@ class _AddonHubScreenState extends State<AddonHubScreen> {
             },
           ),
           _HubDialogButton(
-            label: 'Close',
+            label: AppLocalizations.of(context).t('Close'),
             primary: true,
             onTap: () => Navigator.of(ctx).pop(),
           ),
@@ -1321,8 +1319,7 @@ class _AddonHubScreenState extends State<AddonHubScreen> {
   Widget _buildHeader() {
     return Padding(
       padding: EdgeInsets.fromLTRB(24, 14, 24, 8),
-      child: Text(
-        'Addons',
+      child: Text(AppLocalizations.of(context).t('Addons'),
         style: TextStyle(
           fontSize: 22,
           fontWeight: FontWeight.w800,
@@ -1390,7 +1387,7 @@ class _AddonHubScreenState extends State<AddonHubScreen> {
         final addBtn = _HubActionButton(
           focusNode: _addFocus,
           icon: Icons.add_rounded,
-          label: 'Add addon',
+          label: AppLocalizations.of(context).t('Add addon'),
           primary: true,
           expand: narrow,
           onTap: _addByUrl,
@@ -1402,7 +1399,7 @@ class _AddonHubScreenState extends State<AddonHubScreen> {
         );
         final importBtn = _HubActionButton(
           icon: Icons.file_upload_outlined,
-          label: 'Import YAML',
+          label: AppLocalizations.of(context).t('Import YAML'),
           primary: true,
           expand: narrow,
           onTap: _importEngineFromFile,
@@ -1542,7 +1539,7 @@ class _AddonHubScreenState extends State<AddonHubScreen> {
               decoration: InputDecoration(
                 isDense: true,
                 border: InputBorder.none,
-                hintText: 'Search addons',
+                hintText: AppLocalizations.of(context).t('Search addons'),
                 hintStyle: TextStyle(color: app.fade(app.core.tx, 0.35)),
               ),
               onSubmitted: (_) => _focusFirstRow(),
@@ -1672,16 +1669,14 @@ class _AddonHubScreenState extends State<AddonHubScreen> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text(
-                      'Metadata provider',
+                    Text(AppLocalizations.of(context).t('Metadata provider'),
                       style: TextStyle(
                         fontSize: 14,
                         fontWeight: FontWeight.w700,
                       ),
                     ),
                     const SizedBox(height: 3),
-                    Text(
-                      'Used to enrich details from Trakt, Simkl and MDBList.',
+                    Text(AppLocalizations.of(context).t('Used to enrich details from Trakt, Simkl and MDBList.'),
                       style: TextStyle(
                         fontSize: 12,
                         color: app.fade(app.core.tx, 0.55),
@@ -1876,7 +1871,7 @@ class _AddonHubScreenState extends State<AddonHubScreen> {
         subtitle: _marketError!,
         action: _HubActionButton(
           icon: Icons.refresh_rounded,
-          label: 'Retry',
+          label: AppLocalizations.of(context).t('Retry'),
           primary: true,
           onTap: () => _loadMarket(_source, force: true),
         ),
@@ -1888,8 +1883,8 @@ class _AddonHubScreenState extends State<AddonHubScreen> {
     if (items.isEmpty) {
       return _emptyState(
         icon: Icons.search_off_rounded,
-        title: 'No matches',
-        subtitle: 'Try a different type or search.',
+        title: AppLocalizations.of(context).t('No matches'),
+        subtitle: AppLocalizations.of(context).t('Try a different type or search.'),
       );
     }
     // Assign each FOCUSABLE row (installed rows have no button) a nav index so
@@ -1937,7 +1932,7 @@ class _AddonHubScreenState extends State<AddonHubScreen> {
         subtitle: _enginesError!,
         action: _HubActionButton(
           icon: Icons.refresh_rounded,
-          label: 'Retry',
+          label: AppLocalizations.of(context).t('Retry'),
           primary: true,
           onTap: _loadEngines,
         ),
@@ -1946,8 +1941,8 @@ class _AddonHubScreenState extends State<AddonHubScreen> {
     if (_importedEngines.isEmpty && _availableEngines.isEmpty) {
       return _emptyState(
         icon: Icons.travel_explore_rounded,
-        title: 'No engines available',
-        subtitle: 'Import an engine YAML, or check back after a refresh.',
+        title: AppLocalizations.of(context).t('No engines available'),
+        subtitle: AppLocalizations.of(context).t('Import an engine YAML, or check back after a refresh.'),
       );
     }
     return ListView(
@@ -2405,7 +2400,7 @@ class _AddonMeta extends StatelessWidget {
             children: [
               for (final cap in _capabilities(resources))
                 _CapabilityChip(label: cap.$1, highlight: cap.$2),
-              if (warnDebrid) _WarningChip(label: 'Needs debrid'),
+              if (warnDebrid) _WarningChip(label: AppLocalizations.of(context).t('Needs debrid')),
             ],
           ),
         ],
@@ -2547,8 +2542,7 @@ class _MarketRow extends StatelessWidget {
             color: kSeeAllAccent2.withValues(alpha: 0.9),
           ),
           const SizedBox(width: 6),
-          Text(
-            'Installed',
+          Text(AppLocalizations.of(context).t('Installed'),
             style: TextStyle(
               color: Colors.white.withValues(alpha: 0.55),
               fontSize: 12,
@@ -2567,7 +2561,7 @@ class _MarketRow extends StatelessWidget {
     if (!addon.configurationRequired) {
       buttons.add(
         _MarketButton(
-          label: 'Install',
+          label: AppLocalizations.of(context).t('Install'),
           primary: true,
           focusNode: primaryNode,
           onArrowDown: _onDown,
@@ -2579,7 +2573,7 @@ class _MarketRow extends StatelessWidget {
     if (addon.configurationRequired || addon.configurable) {
       buttons.add(
         _MarketButton(
-          label: 'Configure',
+          label: AppLocalizations.of(context).t('Configure'),
           focusNode: buttons.isEmpty ? primaryNode : null,
           onArrowDown: _onDown,
           onArrowUp: _onUp,
@@ -2950,23 +2944,23 @@ class _AddonOptionsSheet extends StatelessWidget {
             if (!addon.connectionResourceSecretPending)
               _OptionTile(
                 icon: Icons.sync_rounded,
-                label: 'Update',
+                label: AppLocalizations.of(context).t('Update'),
                 onTap: onUpdate,
               ),
             if (onRename != null)
               _OptionTile(
                 icon: Icons.drive_file_rename_outline_rounded,
-                label: 'Rename',
+                label: AppLocalizations.of(context).t('Rename'),
                 onTap: onRename!,
               ),
             _OptionTile(
               icon: Icons.info_outline_rounded,
-              label: 'View details',
+              label: AppLocalizations.of(context).t('View details'),
               onTap: onDetails,
             ),
             _OptionTile(
               icon: Icons.delete_outline_rounded,
-              label: 'Remove',
+              label: AppLocalizations.of(context).t('Remove'),
               danger: true,
               onTap: onRemove,
             ),

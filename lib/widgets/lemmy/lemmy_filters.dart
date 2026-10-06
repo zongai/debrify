@@ -610,8 +610,7 @@ class _CommunityPickerSheetState extends State<_CommunityPickerSheet> {
                     // Title
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 16),
-                      child: Text(
-                        'Select Community',
+                      child: Text(AppLocalizations.of(context).t('Select Community'),
                         style: theme.textTheme.titleLarge?.copyWith(
                           fontWeight: FontWeight.bold,
                         ),
@@ -651,7 +650,7 @@ class _CommunityPickerSheetState extends State<_CommunityPickerSheet> {
                                   // field's focus ring; skip the shell's.
                                   shellRing: false,
                                   decoration: InputDecoration(
-                                    hintText: 'community@instance',
+                                    hintText: AppLocalizations.of(context).t('community@instance'),
                                     prefixIcon: const Icon(Icons.tag),
                                     prefixText: 'c/',
                                     border: OutlineInputBorder(
@@ -722,7 +721,7 @@ class _CommunityPickerSheetState extends State<_CommunityPickerSheet> {
         order: NumericFocusOrder(1.0 + allIndex),
         child: _FocusableCommunityTile(
           focusNode: allIndex < _tileFocusNodes.length ? _tileFocusNodes[allIndex] : null,
-          label: 'All Communities',
+          label: AppLocalizations.of(context).t('All Communities'),
           icon: Icons.public,
           isSelected: widget.currentCommunity == null,
           onTap: () => _selectCommunity(null),
@@ -739,8 +738,7 @@ class _CommunityPickerSheetState extends State<_CommunityPickerSheet> {
     // Favorites section
     if (_favoriteCommunities.isNotEmpty) {
       items.add(
-        Text(
-          'Favorites',
+        Text(AppLocalizations.of(context).t('Favorites'),
           style: theme.textTheme.labelMedium?.copyWith(
             color: colorScheme.onSurfaceVariant,
           ),
@@ -772,8 +770,7 @@ class _CommunityPickerSheetState extends State<_CommunityPickerSheet> {
 
     // Popular section
     items.add(
-      Text(
-        'Popular',
+      Text(AppLocalizations.of(context).t('Popular'),
         style: theme.textTheme.labelMedium?.copyWith(
           color: colorScheme.onSurfaceVariant,
         ),
@@ -1126,8 +1123,7 @@ class _SortPickerSheetState extends State<_SortPickerSheet> {
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16),
-              child: Text(
-                'Sort By',
+              child: Text(AppLocalizations.of(context).t('Sort By'),
                 style: theme.textTheme.titleMedium?.copyWith(
                   fontWeight: FontWeight.bold,
                 ),
@@ -1249,8 +1245,7 @@ class _TimePickerSheetState extends State<_TimePickerSheet> {
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16),
-              child: Text(
-                'Time Filter',
+              child: Text(AppLocalizations.of(context).t('Time Filter'),
                 style: theme.textTheme.titleMedium?.copyWith(
                   fontWeight: FontWeight.bold,
                 ),
@@ -1473,8 +1468,7 @@ class _RandomButtonState extends State<_RandomButton> {
                       : colorScheme.onTertiaryContainer,
                 ),
               const SizedBox(width: 4),
-              Text(
-                'Random',
+              Text(AppLocalizations.of(context).t('Random'),
                 style: Theme.of(context).textTheme.bodySmall?.copyWith(
                   color: _isFocused
                       ? colorScheme.onPrimary

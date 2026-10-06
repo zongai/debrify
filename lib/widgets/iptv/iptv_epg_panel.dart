@@ -2,6 +2,8 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 import 'package:flutter/services.dart';
 
 import '../../models/iptv_playlist.dart';
@@ -633,8 +635,7 @@ class _EpgRecordChip extends StatelessWidget {
             ),
           ),
           const SizedBox(width: 5),
-          Text(
-            'Record',
+          Text(AppLocalizations.of(context).t('Record'),
             style: TextStyle(
               color: solid
                   ? Colors.white
@@ -790,8 +791,7 @@ class IptvSchedulePane extends StatelessWidget {
                           color: app.core.tx.withAlpha(0xB3),
                         ),
                       ),
-                    Text(
-                      'TV GUIDE',
+                    Text(AppLocalizations.of(context).t('TV GUIDE'),
                       style: TextStyle(
                         color: app.home.focus.withValues(alpha: 0.9),
                         fontSize: 10,
@@ -814,8 +814,7 @@ class IptvSchedulePane extends StatelessWidget {
                     ),
                     if (isTelevision) ...[
                       const SizedBox(width: 10),
-                      Text(
-                        'BACK to close',
+                      Text(AppLocalizations.of(context).t('BACK to close'),
                         style: TextStyle(
                           color: app.iptv.inkFaint,
                           fontSize: 10.5,
@@ -1086,8 +1085,7 @@ class _EpgScheduleListState extends State<EpgScheduleList> {
                     : t.fgFaint,
               ),
               const SizedBox(height: 12),
-              Text(
-                'No guide data for this channel',
+              Text(AppLocalizations.of(context).t('No guide data for this channel'),
                 style: TextStyle(
                   color: t == null
                       ? app.iptv.inkDim

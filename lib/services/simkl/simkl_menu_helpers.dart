@@ -54,8 +54,7 @@ Future<int?> showSimklRatingDialog(BuildContext context) {
                     size: 24,
                   ),
                   SizedBox(width: 8),
-                  Text(
-                    'Rate this item',
+                  Text(AppLocalizations.of(context).t('Rate this item'),
                     style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
                   ),
                 ],
@@ -94,8 +93,7 @@ Future<int?> showSimklRatingDialog(BuildContext context) {
               SizedBox(height: 12),
               TextButton(
                 onPressed: () => Navigator.of(dialogContext).pop(),
-                child: Text(
-                  'Cancel',
+                child: Text(AppLocalizations.of(context).t('Cancel'),
                   style: TextStyle(color: Colors.white54),
                 ),
               ),
@@ -314,7 +312,7 @@ List<SimklMenuOption> buildSimklMenuOptions({
   return [
     SimklMenuOption(action: SimklItemMenuAction.clearWatchProgress,
       icon: Icons.restart_alt_rounded, color: Color(0xFFEF4444),
-      label: 'Clear watch progress on Simkl', caption: 'Clear progress'),
+      label: AppLocalizations.of(context).t('Clear watch progress on Simkl'), caption: 'Clear progress'),
     if (current != 'plantowatch')
       moveOption(
         'plantowatch',
@@ -355,7 +353,7 @@ List<SimklMenuOption> buildSimklMenuOptions({
         action: SimklItemMenuAction.removeFromList,
         icon: Icons.remove_circle_outline_rounded,
         color: Color(0xFFF87171),
-        label: 'Remove from Simkl',
+        label: AppLocalizations.of(context).t('Remove from Simkl'),
         caption: 'Remove',
       ),
     // Only when the title is actually in Continue Watching (has a paused
@@ -366,7 +364,7 @@ List<SimklMenuOption> buildSimklMenuOptions({
         action: SimklItemMenuAction.removeFromContinueWatching,
         icon: Icons.playlist_remove_rounded,
         color: Color(0xFFF87171),
-        label: 'Remove from Continue Watching',
+        label: AppLocalizations.of(context).t('Remove from Continue Watching'),
         caption: 'Remove',
       ),
     SimklMenuOption(
@@ -383,7 +381,7 @@ List<SimklMenuOption> buildSimklMenuOptions({
         action: SimklItemMenuAction.removeRating,
         icon: Icons.star_outline_rounded,
         color: Color(0xFF22D3EE),
-        label: 'Remove Simkl Rating',
+        label: AppLocalizations.of(context).t('Remove Simkl Rating'),
         caption: 'Unrate',
       ),
   ];

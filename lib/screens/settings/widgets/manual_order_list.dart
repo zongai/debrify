@@ -470,7 +470,7 @@ class ManualOrderListState extends State<ManualOrderList> {
               key: _searchFieldKey,
               controller: _searchController,
               focusNode: _searchNode,
-              hintText: 'Search…',
+              hintText: AppLocalizations.of(context).t('Search…'),
               textInputAction: TextInputAction.search,
               prefixIcon: Icon(Icons.search_rounded),
               suffixIcon: _query.isEmpty

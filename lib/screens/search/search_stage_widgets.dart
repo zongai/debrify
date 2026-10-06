@@ -1,3 +1,4 @@
+import '../../l10n/app_localizations.dart';
 part of '../search_screen.dart';
 
 enum _CwKind { local, trakt, simkl, mdblist, iptv }
@@ -1589,8 +1590,7 @@ class _CanvasIdentity extends StatelessWidget {
                               : MainAxisAlignment.start,
                           children: [
                             if (rating != null) ...[
-                              const Text(
-                                'IMDb',
+                              Text(AppLocalizations.of(context).t('IMDb'),
                                 style: TextStyle(
                                   color: Color(0xFFF5C518),
                                   fontSize: 12,

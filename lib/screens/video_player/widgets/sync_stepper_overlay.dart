@@ -3,6 +3,8 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
+import '../../../l10n/app_localizations.dart';
+
 import 'package:flutter/services.dart';
 
 import '../../../utils/platform_util.dart';
@@ -181,8 +183,7 @@ class _SyncStepperOverlayState extends State<SyncStepperOverlay> {
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Text(
-            'SUBTITLE SYNC',
+          Text(AppLocalizations.of(context).t('SUBTITLE SYNC'),
             style: TextStyle(
               color: _ink.withValues(alpha: 0.50),
               fontSize: 11,
@@ -229,9 +230,9 @@ class _SyncStepperOverlayState extends State<SyncStepperOverlay> {
           ),
           if (!onTv) ...[
             const SizedBox(width: 16),
-            _TextPillButton(label: 'Reset', onTap: () => widget.onOffsetChanged(0)),
+            _TextPillButton(label: AppLocalizations.of(context).t('Reset'), onTap: () => widget.onOffsetChanged(0)),
             SizedBox(width: 8),
-            _TextPillButton(label: 'Done', onTap: widget.onDismiss, solid: true),
+            _TextPillButton(label: AppLocalizations.of(context).t('Done'), onTap: widget.onDismiss, solid: true),
           ],
         ],
       ),

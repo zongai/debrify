@@ -444,16 +444,14 @@ class YoutubeResultsViewState extends State<YoutubeResultsView>
               color: app.youtube.textFaint,
             ),
             const SizedBox(height: 16),
-            const Text(
-              'No videos found',
+            Text(AppLocalizations.of(context).t('No videos found'),
               style: TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.w700,
               ),
             ),
             const SizedBox(height: 8),
-            Text(
-              'Try a different search term',
+            Text(AppLocalizations.of(context).t('Try a different search term'),
               style: TextStyle(
                 color: app.youtube.textDim,
                 fontSize: 14,

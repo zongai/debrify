@@ -189,8 +189,7 @@ class _TvTimePickerDialogState extends State<_TvTimePickerDialog> {
               ],
             ),
             const SizedBox(height: 14),
-            Text(
-              'Up/Down changes · Left/Right moves',
+            Text(AppLocalizations.of(context).t('Up/Down changes · Left/Right moves'),
               style: theme.textTheme.bodySmall?.copyWith(
                 color: theme.colorScheme.onSurface.withValues(alpha: 0.6),
               ),

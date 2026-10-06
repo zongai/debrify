@@ -631,8 +631,7 @@ class _SpotlightTvArmState extends State<_SpotlightTvArm> {
               children: [
                 SpotlightKick('Debrify TV', color: tv.accent),
                 const SizedBox(height: 7),
-                Text(
-                  'Channels',
+                Text(AppLocalizations.of(context).t('Channels'),
                   style: TextStyle(
                     fontSize: 31,
                     height: 0.98,
@@ -672,7 +671,7 @@ class _SpotlightTvArmState extends State<_SpotlightTvArm> {
                   onKey: (n, e) => _railKey('qp', n, e),
                   onActivate: view.busy ? null : view.onQuickPlay,
                   icon: Icons.play_arrow_rounded,
-                  label: 'Quick Play',
+                  label: AppLocalizations.of(context).t('Quick Play'),
                   trailing: 'Any keyword',
                   primary: true,
                 ),
@@ -692,9 +691,7 @@ class _SpotlightTvArmState extends State<_SpotlightTvArm> {
                         if (ordered.isEmpty && _query.isNotEmpty)
                           Padding(
                             padding: const EdgeInsets.only(top: 18),
-                            child: Text(
-                              'No channels match '
-                              '“${_search.text.trim()}”',
+                            child: Text(AppLocalizations.of(context).t('No channels match ')'“${_search.text.trim()}”',
                               style: TextStyle(
                                 fontSize: 11.5,
                                 color: tv.textFaint,
@@ -898,7 +895,7 @@ class _SpotlightTvArmState extends State<_SpotlightTvArm> {
       keyboardInk: app.core.tx,
       keyboardInkOnAccent: app.inkOn(app.settings.accent),
       decoration: InputDecoration(
-        hintText: 'Search channels',
+        hintText: AppLocalizations.of(context).t('Search channels'),
         hintStyle: TextStyle(fontSize: 12.5, color: tv.textFaint),
         prefixIcon: Icon(Icons.search_rounded, size: 16, color: tv.textFaint),
         prefixIconConstraints: const BoxConstraints(

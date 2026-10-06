@@ -244,8 +244,7 @@ class _TorrentFiltersSheetState extends State<TorrentFiltersSheet> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
-                    'Filter Results',
+                  Text(AppLocalizations.of(context).t('Filter Results'),
                     style: TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.w600,
@@ -301,8 +300,7 @@ class _TorrentFiltersSheetState extends State<TorrentFiltersSheet> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Text(
-                        'Quality',
+                      Text(AppLocalizations.of(context).t('Quality'),
                         style: TextStyle(
                           color: Colors.white70,
                           fontSize: 13,
@@ -366,8 +364,7 @@ class _TorrentFiltersSheetState extends State<TorrentFiltersSheet> {
                             .toList(),
                       ),
                       const SizedBox(height: 24),
-                      const Text(
-                        'Rip / Source',
+                      Text(AppLocalizations.of(context).t('Rip / Source'),
                         style: TextStyle(
                           color: Colors.white70,
                           fontSize: 13,
@@ -431,8 +428,7 @@ class _TorrentFiltersSheetState extends State<TorrentFiltersSheet> {
                             .toList(),
                       ),
                       const SizedBox(height: 24),
-                      const Text(
-                        'Language',
+                      Text(AppLocalizations.of(context).t('Language'),
                         style: TextStyle(
                           color: Colors.white70,
                           fontSize: 13,
@@ -486,8 +482,7 @@ class _TorrentFiltersSheetState extends State<TorrentFiltersSheet> {
                             .toList(),
                       ),
                       const SizedBox(height: 24),
-                      const Text(
-                        'Dynamic range',
+                      Text(AppLocalizations.of(context).t('Dynamic range'),
                         style: TextStyle(
                           color: Colors.white70,
                           fontSize: 13,
@@ -552,8 +547,7 @@ class _TorrentFiltersSheetState extends State<TorrentFiltersSheet> {
                             .toList(),
                       ),
                       const SizedBox(height: 24),
-                      const Text(
-                        'Size',
+                      Text(AppLocalizations.of(context).t('Size'),
                         style: TextStyle(
                           color: Colors.white70,
                           fontSize: 13,

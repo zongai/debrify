@@ -41,7 +41,7 @@ class RandomPlaybackDialog extends StatelessWidget {
                 context,
                 mode: RandomPlaybackMode.once,
                 icon: Icons.shuffle_rounded,
-                label: 'Play random once',
+                label: AppLocalizations.of(context).t('Play random once'),
                 description:
                     'Start one random episode. Playback continues normally after it.',
                 autofocus: true,
@@ -51,7 +51,7 @@ class RandomPlaybackDialog extends StatelessWidget {
                 context,
                 mode: RandomPlaybackMode.continuous,
                 icon: Icons.repeat_rounded,
-                label: 'Continuous shuffle',
+                label: AppLocalizations.of(context).t('Continuous shuffle'),
                 description:
                     'Start a random episode and keep choosing randomly across this series.',
               ),

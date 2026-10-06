@@ -1303,7 +1303,7 @@ class _SpotlightLiveTimelineState extends State<SpotlightLiveTimeline> {
           onKeyEvent: _onKeyEvent,
           child: Semantics(
             container: true,
-            label: 'Live television programme guide',
+            label: AppLocalizations.of(context).t('Live television programme guide'),
             child: LayoutBuilder(
               builder: (context, constraints) {
                 final identityWidth = math.min(
@@ -1511,9 +1511,8 @@ class _SpotlightLiveTimelineState extends State<SpotlightLiveTimeline> {
       color: _timelineBackground,
       alignment: Alignment.center,
       child: Semantics(
-        label: 'No live channels',
-        child: Text(
-          'No live channels',
+        label: AppLocalizations.of(context).t('No live channels'),
+        child: Text(AppLocalizations.of(context).t('No live channels'),
           style: TextStyle(color: tokens.fgDim, fontSize: 13),
         ),
       ),
@@ -1720,7 +1719,7 @@ class _SpotlightLiveTimelineState extends State<SpotlightLiveTimeline> {
           ),
         ),
         child: _GuideMessage(
-          label: 'On demand  ·  Press OK to open',
+          label: AppLocalizations.of(context).t('On demand  ·  Press OK to open'),
           color: tokens.fgFaint,
           leading: Icon(
             Icons.play_circle_outline_rounded,
@@ -1784,7 +1783,7 @@ class _SpotlightLiveTimelineState extends State<SpotlightLiveTimeline> {
           if (status == _GuideStatus.loading)
             _GuideMessage(
               key: ValueKey(('spotlight-loading', entry.entryKey)),
-              label: 'Loading guide…',
+              label: AppLocalizations.of(context).t('Loading guide…'),
               color: tokens.fgFaint,
               leading: SizedBox(
                 width: 12,
@@ -1798,7 +1797,7 @@ class _SpotlightLiveTimelineState extends State<SpotlightLiveTimeline> {
           else if (status == _GuideStatus.error)
             _GuideMessage(
               key: ValueKey(('spotlight-error', entry.entryKey)),
-              label: 'Guide unavailable  ·  Retry',
+              label: AppLocalizations.of(context).t('Guide unavailable  ·  Retry'),
               color: tokens.rec,
               hint: 'Press OK to retry the guide',
               focused: retrySelected,
@@ -1814,14 +1813,14 @@ class _SpotlightLiveTimelineState extends State<SpotlightLiveTimeline> {
           else if (snapshot!.programmes.isEmpty)
             _GuideMessage(
               key: ValueKey(('spotlight-empty', entry.entryKey)),
-              label: 'No programme information',
+              label: AppLocalizations.of(context).t('No programme information'),
               color: tokens.fgFaint,
               onTap: () => _tapIdentity(row),
             )
           else if (visible.isEmpty)
             _GuideMessage(
               key: ValueKey(('spotlight-window-empty', entry.entryKey)),
-              label: 'No information in this time window',
+              label: AppLocalizations.of(context).t('No information in this time window'),
               color: tokens.fgFaint,
               onTap: () => _tapIdentity(row),
             ),
@@ -1999,8 +1998,7 @@ class _SpotlightLiveTimelineState extends State<SpotlightLiveTimeline> {
                             : tokens.accent.withValues(alpha: 0.22),
                         borderRadius: BorderRadius.circular(5),
                       ),
-                      child: Text(
-                        'NOW',
+                      child: Text(AppLocalizations.of(context).t('NOW'),
                         style: TextStyle(
                           color: selected ? tokens.focusInk : tokens.accent,
                           fontSize: 7.5,

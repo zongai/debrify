@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../l10n/app_localizations.dart';
+
 import '../models/premiumize_user.dart';
 
 class PremiumizeAccountStatusWidget extends StatelessWidget {
@@ -59,18 +61,18 @@ class PremiumizeAccountStatusWidget extends StatelessWidget {
           children: [
             _StatusChip(
               icon: Icons.verified,
-              label: 'Premium',
+              label: AppLocalizations.of(context).t('Premium'),
               value: user.subscriptionStatus,
               color: user.hasActivePremium ? Colors.green : Colors.amber,
             ),
             _StatusChip(
               icon: Icons.speed,
-              label: 'Fair Use',
+              label: AppLocalizations.of(context).t('Fair Use'),
               value: user.formattedLimitUsed,
             ),
             _StatusChip(
               icon: Icons.cloud,
-              label: 'Cloud',
+              label: AppLocalizations.of(context).t('Cloud'),
               value: user.formattedSpaceUsed,
             ),
           ],
@@ -78,17 +80,17 @@ class PremiumizeAccountStatusWidget extends StatelessWidget {
         const SizedBox(height: 12),
         _InfoRow(
           icon: Icons.schedule,
-          label: 'Premium Expires',
+          label: AppLocalizations.of(context).t('Premium Expires'),
           value: user.formattedPremiumExpiry,
         ),
         _InfoRow(
           icon: Icons.speed,
-          label: 'Fair Use Limit',
+          label: AppLocalizations.of(context).t('Fair Use Limit'),
           value: user.formattedLimitUsed,
         ),
         _InfoRow(
           icon: Icons.cloud_done,
-          label: 'Cloud Storage Used',
+          label: AppLocalizations.of(context).t('Cloud Storage Used'),
           value: user.formattedSpaceUsed,
         ),
       ],

@@ -422,7 +422,7 @@ class _IptvHiddenCategoriesPageState extends State<IptvHiddenCategoriesPage> {
               onChanged: (v) => setState(() => _query = v.trim()),
               decoration: InputDecoration(
                 isDense: true,
-                hintText: 'Filter categories…',
+                hintText: AppLocalizations.of(context).t('Filter categories…'),
                 prefixIcon: Icon(Icons.search_rounded, size: 18),
               ),
             ),

@@ -33,8 +33,7 @@ class LemmyEmptyState extends StatelessWidget {
             const SizedBox(height: 24),
 
             // Title
-            Text(
-              'Lemmy Videos',
+            Text(AppLocalizations.of(context).t('Lemmy Videos'),
               style: theme.textTheme.headlineSmall?.copyWith(
                 fontWeight: FontWeight.bold,
               ),
@@ -42,8 +41,7 @@ class LemmyEmptyState extends StatelessWidget {
             const SizedBox(height: 8),
 
             // Subtitle
-            Text(
-              'Search for videos or pick a community to start browsing',
+            Text(AppLocalizations.of(context).t('Search for videos or pick a community to start browsing'),
               style: theme.textTheme.bodyMedium?.copyWith(
                 color: colorScheme.onSurfaceVariant,
               ),

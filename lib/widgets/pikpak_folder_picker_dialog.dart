@@ -514,8 +514,7 @@ class _PikPakFolderPickerDialogState extends State<PikPakFolderPickerDialog> {
                         const Icon(Icons.folder_open, size: 24),
                         const SizedBox(width: 12),
                         Expanded(
-                          child: Text(
-                            'Select Folder to Restrict',
+                          child: Text(AppLocalizations.of(context).t('Select Folder to Restrict'),
                             style: TextStyle(
                               fontSize: screenWidth < 400 ? 16 : 18,
                               fontWeight: FontWeight.bold,
@@ -595,8 +594,7 @@ class _PikPakFolderPickerDialogState extends State<PikPakFolderPickerDialog> {
                                     color: Colors.grey[400],
                                   ),
                                   SizedBox(height: 16),
-                                  Text(
-                                    'No folders found in your account',
+                                  Text(AppLocalizations.of(context).t('No folders found in your account'),
                                     style: TextStyle(color: Colors.grey[600]),
                                   ),
                                 ],
@@ -1023,8 +1021,7 @@ class _NewFolderDialogState extends State<_NewFolderDialog> {
                   const Icon(Icons.create_new_folder, size: 24),
                   const SizedBox(width: 12),
                   const Expanded(
-                    child: Text(
-                      'Create New Folder',
+                    child: Text(AppLocalizations.of(context).t('Create New Folder'),
                       style: TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
@@ -1073,7 +1070,7 @@ class _NewFolderDialogState extends State<_NewFolderDialog> {
                 onDownArrow: () => _createButtonFocusNode.requestFocus(),
                 decoration: InputDecoration(
                   labelText: 'Folder Name',
-                  hintText: 'Enter folder name',
+                  hintText: AppLocalizations.of(context).t('Enter folder name'),
                   errorText: _errorMessage.isEmpty ? null : _errorMessage,
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(8),

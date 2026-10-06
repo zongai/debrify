@@ -112,8 +112,7 @@ class _RailSeeAllPillState extends State<RailSeeAllPill> {
           child: Row(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Text(
-                'See all',
+              Text(AppLocalizations.of(context).t('See all'),
                 style: TextStyle(
                   color: color,
                   fontSize: 12.5,

@@ -72,8 +72,7 @@ class _ProviderPickerDialogState extends State<_ProviderPickerDialog> {
               children: [
                 Padding(
                   padding: EdgeInsets.fromLTRB(22, 22, 22, 4),
-                  child: Text(
-                    'Choose provider',
+                  child: Text(AppLocalizations.of(context).t('Choose provider'),
                     style: TextStyle(
                       fontSize: 19,
                       fontWeight: FontWeight.w700,
@@ -82,8 +81,7 @@ class _ProviderPickerDialogState extends State<_ProviderPickerDialog> {
                 ),
                 Padding(
                   padding: const EdgeInsets.fromLTRB(22, 0, 22, 14),
-                  child: Text(
-                    'Where should we add this torrent?',
+                  child: Text(AppLocalizations.of(context).t('Where should we add this torrent?'),
                     style: TextStyle(
                       color: Colors.white.withValues(alpha: 0.55),
                       fontSize: 13,
@@ -250,8 +248,7 @@ class _RememberRowState extends State<_RememberRow> {
                 size: 22,
               ),
               const SizedBox(width: 12),
-              Text(
-                'Remember my choice',
+              Text(AppLocalizations.of(context).t('Remember my choice'),
                 style: TextStyle(
                   color: Colors.white.withValues(alpha: 0.75),
                   fontSize: 14,

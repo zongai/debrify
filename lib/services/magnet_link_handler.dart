@@ -400,8 +400,7 @@ class MagnetLinkHandler {
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              'Which service would you like to use for this magnet link?',
+            Text(AppLocalizations.of(context).t('Which service would you like to use for this magnet link?'),
             ),
             SizedBox(height: 8),
             Text(

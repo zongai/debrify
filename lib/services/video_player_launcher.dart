@@ -796,9 +796,7 @@ class VideoPlayerLauncher {
           barrierDismissible: false,
           builder: (dialogContext) => AlertDialog(
             title: Text(AppLocalizations.of(context).t('External player unavailable')),
-            content: Text(
-              'This server requires authentication. Debrify cannot pass '
-              'the required authorization headers to another app, so this video '
+            content: Text(AppLocalizations.of(context).t('This server requires authentication. Debrify cannot pass ')'the required authorization headers to another app, so this video '
               'will open in the Debrify player.',
             ),
             actions: [
@@ -1951,9 +1949,7 @@ class VideoPlayerLauncher {
           context: context,
           builder: (dialogContext) => AlertDialog(
             title: Text(AppLocalizations.of(context).t('Share stream with another app?')),
-            content: Text(
-              'This stream address may contain a short-lived account token. '
-              'The selected player will be able to read it.',
+            content: Text(AppLocalizations.of(context).t('This stream address may contain a short-lived account token. ')'The selected player will be able to read it.',
             ),
             actions: [
               TextButton(
@@ -2000,8 +1996,7 @@ class VideoPlayerLauncher {
                 overflow: TextOverflow.ellipsis,
               ),
               const SizedBox(height: 16),
-              const Text(
-                'Screen Type',
+              Text(AppLocalizations.of(context).t('Screen Type'),
                 style: TextStyle(fontWeight: FontWeight.w500),
               ),
               const SizedBox(height: 8),
@@ -2026,8 +2021,7 @@ class VideoPlayerLauncher {
                 },
               ),
               SizedBox(height: 16),
-              Text(
-                'Stereo Mode',
+              Text(AppLocalizations.of(context).t('Stereo Mode'),
                 style: TextStyle(fontWeight: FontWeight.w500),
               ),
               SizedBox(height: 8),

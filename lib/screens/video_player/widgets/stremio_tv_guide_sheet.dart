@@ -4,6 +4,8 @@ import 'dart:math' as math;
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
+import '../../../l10n/app_localizations.dart';
+
 
 import 'package:flutter/services.dart';
 import '../../../models/torrent.dart';
@@ -533,8 +535,7 @@ class _StremioTvGuideSheetState extends State<StremioTvGuideSheet>
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text(
-                  'Channel Guide',
+                Text(AppLocalizations.of(context).t('Channel Guide'),
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 20,
@@ -616,7 +617,7 @@ class _StremioTvGuideSheetState extends State<StremioTvGuideSheet>
             fontWeight: FontWeight.w400,
           ),
           decoration: InputDecoration(
-            hintText: 'Search channels...',
+            hintText: AppLocalizations.of(context).t('Search channels...'),
             hintStyle: TextStyle(
               color: Colors.white.withValues(alpha: 0.25),
               fontSize: 13,
@@ -724,8 +725,7 @@ class _StremioTvGuideSheetState extends State<StremioTvGuideSheet>
               ),
             ),
             const SizedBox(height: 16),
-            Text(
-              'No channels found',
+            Text(AppLocalizations.of(context).t('No channels found'),
               style: TextStyle(
                 color: Colors.white.withValues(alpha: 0.4),
                 fontSize: 15,
@@ -733,8 +733,7 @@ class _StremioTvGuideSheetState extends State<StremioTvGuideSheet>
               ),
             ),
             const SizedBox(height: 6),
-            Text(
-              'Try a different search term',
+            Text(AppLocalizations.of(context).t('Try a different search term'),
               style: TextStyle(
                 color: Colors.white.withValues(alpha: 0.2),
                 fontSize: 12,
@@ -1332,8 +1331,7 @@ class _ChannelTile extends StatelessWidget {
               ),
             ],
           ),
-          child: const Text(
-            'NOW',
+          child: Text(AppLocalizations.of(context).t('NOW'),
             style: TextStyle(
               color: Colors.black,
               fontSize: 8,

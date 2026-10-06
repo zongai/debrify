@@ -2494,8 +2494,7 @@ class _MergedDetailScreenState extends State<MergedDetailScreen>
                 color: _imdb,
                 borderRadius: BorderRadius.circular(4),
               ),
-              child: const Text(
-                'IMDb',
+              child: Text(AppLocalizations.of(context).t('IMDb'),
                 style: TextStyle(
                   color: Colors.black,
                   fontSize: 10,
@@ -2719,7 +2718,7 @@ class _MergedDetailScreenState extends State<MergedDetailScreen>
         // picker for series, so this is movie-only.
         if (_isMovie && widget.onBrowse != null)
           _GhostButton(
-            label: 'Sources',
+            label: AppLocalizations.of(context).t('Sources'),
             icon: Icons.layers_rounded,
             onTap: widget.onBrowse!,
           ),
@@ -3013,8 +3012,7 @@ class _MergedDetailScreenState extends State<MergedDetailScreen>
                 style: Theme.of(sheetContext).textTheme.titleLarge,
               ),
               const SizedBox(height: 4),
-              const Text(
-                'MDBList',
+              Text(AppLocalizations.of(context).t('MDBList'),
                 style: TextStyle(
                   color: kMdblistPurple,
                   fontWeight: FontWeight.w800,
@@ -3969,8 +3967,7 @@ class _TrailerPlayingChip extends StatelessWidget {
                 color: t?.tx ?? Colors.white.withValues(alpha: 0.85),
               ),
               const SizedBox(width: 7),
-              Text(
-                'Trailer playing',
+              Text(AppLocalizations.of(context).t('Trailer playing'),
                 style: TextStyle(
                   color: t?.tx ?? Colors.white.withValues(alpha: 0.85),
                   fontSize: 12,
@@ -4428,8 +4425,7 @@ class _QuickActionsMenu extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text(
-                      'More',
+                    Text(AppLocalizations.of(context).t('More'),
                       style: TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.w700,
@@ -4884,8 +4880,7 @@ class _SheetRatingStrip extends StatelessWidget {
                         horizontal: 8,
                         vertical: 4,
                       ),
-                      child: Text(
-                        'Clear rating',
+                      child: Text(AppLocalizations.of(context).t('Clear rating'),
                         style: TextStyle(
                           color: Colors.white.withValues(alpha: 0.6),
                           fontSize: 12.5,
@@ -5012,8 +5007,8 @@ class _TraktSheetState extends State<_TraktSheet> {
       if (watchlistOn != null || watchlistOff != null)
         _SheetSwitchRow(
           icon: Icons.bookmark_rounded,
-          label: 'Watchlist',
-          subtitle: 'Synced to every device on your Trakt account',
+          label: AppLocalizations.of(context).t('Watchlist'),
+          subtitle: AppLocalizations.of(context).t('Synced to every device on your Trakt account'),
           value: watchlistOn != null,
           accent: kTraktRed,
           autofocus: claimFocus(),
@@ -5024,8 +5019,8 @@ class _TraktSheetState extends State<_TraktSheet> {
       if (collectionOn != null || collectionOff != null)
         _SheetSwitchRow(
           icon: Icons.video_library_rounded,
-          label: 'Collection',
-          subtitle: 'Your library of everything you own or keep track of',
+          label: AppLocalizations.of(context).t('Collection'),
+          subtitle: AppLocalizations.of(context).t('Your library of everything you own or keep track of'),
           value: collectionOn != null,
           accent: kTraktRed,
           autofocus: claimFocus(),
@@ -5036,8 +5031,8 @@ class _TraktSheetState extends State<_TraktSheet> {
       if (!watchedIsAmbiguous && (markWatched != null || markUnwatched != null))
         _SheetSwitchRow(
           icon: Icons.visibility_rounded,
-          label: 'Watched',
-          subtitle: 'Syncs your history across all your devices',
+          label: AppLocalizations.of(context).t('Watched'),
+          subtitle: AppLocalizations.of(context).t('Syncs your history across all your devices'),
           value: markUnwatched != null,
           accent: kTraktRed,
           autofocus: claimFocus(),

@@ -1687,8 +1687,7 @@ class _CancelButtonState extends State<_CancelButton> {
                   ]
                 : null,
           ),
-          child: Text(
-            'Cancel',
+          child: Text(AppLocalizations.of(context).t('Cancel'),
             style: TextStyle(
               // Ink on the focused pill, whose fill is [ink] — always a light
               // colour, since `onGlass` is scored against black on every

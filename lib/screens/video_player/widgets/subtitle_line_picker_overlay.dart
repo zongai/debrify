@@ -3,6 +3,8 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
+import '../../../l10n/app_localizations.dart';
+
 
 import 'tv_tappable.dart';
 import '../../../utils/platform_util.dart';
@@ -260,8 +262,7 @@ class _SubtitleLinePickerOverlayState extends State<SubtitleLinePickerOverlay> {
         children: [
           Row(
             children: [
-              Text(
-                'WHICH LINE IS BEING SPOKEN?',
+              Text(AppLocalizations.of(context).t('WHICH LINE IS BEING SPOKEN?'),
                 style: TextStyle(
                   color: _ink.withValues(alpha: 0.42),
                   fontSize: 11,
@@ -293,15 +294,15 @@ class _SubtitleLinePickerOverlayState extends State<SubtitleLinePickerOverlay> {
                     setState(() => _showManualStepper = !_showManualStepper),
               ),
               const SizedBox(width: 6),
-              _headerButton(label: 'Reset', onTap: _resetOffset),
+              _headerButton(label: AppLocalizations.of(context).t('Reset'), onTap: _resetOffset),
               SizedBox(width: 6),
               if (_highlightedIndex >= 0)
                 _headerButton(
-                  label: 'Now',
+                  label: AppLocalizations.of(context).t('Now'),
                   onTap: () => _scrollToIndex(_highlightedIndex),
                 ),
               Spacer(),
-              _headerButton(label: 'Done', onTap: widget.onDismiss, solid: true),
+              _headerButton(label: AppLocalizations.of(context).t('Done'), onTap: widget.onDismiss, solid: true),
             ],
           ),
         ],
@@ -351,16 +352,14 @@ class _SubtitleLinePickerOverlayState extends State<SubtitleLinePickerOverlay> {
             color: _ink.withValues(alpha: 0.20),
           ),
           const SizedBox(height: 12),
-          Text(
-            'Could not parse subtitle lines',
+          Text(AppLocalizations.of(context).t('Could not parse subtitle lines'),
             style: TextStyle(
               color: _ink.withValues(alpha: 0.45),
               fontSize: 13,
             ),
           ),
           const SizedBox(height: 6),
-          Text(
-            'Use the stepper to adjust manually',
+          Text(AppLocalizations.of(context).t('Use the stepper to adjust manually'),
             style: TextStyle(
               color: _ink.withValues(alpha: 0.30),
               fontSize: 11.5,
@@ -380,8 +379,7 @@ class _SubtitleLinePickerOverlayState extends State<SubtitleLinePickerOverlay> {
           padding: const EdgeInsets.fromLTRB(24, 2, 24, 6),
           child: Row(
             children: [
-              Text(
-                'Pick the line you just heard',
+              Text(AppLocalizations.of(context).t('Pick the line you just heard'),
                 style: TextStyle(
                   color: _ink.withValues(alpha: 0.45),
                   fontSize: 12,

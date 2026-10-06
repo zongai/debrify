@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../l10n/app_localizations.dart';
+
 
 import '../../../models/debrify_tv/channel.dart';
 import '../../../models/debrify_tv/channel_stats.dart';
@@ -84,8 +86,7 @@ class SpotlightStage extends StatelessWidget {
         // A search emptied the rail — the user HAS channels, so the
         // first-run prompt below would be wrong.
         return Center(
-          child: Text(
-            'No channels match your search.',
+          child: Text(AppLocalizations.of(context).t('No channels match your search.'),
             textAlign: TextAlign.center,
             style: TextStyle(
               fontSize: 15,
@@ -102,8 +103,7 @@ class SpotlightStage extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Text(
-              'Make a channel out of anything you can name.',
+            Text(AppLocalizations.of(context).t('Make a channel out of anything you can name.'),
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 22,
@@ -112,8 +112,7 @@ class SpotlightStage extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 10),
-            Text(
-              'Add a channel or import a pack from the rail on the left.',
+            Text(AppLocalizations.of(context).t('Add a channel or import a pack from the rail on the left.'),
               textAlign: TextAlign.center,
               style: TextStyle(fontSize: 12.5, color: tv.textDim),
             ),
@@ -178,8 +177,7 @@ class SpotlightStage extends StatelessWidget {
                 fontSize: 9,
               ),
             ),
-            Text(
-              'a sample of the pool · nothing here is a running order',
+            Text(AppLocalizations.of(context).t('a sample of the pool · nothing here is a running order'),
               style: TextStyle(fontSize: 10, color: tv.textFaint),
             ),
           ],
@@ -220,7 +218,7 @@ class SpotlightStage extends StatelessWidget {
               onKey: onKey,
               onActivate: busy ? null : onWatch,
               icon: Icons.play_arrow_rounded,
-              label: 'Tune in',
+              label: AppLocalizations.of(context).t('Tune in'),
               primary: true,
             ),
             const SizedBox(width: 7),
@@ -420,7 +418,7 @@ class _StatsBand extends StatelessWidget {
         children: [
           Expanded(
             child: _StatCard(
-              label: 'In the pool',
+              label: AppLocalizations.of(context).t('In the pool'),
               value: s == null ? '—' : _thousands(s.pooled),
               caption: 'titles cached for this channel',
             ),
@@ -428,7 +426,7 @@ class _StatsBand extends StatelessWidget {
           SizedBox(width: 8),
           Expanded(
             child: _StatCard(
-              label: 'At your quality',
+              label: AppLocalizations.of(context).t('At your quality'),
               value: s == null ? '—' : _thousands(s.atYourQuality),
               caption: 'by release name',
               hot: true,
@@ -438,7 +436,7 @@ class _StatsBand extends StatelessWidget {
           const SizedBox(width: 8),
           Expanded(
             child: _StatCard(
-              label: 'Keywords',
+              label: AppLocalizations.of(context).t('Keywords'),
               value: s == null ? '—' : '${kwTotal - deadCount} of $kwTotal',
               caption: s == null
                   ? ''
@@ -451,7 +449,7 @@ class _StatsBand extends StatelessWidget {
           const SizedBox(width: 8),
           Expanded(
             child: _StatCard(
-              label: 'Freshness',
+              label: AppLocalizations.of(context).t('Freshness'),
               value: s == null
                   ? '—'
                   : s.status == DebrifyTvCacheStatus.failed

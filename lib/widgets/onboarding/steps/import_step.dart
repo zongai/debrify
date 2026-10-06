@@ -87,7 +87,7 @@ class ImportStep extends StatelessWidget {
           radius: BorderRadius.circular(18),
           builder: (context, focused) => OnboardPillSurface(
             focused: focused,
-            label: 'Set up here instead',
+            label: AppLocalizations.of(context).t('Set up here instead'),
           ),
         ),
       ],
@@ -105,18 +105,18 @@ class _ImportChecklist extends StatelessWidget {
       children: [
         _ChecklistRow(
           number: '1',
-          title: 'Open Remote on the other device',
-          subtitle: 'Menu › Remote, near the bottom of the list.',
+          title: AppLocalizations.of(context).t('Open Remote on the other device'),
+          subtitle: AppLocalizations.of(context).t('Menu › Remote, near the bottom of the list.'),
         ),
         _ChecklistRow(
           number: '2',
-          title: 'Choose Send',
-          subtitle: 'That device becomes the sender.',
+          title: AppLocalizations.of(context).t('Choose Send'),
+          subtitle: AppLocalizations.of(context).t('That device becomes the sender.'),
         ),
         _ChecklistRow(
           number: '3',
-          title: 'Pick this device and transfer everything',
-          subtitle: 'This screen finishes when the complete signal arrives.',
+          title: AppLocalizations.of(context).t('Pick this device and transfer everything'),
+          subtitle: AppLocalizations.of(context).t('This screen finishes when the complete signal arrives.'),
         ),
       ],
     );
@@ -220,8 +220,7 @@ class _ImportLivePanel extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            'THIS DEVICE',
+          Text(AppLocalizations.of(context).t('THIS DEVICE'),
             style: TextStyle(
               fontFamily: 'JetBrainsMono',
               fontSize: 10,
@@ -252,8 +251,7 @@ class _ImportLivePanel extends StatelessWidget {
               style: const TextStyle(color: Color(0xFFF87171), fontSize: 10.5),
             )
           else if (dropped)
-            const Text(
-              'Connection dropped. Keep this screen open—the transfer resumes when the sender reconnects.',
+            Text(AppLocalizations.of(context).t('Connection dropped. Keep this screen open—the transfer resumes when the sender reconnects.'),
               style: TextStyle(
                 color: Color(0xFFFBBF24),
                 fontSize: 10.5,
@@ -282,8 +280,7 @@ class _ImportLivePanel extends StatelessWidget {
               const SizedBox(height: 14),
               const LinearProgressIndicator(),
               const SizedBox(height: 7),
-              Text(
-                'Applying…',
+              Text(AppLocalizations.of(context).t('Applying…'),
                 style: TextStyle(
                   fontSize: 10,
                   color: scheme.onSurface.withValues(alpha: 0.5),

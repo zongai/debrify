@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../l10n/app_localizations.dart';
+
 
 import '../../../theme/widgets/parallax_focus.dart';
 import '../onboarding_focus.dart';
@@ -22,21 +24,21 @@ class DoneStep extends StatelessWidget {
   Widget build(BuildContext context) {
     final rows = <({String label, String value, bool skipped})>[
       (
-        label: 'Debrid services',
+        label: AppLocalizations.of(context).t('Debrid services'),
         value: summary.services.isEmpty
             ? 'Skipped'
             : summary.services.join(', '),
         skipped: summary.services.isEmpty,
       ),
       (
-        label: 'Search engines',
+        label: AppLocalizations.of(context).t('Search engines'),
         value: summary.engines.isEmpty
             ? 'Skipped'
             : '${summary.engines.length} imported',
         skipped: summary.engines.isEmpty,
       ),
       (
-        label: 'Trackers',
+        label: AppLocalizations.of(context).t('Trackers'),
         value: summary.trackers.isEmpty
             ? 'Skipped'
             : summary.trackers.join(', '),
@@ -81,7 +83,7 @@ class DoneStep extends StatelessWidget {
         radius: BorderRadius.circular(18),
         builder: (context, focused) => OnboardPillSurface(
           focused: focused,
-          label: 'Start watching  ›',
+          label: AppLocalizations.of(context).t('Start watching  ›'),
           primary: true,
         ),
       ),

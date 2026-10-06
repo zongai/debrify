@@ -768,7 +768,7 @@ class _ProfileSetupFlowState extends State<ProfileSetupFlow> {
           focusNode: _nameNode,
           autofocus: PlatformUtil.isTelevision,
           labelText: 'Name',
-          hintText: 'Who watches here?',
+          hintText: AppLocalizations.of(context).t('Who watches here?'),
         ),
         const SizedBox(height: 16),
         Text(

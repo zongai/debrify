@@ -307,8 +307,7 @@ class TracksSheet {
                         ),
                         const SizedBox(width: 10),
                         const Expanded(
-                          child: Text(
-                            'Audio & Subtitles',
+                          child: Text(AppLocalizations.of(context).t('Audio & Subtitles'),
                             style: TextStyle(
                               color: Colors.white,
                               fontSize: 18,
@@ -340,7 +339,7 @@ class TracksSheet {
                         children: [
                           _buildTab(
                             icon: Icons.audiotrack_rounded,
-                            label: 'Audio',
+                            label: AppLocalizations.of(context).t('Audio'),
                             badge: audios.isNotEmpty
                                 ? '${audios.length}'
                                 : null,
@@ -350,7 +349,7 @@ class TracksSheet {
                           ),
                           _buildTab(
                             icon: Icons.subtitles_rounded,
-                            label: 'Subtitles',
+                            label: AppLocalizations.of(context).t('Subtitles'),
                             badge: _subtitleBadge(
                               embeddedSubs,
                               addonSlots,
@@ -362,7 +361,7 @@ class TracksSheet {
                           ),
                           _buildTab(
                             icon: Icons.text_format_rounded,
-                            label: 'Style',
+                            label: AppLocalizations.of(context).t('Style'),
                             isSelected: selectedTabIndex == 2,
                             onTap: () =>
                                 setModalState(() => selectedTabIndex = 2),
@@ -737,8 +736,7 @@ class _AudioTab extends StatelessWidget {
                     color: Colors.white.withValues(alpha: 0.2),
                   ),
                   const SizedBox(height: 12),
-                  Text(
-                    'No audio tracks available',
+                  Text(AppLocalizations.of(context).t('No audio tracks available'),
                     style: TextStyle(
                       color: Colors.white.withValues(alpha: 0.5),
                       fontSize: 14,
@@ -806,8 +804,7 @@ class _PassthroughToggle extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text(
-                  'Passthrough (AC3 · EAC3 · DTS)',
+                Text(AppLocalizations.of(context).t('Passthrough (AC3 · EAC3 · DTS)'),
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 14,
@@ -815,9 +812,7 @@ class _PassthroughToggle extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 2),
-                Text(
-                  'Bitstream to your receiver. If you hear silence, '
-                  'turn this off.',
+                Text(AppLocalizations.of(context).t('Bitstream to your receiver. If you hear silence, ')'turn this off.',
                   style: TextStyle(
                     color: Colors.white.withValues(alpha: 0.5),
                     fontSize: 11.5,
@@ -1027,8 +1022,8 @@ class _SubtitlesTab extends StatelessWidget {
         padding: padding,
         children: [
           _TrackTile(
-            title: 'Off',
-            subtitle: 'Disable subtitles',
+            title: AppLocalizations.of(context).t('Off'),
+            subtitle: AppLocalizations.of(context).t('Disable subtitles'),
             isSelected: selectedSub == 'no',
             onTap: () async {
               final realChange = _isRealSubtitleChange('no');
@@ -1050,8 +1045,7 @@ class _SubtitlesTab extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 18),
               child: Center(
-                child: Text(
-                  'No embedded subtitle tracks in this file',
+                child: Text(AppLocalizations.of(context).t('No embedded subtitle tracks in this file'),
                   style: TextStyle(
                     color: Colors.white.withValues(alpha: 0.35),
                     fontSize: 12.5,
@@ -1163,8 +1157,7 @@ class _SubtitlesTab extends StatelessWidget {
                       color: Colors.white.withValues(alpha: 0.3),
                     ),
                     const SizedBox(height: 8),
-                    Text(
-                      'No subtitles from this addon',
+                    Text(AppLocalizations.of(context).t('No subtitles from this addon'),
                       style: TextStyle(
                         color: Colors.white.withValues(alpha: 0.55),
                         fontSize: 13,
@@ -1271,8 +1264,7 @@ class _StyleTab extends StatelessWidget {
                   color: subtitleStyle.background.color,
                   borderRadius: BorderRadius.circular(4),
                 ),
-                child: Text(
-                  'Sample Subtitle Text',
+                child: Text(AppLocalizations.of(context).t('Sample Subtitle Text'),
                   // Same builder as the player, at half size — see the note in
                   // the settings preview.
                   style: subtitleStyle.buildTextStyle(
@@ -1289,7 +1281,7 @@ class _StyleTab extends StatelessWidget {
 
           // Settings grid
           _StyleOption(
-            label: 'Size',
+            label: AppLocalizations.of(context).t('Size'),
             value: subtitleStyle.size.label,
             onDecrease: () async {
               final newIndex = (subtitleStyle.sizeIndex - 1).clamp(
@@ -1310,7 +1302,7 @@ class _StyleTab extends StatelessWidget {
           ),
 
           _StyleOption(
-            label: 'Style',
+            label: AppLocalizations.of(context).t('Style'),
             value: subtitleStyle.style.label,
             onDecrease: () async {
               final newIndex = (subtitleStyle.styleIndex - 1).clamp(
@@ -1331,7 +1323,7 @@ class _StyleTab extends StatelessWidget {
           ),
 
           _StyleOption(
-            label: 'Color',
+            label: AppLocalizations.of(context).t('Color'),
             value: subtitleStyle.color.label,
             valueColor: subtitleStyle.color.color,
             onDecrease: () async {
@@ -1353,7 +1345,7 @@ class _StyleTab extends StatelessWidget {
           ),
 
           _StyleOption(
-            label: 'Outline',
+            label: AppLocalizations.of(context).t('Outline'),
             value: subtitleStyle.outlineColor.label,
             valueColor: subtitleStyle.outlineColor.color,
             onDecrease: () async {
@@ -1383,7 +1375,7 @@ class _StyleTab extends StatelessWidget {
           ),
 
           _StyleOption(
-            label: 'Background',
+            label: AppLocalizations.of(context).t('Background'),
             value: subtitleStyle.background.label,
             onDecrease: () async {
               final newIndex = (subtitleStyle.bgIndex - 1).clamp(
@@ -1404,7 +1396,7 @@ class _StyleTab extends StatelessWidget {
           ),
 
           _StyleOption(
-            label: 'Font',
+            label: AppLocalizations.of(context).t('Font'),
             value: subtitleStyle.font.label,
             onDecrease: () async {
               final newIndex = await SubtitleFontService.instance
@@ -1432,7 +1424,7 @@ class _StyleTab extends StatelessWidget {
           ),
 
           _StyleOption(
-            label: 'Bold',
+            label: AppLocalizations.of(context).t('Bold'),
             value: subtitleStyle.bold ? 'On' : 'Off',
             onDecrease: () async {
               final newBold = !subtitleStyle.bold;
@@ -1447,7 +1439,7 @@ class _StyleTab extends StatelessWidget {
           ),
 
           _StyleOption(
-            label: 'Elevation',
+            label: AppLocalizations.of(context).t('Elevation'),
             value: subtitleStyle.elevation.label,
             onDecrease: () async {
               final newIndex = (subtitleStyle.elevationIndex - 1).clamp(
@@ -1484,8 +1476,7 @@ class _StyleTab extends StatelessWidget {
                 children: [
                   Expanded(
                     flex: 2,
-                    child: Text(
-                      'Sync',
+                    child: Text(AppLocalizations.of(context).t('Sync'),
                       style: TextStyle(
                         color: Colors.white.withValues(alpha: 0.8),
                         fontSize: 14,
@@ -1616,8 +1607,7 @@ class _IdentityStrip extends StatelessWidget {
                       color: Color(0xFFFF4D57),
                     ),
                   const SizedBox(width: 5),
-                  const Text(
-                    'Fix',
+                  Text(AppLocalizations.of(context).t('Fix'),
                     style: TextStyle(
                       color: Color(0xFFFF4D57),
                       fontSize: 11.5,
@@ -1949,8 +1939,7 @@ class _RetryCard extends StatelessWidget {
                 children: [
                   Icon(Icons.refresh_rounded, size: 16, color: Colors.white),
                   SizedBox(width: 7),
-                  Text(
-                    'Retry this addon',
+                  Text(AppLocalizations.of(context).t('Retry this addon'),
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 12.5,

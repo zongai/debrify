@@ -151,7 +151,7 @@ class TorrentBulkAddService {
               _optionTile(
                 icon: Icons.flash_on_rounded,
                 color: const Color(0xFF7C3AED),
-                title: 'TorBox',
+                title: AppLocalizations.of(context).t('TorBox'),
                 subtitle: torboxEnabled
                     ? 'Limit: 60 adds per hour'
                     : 'Not configured',
@@ -163,7 +163,7 @@ class TorrentBulkAddService {
               _optionTile(
                 icon: Icons.cloud_rounded,
                 color: const Color(0xFFE50914),
-                title: 'Real-Debrid',
+                title: AppLocalizations.of(context).t('Real-Debrid'),
                 subtitle: rdEnabled
                     ? 'Uncached torrents auto-removed'
                     : 'Not configured',
@@ -175,7 +175,7 @@ class TorrentBulkAddService {
               _optionTile(
                 icon: Icons.folder_rounded,
                 color: const Color(0xFF0088CC),
-                title: 'PikPak',
+                title: AppLocalizations.of(context).t('PikPak'),
                 subtitle: pikpakEnabled ? null : 'Not configured',
                 enabled: pikpakEnabled,
                 autofocus: autoFocused == 'pikpak',
@@ -185,7 +185,7 @@ class TorrentBulkAddService {
               _optionTile(
                 icon: Icons.workspace_premium_rounded,
                 color: const Color(0xFFFB923C),
-                title: 'Premiumize',
+                title: AppLocalizations.of(context).t('Premiumize'),
                 subtitle: premiumizeEnabled
                     ? 'Only cached torrents are added'
                     : 'Not configured',
@@ -197,7 +197,7 @@ class TorrentBulkAddService {
               _optionTile(
                 icon: Icons.all_inclusive_rounded,
                 color: const Color(0xFF26A69A),
-                title: 'AllDebrid',
+                title: AppLocalizations.of(context).t('AllDebrid'),
                 subtitle: allDebridEnabled
                     ? 'Only cached torrents are added'
                     : 'Not configured',
@@ -210,8 +210,8 @@ class TorrentBulkAddService {
               _optionTile(
                 icon: Icons.live_tv_rounded,
                 color: const Color(0xFF14B8A6),
-                title: 'Debrify TV Channel',
-                subtitle: 'Save as a local channel',
+                title: AppLocalizations.of(context).t('Debrify TV Channel'),
+                subtitle: AppLocalizations.of(context).t('Save as a local channel'),
                 autofocus: autoFocused == 'create_channel',
                 onTap: () => Navigator.of(context).pop('create_channel'),
               ),
@@ -262,7 +262,7 @@ class TorrentBulkAddService {
       context,
       accent: const Color(0xFFFFAA00),
       titleIcon: Icons.cloud_upload,
-      title: 'Adding to PikPak',
+      title: AppLocalizations.of(context).t('Adding to PikPak'),
       torrents: torrentsToAdd,
       total: torrentsToAdd.length,
     );
@@ -388,7 +388,7 @@ class TorrentBulkAddService {
       accent: const Color(0xFF7C3AED),
       notCachedColor: const Color(0xFFEF4444),
       titleIcon: Icons.cloud_upload,
-      title: 'Adding to TorBox',
+      title: AppLocalizations.of(context).t('Adding to TorBox'),
       torrents: torrentsToAdd,
       total: cachedTorrents.length,
       showSkipped: true,
@@ -481,7 +481,7 @@ class TorrentBulkAddService {
       context,
       accent: const Color(0xFFE50914),
       titleIcon: Icons.cloud_upload,
-      title: 'Adding to Real-Debrid',
+      title: AppLocalizations.of(context).t('Adding to Real-Debrid'),
       torrents: torrentsToAdd,
       total: torrentsToAdd.length,
       showSkipped: true,
@@ -566,7 +566,7 @@ class TorrentBulkAddService {
       context,
       accent: const Color(0xFFFB923C),
       titleIcon: Icons.workspace_premium_rounded,
-      title: 'Adding to Premiumize',
+      title: AppLocalizations.of(context).t('Adding to Premiumize'),
       torrents: torrentsToAdd,
       total: torrentsToAdd.length,
       showSkipped: true,
@@ -636,7 +636,7 @@ class TorrentBulkAddService {
       context,
       accent: const Color(0xFF26A69A),
       titleIcon: Icons.all_inclusive_rounded,
-      title: 'Adding to AllDebrid',
+      title: AppLocalizations.of(context).t('Adding to AllDebrid'),
       torrents: torrentsToAdd,
       total: torrentsToAdd.length,
       showSkipped: true,
@@ -769,8 +769,7 @@ class TorrentBulkAddService {
                 ),
                 const SizedBox(width: 14),
                 const Expanded(
-                  child: Text(
-                    'Premiumize Fair Use',
+                  child: Text(AppLocalizations.of(context).t('Premiumize Fair Use'),
                     style: TextStyle(
                       fontWeight: FontWeight.w700,
                       fontSize: 18,
@@ -786,9 +785,7 @@ class TorrentBulkAddService {
                   mainAxisSize: MainAxisSize.min,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      'Premiumize works on a fair-use points system — about '
-                      '1000 points max, topping up ~30/day. Adding a cached '
+                    Text(AppLocalizations.of(context).t('Premiumize works on a fair-use points system — about ')'1000 points max, topping up ~30/day. Adding a cached '
                       'torrent and later streaming it both spend points '
                       '(roughly 1 point per GB).',
                       style: theme.textTheme.bodyMedium?.copyWith(
@@ -817,9 +814,7 @@ class TorrentBulkAddService {
                           ),
                           SizedBox(width: 10),
                           Expanded(
-                            child: Text(
-                              'Only cached torrents are added, but each one '
-                              'still uses points. Select carefully to avoid '
+                            child: Text(AppLocalizations.of(context).t('Only cached torrents are added, but each one ')'still uses points. Select carefully to avoid '
                               'running out of your daily quota.',
                               style: theme.textTheme.bodySmall?.copyWith(
                                 color: Colors.white.withValues(alpha: 0.8),

@@ -1,6 +1,8 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
+import '../l10n/app_localizations.dart';
+
 import 'package:flutter/services.dart';
 
 import '../services/trakt/trakt_episode_model.dart';
@@ -88,7 +90,7 @@ class _EpisodeTileState extends State<EpisodeTile> {
       ),
       _EpAction(
         icon: Icons.layers_rounded,
-        label: 'Sources',
+        label: AppLocalizations.of(context).t('Sources'),
         onTap: widget.onSources,
       ),
       if (widget.onMenuAction != null) ...[
@@ -106,7 +108,7 @@ class _EpisodeTileState extends State<EpisodeTile> {
         ),
         _EpAction(
           icon: Icons.star_rounded,
-          label: 'Rate',
+          label: AppLocalizations.of(context).t('Rate'),
           iconOnly: true,
           onTap: () => widget.onMenuAction!(TraktEpisodeMenuAction.rate),
         ),
@@ -114,7 +116,7 @@ class _EpisodeTileState extends State<EpisodeTile> {
       if (widget.onTrackerOptions != null)
         _EpAction(
           icon: Icons.more_horiz_rounded,
-          label: 'Trackers',
+          label: AppLocalizations.of(context).t('Trackers'),
           iconOnly: true,
           onTap: widget.onTrackerOptions!,
         ),
@@ -353,7 +355,7 @@ class _EpisodeTileState extends State<EpisodeTile> {
             top: 8,
             left: 8,
             child: _Chip(
-              label: 'UP NEXT',
+              label: AppLocalizations.of(context).t('UP NEXT'),
               color: Color(0xFFFBBF24),
               filled: true,
             ),
@@ -362,7 +364,7 @@ class _EpisodeTileState extends State<EpisodeTile> {
           const Positioned(
             top: 8,
             left: 8,
-            child: _Chip(label: 'WATCHED', color: Color(0xFF34D399)),
+            child: _Chip(label: AppLocalizations.of(context).t('WATCHED'), color: Color(0xFF34D399)),
           ),
 
         if (e.rating != null && e.rating! > 0)

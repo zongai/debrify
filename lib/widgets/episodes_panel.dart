@@ -2021,8 +2021,7 @@ class EpisodesPanelState extends State<EpisodesPanel> {
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
             ),
             SizedBox(height: 6),
-            Text(
-              'The episode list is unavailable right now.',
+            Text(AppLocalizations.of(context).t('The episode list is unavailable right now.'),
               textAlign: TextAlign.center,
               style: TextStyle(color: Colors.white.withValues(alpha: 0.6)),
             ),
@@ -2378,8 +2377,7 @@ class EpisodesPanelState extends State<EpisodesPanel> {
           ),
           if (widget.isTelevision) ...[
             const SizedBox(width: 14),
-            Text(
-              'OK play · ▶ options',
+            Text(AppLocalizations.of(context).t('OK play · ▶ options'),
               style: TextStyle(
                 color: Colors.white.withValues(alpha: 0.3),
                 fontSize: 11,
@@ -2953,8 +2951,7 @@ class _CompactEpisodeRowState extends State<_CompactEpisodeRow> {
                                 color: t.focus,
                                 borderRadius: BorderRadius.circular(4),
                               ),
-                              child: const Text(
-                                'UP NEXT',
+                              child: Text(AppLocalizations.of(context).t('UP NEXT'),
                                 style: TextStyle(
                                   color: Color(0xFF2A1E02),
                                   fontSize: 8,

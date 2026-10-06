@@ -625,8 +625,7 @@ class _StremioTvFilterPageState extends State<StremioTvFilterPage> {
                 Expanded(
                   child: _addons.isEmpty
                       ? Center(
-                          child: Text(
-                            'No addons with catalogs found.',
+                          child: Text(AppLocalizations.of(context).t('No addons with catalogs found.'),
                             style: TextStyle(
                               color: app.core.tx.withValues(alpha: 0.55),
                               fontSize: 15,
@@ -662,8 +661,7 @@ class _StremioTvFilterPageState extends State<StremioTvFilterPage> {
         color: app.core.tx.withValues(alpha: 0.7),
       ),
     );
-    final title = Text(
-      'Channel Filters',
+    final title = Text(AppLocalizations.of(context).t('Channel Filters'),
       style: TextStyle(
         color: app.core.tx,
         fontSize: 19,
@@ -1033,8 +1031,7 @@ class _StremioTvFilterPageState extends State<StremioTvFilterPage> {
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Text(
-            'Genres',
+          Text(AppLocalizations.of(context).t('Genres'),
             style: TextStyle(
               color: app.core.tx.withValues(alpha: 0.9),
               fontSize: 11.5,
@@ -1164,8 +1161,7 @@ class _StremioTvFilterPageState extends State<StremioTvFilterPage> {
                             child: widget.isTelevision
                                 ? (focused
                                       ? _genresHintChip()
-                                      : Text(
-                                          '▸ genres',
+                                      : Text(AppLocalizations.of(context).t('▸ genres'),
                                           style: TextStyle(
                                             color: app.core.tx
                                                 .withValues(alpha: 0.42),

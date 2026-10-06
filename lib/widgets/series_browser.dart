@@ -1125,8 +1125,7 @@ class _SeriesBrowserState extends State<SeriesBrowser> {
                   Expanded(
                     child: episodes.isEmpty
                         ? const Center(
-                            child: Text(
-                              'No episodes found',
+                            child: Text(AppLocalizations.of(context).t('No episodes found'),
                               style: TextStyle(
                                 color: _BrowserColors.inkDim,
                                 fontSize: 16,
@@ -1395,8 +1394,7 @@ class _SeriesBrowserState extends State<SeriesBrowser> {
                 size: 17,
               ),
               SizedBox(width: 10),
-              Text(
-                'Fix metadata',
+              Text(AppLocalizations.of(context).t('Fix metadata'),
                 style: TextStyle(
                   color: _BrowserColors.ink,
                   fontSize: 14,
@@ -1791,8 +1789,7 @@ class _SeriesBrowserState extends State<SeriesBrowser> {
               size: 14,
             ),
             SizedBox(width: 3),
-            Text(
-              'Tap to fetch',
+            Text(AppLocalizations.of(context).t('Tap to fetch'),
               style: TextStyle(
                 color: _BrowserColors.inkFaint,
                 fontSize: 12,
@@ -1815,8 +1812,7 @@ class _SeriesBrowserState extends State<SeriesBrowser> {
               size: 15,
             ),
             SizedBox(width: 2),
-            Text(
-              'Now playing',
+            Text(AppLocalizations.of(context).t('Now playing'),
               style: TextStyle(
                 color: _BrowserColors.accent,
                 fontSize: 12,
@@ -1833,8 +1829,7 @@ class _SeriesBrowserState extends State<SeriesBrowser> {
           children: [
             Icon(Icons.check_rounded, color: _BrowserColors.done, size: 14),
             SizedBox(width: 3),
-            Text(
-              'Watched',
+            Text(AppLocalizations.of(context).t('Watched'),
               style: TextStyle(
                 color: _BrowserColors.done,
                 fontSize: 12,
@@ -1880,8 +1875,7 @@ class _SeriesBrowserState extends State<SeriesBrowser> {
               size: 13,
             ),
             SizedBox(width: 3),
-            Text(
-              'Last watched',
+            Text(AppLocalizations.of(context).t('Last watched'),
               style: TextStyle(
                 color: _BrowserColors.inkFaint,
                 fontSize: 12,
@@ -2180,8 +2174,7 @@ class _SeriesBrowserState extends State<SeriesBrowser> {
                         size: 16,
                       ),
                       SizedBox(width: 4),
-                      Text(
-                        'Play',
+                      Text(AppLocalizations.of(context).t('Play'),
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 12.5,

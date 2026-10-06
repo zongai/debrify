@@ -906,8 +906,7 @@ class _StremioTvLocalCatalogEditorDialogState
                           ),
                           const SizedBox(width: 10),
                           Expanded(
-                            child: Text(
-                              'Edit Local Channel',
+                            child: Text(AppLocalizations.of(context).t('Edit Local Channel'),
                               style: theme.textTheme.titleMedium?.copyWith(
                                 fontWeight: FontWeight.w700,
                               ),
@@ -922,8 +921,7 @@ class _StremioTvLocalCatalogEditorDialogState
                         ],
                       ),
                       const SizedBox(height: 16),
-                      Text(
-                        'This local channel could not be found. It may have been deleted already.',
+                      Text(AppLocalizations.of(context).t('This local channel could not be found. It may have been deleted already.'),
                         style: theme.textTheme.bodyMedium?.copyWith(
                           color: theme.colorScheme.onSurfaceVariant,
                         ),
@@ -956,8 +954,7 @@ class _StremioTvLocalCatalogEditorDialogState
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    Text(
-                                      'Edit Local Channel',
+                                    Text(AppLocalizations.of(context).t('Edit Local Channel'),
                                       style: theme.textTheme.titleMedium
                                           ?.copyWith(
                                             fontWeight: FontWeight.w700,
@@ -986,8 +983,7 @@ class _StremioTvLocalCatalogEditorDialogState
                             ],
                           ),
                           const SizedBox(height: 16),
-                          Text(
-                            'Review the titles in this local channel and remove any you no longer want in rotation.',
+                          Text(AppLocalizations.of(context).t('Review the titles in this local channel and remove any you no longer want in rotation.'),
                             style: theme.textTheme.bodyMedium?.copyWith(
                               color: theme.colorScheme.onSurfaceVariant,
                             ),
@@ -1362,8 +1358,7 @@ class _StremioTvLocalCatalogsDialogState
                   ),
                   const SizedBox(width: 10),
                   Expanded(
-                    child: Text(
-                      'Local Catalogs',
+                    child: Text(AppLocalizations.of(context).t('Local Catalogs'),
                       style: theme.textTheme.titleSmall?.copyWith(
                         fontWeight: FontWeight.bold,
                       ),
@@ -1686,7 +1681,7 @@ class _ImportUrlDialogState extends State<_ImportUrlDialog> {
               keyboardInk: app.core.tx,
               keyboardInkOnAccent: app.inkOn(app.youtube.focus),
               decoration: InputDecoration(
-                hintText: 'Catalog name (required for Trakt lists)',
+                hintText: AppLocalizations.of(context).t('Catalog name (required for Trakt lists)'),
                 border: OutlineInputBorder(borderRadius: app.shape.br(12)),
                 isDense: true,
                 contentPadding: const EdgeInsets.symmetric(
@@ -1920,7 +1915,7 @@ class _ImportJsonDialogState extends State<_ImportJsonDialog> {
               keyboardInk: app.core.tx,
               keyboardInkOnAccent: app.inkOn(app.youtube.focus),
               decoration: InputDecoration(
-                hintText: 'Catalog name (required for Trakt lists)',
+                hintText: AppLocalizations.of(context).t('Catalog name (required for Trakt lists)'),
                 border: OutlineInputBorder(borderRadius: app.shape.br(12)),
                 isDense: true,
                 contentPadding: EdgeInsets.symmetric(

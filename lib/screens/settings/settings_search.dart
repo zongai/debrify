@@ -156,7 +156,7 @@ class _SettingsSearchPageState extends State<SettingsSearchPage> {
               controller: _controller,
               focusNode: _fieldNode,
               autofocus: true,
-              hintText: 'Search settings…',
+              hintText: AppLocalizations.of(context).t('Search settings…'),
               textInputAction: TextInputAction.search,
               prefixIcon: const Icon(Icons.search_rounded),
               suffixIcon: _query.isEmpty

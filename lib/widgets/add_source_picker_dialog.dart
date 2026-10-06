@@ -59,8 +59,7 @@ Future<void> showAddSourcePickerDialog(
                       size: 24,
                     ),
                     SizedBox(width: 8),
-                    Text(
-                      'Add Source',
+                    Text(AppLocalizations.of(context).t('Add Source'),
                       style: TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.w600,
@@ -80,16 +79,15 @@ Future<void> showAddSourcePickerDialog(
                       children: [
                         // SEARCH section
                         const _SectionHeader(
-                          title: 'SEARCH',
-                          subtitle: 'Find new torrents from scrapers',
+                          title: AppLocalizations.of(context).t('SEARCH'),
+                          subtitle: AppLocalizations.of(context).t('Find new torrents from scrapers'),
                         ),
                         const SizedBox(height: 8),
                         _SourceOption(
                           icon: Icons.search_rounded,
                           iconColor: const Color(0xFFFBBF24),
-                          label: 'Stremio Addons & IPTV',
-                          subtitle:
-                              'Exact IMDb match · includes downloaded IPTV catalogs',
+                          label: AppLocalizations.of(context).t('Stremio Addons & IPTV'),
+                          subtitle: AppLocalizations.of(context).t('Exact IMDb match · includes downloaded IPTV catalogs'),
                           autofocus: true,
                           onTap: () {
                             Navigator.of(dialogContext).pop();
@@ -101,9 +99,8 @@ Future<void> showAddSourcePickerDialog(
                           _SourceOption(
                             icon: Icons.travel_explore_rounded,
                             iconColor: const Color(0xFFFB923C),
-                            label: 'Keyword Search',
-                            subtitle:
-                                'Free-text title search · uses all keyword scrapers (Nyaa, Knaben, etc.)',
+                            label: AppLocalizations.of(context).t('Keyword Search'),
+                            subtitle: AppLocalizations.of(context).t('Free-text title search · uses all keyword scrapers (Nyaa, Knaben, etc.)'),
                             onTap: () {
                               Navigator.of(dialogContext).pop();
                               onKeywordSearch();
@@ -115,14 +112,14 @@ Future<void> showAddSourcePickerDialog(
                             localDisabledReason != null) ...[
                           const SizedBox(height: 16),
                           const _SectionHeader(
-                            title: 'LOCAL',
-                            subtitle: 'Use files on this device',
+                            title: AppLocalizations.of(context).t('LOCAL'),
+                            subtitle: AppLocalizations.of(context).t('Use files on this device'),
                           ),
                           const SizedBox(height: 8),
                           _SourceOption(
                             icon: Icons.folder_open_rounded,
                             iconColor: const Color(0xFF60A5FA),
-                            label: 'Local File or Folder',
+                            label: AppLocalizations.of(context).t('Local File or Folder'),
                             subtitle: localDisabledReason,
                             onTap: onLocal == null
                                 ? null
@@ -141,16 +138,15 @@ Future<void> showAddSourcePickerDialog(
                             onPikPak != null) ...[
                           const SizedBox(height: 16),
                           const _SectionHeader(
-                            title: 'CLOUD',
-                            subtitle:
-                                'Pick an already downloaded source from your cloud',
+                            title: AppLocalizations.of(context).t('CLOUD'),
+                            subtitle: AppLocalizations.of(context).t('Pick an already downloaded source from your cloud'),
                           ),
                           const SizedBox(height: 8),
                           if (onRealDebrid != null)
                             _SourceOption(
                               icon: Icons.cloud,
                               iconColor: const Color(0xFF22C55E),
-                              label: 'Real-Debrid',
+                              label: AppLocalizations.of(context).t('Real-Debrid'),
                               onTap: () {
                                 Navigator.of(dialogContext).pop();
                                 onRealDebrid();
@@ -161,7 +157,7 @@ Future<void> showAddSourcePickerDialog(
                             _SourceOption(
                               icon: Icons.cloud,
                               iconColor: const Color(0xFF7C3AED),
-                              label: 'TorBox',
+                              label: AppLocalizations.of(context).t('TorBox'),
                               onTap: () {
                                 Navigator.of(dialogContext).pop();
                                 onTorbox();
@@ -173,7 +169,7 @@ Future<void> showAddSourcePickerDialog(
                             _SourceOption(
                               icon: Icons.cloud,
                               iconColor: const Color(0xFFFB923C),
-                              label: 'Premiumize',
+                              label: AppLocalizations.of(context).t('Premiumize'),
                               onTap: () {
                                 Navigator.of(dialogContext).pop();
                                 onPremiumize();
@@ -185,7 +181,7 @@ Future<void> showAddSourcePickerDialog(
                             _SourceOption(
                               icon: Icons.cloud,
                               iconColor: const Color(0xFF26A69A),
-                              label: 'AllDebrid',
+                              label: AppLocalizations.of(context).t('AllDebrid'),
                               onTap: () {
                                 Navigator.of(dialogContext).pop();
                                 onAllDebrid();
@@ -197,7 +193,7 @@ Future<void> showAddSourcePickerDialog(
                             _SourceOption(
                               icon: Icons.cloud,
                               iconColor: const Color(0xFFF59E0B),
-                              label: 'PikPak',
+                              label: AppLocalizations.of(context).t('PikPak'),
                               onTap: () {
                                 Navigator.of(dialogContext).pop();
                                 onPikPak();
@@ -216,8 +212,7 @@ Future<void> showAddSourcePickerDialog(
                   alignment: Alignment.centerRight,
                   child: TextButton(
                     onPressed: () => Navigator.of(dialogContext).pop(),
-                    child: const Text(
-                      'Cancel',
+                    child: Text(AppLocalizations.of(context).t('Cancel'),
                       style: TextStyle(color: Colors.white54),
                     ),
                   ),

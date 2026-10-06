@@ -7,6 +7,8 @@ import 'package:flutter/foundation.dart'
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
+import '../../../l10n/app_localizations.dart';
+
 import 'package:flutter/services.dart';
 
 import '../../../theme/app_theme.dart';
@@ -677,7 +679,7 @@ class _StremioTvTunerState extends State<StremioTvTuner> {
                   padding: const EdgeInsets.fromLTRB(20, 2, 20, 12),
                   child: Align(
                     alignment: Alignment.centerLeft,
-                    child: Text('All channels',
+                    child: Text(AppLocalizations.of(context).t('All channels'),
                         style: TextStyle(
                             color: app.core.tx,
                             fontSize: 18,
@@ -1376,7 +1378,7 @@ class _StageState extends State<_Stage> with TickerProviderStateMixin {
                 onTap: widget.onOpenDetail,
                 child: _glassPill(
                   icon: Icons.info_outline_rounded,
-                  label: 'Details',
+                  label: AppLocalizations.of(context).t('Details'),
                 ),
               ),
             ),
@@ -1388,7 +1390,7 @@ class _StageState extends State<_Stage> with TickerProviderStateMixin {
                 onTap: widget.onOpenList,
                 child: _glassPill(
                   icon: Icons.format_list_bulleted_rounded,
-                  label: 'Channels',
+                  label: AppLocalizations.of(context).t('Channels'),
                 ),
               ),
             ),
@@ -1618,7 +1620,7 @@ class _StageState extends State<_Stage> with TickerProviderStateMixin {
         // blue identity colour for both).
         _LivePip(color: app.home.highlight),
         const SizedBox(width: 9),
-        Text('LIVE',
+        Text(AppLocalizations.of(context).t('LIVE'),
             style: TextStyle(
               color: app.home.highlight,
               fontSize: 12,
@@ -1685,8 +1687,7 @@ class _StageState extends State<_Stage> with TickerProviderStateMixin {
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Text(
-            'UP NEXT',
+          Text(AppLocalizations.of(context).t('UP NEXT'),
             style: TextStyle(
               color: widget.ident.withValues(alpha: 0.85),
               fontSize: 11,
@@ -1745,8 +1746,7 @@ class _StageState extends State<_Stage> with TickerProviderStateMixin {
             size: 28, color: app.core.tx.withValues(alpha: 0.5)),
         const SizedBox(width: 14),
         Expanded(
-          child: Text(
-            'Now playing hidden — tune in to reveal',
+          child: Text(AppLocalizations.of(context).t('Now playing hidden — tune in to reveal'),
             maxLines: 2,
             overflow: TextOverflow.ellipsis,
             style: TextStyle(
@@ -1821,8 +1821,7 @@ class _StageDescription extends StatelessWidget {
                 child: Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    Text(
-                      'Read more',
+                    Text(AppLocalizations.of(context).t('Read more'),
                       style: TextStyle(
                         color: app.core.tx.withValues(alpha: 0.95),
                         fontSize: 13,
@@ -2282,7 +2281,7 @@ class _DialCardState extends State<_DialCard> {
                       right: 9,
                       child: _DialHintChip(
                         icon: Icons.keyboard_arrow_down_rounded,
-                        label: 'OPTIONS',
+                        label: AppLocalizations.of(context).t('OPTIONS'),
                       ),
                     )
                   else if (!widget.isTelevision && _hovered)
@@ -2291,7 +2290,7 @@ class _DialCardState extends State<_DialCard> {
                       right: 9,
                       child: _DialHintChip(
                         icon: Icons.mouse_rounded,
-                        label: 'RIGHT-CLICK',
+                        label: AppLocalizations.of(context).t('RIGHT-CLICK'),
                       ),
                     ),
                   // Title + progress overlay.

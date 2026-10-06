@@ -263,16 +263,14 @@ class _ChannelPickerDialogState extends State<ChannelPickerDialog> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      'Add to Channel',
+                    Text(AppLocalizations.of(context).t('Add to Channel'),
                       style: TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.w600,
                       ),
                     ),
                     SizedBox(height: 4),
-                    Text(
-                      'Select a channel or create new',
+                    Text(AppLocalizations.of(context).t('Select a channel or create new'),
                       style: TextStyle(
                         color: Colors.white60,
                         fontSize: 12,
@@ -303,7 +301,7 @@ class _ChannelPickerDialogState extends State<ChannelPickerDialog> {
               children: [
                 _ChannelSelectionTile(
                   icon: Icons.add_circle_outline,
-                  title: 'Create New Channel',
+                  title: AppLocalizations.of(context).t('Create New Channel'),
                   subtitle: AppLocalizations.of(context).t('Start fresh with "\$keyword"').replaceAll('\$keyword', widget.searchKeyword),
                   isCreateNew: true,
                   focusNode: _createButtonFocusNode,
@@ -327,8 +325,7 @@ class _ChannelPickerDialogState extends State<ChannelPickerDialog> {
                   Padding(
                     padding: EdgeInsets.all(32),
                     child: Center(
-                      child: Text(
-                        'No channels yet. Create your first one!',
+                      child: Text(AppLocalizations.of(context).t('No channels yet. Create your first one!'),
                         style: TextStyle(
                           color: Colors.white38,
                           fontSize: 13,
@@ -367,8 +364,7 @@ class _ChannelPickerDialogState extends State<ChannelPickerDialog> {
                 ),
               ),
               const SizedBox(width: 12),
-              const Text(
-                'Create Channel',
+              Text(AppLocalizations.of(context).t('Create Channel'),
                 style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.w700,
@@ -408,7 +404,7 @@ class _ChannelPickerDialogState extends State<ChannelPickerDialog> {
             decoration: InputDecoration(
               labelText: 'Channel Name',
               labelStyle: TextStyle(color: Colors.white60),
-              hintText: 'e.g., Action Movies',
+              hintText: AppLocalizations.of(context).t('e.g., Action Movies'),
               hintStyle: TextStyle(color: Colors.white38),
               filled: true,
               fillColor: Color(0xFF111827),
@@ -472,8 +468,7 @@ class _ChannelPickerDialogState extends State<ChannelPickerDialog> {
                         borderRadius: BorderRadius.circular(12),
                       ),
                     ),
-                    child: const Text(
-                      'Cancel',
+                    child: Text(AppLocalizations.of(context).t('Cancel'),
                       style: TextStyle(color: Colors.white54),
                     ),
                   ),

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../l10n/app_localizations.dart';
+
 import 'package:flutter/services.dart';
 
 import '../../../utils/tv_keys.dart';
@@ -234,10 +236,10 @@ class _CategoryOptionsButtonState extends State<_CategoryOptionsButton> {
     return Semantics(
       button: true,
       excludeSemantics: true,
-      label: 'Category options',
+      label: AppLocalizations.of(context).t('Category options'),
       onTap: widget.onPressed,
       child: Tooltip(
-        message: 'Category options',
+        message: AppLocalizations.of(context).t('Category options'),
         child: Focus(
           focusNode: widget.focusNode,
           onFocusChange: (focused) {

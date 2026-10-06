@@ -589,8 +589,7 @@ class DetailMetaBar extends StatelessWidget {
                 color: const Color(0xFFF5C518),
                 borderRadius: t.brSm,
               ),
-              child: const Text(
-                'IMDb',
+              child: Text(AppLocalizations.of(context).t('IMDb'),
                 style: TextStyle(
                   color: Colors.black,
                   fontSize: 9.5,
@@ -744,7 +743,7 @@ class DetailActionRow extends StatelessWidget {
         ),
       if (model.isMovie && model.onBrowse != null)
         DetailGhostButton(
-          label: 'Sources',
+          label: AppLocalizations.of(context).t('Sources'),
           icon: Icons.layers_rounded,
           onTap: model.onBrowse!,
         ),
@@ -767,7 +766,7 @@ class DetailActionRow extends StatelessWidget {
           autofocus: model.isTelevision && !model.showPrimary,
         ),
       if (model.onMetadataExplore != null)
-        DetailGhostButton(label: 'Explore', icon: Icons.explore_outlined,
+        DetailGhostButton(label: AppLocalizations.of(context).t('Explore'), icon: Icons.explore_outlined,
           onTap: model.onMetadataExplore!),
       if (model.onAppMenu != null)
         DetailRoundButton(

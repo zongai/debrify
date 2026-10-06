@@ -167,8 +167,7 @@ class _RemoteControlScreenState extends State<RemoteControlScreen> {
                           state.connectedDevice?.deviceName ?? 'TV',
                           style: TextStyle(color: app.core.tx),
                         ),
-                        subtitle: Text(
-                          'Connected',
+                        subtitle: Text(AppLocalizations.of(context).t('Connected'),
                           style: TextStyle(color: app.settings.dim),
                         ),
                         trailing: TextButton(
@@ -282,8 +281,7 @@ class _RemoteControlScreenState extends State<RemoteControlScreen> {
               ),
               const SizedBox(width: 12),
               Expanded(
-                child: Text(
-                  'Scanning...',
+                child: Text(AppLocalizations.of(context).t('Scanning...'),
                   style: TextStyle(
                     color: AppThemeScope.of(
                       context,
@@ -380,8 +378,7 @@ class _RemoteControlScreenState extends State<RemoteControlScreen> {
             textAlign: TextAlign.center,
           ),
           SizedBox(height: 8),
-          Text(
-            'Make sure Debrify is running on your TV',
+          Text(AppLocalizations.of(context).t('Make sure Debrify is running on your TV'),
             style: TextStyle(
               color: AppThemeScope.of(context).core.tx.withValues(alpha: 0.5),
               fontSize: 12,
@@ -431,8 +428,7 @@ class _RemoteControlScreenState extends State<RemoteControlScreen> {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(16),
           ),
-          title: Text(
-            'Connect by IP',
+          title: Text(AppLocalizations.of(context).t('Connect by IP'),
             style: TextStyle(fontWeight: FontWeight.w600),
           ),
           content: Column(
@@ -511,8 +507,7 @@ class _RemoteControlScreenState extends State<RemoteControlScreen> {
           actions: [
             TextButton(
               onPressed: () => Navigator.of(dialogContext).pop(),
-              child: Text(
-                'Cancel',
+              child: Text(AppLocalizations.of(context).t('Cancel'),
                 style: TextStyle(
                   color: AppThemeScope.of(
                     context,
@@ -554,8 +549,7 @@ class _RemoteControlScreenState extends State<RemoteControlScreen> {
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text(
-            'Could not start the connection. Check local network access and retry.',
+          content: Text(AppLocalizations.of(context).t('Could not start the connection. Check local network access and retry.'),
           ),
         ),
       );
@@ -672,8 +666,7 @@ class _RemoteControlScreenState extends State<RemoteControlScreen> {
                       ).core.tx.withValues(alpha: 0.2),
                       borderRadius: BorderRadius.circular(16),
                     ),
-                    child: Text(
-                      'Connect',
+                    child: Text(AppLocalizations.of(context).t('Connect'),
                       style: TextStyle(
                         color: AppThemeScope.of(context).core.tx,
                         fontSize: 12,

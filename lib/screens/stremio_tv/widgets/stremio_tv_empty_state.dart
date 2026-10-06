@@ -37,8 +37,7 @@ class StremioTvEmptyState extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 24),
-            Text(
-              'No Catalog Addons',
+            Text(AppLocalizations.of(context).t('No Catalog Addons'),
               style: TextStyle(
                 color: app.core.tx,
                 fontSize: 22,
@@ -47,9 +46,7 @@ class StremioTvEmptyState extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 10),
-            Text(
-              'Install Stremio catalog addons (like Cinemeta) to discover '
-              'channels. Each catalog becomes a TV channel with rotating content.',
+            Text(AppLocalizations.of(context).t('Install Stremio catalog addons (like Cinemeta) to discover ')'channels. Each catalog becomes a TV channel with rotating content.',
               textAlign: TextAlign.center,
               style: TextStyle(
                 color: app.core.tx.withValues(alpha: 0.55),
@@ -104,8 +101,7 @@ class StremioTvEmptyState extends StatelessWidget {
                               color: app.core.tx.withValues(
                                   alpha: focused ? 0.9 : 0.7)),
                           const SizedBox(width: 10),
-                          Text(
-                            'Go to Addons',
+                          Text(AppLocalizations.of(context).t('Go to Addons'),
                             style: TextStyle(
                               color: app.core.tx.withValues(
                                   alpha: focused ? 1.0 : 0.85),

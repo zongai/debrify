@@ -50,8 +50,7 @@ class MdblistListsSeeAllScreen extends StatelessWidget {
       ),
       body: lists.isEmpty
           ? Center(
-              child: Text(
-                'No lists to show.',
+              child: Text(AppLocalizations.of(context).t('No lists to show.'),
                 style: TextStyle(color: app.fade(app.core.tx, 0.6)),
               ),
             )

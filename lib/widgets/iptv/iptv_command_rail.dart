@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 import 'package:flutter/services.dart';
 
 import '../../models/iptv_playlist.dart';
@@ -113,7 +115,7 @@ class IptvCommandRail extends StatelessWidget {
                 tokens: t,
                 icon: Icons.star_rounded,
                 iconColor: const Color(0xFFF5C042),
-                label: 'Favorites',
+                label: AppLocalizations.of(context).t('Favorites'),
                 count: favoritesCount,
                 selected: selectedPlaylist?.id == p.id,
                 // Top focus edge of the rail: UP stays here instead of
@@ -125,7 +127,7 @@ class IptvCommandRail extends StatelessWidget {
               _RailItem(
                 tokens: t,
                 icon: Icons.history_rounded,
-                label: 'Continue',
+                label: AppLocalizations.of(context).t('Continue'),
                 selected: selectedPlaylist?.id == p.id,
                 onSelect: () => onSelectPlaylist(p),
               ),
@@ -134,7 +136,7 @@ class IptvCommandRail extends StatelessWidget {
                 tokens: t,
                 icon: Icons.fiber_manual_record_rounded,
                 iconColor: app.iptv.recordAccent,
-                label: 'Recordings',
+                label: AppLocalizations.of(context).t('Recordings'),
                 count: scheduledCount,
                 selected: false,
                 chevron: true,
@@ -184,7 +186,7 @@ class IptvCommandRail extends StatelessWidget {
             _RailItem(
               tokens: t,
               icon: Icons.tune_rounded,
-              label: 'Manage sources',
+              label: AppLocalizations.of(context).t('Manage sources'),
               selected: false,
               chevron: true,
               // Bottom focus edge — DOWN stops here.

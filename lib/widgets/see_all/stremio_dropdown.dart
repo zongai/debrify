@@ -731,7 +731,7 @@ class _LazyPickerDialogState<T extends Object>
                   style: const TextStyle(fontSize: 13.5),
                   decoration: InputDecoration(
                     isDense: true,
-                    hintText: 'Filter…',
+                    hintText: AppLocalizations.of(context).t('Filter…'),
                     hintStyle: TextStyle(
                       color: app.fade(app.core.tx, 0.35),
                       fontSize: 13.5,

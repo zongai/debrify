@@ -231,8 +231,7 @@ class _TvFocusableCardState extends State<TvFocusableCard> {
                           color: app.onGlass.withAlpha(230),
                         ),
                         const SizedBox(width: 4),
-                        Text(
-                          'Long press for options',
+                        Text(AppLocalizations.of(context).t('Long press for options'),
                           style: TextStyle(
                             color: app.onGlass.withAlpha(230),
                             fontSize: 11,

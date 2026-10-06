@@ -223,8 +223,7 @@ class _MetadataExploreSpotlightState extends State<MetadataExploreSpotlight> {
                 child: Row(
                   children: [
                     const Expanded(
-                      child: Text(
-                        'Cast & crew',
+                      child: Text(AppLocalizations.of(context).t('Cast & crew'),
                         style: TextStyle(fontSize: 24, color: Colors.white),
                       ),
                     ),
@@ -407,8 +406,7 @@ class _MetadataExploreSpotlightState extends State<MetadataExploreSpotlight> {
             ),
           ),
           if (kinds.isEmpty)
-            const Text(
-              'No availability information for this region.',
+            Text(AppLocalizations.of(context).t('No availability information for this region.'),
               style: TextStyle(color: Colors.white70),
             ),
           if (kinds.isNotEmpty) ...[
@@ -483,8 +481,7 @@ class _MetadataExploreSpotlightState extends State<MetadataExploreSpotlight> {
             ),
           ],
           SizedBox(height: 12),
-          Text(
-            'Availability via JustWatch · TMDB',
+          Text(AppLocalizations.of(context).t('Availability via JustWatch · TMDB'),
             style: TextStyle(color: Colors.white54, fontSize: 12),
           ),
           if (data.providerLink != null)
@@ -789,8 +786,7 @@ class _ExploreHeroState extends State<_ExploreHero>
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text(
-                  'E X P L O R E',
+                Text(AppLocalizations.of(context).t('E X P L O R E'),
                   style: TextStyle(color: Colors.white60, fontSize: 12),
                 ),
                 const SizedBox(height: 14),
@@ -832,8 +828,7 @@ class _ExploreHeroState extends State<_ExploreHero>
                 ),
                 if (!widget.compact) ...[
                   const SizedBox(height: 12),
-                  const Text(
-                    'Discover the people and stories behind the title.',
+                  Text(AppLocalizations.of(context).t('Discover the people and stories behind the title.'),
                     style: TextStyle(color: Colors.white70),
                   ),
                 ],

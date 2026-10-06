@@ -420,8 +420,7 @@ class _TakeoverInfo extends StatelessWidget {
       ));
     }
 
-    final kicker = Text(
-      'NOW PLAYING  ·  OFFICIAL TRAILER',
+    final kicker = Text(AppLocalizations.of(context).t('NOW PLAYING  ·  OFFICIAL TRAILER'),
       style: const TextStyle(
         fontSize: 11.5,
         fontWeight: FontWeight.w800,
@@ -628,8 +627,7 @@ class _TrailerLoadingPill extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(width: 7),
-                Text(
-                  'Trailer',
+                Text(AppLocalizations.of(context).t('Trailer'),
                   style: TextStyle(
                     fontSize: 11,
                     fontWeight: FontWeight.w700,

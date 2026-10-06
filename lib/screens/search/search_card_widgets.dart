@@ -1,3 +1,4 @@
+import '../../l10n/app_localizations.dart';
 part of '../search_screen.dart';
 
 class _StremioCard extends StatefulWidget {
@@ -859,8 +860,7 @@ class _ArtPosterState extends State<_ArtPoster> {
                     ),
                   ),
                   const SizedBox(width: 4),
-                  Text(
-                    'LIVE',
+                  Text(AppLocalizations.of(context).t('LIVE'),
                     style: TextStyle(
                       color: app.core.tx,
                       fontSize: 9,
@@ -1081,7 +1081,7 @@ class _ModeToggle extends StatelessWidget {
       return SizedBox(
         width: fullWidth ? double.infinity : 156,
         child: StremioDropdown<_Mode>(
-          label: 'Search',
+          label: AppLocalizations.of(context).t('Search'),
           value: modes.contains(mode) ? mode : modes.first,
           options: [
             for (final value in modes)

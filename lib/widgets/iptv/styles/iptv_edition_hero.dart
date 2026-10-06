@@ -228,8 +228,7 @@ class _IptvEditionHeroState extends State<IptvEditionHero> {
                   ),
                 ),
                 const SizedBox(width: 8),
-                Text(
-                  'ON AIR',
+                Text(AppLocalizations.of(context).t('ON AIR'),
                   style: TextStyle(
                     color: t.live,
                     fontSize: 9.5,

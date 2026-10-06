@@ -126,8 +126,7 @@ class FileProgressBar extends StatelessWidget {
                     size: 12,
                   ),
                   SizedBox(width: 2),
-                  Text(
-                    'NOW',
+                  Text(AppLocalizations.of(context).t('NOW'),
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 8,

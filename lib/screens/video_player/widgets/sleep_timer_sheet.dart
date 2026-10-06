@@ -72,8 +72,7 @@ class SleepTimerSheet {
             children: [
               Padding(
                 padding: const EdgeInsets.fromLTRB(24, 20, 24, 4),
-                child: Text(
-                  'Sleep timer',
+                child: Text(AppLocalizations.of(context).t('Sleep timer'),
                   style: TextStyle(
                     color: Colors.white.withValues(alpha: 0.95),
                     fontSize: 18,
@@ -83,9 +82,7 @@ class SleepTimerSheet {
               ),
               Padding(
                 padding: const EdgeInsets.fromLTRB(24, 0, 24, 12),
-                child: Text(
-                  'Playback pauses and the screen is released so the device '
-                  'can sleep. Your position is saved.',
+                child: Text(AppLocalizations.of(context).t('Playback pauses and the screen is released so the device ')'can sleep. Your position is saved.',
                   style: TextStyle(
                     color: Colors.white.withValues(alpha: 0.55),
                     fontSize: 13,
@@ -94,7 +91,7 @@ class SleepTimerSheet {
               ),
               _tile(
                 context,
-                label: 'Off',
+                label: AppLocalizations.of(context).t('Off'),
                 selected: current == SleepTimerMode.off,
                 value: SleepTimerSelection.off,
               ),
@@ -116,7 +113,7 @@ class SleepTimerSheet {
               if (allowEndOfItem)
                 _tile(
                   context,
-                  label: 'End of episode',
+                  label: AppLocalizations.of(context).t('End of episode'),
                   selected: current == SleepTimerMode.endOfItem,
                   value: const SleepTimerSelection(SleepTimerMode.endOfItem),
                 ),

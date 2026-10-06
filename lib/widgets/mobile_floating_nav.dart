@@ -1001,16 +1001,14 @@ class _RemoteControlMenuItemState extends State<_RemoteControlMenuItem> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Text(
-                    'Remote',
+                  Text(AppLocalizations.of(context).t('Remote'),
                     style: TextStyle(
                       color: app.fade(app.core.tx, _isPressed ? 1.0 : 0.7),
                       fontSize: 13,
                       fontWeight: FontWeight.w500,
                     ),
                   ),
-                  Text(
-                    'Control your TV',
+                  Text(AppLocalizations.of(context).t('Control your TV'),
                     style: TextStyle(
                       color: app.fade(app.core.tx, 0.4),
                       fontSize: 10,

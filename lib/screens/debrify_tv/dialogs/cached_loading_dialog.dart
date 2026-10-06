@@ -66,7 +66,7 @@ class _CachedLoadingDialogState extends State<CachedLoadingDialog> {
           if (widget.onCancel != null)
             DebrifyTvDialogButton(
               autofocus: true,
-              label: 'Cancel',
+              label: AppLocalizations.of(context).t('Cancel'),
               icon: Icons.close_rounded,
               onPressed: () {
                 debugPrint('[CachedLoadingDialog] Cancel button pressed');

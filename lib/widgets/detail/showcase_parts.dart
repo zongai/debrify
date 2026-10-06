@@ -1,6 +1,8 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 import 'package:flutter/services.dart';
 
 import '../../models/stremio_addon.dart';
@@ -543,7 +545,7 @@ class ShowcaseIdentity extends StatelessWidget {
         _Circle.mark(
           node: next(),
           mark: const MdblistMark(),
-          label: 'MDBList',
+          label: AppLocalizations.of(context).t('MDBList'),
           onTap: m.onTrackersTertiary!,
         ),
       );
@@ -553,7 +555,7 @@ class ShowcaseIdentity extends StatelessWidget {
         _Circle(
           node: next(),
           icon: Icons.theaters_rounded,
-          label: 'Trailer',
+          label: AppLocalizations.of(context).t('Trailer'),
           onTap: m.onTrailer,
         ),
       );
@@ -575,14 +577,14 @@ class ShowcaseIdentity extends StatelessWidget {
     }
     if (m.onMetadataExplore != null && i < actionNodes.length) {
       actions.add(_Circle(node: next(), icon: Icons.explore_outlined,
-        label: 'Explore', onTap: m.onMetadataExplore!));
+        label: AppLocalizations.of(context).t('Explore'), onTap: m.onMetadataExplore!));
     }
     if (m.onAppMenu != null && i < actionNodes.length) {
       actions.add(
         _Circle(
           node: next(),
           icon: Icons.more_horiz_rounded,
-          label: 'More',
+          label: AppLocalizations.of(context).t('More'),
           onTap: m.onAppMenu!,
         ),
       );
@@ -1629,7 +1631,7 @@ class ShowcaseEpisodeCell extends StatelessWidget {
                       Positioned(
                         left: 6,
                         top: 6,
-                        child: _Badge(label: 'UP NEXT'),
+                        child: _Badge(label: AppLocalizations.of(context).t('UP NEXT')),
                       ),
                     if (watched)
                       const Positioned(
@@ -1802,7 +1804,7 @@ class ShowcaseEpisodeCardCompact extends StatelessWidget {
                       Positioned(
                         left: 7,
                         top: 7,
-                        child: _Badge(label: 'UP NEXT'),
+                        child: _Badge(label: AppLocalizations.of(context).t('UP NEXT')),
                       ),
                     if (watched)
                       const Positioned(
@@ -1985,7 +1987,7 @@ class ShowcaseCast extends StatelessWidget {
   Widget build(BuildContext context) {
     final m = ShowcaseMetrics.of(context);
     return _Band(
-      title: 'Cast & Crew',
+      title: AppLocalizations.of(context).t('Cast & Crew'),
       height: m.circle * 1.08 + 46 * m.k,
       child: ListView.separated(
         clipBehavior: Clip.none,
@@ -2129,7 +2131,7 @@ class ShowcaseSources extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => _Band(
-    title: 'Sources',
+    title: AppLocalizations.of(context).t('Sources'),
     height: 96 * ShowcaseMetrics.of(context).k,
     child: ListView.separated(
       clipBehavior: Clip.none,
@@ -2292,7 +2294,7 @@ class ShowcaseRecs extends StatelessWidget {
   Widget build(BuildContext context) {
     final m = ShowcaseMetrics.of(context);
     return _Band(
-      title: 'More Like This',
+      title: AppLocalizations.of(context).t('More Like This'),
       height: m.posterH * 1.10 + 24,
       child: ListView.separated(
         clipBehavior: Clip.none,
@@ -2531,7 +2533,7 @@ class _ShowcaseGuideState extends State<ShowcaseGuide> {
       mainAxisSize: MainAxisSize.min,
       children: [
         _Band(
-          title: 'Parents Guide',
+          title: AppLocalizations.of(context).t('Parents Guide'),
           height: m.guideH * 1.12 + 18,
           child: ListView.separated(
             clipBehavior: Clip.none,
@@ -2683,8 +2685,7 @@ class _ShowcaseGuideState extends State<ShowcaseGuide> {
         const SizedBox(height: 20),
         Padding(
           padding: EdgeInsets.only(left: m.gutter, bottom: 10),
-          child: Text(
-            'Parents Guide',
+          child: Text(AppLocalizations.of(context).t('Parents Guide'),
             style: _t(19, w: FontWeight.w600, a: 0.84),
           ),
         ),
@@ -2873,7 +2874,7 @@ class ShowcaseUniverse extends StatelessWidget {
     final m = ShowcaseMetrics.of(context);
     final capH = m.compact ? 52.0 : 42.0 * m.k;
     return _Band(
-      title: 'Universe',
+      title: AppLocalizations.of(context).t('Universe'),
       height: m.posterH * 1.10 + 24 + capH,
       child: ListView.separated(
         clipBehavior: Clip.none,
@@ -3027,7 +3028,7 @@ class ShowcaseDidYouKnow extends StatelessWidget {
     final m = ShowcaseMetrics.of(context);
     final hasMore = total > entries.length;
     return _Band(
-      title: 'Did You Know',
+      title: AppLocalizations.of(context).t('Did You Know'),
       subtitle: countLine,
       height: m.dykH * 1.10 + 18,
       child: ListView.separated(
@@ -3177,8 +3178,7 @@ class _DykMoreCardState extends State<_DykMoreCard> {
                     style: _t(m.compact ? 20 : 16 * m.k, w: FontWeight.w800),
                   ),
                   const SizedBox(height: 3),
-                  Text(
-                    'ON IMDb',
+                  Text(AppLocalizations.of(context).t('ON IMDb'),
                     style: _t(
                       m.compact ? 9 : 7 * m.k,
                       w: FontWeight.w700,
@@ -3362,7 +3362,7 @@ class ShowcaseDetails extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
         children: [
-          Text('Details', style: _t(13 * m.k, w: FontWeight.w600, a: 0.84)),
+          Text(AppLocalizations.of(context).t('Details'), style: _t(13 * m.k, w: FontWeight.w600, a: 0.84)),
           const SizedBox(height: 10),
           Wrap(
             spacing: 46,

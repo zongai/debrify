@@ -308,8 +308,7 @@ class _GuideEntry extends StatelessWidget {
                               borderRadius: BorderRadius.circular(4),
                               color: theme.colorScheme.primary,
                             ),
-                            child: Text(
-                              'NOW',
+                            child: Text(AppLocalizations.of(context).t('NOW'),
                               style: theme.textTheme.labelSmall?.copyWith(
                                 fontSize: 9,
                                 fontWeight: FontWeight.bold,

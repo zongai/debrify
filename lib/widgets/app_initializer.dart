@@ -421,7 +421,7 @@ class _AppInitializerState extends State<AppInitializer>
         SnackBar(
           content: Text(message),
           action: SnackBarAction(
-            label: 'OPEN SETTINGS',
+            label: AppLocalizations.of(context).t('OPEN SETTINGS'),
             onPressed: () => MainPageBridge.switchTab?.call(MainTab.settings),
           ),
         ),

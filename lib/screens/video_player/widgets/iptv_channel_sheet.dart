@@ -1434,7 +1434,7 @@ class IptvChannelSheetState extends State<IptvChannelSheet>
                   ),
                   const SizedBox(width: 8),
                   _StyledTag(
-                    label: 'NOW',
+                    label: AppLocalizations.of(context).t('NOW'),
                     color: edition ? t.fg : t.accent,
                     onDark: t.bg,
                     square: console,
@@ -1490,7 +1490,7 @@ class IptvChannelSheetState extends State<IptvChannelSheet>
                   ),
                 ),
                 const SizedBox(width: 8),
-                const _LivePill(label: 'NOW'),
+                const _LivePill(label: AppLocalizations.of(context).t('NOW')),
                 if (compact) ...[
                   const SizedBox(width: 6),
                   Icon(
@@ -1561,7 +1561,7 @@ class IptvChannelSheetState extends State<IptvChannelSheet>
                 : null,
           ),
           decoration: InputDecoration(
-            hintText: 'Search channels or categories...',
+            hintText: AppLocalizations.of(context).t('Search channels or categories...'),
             hintStyle: TextStyle(
               color: t == null
                   ? Colors.white.withValues(alpha: 0.25)
@@ -1756,7 +1756,7 @@ class IptvChannelSheetState extends State<IptvChannelSheet>
             SizedBox(width: 7),
             _FilterChip(
               icon: Icons.favorite_rounded,
-              label: 'Saved',
+              label: AppLocalizations.of(context).t('Saved'),
               selected: _favoritesOnly,
               onTap: _toggleFavoritesFilter,
               dpadFocused: _dpadOnFilter(2),
@@ -1776,8 +1776,7 @@ class IptvChannelSheetState extends State<IptvChannelSheet>
     final channel = _scheduleChannel;
     if (channel == null) {
       return Center(
-        child: Text(
-          'Select a channel to view its schedule',
+        child: Text(AppLocalizations.of(context).t('Select a channel to view its schedule'),
           style: TextStyle(
             color: t == null ? Colors.white.withValues(alpha: 0.45) : t.fgDim,
           ),
@@ -1934,7 +1933,7 @@ class IptvChannelSheetState extends State<IptvChannelSheet>
     final confirmed = await showSpotlightDialog<bool>(
       context,
       builder: (dialogContext) => SpotlightDialogCard(
-        title: 'Record programme?',
+        title: AppLocalizations.of(context).t('Record programme?'),
         statusDot: SpotlightDialogCard.statusRed,
         bodyText: '${programme.title} · ${channel.name}',
         metaText:
@@ -1984,11 +1983,10 @@ class IptvChannelSheetState extends State<IptvChannelSheet>
       // outright — offer the grant right here.
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text(
-            'Allow "Alarms & reminders" for Debrify to schedule recordings',
+          content: Text(AppLocalizations.of(context).t('Allow "Alarms & reminders" for Debrify to schedule recordings'),
           ),
           action: SnackBarAction(
-            label: 'Settings',
+            label: AppLocalizations.of(context).t('Settings'),
             onPressed: () =>
                 unawaited(LiveRecordingService.openExactAlarmSettings()),
           ),
@@ -2580,8 +2578,7 @@ class _CategoryPickerDialogState extends State<_CategoryPickerDialog> {
                   ),
                   const SizedBox(width: 10),
                   Expanded(
-                    child: Text(
-                      'Category',
+                    child: Text(AppLocalizations.of(context).t('Category'),
                       style: TextStyle(
                         color: t == null ? Colors.white : t.fg,
                         fontSize: 15,
@@ -2623,7 +2620,7 @@ class _CategoryPickerDialogState extends State<_CategoryPickerDialog> {
                     fontSize: 14,
                   ),
                   decoration: InputDecoration(
-                    hintText: 'Search categories…',
+                    hintText: AppLocalizations.of(context).t('Search categories…'),
                     hintStyle: TextStyle(
                       color: t == null
                           ? Colors.white.withValues(alpha: 0.25)
@@ -3448,8 +3445,7 @@ class _ChannelTile extends StatelessWidget {
             borderRadius: BorderRadius.circular(2),
             border: Border.all(color: t.live, width: 1),
           ),
-          child: Text(
-            'LIVE',
+          child: Text(AppLocalizations.of(context).t('LIVE'),
             style: TextStyle(
               color: t.live,
               fontSize: 8,
@@ -3469,8 +3465,7 @@ class _ChannelTile extends StatelessWidget {
             decoration: BoxDecoration(color: t.live, shape: BoxShape.circle),
           ),
           const SizedBox(width: 4),
-          Text(
-            'LIVE',
+          Text(AppLocalizations.of(context).t('LIVE'),
             style: TextStyle(
               color: t.live,
               fontSize: 8,
@@ -3505,8 +3500,7 @@ class _ChannelTile extends StatelessWidget {
             ),
           ),
           const SizedBox(width: 4),
-          Text(
-            'LIVE',
+          Text(AppLocalizations.of(context).t('LIVE'),
             style: TextStyle(
               color: _liveDot.withValues(alpha: 0.7),
               fontSize: 8,
@@ -3525,7 +3519,7 @@ class _ChannelTile extends StatelessWidget {
       // Static tag — the styled looks don't pulse (nothing animates unless
       // it must), and each keeps its single accent.
       return _StyledTag(
-        label: 'NOW',
+        label: AppLocalizations.of(context).t('NOW'),
         color: _edition ? t.fg : t.accent,
         onDark: t.bg,
         square: _console,
@@ -3553,8 +3547,7 @@ class _ChannelTile extends StatelessWidget {
               ),
             ],
           ),
-          child: const Text(
-            'NOW',
+          child: Text(AppLocalizations.of(context).t('NOW'),
             style: TextStyle(
               color: Colors.white,
               fontSize: 8,

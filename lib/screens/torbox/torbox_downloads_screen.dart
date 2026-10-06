@@ -540,24 +540,24 @@ class _TorboxDownloadsScreenState extends State<TorboxDownloadsScreen> {
     final options = <_TorboxMoreOption>[
       _TorboxMoreOption(
         icon: Icons.playlist_add,
-        label: 'Add to Playlist',
+        label: AppLocalizations.of(context).t('Add to Playlist'),
         onTap: () => _handleAddToPlaylist(torrent),
       ),
       _TorboxMoreOption(
         icon: Icons.live_tv_rounded,
-        label: 'Add to Debrify TV',
+        label: AppLocalizations.of(context).t('Add to Debrify TV'),
         onTap: () => _handleAddToDebrifyTv(torrent),
       ),
       _TorboxMoreOption(
         icon: Icons.copy,
-        label: 'Copy Link',
+        label: AppLocalizations.of(context).t('Copy Link'),
         onTap: isMultiFile
             ? () => _copyTorrentZipLink(torrent)
             : () => _copyTorrentLink(torrent),
       ),
       _TorboxMoreOption(
         icon: Icons.delete_outline,
-        label: 'Delete Torrent',
+        label: AppLocalizations.of(context).t('Delete Torrent'),
         onTap: () => _confirmDeleteTorrent(torrent),
         destructive: true,
       ),
@@ -969,8 +969,7 @@ class _TorboxDownloadsScreenState extends State<TorboxDownloadsScreen> {
             ),
             SizedBox(width: 12),
             Expanded(
-              child: Text(
-                'ZIP download link copied to clipboard!',
+              child: Text(AppLocalizations.of(context).t('ZIP download link copied to clipboard!'),
                 style: TextStyle(fontWeight: FontWeight.w500),
               ),
             ),
@@ -1480,8 +1479,7 @@ class _TorboxDownloadsScreenState extends State<TorboxDownloadsScreen> {
                         ),
                         const SizedBox(width: 12),
                         const Expanded(
-                          child: Text(
-                            'Download Options',
+                          child: Text(AppLocalizations.of(context).t('Download Options'),
                             style: TextStyle(
                               fontSize: 18,
                               fontWeight: FontWeight.w600,
@@ -1505,7 +1503,7 @@ class _TorboxDownloadsScreenState extends State<TorboxDownloadsScreen> {
                         // Option 1: Select files to download
                         _buildDownloadOptionCard(
                           icon: Icons.checklist_rounded,
-                          title: 'Select files to download',
+                          title: AppLocalizations.of(context).t('Select files to download'),
                           description:
                               'Choose specific files from this download',
                           color: const Color(0xFF6366F1),
@@ -1518,7 +1516,7 @@ class _TorboxDownloadsScreenState extends State<TorboxDownloadsScreen> {
                         // Option 2: Download as ZIP
                         _buildDownloadOptionCard(
                           icon: Icons.folder_zip_rounded,
-                          title: 'Download as ZIP',
+                          title: AppLocalizations.of(context).t('Download as ZIP'),
                           description:
                               'Download all files in a single ZIP archive',
                           color: const Color(0xFF10B981),
@@ -1551,8 +1549,7 @@ class _TorboxDownloadsScreenState extends State<TorboxDownloadsScreen> {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text(
-              'Torbox API key is required. Please add it in Settings.',
+            content: Text(AppLocalizations.of(context).t('Torbox API key is required. Please add it in Settings.'),
             ),
             backgroundColor: Color(0xFFEF4444),
           ),
@@ -1984,7 +1981,7 @@ class _TorboxDownloadsScreenState extends State<TorboxDownloadsScreen> {
         actions: [
           TextButton(
             onPressed: () => Navigator.of(context).pop(false),
-            child: Text('Cancel', style: TextStyle(color: Colors.grey)),
+            child: Text(AppLocalizations.of(context).t('Cancel'), style: TextStyle(color: Colors.grey)),
           ),
           TextButton(
             onPressed: () => Navigator.of(context).pop(true),
@@ -2059,8 +2056,7 @@ class _TorboxDownloadsScreenState extends State<TorboxDownloadsScreen> {
                   dialogOpen = false;
                   Navigator.of(dialogContext).pop();
                 },
-                child: const Text(
-                  'Cancel',
+                child: Text(AppLocalizations.of(context).t('Cancel'),
                   style: TextStyle(color: Colors.grey),
                 ),
               ),
@@ -2176,7 +2172,7 @@ class _TorboxDownloadsScreenState extends State<TorboxDownloadsScreen> {
                     maxLines: 2,
                     autofocus: true,
                     decoration: InputDecoration(
-                      hintText: 'Paste URL here (YouTube, file hosts, etc.)',
+                      hintText: AppLocalizations.of(context).t('Paste URL here (YouTube, file hosts, etc.)'),
                       labelText: 'URL *',
                       border: OutlineInputBorder(),
                     ),
@@ -2191,7 +2187,7 @@ class _TorboxDownloadsScreenState extends State<TorboxDownloadsScreen> {
                   onUpArrow: () =>
                       FocusManager.instance.primaryFocus?.previousFocus(),
                   decoration: InputDecoration(
-                    hintText: 'Custom name for the download',
+                    hintText: AppLocalizations.of(context).t('Custom name for the download'),
                     labelText: 'Name (optional)',
                     border: OutlineInputBorder(),
                   ),
@@ -2206,14 +2202,13 @@ class _TorboxDownloadsScreenState extends State<TorboxDownloadsScreen> {
                   onUpArrow: () =>
                       FocusManager.instance.primaryFocus?.previousFocus(),
                   decoration: InputDecoration(
-                    hintText: 'Password if required',
+                    hintText: AppLocalizations.of(context).t('Password if required'),
                     labelText: 'Password (optional)',
                     border: OutlineInputBorder(),
                   ),
                 ),
                 SizedBox(height: 8),
-                Text(
-                  'Supports YouTube, file hosts, and direct links.',
+                Text(AppLocalizations.of(context).t('Supports YouTube, file hosts, and direct links.'),
                   style: TextStyle(color: Colors.grey[400], fontSize: 12),
                 ),
               ],
@@ -2724,8 +2719,7 @@ class _TorboxDownloadsScreenState extends State<TorboxDownloadsScreen> {
                             ),
                             Row(
                               children: [
-                                Text(
-                                  'Raw',
+                                Text(AppLocalizations.of(context).t('Raw'),
                                   style: TextStyle(
                                     color: Colors.grey[300],
                                     fontSize: 12,
@@ -2870,8 +2864,7 @@ class _TorboxDownloadsScreenState extends State<TorboxDownloadsScreen> {
                                     borderRadius: app.shape.br(16),
                                   ),
                                 ),
-                                child: Text(
-                                  'Close',
+                                child: Text(AppLocalizations.of(context).t('Close'),
                                   style: TextStyle(
                                     color: Color(0xFF6366F1),
                                     fontWeight: FontWeight.w600,
@@ -2904,8 +2897,7 @@ class _TorboxDownloadsScreenState extends State<TorboxDownloadsScreen> {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text(
-              'Torbox API key is required. Please add it in Settings.',
+            content: Text(AppLocalizations.of(context).t('Torbox API key is required. Please add it in Settings.'),
             ),
             backgroundColor: Color(0xFFEF4444),
           ),
@@ -3074,8 +3066,7 @@ class _TorboxDownloadsScreenState extends State<TorboxDownloadsScreen> {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text(
-              'Torbox API key is required. Please add it in Settings.',
+            content: Text(AppLocalizations.of(context).t('Torbox API key is required. Please add it in Settings.'),
             ),
             backgroundColor: Color(0xFFEF4444),
           ),
@@ -3214,8 +3205,7 @@ class _TorboxDownloadsScreenState extends State<TorboxDownloadsScreen> {
                         ),
                         const SizedBox(width: 12),
                         const Expanded(
-                          child: Text(
-                            'Download Options',
+                          child: Text(AppLocalizations.of(context).t('Download Options'),
                             style: TextStyle(
                               fontSize: 18,
                               fontWeight: FontWeight.w600,
@@ -3239,7 +3229,7 @@ class _TorboxDownloadsScreenState extends State<TorboxDownloadsScreen> {
                         // Option 1: Select files to download
                         _buildDownloadOptionCard(
                           icon: Icons.checklist_rounded,
-                          title: 'Select files to download',
+                          title: AppLocalizations.of(context).t('Select files to download'),
                           description:
                               'Choose specific files from this torrent',
                           color: const Color(0xFF6366F1),
@@ -3252,7 +3242,7 @@ class _TorboxDownloadsScreenState extends State<TorboxDownloadsScreen> {
                         // Option 2: Download whole torrent as ZIP
                         _buildDownloadOptionCard(
                           icon: Icons.folder_zip_rounded,
-                          title: 'Download whole torrent as ZIP',
+                          title: AppLocalizations.of(context).t('Download whole torrent as ZIP'),
                           description:
                               'Download all files in a single ZIP archive',
                           color: const Color(0xFF10B981),
@@ -3698,8 +3688,7 @@ class _TorboxDownloadsScreenState extends State<TorboxDownloadsScreen> {
                   Icons.arrow_back_rounded,
                   color: Color(0xFF6366F1),
                 ),
-                label: const Text(
-                  'Back to seasons',
+                label: Text(AppLocalizations.of(context).t('Back to seasons'),
                   style: TextStyle(
                     color: Color(0xFF6366F1),
                     fontWeight: FontWeight.w600,
@@ -3964,8 +3953,7 @@ class _TorboxDownloadsScreenState extends State<TorboxDownloadsScreen> {
                           }
                         },
                         icon: const Icon(Icons.copy_rounded, size: 16),
-                        label: const Text(
-                          'Copy',
+                        label: Text(AppLocalizations.of(context).t('Copy'),
                           style: TextStyle(
                             fontWeight: FontWeight.w600,
                             fontSize: 13,
@@ -4027,13 +4015,11 @@ class _TorboxDownloadsScreenState extends State<TorboxDownloadsScreen> {
             ),
           ),
           SizedBox(height: 16),
-          Text(
-            'No files available yet',
+          Text(AppLocalizations.of(context).t('No files available yet'),
             style: TextStyle(fontWeight: FontWeight.w600),
           ),
           SizedBox(height: 8),
-          Text(
-            'We could not find any files for this torrent.',
+          Text(AppLocalizations.of(context).t('We could not find any files for this torrent.'),
             style: TextStyle(color: Colors.grey[400], fontSize: 13),
           ),
         ],
@@ -4082,7 +4068,7 @@ class _TorboxDownloadsScreenState extends State<TorboxDownloadsScreen> {
                   maxLines: 3,
                   autofocus: true,
                   decoration: InputDecoration(
-                    hintText: 'Paste magnet link here…',
+                    hintText: AppLocalizations.of(context).t('Paste magnet link here…'),
                     border: OutlineInputBorder(),
                   ),
                 ),
@@ -5583,8 +5569,7 @@ class _TorboxDownloadsScreenState extends State<TorboxDownloadsScreen> {
         // Not a series - show snackbar and fallback to sorted view
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: const Text(
-              'No series detected in this folder. Switching to Sort (A-Z) view.',
+            content: Text(AppLocalizations.of(context).t('No series detected in this folder. Switching to Sort (A-Z) view.'),
             ),
             duration: const Duration(seconds: 3),
             backgroundColor: AppThemeScope.of(context).cloud.dialogSurface,
@@ -5910,7 +5895,7 @@ class _TorboxDownloadsScreenState extends State<TorboxDownloadsScreen> {
                   ? () => _searchClearFocusNode.requestFocus()
                   : null,
               decoration: InputDecoration(
-                hintText: 'Search all files...',
+                hintText: AppLocalizations.of(context).t('Search all files...'),
                 prefixIcon: const Icon(Icons.search, color: Colors.grey),
                 filled: true,
                 fillColor: app.fade(app.core.tx, 0.06),
@@ -5990,8 +5975,7 @@ class _TorboxDownloadsScreenState extends State<TorboxDownloadsScreen> {
   Widget _buildSearchResults() {
     if (_searchController.text.isEmpty) {
       return const Center(
-        child: Text(
-          'Type to search all files',
+        child: Text(AppLocalizations.of(context).t('Type to search all files'),
           style: TextStyle(color: Colors.grey),
         ),
       );
@@ -5999,7 +5983,7 @@ class _TorboxDownloadsScreenState extends State<TorboxDownloadsScreen> {
 
     if (_searchResults.isEmpty) {
       return const Center(
-        child: Text('No files found', style: TextStyle(color: Colors.grey)),
+        child: Text(AppLocalizations.of(context).t('No files found'), style: TextStyle(color: Colors.grey)),
       );
     }
 
@@ -6344,13 +6328,11 @@ class _TorboxDownloadsScreenState extends State<TorboxDownloadsScreen> {
             children: [
               Icon(Icons.link_off, size: 64, color: Colors.grey.shade400),
               const SizedBox(height: 24),
-              Text(
-                'No Web Downloads Yet',
+              Text(AppLocalizations.of(context).t('No Web Downloads Yet'),
                 style: Theme.of(context).textTheme.headlineSmall,
               ),
               const SizedBox(height: 16),
-              Text(
-                'Add web downloads from YouTube, file hosts, and more.',
+              Text(AppLocalizations.of(context).t('Add web downloads from YouTube, file hosts, and more.'),
                 textAlign: TextAlign.center,
                 style: TextStyle(color: Colors.grey.shade600),
               ),
@@ -6414,29 +6396,29 @@ class _TorboxDownloadsScreenState extends State<TorboxDownloadsScreen> {
       if (videoCount > 0)
         CloudRowAction(
           icon: Icons.play_arrow_rounded,
-          label: 'Play',
+          label: AppLocalizations.of(context).t('Play'),
           showInStrip: true,
           onSelected: () => _handlePlayWebDownload(webDownload),
         ),
       CloudRowAction(
         icon: Icons.download,
-        label: 'Download to device',
+        label: AppLocalizations.of(context).t('Download to device'),
         showInStrip: true,
         onSelected: () => _showWebDownloadOptionsDialog(webDownload),
       ),
       CloudRowAction(
         icon: Icons.folder_open,
-        label: 'Open',
+        label: AppLocalizations.of(context).t('Open'),
         onSelected: () => _navigateIntoWebDownload(webDownload),
       ),
       CloudRowAction(
         icon: Icons.link,
-        label: 'Copy Download Link',
+        label: AppLocalizations.of(context).t('Copy Download Link'),
         onSelected: () => _copyWebDownloadLink(webDownload),
       ),
       CloudRowAction(
         icon: Icons.delete_outline,
-        label: 'Delete',
+        label: AppLocalizations.of(context).t('Delete'),
         destructive: true,
         onSelected: () => _confirmDeleteWebDownload(webDownload),
       ),
@@ -6493,40 +6475,40 @@ class _TorboxDownloadsScreenState extends State<TorboxDownloadsScreen> {
       if (videoCount > 0)
         CloudRowAction(
           icon: Icons.play_arrow_rounded,
-          label: 'Play',
+          label: AppLocalizations.of(context).t('Play'),
           showInStrip: true,
           onSelected: () => _handlePlayTorrent(torrent),
         ),
       CloudRowAction(
         icon: Icons.download,
-        label: 'Download to device',
+        label: AppLocalizations.of(context).t('Download to device'),
         showInStrip: true,
         onSelected: () => _showDownloadOptionsDialog(torrent),
       ),
       CloudRowAction(
         icon: Icons.folder_open,
-        label: 'Open',
+        label: AppLocalizations.of(context).t('Open'),
         onSelected: () => _navigateIntoTorrent(torrent),
       ),
       CloudRowAction(
         icon: Icons.link,
-        label: 'Copy Download Link (Zip)',
+        label: AppLocalizations.of(context).t('Copy Download Link (Zip)'),
         onSelected: () => _copyTorboxZipLink(torrent),
       ),
       if (videoCount > 0)
         CloudRowAction(
           icon: Icons.playlist_add,
-          label: 'Add to Playlist',
+          label: AppLocalizations.of(context).t('Add to Playlist'),
           onSelected: () => _handleAddToPlaylist(torrent),
         ),
       CloudRowAction(
         icon: Icons.live_tv_rounded,
-        label: 'Add to Debrify TV',
+        label: AppLocalizations.of(context).t('Add to Debrify TV'),
         onSelected: () => _handleAddToDebrifyTv(torrent),
       ),
       CloudRowAction(
         icon: Icons.delete_outline,
-        label: 'Delete',
+        label: AppLocalizations.of(context).t('Delete'),
         destructive: true,
         onSelected: () => _confirmDeleteTorrent(torrent),
       ),
@@ -6569,7 +6551,7 @@ class _TorboxDownloadsScreenState extends State<TorboxDownloadsScreen> {
       if (folderHasVideos || isVideo)
         CloudRowAction(
           icon: Icons.play_arrow_rounded,
-          label: 'Play',
+          label: AppLocalizations.of(context).t('Play'),
           showInStrip: true,
           onSelected: () {
             if (isFolder) {
@@ -6581,20 +6563,20 @@ class _TorboxDownloadsScreenState extends State<TorboxDownloadsScreen> {
         ),
       CloudRowAction(
         icon: Icons.download_rounded,
-        label: 'Download',
+        label: AppLocalizations.of(context).t('Download'),
         showInStrip: true,
         onSelected: () => _downloadFileOrFolder(node),
       ),
       if (_currentWebDownload == null && (isVideo || folderHasVideos))
         CloudRowAction(
           icon: Icons.playlist_add,
-          label: 'Add to Playlist',
+          label: AppLocalizations.of(context).t('Add to Playlist'),
           onSelected: () => _addFileOrFolderToPlaylist(node),
         ),
       if (!isFolder)
         CloudRowAction(
           icon: Icons.link,
-          label: 'Copy Link',
+          label: AppLocalizations.of(context).t('Copy Link'),
           onSelected: () => _copyFileLink(node),
         ),
     ];
@@ -6733,7 +6715,7 @@ class _TorboxDownloadsScreenState extends State<TorboxDownloadsScreen> {
               textInputAction: TextInputAction.search,
               style: const TextStyle(fontSize: 14),
               decoration: InputDecoration(
-                hintText: 'Search your torrents...',
+                hintText: AppLocalizations.of(context).t('Search your torrents...'),
                 hintStyle: TextStyle(color: app.fade(app.core.tx, 0.3)),
                 prefixIcon: Icon(
                   Icons.search_rounded,
@@ -6818,8 +6800,7 @@ class _TorboxDownloadsScreenState extends State<TorboxDownloadsScreen> {
           children: [
             CircularProgressIndicator(),
             SizedBox(height: 16),
-            Text(
-              'Loading all torrents...',
+            Text(AppLocalizations.of(context).t('Loading all torrents...'),
               style: TextStyle(color: Colors.grey),
             ),
           ],
@@ -6829,8 +6810,7 @@ class _TorboxDownloadsScreenState extends State<TorboxDownloadsScreen> {
 
     if (_torrentSearchQuery.isEmpty) {
       return Center(
-        child: Text(
-          'Type a keyword and press search',
+        child: Text(AppLocalizations.of(context).t('Type a keyword and press search'),
           style: TextStyle(color: app.fade(app.core.tx, 0.4)),
         ),
       );
@@ -6910,7 +6890,7 @@ class _TorboxDownloadsScreenState extends State<TorboxDownloadsScreen> {
             children: [
               if (_isBrowsePush) ...[
                 Tooltip(
-                  message: 'Back',
+                  message: AppLocalizations.of(context).t('Back'),
                   child: IconButton(
                     onPressed: () => Navigator.of(context).maybePop(),
                     iconSize: iconSize,
@@ -6943,7 +6923,7 @@ class _TorboxDownloadsScreenState extends State<TorboxDownloadsScreen> {
                 ),
                 if (isTorrentsView)
                   Tooltip(
-                    message: 'Delete all torrents',
+                    message: AppLocalizations.of(context).t('Delete all torrents'),
                     child: IconButton(
                       onPressed: _confirmDeleteAll,
                       iconSize: iconSize,
@@ -6978,7 +6958,7 @@ class _TorboxDownloadsScreenState extends State<TorboxDownloadsScreen> {
                   ),
                 ),
                 Tooltip(
-                  message: 'Add magnet link',
+                  message: AppLocalizations.of(context).t('Add magnet link'),
                   child: IconButton(
                     onPressed: _showAddMagnetDialog,
                     iconSize: iconSize,
@@ -6991,7 +6971,7 @@ class _TorboxDownloadsScreenState extends State<TorboxDownloadsScreen> {
                 ),
               ] else ...[
                 Tooltip(
-                  message: 'Add web download',
+                  message: AppLocalizations.of(context).t('Add web download'),
                   child: IconButton(
                     onPressed: _showAddWebDownloadDialog,
                     iconSize: iconSize,

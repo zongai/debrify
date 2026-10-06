@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../l10n/app_localizations.dart';
+
 import 'package:flutter/services.dart';
 
 import '../../../models/iptv_playlist.dart';
@@ -79,12 +81,12 @@ class SpotlightRail extends StatelessWidget {
 
     final sections = <_RailSection>[
       _RailSection(
-        label: 'QUICK ACCESS',
+        label: AppLocalizations.of(context).t('QUICK ACCESS'),
         entries: [
           for (final playlist in favorites)
             _RailEntry.playlist(
               playlist: playlist,
-              label: 'Favorites',
+              label: AppLocalizations.of(context).t('Favorites'),
               icon: Icons.favorite_rounded,
               count: favoritesCount,
               selected: _selected(playlist),
@@ -93,7 +95,7 @@ class SpotlightRail extends StatelessWidget {
           for (final playlist in continueWatching)
             _RailEntry.playlist(
               playlist: playlist,
-              label: 'Continue Watching',
+              label: AppLocalizations.of(context).t('Continue Watching'),
               icon: Icons.history_rounded,
               count: continueWatchingCount,
               selected: _selected(playlist),
@@ -102,7 +104,7 @@ class SpotlightRail extends StatelessWidget {
           if (showRecordings && onOpenRecordings != null)
             _RailEntry.action(
               id: 'recordings',
-              label: 'Recordings',
+              label: AppLocalizations.of(context).t('Recordings'),
               icon: Icons.fiber_manual_record_rounded,
               count: recordingsCount,
               selected: recordingsSelected,
@@ -112,7 +114,7 @@ class SpotlightRail extends StatelessWidget {
         ],
       ),
       _RailSection(
-        label: 'YOUR LISTS',
+        label: AppLocalizations.of(context).t('YOUR LISTS'),
         entries: [
           for (final playlist in lists)
             _RailEntry.playlist(
@@ -126,7 +128,7 @@ class SpotlightRail extends StatelessWidget {
         ],
       ),
       _RailSection(
-        label: 'YOUR PLAYLISTS',
+        label: AppLocalizations.of(context).t('YOUR PLAYLISTS'),
         entries: [
           for (final playlist in sources)
             _RailEntry.playlist(
@@ -140,7 +142,7 @@ class SpotlightRail extends StatelessWidget {
         ],
       ),
       _RailSection(
-        label: 'STREMIO ADDONS',
+        label: AppLocalizations.of(context).t('STREMIO ADDONS'),
         entries: [
           for (final playlist in addons)
             _RailEntry.playlist(
@@ -154,29 +156,29 @@ class SpotlightRail extends StatelessWidget {
         ],
       ),
       _RailSection(
-        label: 'ACTIONS',
+        label: AppLocalizations.of(context).t('ACTIONS'),
         entries: [
           _RailEntry.action(
             id: 'new-list',
-            label: 'New list',
+            label: AppLocalizations.of(context).t('New list'),
             icon: Icons.playlist_add_rounded,
             onPressed: onNewList,
           ),
           _RailEntry.action(
             id: 'add-playlist',
-            label: 'Add playlist',
+            label: AppLocalizations.of(context).t('Add playlist'),
             icon: Icons.add_to_queue_rounded,
             onPressed: onAddPlaylist,
           ),
           _RailEntry.action(
             id: 'add-addon',
-            label: 'Add addon',
+            label: AppLocalizations.of(context).t('Add addon'),
             icon: Icons.extension_rounded,
             onPressed: onAddAddon,
           ),
           _RailEntry.action(
             id: 'manage-sources',
-            label: 'Manage sources',
+            label: AppLocalizations.of(context).t('Manage sources'),
             icon: Icons.tune_rounded,
             onPressed: onManageSources,
           ),

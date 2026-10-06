@@ -278,8 +278,7 @@ class _IptvStagePanelState extends State<IptvStagePanel> {
                         child: _loading && window.isEmpty
                             ? const SizedBox.shrink()
                             : window.isEmpty
-                            ? Text(
-                                'No guide data',
+                            ? Text(AppLocalizations.of(context).t('No guide data'),
                                 style: TextStyle(
                                   color:
                                       widget.tokens?.fgFaint ??
@@ -918,8 +917,7 @@ class _RecordChip extends StatelessWidget {
             decoration: BoxDecoration(shape: BoxShape.circle, color: rec),
           ),
           const SizedBox(width: 4),
-          Text(
-            'Record',
+          Text(AppLocalizations.of(context).t('Record'),
             style: TextStyle(
               color: recColor != null
                   ? (emphasized ? Colors.white : recColor)

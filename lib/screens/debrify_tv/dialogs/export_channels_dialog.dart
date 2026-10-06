@@ -117,7 +117,7 @@ class _ExportChannelsDialogState extends State<ExportChannelsDialog> {
         actions: <Widget>[
           DebrifyTvDialogButton(
             focusNode: _cancelNode,
-            label: 'Cancel',
+            label: AppLocalizations.of(context).t('Cancel'),
             icon: Icons.close_rounded,
             onPressed: () => Navigator.of(context).pop(),
           ),
@@ -144,7 +144,7 @@ class _ExportChannelsDialogState extends State<ExportChannelsDialog> {
                 focusNode: _selectAllNode,
                 autofocus: true,
                 selected: _allSelected,
-                title: 'Select all channels',
+                title: AppLocalizations.of(context).t('Select all channels'),
                 subtitle:
                     '${_selectedIds.length} selected · $selectedHashes saved hash${selectedHashes == 1 ? '' : 'es'}',
                 trailing: '${_selectedIds.length}/${widget.channels.length}',
@@ -389,8 +389,8 @@ class _ChannelExportProgressDialogState
       canPop: false,
       child: DebrifyTvSpotlightDialog(
         eyebrow: 'Portable channel archive',
-        title: 'Building ZIP',
-        subtitle: 'Keeping every selected channel and its saved pool together.',
+        title: AppLocalizations.of(context).t('Building ZIP'),
+        subtitle: AppLocalizations.of(context).t('Keeping every selected channel and its saved pool together.'),
         icon: Icons.folder_zip_rounded,
         maxWidth: 560,
         scrollable: false,

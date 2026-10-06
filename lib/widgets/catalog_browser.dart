@@ -800,16 +800,14 @@ class CatalogBrowserState extends State<CatalogBrowser> {
               color: Colors.white.withValues(alpha: 0.5),
             ),
             const SizedBox(height: 12),
-            Text(
-              'No catalog addons found',
+            Text(AppLocalizations.of(context).t('No catalog addons found'),
               style: TextStyle(
                 color: Colors.white.withValues(alpha: 0.7),
                 fontSize: 16,
               ),
             ),
             const SizedBox(height: 4),
-            Text(
-              'Add a Stremio addon with catalog support',
+            Text(AppLocalizations.of(context).t('Add a Stremio addon with catalog support'),
               style: TextStyle(
                 color: Colors.white.withValues(alpha: 0.5),
                 fontSize: 14,
@@ -905,8 +903,7 @@ class CatalogBrowserState extends State<CatalogBrowser> {
                 Icons.keyboard_arrow_down_rounded,
                 color: Colors.white.withValues(alpha: 0.7),
               ),
-              hint: Text(
-                'Select Provider',
+              hint: Text(AppLocalizations.of(context).t('Select Provider'),
                 style: TextStyle(color: Colors.white.withValues(alpha: 0.5)),
               ),
               items: _addons.map((addon) {
@@ -978,8 +975,7 @@ class CatalogBrowserState extends State<CatalogBrowser> {
                 Icons.keyboard_arrow_down_rounded,
                 color: Colors.white.withValues(alpha: 0.7),
               ),
-              hint: Text(
-                'Select Catalog',
+              hint: Text(AppLocalizations.of(context).t('Select Catalog'),
                 style: TextStyle(color: Colors.white.withValues(alpha: 0.5)),
               ),
               items: catalogs.map((catalog) {
@@ -1051,15 +1047,13 @@ class CatalogBrowserState extends State<CatalogBrowser> {
                 Icons.keyboard_arrow_down_rounded,
                 color: Colors.white.withValues(alpha: 0.7),
               ),
-              hint: Text(
-                'All Genres',
+              hint: Text(AppLocalizations.of(context).t('All Genres'),
                 style: TextStyle(color: Colors.white.withValues(alpha: 0.5)),
               ),
               items: [
                 DropdownMenuItem<String?>(
                   value: null,
-                  child: Text(
-                    'All Genres',
+                  child: Text(AppLocalizations.of(context).t('All Genres'),
                     style: TextStyle(
                       color: Colors.white.withValues(alpha: 0.7),
                     ),
@@ -1439,8 +1433,7 @@ class CatalogBrowserState extends State<CatalogBrowser> {
                         const SizedBox(height: 4),
                         const Align(
                           alignment: Alignment.centerLeft,
-                          child: Text(
-                            'First match wins — reorder by priority',
+                          child: Text(AppLocalizations.of(context).t('First match wins — reorder by priority'),
                             style: TextStyle(
                               color: Colors.white38,
                               fontSize: 11,
@@ -1604,8 +1597,7 @@ class CatalogBrowserState extends State<CatalogBrowser> {
                       const SizedBox(height: 8),
                       TextButton(
                         onPressed: () => Navigator.of(dialogContext).pop(),
-                        child: const Text(
-                          'Close',
+                        child: Text(AppLocalizations.of(context).t('Close'),
                           style: TextStyle(color: Colors.white54),
                         ),
                       ),
@@ -1695,8 +1687,7 @@ class CatalogBrowserState extends State<CatalogBrowser> {
           children: [
             Padding(
               padding: EdgeInsets.all(16),
-              child: Text(
-                'Select Provider',
+              child: Text(AppLocalizations.of(context).t('Select Provider'),
                 style: TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.w600,
@@ -1705,8 +1696,7 @@ class CatalogBrowserState extends State<CatalogBrowser> {
             ),
             ListTile(
               leading: const Icon(Icons.cloud, color: Color(0xFF22C55E)),
-              title: const Text(
-                'Real-Debrid',
+              title: Text(AppLocalizations.of(context).t('Real-Debrid'),
               ),
               onTap: () {
                 Navigator.of(sheetContext).pop();
@@ -1715,8 +1705,7 @@ class CatalogBrowserState extends State<CatalogBrowser> {
             ),
             ListTile(
               leading: const Icon(Icons.cloud, color: Color(0xFF7C3AED)),
-              title: const Text(
-                'TorBox',
+              title: Text(AppLocalizations.of(context).t('TorBox'),
               ),
               onTap: () {
                 Navigator.of(sheetContext).pop();
@@ -1935,8 +1924,7 @@ class CatalogBrowserState extends State<CatalogBrowser> {
               color: Colors.white.withValues(alpha: 0.5),
             ),
             const SizedBox(height: 12),
-            Text(
-              'No content found',
+            Text(AppLocalizations.of(context).t('No content found'),
               style: TextStyle(
                 color: Colors.white.withValues(alpha: 0.7),
                 fontSize: 16,

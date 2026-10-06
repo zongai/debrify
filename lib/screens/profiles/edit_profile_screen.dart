@@ -1882,7 +1882,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                     inputFormatters: <TextInputFormatter>[
                       LengthLimitingTextInputFormatter(40),
                     ],
-                    decoration: InputDecoration(hintText: 'Profile name'),
+                    decoration: InputDecoration(hintText: AppLocalizations.of(context).t('Profile name')),
                   ),
                   const SizedBox(height: 20),
                   Text(AppLocalizations.of(context).t('Role'), style: Theme.of(context).textTheme.titleMedium),

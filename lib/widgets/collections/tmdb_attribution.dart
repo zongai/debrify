@@ -19,8 +19,7 @@ class TmdbAttribution extends StatelessWidget {
           semanticLabel: 'TMDB',
         ),
         const SizedBox(height: 10),
-        const Text(
-          'This product uses the TMDB API but is not endorsed or certified by TMDB.',
+        Text(AppLocalizations.of(context).t('This product uses the TMDB API but is not endorsed or certified by TMDB.'),
           style: TextStyle(fontSize: 12),
         ),
       ],

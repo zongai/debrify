@@ -1286,7 +1286,7 @@ class _PlaylistContentViewScreenState extends State<PlaylistContentViewScreen> {
               keyboardInk: app.core.tx,
               keyboardInkOnAccent: app.inkOn(app.settings.accent),
               decoration: InputDecoration(
-                hintText: 'Search all files...',
+                hintText: AppLocalizations.of(context).t('Search all files...'),
                 // Colors.grey left literal: no token carries it.
                 prefixIcon: const Icon(Icons.search, color: Colors.grey),
                 filled: true,
@@ -1370,8 +1370,7 @@ class _PlaylistContentViewScreenState extends State<PlaylistContentViewScreen> {
   Widget _buildSearchResults() {
     if (_searchController.text.isEmpty) {
       return const Center(
-        child: Text(
-          'Type to search all files',
+        child: Text(AppLocalizations.of(context).t('Type to search all files'),
           style: TextStyle(color: Colors.grey),
         ),
       );
@@ -1379,7 +1378,7 @@ class _PlaylistContentViewScreenState extends State<PlaylistContentViewScreen> {
 
     if (_searchResults.isEmpty) {
       return const Center(
-        child: Text('No files found', style: TextStyle(color: Colors.grey)),
+        child: Text(AppLocalizations.of(context).t('No files found'), style: TextStyle(color: Colors.grey)),
       );
     }
 
@@ -1861,13 +1860,11 @@ class _PlaylistContentViewScreenState extends State<PlaylistContentViewScreen> {
                 color: AppThemeScope.of(context).playlist.ink2,
               ),
               const SizedBox(height: 16),
-              const Text(
-                'No series detected in this content',
+              Text(AppLocalizations.of(context).t('No series detected in this content'),
                 style: TextStyle(fontSize: 16),
               ),
               const SizedBox(height: 8),
-              Text(
-                'Switching to Sort (A-Z) view...',
+              Text(AppLocalizations.of(context).t('Switching to Sort (A-Z) view...'),
                 // Colors.white60 at its exact alpha, off the page ink.
                 style: TextStyle(
                   color: AppThemeScope.of(
@@ -2540,8 +2537,7 @@ class _PlaylistContentViewScreenState extends State<PlaylistContentViewScreen> {
                   children: [
                     Icon(Icons.build, color: app.playlist.warning, size: 14),
                     const SizedBox(width: 4),
-                    Text(
-                      'Fix Metadata',
+                    Text(AppLocalizations.of(context).t('Fix Metadata'),
                       style: TextStyle(
                         color: app.playlist.warning,
                         fontSize: 11,

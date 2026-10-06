@@ -740,7 +740,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen>
           ),
           duration: Duration(seconds: 8),
           action: SnackBarAction(
-            label: 'Retry',
+            label: AppLocalizations.of(context).t('Retry'),
             onPressed: () => _iptvLiveRecovery.userRetry('snackbar-retry'),
           ),
         ),
@@ -4630,8 +4630,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen>
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text(
-              'Direct Surface was unavailable. Using Automatic renderer.',
+            content: Text(AppLocalizations.of(context).t('Direct Surface was unavailable. Using Automatic renderer.'),
             ),
             duration: Duration(seconds: 4),
           ),
@@ -5873,8 +5872,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen>
 
         return AlertDialog(
           backgroundColor: Color(0xFF141824),
-          title: Text(
-            'Shuffle Playback',
+          title: Text(AppLocalizations.of(context).t('Shuffle Playback'),
             style: TextStyle(color: Colors.white),
           ),
           content: Column(
@@ -5882,8 +5880,8 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen>
             children: [
               _RandomChoiceTile(
                 icon: Icons.shuffle_rounded,
-                title: 'Play Random Once',
-                subtitle: 'Pick one random item, then resume normal order',
+                title: AppLocalizations.of(context).t('Play Random Once'),
+                subtitle: AppLocalizations.of(context).t('Pick one random item, then resume normal order'),
                 onTap: () => Navigator.of(context).pop('once'),
               ),
               SizedBox(height: 8),
@@ -8012,18 +8010,14 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen>
           setState(() => _engineTaskId = result.id);
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
-              content: Text(
-                'Recording in background — keeps going if you zap or leave. '
-                'Stop from here or the notification.',
+              content: Text(AppLocalizations.of(context).t('Recording in background — keeps going if you zap or leave. ')'Stop from here or the notification.',
               ),
             ),
           );
         } else if (result.errorCode == 'recording_limit_reached') {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
-              content: Text(
-                'Recording limit reached — free a slot or raise the limit '
-                'in IPTV settings',
+              content: Text(AppLocalizations.of(context).t('Recording limit reached — free a slot or raise the limit ')'in IPTV settings',
               ),
             ),
           );
@@ -8102,9 +8096,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen>
       setState(() {});
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text(
-            'Recording in background — keeps going if you zap or leave. '
-            'Stop from here or Settings → Recordings.',
+          content: Text(AppLocalizations.of(context).t('Recording in background — keeps going if you zap or leave. ')'Stop from here or Settings → Recordings.',
           ),
         ),
       );
@@ -10894,8 +10886,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen>
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: const Text(
-              'No playable URL found for this entry',
+            content: Text(AppLocalizations.of(context).t('No playable URL found for this entry'),
               style: TextStyle(color: Colors.white),
             ),
             backgroundColor: Theme.of(context).colorScheme.error,
@@ -11477,8 +11468,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen>
               print('PikPak: Auto-advancing to next video in Debrify TV queue');
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(
-                  content: Text(
-                    'Video failed to load. Skipping to next...',
+                  content: Text(AppLocalizations.of(context).t('Video failed to load. Skipping to next...'),
                     style: TextStyle(color: Colors.white),
                   ),
                   backgroundColor: Colors.orange,
@@ -11490,8 +11480,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen>
               // Show error for regular playlist
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(
-                  content: Text(
-                    'Failed to play video after multiple attempts. Please try again later.',
+                  content: Text(AppLocalizations.of(context).t('Failed to play video after multiple attempts. Please try again later.'),
                     style: TextStyle(color: Colors.white),
                   ),
                   backgroundColor: Colors.red,
@@ -11580,8 +11569,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen>
               print('PikPak: Auto-advancing to next video in Debrify TV queue');
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(
-                  content: Text(
-                    'Video failed to load. Skipping to next...',
+                  content: Text(AppLocalizations.of(context).t('Video failed to load. Skipping to next...'),
                     style: TextStyle(color: Colors.white),
                   ),
                   backgroundColor: Colors.orange,
@@ -11593,8 +11581,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen>
               // Show error for regular playlist
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(
-                  content: Text(
-                    'Failed to play video after multiple attempts. Please try again later.',
+                  content: Text(AppLocalizations.of(context).t('Failed to play video after multiple attempts. Please try again later.'),
                     style: TextStyle(color: Colors.white),
                   ),
                   backgroundColor: Colors.red,
@@ -11926,8 +11913,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen>
           }
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
-              content: Text(
-                'Picture in Picture could not start. Please try again.',
+              content: Text(AppLocalizations.of(context).t('Picture in Picture could not start. Please try again.'),
               ),
             ),
           );
@@ -14365,8 +14351,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen>
                     ),
                   ),
                   SizedBox(width: 14),
-                  Text(
-                    'Loading next...',
+                  Text(AppLocalizations.of(context).t('Loading next...'),
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 15,
@@ -14615,8 +14600,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen>
             if (!request!.isCurrent || !mounted) return;
             messenger.showSnackBar(
               SnackBar(
-                content: Text(
-                  'Your previous source is unavailable for this episode. Trying other sources.',
+                content: Text(AppLocalizations.of(context).t('Your previous source is unavailable for this episode. Trying other sources.'),
                 ),
               ),
             );
@@ -16553,8 +16537,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen>
                           child: Row(
                             children: [
                               Expanded(
-                                child: Text(
-                                  'FIX THE TITLE',
+                                child: Text(AppLocalizations.of(context).t('FIX THE TITLE'),
                                   style: TextStyle(
                                     color: Colors.white.withValues(alpha: 0.42),
                                     fontSize: 11,
@@ -16584,7 +16567,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen>
                             style: const TextStyle(color: Colors.white),
                             textInputAction: TextInputAction.search,
                             decoration: InputDecoration(
-                              hintText: 'Search movie or show',
+                              hintText: AppLocalizations.of(context).t('Search movie or show'),
                               hintStyle: TextStyle(
                                 color: Colors.white.withValues(alpha: 0.42),
                               ),
@@ -16641,8 +16624,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen>
 
                               if (hasSearched && results.isEmpty) {
                                 return Center(
-                                  child: Text(
-                                    'No IMDb-backed results found',
+                                  child: Text(AppLocalizations.of(context).t('No IMDb-backed results found'),
                                     style: TextStyle(
                                       color: Colors.white.withValues(
                                         alpha: 0.65,
@@ -16738,7 +16720,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen>
         return StatefulBuilder(
           builder: (dialogContext, setDialogState) {
             return SpotlightDialogCard(
-              title: 'Which episode?',
+              title: AppLocalizations.of(context).t('Which episode?'),
               bodyText: title,
               child: Column(
                 mainAxisSize: MainAxisSize.min,

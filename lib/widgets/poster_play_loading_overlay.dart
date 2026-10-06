@@ -178,8 +178,7 @@ class _PosterLoadingContentState extends State<_PosterLoadingContent> {
                   ),
                 ),
                 const SizedBox(height: 8),
-                Text(
-                  'Finding the best source…',
+                Text(AppLocalizations.of(context).t('Finding the best source…'),
                   style: TextStyle(
                     color: Colors.white.withValues(alpha: 0.7),
                     fontSize: 14,
@@ -210,8 +209,7 @@ class _PosterLoadingContentState extends State<_PosterLoadingContent> {
                           ),
                         ),
                       ),
-                      child: Text(
-                        'Cancel',
+                      child: Text(AppLocalizations.of(context).t('Cancel'),
                         style: TextStyle(
                           color: Colors.white.withValues(alpha: 0.85),
                           fontSize: 14,

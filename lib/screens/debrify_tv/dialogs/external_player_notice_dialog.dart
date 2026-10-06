@@ -63,18 +63,17 @@ class _ExternalPlayerNoticeDialogState
         autofocus: true,
         child: DebrifyTvSpotlightDialog(
           eyebrow: 'External playback',
-          title: 'Opening another player',
-          subtitle:
-              'Debrify TV will hand this title to your default external app and stop here.',
+          title: AppLocalizations.of(context).t('Opening another player'),
+          subtitle: AppLocalizations.of(context).t('Debrify TV will hand this title to your default external app and stop here.'),
           icon: Icons.open_in_new_rounded,
           maxWidth: 620,
           actions: [
             DebrifyTvDialogButton(
-              label: 'Cancel',
+              label: AppLocalizations.of(context).t('Cancel'),
               onPressed: () => Navigator.of(context).pop(false),
             ),
             DebrifyTvDialogButton(
-              label: 'Continue',
+              label: AppLocalizations.of(context).t('Continue'),
               icon: Icons.open_in_new_rounded,
               tone: DebrifyTvDialogButtonTone.primary,
               autofocus: true,

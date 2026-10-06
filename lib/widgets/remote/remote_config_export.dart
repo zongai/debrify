@@ -796,7 +796,7 @@ class RemoteConfigExportState extends State<RemoteConfigExport> {
                 ConfigCommand.iptvPlaylists,
                 targetIp,
                 jsonEncode(payload),
-                label: 'IPTV providers',
+                label: AppLocalizations.of(context).t('IPTV providers'),
                 transferRequestId: supportsApplicationResult ? requestId : null,
               );
         },
@@ -815,7 +815,7 @@ class RemoteConfigExportState extends State<RemoteConfigExport> {
                 ConfigCommand.iptvFavorites,
                 targetIp,
                 jsonEncode(payload),
-                label: 'IPTV favorites',
+                label: AppLocalizations.of(context).t('IPTV favorites'),
                 transferRequestId: supportsApplicationResult ? requestId : null,
               );
         },
@@ -834,7 +834,7 @@ class RemoteConfigExportState extends State<RemoteConfigExport> {
                 ConfigCommand.iptvLists,
                 targetIp,
                 jsonEncode(payload),
-                label: 'IPTV lists',
+                label: AppLocalizations.of(context).t('IPTV lists'),
                 transferRequestId: supportsApplicationResult ? requestId : null,
               );
         },
@@ -853,7 +853,7 @@ class RemoteConfigExportState extends State<RemoteConfigExport> {
                 ConfigCommand.streamBadges,
                 targetIp,
                 jsonEncode(payload),
-                label: 'Stream badges',
+                label: AppLocalizations.of(context).t('Stream badges'),
                 transferRequestId: supportsApplicationResult ? requestId : null,
               );
         },
@@ -916,7 +916,7 @@ class RemoteConfigExportState extends State<RemoteConfigExport> {
           final result = await applicationResult.future.timeout(
             Duration(minutes: 3),
             onTimeout: () =>
-                (ok: false, message: 'No application result received from TV'),
+                (ok: false, message: AppLocalizations.of(context).t('No application result received from TV')),
           );
           if (!result.ok) throw StateError(result.message);
         }
@@ -998,15 +998,13 @@ class RemoteConfigExportState extends State<RemoteConfigExport> {
         const SizedBox(height: 16),
 
         // Title
-        const Text(
-          'Send Setup to TV',
+        Text(AppLocalizations.of(context).t('Send Setup to TV'),
           style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
         ),
 
         const SizedBox(height: 8),
 
-        Text(
-          'Select services to send to your TV',
+        Text(AppLocalizations.of(context).t('Select services to send to your TV'),
           style: TextStyle(
             color: Colors.white.withValues(alpha: 0.6),
             fontSize: 14,
@@ -1197,8 +1195,7 @@ class RemoteConfigExportState extends State<RemoteConfigExport> {
                       children: [
                         Icon(Icons.send, size: 18),
                         SizedBox(width: 8),
-                        Text(
-                          'Send to TV',
+                        Text(AppLocalizations.of(context).t('Send to TV'),
                           style: TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.w600,
@@ -1211,8 +1208,7 @@ class RemoteConfigExportState extends State<RemoteConfigExport> {
 
           if (_pikpak?.selected == true && !_isPikpakPasswordValid) ...[
             const SizedBox(height: 8),
-            Text(
-              'Enter PikPak password to continue',
+            Text(AppLocalizations.of(context).t('Enter PikPak password to continue'),
               style: TextStyle(
                 color: Colors.amber.withValues(alpha: 0.8),
                 fontSize: 12,
@@ -1258,16 +1254,14 @@ class RemoteConfigExportState extends State<RemoteConfigExport> {
               ),
             ),
             const SizedBox(height: 16),
-            Text(
-              'No services configured',
+            Text(AppLocalizations.of(context).t('No services configured'),
               style: TextStyle(
                 color: Colors.white.withValues(alpha: 0.7),
                 fontSize: 16,
               ),
             ),
             const SizedBox(height: 8),
-            Text(
-              'Set up Real-Debrid, Torbox, PikPak, or Trakt first',
+            Text(AppLocalizations.of(context).t('Set up Real-Debrid, Torbox, PikPak, or Trakt first'),
               style: TextStyle(
                 color: Colors.white.withValues(alpha: 0.5),
                 fontSize: 14,
@@ -1420,15 +1414,13 @@ class RemoteConfigExportState extends State<RemoteConfigExport> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            const Text(
-                              'PikPak',
+                            Text(AppLocalizations.of(context).t('PikPak'),
                               style: TextStyle(
                                 fontSize: 15,
                                 fontWeight: FontWeight.w500,
                               ),
                             ),
-                            Text(
-                              'Connected account',
+                            Text(AppLocalizations.of(context).t('Connected account'),
                               style: TextStyle(
                                 color: Colors.white.withValues(alpha: 0.5),
                                 fontSize: 12,
@@ -1469,7 +1461,7 @@ class RemoteConfigExportState extends State<RemoteConfigExport> {
                     labelStyle: TextStyle(
                       color: Colors.white.withValues(alpha: 0.5),
                     ),
-                    hintText: 'Enter your PikPak password',
+                    hintText: AppLocalizations.of(context).t('Enter your PikPak password'),
                     hintStyle: TextStyle(
                       color: Colors.white.withValues(alpha: 0.3),
                     ),

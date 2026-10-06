@@ -446,7 +446,7 @@ class _SimklSeeAllScreenState extends State<SimklSeeAllScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SeeAllHeader(
-              title: 'Simkl',
+              title: AppLocalizations.of(context).t('Simkl'),
               subtitle: _loading
                   ? '${_list.label} · Loading…'
                   : '${_list.label} · $n ${n == 1 ? 'title' : 'titles'}',

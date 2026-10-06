@@ -473,7 +473,7 @@ class _FileSelectionDialogState extends State<FileSelectionDialog> {
                         child: TextButton.icon(
                           onPressed: _navigateBack,
                           icon: const Icon(Icons.arrow_back, size: 16),
-                          label: const Text('Back', style: TextStyle(fontSize: 12)),
+                          label: Text(AppLocalizations.of(context).t('Back'), style: TextStyle(fontSize: 12)),
                           style: TextButton.styleFrom(
                             foregroundColor: const Color(0xFF3B82F6),
                             padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),

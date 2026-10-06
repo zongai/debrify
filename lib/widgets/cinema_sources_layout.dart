@@ -418,8 +418,7 @@ class CinemaSourcesLayoutState extends State<CinemaSourcesLayout> {
                         color: app.fade(app.core.tx, .5),
                       ),
                       const SizedBox(width: 9),
-                      Text(
-                        'Keyword search',
+                      Text(AppLocalizations.of(context).t('Keyword search'),
                         style: TextStyle(
                           fontSize: 12,
                           color: app.fade(app.core.tx, .5),

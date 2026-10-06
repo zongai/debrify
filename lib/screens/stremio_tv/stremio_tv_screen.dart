@@ -799,42 +799,42 @@ class _StremioTvScreenState extends State<StremioTvScreen> {
     switch (_debridProvider) {
       case 'realdebrid':
         return (
-          label: 'Real-Debrid',
+          label: AppLocalizations.of(context).t('Real-Debrid'),
           code: 'RD',
           color: const Color(0xFF10B981),
           cacheCheck: false,
         );
       case 'torbox':
         return (
-          label: 'TorBox',
+          label: AppLocalizations.of(context).t('TorBox'),
           code: 'TB',
           color: const Color(0xFF8B5CF6),
           cacheCheck: true,
         );
       case 'premiumize':
         return (
-          label: 'Premiumize',
+          label: AppLocalizations.of(context).t('Premiumize'),
           code: 'PM',
           color: Color(0xFFF59E0B),
           cacheCheck: true,
         );
       case 'alldebrid':
         return (
-          label: 'AllDebrid',
+          label: AppLocalizations.of(context).t('AllDebrid'),
           code: 'AD',
           color: Color(0xFF26A69A),
           cacheCheck: false,
         );
       case 'pikpak':
         return (
-          label: 'PikPak',
+          label: AppLocalizations.of(context).t('PikPak'),
           code: 'PP',
           color: Color(0xFF6366F1),
           cacheCheck: false,
         );
       default:
         return (
-          label: 'Debrid',
+          label: AppLocalizations.of(context).t('Debrid'),
           code: 'DB',
           color: PipelineLoadingOverlay.accent,
           cacheCheck: false,
@@ -2755,7 +2755,7 @@ class _StremioTvScreenState extends State<StremioTvScreen> {
                                     // Nothing to the right — consume
                                   },
                                   decoration: InputDecoration(
-                                    hintText: 'Search channels...',
+                                    hintText: AppLocalizations.of(context).t('Search channels...'),
                                     hintStyle: TextStyle(
                                       color: app.core.tx.withValues(
                                         alpha: 0.3,
@@ -2992,32 +2992,32 @@ class _StremioTvScreenState extends State<StremioTvScreen> {
                                       _submenuItem(
                                         autofocus: true,
                                         icon: Icons.list_rounded,
-                                        label: 'Manage',
+                                        label: AppLocalizations.of(context).t('Manage'),
                                         onPressed: _openLocalCatalogs,
                                       ),
                                       _submenuItem(
                                         icon: Icons.file_upload_outlined,
-                                        label: 'From File',
+                                        label: AppLocalizations.of(context).t('From File'),
                                         onPressed: _importFromFile,
                                       ),
                                       _submenuItem(
                                         icon: Icons.link_rounded,
-                                        label: 'From URL',
+                                        label: AppLocalizations.of(context).t('From URL'),
                                         onPressed: _importFromUrl,
                                       ),
                                       _submenuItem(
                                         icon: Icons.data_object_rounded,
-                                        label: 'Paste JSON',
+                                        label: AppLocalizations.of(context).t('Paste JSON'),
                                         onPressed: _importFromJson,
                                       ),
                                       _submenuItem(
                                         icon: Icons.source_rounded,
-                                        label: 'From Repository',
+                                        label: AppLocalizations.of(context).t('From Repository'),
                                         onPressed: _importFromRepo,
                                       ),
                                       _submenuItem(
                                         icon: Icons.movie_filter_rounded,
-                                        label: 'From Trakt',
+                                        label: AppLocalizations.of(context).t('From Trakt'),
                                         onPressed: _importFromTrakt,
                                       ),
                                       // Hidden for the alpha (kMdblistEnabled)
@@ -3026,7 +3026,7 @@ class _StremioTvScreenState extends State<StremioTvScreen> {
                                         _submenuItem(
                                           icon: Icons
                                               .playlist_add_check_circle_outlined,
-                                          label: 'From MDBList',
+                                          label: AppLocalizations.of(context).t('From MDBList'),
                                           onPressed: _importFromMdblist,
                                         ),
                                     ],
@@ -3560,8 +3560,7 @@ class _ManualSourcePickerSheetState extends State<_ManualSourcePickerSheet> {
                 ),
                 const SizedBox(width: 10),
                 Expanded(
-                  child: Text(
-                    'Auto-play failed — select a source',
+                  child: Text(AppLocalizations.of(context).t('Auto-play failed — select a source'),
                     style: TextStyle(
                       color: app.core.tx,
                       fontSize: 15,
@@ -3600,8 +3599,7 @@ class _ManualSourcePickerSheetState extends State<_ManualSourcePickerSheet> {
                 ? Center(
                     child: Padding(
                       padding: const EdgeInsets.all(32),
-                      child: Text(
-                        'No sources in this category',
+                      child: Text(AppLocalizations.of(context).t('No sources in this category'),
                         style: TextStyle(
                             color: app.core.tx.withAlpha(0x62), fontSize: 14),
                       ),

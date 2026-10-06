@@ -305,7 +305,7 @@ class _MediaServerLibraryPanelState extends State<MediaServerLibraryPanel> {
                   widget.leading,
                   if (_servers.isNotEmpty)
                     StremioDropdown<String>(
-                      label: 'Server',
+                      label: AppLocalizations.of(context).t('Server'),
                       value: _serverId ?? _servers.first.id,
                       isTelevision: widget.isTelevision,
                       options: [
@@ -316,7 +316,7 @@ class _MediaServerLibraryPanelState extends State<MediaServerLibraryPanel> {
                     ),
                   if (_libraries.isNotEmpty)
                     StremioDropdown<String>(
-                      label: 'Library',
+                      label: AppLocalizations.of(context).t('Library'),
                       value: _libraryId ?? _libraries.first.id,
                       isTelevision: widget.isTelevision,
                       options: [
@@ -335,7 +335,7 @@ class _MediaServerLibraryPanelState extends State<MediaServerLibraryPanel> {
                     ),
                   if (_session != null && _libraryId != null) ...[
                     StremioDropdown<String>(
-                      label: 'Show',
+                      label: AppLocalizations.of(context).t('Show'),
                       value: _mode,
                       isTelevision: widget.isTelevision,
                       options: [
@@ -353,7 +353,7 @@ class _MediaServerLibraryPanelState extends State<MediaServerLibraryPanel> {
                     ),
                     if (_mode == 'browse')
                       StremioDropdown<String>(
-                        label: 'Sort',
+                        label: AppLocalizations.of(context).t('Sort'),
                         value: _sort,
                         isTelevision: widget.isTelevision,
                         options: [
@@ -403,7 +403,7 @@ class _MediaServerLibraryPanelState extends State<MediaServerLibraryPanel> {
                       width: MediaQuery.sizeOf(context).width < 600 ? 170 : 280,
                       child: TvTextField(
                         controller: _search,
-                        hintText: 'Search this library',
+                        hintText: AppLocalizations.of(context).t('Search this library'),
                         textInputAction: TextInputAction.search,
                         onSubmitted: (value) {
                           _query = value.trim();

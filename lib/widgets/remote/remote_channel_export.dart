@@ -363,15 +363,13 @@ class RemoteChannelExportState extends State<RemoteChannelExport> {
         const SizedBox(height: 16),
 
         // Title
-        const Text(
-          'Debrify TV Channels',
+        Text(AppLocalizations.of(context).t('Debrify TV Channels'),
           style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
         ),
 
         const SizedBox(height: 8),
 
-        Text(
-          'Select channels to send to your TV',
+        Text(AppLocalizations.of(context).t('Select channels to send to your TV'),
           style: TextStyle(
             color: Colors.white.withValues(alpha: 0.6),
             fontSize: 14,
@@ -481,16 +479,14 @@ class RemoteChannelExportState extends State<RemoteChannelExport> {
               ),
             ),
             const SizedBox(height: 16),
-            Text(
-              'No channels found',
+            Text(AppLocalizations.of(context).t('No channels found'),
               style: TextStyle(
                 color: Colors.white.withValues(alpha: 0.7),
                 fontSize: 16,
               ),
             ),
             const SizedBox(height: 8),
-            Text(
-              'Create channels in Debrify TV first',
+            Text(AppLocalizations.of(context).t('Create channels in Debrify TV first'),
               style: TextStyle(
                 color: Colors.white.withValues(alpha: 0.5),
                 fontSize: 14,
@@ -518,8 +514,7 @@ class RemoteChannelExportState extends State<RemoteChannelExport> {
           ),
           child: Row(
             children: [
-              Text(
-                'Select All',
+              Text(AppLocalizations.of(context).t('Select All'),
                 style: TextStyle(
                   color: Colors.white.withValues(alpha: 0.8),
                   fontSize: 14,

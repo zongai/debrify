@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../l10n/app_localizations.dart';
+
 import '../models/torbox_user.dart';
 
 class TorboxAccountStatusWidget extends StatelessWidget {
@@ -55,18 +57,18 @@ class TorboxAccountStatusWidget extends StatelessWidget {
           children: [
             _StatusChip(
               icon: Icons.verified,
-              label: 'Subscription',
+              label: AppLocalizations.of(context).t('Subscription'),
               value: user.subscriptionStatus,
               color: user.hasActiveSubscription ? Colors.green : Colors.amber,
             ),
             _StatusChip(
               icon: Icons.storage,
-              label: 'Plan',
+              label: AppLocalizations.of(context).t('Plan'),
               value: 'Tier ${user.plan}',
             ),
             _StatusChip(
               icon: Icons.cloud_download,
-              label: 'Downloaded',
+              label: AppLocalizations.of(context).t('Downloaded'),
               value: user.formattedTotalDownloaded,
             ),
           ],
@@ -74,27 +76,27 @@ class TorboxAccountStatusWidget extends StatelessWidget {
         const SizedBox(height: 12),
         _InfoRow(
           icon: Icons.schedule,
-          label: 'Premium Expires',
+          label: AppLocalizations.of(context).t('Premium Expires'),
           value: user.formattedPremiumExpiry,
         ),
         _InfoRow(
           icon: Icons.timer,
-          label: 'Cooldown Until',
+          label: AppLocalizations.of(context).t('Cooldown Until'),
           value: user.formattedCooldown,
         ),
         _InfoRow(
           icon: Icons.download,
-          label: 'Torrents Added',
+          label: AppLocalizations.of(context).t('Torrents Added'),
           value: user.torrentsDownloaded.toString(),
         ),
         _InfoRow(
           icon: Icons.file_download,
-          label: 'Web Downloads',
+          label: AppLocalizations.of(context).t('Web Downloads'),
           value: user.webDownloadsDownloaded.toString(),
         ),
         _InfoRow(
           icon: Icons.cloud_queue,
-          label: 'Usenet Jobs',
+          label: AppLocalizations.of(context).t('Usenet Jobs'),
           value: user.usenetDownloadsDownloaded.toString(),
         ),
       ],

@@ -114,8 +114,7 @@ class _IptvSourceSheetState extends State<IptvSourceSheet> {
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Text(
-                                    'Streams',
+                                  Text(AppLocalizations.of(context).t('Streams'),
                                     style: theme.textTheme.titleMedium
                                         ?.copyWith(
                                           fontWeight: FontWeight.w700,

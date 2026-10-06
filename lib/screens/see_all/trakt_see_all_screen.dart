@@ -607,7 +607,7 @@ class _TraktSeeAllScreenState extends State<TraktSeeAllScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SeeAllHeader(
-              title: 'Trakt',
+              title: AppLocalizations.of(context).t('Trakt'),
               subtitle: _loading
                   ? '${_list.label} · Loading…'
                   : '${_list.label} · $n ${n == 1 ? 'title' : 'titles'}',

@@ -628,8 +628,7 @@ class _SubredditPickerSheetState extends State<_SubredditPickerSheet> {
                   // Title
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 16),
-                    child: Text(
-                      'Select Subreddit',
+                    child: Text(AppLocalizations.of(context).t('Select Subreddit'),
                       style: theme.textTheme.titleLarge?.copyWith(
                         fontWeight: FontWeight.bold,
                       ),
@@ -669,7 +668,7 @@ class _SubredditPickerSheetState extends State<_SubredditPickerSheet> {
                                 // field's focus ring; skip the shell's.
                                 shellRing: false,
                                 decoration: InputDecoration(
-                                  hintText: 'Enter subreddit name',
+                                  hintText: AppLocalizations.of(context).t('Enter subreddit name'),
                                   prefixIcon: const Icon(Icons.tag),
                                   prefixText: 'r/',
                                   border: OutlineInputBorder(
@@ -740,7 +739,7 @@ class _SubredditPickerSheetState extends State<_SubredditPickerSheet> {
         order: NumericFocusOrder(1.0 + allSubredditsIndex),
         child: _FocusableSubredditTile(
           focusNode: allSubredditsIndex < _tileFocusNodes.length ? _tileFocusNodes[allSubredditsIndex] : null,
-          label: 'All Subreddits',
+          label: AppLocalizations.of(context).t('All Subreddits'),
           icon: Icons.public,
           isSelected: widget.currentSubreddit == null,
           onTap: () => _selectSubreddit(null),
@@ -757,8 +756,7 @@ class _SubredditPickerSheetState extends State<_SubredditPickerSheet> {
     // Favorites section
     if (_favoriteSubreddits.isNotEmpty) {
       items.add(
-        Text(
-          'Favorites',
+        Text(AppLocalizations.of(context).t('Favorites'),
           style: theme.textTheme.labelMedium?.copyWith(
             color: colorScheme.onSurfaceVariant,
           ),
@@ -790,8 +788,7 @@ class _SubredditPickerSheetState extends State<_SubredditPickerSheet> {
 
     // Popular section
     items.add(
-      Text(
-        'Popular',
+      Text(AppLocalizations.of(context).t('Popular'),
         style: theme.textTheme.labelMedium?.copyWith(
           color: colorScheme.onSurfaceVariant,
         ),
@@ -1148,8 +1145,7 @@ class _SortPickerSheetState extends State<_SortPickerSheet> {
             // Title
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16),
-              child: Text(
-                'Sort By',
+              child: Text(AppLocalizations.of(context).t('Sort By'),
                 style: theme.textTheme.titleMedium?.copyWith(
                   fontWeight: FontWeight.bold,
                 ),
@@ -1277,8 +1273,7 @@ class _TimePickerSheetState extends State<_TimePickerSheet> {
             // Title
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16),
-              child: Text(
-                'Time Filter',
+              child: Text(AppLocalizations.of(context).t('Time Filter'),
                 style: theme.textTheme.titleMedium?.copyWith(
                   fontWeight: FontWeight.bold,
                 ),
@@ -1508,8 +1503,7 @@ class _RandomButtonState extends State<_RandomButton> {
                       : colorScheme.onTertiaryContainer,
                 ),
               const SizedBox(width: 4),
-              Text(
-                'Random',
+              Text(AppLocalizations.of(context).t('Random'),
                 style: Theme.of(context).textTheme.bodySmall?.copyWith(
                   color: _isFocused
                       ? colorScheme.onPrimary

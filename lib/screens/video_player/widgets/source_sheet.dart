@@ -793,8 +793,7 @@ class _SourceSheetState extends State<SourceSheet> {
                 child: CircularProgressIndicator(strokeWidth: 1.6),
               ),
               const SizedBox(width: 8),
-              Text(
-                'Looking for season packs from this add-on…',
+              Text(AppLocalizations.of(context).t('Looking for season packs from this add-on…'),
                 style: _mutedStyle,
               ),
             ],
@@ -807,8 +806,7 @@ class _SourceSheetState extends State<SourceSheet> {
               ? (_groupFetchAvailable
                     ? _buildGroupFetch()
                     : Center(
-                        child: Text(
-                          'No sources from this add-on',
+                        child: Text(AppLocalizations.of(context).t('No sources from this add-on'),
                           style: _mutedStyle,
                         ),
                       ))
