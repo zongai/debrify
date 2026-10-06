@@ -3863,14 +3863,28 @@ class CatalogSnapshot {
     required String name,
     bool? live,
   }) {
-    final rows = _db.select(
-      'SELECT * ${_where(live: live)} AND url = ? AND name = ? '
-      'ORDER BY position LIMIT 1',
-      [..._args(), url, name],
-    );
-    if (rows.isEmpty) return null;
-    final row = rows.first;
-    return (position: row['position'] as int, channel: _channelFromRow(row));
+    // Prefer exact url+name. After multi-source merge the primary URL often
+    // changes while the display name stays the same — fall back to name, then
+    // url, so startup / last-watched still finds the channel.
+    for (final (clause, params) in <(String, List<Object?>)>[
+      ('AND url = ? AND name = ?', [url, name]),
+      ('AND name = ?', [name]),
+      ('AND url = ?', [url]),
+    ]) {
+      final rows = _db.select(
+        'SELECT * ${_where(live: live)} $clause '
+        'ORDER BY position LIMIT 1',
+        [..._args(), ...params],
+      );
+      if (rows.isNotEmpty) {
+        final row = rows.first;
+        return (
+          position: row['position'] as int,
+          channel: _channelFromRow(row),
+        );
+      }
+    }
+    return null;
   }
 
   /// Catalog position of an assigned live-channel number. Hidden categories

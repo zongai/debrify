@@ -9917,8 +9917,18 @@ class StorageService {
 
   static Future<bool> getStartupIptvEnabled() async {
     final prefs = await ProfilePreferences.instance();
-    return (prefs.getBool(_startupAutoLaunchEnabledKey) ?? false) &&
-        prefs.getString(_startupModeKey) == 'iptv';
+    if (!(prefs.getBool(_startupAutoLaunchEnabledKey) ?? false)) return false;
+    final mode = prefs.getString(_startupModeKey);
+    // Prefer explicit iptv mode; also accept a missing mode when the dedicated
+    // startup_iptv_mode key is present (legacy toggle race / partial write).
+    if (mode == 'iptv') return true;
+    if (mode == null || mode.isEmpty) {
+      final iptvMode = prefs.getString(_startupIptvModeKey);
+      return iptvMode == startupIptvModeLast ||
+          iptvMode == startupIptvModePinned ||
+          iptvMode == null; // default last
+    }
+    return false;
   }
 
   static Future<void> setStartupIptvEnabled(bool enabled) async {

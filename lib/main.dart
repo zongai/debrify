@@ -760,6 +760,8 @@ Future<void> _continueApplicationStartup() async {
     await TvHeroArtworkQualityController.warm();
   } catch (_) {}
   await _capImageCache();
+  MainPageBridge.onProfileReadyForIptvStartup =
+      resolveDeferredIptvStartupChannel;
   await _resolveStartupChannel();
   // Install the Top Shelf action listener before the first Home frame. A cold
   // launch can already carry a title selected on the Apple TV Home Screen;
@@ -846,6 +848,12 @@ class _LinuxVaultBootstrapHost extends StatelessWidget {
 /// auto-tuned channel.
 Future<void> _resolveStartupChannel() async {
   try {
+    // Startup prefs are profile-scoped. Before ProfileGate commits a profile
+    // the read is against the wrong (or empty) key space — defer until unlock.
+    if (!ProfileRuntime.isProfileCommitted) {
+      MainPageBridge.deferIptvStartupUntilProfile = true;
+      return;
+    }
     // Cheap prefs read FIRST. The intent preflight below costs two platform
     // channel round trips, and this runs before the first frame on every cold
     // start — making every user pay that so the small minority with a startup
@@ -861,6 +869,24 @@ Future<void> _resolveStartupChannel() async {
   } catch (_) {
     // A startup channel is a convenience; never let it break the boot.
     debugPrint('Startup channel resolve failed');
+  }
+}
+
+/// Called when a profile becomes active after cold start deferred resolve.
+Future<void> resolveDeferredIptvStartupChannel() async {
+  if (!MainPageBridge.deferIptvStartupUntilProfile) return;
+  MainPageBridge.deferIptvStartupUntilProfile = false;
+  try {
+    if (!await StorageService.getStartupIptvEnabled()) return;
+    if (DeepLinkService.launchedByIntent) return;
+    await StorageService.warmStartupIptv();
+    final channel = StorageService.startupIptvChannelCached;
+    if (channel == null) return;
+    MainPageBridge.setIptvStartupChannel(channel);
+    // MainPage may already be on Home — switch to IPTV so the page can consume.
+    MainPageBridge.switchTab?.call(MainTab.iptv);
+  } catch (_) {
+    debugPrint('Deferred startup channel resolve failed');
   }
 }
 

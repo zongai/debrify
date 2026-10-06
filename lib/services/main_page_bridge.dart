@@ -614,6 +614,12 @@ class MainPageBridge {
 
   /// True while a startup channel is pending and not cancelled — drives the
   /// overlay and the splash hand-off.
+  /// When true, [_resolveStartupChannel] ran before a profile was active.
+  static bool deferIptvStartupUntilProfile = false;
+
+  /// Wired from main() to [resolveDeferredIptvStartupChannel].
+  static Future<void> Function()? onProfileReadyForIptvStartup;
+
   static bool get hasPendingIptvStartup =>
       _iptvStartupChannel != null &&
       _iptvStartupPayloadEpoch == _iptvStartupEpoch;
