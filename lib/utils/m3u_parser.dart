@@ -171,7 +171,17 @@ class M3uParser {
   /// A '|' that yields no options at all is left alone: it's a (technically
   /// illegal but real) literal pipe inside the URL — usually in a token —
   /// and truncating there would break a channel that works today.
+  /// Playlists copied from web pages often HTML-escape query ampersands.
+  static String _unescapeUrl(String raw) {
+    if (!raw.contains('&')) return raw;
+    return raw
+        .replaceAll('&amp;', '&')
+        .replaceAll('&amp', '&')
+        .replaceAll('&#38;', '&');
+  }
+
   static (String, Map<String, String>) _splitUrlOptions(String raw) {
+    raw = _unescapeUrl(raw.trim());
     final pipe = raw.indexOf('|');
     if (pipe < 0) return (raw, const {});
     final headers = <String, String>{};
