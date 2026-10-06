@@ -124,6 +124,8 @@ class MediaServerWatchSync {
     }
   }
 
+}
+
 class MediaServerWatchPosition {
   const MediaServerWatchPosition(this.positionMs, this.durationMs, this.paused);
   final int positionMs;

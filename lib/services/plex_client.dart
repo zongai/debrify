@@ -113,6 +113,21 @@ class PlexClient {
     });
   }
 
+  /// Key path for an external/downloadable Plex subtitle stream, or null if
+  /// the track is embedded-only (no standalone delivery URL).
+  static String? _plexSubtitleDeliveryKey(Map s) {
+    final key = (s['key'] ?? s['Key'])?.toString();
+    if (key != null && key.isNotEmpty) {
+      return key.startsWith('/') ? key : '/$key';
+    }
+    final id = (s['id'] ?? s['Id'] ?? s['streamIdentifier'])?.toString();
+    if (id != null && id.isNotEmpty) {
+      return '/library/streams/$id';
+    }
+    return null;
+  }
+
+
   // ---------------------------------------------------------------------------
   // Auth
   // ---------------------------------------------------------------------------
