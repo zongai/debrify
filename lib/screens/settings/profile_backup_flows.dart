@@ -286,17 +286,28 @@ class ProfileBackupFlows {
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(AppLocalizations.of(context).t('Creates a Debrify backup file (.debrify). It is not ')'encrypted and contains your account credentials and '
-              'connection passwords, so keep it private.\n\n'
-              'Included: all profiles and shared connections, settings, Debrify TV channels with '
-              'their saved hashes, IPTV playlists, favorites, lists, '
-              'history, and ordering. Provider channel lists and TV guides '
-              'are rebuilt after restore, which may need network access. '
-              'Downloads, recordings, active jobs, device paths, and remote '
-              'pairings are not included.\n\n'
-              'Includes the WebDAV sync login and its on/off state. '
-              'Enabled sync resumes automatically after restore.\n\n'
-              'Older Debrify versions cannot read this file.',
+            Text(
+              AppLocalizations.of(context).t(
+                'Creates a Debrify backup file (.debrify). It is not encrypted and contains your account credentials and connection passwords, so keep it private.',
+              ),
+            ),
+            const SizedBox(height: 12),
+            Text(
+              AppLocalizations.of(context).t(
+                'Included: all profiles and shared connections, settings, Debrify TV channels with their saved hashes, IPTV playlists, favorites, lists, history, and ordering. Provider channel lists and TV guides are rebuilt after restore, which may need network access. Downloads, recordings, active jobs, device paths, and remote pairings are not included.',
+              ),
+            ),
+            const SizedBox(height: 12),
+            Text(
+              AppLocalizations.of(context).t(
+                'Includes the WebDAV sync login and its on/off state. Enabled sync resumes automatically after restore.',
+              ),
+            ),
+            const SizedBox(height: 12),
+            Text(
+              AppLocalizations.of(context).t(
+                'Older Debrify versions cannot read this file.',
+              ),
             ),
             SizedBox(height: 12),
           ],

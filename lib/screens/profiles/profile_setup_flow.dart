@@ -577,7 +577,7 @@ class _ProfileSetupFlowState extends State<ProfileSetupFlow> {
               children: [
                 const SizedBox(height: 8),
                 Text(
-                  eyebrow.toUpperCase(),
+                  AppLocalizations.of(context).t(eyebrow).toUpperCase(),
                   style: const TextStyle(
                     fontFamily: 'JetBrainsMono',
                     fontSize: 10,
@@ -588,7 +588,7 @@ class _ProfileSetupFlowState extends State<ProfileSetupFlow> {
                 ),
                 const SizedBox(height: 10),
                 Text(
-                  title,
+                  AppLocalizations.of(context).t(title),
                   style: const TextStyle(
                     fontSize: 27,
                     height: 1.06,
@@ -601,7 +601,7 @@ class _ProfileSetupFlowState extends State<ProfileSetupFlow> {
                 ConstrainedBox(
                   constraints: const BoxConstraints(maxWidth: 380),
                   child: Text(
-                    subtitle,
+                    AppLocalizations.of(context).t(subtitle),
                     style: const TextStyle(
                       fontSize: 12.5,
                       height: 1.46,
@@ -767,12 +767,11 @@ class _ProfileSetupFlowState extends State<ProfileSetupFlow> {
           controller: _name,
           focusNode: _nameNode,
           autofocus: PlatformUtil.isTelevision,
-          labelText: 'Name',
+          labelText: AppLocalizations.of(context).t('Name'),
           hintText: AppLocalizations.of(context).t('Who watches here?'),
         ),
         const SizedBox(height: 16),
-        Text(
-          'LOOK',
+        Text(AppLocalizations.of(context).t('LOOK'),
           style: TextStyle(
             fontFamily: 'JetBrainsMono',
             fontSize: 10,
@@ -791,7 +790,7 @@ class _ProfileSetupFlowState extends State<ProfileSetupFlow> {
           ],
         ),
         const SizedBox(height: 10),
-        Text(AppLocalizations.of(context).t('GIFs and photos live in the full editor — living art animates on ')'the profile screen.',
+        Text(AppLocalizations.of(context).t('GIFs and photos live in the full editor — living art animates on the profile screen.'),
           style: TextStyle(
             fontSize: 11,
             color: Colors.white.withValues(alpha: 0.42),

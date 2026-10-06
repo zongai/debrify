@@ -2529,6 +2529,7 @@ class SettingsSelectDropdown extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
     final t = AppThemeScope.of(context).settings;
     final SettingsSelectOption? selected = options
         .cast<SettingsSelectOption?>()
@@ -2561,7 +2562,7 @@ class SettingsSelectDropdown extends StatelessWidget {
           // Closed field shows just the title; the subtitle lives below.
           selectedItemBuilder: (context) => [
             for (final o in options)
-              Align(alignment: Alignment.centerLeft, child: Text(o.title)),
+              Align(alignment: Alignment.centerLeft, child: Text(l10n.t(o.title))),
           ],
           items: [
             for (final o in options)
@@ -2574,7 +2575,7 @@ class SettingsSelectDropdown extends StatelessWidget {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       Text(
-                        o.title,
+                        l10n.t(o.title),
                         style: TextStyle(
                           fontSize: 14,
                           fontWeight: FontWeight.w600,
@@ -2586,7 +2587,7 @@ class SettingsSelectDropdown extends StatelessWidget {
                       if (o.subtitle != null) ...[
                         const SizedBox(height: 2),
                         Text(
-                          o.subtitle!,
+                          l10n.t(o.subtitle!),
                           style: TextStyle(
                             fontSize: 11.5,
                             height: 1.35,
@@ -2608,7 +2609,7 @@ class SettingsSelectDropdown extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(left: 2),
             child: Text(
-              selected!.subtitle!,
+              l10n.t(selected!.subtitle!),
               style: TextStyle(fontSize: 11.5, height: 1.4, color: t.dim),
             ),
           ),
