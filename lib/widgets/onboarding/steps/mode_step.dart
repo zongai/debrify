@@ -89,10 +89,10 @@ class ModeStep extends StatelessWidget {
             onActivate: onSkip,
             shape: ParallaxShape.pill,
             radius: BorderRadius.circular(18),
-            semanticLabel: "Skip — I'll do this later",
+            semanticLabel: AppLocalizations.of(context).t("Skip — I'll do this later"),
             builder: (context, focused) => OnboardPillSurface(
               focused: focused,
-              label: "Skip — I'll do this later",
+              label: AppLocalizations.of(context).t("Skip — I'll do this later"),
             ),
           ),
         ),

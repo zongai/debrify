@@ -6459,7 +6459,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text("That folder isn't writable — pick another one."),
+          content: Text(AppLocalizations.of(context).t("That folder isn't writable — pick another one.")),
         ),
       );
       return;

@@ -7586,7 +7586,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen>
     debugPrint('Player: IPTV stream error on "$name": $error');
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
-        content: Text("$name didn't play — $error"),
+        content: Text(AppLocalizations.of(context).t("\$name didn't play — \$error").replaceAll('\$name', name).replaceAll('\$error', error)),
         duration: const Duration(seconds: 5),
       ),
     );

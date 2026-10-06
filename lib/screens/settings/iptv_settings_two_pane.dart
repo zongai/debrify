@@ -1463,7 +1463,7 @@ class IptvSettingsTwoPaneState extends State<IptvSettingsTwoPane> {
               icon: Icons.play_circle_outline_rounded,
               value: 'classic',
               title: 'Classic',
-              subtitle: "Today's look",
+              subtitle: AppLocalizations.of(context).t("Today's look"),
             ),
             styleRow(
               icon: Icons.blur_on_rounded,

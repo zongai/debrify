@@ -254,6 +254,18 @@ const _tables = <String, Map<String, String>>{
     'playback': '播放',
     'about': '关于',
       'Couldn't refresh Home. Showing previous rows.': '无法刷新主页。仍显示之前的行。',
+    'That folder isn\'t writable — pick another one.': '该文件夹不可写 — 请选择另一个。',
+    'This series\' provider is no longer available': '此剧集的提供商已不可用',
+    'This series\' provider is no longer available.': '此剧集的提供商已不可用。',
+    'This series\' saved source is invalid.': '此剧集已保存的源无效。',
+    '$name didn\'t play — $error': '「$name」无法播放 — $error',
+    'Today\'s look': '今日外观',
+    'Today\'s look — dark glass, gold reserved for state': '今日外观 — 深色玻璃，金色仅用于状态',
+    'Wide thin caps and gold hairlines — a film\'s own title card': '宽细大写与金色细线 — 如影片片名字卡',
+    'Skip — I\'ll do this later': '跳过 — 我稍后再做',
+    'Move to Trash: File can be recovered later
+Delete Permanently: Cannot be undone': '移到回收站：文件稍后可恢复
+永久删除：无法撤销',
 },
   'ja': {
     'appName': 'Debrify',

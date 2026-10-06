@@ -4494,7 +4494,7 @@ class _SearchScreenState extends State<SearchScreen>
     if (origin == null) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text("This series' provider is no longer available"),
+          content: Text(AppLocalizations.of(context).t("This series' provider is no longer available")),
         ),
       );
       return;
@@ -4687,7 +4687,7 @@ class _SearchScreenState extends State<SearchScreen>
       if (xtream == null) {
         await _offerRemoveUnavailableWatchlistItem(
           item,
-          message: "This series' saved source is invalid.",
+          message: AppLocalizations.of(context).t("This series' saved source is invalid."),
         );
         return;
       }
@@ -4704,7 +4704,7 @@ class _SearchScreenState extends State<SearchScreen>
       if (playlist == null) {
         await _offerRemoveUnavailableWatchlistItem(
           item,
-          message: "This series' provider is no longer available.",
+          message: AppLocalizations.of(context).t("This series' provider is no longer available."),
         );
         return;
       }

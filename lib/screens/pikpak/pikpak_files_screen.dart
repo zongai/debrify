@@ -1172,8 +1172,8 @@ class _PikPakFilesScreenState extends State<PikPakFilesScreen> {
           children: [
             Text(AppLocalizations.of(context).t('What would you like to do with "\$fileName"?').replaceAll('\$fileName', fileName)),
             const SizedBox(height: 16),
-            const Text(
-              'Move to Trash: File can be recovered later\nDelete Permanently: Cannot be undone',
+            Text(
+              AppLocalizations.of(context).t('Move to Trash: File can be recovered later\nDelete Permanently: Cannot be undone'),
               style: TextStyle(fontSize: 12, color: Colors.grey),
             ),
           ],
