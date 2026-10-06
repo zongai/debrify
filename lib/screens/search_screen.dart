@@ -4676,7 +4676,7 @@ class _SearchScreenState extends State<SearchScreen>
     } catch (_) {
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text("Couldn't update My Watchlist")),
+        SnackBar(content: Text(AppLocalizations.of(context).t("Couldn't update My Watchlist"))),
       );
     }
   }

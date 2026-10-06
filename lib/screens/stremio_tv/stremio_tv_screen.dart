@@ -2510,7 +2510,7 @@ class _StremioTvScreenState extends State<StremioTvScreen> {
     if (!mounted) return;
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
-        content: Text('Copied "${payload.name}" JSON to clipboard'),
+        content: Text(AppLocalizations.of(context).t('Copied "\$name" JSON to clipboard').replaceAll('\$name', payload.name)),
         behavior: SnackBarBehavior.floating,
       ),
     );

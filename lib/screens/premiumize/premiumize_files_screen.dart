@@ -1009,7 +1009,7 @@ class _PremiumizeFilesScreenState extends State<PremiumizeFilesScreen> {
       builder: (context) => AlertDialog(
         title: Text('Delete ${item.isFolder ? 'Folder' : 'File'}'),
         content: Text(
-          'Permanently delete "${item.name}"? This cannot be undone.',
+          AppLocalizations.of(context).t('Permanently delete "\$name"? This cannot be undone.').replaceAll('\$name', item.name),
         ),
         actions: [
           TextButton(

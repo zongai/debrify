@@ -8035,7 +8035,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen>
           await _startRecording();
         } else {
           ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text("Couldn't start recording")),
+            SnackBar(content: Text(AppLocalizations.of(context).t("Couldn't start recording"))),
           );
         }
         return;
@@ -8095,7 +8095,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen>
       if (!mounted) return;
       if (capture == null) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text("Couldn't start recording")),
+          SnackBar(content: Text(AppLocalizations.of(context).t("Couldn't start recording"))),
         );
         return;
       }

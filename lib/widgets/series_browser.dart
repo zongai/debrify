@@ -1229,7 +1229,7 @@ class _SeriesBrowserState extends State<SeriesBrowser> {
           const SizedBox(width: 8),
           Expanded(
             child: Text(
-              "Couldn't load episode details — check your connection.",
+              AppLocalizations.of(context).t("Couldn't load episode details — check your connection."),
               maxLines: 2,
               overflow: TextOverflow.ellipsis,
               style: const TextStyle(

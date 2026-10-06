@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 
 import '../../widgets/tv_text_field.dart';
 import 'widgets/settings_widgets.dart';
@@ -276,7 +278,7 @@ class _EmptyResults extends StatelessWidget {
             Icon(Icons.search_off_rounded, size: 40, color: t.dim2),
             const SizedBox(height: 14),
             Text(
-              'No settings match "$query"',
+              AppLocalizations.of(context).t('No settings match "\$query"').replaceAll('\$query', query),
               textAlign: TextAlign.center,
               style: TextStyle(fontSize: 13.5, color: t.dim),
             ),

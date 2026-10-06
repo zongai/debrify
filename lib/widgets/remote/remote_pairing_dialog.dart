@@ -261,7 +261,7 @@ class _PairingCodeEntryDialogState extends State<_PairingCodeEntryDialog> {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      title: Text('Enter the code shown on "${widget.tvName}"'),
+      title: Text(AppLocalizations.of(context).t('Enter the code shown on "\$name"').replaceAll('\$name', widget.tvName)),
       content: Column(
         mainAxisSize: MainAxisSize.min,
         children: [

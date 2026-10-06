@@ -548,7 +548,7 @@ class LocalBoundSourceService {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'Select the folder named like "$title".',
+                AppLocalizations.of(context).t('Select the folder named like "\$title".').replaceAll('\$title', title),
                 style: const TextStyle(color: Colors.white70),
               ),
               const SizedBox(height: 12),
@@ -647,7 +647,7 @@ class LocalBoundSourceService {
                   ),
                   const SizedBox(height: 4),
                   Text(
-                    'Multiple folders matched "$title".',
+                    AppLocalizations.of(context).t('Multiple folders matched "\$title".').replaceAll('\$title', title),
                     style: const TextStyle(color: Colors.white54, fontSize: 12),
                   ),
                   const SizedBox(height: 12),

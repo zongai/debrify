@@ -638,7 +638,7 @@ class _RecordingsPageState extends State<RecordingsPage>
       final confirmed = await showDialog<bool>(
         context: context,
         builder: (dialogContext) => AlertDialog(
-          title: Text("That's a long recording"),
+          title: Text(AppLocalizations.of(context).t("That's a long recording")),
           content: Text(
             'Recording would run ${hours}h'
             '${minutes > 0 ? ' ${minutes}m' : ''}, '

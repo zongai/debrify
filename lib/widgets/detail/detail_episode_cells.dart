@@ -817,7 +817,7 @@ class DetailEpisodesStatus extends StatelessWidget {
               Icon(Icons.tv_off_rounded, size: 40, color: t.tx3),
               const SizedBox(height: 12),
               Text(
-                "Couldn't load episodes",
+                AppLocalizations.of(context).t("Couldn't load episodes"),
                 style: TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.w700,

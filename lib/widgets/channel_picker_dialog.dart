@@ -304,7 +304,7 @@ class _ChannelPickerDialogState extends State<ChannelPickerDialog> {
                 _ChannelSelectionTile(
                   icon: Icons.add_circle_outline,
                   title: 'Create New Channel',
-                  subtitle: 'Start fresh with "${widget.searchKeyword}"',
+                  subtitle: AppLocalizations.of(context).t('Start fresh with "\$keyword"').replaceAll('\$keyword', widget.searchKeyword),
                   isCreateNew: true,
                   focusNode: _createButtonFocusNode,
                   autofocus: true,
@@ -431,7 +431,7 @@ class _ChannelPickerDialogState extends State<ChannelPickerDialog> {
           ),
           const SizedBox(height: 12),
           Text(
-            'Keyword: "${widget.searchKeyword}" will be auto-added',
+            AppLocalizations.of(context).t('Keyword: "\$keyword" will be auto-added').replaceAll('\$keyword', widget.searchKeyword),
             style: const TextStyle(color: Colors.white54, fontSize: 12),
           ),
           const SizedBox(height: 20),

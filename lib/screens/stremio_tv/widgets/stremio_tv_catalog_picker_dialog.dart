@@ -598,7 +598,7 @@ class _StremioTvCatalogPickerDialogState
           ),
           const SizedBox(height: 6),
           Text(
-            'Create a local Stremio TV channel for "${widget.item.name}"',
+            AppLocalizations.of(context).t('Create a local Stremio TV channel for "\$name"').replaceAll('\$name', widget.item.name),
             style: theme.textTheme.bodyMedium?.copyWith(
               color: theme.colorScheme.onSurfaceVariant,
             ),
@@ -848,7 +848,7 @@ class _StremioTvLocalCatalogEditor {
     });
 
     return StremioTvCatalogPickerResult(
-      message: 'Created "$trimmedName" in Stremio TV',
+      message: AppLocalizations.of(context).t('Created "\$name" in Stremio TV').replaceAll('\$name', trimmedName),
       createdNew: true,
     );
   }
@@ -885,7 +885,7 @@ class _StremioTvLocalCatalogEditor {
     if (!updated) return null;
 
     return StremioTvCatalogPickerResult(
-      message: 'Added "${item.name}" to "$catalogName"',
+      message: AppLocalizations.of(context).t('Added "\$name" to "\$catalog"').replaceAll('\$name', item.name).replaceAll('\$catalog', catalogName),
     );
   }
 

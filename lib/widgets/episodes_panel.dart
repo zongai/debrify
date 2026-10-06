@@ -2017,8 +2017,8 @@ class EpisodesPanelState extends State<EpisodesPanel> {
               color: Colors.white.withValues(alpha: 0.4),
             ),
             const SizedBox(height: 14),
-            const Text(
-              "Couldn't load episodes",
+            Text(
+              AppLocalizations.of(context).t("Couldn't load episodes"),
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
             ),
             const SizedBox(height: 6),

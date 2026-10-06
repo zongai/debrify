@@ -6395,7 +6395,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
     await _loadDownloadLocation();
     if (!mounted) return;
     ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text('New downloads will be saved to "$name"')),
+      SnackBar(content: Text(AppLocalizations.of(context).t('New downloads will be saved to "\$name"').replaceAll('\$name', name))),
     );
   }
 
@@ -6415,7 +6415,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text(
-            "Couldn't open a folder picker on this system (a dialog tool like zenity may be missing).",
+            AppLocalizations.of(context).t("Couldn't open a folder picker on this system (a dialog tool like zenity may be missing)."),
           ),
         ),
       );

@@ -413,7 +413,7 @@ class _AddonHubScreenState extends State<AddonHubScreen> {
           builder: (ctx) => _HubDialog(
             title: 'Engine already exists',
             content: Text(
-              'Replace the existing "$engineId"?',
+              AppLocalizations.of(context).t('Replace the existing "\$id"?').replaceAll('\$id', engineId),
               style: TextStyle(color: app.fade(app.core.tx, 0.75)),
             ),
             actions: [

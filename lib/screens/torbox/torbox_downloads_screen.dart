@@ -6850,7 +6850,7 @@ class _TorboxDownloadsScreenState extends State<TorboxDownloadsScreen> {
             ),
             const SizedBox(height: 12),
             Text(
-              'No results for "$_torrentSearchQuery"',
+              AppLocalizations.of(context).t('No results for "\$query"').replaceAll('\$query', _torrentSearchQuery),
               style: TextStyle(color: app.fade(app.core.tx, 0.5)),
             ),
           ],

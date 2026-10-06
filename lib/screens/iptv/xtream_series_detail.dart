@@ -195,7 +195,7 @@ Future<void> openXtreamSeries(
       // stacked layout the episode pane's retry state can be off-screen.
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text("Couldn't load episodes from the provider — try again"),
+          content: Text(AppLocalizations.of(context).t("Couldn't load episodes from the provider — try again")),
         ),
       );
       return;

@@ -377,7 +377,7 @@ class _PlaylistScreenState extends State<PlaylistScreen> {
           style: TextStyle(fontWeight: FontWeight.w700),
         ),
         content: Text(
-          'All watch progress for "${item['title'] ?? 'this playlist'}" will be cleared. This cannot be undone.',
+          AppLocalizations.of(context).t('All watch progress for "\$name" will be cleared. This cannot be undone.').replaceAll('\$name', (item['title'] ?? 'this playlist').toString()),
           style: TextStyle(color: app.playlist.ink2, fontSize: 15),
         ),
         actionsPadding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
@@ -834,7 +834,7 @@ class _PlaylistScreenState extends State<PlaylistScreen> {
           ),
           const SizedBox(height: 8),
           Text(
-            'Try searching for "$query" differently',
+            AppLocalizations.of(context).t('Try searching for "\$query" differently').replaceAll('\$query', query),
             style: TextStyle(
               color: app.core.tx.withValues(alpha: 0.35),
               fontSize: 14,

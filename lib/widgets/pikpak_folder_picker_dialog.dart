@@ -318,7 +318,7 @@ class _PikPakFolderPickerDialogState extends State<PikPakFolderPickerDialog> {
                   child: CircularProgressIndicator(strokeWidth: 2),
                 ),
                 const SizedBox(width: 12),
-                Text('Creating folder "$folderName"...'),
+                Text(AppLocalizations.of(context).t('Creating folder "\$name"...').replaceAll('\$name', folderName)),
               ],
             ),
             duration: const Duration(seconds: 30),
@@ -340,7 +340,7 @@ class _PikPakFolderPickerDialogState extends State<PikPakFolderPickerDialog> {
         ScaffoldMessenger.of(context).hideCurrentSnackBar();
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text('Folder "$newFolderName" created successfully!'),
+            content: Text(AppLocalizations.of(context).t('Folder "\$name" created successfully!').replaceAll('\$name', newFolderName)),
             backgroundColor: Colors.green,
             duration: const Duration(seconds: 2),
           ),

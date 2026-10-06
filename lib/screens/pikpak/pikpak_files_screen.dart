@@ -1170,7 +1170,7 @@ class _PikPakFilesScreenState extends State<PikPakFilesScreen> {
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text('What would you like to do with "$fileName"?'),
+            Text(AppLocalizations.of(context).t('What would you like to do with "\$fileName"?').replaceAll('\$fileName', fileName)),
             const SizedBox(height: 16),
             const Text(
               'Move to Trash: File can be recovered later\nDelete Permanently: Cannot be undone',

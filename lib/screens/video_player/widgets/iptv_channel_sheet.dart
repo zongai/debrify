@@ -2659,7 +2659,7 @@ class _CategoryPickerDialogState extends State<_CategoryPickerDialog> {
                   ? Padding(
                       padding: const EdgeInsets.fromLTRB(20, 12, 20, 28),
                       child: Text(
-                        'No category matches "${_query.trim()}"',
+                        AppLocalizations.of(context).t('No category matches "\$query"').replaceAll('\$query', _query.trim()),
                         style: TextStyle(
                           color: t == null
                               ? Colors.white.withValues(alpha: 0.4)
