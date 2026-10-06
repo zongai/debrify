@@ -15759,7 +15759,6 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen>
                                   onShowPlaylist: () =>
                                       _showPlaylistSheet(context),
                                   onShowTracks: _onShowTracksAction,
-                                  hideSpeed: _hideSpeedForLiveIptv,
                                   onSeekBarChangedStart: () {
                                     _isSeekingWithSlider = true;
                                     // The viewer owns the position from the
