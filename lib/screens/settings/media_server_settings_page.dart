@@ -18,7 +18,7 @@ import '../../widgets/tv_text_field.dart';
 import 'widgets/settings_widgets.dart';
 
 class MediaServerSettingsPage extends StatefulWidget {
-  MediaServerSettingsPage({super.key});
+  const MediaServerSettingsPage({super.key});
   @override
   State<MediaServerSettingsPage> createState() =>
       _MediaServerSettingsPageState();
