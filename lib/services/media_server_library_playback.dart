@@ -30,6 +30,8 @@ class MediaServerLibraryPlayback {
       resumePolicy: PlaybackResumePolicy.catalogCanonical,
       stremioSources: sources,
       stremioCurrentSourceIndex: index,
+      initialSubtitles:
+          target.subtitles.isEmpty ? null : target.subtitles,
       resolveSourceToPlaylist: (candidate) async {
         if (!sources.contains(candidate)) {
           throw StateError('Unknown server source');

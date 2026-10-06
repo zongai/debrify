@@ -11,6 +11,7 @@ import '../models/media_server_source.dart';
 import '../models/profiles/connection_resource.dart';
 import '../models/profiles/profile_policy.dart';
 import '../models/torrent.dart';
+import '../models/stremio_subtitle.dart';
 import '../utils/torrent_filter_matcher.dart';
 import 'media_server_client.dart';
 import 'diagnostic_log.dart';
@@ -111,6 +112,40 @@ class MediaServerService {
     if (range.contains('HLG') || transfer == 'arib-std-b67') tags.add('HLG');
     if (tags.isEmpty && range.contains('HDR')) tags.add('HDR');
     return tags;
+  }
+
+  /// External / downloadable subtitle tracks from a media-source map
+  /// (Plex streamType 3 with DeliveryUrl, Jellyfin IsExternal + DeliveryUrl).
+  static List<StremioSubtitle> _subtitlesFromMedia(
+    Map media, {
+    required String serverLabel,
+  }) {
+    final streams = media['MediaStreams'];
+    if (streams is! List) return const [];
+    final out = <StremioSubtitle>[];
+    for (final raw in streams) {
+      if (raw is! Map) continue;
+      if (raw['Type'] != 'Subtitle') continue;
+      final url = raw['DeliveryUrl']?.toString();
+      if (url == null || url.isEmpty) continue;
+      // Prefer explicit external tracks; still accept any DeliveryUrl so Plex
+      // sidecars always surface even if IsExternal is missing.
+      final id = 'msub:${raw['Index'] ?? out.length}:$url';
+      final lang = (raw['Language']?.toString() ?? 'und').trim();
+      final label = raw['DisplayTitle']?.toString() ??
+          raw['Title']?.toString() ??
+          (lang.isNotEmpty && lang != 'und' ? lang : 'Subtitle');
+      out.add(
+        StremioSubtitle(
+          id: id,
+          url: url,
+          lang: lang.isEmpty ? 'und' : lang,
+          label: label,
+          source: serverLabel,
+        ),
+      );
+    }
+    return out;
   }
 
   static Future<void> authorize(Torrent source) async {
@@ -460,6 +495,7 @@ class MediaServerService {
           season: season,
           episode: episode,
           title: title,
+          subtitles: _subtitlesFromMedia(media, serverLabel: name),
         );
       }
       if (bind) {
@@ -823,6 +859,7 @@ class MediaServerWatchTarget {
     required this.season,
     required this.episode,
     required this.title,
+    this.subtitles = const [],
   });
 
   final MediaServerAccount account;
@@ -835,4 +872,6 @@ class MediaServerWatchTarget {
   final int? season;
   final int? episode;
   final String title;
+  /// Sidecar / external subtitle files from the media server (e.g. Plex SRT).
+  final List<StremioSubtitle> subtitles;
 }

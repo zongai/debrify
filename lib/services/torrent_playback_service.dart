@@ -30,6 +30,7 @@ import '../models/stremio_addon.dart';
 import '../models/torbox_file.dart';
 import '../models/torbox_web_download.dart';
 import '../models/torrent.dart';
+import '../models/stremio_subtitle.dart';
 import '../models/indexer_manager_config.dart';
 import '../screens/video_player/models/playlist_entry.dart';
 import '../models/torrent_filter_state.dart';
@@ -6166,6 +6167,7 @@ class TorrentPlaybackService {
     int? torboxTorrentId,
     PlaylistViewMode? viewMode,
     Map<String, String>? httpHeaders,
+    List<StremioSubtitle>? initialSubtitles,
   }) => VideoPlayerLaunchArgs(
     // External apps receive only the URL, not media-server session headers.
     // Continuous shuffle also needs the in-app episode-fetch/EOF callbacks.
@@ -6210,6 +6212,7 @@ class TorrentPlaybackService {
     // collection/folder id, but _Resolved only carries a per-file id.
     rdTorrentId: rdTorrentId,
     torboxTorrentId: torboxTorrentId?.toString(),
+    initialSubtitles: initialSubtitles,
   );
 
   @visibleForTesting
@@ -6631,6 +6634,9 @@ class TorrentPlaybackService {
           ? recoveryProvider ?? await _defaultConfiguredProvider()
           : provider;
       if (!context.mounted) return;
+      final mediaServerSubs = winner != null && MediaServerService.owns(winner)
+          ? MediaServerService.watchTargetFor(winner)?.subtitles
+          : null;
       final args = _playerArgs(
         videoUrl: r.playUrl!,
         httpHeaders: r.httpHeaders,
@@ -6640,6 +6646,10 @@ class TorrentPlaybackService {
         startIndex: r.hasPlaylist ? r.startIndex : null,
         stremioSources: sources,
         stremioCurrentSourceIndex: sources != null ? sourceIndex : null,
+        initialSubtitles:
+            (mediaServerSubs != null && mediaServerSubs.isNotEmpty)
+                ? mediaServerSubs
+                : null,
         // A single-source launch still needs the resolver when the fetcher is
         // along: "Load more" grows the list mid-session and the new entries
         // must be switchable. A bound 'local' launch has no debrid provider —

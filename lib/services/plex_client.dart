@@ -104,6 +104,15 @@ class PlexClient {
     });
   }
 
+  /// External subtitle / sidecar file under PMS (e.g. `/library/streams/42`).
+  static Uri streamFileUrl(MediaServerAccount account, String streamKey) {
+    final key = streamKey.startsWith('/') ? streamKey.substring(1) : streamKey;
+    return endpoint(account.baseUrl, key, {
+      'X-Plex-Token': account.token,
+      'X-Plex-Client-Identifier': account.deviceId,
+    });
+  }
+
   // ---------------------------------------------------------------------------
   // Auth
   // ---------------------------------------------------------------------------
@@ -766,14 +775,16 @@ class PlexClient {
                 orElse: () => const {},
               )
             : const <String, dynamic>{};
-        final audioStreams = streams is List
-            ? streams
-                .cast<dynamic>()
-                .whereType<Map>()
-                .where((s) =>
-                    s['streamType'] == 2 || s['StreamType'] == 2)
-                .toList()
+        final streamMaps = streams is List
+            ? streams.cast<dynamic>().whereType<Map>().toList()
             : const <Map>[];
+        final audioStreams = streamMaps
+            .where((s) => s['streamType'] == 2 || s['StreamType'] == 2)
+            .toList();
+        // streamType 3 = subtitle (embedded or external SRT/VTT/ASS).
+        final subtitleStreams = streamMaps
+            .where((s) => s['streamType'] == 3 || s['StreamType'] == 3)
+            .toList();
         sources.add({
           'Id': partId,
           'Path': partKey,
@@ -793,6 +804,27 @@ class PlexClient {
                 'Type': 'Audio',
                 'Language': a['language'] ?? a['languageTag'] ?? a['languageCode'],
                 'DisplayTitle': a['displayTitle'] ?? a['extendedDisplayTitle'],
+              },
+            for (final s in subtitleStreams)
+              {
+                'Type': 'Subtitle',
+                'Index': s['index'] ?? s['id'],
+                'Codec': s['codec'] ?? s['format'],
+                'Language':
+                    s['language'] ?? s['languageTag'] ?? s['languageCode'],
+                'DisplayTitle':
+                    s['displayTitle'] ??
+                    s['extendedDisplayTitle'] ??
+                    s['title'],
+                // External sidecars expose a downloadable key; embedded tracks
+                // stay inside the container for the player to pick up.
+                'IsExternal': s['key'] != null &&
+                    s['key'].toString().trim().isNotEmpty,
+                if (s['key'] != null && s['key'].toString().trim().isNotEmpty)
+                  'DeliveryUrl': streamFileUrl(
+                    account,
+                    s['key'].toString(),
+                  ).toString(),
               },
           ],
           // Plex-specific: the path needed to build a direct-play URL.
