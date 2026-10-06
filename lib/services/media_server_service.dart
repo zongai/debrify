@@ -12,6 +12,7 @@ import '../models/profiles/connection_resource.dart';
 import '../models/profiles/profile_policy.dart';
 import '../models/torrent.dart';
 import '../models/stremio_subtitle.dart';
+import '../screens/video_player/utils/language_mapping.dart';
 import '../utils/torrent_filter_matcher.dart';
 import 'media_server_client.dart';
 import 'diagnostic_log.dart';
@@ -135,15 +136,21 @@ class MediaServerService {
       // Prefer explicit external tracks; still accept any DeliveryUrl so Plex
       // sidecars always surface even if IsExternal is missing.
       final id = 'msub:${raw['Index'] ?? out.length}:$url';
-      final lang = (raw['Language']?.toString() ?? 'und').trim();
+      var lang = (raw['Language']?.toString() ?? '').trim();
       final label = raw['DisplayTitle']?.toString() ??
           raw['Title']?.toString() ??
           (lang.isNotEmpty && lang != 'und' ? lang : 'Subtitle');
+      if (lang.isEmpty || lang == 'und') {
+        // Recover zh/en/… from display title when Plex only labels the track.
+        final fromLabel = LanguageMapper.canonicalCodeFromLabel(label);
+        if (fromLabel != null) lang = fromLabel;
+      }
+      if (lang.isEmpty) lang = 'und';
       out.add(
         StremioSubtitle(
           id: id,
           url: url,
-          lang: lang.isEmpty ? 'und' : lang,
+          lang: lang,
           label: label,
           source: serverLabel,
         ),

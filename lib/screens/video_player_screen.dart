@@ -17968,8 +17968,17 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen>
       final client = http.Client();
       late http.StreamedResponse response;
       try {
+        final req = http.Request('GET', uri);
+        req.headers['Accept'] = '*/*';
+        // Media-server sidecars may still require the same auth headers as video.
+        final videoHeaders = widget.httpHeaders;
+        if (videoHeaders != null && videoHeaders.isNotEmpty) {
+          for (final e in videoHeaders.entries) {
+            req.headers.putIfAbsent(e.key, () => e.value);
+          }
+        }
         response = await client
-            .send(http.Request('GET', uri))
+            .send(req)
             .timeout(const Duration(seconds: 15));
         final declaredLength = response.contentLength;
         if (declaredLength != null &&
@@ -18212,8 +18221,16 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen>
     bool discoveryReady = true,
   }) async {
     if (!mounted || token != _addonSubtitleFetchToken) return;
+    // Always surface launch-time media-server sidecars in the priority list.
+    final injected = _injectedSubtitleSlots;
+    final merged = <AddonSubtitleSlot>[
+      if (injected != null) ...injected,
+      ...slots.where(
+        (s) => injected == null || !injected.any((i) => i.addonId == s.addonId),
+      ),
+    ];
     await _subtitlePrioritySelectionQueue.submit(
-      SubtitlePriorityUpdate(token, slots, discoveryReady: discoveryReady),
+      SubtitlePriorityUpdate(token, merged, discoveryReady: discoveryReady),
       _applySubtitlePriorityUpdate,
     );
   }
@@ -18239,9 +18256,19 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen>
         return;
       }
       final saved = await StorageService.getSubtitleSourcePriority();
+      // Prefer server sidecars (Plex/Jellyfin) that match the default language
+      // over empty embedded results — they are already on the device URL.
+      final boosted = <String>[
+        for (final slot in update.slots)
+          if (slot.addonId == 'injected' &&
+              SubtitleSourcePriority.matching(slot.subtitles, language)
+                  .isNotEmpty)
+            SubtitleSourcePriority.addon(slot.priorityId),
+        ...saved,
+      ];
       String? selectedPath;
       final result = await selectSubtitleBySourcePriority(
-        saved: saved,
+        saved: boosted,
         language: language,
         slots: update.slots,
         discoveryReady: update.discoveryReady,

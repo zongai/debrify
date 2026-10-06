@@ -186,6 +186,35 @@ class LanguageMapper {
     return '';
   }
 
+  /// Best-effort ISO code from a UI label like "中文" / "Chinese (SRT)".
+  static String? canonicalCodeFromLabel(String? label) {
+    if (label == null || label.trim().isEmpty) return null;
+    final trimmed = label.trim();
+    final lower = trimmed.toLowerCase();
+    final direct = _getReverseLookup[lower];
+    if (direct != null) return direct;
+    for (final entry in _languageVariants.entries) {
+      for (final v in entry.value) {
+        if (v.isEmpty) continue;
+        if (lower == v) return entry.key;
+        // CJK labels are not lowercased the same way — match original text.
+        if (trimmed.contains(v) && (v == '中文' || v == '日本語' || v == '한국어')) {
+          return entry.key;
+        }
+        if (v.length >= 3 &&
+            (lower.startsWith('$v ') ||
+                lower.startsWith('$v-') ||
+                lower.startsWith('$v(') ||
+                lower.startsWith('$v/'))) {
+          return entry.key;
+        }
+        if (v.length >= 4 && lower.contains(v)) return entry.key;
+      }
+    }
+    final token = lower.split(RegExp(r'[\s(/]+')).first;
+    return _getReverseLookup[token];
+  }
+
   /// Check if a track's language matches the target language.
   ///
   /// [targetLang] - The user's selected language (ISO 639-1, e.g., 'en')

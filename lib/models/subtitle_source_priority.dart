@@ -61,11 +61,15 @@ abstract final class SubtitleSourcePriority {
   ) {
     if (language == 'off') return [];
     final tracks = subtitles.where((s) => s.url.isNotEmpty).toList();
-    final preferred = tracks.where(
-      (s) => LanguageMapper.matchesLanguage(language ?? 'en', s.lang) ||
-          (language?.toLowerCase() == 'pt-br' &&
-              LanguageMapper.matchesLanguage('pt-BR', s.label)),
-    );
+    bool matches(StremioSubtitle s) {
+      final target = language ?? 'en';
+      if (LanguageMapper.matchesLanguage(target, s.lang)) return true;
+      // Plex/Jellyfin often put the language only in the display title
+      // (lang=und / empty) while the UI shows "中文".
+      if (LanguageMapper.matchesLanguage(target, s.label)) return true;
+      return false;
+    }
+    final preferred = tracks.where(matches);
     return [
       ...preferred,
       if (language == null)
