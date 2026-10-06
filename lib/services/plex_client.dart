@@ -564,7 +564,8 @@ class PlexClient {
     Future<void> Function()? authorize,
   }) async {
     if (search.trim().isNotEmpty) {
-      // Global hub search.
+      // Global hub search. PMS returns MediaContainer.Hub[], each with Metadata[].
+      // (Looking only at top-level Metadata always yielded an empty list.)
       final data = await _getJson(
         account.baseUrl,
         'hubs/search',
@@ -573,18 +574,57 @@ class PlexClient {
         query: {
           'query': search.trim(),
           'limit': '$limit',
+          // Prefer title matches in movie/show/episode hubs.
+          'includeCollections': '0',
+          'includeExternalMedia': '0',
         },
         authorize: authorize,
       );
-      final hubs = _containerChildren(data);
+      final hubs = _containerChildren(data, key: 'Hub');
       final items = <Map<String, dynamic>>[];
+      final seen = <String>{};
       for (final hub in hubs) {
-        final meta = hub['Metadata'];
+        final hubType = (hub['type']?.toString() ?? '').toLowerCase();
+        // Skip person/tag/playlist noise when searching for playable titles.
+        if (hubType == 'actor' ||
+            hubType == 'director' ||
+            hubType == 'genre' ||
+            hubType == 'playlist') {
+          continue;
+        }
+        final meta = hub['Metadata'] ?? hub['Directory'];
         if (meta is! List) continue;
         for (final row in meta) {
-          if (row is Map<String, dynamic>) {
-            items.add(mapMetadata(row));
+          if (row is! Map) continue;
+          final mapped = mapMetadata(Map<String, dynamic>.from(row));
+          final id = mapped['Id']?.toString() ?? '';
+          if (id.isNotEmpty && !seen.add(id)) continue;
+          items.add(mapped);
+        }
+      }
+      // Fallback: older PMS builds expose a flat /search endpoint.
+      if (items.isEmpty) {
+        for (final type in const ['1', '2', '4']) {
+          // 1=movie, 2=show, 4=episode
+          final flat = await _getJson(
+            account.baseUrl,
+            'search',
+            deviceId: account.deviceId,
+            token: account.token,
+            query: {
+              'query': search.trim(),
+              'limit': '$limit',
+              'type': type,
+            },
+            authorize: authorize,
+          );
+          for (final row in _containerChildren(flat)) {
+            final mapped = mapMetadata(row);
+            final id = mapped['Id']?.toString() ?? '';
+            if (id.isNotEmpty && !seen.add(id)) continue;
+            items.add(mapped);
           }
+          if (items.length >= limit) break;
         }
       }
       final page = items.skip(offset).take(limit).toList();
