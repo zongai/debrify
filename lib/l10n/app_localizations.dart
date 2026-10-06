@@ -253,7 +253,8 @@ const _tables = <String, Map<String, String>>{
     'accountsAndServices': '账号与服务',
     'playback': '播放',
     'about': '关于',
-  },
+      'Couldn't refresh Home. Showing previous rows.': '无法刷新主页。仍显示之前的行。',
+},
   'ja': {
     'appName': 'Debrify',
     'cancel': 'キャンセル',

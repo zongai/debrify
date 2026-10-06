@@ -6468,7 +6468,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
     await _loadDownloadLocation();
     if (!mounted) return;
     ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text('New downloads will be saved to "$dir"')),
+      SnackBar(content: Text(AppLocalizations.of(context).t('New downloads will be saved to "\$name"').replaceAll('\$name', dir))),
     );
   }
 

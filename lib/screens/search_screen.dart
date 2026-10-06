@@ -3213,7 +3213,7 @@ class _SearchScreenState extends State<SearchScreen>
       if (expired && keepRows) {
         ScaffoldMessenger.maybeOf(context)?.showSnackBar(
           SnackBar(
-            content: Text("Couldn't refresh Home. Showing previous rows."),
+            content: Text(AppLocalizations.of(context).t("Couldn't refresh Home. Showing previous rows.")),
             action: SnackBarAction(
               label: 'Retry',
               onPressed: () {
