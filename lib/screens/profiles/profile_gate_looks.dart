@@ -169,10 +169,10 @@ class _BrandHeader extends StatelessWidget {
         ),
       ),
       const SizedBox(height: 10),
-      const Text(
-        "Who's watching?",
+      Text(
+        AppLocalizations.of(context).t('Who\'s watching?'),
         textAlign: TextAlign.center,
-        style: TextStyle(
+        style: const TextStyle(
           fontSize: 30,
           fontWeight: FontWeight.w800,
           letterSpacing: -.5,
@@ -640,7 +640,7 @@ class _ProfileMarqueeGateScreenState extends State<ProfileMarqueeGateScreen> {
           ),
           const SizedBox(width: 8),
           Text(
-            'Manage profiles',
+            AppLocalizations.of(context).t('Manage profiles'),
             style: TextStyle(
               color: Colors.white.withValues(alpha: .82),
               fontWeight: FontWeight.w600,
@@ -674,7 +674,7 @@ class _CinematicHeader extends StatelessWidget {
       ),
       const SizedBox(height: 18),
       const Text(
-        "Who's watching?",
+        AppLocalizations.of(context).t('Who\'s watching?'),
         style: TextStyle(
           fontSize: 32,
           fontWeight: FontWeight.w800,
@@ -874,7 +874,7 @@ class _CinematicManageCard extends StatelessWidget {
         ),
         const SizedBox(width: 10),
         Text(
-          'Manage profiles',
+          AppLocalizations.of(context).t('Manage profiles'),
           style: TextStyle(
             color: Colors.white.withValues(alpha: .88),
             fontWeight: FontWeight.w700,
@@ -1032,7 +1032,7 @@ class _ProfileTheaterGateScreenState extends State<ProfileTheaterGateScreen> {
                       child: FittedBox(
                         fit: BoxFit.scaleDown,
                         child: Text(
-                          p?.name ?? 'Manage profiles',
+                          p?.name ?? AppLocalizations.of(context).t('Manage profiles'),
                           maxLines: 1,
                           style: TextStyle(
                             fontSize: wide ? 54 : 38,
@@ -1233,11 +1233,11 @@ class _ProfileStageCardsGateScreenState
     return ProfileAvatarView.washColor(p.avatarKey, p.role);
   }
 
-  static String _greeting() {
+  static String _greeting(BuildContext context) {
     final hour = DateTime.now().hour;
-    if (hour < 12) return 'GOOD MORNING';
-    if (hour < 17) return 'GOOD AFTERNOON';
-    return 'GOOD EVENING';
+    if (hour < 12) return AppLocalizations.of(context).t('GOOD MORNING');
+    if (hour < 17) return AppLocalizations.of(context).t('GOOD AFTERNOON');
+    return AppLocalizations.of(context).t('GOOD EVENING');
   }
 
   /// The greeting is clock-derived and a TV can sit on this screen for hours,
@@ -1322,7 +1322,7 @@ class _ProfileStageCardsGateScreenState
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            _StageHeader(wash: _wash, greeting: _greeting(), wide: true),
+            _StageHeader(wash: _wash, greeting: _greeting(context), wide: true),
             const SizedBox(height: 20),
             _landscapeCardRail(
               cardHeight: cardHeight,
@@ -1373,7 +1373,7 @@ class _ProfileStageCardsGateScreenState
                   children: [
                     _StageHeader(
                       wash: _wash,
-                      greeting: _greeting(),
+                      greeting: _greeting(context),
                       wide: false,
                       compact: true,
                     ),
@@ -1491,7 +1491,7 @@ class _ProfileStageCardsGateScreenState
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            _StageHeader(wash: _wash, greeting: _greeting(), wide: false),
+            _StageHeader(wash: _wash, greeting: _greeting(context), wide: false),
             const SizedBox(height: 26),
             Wrap(
               alignment: WrapAlignment.center,
@@ -1579,7 +1579,7 @@ class _ProfileStageCardsGateScreenState
           const SizedBox(width: 9),
           Flexible(
             child: Text(
-              'Manage profiles',
+              AppLocalizations.of(context).t('Manage profiles'),
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
               style: TextStyle(
@@ -1634,7 +1634,7 @@ class _StageHeader extends StatelessWidget {
       ),
       SizedBox(height: wide ? 10 : 8),
       Text(
-        "Who's watching?",
+        AppLocalizations.of(context).t('Who\'s watching?'),
         textAlign: TextAlign.center,
         style: TextStyle(
           fontSize: compact ? 25 : (wide ? 38 : 29),

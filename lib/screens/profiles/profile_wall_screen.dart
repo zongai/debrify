@@ -82,7 +82,7 @@ class ProfileGateStyle {
   }
 }
 
-/// Whether launch always stops at "Who's watching?", even when a sole
+/// Whether launch always stops at AppLocalizations.of(context).t('Who\'s watching?'), even when a sole
 /// PIN-less profile could auto-enter. Device-level for the same reason as
 /// [ProfileGateStyle]: the gate consults it before any profile exists.
 ///
@@ -112,7 +112,7 @@ class ProfileGateAlwaysAsk {
   }
 }
 
-/// Portrait Wall — the redesigned "Who's watching?".
+/// Portrait Wall — the redesigned AppLocalizations.of(context).t('Who\'s watching?').
 ///
 /// Same contract as the classic picker: [onSelected] and [onManage] come from
 /// [ProfileGate], which owns activation, PIN routing and — critically — the
@@ -182,7 +182,7 @@ class _ProfileWallScreenState extends State<ProfileWallScreen> {
                   ),
                   const SizedBox(height: 10),
                   Text(
-                    "Who's watching?",
+                    AppLocalizations.of(context).t('Who\'s watching?'),
                     style: Theme.of(context).textTheme.headlineMedium?.copyWith(
                       color: Colors.white,
                       letterSpacing: -.5,
