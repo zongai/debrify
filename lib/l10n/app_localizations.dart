@@ -263,9 +263,7 @@ const _tables = <String, Map<String, String>>{
     'Today\'s look — dark glass, gold reserved for state': '今日外观 — 深色玻璃，金色仅用于状态',
     'Wide thin caps and gold hairlines — a film\'s own title card': '宽细大写与金色细线 — 如影片片名字卡',
     'Skip — I\'ll do this later': '跳过 — 我稍后再做',
-    'Move to Trash: File can be recovered later
-Delete Permanently: Cannot be undone': '移到回收站：文件稍后可恢复
-永久删除：无法撤销',
+    'Move to Trash: File can be recovered later\nDelete Permanently: Cannot be undone': '移到回收站：文件稍后可恢复\n永久删除：无法撤销',
     'Added to Torbox: \$name': '已添加到 TorBox：\$name',
     'Addon installed: \$name': '插件已安装：\$name',
     'Failed to install addon: \$e': '安装插件失败：\$e',
@@ -367,9 +365,7 @@ Stremio JSON 导出以开始。',
     'Delete \$count \$itemType': '删除 \$count \$itemType',
     'What would you like to do with \$count selected \$itemType?': '你想如何处理已选的 \$count 个 \$itemType？',
     'Move to Trash: Files can be recovered later\\nDelete Permanently: Cannot be undone': '移到回收站：文件稍后可恢复\\n永久删除：无法撤销',
-    'Move to Trash: Files can be recovered later
-Delete Permanently: Cannot be undone': '移到回收站：文件稍后可恢复
-永久删除：无法撤销',
+    'Move to Trash: Files can be recovered later\nDelete Permanently: Cannot be undone': '移到回收站：文件稍后可恢复\n永久删除：无法撤销',
     'Import \${package.profiles.length} profiles?': '导入 \${package.profiles.length} 个个人资料？',
     'The TV rejected the package: \${error.message}': '电视拒绝了该包：\${error.message}',
     'Delete \${profile.name}?': '删除 \${profile.name}？',
