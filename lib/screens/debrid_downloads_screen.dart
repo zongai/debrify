@@ -880,7 +880,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
         content: Text(
-          'Are you sure you want to delete "${torrent.filename}" from Real Debrid? This action cannot be undone.',
+          AppLocalizations.of(context).t('Are you sure you want to delete "\$name" from Real Debrid? This action cannot be undone.').replaceAll('\$name', torrent.filename),
           style: const TextStyle(color: Colors.grey),
         ),
         actions: [
@@ -958,7 +958,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
         content: const Text(
-          'Are you sure you want to delete all torrents from Real Debrid? This action cannot be undone.',
+          AppLocalizations.of(context).t('Are you sure you want to delete all torrents from Real Debrid? This action cannot be undone.'),
           style: TextStyle(color: Colors.grey),
         ),
         actions: [
@@ -1158,7 +1158,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
         content: const Text(
-          'Are you sure you want to delete all downloads from Real Debrid? This action cannot be undone.',
+          AppLocalizations.of(context).t('Are you sure you want to delete all downloads from Real Debrid? This action cannot be undone.'),
           style: TextStyle(color: Colors.grey),
         ),
         actions: [
@@ -1358,7 +1358,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
         content: Text(
-          'Are you sure you want to delete "${download.filename}" from Real Debrid? This action cannot be undone.',
+          AppLocalizations.of(context).t('Are you sure you want to delete "\$name" from Real Debrid? This action cannot be undone.').replaceAll('\$name', download.filename),
           style: const TextStyle(color: Colors.grey),
         ),
         actions: [
@@ -1495,7 +1495,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
         content: Text(
-          'Are you sure you want to delete $count selected ${count == 1 ? itemType : itemTypePlural}? This action cannot be undone.',
+          AppLocalizations.of(context).t('Are you sure you want to delete \$count selected \$type? This action cannot be undone.').replaceAll('\$count', count.toString()).replaceAll('\$type', count == 1 ? itemType : itemTypePlural),
           style: const TextStyle(color: Colors.grey),
         ),
         actions: [

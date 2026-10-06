@@ -892,7 +892,7 @@ class _TorboxDownloadsScreenState extends State<TorboxDownloadsScreen> {
       builder: (context) => AlertDialog(
         title: Text(AppLocalizations.of(context).t('Delete all torrents?')),
         content: Text(
-          'Are you sure you want to delete all ${_torrents.length} cached torrents from Torbox? This action cannot be undone.',
+          AppLocalizations.of(context).t('Are you sure you want to delete all \$count cached torrents from Torbox? This action cannot be undone.').replaceAll('\$count', _torrents.length.toString()),
         ),
         actions: [
           TextButton(
@@ -997,7 +997,7 @@ class _TorboxDownloadsScreenState extends State<TorboxDownloadsScreen> {
       builder: (context) => AlertDialog(
         title: Text(AppLocalizations.of(context).t('Delete torrent?')),
         content: Text(
-          'Are you sure you want to delete "${torrent.name}" from Torbox? This action cannot be undone.',
+          AppLocalizations.of(context).t('Are you sure you want to delete "\$name" from Torbox? This action cannot be undone.').replaceAll('\$name', torrent.name),
         ),
         actions: [
           TextButton(
@@ -1869,7 +1869,7 @@ class _TorboxDownloadsScreenState extends State<TorboxDownloadsScreen> {
       builder: (context) => AlertDialog(
         title: Text(AppLocalizations.of(context).t('Delete web download?')),
         content: Text(
-          'Are you sure you want to delete "${webDownload.name}" from Torbox? This action cannot be undone.',
+          AppLocalizations.of(context).t('Are you sure you want to delete "\$name" from Torbox? This action cannot be undone.').replaceAll('\$name', webDownload.name),
         ),
         actions: [
           TextButton(
@@ -1978,7 +1978,7 @@ class _TorboxDownloadsScreenState extends State<TorboxDownloadsScreen> {
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
         content: Text(
-          'Are you sure you want to delete $count selected ${count == 1 ? itemType : itemTypePlural}? This action cannot be undone.',
+          AppLocalizations.of(context).t('Are you sure you want to delete \$count selected \$type? This action cannot be undone.').replaceAll('\$count', count.toString()).replaceAll('\$type', count == 1 ? itemType : itemTypePlural),
           style: const TextStyle(color: Colors.grey),
         ),
         actions: [
@@ -4045,7 +4045,7 @@ class _TorboxDownloadsScreenState extends State<TorboxDownloadsScreen> {
     if (!mounted) return;
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
-        content: Text('$action support coming soon'),
+        content: Text(AppLocalizations.of(context).t('\$action support coming soon').replaceAll('\$action', action)),
         duration: const Duration(seconds: 2),
       ),
     );
