@@ -1531,7 +1531,7 @@ class _RailRow extends StatelessWidget {
                 size: 16,
                 color: fg.withValues(alpha: focused ? 1 : 0.75),
               ),
-              const SizedBox(width: 10),
+              SizedBox(width: 10),
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -1605,7 +1605,7 @@ class _ValueRow extends StatelessWidget {
         child: Row(
           children: [
             if (row.loading) ...[
-              const SizedBox(
+              SizedBox(
                 width: 11,
                 height: 11,
                 child: CircularProgressIndicator(
@@ -1678,7 +1678,7 @@ class _ValueRow extends StatelessWidget {
                           ),
                         ),
                         if (row.badge != null) ...[
-                          const SizedBox(width: 8),
+                          SizedBox(width: 8),
                           Container(
                             padding: const EdgeInsets.symmetric(
                               horizontal: 6,

@@ -1496,7 +1496,7 @@ class _IptvSettingsPageState extends State<IptvSettingsPage>
               child: Row(
                 children: [
                   Icon(Icons.bookmark_rounded, color: t.accent2),
-                  const SizedBox(width: 12),
+                  SizedBox(width: 12),
                   Expanded(
                     child: Text(
                       list.name,
@@ -2571,7 +2571,7 @@ class _IptvSettingsPageState extends State<IptvSettingsPage>
           'bring it back here any time.',
           style: TextStyle(fontSize: 12, color: t.dim),
         ),
-        const SizedBox(height: 16),
+        SizedBox(height: 16),
         Card(child: Column(children: _buildHiddenCategoriesSection())),
       ],
     );
@@ -2582,7 +2582,7 @@ class _IptvSettingsPageState extends State<IptvSettingsPage>
       padding: const EdgeInsets.all(16),
       children: [
         const SettingsSectionLabel('Startup'),
-        const SizedBox(height: 6),
+        SizedBox(height: 6),
         Card(
           child: Column(
             children: [
@@ -2692,7 +2692,7 @@ class _IptvSettingsPageState extends State<IptvSettingsPage>
       padding: const EdgeInsets.all(16),
       children: [
         const SettingsSectionLabel('Recording'),
-        const SizedBox(height: 6),
+        SizedBox(height: 6),
         Card(
           child: Column(
             children: [
@@ -3876,7 +3876,7 @@ class _EditPlaylistDialogState extends State<_EditPlaylistDialog> {
           onUpArrow: up(_usernameFocusNode),
           onDownArrow: down(_usernameFocusNode),
         ),
-        const SizedBox(height: 12),
+        SizedBox(height: 12),
         TvTextField(
           controller: _passwordController,
           focusNode: _passwordFocusNode,
@@ -3890,7 +3890,7 @@ class _EditPlaylistDialogState extends State<_EditPlaylistDialog> {
           onDownArrow: down(_passwordFocusNode),
         ),
       ],
-      const SizedBox(height: 12),
+      SizedBox(height: 12),
       TvTextField(
         controller: _epgController,
         focusNode: _epgFocusNode,
@@ -4288,7 +4288,7 @@ class _PlaylistNameDialogState extends State<_PlaylistNameDialog> {
             child: Row(
               children: [
                 Icon(Icons.check_circle, color: t.success, size: 20),
-                const SizedBox(width: 8),
+                SizedBox(width: 8),
                 Text(
                   '${widget.channelCount} channels found',
                   style: TextStyle(fontSize: 14, color: app.core.tx),
@@ -4296,7 +4296,7 @@ class _PlaylistNameDialogState extends State<_PlaylistNameDialog> {
               ],
             ),
           ),
-          const SizedBox(height: 16),
+          SizedBox(height: 16),
           // Shared TV field idiom: on TV this is a non-editing shell (DPAD
           // landing never pops the keyboard; OK starts editing). Off-TV it
           // autofocuses with the keyboard ready, as before.

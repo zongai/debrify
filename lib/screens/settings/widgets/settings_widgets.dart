@@ -830,7 +830,7 @@ class SettingsPageHeader extends StatelessWidget {
           ),
           child: Icon(icon, color: t.accent2, size: 22),
         ),
-        const SizedBox(width: 14),
+        SizedBox(width: 14),
         Expanded(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -1031,7 +1031,7 @@ class SettingsHeader extends StatelessWidget {
             color: t.accent.withValues(alpha: 0.88),
           ),
         ),
-        const SizedBox(height: 10),
+        SizedBox(height: 10),
         const Text(
           'Settings',
           // No color: inherits onSurface via the ambient DefaultTextStyle,
@@ -1043,7 +1043,7 @@ class SettingsHeader extends StatelessWidget {
             letterSpacing: -0.8,
           ),
         ),
-        const SizedBox(height: 8),
+        SizedBox(height: 8),
         Text(
           'Services, screens and playback—tuned in one place.',
           style: TextStyle(fontSize: 12, height: 1.45, color: t.dim),
@@ -1647,7 +1647,7 @@ class _ConnectionCardState extends State<ConnectionCard> {
                           ),
                         ),
                       ),
-                      const SizedBox(width: 12),
+                      SizedBox(width: 12),
                       Expanded(
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -1678,7 +1678,7 @@ class _ConnectionCardState extends State<ConnectionCard> {
                           ],
                         ),
                       ),
-                      const SizedBox(width: 10),
+                      SizedBox(width: 10),
                       Container(
                         width: 8,
                         height: 8,
@@ -2819,7 +2819,7 @@ Future<void> showLegacyModeInfoDialog(BuildContext context) {
                   color: app.core.tx,
                 ),
               ),
-              const SizedBox(height: 14),
+              SizedBox(height: 14),
               Text(
                 'Your data is untouched — migration copies, never moves — and '
                 'it retries automatically on every launch.\n\n'

@@ -238,7 +238,7 @@ class _SubtitlePriorityPageState extends State<SubtitlePriorityPage> {
                                           '${_order.indexOf(id) + 1}',
                                           style: TextStyle(color: t.dim),
                                         ),
-                                        const SizedBox(width: 16),
+                                        SizedBox(width: 16),
                                         Expanded(
                                           child: Text(
                                             _names[id]!,

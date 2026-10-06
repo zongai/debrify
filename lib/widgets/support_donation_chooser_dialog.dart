@@ -129,7 +129,7 @@ class _SupportDonationChooserDialogState
                                   ),
                                 ),
                               ),
-                              const SizedBox(width: 14),
+                              SizedBox(width: 14),
                               Expanded(
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,

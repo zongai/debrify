@@ -5512,7 +5512,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(AppLocalizations.of(context).t('The backup will include:')),
-                  const SizedBox(height: 8),
+                  SizedBox(height: 8),
                   ..._backupSummaryLines(
                     summary,
                   ).map((line) => Text('• $line')),
@@ -5530,7 +5530,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                         ),
                       ),
                     ),
-                  const SizedBox(height: 8),
+                  SizedBox(height: 8),
                   SwitchListTile(
                     contentPadding: EdgeInsets.zero,
                     dense: true,
@@ -5567,7 +5567,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                       onChanged: (_) => setDialogState(() {}),
                       onSubmitted: (_) => confirmFocus.requestFocus(),
                     ),
-                    const SizedBox(height: 8),
+                    SizedBox(height: 8),
                     TvTextField(
                       controller: confirmController,
                       focusNode: confirmFocus,
@@ -6014,7 +6014,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
             Text(AppLocalizations.of(context).t('This backup contains:')),
             const SizedBox(height: 8),
             ..._backupSummaryLines(summary).map((line) => Text('• $line')),
-            const SizedBox(height: 12),
+            SizedBox(height: 12),
             const Text(
               'Saved credentials (Real-Debrid, Torbox, Premiumize, AllDebrid, PikPak, Trakt, Simkl) will '
               'be overwritten. Addons, search engines, WebDAV servers, '
@@ -6326,7 +6326,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              const SizedBox(height: 12),
+              SizedBox(height: 12),
               Container(
                 width: 44,
                 height: 5,
@@ -6335,7 +6335,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   borderRadius: BorderRadius.circular(999),
                 ),
               ),
-              const SizedBox(height: 8),
+              SizedBox(height: 8),
               ListTile(
                 leading: Icon(Icons.folder_rounded),
                 title: Text(AppLocalizations.of(context).t('Download location')),
@@ -6368,7 +6368,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     _resetDownloadFolder();
                   },
                 ),
-              const SizedBox(height: 12),
+              SizedBox(height: 12),
             ],
           ),
         );
@@ -6616,7 +6616,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 const Text(
                   'All profiles, connections, jobs, schedules, private data, remote pairings, and device keys will be removed. Downloaded and recorded files remain on disk. The app will close and start fresh next launch.',
                 ),
-                const SizedBox(height: 16),
+                SizedBox(height: 16),
                 TvTextField(
                   controller: typed,
                   autofocus: true,
@@ -6875,14 +6875,14 @@ class _SettingsScreenState extends State<SettingsScreen> {
                       ),
                     ),
                   ],
-                  const SizedBox(height: 16),
+                  SizedBox(height: 16),
                   Text(
                     'Release notes',
                     style: textTheme.titleMedium?.copyWith(
                       fontWeight: FontWeight.w600,
                     ),
                   ),
-                  const SizedBox(height: 12),
+                  SizedBox(height: 12),
                   Expanded(
                     child: SingleChildScrollView(
                       child: MarkdownBody(
@@ -6902,7 +6902,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                       ),
                     ),
                   ),
-                  const SizedBox(height: 24),
+                  SizedBox(height: 24),
                   Wrap(
                     spacing: 12,
                     runSpacing: 12,

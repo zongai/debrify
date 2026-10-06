@@ -91,7 +91,7 @@ class _CollectionEditorScreenState extends State<CollectionEditorScreen> {
             _toggle(_draft, 'pinToTop', 'Prioritize among collections', false),
             _toggle(_draft, 'focusGlowEnabled', 'Focus glow', true),
             _toggle(_draft, 'showAllTab', 'Show merged All view', true),
-            const SizedBox(height: 20),
+            SizedBox(height: 20),
             const Text(
               'Folders',
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
@@ -196,7 +196,7 @@ class _FolderEditorState extends State<_FolderEditor> {
           _toggle(_draft, 'focusGifEnabled', 'Play focus GIF', true),
           _text(_draft, 'focusVideoUrl', 'Focus video URL', url: true),
           _toggle(_draft, 'focusVideoEnabled', 'Play focus video', true),
-          const SizedBox(height: 20),
+          SizedBox(height: 20),
           const Text(
             'Sources',
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),

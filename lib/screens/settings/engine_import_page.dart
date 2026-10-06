@@ -125,7 +125,7 @@ class _EngineImportPageContentState extends State<EngineImportPageContent> {
         content: Row(
           children: [
             CircularProgressIndicator(),
-            const SizedBox(width: 16),
+            SizedBox(width: 16),
             Text(AppLocalizations.of(context).t('Importing \$name...').replaceAll('\$name', engine.displayName)),
           ],
         ),
@@ -302,7 +302,7 @@ class _EngineImportPageContentState extends State<EngineImportPageContent> {
             content: Row(
               children: [
                 CircularProgressIndicator(),
-                const SizedBox(width: 16),
+                SizedBox(width: 16),
                 Text(AppLocalizations.of(context).t('Importing \$name...').replaceAll('\$name', displayName)),
               ],
             ),
@@ -986,7 +986,7 @@ class _EngineImportPageState extends State<EngineImportPage> {
         content: Row(
           children: [
             CircularProgressIndicator(),
-            const SizedBox(width: 16),
+            SizedBox(width: 16),
             Text(AppLocalizations.of(context).t('Importing \$name...').replaceAll('\$name', engine.displayName)),
           ],
         ),
@@ -1186,7 +1186,7 @@ class _EngineImportPageState extends State<EngineImportPage> {
             content: Row(
               children: [
                 CircularProgressIndicator(),
-                const SizedBox(width: 16),
+                SizedBox(width: 16),
                 Text(AppLocalizations.of(context).t('Importing \$name...').replaceAll('\$name', displayName)),
               ],
             ),
@@ -1314,12 +1314,12 @@ class _EngineImportPageState extends State<EngineImportPage> {
                 size: 64,
                 color: Theme.of(context).colorScheme.error,
               ),
-              const SizedBox(height: 16),
+              SizedBox(height: 16),
               Text(
                 'Failed to load engines',
                 style: Theme.of(context).textTheme.titleLarge,
               ),
-              const SizedBox(height: 8),
+              SizedBox(height: 8),
               Text(
                 _error!,
                 textAlign: TextAlign.center,
@@ -1327,7 +1327,7 @@ class _EngineImportPageState extends State<EngineImportPage> {
                   color: Theme.of(context).colorScheme.onSurfaceVariant,
                 ),
               ),
-              const SizedBox(height: 24),
+              SizedBox(height: 24),
               FocusTraversalOrder(
                 order: const NumericFocusOrder(0),
                 child: FilledButton.icon(

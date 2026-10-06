@@ -479,7 +479,7 @@ class RedditResultsViewState extends State<RedditResultsView> {
 
     // Loading
     if (_isLoading) {
-      return const Center(child: CircularProgressIndicator());
+      return Center(child: CircularProgressIndicator());
     }
 
     // Error
@@ -493,13 +493,13 @@ class RedditResultsViewState extends State<RedditResultsView> {
               size: 64,
               color: Theme.of(context).colorScheme.error,
             ),
-            const SizedBox(height: 16),
+            SizedBox(height: 16),
             Text(
               _errorMessage!,
               style: Theme.of(context).textTheme.bodyLarge,
               textAlign: TextAlign.center,
             ),
-            const SizedBox(height: 16),
+            SizedBox(height: 16),
             FilledButton.icon(
               onPressed: _performSearch,
               icon: Icon(Icons.refresh),

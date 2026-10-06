@@ -745,7 +745,7 @@ class _StremioTvLocalCatalogEditorDialogState
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     _buildPoster(item, true),
-                    const SizedBox(width: 12),
+                    SizedBox(width: 12),
                     Expanded(
                       child: _buildItemText(
                         theme,
@@ -758,7 +758,7 @@ class _StremioTvLocalCatalogEditorDialogState
                     ),
                   ],
                 ),
-                const SizedBox(height: 12),
+                SizedBox(height: 12),
                 Align(
                   alignment: Alignment.centerRight,
                   child: OutlinedButton.icon(
@@ -789,7 +789,7 @@ class _StremioTvLocalCatalogEditorDialogState
                     genres,
                   ),
                 ),
-                const SizedBox(width: 12),
+                SizedBox(width: 12),
                 OutlinedButton.icon(
                   focusNode: removeFocusNode,
                   onPressed: () => _removeItem(index, item),
@@ -1696,7 +1696,7 @@ class _ImportUrlDialogState extends State<_ImportUrlDialog> {
               ),
             ),
           ),
-          const SizedBox(height: 12),
+          SizedBox(height: 12),
           _backHopsTo(
             _cancelFocusNode,
             TvTextField(
@@ -1930,7 +1930,7 @@ class _ImportJsonDialogState extends State<_ImportJsonDialog> {
               ),
             ),
           ),
-          const SizedBox(height: 12),
+          SizedBox(height: 12),
           TextField(
             controller: _jsonController,
             focusNode: _jsonFocusNode,
@@ -2489,7 +2489,7 @@ class _ImportTraktDialogState extends State<_ImportTraktDialog> {
                           ),
                         ),
                         trailing: _importing
-                            ? const SizedBox(
+                            ? SizedBox(
                                 width: 20,
                                 height: 20,
                                 child: CircularProgressIndicator(
@@ -2830,7 +2830,7 @@ class _ImportMdblistDialogState extends State<_ImportMdblistDialog> {
                         ),
                       ),
                       trailing: _importing
-                          ? const SizedBox(
+                          ? SizedBox(
                               width: 20,
                               height: 20,
                               child: CircularProgressIndicator(strokeWidth: 2),

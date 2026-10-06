@@ -181,12 +181,12 @@ final class _WebDavSyncLoginScreenState extends State<WebDavSyncLoginScreen> {
                       widget.repairBinding!.location.endpoint.toString(),
                     ),
                   ),
-                  const SizedBox(height: 8),
+                  SizedBox(height: 8),
                   Text(
                     'Sync folder: '
                     '${widget.repairBinding!.location.folderPath}',
                   ),
-                  const SizedBox(height: 16),
+                  SizedBox(height: 16),
                 ] else ...[
                   DropdownButtonFormField<WebDavSyncProviderPreset>(
                     key: const ValueKey('webdav-sync-provider'),
@@ -258,7 +258,7 @@ final class _WebDavSyncLoginScreenState extends State<WebDavSyncLoginScreen> {
                   ),
                   onChanged: (_) => _changed(),
                 ),
-                const SizedBox(height: 16),
+                SizedBox(height: 16),
                 TvTextField(
                   key: const ValueKey('webdav-sync-password'),
                   controller: _password,
@@ -277,10 +277,10 @@ final class _WebDavSyncLoginScreenState extends State<WebDavSyncLoginScreen> {
                   onSubmitted: (_) => _connect(),
                 ),
                 if (_error case final error?) ...[
-                  const SizedBox(height: 12),
+                  SizedBox(height: 12),
                   Text(error, style: const TextStyle(color: Colors.redAccent)),
                 ],
-                const SizedBox(height: 20),
+                SizedBox(height: 20),
                 Align(
                   alignment: Alignment.centerRight,
                   child: FilledButton(

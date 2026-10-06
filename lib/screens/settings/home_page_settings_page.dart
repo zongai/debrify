@@ -604,7 +604,7 @@ class _HomePageSettingsPageState extends State<HomePageSettingsPage> {
                     ),
                   ],
                 ),
-                const SizedBox(height: 16),
+                SizedBox(height: 16),
                 if (_spotlightLayoutActive) ...[
                   SettingsSection(
                     title: 'Spotlight Animations',
@@ -694,7 +694,7 @@ class _HomePageSettingsPageState extends State<HomePageSettingsPage> {
                   ],
                 ),
                 if (!PlatformUtil.isTelevision) ...[
-                  const SizedBox(height: 16),
+                  SizedBox(height: 16),
 
                   // TV has separate Home and Search tabs, so a Home default
                   // view selector only applies to desktop and mobile.
@@ -743,7 +743,7 @@ class _HomePageSettingsPageState extends State<HomePageSettingsPage> {
                     ),
                   ],
                 ),
-                const SizedBox(height: 16),
+                SizedBox(height: 16),
 
                 // Continue Watching toggle
                 SettingsSection(

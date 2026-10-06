@@ -322,7 +322,7 @@ class _SyncAndMigratePageState extends State<SyncAndMigratePage>
                     'Scan with your phone or open the link below for '
                     'Koofr setup, app passwords and connecting your devices.',
                   ),
-                  const SizedBox(height: 20),
+                  SizedBox(height: 20),
                   Image.asset(
                     'assets/images/webdav_sync_guide_qr.png',
                     width: 200,
@@ -330,7 +330,7 @@ class _SyncAndMigratePageState extends State<SyncAndMigratePage>
                     filterQuality: FilterQuality.none,
                     semanticLabel: 'QR code for the WebDAV Sync setup guide',
                   ),
-                  const SizedBox(height: 16),
+                  SizedBox(height: 16),
                   if (PlatformUtil.isTelevision)
                     const Text(_setupGuideUrl, textAlign: TextAlign.center)
                   else
@@ -1173,7 +1173,7 @@ class _SyncAndMigratePageState extends State<SyncAndMigratePage>
             ],
           ),
         ],
-        const SizedBox(height: 16),
+        SizedBox(height: 16),
         SettingsSection(
           title: 'Debrify TV channels',
           blurb:
@@ -1191,7 +1191,7 @@ class _SyncAndMigratePageState extends State<SyncAndMigratePage>
           ],
         ),
         if (active && _runtimeStatus?.lastTvSyncMs != null) ...[
-          const SizedBox(height: 8),
+          SizedBox(height: 8),
           Text(
             'Channels last synced ${_formatSyncTime(_runtimeStatus!.lastTvSyncMs!)}',
             style: const TextStyle(fontSize: 12.5),
@@ -1336,7 +1336,7 @@ final class _DebrifyTvSyncProgressDialogState
               dimension: 24,
               child: CircularProgressIndicator(strokeWidth: 2.5),
             ),
-            const SizedBox(width: 16),
+            SizedBox(width: 16),
             Text(_stopping ? 'Stopping after this stage…' : _stageLabel),
           ],
         ),
@@ -1440,7 +1440,7 @@ final class _SyncCredentialDialogState extends State<_SyncCredentialDialog> {
               decoration: InputDecoration(labelText: 'WebDAV username'),
               onChanged: (_) => setState(() {}),
             ),
-            const SizedBox(height: 12),
+            SizedBox(height: 12),
             TvTextField(
               controller: _password,
               obscureText: true,

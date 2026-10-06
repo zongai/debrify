@@ -512,7 +512,7 @@ class _TorboxSettingsPageState extends State<TorboxSettingsPage> {
                                         onSubmitted: (_) =>
                                             _saving ? null : _saveKey(),
                                       ),
-                                      const SizedBox(height: 12),
+                                      SizedBox(height: 12),
                                       Row(
                                         children: [
                                           Expanded(
@@ -524,7 +524,7 @@ class _TorboxSettingsPageState extends State<TorboxSettingsPage> {
                                                     ? null
                                                     : _saveKey,
                                                 child: _saving
-                                                    ? const SizedBox(
+                                                    ? SizedBox(
                                                         height: 18,
                                                         width: 18,
                                                         child:
@@ -536,7 +536,7 @@ class _TorboxSettingsPageState extends State<TorboxSettingsPage> {
                                               ),
                                             ),
                                           ),
-                                          const SizedBox(width: 12),
+                                          SizedBox(width: 12),
                                           Expanded(
                                             child: _FocusRing(
                                               radius: 12,
@@ -588,7 +588,7 @@ class _TorboxSettingsPageState extends State<TorboxSettingsPage> {
                                             ],
                                           ),
                                         ),
-                                        const SizedBox(height: 12),
+                                        SizedBox(height: 12),
                                         SizedBox(
                                           width: double.infinity,
                                           child: _FocusRing(

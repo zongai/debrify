@@ -320,7 +320,7 @@ class _TraktSettingsPageState extends State<TraktSettingsPage> {
                                     : Icons.circle_outlined,
                                 color: _isConnected ? t.success : t.dim2,
                               ),
-                              const SizedBox(width: 12),
+                              SizedBox(width: 12),
                               Expanded(
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -348,7 +348,7 @@ class _TraktSettingsPageState extends State<TraktSettingsPage> {
                               ),
                             ],
                           ),
-                          const SizedBox(height: 16),
+                          SizedBox(height: 16),
                           if (!_isConnected)
                             _buildLoginSection()
                           else
@@ -507,19 +507,19 @@ class _TraktSettingsPageState extends State<TraktSettingsPage> {
             ),
           ),
         ),
-        const SizedBox(height: 4),
+        SizedBox(height: 4),
         Text(
           'on your phone or computer',
           style: TextStyle(fontSize: 13, color: t.dim),
         ),
-        const SizedBox(height: 12),
+        SizedBox(height: 12),
 
         // Countdown
         Text(
           'Code expires in ${_formatCountdown()}',
           style: TextStyle(fontSize: 13, color: t.dim),
         ),
-        const SizedBox(height: 16),
+        SizedBox(height: 16),
 
         // Cancel button
         _FocusRing(

@@ -517,7 +517,7 @@ class _ChannelPickerDialogState extends State<ChannelPickerDialog> {
                       ),
                     ),
                     child: _isLoading
-                        ? const SizedBox(
+                        ? SizedBox(
                             width: 16,
                             height: 16,
                             child: CircularProgressIndicator(

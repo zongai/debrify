@@ -132,7 +132,7 @@ class _ProfileDataScreenState extends State<ProfileDataScreen> {
       body: _error != null
           ? _buildError(context)
           : report == null
-          ? const Center(child: CircularProgressIndicator())
+          ? Center(child: CircularProgressIndicator())
           : _buildBody(context, report),
     );
   }
@@ -148,9 +148,9 @@ class _ProfileDataScreenState extends State<ProfileDataScreen> {
             size: 56,
             color: Theme.of(context).colorScheme.error,
           ),
-          const SizedBox(height: 12),
+          SizedBox(height: 12),
           Text(_error!, textAlign: TextAlign.center),
-          const SizedBox(height: 16),
+          SizedBox(height: 16),
           FilledButton.icon(
             autofocus: true,
             onPressed: _load,
@@ -185,7 +185,7 @@ class _ProfileDataScreenState extends State<ProfileDataScreen> {
           ),
           onChanged: (value) => setState(() => _filter = value.trim()),
         ),
-        const SizedBox(height: 12),
+        SizedBox(height: 12),
         if (_comparing) ..._buildCompare(context) else ..._buildBrowse(context),
       ],
     );
@@ -208,7 +208,7 @@ class _ProfileDataScreenState extends State<ProfileDataScreen> {
               ),
           ],
         ),
-        const SizedBox(height: 8),
+        SizedBox(height: 8),
         Row(
           children: <Widget>[
             Switch(
@@ -330,7 +330,7 @@ class _ProfileDataScreenState extends State<ProfileDataScreen> {
           '$title · ${bucketKeys.length}',
           style: Theme.of(context).textTheme.labelLarge,
         ),
-        const SizedBox(height: 4),
+        SizedBox(height: 4),
         for (final key in bucketKeys)
           _CompareTile(
             keyName: key,

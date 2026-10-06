@@ -458,7 +458,7 @@ class _ContinueWatchingSeeAllScreenState
                 size: 44,
                 color: app.fade(app.core.tx, 0.25),
               ),
-              const SizedBox(height: 14),
+              SizedBox(height: 14),
               Text(
                 _items.isEmpty
                     ? AppLocalizations.of(context).t('Nothing to continue yet')

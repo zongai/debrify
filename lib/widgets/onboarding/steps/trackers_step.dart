@@ -113,7 +113,7 @@ class TrackersStep extends StatelessWidget {
             'MDBList',
             style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
           ),
-          const SizedBox(height: 5),
+          SizedBox(height: 5),
           Text(
             'Syncs watch progress, ratings, lists, and Up Next with an API key.',
             maxLines: 3,

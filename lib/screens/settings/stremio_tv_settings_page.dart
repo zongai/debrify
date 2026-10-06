@@ -240,7 +240,7 @@ class _StremioTvSettingsPageState extends State<StremioTvSettingsPage> {
                         subtitle:
                             'Configure how Stremio addon catalogs are displayed as TV channels.',
                       ),
-                      const SizedBox(height: 24),
+                      SizedBox(height: 24),
                       // Settings card
                       Card(
                         child: Padding(
@@ -256,7 +256,7 @@ class _StremioTvSettingsPageState extends State<StremioTvSettingsPage> {
                                   color: app.core.tx,
                                 ),
                               ),
-                              const SizedBox(height: 16),
+                              SizedBox(height: 16),
                               // Rotation interval dropdown
                               Row(
                                 children: [
@@ -266,7 +266,7 @@ class _StremioTvSettingsPageState extends State<StremioTvSettingsPage> {
                                       'How often the "now playing" item changes',
                                     ),
                                   ),
-                                  const SizedBox(width: 16),
+                                  SizedBox(width: 16),
                                   DropdownButton<int>(
                                     value: _rotationMinutes,
                                     dropdownColor: t.panel2,
@@ -300,7 +300,7 @@ class _StremioTvSettingsPageState extends State<StremioTvSettingsPage> {
                                   ),
                                 ],
                               ),
-                              const SizedBox(height: 16),
+                              SizedBox(height: 16),
                               // Series rotation interval dropdown
                               Row(
                                 children: [
@@ -310,7 +310,7 @@ class _StremioTvSettingsPageState extends State<StremioTvSettingsPage> {
                                       'How often the episode changes on series channels',
                                     ),
                                   ),
-                                  const SizedBox(width: 16),
+                                  SizedBox(width: 16),
                                   DropdownButton<int>(
                                     value: _seriesRotationMinutes,
                                     dropdownColor: t.panel2,
@@ -385,7 +385,7 @@ class _StremioTvSettingsPageState extends State<StremioTvSettingsPage> {
                                       'Prioritize streams matching this quality',
                                     ),
                                   ),
-                                  const SizedBox(width: 16),
+                                  SizedBox(width: 16),
                                   DropdownButton<String>(
                                     value: _preferredQuality,
                                     dropdownColor: t.panel2,
@@ -425,7 +425,7 @@ class _StremioTvSettingsPageState extends State<StremioTvSettingsPage> {
                                       'Where to begin playback within the current slot',
                                     ),
                                   ),
-                                  const SizedBox(width: 16),
+                                  SizedBox(width: 16),
                                   DropdownButton<int>(
                                     value: _maxStartPercent,
                                     dropdownColor: t.panel2,
@@ -474,7 +474,7 @@ class _StremioTvSettingsPageState extends State<StremioTvSettingsPage> {
                                         'Which provider to use for torrent streams',
                                       ),
                                     ),
-                                    const SizedBox(width: 16),
+                                    SizedBox(width: 16),
                                     DropdownButton<String>(
                                       value: _debridProvider,
                                       dropdownColor: t.panel2,
@@ -505,7 +505,7 @@ class _StremioTvSettingsPageState extends State<StremioTvSettingsPage> {
                           ),
                         ),
                       ),
-                      const SizedBox(height: 16),
+                      SizedBox(height: 16),
                       // Stream priority
                       Card(
                         child: Padding(

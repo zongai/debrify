@@ -275,7 +275,7 @@ class _IndexerManagersSettingsPageState
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
                       _buildHeader(context),
-                      const SizedBox(height: 16),
+                      SizedBox(height: 16),
                       if (_configs.isEmpty)
                         _buildEmptyState(context)
                       else
@@ -748,7 +748,7 @@ class _IndexerManagerEditorDialogState
                         textInputAction: TextInputAction.done,
                         onSubmitted: (_) => _save(),
                       ),
-                      const SizedBox(height: 8),
+                      SizedBox(height: 8),
                       // Snap accent ring so DPAD focus on the switch row is
                       // visible on TV.
                       _FocusRing(

@@ -430,7 +430,7 @@ class _PremiumizeSettingsPageState extends State<PremiumizeSettingsPage> {
                                         onSubmitted: (_) =>
                                             _saving ? null : _saveKey(),
                                       ),
-                                      const SizedBox(height: 12),
+                                      SizedBox(height: 12),
                                       Row(
                                         children: [
                                           Expanded(
@@ -442,7 +442,7 @@ class _PremiumizeSettingsPageState extends State<PremiumizeSettingsPage> {
                                                     ? null
                                                     : _saveKey,
                                                 child: _saving
-                                                    ? const SizedBox(
+                                                    ? SizedBox(
                                                         height: 18,
                                                         width: 18,
                                                         child:
@@ -454,7 +454,7 @@ class _PremiumizeSettingsPageState extends State<PremiumizeSettingsPage> {
                                               ),
                                             ),
                                           ),
-                                          const SizedBox(width: 12),
+                                          SizedBox(width: 12),
                                           Expanded(
                                             child: _FocusRing(
                                               radius: 12,
@@ -506,7 +506,7 @@ class _PremiumizeSettingsPageState extends State<PremiumizeSettingsPage> {
                                             ],
                                           ),
                                         ),
-                                        const SizedBox(height: 12),
+                                        SizedBox(height: 12),
                                         SizedBox(
                                           width: double.infinity,
                                           child: _FocusRing(
@@ -614,7 +614,7 @@ class _PremiumizeSettingsPageState extends State<PremiumizeSettingsPage> {
                                 ],
                               ),
                             ),
-                            const SizedBox(height: 16),
+                            SizedBox(height: 16),
                             Card(
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,

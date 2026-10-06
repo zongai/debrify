@@ -196,7 +196,7 @@ class _RemoteControlScreenState extends State<RemoteControlScreen> {
                                       child: Text(AppLocalizations.of(context).t('Send')),
                                     ),
                             ),
-                            const SizedBox(width: 10),
+                            SizedBox(width: 10),
                             Expanded(
                               child: _activeView == 'navigate'
                                   ? FilledButton(
@@ -370,7 +370,7 @@ class _RemoteControlScreenState extends State<RemoteControlScreen> {
               color: AppThemeScope.of(context).core.tx.withValues(alpha: 0.5),
             ),
           ),
-          const SizedBox(height: 16),
+          SizedBox(height: 16),
           Text(
             state.lastError ?? 'No TVs found on your network',
             style: TextStyle(
@@ -379,7 +379,7 @@ class _RemoteControlScreenState extends State<RemoteControlScreen> {
             ),
             textAlign: TextAlign.center,
           ),
-          const SizedBox(height: 8),
+          SizedBox(height: 8),
           Text(
             'Make sure Debrify is running on your TV',
             style: TextStyle(
@@ -392,7 +392,7 @@ class _RemoteControlScreenState extends State<RemoteControlScreen> {
 
         // Manual IP entry — works for Tailscale or any reachable IP that
         // UDP broadcast discovery can't see.
-        const SizedBox(height: 20),
+        SizedBox(height: 20),
         _buildManualIpButton(state),
       ],
     );
@@ -848,7 +848,7 @@ class _RemoteControlScreenState extends State<RemoteControlScreen> {
                 ),
               ),
             ),
-            const SizedBox(width: 12),
+            SizedBox(width: 12),
             // Back button (sends back command to TV)
             Expanded(
               child: OutlinedButton.icon(

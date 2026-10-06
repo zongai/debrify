@@ -2806,7 +2806,7 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
               maxLines: 3,
               overflow: TextOverflow.ellipsis,
             ),
-            const SizedBox(height: 16),
+            SizedBox(height: 16),
             const Text(
               'What would you like to do?',
               style: TextStyle(color: Colors.grey, fontSize: 13),

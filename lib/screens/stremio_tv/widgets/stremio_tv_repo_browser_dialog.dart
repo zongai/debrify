@@ -618,7 +618,7 @@ class _StremioTvRepoBrowserDialogState
                       onSubmitted: (_) => _addRepo(),
                     ),
                   ),
-                  const SizedBox(width: 8),
+                  SizedBox(width: 8),
                   SizedBox(
                     height: 40,
                     child: FilledButton.tonalIcon(

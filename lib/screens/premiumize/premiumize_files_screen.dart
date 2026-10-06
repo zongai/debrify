@@ -1210,7 +1210,7 @@ class _PremiumizeFilesScreenState extends State<PremiumizeFilesScreen> {
                 minLines: 1,
               ),
             ),
-            const SizedBox(height: 8),
+            SizedBox(height: 8),
             Text(
               'Adding to cloud spends fair-use points (~1pt/GB).',
               style: TextStyle(color: Colors.grey[600], fontSize: 12),
@@ -1756,7 +1756,7 @@ class _PremiumizeFilesScreenState extends State<PremiumizeFilesScreen> {
             onPressed: _toggleSelectAll,
             child: Text(_isAllSelected ? 'Deselect All' : 'Select All'),
           ),
-          const SizedBox(width: 8),
+          SizedBox(width: 8),
           FilledButton.icon(
             focusNode: _deleteButtonFocusNode,
             onPressed: count > 0 ? _handleDeleteSelected : null,
@@ -2028,7 +2028,7 @@ class _PremiumizeFilesScreenState extends State<PremiumizeFilesScreen> {
     if (_transfers.isEmpty) {
       return ListView(
         children: [
-          const SizedBox(height: 120),
+          SizedBox(height: 120),
           Center(
             child: Column(
               children: [
@@ -2037,12 +2037,12 @@ class _PremiumizeFilesScreenState extends State<PremiumizeFilesScreen> {
                   size: 64,
                   color: Colors.grey.shade400,
                 ),
-                const SizedBox(height: 16),
+                SizedBox(height: 16),
                 Text(
                   'No Transfers',
                   style: Theme.of(context).textTheme.headlineSmall,
                 ),
-                const SizedBox(height: 8),
+                SizedBox(height: 8),
                 Text(
                   'Magnets you add appear here while they download.',
                   textAlign: TextAlign.center,
@@ -2167,19 +2167,19 @@ class _PremiumizeFilesScreenState extends State<PremiumizeFilesScreen> {
     final isInFolder = !_isAtRoot;
     return ListView(
       children: [
-        const SizedBox(height: 120),
+        SizedBox(height: 120),
         Center(
           child: Padding(
             padding: const EdgeInsets.all(32),
             child: Column(
               children: [
                 Icon(Icons.folder_open, size: 64, color: Colors.grey.shade400),
-                const SizedBox(height: 24),
+                SizedBox(height: 24),
                 Text(
                   isInFolder ? 'Folder is Empty' : 'No Files Yet',
                   style: Theme.of(context).textTheme.headlineSmall,
                 ),
-                const SizedBox(height: 16),
+                SizedBox(height: 16),
                 Text(
                   isInFolder
                       ? 'This folder doesn\'t contain any files or subfolders.'
@@ -2207,18 +2207,18 @@ class _PremiumizeFilesScreenState extends State<PremiumizeFilesScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Icon(Icons.cloud_off, size: 64, color: Colors.grey.shade400),
-                const SizedBox(height: 24),
+                SizedBox(height: 24),
                 Text(
                   'Premiumize Not Configured',
                   style: Theme.of(context).textTheme.headlineSmall,
                 ),
-                const SizedBox(height: 16),
+                SizedBox(height: 16),
                 Text(
                   'Add your Premiumize API key in Settings to view and manage your cloud.',
                   textAlign: TextAlign.center,
                   style: TextStyle(color: Colors.grey.shade600),
                 ),
-                const SizedBox(height: 32),
+                SizedBox(height: 32),
                 FilledButton.icon(
                   focusNode: _settingsButtonFocusNode,
                   autofocus: true,
@@ -2249,18 +2249,18 @@ class _PremiumizeFilesScreenState extends State<PremiumizeFilesScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Icon(Icons.error_outline, size: 64, color: Colors.red.shade400),
-                const SizedBox(height: 24),
+                SizedBox(height: 24),
                 Text(
                   'Failed to Load',
                   style: Theme.of(context).textTheme.headlineSmall,
                 ),
-                const SizedBox(height: 16),
+                SizedBox(height: 16),
                 Text(
                   _errorMessage,
                   textAlign: TextAlign.center,
                   style: TextStyle(color: Colors.grey.shade600),
                 ),
-                const SizedBox(height: 32),
+                SizedBox(height: 32),
                 FilledButton.icon(
                   focusNode: _retryButtonFocusNode,
                   autofocus: true,

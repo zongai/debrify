@@ -462,7 +462,7 @@ class _MetadataExploreSpotlightState extends State<MetadataExploreSpotlight> {
                             ),
                           ),
                         ),
-                        const SizedBox(height: 8),
+                        SizedBox(height: 8),
                         Expanded(
                           child: Text(
                             '${providers[i]['provider_name'] ?? ''}',
@@ -482,7 +482,7 @@ class _MetadataExploreSpotlightState extends State<MetadataExploreSpotlight> {
               ),
             ),
           ],
-          const SizedBox(height: 12),
+          SizedBox(height: 12),
           const Text(
             'Availability via JustWatch · TMDB',
             style: TextStyle(color: Colors.white54, fontSize: 12),
@@ -617,10 +617,10 @@ class _MetadataExploreSpotlightState extends State<MetadataExploreSpotlight> {
                               ),
                           ],
                         ),
-                        const SizedBox(height: 24),
+                        SizedBox(height: 24),
                         if (widget.loading)
                           data == null
-                              ? const Center(child: CircularProgressIndicator())
+                              ? Center(child: CircularProgressIndicator())
                               : const LinearProgressIndicator(),
                         if (widget.failed ||
                             (!widget.loading &&

@@ -1373,7 +1373,7 @@ class DownloadService {
                                   ),
                                 ],
                               ),
-                              const SizedBox(height: 16),
+                              SizedBox(height: 16),
                               Row(
                                 children: [
                                   Checkbox(
@@ -1382,11 +1382,11 @@ class DownloadService {
                                       () => dontAskAgain = v ?? false,
                                     ),
                                   ),
-                                  const SizedBox(width: 4),
+                                  SizedBox(width: 4),
                                   const Text("Don't ask again"),
                                 ],
                               ),
-                              const SizedBox(height: 10),
+                              SizedBox(height: 10),
                               Row(
                                 children: [
                                   Expanded(
@@ -1413,7 +1413,7 @@ class DownloadService {
                                       child: Text(AppLocalizations.of(context).t('Not now')),
                                     ),
                                   ),
-                                  const SizedBox(width: 12),
+                                  SizedBox(width: 12),
                                   Expanded(
                                     child: ElevatedButton.icon(
                                       onPressed: () {

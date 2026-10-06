@@ -29,7 +29,7 @@ class IptvEmptyState extends StatelessWidget {
               size: 80,
               color: colorScheme.onSurfaceVariant.withValues(alpha: 0.5),
             ),
-            const SizedBox(height: 24),
+            SizedBox(height: 24),
             Text(
               hasPlaylists
                   ? 'Select a Playlist'
@@ -39,7 +39,7 @@ class IptvEmptyState extends StatelessWidget {
                 fontWeight: FontWeight.bold,
               ),
             ),
-            const SizedBox(height: 12),
+            SizedBox(height: 12),
             Text(
               hasPlaylists
                   ? 'Choose a playlist from the dropdown above to browse channels'
@@ -50,7 +50,7 @@ class IptvEmptyState extends StatelessWidget {
               textAlign: TextAlign.center,
             ),
             if (!hasPlaylists && onAddPlaylist != null) ...[
-              const SizedBox(height: 24),
+              SizedBox(height: 24),
               FilledButton.icon(
                 onPressed: onAddPlaylist,
                 icon: Icon(Icons.add),

@@ -211,7 +211,7 @@ class _StreamBadgesSettingsPageState extends State<StreamBadgesSettingsPage> {
                 ),
               ],
               if (ruleset != null) ...[
-                const SizedBox(height: 14),
+                SizedBox(height: 14),
                 StreamBadgeStrip(
                   badges: ruleset.rules
                       .where((r) => r.enabled)
@@ -395,7 +395,7 @@ class _StreamBadgesSettingsPageState extends State<StreamBadgesSettingsPage> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(lines.join('\n')),
-              const SizedBox(height: 14),
+              SizedBox(height: 14),
               StreamBadgeStrip(
                 badges: set.rules.where((x) => x.enabled).take(12).toList(),
                 height: 18,

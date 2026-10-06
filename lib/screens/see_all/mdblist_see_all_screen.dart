@@ -798,7 +798,7 @@ class _MdblistSeeAllScreenState extends State<MdblistSeeAllScreen> {
                       ),
                     ],
                   ),
-                  const SizedBox(height: 10),
+                  SizedBox(height: 10),
                   Row(
                     children: [
                       Expanded(
@@ -810,7 +810,7 @@ class _MdblistSeeAllScreenState extends State<MdblistSeeAllScreen> {
                           ),
                         ),
                       ),
-                      const SizedBox(width: 12),
+                      SizedBox(width: 12),
                       Expanded(
                         child: TextField(
                           controller: runtimeMax,

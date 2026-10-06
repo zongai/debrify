@@ -3498,7 +3498,7 @@ class _DebrifyTVScreenState extends State<DebrifyTVScreen> {
                   'Imported ${persisted.successes.length} channel${persisted.successes.length == 1 ? '' : 's'}.',
                   style: TextStyle(fontWeight: FontWeight.w600),
                 ),
-                const SizedBox(height: 8),
+                SizedBox(height: 8),
                 ...persisted.successes.map(
                   (success) => ListTile(
                     contentPadding: EdgeInsets.zero,

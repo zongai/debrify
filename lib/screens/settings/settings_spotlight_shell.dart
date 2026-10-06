@@ -323,7 +323,7 @@ class _SettingsSpotlightShellState extends State<SettingsSpotlightShell> {
                 child: InkWell(
                   onTap: _closeCompactDetail,
                   customBorder: const CircleBorder(),
-                  child: const SizedBox(
+                  child: SizedBox(
                     width: 42,
                     height: 42,
                     child: Icon(Icons.arrow_back_rounded, size: 20),
@@ -339,9 +339,9 @@ class _SettingsSpotlightShellState extends State<SettingsSpotlightShell> {
             ),
           ],
         ),
-        const SizedBox(height: 22),
+        SizedBox(height: 22),
         _SettingsCategoryHeading(definition: category, compact: true),
-        const SizedBox(height: 22),
+        SizedBox(height: 22),
         widget.categoryBuilder(context, _selected),
       ],
     );
@@ -430,7 +430,7 @@ class _SettingsCategoryHeading extends StatelessWidget {
             letterSpacing: -0.75,
           ),
         ),
-        const SizedBox(height: 9),
+        SizedBox(height: 9),
         ConstrainedBox(
           constraints: BoxConstraints(maxWidth: 660),
           child: Text(AppLocalizations.of(context).t(definition.description),
@@ -630,7 +630,7 @@ class _SettingsRailItemState extends State<_SettingsRailItem> {
                         : t.dim,
                   ),
                 ),
-                const SizedBox(width: 11),
+                SizedBox(width: 11),
                 Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -766,7 +766,7 @@ class _SettingsCategoryCardState extends State<_SettingsCategoryCard> {
                         foreground: foreground,
                         inverse: inverse,
                       ),
-                      const SizedBox(width: 12),
+                      SizedBox(width: 12),
                       Expanded(child: _copy(foreground)),
                       Icon(
                         Icons.chevron_right_rounded,
@@ -986,7 +986,7 @@ class _SettingsSpotlightSummaryCardState
                     color: foreground.withValues(alpha: 0.5),
                   ),
                 ),
-                const SizedBox(height: 14),
+                SizedBox(height: 14),
                 Container(
                   padding: const EdgeInsets.symmetric(
                     horizontal: 13,

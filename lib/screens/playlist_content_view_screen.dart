@@ -1564,7 +1564,7 @@ class _PlaylistContentViewScreenState extends State<PlaylistContentViewScreen> {
 
   Widget _buildContent() {
     if (_isLoading) {
-      return const Center(child: CircularProgressIndicator());
+      return Center(child: CircularProgressIndicator());
     }
 
     if (_errorMessage != null) {
@@ -1575,13 +1575,13 @@ class _PlaylistContentViewScreenState extends State<PlaylistContentViewScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const Icon(Icons.error_outline, size: 48, color: Colors.red),
-              const SizedBox(height: 16),
+              SizedBox(height: 16),
               Text(
                 _errorMessage!,
                 style: const TextStyle(color: Colors.red),
                 textAlign: TextAlign.center,
               ),
-              const SizedBox(height: 16),
+              SizedBox(height: 16),
               ElevatedButton(
                 onPressed: _loadContent,
                 child: Text(AppLocalizations.of(context).t('Retry')),

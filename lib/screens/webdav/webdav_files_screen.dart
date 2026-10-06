@@ -1022,9 +1022,9 @@ class _WebDavFilesScreenState extends State<WebDavFilesScreen> {
           mainAxisSize: MainAxisSize.min,
           children: [
             const Icon(Icons.cloud_off_rounded, size: 48),
-            const SizedBox(height: 12),
+            SizedBox(height: 12),
             Text(_error, textAlign: TextAlign.center),
-            const SizedBox(height: 16),
+            SizedBox(height: 16),
             FilledButton.icon(
               onPressed: _openSettings,
               icon: Icon(Icons.settings_rounded),

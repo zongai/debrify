@@ -531,7 +531,7 @@ class _TraktCalendarScreenState extends State<TraktCalendarScreen> {
               child: _buildTvHeaderSurface(days, app),
             ),
           ),
-          const SizedBox(width: 20),
+          SizedBox(width: 20),
           Expanded(child: dayListWidget),
         ],
       ),

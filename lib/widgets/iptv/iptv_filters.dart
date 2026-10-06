@@ -393,7 +393,7 @@ class _PlaylistDropdownState extends State<_PlaylistDropdown> {
                 size: 16,
                 color: app.seeAll.accent2,
               ),
-              const SizedBox(width: 6),
+              SizedBox(width: 6),
               Flexible(
                 child: Text(
                   widget.selectedPlaylist?.name ?? AppLocalizations.of(context).t('Select Playlist'),
@@ -552,7 +552,7 @@ class _CategoryDropdownState extends State<_CategoryDropdown> {
                 size: 16,
                 color: colorScheme.onSurfaceVariant,
               ),
-              const SizedBox(width: 6),
+              SizedBox(width: 6),
               Flexible(
                 child: Text(
                   widget.selectedCategory ?? AppLocalizations.of(context).t('All Categories'),
@@ -888,7 +888,7 @@ class _PlaylistPickerSheetState extends State<_PlaylistPickerSheet> {
                     ),
                   ),
                 ),
-                const SizedBox(height: 8),
+                SizedBox(height: 8),
 
                 // Playlists
                 if (widget.playlists.isEmpty)
@@ -901,7 +901,7 @@ class _PlaylistPickerSheetState extends State<_PlaylistPickerSheet> {
                           size: 48,
                           color: colorScheme.onSurfaceVariant,
                         ),
-                        const SizedBox(height: 12),
+                        SizedBox(height: 12),
                         Text(
                           'No playlists added yet',
                           style: theme.textTheme.bodyMedium?.copyWith(
@@ -1141,7 +1141,7 @@ class _CategoryPickerSheetState extends State<_CategoryPickerSheet> {
                 ],
               ),
             ),
-            const SizedBox(height: 8),
+            SizedBox(height: 8),
 
             // Options — built lazily; index 0 is "All Categories". shrinkWrap
             // only for short lists (it forces building every child): big lists

@@ -547,7 +547,7 @@ class _DownloadsScreenState extends State<DownloadsScreen>
                       icon: Icons.link,
                       onChanged: (_) => recompute(setLocal),
                     ),
-                    const SizedBox(height: 12),
+                    SizedBox(height: 12),
                     _StyledField(
                       controller: nameCtrl,
                       label: 'File name',
@@ -572,7 +572,7 @@ class _DownloadsScreenState extends State<DownloadsScreen>
                         ],
                       ),
                     ],
-                    const SizedBox(height: 20),
+                    SizedBox(height: 20),
                     Row(
                       children: [
                         Expanded(
@@ -2373,7 +2373,7 @@ class _DownloadTile extends StatelessWidget {
                 ],
               ),
             if (!isActive && record.status == TaskStatus.complete && totalBytes != null) ...[
-              const SizedBox(height: 6),
+              SizedBox(height: 6),
               Wrap(
                 spacing: 8,
                 children: [
@@ -2407,7 +2407,7 @@ class _DownloadTile extends StatelessWidget {
                   label: Text(AppLocalizations.of(context).t('Open')),
                 ),
               ),
-            const SizedBox(height: 8),
+            SizedBox(height: 8),
             Row(
               children: [
                 // TorBox CDN doesn't support HTTP Range for individual files (but ZIP downloads do)
@@ -2726,7 +2726,7 @@ class _TorrentDownloadDetailScreenState extends State<TorrentDownloadDetailScree
 
   Widget _buildBody() {
     if (_loading && _group == null) {
-      return const Center(child: CircularProgressIndicator());
+      return Center(child: CircularProgressIndicator());
     }
     final group = _group;
     if (group == null) {

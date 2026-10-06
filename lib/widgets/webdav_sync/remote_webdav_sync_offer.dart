@@ -49,7 +49,7 @@ Future<void> offerRemoteWebDavSync(
                 'current sync connection. Existing remote profiles require '
                 'another confirmation before replacing local data.',
               ),
-              const SizedBox(height: 16),
+              SizedBox(height: 16),
               for (final server in servers)
                 ListTile(
                   title: Text(server.name),

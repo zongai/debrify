@@ -73,7 +73,7 @@ class _TextPromptDialogState extends State<TextPromptDialog> {
                 border: const OutlineInputBorder(),
               ),
             ),
-            const SizedBox(height: 8),
+            SizedBox(height: 8),
             Text(widget.helper, style: const TextStyle(fontSize: 12)),
           ],
         ),

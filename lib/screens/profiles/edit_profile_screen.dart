@@ -689,7 +689,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
               'removes it from the profile screen. It is shown only this '
               'once — write it down or save it in a password manager.',
             ),
-            const SizedBox(height: 16),
+            SizedBox(height: 16),
             Center(
               child: SelectableText(
                 code,
@@ -2102,12 +2102,12 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                   fontWeight: FontWeight.w700,
                 ),
               ),
-              const SizedBox(height: 8),
+              SizedBox(height: 8),
               Text(
                 'Choose when this profile asks for its PIN.',
                 style: Theme.of(context).textTheme.bodyLarge,
               ),
-              const SizedBox(height: 24),
+              SizedBox(height: 24),
               TvTextField(
                 key: const ValueKey('tv-profile-pin'),
                 controller: _pin,
@@ -2137,7 +2137,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                     label: Text(AppLocalizations.of(context).t('Admin reset: remove PIN')),
                   ),
                 ),
-              const SizedBox(height: 16),
+              SizedBox(height: 16),
               _EnsureVisibleOnFocus(
                 child: SwitchListTile(
                   contentPadding: const EdgeInsets.symmetric(
@@ -2184,12 +2184,12 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                   fontWeight: FontWeight.w700,
                 ),
               ),
-              const SizedBox(height: 6),
+              SizedBox(height: 6),
               Text(
                 'Choose which engines and connections this profile can use.',
                 style: Theme.of(context).textTheme.bodyLarge,
               ),
-              const SizedBox(height: 14),
+              SizedBox(height: 14),
               if (_setupLoadError != null)
                 _EnsureVisibleOnFocus(
                   child: ListTile(
@@ -2353,7 +2353,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                       ),
               ),
             ),
-            const SizedBox(width: 14),
+            SizedBox(width: 14),
             Expanded(
               child: Wrap(
                 spacing: 8,
@@ -2697,7 +2697,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
     child: Row(
       children: [
         Text(label, style: Theme.of(context).textTheme.titleSmall),
-        const SizedBox(width: 8),
+        SizedBox(width: 8),
         Text(
           '$selected of $total',
           style: Theme.of(context).textTheme.labelSmall?.copyWith(

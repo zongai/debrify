@@ -196,7 +196,7 @@ class _SpotlightPhoneArmState extends State<SpotlightPhoneArm> {
                     ),
                   ],
                 ),
-                const SizedBox(height: 14),
+                SizedBox(height: 14),
                 if (allChannels.isEmpty)
                   Padding(
                     padding: const EdgeInsets.only(top: 40),
@@ -221,7 +221,7 @@ class _SpotlightPhoneArmState extends State<SpotlightPhoneArm> {
                           size: 34,
                           color: tv.textFaint,
                         ),
-                        const SizedBox(height: 10),
+                        SizedBox(height: 10),
                         Text(
                           'No channels match “${_search.text.trim()}”',
                           textAlign: TextAlign.center,
@@ -231,7 +231,7 @@ class _SpotlightPhoneArmState extends State<SpotlightPhoneArm> {
                             color: app.core.tx,
                           ),
                         ),
-                        const SizedBox(height: 12),
+                        SizedBox(height: 12),
                         TextButton(
                           onPressed: _clearSearch,
                           child: Text(AppLocalizations.of(context).t('Clear search')),

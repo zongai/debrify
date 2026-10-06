@@ -20842,7 +20842,7 @@ class _SearchScreenState extends State<SearchScreen>
           mainAxisSize: MainAxisSize.min,
           children: [
             Icon(icon, size: 48, color: scheme.onSurfaceVariant),
-            const SizedBox(height: 16),
+            SizedBox(height: 16),
             Text(
               title,
               style: TextStyle(
@@ -20851,14 +20851,14 @@ class _SearchScreenState extends State<SearchScreen>
                 color: scheme.onSurface,
               ),
             ),
-            const SizedBox(height: 8),
+            SizedBox(height: 8),
             Text(
               body,
               textAlign: TextAlign.center,
               style: TextStyle(fontSize: 13.5, color: scheme.onSurfaceVariant),
             ),
             if (onRetry != null) ...[
-              const SizedBox(height: 16),
+              SizedBox(height: 16),
               FilledButton.icon(
                 autofocus: widget.isTelevision,
                 onPressed: onRetry,

@@ -168,7 +168,7 @@ class _PikPakSettingsPageState extends State<PikPakSettingsPage> {
                   Expanded(child: Text(AppLocalizations.of(context).t('Folder Restriction (Optional)'))),
                 ],
               ),
-              content: const Column(
+              content: Column(
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -396,7 +396,7 @@ class _PikPakSettingsPageState extends State<PikPakSettingsPage> {
                   'This will hide the PikPak tab from navigation.',
                   style: TextStyle(fontWeight: FontWeight.w500),
                 ),
-                const SizedBox(height: 12),
+                SizedBox(height: 12),
                 Container(
                   padding: const EdgeInsets.all(12),
                   decoration: BoxDecoration(
@@ -407,7 +407,7 @@ class _PikPakSettingsPageState extends State<PikPakSettingsPage> {
                   child: Row(
                     children: [
                       Icon(Icons.info_outline, size: 18, color: t.warning),
-                      const SizedBox(width: 8),
+                      SizedBox(width: 8),
                       Expanded(
                         child: Text(
                           'To show PikPak again, you must logout and login. This is a security measure.',
@@ -790,7 +790,7 @@ class _PikPakSettingsPageState extends State<PikPakSettingsPage> {
                                           'To change or remove this restriction, please logout and login again',
                                       tone: SettingsBannerTone.warning,
                                     ),
-                                    const SizedBox(height: 12),
+                                    SizedBox(height: 12),
                                     Row(
                                       children: [
                                         Expanded(
@@ -806,7 +806,7 @@ class _PikPakSettingsPageState extends State<PikPakSettingsPage> {
                                             ),
                                           ),
                                         ),
-                                        const SizedBox(width: 8),
+                                        SizedBox(width: 8),
                                         _FocusRing(
                                           child: OutlinedButton.icon(
                                             onPressed: _clearRestrictedFolder,
@@ -918,7 +918,7 @@ class _PikPakSettingsPageState extends State<PikPakSettingsPage> {
                             focusNode: _loginButtonFocusNode,
                             onPressed: _isConnecting ? null : _login,
                             icon: _isConnecting
-                                ? const SizedBox(
+                                ? SizedBox(
                                     width: 16,
                                     height: 16,
                                     child: CircularProgressIndicator(
@@ -931,7 +931,7 @@ class _PikPakSettingsPageState extends State<PikPakSettingsPage> {
                             ),
                           ),
                         ),
-                        const SizedBox(height: 8),
+                        SizedBox(height: 8),
                         _FocusRing(
                           child: TextButton.icon(
                             focusNode: _resetDeviceIdButtonFocusNode,
@@ -959,7 +959,7 @@ class _PikPakSettingsPageState extends State<PikPakSettingsPage> {
                           ),
                         ),
                       ] else ...[
-                        const SizedBox(height: 16),
+                        SizedBox(height: 16),
                         _FocusRing(
                           child: OutlinedButton.icon(
                             focusNode: _logoutButtonFocusNode,

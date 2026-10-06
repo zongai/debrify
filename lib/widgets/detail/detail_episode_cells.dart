@@ -785,7 +785,7 @@ class DetailEpisodesStatus extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (loading) {
-      return const Center(
+      return Center(
         child: SizedBox(
           width: 30,
           height: 30,
@@ -823,13 +823,13 @@ class DetailEpisodesStatus extends StatelessWidget {
                   color: t.tx,
                 ),
               ),
-              const SizedBox(height: 6),
+              SizedBox(height: 6),
               Text(
                 'The episode list is unavailable right now.',
                 textAlign: TextAlign.center,
                 style: t.bodyStyle(size: 12.5),
               ),
-              const SizedBox(height: 16),
+              SizedBox(height: 16),
               Wrap(
                 spacing: 10,
                 runSpacing: 10,

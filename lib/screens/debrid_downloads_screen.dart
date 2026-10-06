@@ -2995,7 +2995,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
             onPressed: _toggleSelectAll,
             child: Text(_isAllSelected ? 'Deselect All' : 'Select All'),
           ),
-          const SizedBox(width: 8),
+          SizedBox(width: 8),
           FilledButton.icon(
             focusNode: _deleteButtonFocusNode,
             onPressed: count > 0 ? _handleDeleteSelected : null,
@@ -3257,7 +3257,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
                 child: Column(
                   children: [
                     Icon(Icons.error_outline, color: Colors.red, size: 48),
-                    const SizedBox(height: 12),
+                    SizedBox(height: 12),
                     Text(
                       'Error Loading Torrent Downloads',
                       style: TextStyle(
@@ -3266,7 +3266,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
                         fontSize: 16,
                       ),
                     ),
-                    const SizedBox(height: 8),
+                    SizedBox(height: 8),
                     Text(
                       _torrentErrorMessage,
                       textAlign: TextAlign.center,
@@ -3275,7 +3275,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
                   ],
                 ),
               ),
-              const SizedBox(height: 16),
+              SizedBox(height: 16),
               ElevatedButton(
                 autofocus: true,
                 onPressed: () => _fetchTorrents(_apiKey!, reset: true),
@@ -3543,7 +3543,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
                 child: Column(
                   children: [
                     Icon(Icons.error_outline, color: Colors.red, size: 48),
-                    const SizedBox(height: 12),
+                    SizedBox(height: 12),
                     Text(
                       'Error Loading DDL Downloads',
                       style: TextStyle(
@@ -3552,7 +3552,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
                         fontSize: 16,
                       ),
                     ),
-                    const SizedBox(height: 8),
+                    SizedBox(height: 8),
                     Text(
                       _downloadErrorMessage,
                       textAlign: TextAlign.center,
@@ -3561,7 +3561,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
                   ],
                 ),
               ),
-              const SizedBox(height: 16),
+              SizedBox(height: 16),
               ElevatedButton(
                 autofocus: true,
                 onPressed: () => _fetchDownloads(_apiKey!, reset: true),
@@ -4280,7 +4280,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
                 maxLines: 3,
               ),
             ),
-            const SizedBox(height: 20),
+            SizedBox(height: 20),
             Row(
               children: [
                 Expanded(
@@ -4315,7 +4315,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
                       backgroundColor: const Color(0xFF6366F1),
                     ),
                     child: _isAddingMagnet
-                        ? const SizedBox(
+                        ? SizedBox(
                             width: 16,
                             height: 16,
                             child: CircularProgressIndicator(
@@ -4387,9 +4387,9 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
           mainAxisSize: MainAxisSize.min,
           children: [
             CircularProgressIndicator(),
-            const SizedBox(height: 16),
+            SizedBox(height: 16),
             Text(AppLocalizations.of(context).t('Processing magnet link...')),
-            const SizedBox(height: 8),
+            SizedBox(height: 8),
             Text(
               'This may take a few moments',
               style: TextStyle(color: Colors.grey[600], fontSize: 12),
@@ -4488,7 +4488,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
                 ? null
                 : () => _addMagnetWithSelection(magnetLink, 'smart'),
             child: _isAddingMagnet
-                ? const SizedBox(
+                ? SizedBox(
                     width: 16,
                     height: 16,
                     child: CircularProgressIndicator(strokeWidth: 2),
@@ -4500,7 +4500,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
                 ? null
                 : () => _addMagnetWithSelection(magnetLink, 'largest'),
             child: _isAddingMagnet
-                ? const SizedBox(
+                ? SizedBox(
                     width: 16,
                     height: 16,
                     child: CircularProgressIndicator(strokeWidth: 2),
@@ -4512,7 +4512,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
                 ? null
                 : () => _addMagnetWithSelection(magnetLink, 'video'),
             child: _isAddingMagnet
-                ? const SizedBox(
+                ? SizedBox(
                     width: 16,
                     height: 16,
                     child: CircularProgressIndicator(strokeWidth: 2),
@@ -4524,7 +4524,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
                 ? null
                 : () => _addMagnetWithSelection(magnetLink, 'all'),
             child: _isAddingMagnet
-                ? const SizedBox(
+                ? SizedBox(
                     width: 16,
                     height: 16,
                     child: CircularProgressIndicator(strokeWidth: 2),
@@ -4552,9 +4552,9 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
           mainAxisSize: MainAxisSize.min,
           children: [
             CircularProgressIndicator(),
-            const SizedBox(height: 16),
+            SizedBox(height: 16),
             Text(AppLocalizations.of(context).t('Processing magnet link...')),
-            const SizedBox(height: 8),
+            SizedBox(height: 8),
             Text(
               'This may take a few moments',
               style: TextStyle(color: Colors.grey[600], fontSize: 12),
@@ -4679,7 +4679,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
                   minLines: 1,
                 ),
               ),
-              const SizedBox(height: 8),
+              SizedBox(height: 8),
               Text(
                 'Supported: Direct download links, file hosting services, etc.',
                 style: TextStyle(color: Colors.grey[600], fontSize: 12),
@@ -4708,7 +4708,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
                       backgroundColor: const Color(0xFF6366F1),
                     ),
                     child: _isAddingLink
-                        ? const SizedBox(
+                        ? SizedBox(
                             width: 16,
                             height: 16,
                             child: CircularProgressIndicator(
@@ -4775,9 +4775,9 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
           mainAxisSize: MainAxisSize.min,
           children: [
             CircularProgressIndicator(),
-            const SizedBox(height: 16),
+            SizedBox(height: 16),
             Text(AppLocalizations.of(context).t('Processing link...')),
-            const SizedBox(height: 8),
+            SizedBox(height: 8),
             Text(
               'This may take a few moments',
               style: TextStyle(color: Colors.grey[600], fontSize: 12),

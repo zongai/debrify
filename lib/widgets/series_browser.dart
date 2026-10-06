@@ -1189,13 +1189,13 @@ class _SeriesBrowserState extends State<SeriesBrowser> {
                   ],
                 ),
               ),
-              const SizedBox(width: 10),
+              SizedBox(width: 10),
               _buildViewToggle(),
               if (widget.playlistItem != null) ...[
-                const SizedBox(width: 8),
+                SizedBox(width: 8),
                 _buildOverflowMenu(),
               ],
-              const SizedBox(width: 8),
+              SizedBox(width: 8),
               _buildIconButton(
                 icon: Icons.close,
                 tooltip: 'Close',

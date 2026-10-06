@@ -293,7 +293,7 @@ class _MdblistSettingsPageState extends State<MdblistSettingsPage> {
           ),
           onSubmitted: (_) => _saving ? null : _saveKey(),
         ),
-        const SizedBox(height: 12),
+        SizedBox(height: 12),
         Row(
           children: [
             Expanded(
@@ -303,7 +303,7 @@ class _MdblistSettingsPageState extends State<MdblistSettingsPage> {
                   focusNode: _saveButtonFocusNode,
                   onPressed: _saving ? null : _saveKey,
                   child: _saving
-                      ? const SizedBox(
+                      ? SizedBox(
                           height: 18,
                           width: 18,
                           child: CircularProgressIndicator(strokeWidth: 2),
@@ -312,7 +312,7 @@ class _MdblistSettingsPageState extends State<MdblistSettingsPage> {
                 ),
               ),
             ),
-            const SizedBox(width: 12),
+            SizedBox(width: 12),
             Expanded(
               child: _FocusRing(
                 radius: 12,
@@ -364,7 +364,7 @@ class _MdblistSettingsPageState extends State<MdblistSettingsPage> {
             ],
           ),
         ),
-        const SizedBox(height: 12),
+        SizedBox(height: 12),
         _FocusRing(
           radius: 12,
           child: OutlinedButton.icon(
@@ -492,7 +492,7 @@ class _MdblistSettingsPageState extends State<MdblistSettingsPage> {
             Row(
               children: [
                 Icon(Icons.help_outline, color: t.accent2, size: 20),
-                const SizedBox(width: 8),
+                SizedBox(width: 8),
                 Expanded(
                   child: Text(
                     'How to get your MDBList API key',
@@ -503,7 +503,7 @@ class _MdblistSettingsPageState extends State<MdblistSettingsPage> {
                 ),
               ],
             ),
-            const SizedBox(height: 12),
+            SizedBox(height: 12),
             Text(
               '1. Visit mdblist.com/preferences\n'
               '2. Log in if prompted\n'
@@ -513,7 +513,7 @@ class _MdblistSettingsPageState extends State<MdblistSettingsPage> {
                 context,
               ).textTheme.bodyMedium?.copyWith(color: t.dim, height: 1.5),
             ),
-            const SizedBox(height: 12),
+            SizedBox(height: 12),
             _FocusRing(
               radius: 12,
               child: OutlinedButton.icon(

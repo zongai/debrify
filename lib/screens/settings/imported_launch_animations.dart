@@ -279,7 +279,7 @@ class _ImportedLaunchDetailState extends State<ImportedLaunchDetail> {
                   ),
                 ),
               ),
-              const SizedBox(height: 16),
+              SizedBox(height: 16),
               Wrap(
                 spacing: 12,
                 runSpacing: 12,

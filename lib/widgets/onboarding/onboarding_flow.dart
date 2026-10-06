@@ -1034,7 +1034,7 @@ class _InitialSetupFlowState extends State<InitialSetupFlow> {
         subtitle =
             'About two minutes. Every step can be skipped, and everything lives in Settings afterwards.';
         content = _connectingWebDav
-            ? const Center(
+            ? Center(
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [

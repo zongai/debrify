@@ -1306,7 +1306,7 @@ class _PikPakFilesScreenState extends State<PikPakFilesScreen> {
               'What would you like to do with $count selected $itemType?',
               style: const TextStyle(color: Colors.grey),
             ),
-            const SizedBox(height: 16),
+            SizedBox(height: 16),
             const Text(
               'Move to Trash: Files can be recovered later\nDelete Permanently: Cannot be undone',
               style: TextStyle(fontSize: 12, color: Colors.grey),
@@ -2099,7 +2099,7 @@ class _PikPakFilesScreenState extends State<PikPakFilesScreen> {
           ),
           title: Text(AppLocalizations.of(context).t('Opening folder...')),
         ),
-        body: const Center(
+        body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -2293,18 +2293,18 @@ class _PikPakFilesScreenState extends State<PikPakFilesScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Icon(Icons.cloud_off, size: 64, color: Colors.grey.shade400),
-                const SizedBox(height: 24),
+                SizedBox(height: 24),
                 Text(
                   'PikPak Not Configured',
                   style: Theme.of(context).textTheme.headlineSmall,
                 ),
-                const SizedBox(height: 16),
+                SizedBox(height: 16),
                 Text(
                   'Configure your PikPak account in Settings to view and manage files.',
                   textAlign: TextAlign.center,
                   style: TextStyle(color: Colors.grey.shade600),
                 ),
-                const SizedBox(height: 32),
+                SizedBox(height: 32),
                 FilledButton.icon(
                   focusNode: _settingsButtonFocusNode,
                   autofocus: true,
@@ -2347,18 +2347,18 @@ class _PikPakFilesScreenState extends State<PikPakFilesScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Icon(Icons.error_outline, size: 64, color: Colors.red.shade400),
-                const SizedBox(height: 24),
+                SizedBox(height: 24),
                 Text(
                   'Failed to Load Files',
                   style: Theme.of(context).textTheme.headlineSmall,
                 ),
-                const SizedBox(height: 16),
+                SizedBox(height: 16),
                 Text(
                   _errorMessage,
                   textAlign: TextAlign.center,
                   style: TextStyle(color: Colors.grey.shade600),
                 ),
-                const SizedBox(height: 32),
+                SizedBox(height: 32),
                 FilledButton.icon(
                   focusNode: _retryButtonFocusNode,
                   autofocus: true,
@@ -2439,7 +2439,7 @@ class _PikPakFilesScreenState extends State<PikPakFilesScreen> {
             onPressed: _toggleSelectAll,
             child: Text(_isAllSelected ? 'Deselect All' : 'Select All'),
           ),
-          const SizedBox(width: 8),
+          SizedBox(width: 8),
           FilledButton.icon(
             focusNode: _deleteButtonFocusNode,
             onPressed: count > 0 ? _handleDeleteSelected : null,
@@ -3253,7 +3253,7 @@ class _PikPakFilesScreenState extends State<PikPakFilesScreen> {
                 minLines: 1,
               ),
             ),
-            const SizedBox(height: 8),
+            SizedBox(height: 8),
             Text(
               'Supported: Magnet links, HTTP/HTTPS URLs',
               style: TextStyle(color: Colors.grey[600], fontSize: 12),
@@ -3359,7 +3359,7 @@ class _PikPakFilesScreenState extends State<PikPakFilesScreen> {
           mainAxisSize: MainAxisSize.min,
           children: [
             CircularProgressIndicator(color: Color(0xFFFFAA00)),
-            const SizedBox(height: 16),
+            SizedBox(height: 16),
             Text(AppLocalizations.of(context).t('Adding to PikPak...')),
             const SizedBox(height: 8),
             Text(

@@ -57,7 +57,7 @@ class ModeStep extends StatelessWidget {
               'Connect your debrid service, pick search engines, and link a tracker.',
           onPressed: onSetupHere,
         ),
-        const SizedBox(height: 12),
+        SizedBox(height: 12),
         _ModeRow(
           controller: focusController,
           cell: const OnboardCell(2, 0),
@@ -69,7 +69,7 @@ class ModeStep extends StatelessWidget {
           onPressed: onImport,
         ),
         if (onRestore != null) ...[
-          const SizedBox(height: 12),
+          SizedBox(height: 12),
           _ModeRow(
             controller: focusController,
             cell: const OnboardCell(3, 0),
@@ -80,7 +80,7 @@ class ModeStep extends StatelessWidget {
             onPressed: onRestore!,
           ),
         ],
-        const SizedBox(height: 14),
+        SizedBox(height: 14),
         Align(
           alignment: Alignment.centerLeft,
           child: OnboardFocusable(

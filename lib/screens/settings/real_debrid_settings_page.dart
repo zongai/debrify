@@ -251,7 +251,7 @@ class _RealDebridSettingsPageState extends State<RealDebridSettingsPage> {
                   'This will hide the Real Debrid tab from navigation.',
                   style: TextStyle(fontWeight: FontWeight.w500),
                 ),
-                const SizedBox(height: 12),
+                SizedBox(height: 12),
                 const SettingsInfoBanner(
                   text:
                       'To show Real Debrid again, you must logout and login. This is a security measure.',
@@ -544,7 +544,7 @@ class _RealDebridSettingsPageState extends State<RealDebridSettingsPage> {
                                         ),
                                       ),
                                     ),
-                                    const SizedBox(height: 12),
+                                    SizedBox(height: 12),
                                     Row(
                                       children: [
                                         Expanded(
@@ -563,7 +563,7 @@ class _RealDebridSettingsPageState extends State<RealDebridSettingsPage> {
                                             ),
                                           ),
                                         ),
-                                        const SizedBox(width: 12),
+                                        SizedBox(width: 12),
                                         Expanded(
                                           child: _FocusRing(
                                             radius: 12,
@@ -610,7 +610,7 @@ class _RealDebridSettingsPageState extends State<RealDebridSettingsPage> {
                                           ],
                                         ),
                                       ),
-                                      const SizedBox(height: 12),
+                                      SizedBox(height: 12),
                                       SizedBox(
                                         width: double.infinity,
                                         child: _FocusRing(

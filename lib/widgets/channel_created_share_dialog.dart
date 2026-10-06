@@ -87,7 +87,7 @@ Future<void> showChannelCreatedShareDialog(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const SizedBox(height: 8),
+            SizedBox(height: 8),
             Text(
               debrifyLink != null
                   ? 'A shareable Debrify link was copied to your clipboard.'
@@ -98,7 +98,7 @@ Future<void> showChannelCreatedShareDialog(
               ),
             ),
             if (debrifyLink != null) ...[
-              const SizedBox(height: 16),
+              SizedBox(height: 16),
               SelectableText(
                 debrifyLink,
                 style: const TextStyle(color: Colors.white70, fontSize: 13),

@@ -1087,7 +1087,7 @@ class _AddonHubScreenState extends State<AddonHubScreen> {
                 'Resources',
                 a.resources.isEmpty ? 'None' : a.resources.join(', '),
               ),
-              const SizedBox(height: 10),
+              SizedBox(height: 10),
               SelectableText(
                 a.manifestUrl,
                 style: TextStyle(
@@ -1722,7 +1722,7 @@ class _AddonHubScreenState extends State<AddonHubScreen> {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 info,
-                const SizedBox(height: 12),
+                SizedBox(height: 12),
                 SizedBox(width: double.infinity, child: picker),
               ],
             );
@@ -1730,7 +1730,7 @@ class _AddonHubScreenState extends State<AddonHubScreen> {
           return Row(
             children: [
               Expanded(child: info),
-              const SizedBox(width: 14),
+              SizedBox(width: 14),
               picker,
             ],
           );

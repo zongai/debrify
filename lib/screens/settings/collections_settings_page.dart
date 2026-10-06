@@ -333,7 +333,7 @@ class _CollectionsSettingsPageState extends State<CollectionsSettingsPage> {
                   ),
                 ),
               ],
-              const SizedBox(height: 12),
+              SizedBox(height: 12),
               Text(
                 'Folders: ${c.folders.map((f) => f.title).join(', ')}',
                 style: TextStyle(

@@ -573,7 +573,7 @@ class _SimklSeeAllScreenState extends State<SimklSeeAllScreen> {
                 size: 44,
                 color: app.fade(app.core.tx, 0.25),
               ),
-              const SizedBox(height: 14),
+              SizedBox(height: 14),
               Text(
                 _emptyMessage(),
                 textAlign: TextAlign.center,

@@ -91,7 +91,7 @@ Future<int?> showSimklRatingDialog(BuildContext context) {
                   );
                 }),
               ),
-              const SizedBox(height: 12),
+              SizedBox(height: 12),
               TextButton(
                 onPressed: () => Navigator.of(dialogContext).pop(),
                 child: const Text(

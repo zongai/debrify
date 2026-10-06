@@ -84,7 +84,7 @@ class _RemotePairingPanelState extends State<RemotePairingPanel> {
             '"${display.peerName}" wants to send settings',
             style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w700),
           ),
-          const SizedBox(height: 4),
+          SizedBox(height: 4),
           Text(
             'Enter this code on that device to continue',
             style: TextStyle(
@@ -92,7 +92,7 @@ class _RemotePairingPanelState extends State<RemotePairingPanel> {
               fontSize: 12.5,
             ),
           ),
-          const SizedBox(height: 14),
+          SizedBox(height: 14),
           Text(
             spaced,
             style: const TextStyle(
@@ -102,7 +102,7 @@ class _RemotePairingPanelState extends State<RemotePairingPanel> {
               fontFeatures: [FontFeature.tabularFigures()],
             ),
           ),
-          const SizedBox(height: 10),
+          SizedBox(height: 10),
           TextButton(
             autofocus: true,
             onPressed: widget.gate.cancel,
@@ -294,7 +294,7 @@ class _PairingCodeEntryDialogState extends State<_PairingCodeEntryDialog> {
                 (_controller.text.length == 6 ? _confirmFocus : _cancelFocus)
                     .requestFocus(),
           ),
-          const SizedBox(height: 8),
+          SizedBox(height: 8),
           Text(
             'This confirms you are sending to the right TV — if the codes '
             'don\'t match, someone may be interfering with your network.',

@@ -523,12 +523,12 @@ class _StremioAddonsPageContentState extends State<StremioAddonsPageContent> {
                   label: 'Last Checked',
                   value: _formatDate(addon.lastChecked!),
                 ),
-              const SizedBox(height: 16),
+              SizedBox(height: 16),
               const Text(
                 'Manifest URL:',
                 style: TextStyle(fontWeight: FontWeight.bold),
               ),
-              const SizedBox(height: 4),
+              SizedBox(height: 4),
               if (addon.canRevealManifestUrl)
                 SelectableText(
                   addon.manifestUrl,
@@ -1073,13 +1073,13 @@ class _StremioAddonsPageContentState extends State<StremioAddonsPageContent> {
           if (compact) {
             return Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: [header, const SizedBox(height: 14), actions],
+              children: [header, SizedBox(height: 14), actions],
             );
           }
           return Row(
             children: [
               Expanded(child: header),
-              const SizedBox(width: 12),
+              SizedBox(width: 12),
               actions,
             ],
           );
@@ -1123,12 +1123,12 @@ class _StremioAddonsPageContentState extends State<StremioAddonsPageContent> {
                   size: 56,
                   color: theme.colorScheme.error,
                 ),
-                const SizedBox(height: 12),
+                SizedBox(height: 12),
                 Text(
                   'Failed to load addons',
                   style: theme.textTheme.titleMedium,
                 ),
-                const SizedBox(height: 6),
+                SizedBox(height: 6),
                 Text(
                   _error!,
                   textAlign: TextAlign.center,
@@ -1137,7 +1137,7 @@ class _StremioAddonsPageContentState extends State<StremioAddonsPageContent> {
                     fontSize: 12.5,
                   ),
                 ),
-                const SizedBox(height: 16),
+                SizedBox(height: 16),
                 FilledButton.icon(
                   onPressed: _loadAddons,
                   icon: Icon(Icons.refresh_rounded),
@@ -1177,7 +1177,7 @@ class _StremioAddonsPageContentState extends State<StremioAddonsPageContent> {
                   color: Colors.white.withValues(alpha: 0.7),
                 ),
               ),
-              const SizedBox(height: 18),
+              SizedBox(height: 18),
               const Text(
                 'No addons yet',
                 style: TextStyle(
@@ -1586,12 +1586,12 @@ class _StremioAddonsPageState extends State<StremioAddonsPage> {
                   label: 'Last Checked',
                   value: _formatDate(addon.lastChecked!),
                 ),
-              const SizedBox(height: 16),
+              SizedBox(height: 16),
               const Text(
                 'Manifest URL:',
                 style: TextStyle(fontWeight: FontWeight.bold),
               ),
-              const SizedBox(height: 4),
+              SizedBox(height: 4),
               if (addon.canRevealManifestUrl)
                 SelectableText(
                   addon.manifestUrl,
@@ -1692,7 +1692,7 @@ class _StremioAddonsPageState extends State<StremioAddonsPage> {
               context,
             ).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.bold),
           ),
-          const SizedBox(height: 8),
+          SizedBox(height: 8),
           Text(
             'Paste the addon manifest URL. Configure the addon on its website first, then paste the personalized URL here.',
             style: TextStyle(
@@ -1700,18 +1700,18 @@ class _StremioAddonsPageState extends State<StremioAddonsPage> {
               fontSize: 13,
             ),
           ),
-          const SizedBox(height: 12),
+          SizedBox(height: 12),
           Row(
             children: [
               Expanded(child: _buildUrlTextField()),
-              const SizedBox(width: 12),
+              SizedBox(width: 12),
               FocusTraversalOrder(
                 order: const NumericFocusOrder(1),
                 child: FilledButton.icon(
                   focusNode: _addButtonFocusNode,
                   onPressed: _isAdding ? null : _addAddon,
                   icon: _isAdding
-                      ? const SizedBox(
+                      ? SizedBox(
                           width: 16,
                           height: 16,
                           child: CircularProgressIndicator(
@@ -1761,7 +1761,7 @@ class _StremioAddonsPageState extends State<StremioAddonsPage> {
 
   Widget _buildAddonsList() {
     if (_isLoading) {
-      return const Center(
+      return Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -1785,12 +1785,12 @@ class _StremioAddonsPageState extends State<StremioAddonsPage> {
                 size: 64,
                 color: Theme.of(context).colorScheme.error,
               ),
-              const SizedBox(height: 16),
+              SizedBox(height: 16),
               Text(
                 'Failed to load addons',
                 style: Theme.of(context).textTheme.titleLarge,
               ),
-              const SizedBox(height: 8),
+              SizedBox(height: 8),
               Text(
                 _error!,
                 textAlign: TextAlign.center,
@@ -1798,7 +1798,7 @@ class _StremioAddonsPageState extends State<StremioAddonsPage> {
                   color: Theme.of(context).colorScheme.onSurfaceVariant,
                 ),
               ),
-              const SizedBox(height: 24),
+              SizedBox(height: 24),
               FilledButton.icon(
                 onPressed: _loadAddons,
                 icon: Icon(Icons.refresh),

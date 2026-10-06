@@ -1501,7 +1501,7 @@ class _StyleTab extends StatelessWidget {
                       fontWeight: FontWeight.w600,
                     ),
                   ),
-                  const SizedBox(width: 8),
+                  SizedBox(width: 8),
                   Icon(
                     Icons.open_in_new_rounded,
                     size: 16,
@@ -1512,7 +1512,7 @@ class _StyleTab extends StatelessWidget {
             ),
           ),
 
-          const SizedBox(height: 20),
+          SizedBox(height: 20),
 
           // Reset button
           TextButton.icon(

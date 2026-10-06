@@ -273,13 +273,13 @@ class _ProfileRecoveryScreenState extends State<ProfileRecoveryScreen> {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 const Icon(Icons.health_and_safety_outlined, size: 56),
-                const SizedBox(height: 20),
+                SizedBox(height: 20),
                 Text(
                   'Profile recovery required',
                   textAlign: TextAlign.center,
                   style: Theme.of(context).textTheme.headlineSmall,
                 ),
-                const SizedBox(height: 12),
+                SizedBox(height: 12),
                 Text(
                   _deviceVaultRequiresReset
                       ? 'Debrify cannot open the secure device vault. Existing credentials, addons, and sync bindings will not be mounted. Restart the device once; if the problem continues, erase private app data and reconnect this device.'
@@ -288,7 +288,7 @@ class _ProfileRecoveryScreenState extends State<ProfileRecoveryScreen> {
                       : 'Debrify could not safely open the committed profile registry. Legacy data will not be mounted. A damaged registry is moved aside when you begin recovery, so it remains available for diagnostics.',
                   textAlign: TextAlign.center,
                 ),
-                const SizedBox(height: 28),
+                SizedBox(height: 28),
                 if (!_hasDeviceVaultFailure && !PlatformUtil.isTvOS)
                   FilledButton.icon(
                     onPressed: _busy ? null : _restoreBackup,
@@ -297,7 +297,7 @@ class _ProfileRecoveryScreenState extends State<ProfileRecoveryScreen> {
                     label: Text(AppLocalizations.of(context).t('Restore a backup')),
                   ),
                 if (!_hasDeviceVaultFailure) ...[
-                  const SizedBox(height: 10),
+                  SizedBox(height: 10),
                   OutlinedButton.icon(
                     onPressed: _busy ? null : _continueWithRecoveryAdmin,
                     autofocus: widget.forceTvSafeInput && PlatformUtil.isTvOS,

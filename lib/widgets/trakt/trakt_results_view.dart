@@ -2738,7 +2738,7 @@ class TraktResultsViewState extends State<TraktResultsView> {
 
   Widget _buildEpisodeContent(BuildContext context) {
     if (_isLoadingEpisodes) {
-      return const Center(child: CircularProgressIndicator());
+      return Center(child: CircularProgressIndicator());
     }
 
     if (_episodeErrorMessage != null) {
@@ -2753,9 +2753,9 @@ class TraktResultsViewState extends State<TraktResultsView> {
                 size: 48,
                 color: Theme.of(context).colorScheme.error,
               ),
-              const SizedBox(height: 12),
+              SizedBox(height: 12),
               Text(_episodeErrorMessage!, textAlign: TextAlign.center),
-              const SizedBox(height: 12),
+              SizedBox(height: 12),
               FilledButton.icon(
                 onPressed: () => _enterEpisodeMode(_selectedShow!),
                 icon: Icon(Icons.refresh),
@@ -2846,12 +2846,12 @@ class TraktResultsViewState extends State<TraktResultsView> {
               size: 64,
               color: colorScheme.onSurfaceVariant,
             ),
-            const SizedBox(height: 16),
+            SizedBox(height: 16),
             Text(
               'Connect your Trakt account',
               style: theme.textTheme.titleMedium,
             ),
-            const SizedBox(height: 8),
+            SizedBox(height: 8),
             Text(
               'Log in to Trakt to browse your watchlist, collection, and more.',
               style: theme.textTheme.bodyMedium?.copyWith(
@@ -2859,7 +2859,7 @@ class TraktResultsViewState extends State<TraktResultsView> {
               ),
               textAlign: TextAlign.center,
             ),
-            const SizedBox(height: 16),
+            SizedBox(height: 16),
             FilledButton.icon(
               onPressed: () {
                 Navigator.of(context).pushNamed('/settings/trakt').then((_) {
@@ -2888,7 +2888,7 @@ class TraktResultsViewState extends State<TraktResultsView> {
             Icon(Icons.error_outline, size: 64, color: colorScheme.error),
             SizedBox(height: 16),
             Text(AppLocalizations.of(context).t('Failed to load list', style: theme.textTheme.titleMedium),
-            const SizedBox(height: 8),
+            SizedBox(height: 8),
             Text(
               _errorMessage!,
               style: theme.textTheme.bodyMedium?.copyWith(
@@ -2896,7 +2896,7 @@ class TraktResultsViewState extends State<TraktResultsView> {
               ),
               textAlign: TextAlign.center,
             ),
-            const SizedBox(height: 16),
+            SizedBox(height: 16),
             FilledButton.icon(
               onPressed: _fetchItems,
               icon: Icon(Icons.refresh),

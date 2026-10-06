@@ -823,7 +823,7 @@ class _PlaylistScreenState extends State<PlaylistScreen> {
               color: app.core.tx.withValues(alpha: 0.3),
             ),
           ),
-          const SizedBox(height: 20),
+          SizedBox(height: 20),
           Text(
             'No results found',
             style: TextStyle(

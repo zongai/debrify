@@ -312,7 +312,7 @@ class _PikPakFolderPickerDialogState extends State<PikPakFolderPickerDialog> {
           SnackBar(
             content: Row(
               children: [
-                const SizedBox(
+                SizedBox(
                   width: 16,
                   height: 16,
                   child: CircularProgressIndicator(strokeWidth: 2),
@@ -548,12 +548,12 @@ class _PikPakFolderPickerDialogState extends State<PikPakFolderPickerDialog> {
                       ),
                       overflow: TextOverflow.ellipsis,
                     ),
-                    const SizedBox(height: 12),
+                    SizedBox(height: 12),
 
                     // Folder list
                     Flexible(
                       child: _isLoading
-                          ? const Center(child: CircularProgressIndicator())
+                          ? Center(child: CircularProgressIndicator())
                           : _errorMessage != null
                           ? Center(
                               child: Column(
@@ -564,7 +564,7 @@ class _PikPakFolderPickerDialogState extends State<PikPakFolderPickerDialog> {
                                     size: 48,
                                     color: Colors.red[300],
                                   ),
-                                  const SizedBox(height: 16),
+                                  SizedBox(height: 16),
                                   Padding(
                                     padding: const EdgeInsets.symmetric(
                                       horizontal: 16,
@@ -575,7 +575,7 @@ class _PikPakFolderPickerDialogState extends State<PikPakFolderPickerDialog> {
                                       style: TextStyle(color: Colors.red[300]),
                                     ),
                                   ),
-                                  const SizedBox(height: 16),
+                                  SizedBox(height: 16),
                                   ElevatedButton.icon(
                                     onPressed: _loadRootFolders,
                                     icon: Icon(Icons.refresh, size: 18),
@@ -594,7 +594,7 @@ class _PikPakFolderPickerDialogState extends State<PikPakFolderPickerDialog> {
                                     size: 48,
                                     color: Colors.grey[400],
                                   ),
-                                  const SizedBox(height: 16),
+                                  SizedBox(height: 16),
                                   Text(
                                     'No folders found in your account',
                                     style: TextStyle(color: Colors.grey[600]),
@@ -644,7 +644,7 @@ class _PikPakFolderPickerDialogState extends State<PikPakFolderPickerDialog> {
                                 child: Text(AppLocalizations.of(context).t('Cancel')),
                               ),
                             ),
-                            const SizedBox(width: 12),
+                            SizedBox(width: 12),
                             Flexible(
                               child: FocusTraversalOrder(
                                 order: const NumericFocusOrder(1002),

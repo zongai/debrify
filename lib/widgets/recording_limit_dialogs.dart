@@ -171,7 +171,7 @@ Future<_ConflictChoice> _showConflictDialog(
               color: app.iptv.recordAccent,
               size: 16,
             ),
-            const SizedBox(width: 8),
+            SizedBox(width: 8),
             const Text(
               'Recording conflict',
               style: TextStyle(fontWeight: FontWeight.w700),

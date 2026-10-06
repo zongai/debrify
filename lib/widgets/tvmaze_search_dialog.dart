@@ -552,7 +552,7 @@ class _TVMazeSearchDialogState extends State<TVMazeSearchDialog> {
                           : ListView.separated(
                               controller: _listScrollController,
                               itemCount: _searchResults.length,
-                              separatorBuilder: (context, index) => const SizedBox(height: 8),
+                              separatorBuilder: (context, index) => SizedBox(height: 8),
                               itemBuilder: (context, index) {
                                 final show = _searchResults[index];
                                 final isSelected = index == _selectedIndex;

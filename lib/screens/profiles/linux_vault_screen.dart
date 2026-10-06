@@ -89,7 +89,7 @@ class _LinuxVaultScreenState extends State<LinuxVaultScreen> {
                         : 'Choose a passphrase to require on each launch. It cannot be recovered if lost.',
                     textAlign: TextAlign.center,
                   ),
-                  const SizedBox(height: 24),
+                  SizedBox(height: 24),
                   TextField(
                     controller: _passphrase,
                     obscureText: _obscure,
@@ -109,7 +109,7 @@ class _LinuxVaultScreenState extends State<LinuxVaultScreen> {
                     ),
                   ),
                   if (!widget.existingVault) ...[
-                    const SizedBox(height: 12),
+                    SizedBox(height: 12),
                     TextField(
                       controller: _confirmation,
                       obscureText: _obscure,

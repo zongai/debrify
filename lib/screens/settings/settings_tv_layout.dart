@@ -841,7 +841,7 @@ class _SettingsTvLayoutState extends State<SettingsTvLayout> {
               onKey: _searchKey,
               onActivate: widget.onOpenSearch,
             ),
-            const SizedBox(height: 12),
+            SizedBox(height: 12),
             for (int i = 0; i < _kCategories.length; i++)
               _RailItem(
                 index: i,
@@ -1684,7 +1684,7 @@ class _RailItemState extends State<_RailItem> {
                     child: Row(
                       children: [
                         Icon(widget.category.icon, size: 20, color: iconColor),
-                        const SizedBox(width: 13),
+                        SizedBox(width: 13),
                         Expanded(
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,

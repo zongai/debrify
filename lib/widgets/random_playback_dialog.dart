@@ -36,7 +36,7 @@ class RandomPlaybackDialog extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               Text(title, style: Theme.of(context).textTheme.bodyLarge),
-              const SizedBox(height: 20),
+              SizedBox(height: 20),
               _choice(
                 context,
                 mode: RandomPlaybackMode.once,
@@ -46,7 +46,7 @@ class RandomPlaybackDialog extends StatelessWidget {
                     'Start one random episode. Playback continues normally after it.',
                 autofocus: true,
               ),
-              const SizedBox(height: 12),
+              SizedBox(height: 12),
               _choice(
                 context,
                 mode: RandomPlaybackMode.continuous,

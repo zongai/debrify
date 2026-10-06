@@ -159,7 +159,7 @@ class PlaybackStartupView extends StatelessWidget {
                                           ),
                                         ),
                                       ),
-                                      const SizedBox(height: 10),
+                                      SizedBox(height: 10),
                                       Text(
                                         retrying
                                             ? 'The previous source couldn’t start. Trying an alternative.'
@@ -169,7 +169,7 @@ class PlaybackStartupView extends StatelessWidget {
                                           fontSize: 14,
                                         ),
                                       ),
-                                      const SizedBox(height: 16),
+                                      SizedBox(height: 16),
                                       SizedBox(
                                         width: 240,
                                         child: LinearProgressIndicator(
@@ -179,7 +179,7 @@ class PlaybackStartupView extends StatelessWidget {
                                           backgroundColor: Colors.white12,
                                         ),
                                       ),
-                                      const SizedBox(height: 8),
+                                      SizedBox(height: 8),
                                     ],
                                   ),
                                 ),

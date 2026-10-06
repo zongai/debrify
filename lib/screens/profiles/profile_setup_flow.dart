@@ -635,7 +635,7 @@ class _ProfileSetupFlowState extends State<ProfileSetupFlow> {
           _QStep.abilities => 4,
           _QStep.review => _isEdit ? 2 : 1,
         }),
-        const SizedBox(height: 6),
+        SizedBox(height: 6),
         _dots(),
       ],
     );

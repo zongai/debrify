@@ -249,7 +249,7 @@ class _TvControlsState extends State<TvControls> {
               if (widget.infoPanel != null) widget.infoPanel!,
               _identityRow(),
               if (showProgress) ...[
-                const SizedBox(height: 4),
+                SizedBox(height: 4),
                 ValueListenableBuilder<PlaybackUiClockValue>(
                   valueListenable: widget.clock,
                   builder: (context, value, _) => _TvProgressRow(
@@ -263,7 +263,7 @@ class _TvControlsState extends State<TvControls> {
                   ),
                 ),
               ],
-              const SizedBox(height: 6),
+              SizedBox(height: 6),
               _transportRow(),
               // Fixed height so the row never jumps as the label appears.
               // Reserved height so the row never shifts as the label fades in.

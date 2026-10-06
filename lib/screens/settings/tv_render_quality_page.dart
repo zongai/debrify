@@ -150,7 +150,7 @@ class _TvRenderQualityPageState extends State<TvRenderQualityPage> {
                     ],
                   ),
                 ),
-                const SizedBox(height: 14),
+                SizedBox(height: 14),
                 Text(
                   'TVs have far weaker graphics than phones, and drawing the '
                   'whole interface at 4K or 1080p is what makes some of them '
@@ -167,7 +167,7 @@ class _TvRenderQualityPageState extends State<TvRenderQualityPage> {
                   ),
                 ),
                 if (currently.isNotEmpty) ...[
-                  const SizedBox(height: 10),
+                  SizedBox(height: 10),
                   Text(
                     currently,
                     style: TextStyle(

@@ -3090,7 +3090,7 @@ class _ExternalPlayerSettingsPageState
                 focusNode: _subtitleBgFocusNode,
                 isFocused: _subtitleBgFocused,
               ),
-              const SizedBox(height: 12),
+              SizedBox(height: 12),
 
               // Font
               _buildSettingDropdown(
@@ -3104,7 +3104,7 @@ class _ExternalPlayerSettingsPageState
                 focusNode: _subtitleFontFocusNode,
                 isFocused: _subtitleFontFocused,
               ),
-              const SizedBox(height: 12),
+              SizedBox(height: 12),
 
               // Bold
               _buildSettingDropdown(
@@ -3118,7 +3118,7 @@ class _ExternalPlayerSettingsPageState
               ),
 
               // Import custom font button (always visible)
-              const SizedBox(height: 8),
+              SizedBox(height: 8),
               SizedBox(
                 width: double.infinity,
                 child: OutlinedButton.icon(
@@ -3446,7 +3446,7 @@ class _ExternalPlayerSettingsPageState
       // iOS external player info
       if ((PlatformUtil.isIosMobile || PlatformUtil.isTvOS) &&
           _defaultPlayerMode == 'external') ...[
-        const SizedBox(height: 16),
+        SizedBox(height: 16),
         SettingsInfoBanner(
           text:
               'Videos will open in the selected app using URL schemes. Make sure the player app is installed from the App Store.',
@@ -3455,7 +3455,7 @@ class _ExternalPlayerSettingsPageState
 
       // Linux-specific player selection
       if (Platform.isLinux && _defaultPlayerMode == 'external') ...[
-        const SizedBox(height: 16),
+        SizedBox(height: 16),
         Card(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -3922,7 +3922,7 @@ class _ExternalPlayerSettingsPageState
                       ],
                     ),
                   ),
-                  const SizedBox(height: 12),
+                  SizedBox(height: 12),
                 ],
                 Row(
                   children: [
@@ -3936,7 +3936,7 @@ class _ExternalPlayerSettingsPageState
                       ),
                     ),
                     if (_customAppPath != null) ...[
-                      const SizedBox(width: 8),
+                      SizedBox(width: 8),
                       OutlinedButton(
                         onPressed: _clearCustomApp,
                         child: Text(AppLocalizations.of(context).t('Clear')),
@@ -4038,7 +4038,7 @@ class _ExternalPlayerSettingsPageState
                     ),
                     if (_customCommand != null &&
                         _customCommand!.isNotEmpty) ...[
-                      const SizedBox(width: 8),
+                      SizedBox(width: 8),
                       OutlinedButton(
                         onPressed: _clearCustomCommand,
                         child: Text(AppLocalizations.of(context).t('Clear')),
@@ -4196,7 +4196,7 @@ class _ExternalPlayerSettingsPageState
           ),
         ),
 
-        const SizedBox(height: 16),
+        SizedBox(height: 16),
         SettingsInfoBanner(
           text:
               'DeoVR must be installed on your device. All videos will open in DeoVR with the selected VR format settings.',

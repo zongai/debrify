@@ -120,13 +120,13 @@ class _ForegroundSyncDialogState extends State<_ForegroundSyncDialog>
       children: [
         if (!_takingLonger && !_backgrounded) ...[
           const LinearProgressIndicator(),
-          const SizedBox(height: 16),
+          SizedBox(height: 16),
         ],
         ValueListenableBuilder<String>(
           valueListenable: widget.progress,
           builder: (_, stage, _) => Text(stage),
         ),
-        const SizedBox(height: 12),
+        SizedBox(height: 12),
         Text(
           _takingLonger
               ? 'Completion has not been confirmed. You can hide this progress; '
@@ -135,13 +135,13 @@ class _ForegroundSyncDialogState extends State<_ForegroundSyncDialog>
                     'The screen stays awake while this progress is shown.',
         ),
         if (_returned) ...[
-          const SizedBox(height: 12),
+          SizedBox(height: 12),
           const Text(
             'Leaving the app may have interrupted the connection. '
             'Waiting for the current attempt to finish.',
           ),
         ],
-        const SizedBox(height: 12),
+        SizedBox(height: 12),
         const Text(
           'Minimizing, locking, or closing the app can interrupt sync.',
         ),

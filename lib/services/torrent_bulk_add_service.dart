@@ -815,7 +815,7 @@ class TorrentBulkAddService {
                             color:
                                 const Color(0xFFFB923C).withValues(alpha: 0.9),
                           ),
-                          const SizedBox(width: 10),
+                          SizedBox(width: 10),
                           Expanded(
                             child: Text(
                               'Only cached torrents are added, but each one '
@@ -843,7 +843,7 @@ class TorrentBulkAddService {
                 },
                 child: Text(AppLocalizations.of(context).t('Cancel')),
               ),
-              const SizedBox(width: 8),
+              SizedBox(width: 8),
               ElevatedButton(
                 autofocus: true,
                 onPressed: () {

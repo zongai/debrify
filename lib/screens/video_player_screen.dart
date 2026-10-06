@@ -5886,7 +5886,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen>
                 subtitle: 'Pick one random item, then resume normal order',
                 onTap: () => Navigator.of(context).pop('once'),
               ),
-              const SizedBox(height: 8),
+              SizedBox(height: 8),
               _RandomChoiceTile(
                 icon: _continuousShuffleEnabled
                     ? Icons.check_circle_rounded
@@ -15479,7 +15479,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen>
                                   ),
                                 ],
                               ),
-                              child: const Row(
+                              child: Row(
                                 mainAxisSize: MainAxisSize.min,
                                 children: [
                                   Icon(

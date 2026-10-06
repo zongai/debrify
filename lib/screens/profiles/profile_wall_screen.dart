@@ -416,7 +416,7 @@ class _WallTile extends StatelessWidget {
                 fontSize: 15,
               ),
             ),
-            const SizedBox(height: 3),
+            SizedBox(height: 3),
             Text(
               subCaption,
               style: TextStyle(

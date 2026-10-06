@@ -404,7 +404,7 @@ class YoutubeResultsViewState extends State<YoutubeResultsView>
               // Off-rung: the dim rung struck up to its shipped 0.55.
               color: app.fade(app.youtube.textDim, 1.1),
             ),
-            const SizedBox(height: 16),
+            SizedBox(height: 16),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 32),
               child: Text(
@@ -416,7 +416,7 @@ class YoutubeResultsViewState extends State<YoutubeResultsView>
                 textAlign: TextAlign.center,
               ),
             ),
-            const SizedBox(height: 16),
+            SizedBox(height: 16),
             FilledButton.icon(
               onPressed: _performSearch,
               style: FilledButton.styleFrom(

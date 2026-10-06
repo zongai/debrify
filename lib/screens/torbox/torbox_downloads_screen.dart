@@ -967,8 +967,8 @@ class _TorboxDownloadsScreenState extends State<TorboxDownloadsScreen> {
               ),
               child: const Icon(Icons.check, color: Colors.white, size: 16),
             ),
-            const SizedBox(width: 12),
-            const Expanded(
+            SizedBox(width: 12),
+            Expanded(
               child: Text(
                 'ZIP download link copied to clipboard!',
                 style: TextStyle(fontWeight: FontWeight.w500),
@@ -2196,7 +2196,7 @@ class _TorboxDownloadsScreenState extends State<TorboxDownloadsScreen> {
                     border: OutlineInputBorder(),
                   ),
                 ),
-                const SizedBox(height: 16),
+                SizedBox(height: 16),
                 TvTextField(
                   controller: _webPasswordController,
                   obscureText: true,
@@ -2211,7 +2211,7 @@ class _TorboxDownloadsScreenState extends State<TorboxDownloadsScreen> {
                     border: OutlineInputBorder(),
                   ),
                 ),
-                const SizedBox(height: 8),
+                SizedBox(height: 8),
                 Text(
                   'Supports YouTube, file hosts, and direct links.',
                   style: TextStyle(color: Colors.grey[400], fontSize: 12),
@@ -4026,12 +4026,12 @@ class _TorboxDownloadsScreenState extends State<TorboxDownloadsScreen> {
               size: 28,
             ),
           ),
-          const SizedBox(height: 16),
+          SizedBox(height: 16),
           const Text(
             'No files available yet',
             style: TextStyle(fontWeight: FontWeight.w600),
           ),
-          const SizedBox(height: 8),
+          SizedBox(height: 8),
           Text(
             'We could not find any files for this torrent.',
             style: TextStyle(color: Colors.grey[400], fontSize: 13),
@@ -6231,9 +6231,9 @@ class _TorboxDownloadsScreenState extends State<TorboxDownloadsScreen> {
             size: 48,
             color: Theme.of(context).colorScheme.primary,
           ),
-          const SizedBox(height: 16),
+          SizedBox(height: 16),
           Text(_errorMessage, style: Theme.of(context).textTheme.titleMedium),
-          const SizedBox(height: 12),
+          SizedBox(height: 12),
           if (_apiKey == null || _apiKey!.isEmpty)
             FilledButton(
               onPressed: _openSettings,
@@ -6319,12 +6319,12 @@ class _TorboxDownloadsScreenState extends State<TorboxDownloadsScreen> {
             size: 48,
             color: Theme.of(context).colorScheme.primary,
           ),
-          const SizedBox(height: 16),
+          SizedBox(height: 16),
           Text(
             _webDownloadErrorMessage,
             style: Theme.of(context).textTheme.titleMedium,
           ),
-          const SizedBox(height: 12),
+          SizedBox(height: 12),
           if (_apiKey == null || _apiKey!.isEmpty)
             FilledButton(
               onPressed: _openSettings,
@@ -6691,7 +6691,7 @@ class _TorboxDownloadsScreenState extends State<TorboxDownloadsScreen> {
             onPressed: _toggleSelectAll,
             child: Text(_isAllSelected ? 'Deselect All' : 'Select All'),
           ),
-          const SizedBox(width: 8),
+          SizedBox(width: 8),
           FilledButton.icon(
             focusNode: _deleteButtonFocusNode,
             onPressed: count > 0 ? _handleDeleteSelected : null,
@@ -6812,7 +6812,7 @@ class _TorboxDownloadsScreenState extends State<TorboxDownloadsScreen> {
   Widget _buildTorrentSearchResults() {
     final app = AppThemeScope.of(context);
     if (_isLoadingTorrentSearch) {
-      return const Center(
+      return Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [

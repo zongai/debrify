@@ -2020,13 +2020,13 @@ class EpisodesPanelState extends State<EpisodesPanel> {
             Text(AppLocalizations.of(context).t("Couldn't load episodes"),
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
             ),
-            const SizedBox(height: 6),
+            SizedBox(height: 6),
             Text(
               'The episode list is unavailable right now.',
               textAlign: TextAlign.center,
               style: TextStyle(color: Colors.white.withValues(alpha: 0.6)),
             ),
-            const SizedBox(height: 20),
+            SizedBox(height: 20),
             Wrap(
               spacing: 12,
               runSpacing: 12,

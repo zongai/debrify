@@ -145,7 +145,7 @@ class _DebrifyTvSettingsPageState extends State<DebrifyTvSettingsPage> {
           Row(
             children: [
               Icon(Icons.info_outline, size: 20, color: t.accent2),
-              const SizedBox(width: 8),
+              SizedBox(width: 8),
               Text(
                 'Performance Tips',
                 style: Theme.of(context).textTheme.titleSmall?.copyWith(
@@ -155,7 +155,7 @@ class _DebrifyTvSettingsPageState extends State<DebrifyTvSettingsPage> {
               ),
             ],
           ),
-          const SizedBox(height: 12),
+          SizedBox(height: 12),
           Text(
             'Higher limits = More results but slower\nLower limits = Faster but fewer results',
             style: Theme.of(context).textTheme.bodySmall?.copyWith(
@@ -163,7 +163,7 @@ class _DebrifyTvSettingsPageState extends State<DebrifyTvSettingsPage> {
               color: t.dim,
             ),
           ),
-          const SizedBox(height: 8),
+          SizedBox(height: 8),
           Text(
             'Each enabled engine will make API calls per keyword. Consider disabling engines you don\'t need for better performance.',
             style: Theme.of(

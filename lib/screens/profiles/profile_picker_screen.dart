@@ -35,7 +35,7 @@ class ProfilePickerScreen extends StatelessWidget {
                     'Who’s watching?',
                     style: Theme.of(context).textTheme.headlineMedium,
                   ),
-                  const SizedBox(height: 32),
+                  SizedBox(height: 32),
                   Flexible(
                     child: LayoutBuilder(
                       builder: (context, constraints) {

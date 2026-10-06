@@ -6797,12 +6797,12 @@ class TorrentPlaybackService {
                     }
                   },
                 ),
-                const SizedBox(height: 16),
+                SizedBox(height: 16),
                 const Text(
                   'Stereo Mode',
                   style: TextStyle(fontWeight: FontWeight.w500),
                 ),
-                const SizedBox(height: 8),
+                SizedBox(height: 8),
                 DropdownButtonFormField<String>(
                   value: selectedStereoMode,
                   isExpanded: true,
@@ -6866,7 +6866,7 @@ class TorrentPlaybackService {
           context: context,
           barrierDismissible: false,
           builder: (context) =>
-              const Center(child: CircularProgressIndicator()),
+              Center(child: CircularProgressIndicator()),
         );
       }
 

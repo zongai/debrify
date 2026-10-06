@@ -631,7 +631,7 @@ class _TorrentFiltersSheetState extends State<TorrentFiltersSheet> {
                   ),
                 ),
               ),
-              const SizedBox(height: 12),
+              SizedBox(height: 12),
               SizedBox(
                 width: double.infinity,
                 child: Focus(

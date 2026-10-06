@@ -798,10 +798,10 @@ class _MediaServerItemScreenState extends State<_MediaServerItemScreen> {
               children: [
                 if (_item != null) ...[
                   Text(_item!.subtitle, style: TextStyle(color: app.core.tx)),
-                  const SizedBox(height: 12),
+                  SizedBox(height: 12),
                   if (_item!.overview.isNotEmpty)
                     Text(_item!.overview, style: TextStyle(color: app.core.tx)),
-                  const SizedBox(height: 20),
+                  SizedBox(height: 20),
                 ],
                 if (_error != null) ...[
                   Text(_error!, style: TextStyle(color: app.core.tx)),

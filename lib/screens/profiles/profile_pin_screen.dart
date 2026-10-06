@@ -166,7 +166,7 @@ class _ProfilePinScreenState extends State<ProfilePinScreen> {
                   'Enter the recovery code shown when this PIN was set. '
                   'It removes the PIN so you can set a new one.',
                 ),
-                const SizedBox(height: 12),
+                SizedBox(height: 12),
                 TvTextField(
                   controller: controller,
                   autofocus: true,
@@ -189,7 +189,7 @@ class _ProfilePinScreenState extends State<ProfilePinScreen> {
               FilledButton(
                 onPressed: submitting ? null : submit,
                 child: submitting
-                    ? const SizedBox(
+                    ? SizedBox(
                         width: 18,
                         height: 18,
                         child: CircularProgressIndicator(strokeWidth: 2),

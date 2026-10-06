@@ -221,7 +221,7 @@ class _RemoteRolePickerScreenState extends State<RemoteRolePickerScreen> {
                           ],
                           onTap: _openSender,
                         ),
-                        const SizedBox(height: 14),
+                        SizedBox(height: 14),
                         _RoleCard(
                           focusNode: _recvFocus,
                           icon: Icons.download_rounded,
@@ -237,9 +237,9 @@ class _RemoteRolePickerScreenState extends State<RemoteRolePickerScreen> {
                           onTap: _openReceiver,
                         ),
                       ],
-                      const SizedBox(height: 24),
+                      SizedBox(height: 24),
                       _NetworkHint(),
-                      const SizedBox(height: 12),
+                      SizedBox(height: 12),
                       Center(
                         child: TextButton.icon(
                           onPressed: () => showPairedDevicesDialog(context),

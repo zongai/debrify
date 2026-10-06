@@ -384,7 +384,7 @@ class _SelfProfileSettingsPageState extends State<SelfProfileSettingsPage> {
                   : 'This code can remove your PIN if you forget it. It is '
                         'shown only once—write it down or save it securely.',
             ),
-            const SizedBox(height: 16),
+            SizedBox(height: 16),
             Center(
               child: SelectableText(
                 code,
@@ -565,7 +565,7 @@ class _SelfProfileSettingsPageState extends State<SelfProfileSettingsPage> {
                         ),
                 ),
               ),
-              const SizedBox(width: 14),
+              SizedBox(width: 14),
               Expanded(
                 child: Wrap(
                   spacing: 8,

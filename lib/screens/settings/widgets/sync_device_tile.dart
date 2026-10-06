@@ -45,7 +45,7 @@ class _SyncDeviceNameDialogState extends State<SyncDeviceNameDialog> {
           const Text(
             'Choose a name such as “Living room TV”. It will appear on your connected devices. To rename another device, open this setting on that device.',
           ),
-          const SizedBox(height: 16),
+          SizedBox(height: 16),
           TvTextField(
             controller: _controller,
             autofocus: true,
@@ -128,17 +128,17 @@ class SyncDeviceTile extends StatelessWidget {
             ),
           ],
         ),
-        const SizedBox(height: 10),
+        SizedBox(height: 10),
         Text(
           name,
           style: Theme.of(context).textTheme.titleMedium,
           maxLines: 3,
           overflow: TextOverflow.ellipsis,
         ),
-        const SizedBox(height: 4),
+        SizedBox(height: 4),
         Text(status, style: Theme.of(context).textTheme.bodySmall),
         if (!isRegistered) ...[
-          const SizedBox(height: 6),
+          SizedBox(height: 6),
           Text(
             'Saved data retained. Remove to free a device slot.',
             style: Theme.of(context).textTheme.bodySmall,
@@ -256,7 +256,7 @@ class _SyncDevicesDialogState extends State<SyncDevicesDialog> {
                     ? null
                     : () => Navigator.of(context).pop(device.deviceId),
               ),
-              const SizedBox(height: 12),
+              SizedBox(height: 12),
             ],
           ],
         ),

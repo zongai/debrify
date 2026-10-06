@@ -554,7 +554,7 @@ class _StremioTvCatalogPickerDialogState
                   ),
                 ),
               ),
-            const SizedBox(height: 12),
+            SizedBox(height: 12),
             Focus(
               focusNode: _cancelSelectionFocusNode,
               onKeyEvent: (_, event) => _handleSelectionKey(
@@ -635,7 +635,7 @@ class _StremioTvCatalogPickerDialogState
               ),
             ),
           ),
-          const SizedBox(height: 16),
+          SizedBox(height: 16),
           Row(
             children: [
               Expanded(
@@ -647,7 +647,7 @@ class _StremioTvCatalogPickerDialogState
                     child: FilledButton.icon(
                       onPressed: _saving ? null : _createCatalog,
                       icon: _saving
-                          ? const SizedBox(
+                          ? SizedBox(
                               width: 16,
                               height: 16,
                               child: CircularProgressIndicator(strokeWidth: 2),
@@ -658,7 +658,7 @@ class _StremioTvCatalogPickerDialogState
                   ),
                 ),
               ),
-              const SizedBox(width: 12),
+              SizedBox(width: 12),
               Expanded(
                 child: Focus(
                   focusNode: _createCancelFocusNode,
@@ -847,7 +847,7 @@ class _StremioTvLocalCatalogEditor {
     });
 
     return StremioTvCatalogPickerResult(
-      message: AppLocalizations.of(context).t('Created "\$name" in Stremio TV').replaceAll('\$name', trimmedName),
+      message: 'Created "\$name" in Stremio TV'.replaceAll('\$name', trimmedName),
       createdNew: true,
     );
   }
@@ -884,7 +884,7 @@ class _StremioTvLocalCatalogEditor {
     if (!updated) return null;
 
     return StremioTvCatalogPickerResult(
-      message: AppLocalizations.of(context).t('Added "\$name" to "\$catalog"').replaceAll('\$name', item.name).replaceAll('\$catalog', catalogName),
+      message: 'Added "\$name" to "\$catalog"'.replaceAll('\$name', item.name).replaceAll('\$catalog', catalogName),
     );
   }
 

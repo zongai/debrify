@@ -2082,7 +2082,7 @@ class IptvChannelSheetState extends State<IptvChannelSheet>
                 fontWeight: FontWeight.w600,
               ),
             ),
-            const SizedBox(height: 6),
+            SizedBox(height: 6),
             Text(
               pending
                   ? 'Nothing loaded matches "${_searchController.text.trim()}" —'
@@ -2097,7 +2097,7 @@ class IptvChannelSheetState extends State<IptvChannelSheet>
               ),
             ),
             if (pending) ...[
-              const SizedBox(height: 14),
+              SizedBox(height: 14),
               FilledButton.icon(
                 onPressed: () => unawaited(_submitSearch()),
                 icon: Icon(Icons.search_rounded, size: 17),

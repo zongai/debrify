@@ -5419,7 +5419,7 @@ class IptvResultsViewState extends State<IptvResultsView>
       final settingsError = _settingsError;
       if (settingsError == null) {
         return _withBrowseSearch(
-          const Center(child: CircularProgressIndicator()),
+          Center(child: CircularProgressIndicator()),
         );
       }
       return _withBrowseSearch(
@@ -5434,12 +5434,12 @@ class IptvResultsViewState extends State<IptvResultsView>
                   size: 64,
                   color: Theme.of(context).colorScheme.error,
                 ),
-                const SizedBox(height: 16),
+                SizedBox(height: 16),
                 Text(
                   'Could not open IPTV',
                   style: Theme.of(context).textTheme.titleMedium,
                 ),
-                const SizedBox(height: 8),
+                SizedBox(height: 8),
                 Text(
                   settingsError,
                   style: Theme.of(context).textTheme.bodyMedium?.copyWith(
@@ -5447,7 +5447,7 @@ class IptvResultsViewState extends State<IptvResultsView>
                   ),
                   textAlign: TextAlign.center,
                 ),
-                const SizedBox(height: 16),
+                SizedBox(height: 16),
                 FilledButton.icon(
                   autofocus: true,
                   onPressed: () {
@@ -7784,12 +7784,12 @@ class IptvResultsViewState extends State<IptvResultsView>
                 size: 64,
                 color: Theme.of(context).colorScheme.error,
               ),
-              const SizedBox(height: 16),
+              SizedBox(height: 16),
               Text(
                 'Failed to load playlist',
                 style: Theme.of(context).textTheme.titleMedium,
               ),
-              const SizedBox(height: 8),
+              SizedBox(height: 8),
               Text(
                 _errorMessage!,
                 style: Theme.of(context).textTheme.bodyMedium?.copyWith(
@@ -7797,7 +7797,7 @@ class IptvResultsViewState extends State<IptvResultsView>
                 ),
                 textAlign: TextAlign.center,
               ),
-              const SizedBox(height: 16),
+              SizedBox(height: 16),
               FilledButton.icon(
                 onPressed: _retryLoad,
                 icon: Icon(Icons.refresh),

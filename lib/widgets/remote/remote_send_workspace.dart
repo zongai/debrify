@@ -145,7 +145,7 @@ class _RemoteSendWorkspaceState extends State<RemoteSendWorkspace> {
                           padding: const EdgeInsets.only(bottom: 6),
                           child: Text('• ${choice.label}'),
                         ),
-                      const SizedBox(height: 12),
+                      SizedBox(height: 12),
                       const Text(
                         'Setup items apply to the receiving device’s active profile. Keep both apps open and confirm the import there.',
                       ),

@@ -105,7 +105,7 @@ class _RemoteSendBrowserState extends State<RemoteSendBrowser> {
                   fontWeight: FontWeight.w600,
                 ),
               ),
-              const SizedBox(height: 10),
+              SizedBox(height: 10),
               for (final group in RemoteSendGroup.values)
                 _row(
                   switch (group) {
@@ -244,12 +244,12 @@ class _RemoteSendBrowserState extends State<RemoteSendBrowser> {
                 child: Text(AppLocalizations.of(context).t('Try again')),
               ),
             ],
-            const SizedBox(height: 20),
+            SizedBox(height: 20),
             Text(
               '${selected.length} selected across all categories',
               style: TextStyle(color: t.dim),
             ),
-            const SizedBox(height: 10),
+            SizedBox(height: 10),
             FilledButton(
               onPressed: widget.busy || widget.loading || selected.isEmpty
                   ? null

@@ -156,7 +156,7 @@ class ProfileBackupFlows {
                 'active jobs, device paths, and remote pairings are not '
                 'included.',
               ),
-              const SizedBox(height: 12),
+              SizedBox(height: 12),
               TvTextField(
                 controller: passphrase,
                 obscureText: true,
@@ -305,7 +305,7 @@ class ProfileBackupFlows {
               'Enabled sync resumes automatically after restore.\n\n'
               'Older Debrify versions cannot read this file.',
             ),
-            const SizedBox(height: 12),
+            SizedBox(height: 12),
           ],
         ),
         actions: [
@@ -1418,12 +1418,12 @@ class _BackupProgressDialogState extends State<_BackupProgressDialog> {
       child: AlertDialog(
         content: Row(
           children: [
-            const SizedBox(
+            SizedBox(
               width: 24,
               height: 24,
               child: CircularProgressIndicator(strokeWidth: 2.5),
             ),
-            const SizedBox(width: 16),
+            SizedBox(width: 16),
             Expanded(
               child: ValueListenableBuilder<String>(
                 valueListenable: widget.stage,

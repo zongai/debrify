@@ -143,7 +143,7 @@ class MagnetLinkHandler {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(AppLocalizations.of(context).t('Which service would you like to use for this link?')),
-            const SizedBox(height: 8),
+            SizedBox(height: 8),
             Text(
               displayName,
               style: const TextStyle(fontSize: 12, fontStyle: FontStyle.italic),
@@ -403,7 +403,7 @@ class MagnetLinkHandler {
             const Text(
               'Which service would you like to use for this magnet link?',
             ),
-            const SizedBox(height: 8),
+            SizedBox(height: 8),
             Text(
               torrentName,
               style: const TextStyle(fontSize: 12, fontStyle: FontStyle.italic),

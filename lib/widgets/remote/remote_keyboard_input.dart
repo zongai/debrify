@@ -190,7 +190,7 @@ class _RemoteKeyboardInputState extends State<RemoteKeyboardInput> {
             onSubmitted: (_) => _sendEnter(),
           ),
 
-          const SizedBox(height: 12),
+          SizedBox(height: 12),
 
           // Action buttons
           Row(
@@ -218,7 +218,7 @@ class _RemoteKeyboardInputState extends State<RemoteKeyboardInput> {
                 ),
               ),
 
-              const SizedBox(width: 12),
+              SizedBox(width: 12),
 
               // Enter/Submit button
               Expanded(

@@ -478,7 +478,7 @@ class _WebDavSettingsPageState extends State<WebDavSettingsPage> {
                             },
                           ),
                         ),
-                      const SizedBox(height: 8),
+                      SizedBox(height: 8),
                       _FocusRing(
                         child: OutlinedButton.icon(
                           onPressed: _newServer,
@@ -489,7 +489,7 @@ class _WebDavSettingsPageState extends State<WebDavSettingsPage> {
                     ],
                   ),
                 ],
-                const SizedBox(height: 16),
+                SizedBox(height: 16),
                 _section(
                   children: [
                     _FocusRing(

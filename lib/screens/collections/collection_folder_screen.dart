@@ -1076,7 +1076,7 @@ class _CollectionFolderScreenState extends State<CollectionFolderScreen> {
                           ),
                       ],
                     ),
-                    const SizedBox(width: 12),
+                    SizedBox(width: 12),
                   ],
                 )
               else if (!_homeGallery)
@@ -1207,14 +1207,14 @@ class _CollectionFolderScreenState extends State<CollectionFolderScreen> {
               child: Row(
                 children: [
                   for (var i = 0; i < leading.length; i++) ...[
-                    if (i > 0) const SizedBox(width: 12),
+                    if (i > 0) SizedBox(width: 12),
                     Flexible(child: leading[i]),
                   ],
                 ],
               ),
             ),
             if (hasSort) ...[
-              const SizedBox(width: 24),
+              SizedBox(width: 24),
               ConstrainedBox(
                 constraints: BoxConstraints(
                   maxWidth: constraints.maxWidth * 0.3,
@@ -1782,7 +1782,7 @@ class _CollectionFolderScreenState extends State<CollectionFolderScreen> {
                   size: 44,
                   color: app.fade(app.core.tx, 0.25),
                 ),
-                const SizedBox(height: 14),
+                SizedBox(height: 14),
                 Text(
                   hasError ? 'Couldn’t load this collection' : title,
                   textAlign: TextAlign.center,
@@ -1792,7 +1792,7 @@ class _CollectionFolderScreenState extends State<CollectionFolderScreen> {
                     fontWeight: FontWeight.w700,
                   ),
                 ),
-                const SizedBox(height: 6),
+                SizedBox(height: 6),
                 Text(
                   hasError ? 'Please try again.' : detail,
                   textAlign: TextAlign.center,
@@ -1823,7 +1823,7 @@ class _CollectionFolderScreenState extends State<CollectionFolderScreen> {
                       child: Text(AppLocalizations.of(context).t('View details')),
                     ),
                   ),
-                const SizedBox(height: 18),
+                SizedBox(height: 18),
                 Focus(
                   onKeyEvent: (_, event) {
                     if (widget.isTelevision &&
