@@ -18074,6 +18074,24 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen>
     final fetchToken = _addonSubtitleFetchToken;
 
     try {
+      // Plex / Jellyfin sidecars arrive as launch-time injected slots — apply
+      // them before online addon discovery so external SRT is actually loaded.
+      final injected = _injectedSubtitleSlots;
+      if (injected != null && injected.isNotEmpty) {
+        final flat = [
+          for (final slot in injected)
+            if (slot.status == AddonSubtitleStatus.ok) ...slot.subtitles,
+        ];
+        if (flat.isNotEmpty) {
+          await _applySubtitleSourcePriority(
+            injected,
+            fetchToken,
+            discoveryReady: true,
+          );
+          // Keep going so online addons can still fill gaps when priority asks.
+        }
+      }
+
       // Get content info for Stremio subtitle fetch
       final seriesPlaylist = _seriesPlaylist;
       String? imdbId;

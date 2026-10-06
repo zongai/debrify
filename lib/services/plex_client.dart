@@ -848,22 +848,25 @@ class PlexClient {
             for (final s in subtitleStreams)
               {
                 'Type': 'Subtitle',
-                'Index': s['index'] ?? s['id'],
-                'Codec': s['codec'] ?? s['format'],
+                'Index': s['index'] ?? s['id'] ?? s['Index'] ?? s['Id'],
+                'Codec': s['codec'] ?? s['format'] ?? s['Codec'],
                 'Language':
-                    s['language'] ?? s['languageTag'] ?? s['languageCode'],
+                    s['language'] ??
+                    s['languageTag'] ??
+                    s['languageCode'] ??
+                    s['Language'],
                 'DisplayTitle':
                     s['displayTitle'] ??
                     s['extendedDisplayTitle'] ??
-                    s['title'],
-                // External sidecars expose a downloadable key; embedded tracks
-                // stay inside the container for the player to pick up.
-                'IsExternal': s['key'] != null &&
-                    s['key'].toString().trim().isNotEmpty,
-                if (s['key'] != null && s['key'].toString().trim().isNotEmpty)
+                    s['title'] ??
+                    s['Title'],
+                // External sidecars expose a downloadable key (or stream id).
+                // Embedded tracks stay inside the container for the player.
+                'IsExternal': _plexSubtitleDeliveryKey(s) != null,
+                if (_plexSubtitleDeliveryKey(s) != null)
                   'DeliveryUrl': streamFileUrl(
                     account,
-                    s['key'].toString(),
+                    _plexSubtitleDeliveryKey(s)!,
                   ).toString(),
               },
           ],

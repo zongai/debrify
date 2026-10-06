@@ -41,7 +41,8 @@ class MediaServerWatchSync {
     Torrent source,
     MediaServerWatchState remote, {
     String? contentTitle,
-  }) => target.capability.runIfCurrent(() async {
+  }) async {
+    Future<void> body() async {
     final title = contentTitle ?? target.title;
     await target.authorize();
     if (!await enabled()) return;
@@ -113,8 +114,15 @@ class MediaServerWatchSync {
         );
       }
     }
-  });
-}
+    }
+
+    final cap = target.capability;
+    if (cap != null) {
+      await cap.runIfCurrent(body);
+    } else {
+      await body();
+    }
+  }
 
 class MediaServerWatchPosition {
   const MediaServerWatchPosition(this.positionMs, this.durationMs, this.paused);
@@ -295,12 +303,20 @@ class MediaServerWatchController {
     if (target == null) return;
     MediaServerClient? client;
     try {
-      Future<void> authorize() => target.capability.runIfCurrent(() async {
-        await target.authorize();
-        if (!await MediaServerWatchSync.enabled()) {
-          throw StateError('Server watch sync is disabled');
+      Future<void> authorize() async {
+        final cap = target.capability;
+        Future<void> body() async {
+          await target.authorize();
+          if (!await MediaServerWatchSync.enabled()) {
+            throw StateError('Server watch sync is disabled');
+          }
         }
-      });
+        if (cap != null) {
+          await cap.runIfCurrent(body);
+        } else {
+          await body();
+        }
+      }
       await authorize();
       client = MediaServerWatchSync.clientFactory();
       final reads = await Future.wait<Object?>([

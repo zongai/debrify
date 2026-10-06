@@ -874,11 +874,16 @@ Future<void> _resolveStartupChannel() async {
 
 /// Called when a profile becomes active after cold start deferred resolve.
 Future<void> resolveDeferredIptvStartupChannel() async {
-  if (!MainPageBridge.deferIptvStartupUntilProfile) return;
   MainPageBridge.deferIptvStartupUntilProfile = false;
   try {
+    if (!ProfileRuntime.isProfileCommitted) return;
     if (!await StorageService.getStartupIptvEnabled()) return;
     if (DeepLinkService.launchedByIntent) return;
+    // Already pending from an earlier resolve — still force IPTV tab.
+    if (MainPageBridge.hasPendingIptvStartup) {
+      MainPageBridge.switchTab?.call(MainTab.iptv);
+      return;
+    }
     await StorageService.warmStartupIptv();
     final channel = StorageService.startupIptvChannelCached;
     if (channel == null) return;
@@ -1699,6 +1704,13 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
     MainPageBridge.reloadProfilePolicy = () {
       if (mounted) unawaited(_loadProfilePolicy());
     };
+    // Second chance: profile unlock may have raced MainPage construction.
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      unawaited(
+        MainPageBridge.onProfileReadyForIptvStartup?.call() ??
+            Future<void>.value(),
+      );
+    });
     // Expose tab switcher for deep-link flows
     MainPageBridge.switchTab = (int index) {
       if (!mounted) return;

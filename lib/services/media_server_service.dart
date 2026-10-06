@@ -32,9 +32,13 @@ class MediaServerService {
   static final _tickets = Expando<Future<void> Function()>();
   static final _bindings = Expando<String>();
   static final _watchTargets = Expando<MediaServerWatchTarget>();
+  /// Survives Torrent instance identity changes (ordering/filters rebuild rows).
+  static final _watchTargetsByHash = <String, MediaServerWatchTarget>{};
 
-  static MediaServerWatchTarget? watchTargetFor(Torrent source) =>
-      owns(source) ? _watchTargets[source] : null;
+  static MediaServerWatchTarget? watchTargetFor(Torrent source) {
+    if (!owns(source)) return null;
+    return _watchTargets[source] ?? _watchTargetsByHash[source.infohash];
+  }
 
   static SeriesSource? bindingFor(Torrent source) {
     final descriptor = _bindings[source];
@@ -483,21 +487,21 @@ class MediaServerService {
             : 'S${season.toString().padLeft(2, '0')}E${episode.toString().padLeft(2, '0')}',
       );
       _tickets[torrent] = check;
-      if (capability != null) {
-        _watchTargets[torrent] = MediaServerWatchTarget(
-          account: account,
-          capability: capability,
-          authorize: check,
-          itemId: itemId,
-          mediaSourceId: sourceId,
-          contentId: id,
-          isMovie: isMovie,
-          season: season,
-          episode: episode,
-          title: title,
-          subtitles: _subtitlesFromMedia(media, serverLabel: name),
-        );
-      }
+      final target = MediaServerWatchTarget(
+        account: account,
+        capability: capability,
+        authorize: check,
+        itemId: itemId,
+        mediaSourceId: sourceId,
+        contentId: id,
+        isMovie: isMovie,
+        season: season,
+        episode: episode,
+        title: title,
+        subtitles: _subtitlesFromMedia(media, serverLabel: name),
+      );
+      _watchTargets[torrent] = target;
+      _watchTargetsByHash[torrent.infohash] = target;
       if (bind) {
         _bindings[torrent] = MediaServerSource(
           serverId: resourceId,
@@ -854,7 +858,7 @@ class MediaServerLibrarySession implements MediaServerLibraryAccess {
 class MediaServerWatchTarget {
   const MediaServerWatchTarget({
     required this.account,
-    required this.capability,
+    this.capability,
     required this.authorize,
     required this.itemId,
     required this.mediaSourceId,
@@ -867,7 +871,7 @@ class MediaServerWatchTarget {
   });
 
   final MediaServerAccount account;
-  final ProfileAsyncAuthorization capability;
+  final ProfileAsyncAuthorization? capability;
   final Future<void> Function() authorize;
   final String itemId;
   final String mediaSourceId;
