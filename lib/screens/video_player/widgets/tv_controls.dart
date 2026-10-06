@@ -34,7 +34,7 @@ class TvControls extends StatefulWidget {
     required this.progressFocusNode,
     required this.progressFocusable,
     required this.onPlayPause,
-    required this.onShowTracks,
+    this.onShowTracks,
     required this.onSpeed,
     required this.onAspect,
     required this.onSleepTimer,
@@ -111,7 +111,7 @@ class TvControls extends StatefulWidget {
   final Duration? scrubPreview;
 
   final VoidCallback onPlayPause;
-  final VoidCallback onShowTracks;
+  final VoidCallback? onShowTracks;
   final VoidCallback onSpeed;
   final VoidCallback onAspect;
   final VoidCallback onSleepTimer;
