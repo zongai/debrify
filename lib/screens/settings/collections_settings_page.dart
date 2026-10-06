@@ -588,7 +588,7 @@ class _CollectionsSettingsPageState extends State<CollectionsSettingsPage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const SettingsPageHeader(
+                SettingsPageHeader(
                   icon: Icons.collections_bookmark_rounded,
                   title: 'Collections',
                   subtitle:

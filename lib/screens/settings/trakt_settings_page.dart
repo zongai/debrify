@@ -297,7 +297,7 @@ class _TraktSettingsPageState extends State<TraktSettingsPage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const SettingsPageHeader(
+                  SettingsPageHeader(
                     icon: Icons.sync_rounded,
                     title: 'Trakt Integration',
                     subtitle:
@@ -377,7 +377,7 @@ class _TraktSettingsPageState extends State<TraktSettingsPage> {
                   const SizedBox(height: 16),
 
                   // Info banner
-                  const SettingsInfoBanner(
+                  SettingsInfoBanner(
                     text:
                         'How it works: clicking "Login with Trakt" will show a code on screen. '
                         'Enter this code at trakt.tv/activate on your phone or computer to authorize Debrify.',

@@ -379,7 +379,7 @@ class _ImportedLaunchDetailState extends State<ImportedLaunchDetail> {
         await remote.startMobileDiscovery();
         if (!mounted) return;
         await Navigator.of(context).push(
-          MaterialPageRoute<void>(builder: (_) => const RemoteControlScreen()),
+          MaterialPageRoute<void>(builder: (_) => RemoteControlScreen()),
         );
       }
       final target = remote.connectedDevice;

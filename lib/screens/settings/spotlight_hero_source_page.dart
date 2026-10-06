@@ -169,7 +169,7 @@ class _SpotlightHeroSourcePageState extends State<SpotlightHeroSourcePage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const SettingsPageHeader(
+                SettingsPageHeader(
                   icon: Icons.slideshow_rounded,
                   title: 'Hero Source',
                   subtitle:

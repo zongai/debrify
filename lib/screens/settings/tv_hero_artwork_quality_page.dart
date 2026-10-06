@@ -100,7 +100,7 @@ class _TvHeroArtworkQualityPageState extends State<TvHeroArtworkQualityPage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const SettingsPageHeader(
+                SettingsPageHeader(
                   icon: Icons.photo_size_select_large_rounded,
                   title: 'Hero Artwork Quality',
                   subtitle:

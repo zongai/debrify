@@ -259,7 +259,7 @@ class _ThemeTokensPageState extends State<ThemeTokensPage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const SettingsPageHeader(
+                SettingsPageHeader(
                   icon: Icons.tune_rounded,
                   title: 'Advanced',
                   subtitle: 'Every token a Look sets, one at a time',

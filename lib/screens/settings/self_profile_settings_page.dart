@@ -427,7 +427,7 @@ class _SelfProfileSettingsPageState extends State<SelfProfileSettingsPage> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const SettingsPageHeader(
+                      SettingsPageHeader(
                         icon: Icons.manage_accounts_rounded,
                         title: 'Your profile',
                         subtitle: 'Your name, picture and private PIN',

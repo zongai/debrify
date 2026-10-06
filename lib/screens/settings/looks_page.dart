@@ -90,7 +90,7 @@ class _LooksPageState extends State<LooksPage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const SettingsPageHeader(
+                SettingsPageHeader(
                   icon: Icons.auto_awesome_rounded,
                   title: 'Looks',
                   subtitle: 'One pick that dresses the whole app',

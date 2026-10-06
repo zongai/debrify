@@ -218,7 +218,7 @@ class _DiscoverSettingsPageState extends State<DiscoverSettingsPage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const SettingsPageHeader(
+                SettingsPageHeader(
                   icon: Icons.explore_rounded,
                   title: 'Discover',
                   subtitle: 'Choose what appears when you open Discover',

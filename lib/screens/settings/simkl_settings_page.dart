@@ -310,7 +310,7 @@ class _SimklSettingsPageState extends State<SimklSettingsPage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const SettingsPageHeader(
+                  SettingsPageHeader(
                     icon: Icons.sync_rounded,
                     title: 'Simkl Integration',
                     subtitle:
@@ -390,7 +390,7 @@ class _SimklSettingsPageState extends State<SimklSettingsPage> {
                   const SizedBox(height: 16),
 
                   // Info banner
-                  const SettingsInfoBanner(
+                  SettingsInfoBanner(
                     text:
                         'How it works: clicking "Login with Simkl" will show a code on screen. '
                         'Enter this code at simkl.com/pin on your phone or computer to authorize Debrify.',

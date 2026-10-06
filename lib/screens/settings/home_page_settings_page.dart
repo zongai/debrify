@@ -544,7 +544,7 @@ class _HomePageSettingsPageState extends State<HomePageSettingsPage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const SettingsPageHeader(
+                SettingsPageHeader(
                   icon: Icons.home_rounded,
                   title: 'Home Screen',
                   subtitle: 'Layout, rows, and what shows when the app opens',

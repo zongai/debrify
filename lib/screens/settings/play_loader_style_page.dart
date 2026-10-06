@@ -97,7 +97,7 @@ class _PlayLoaderStylePageState extends State<PlayLoaderStylePage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const SettingsPageHeader(
+                SettingsPageHeader(
                   icon: Icons.play_circle_outline_rounded,
                   title: 'Play Loader',
                   subtitle:

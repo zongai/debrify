@@ -472,7 +472,7 @@ class _StreamBadgesSettingsPageState extends State<StreamBadgesSettingsPage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const SettingsPageHeader(
+                SettingsPageHeader(
                   icon: Icons.sell_rounded,
                   title: 'Stream badges',
                   subtitle:

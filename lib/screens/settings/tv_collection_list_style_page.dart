@@ -110,7 +110,7 @@ class _TvCollectionListStylePageState extends State<TvCollectionListStylePage> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const SettingsPageHeader(
+                    SettingsPageHeader(
                       icon: Icons.view_carousel_outlined,
                       title: 'Collection list style',
                       subtitle:

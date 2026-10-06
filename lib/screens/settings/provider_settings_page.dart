@@ -239,7 +239,7 @@ class _ProviderSettingsPageState extends State<ProviderSettingsPage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const SettingsPageHeader(
+                  SettingsPageHeader(
                     icon: Icons.cloud_sync_rounded,
                     title: 'Default Provider',
                     subtitle: 'Configure default provider for adding torrents',
@@ -256,7 +256,7 @@ class _ProviderSettingsPageState extends State<ProviderSettingsPage> {
                       children: _buildProviderOptions(),
                     ),
                     const SizedBox(height: 16),
-                    const SettingsInfoBanner(
+                    SettingsInfoBanner(
                       text:
                           'You can also set this when adding a torrent by checking "Always use this provider".',
                     ),

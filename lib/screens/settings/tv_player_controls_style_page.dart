@@ -145,7 +145,7 @@ class _TvPlayerControlsStylePageState extends State<TvPlayerControlsStylePage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const SettingsPageHeader(
+                SettingsPageHeader(
                   icon: Icons.tune_rounded,
                   title: 'Player Controls',
                   subtitle:

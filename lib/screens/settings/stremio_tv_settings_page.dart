@@ -526,7 +526,7 @@ class _StremioTvSettingsPageState extends State<StremioTvSettingsPage> {
                       ),
                       const SizedBox(height: 16),
                       // Info card
-                      const SettingsInfoBanner(
+                      SettingsInfoBanner(
                         icon: Icons.info_outline_rounded,
                         text:
                             '- Each Stremio addon catalog becomes a TV channel\n'

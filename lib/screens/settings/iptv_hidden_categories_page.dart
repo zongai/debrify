@@ -368,7 +368,7 @@ class _IptvHiddenCategoriesPageState extends State<IptvHiddenCategoriesPage> {
         ),
         const SizedBox(height: 20),
         if (_tabs.isEmpty)
-          const SettingsInfoBanner(
+          SettingsInfoBanner(
             text:
                 'Open this source in IPTV once so its channels are stored, '
                 'then come back here to manage its categories.',

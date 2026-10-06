@@ -190,7 +190,7 @@ class _MdblistSettingsPageState extends State<MdblistSettingsPage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                const SettingsPageHeader(
+                SettingsPageHeader(
                   icon: Icons.playlist_add_check_circle_outlined,
                   title: 'MDBList Integration',
                   subtitle:

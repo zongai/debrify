@@ -199,7 +199,7 @@ class _PlayerDockPageState extends State<PlayerDockPage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const SettingsPageHeader(
+                SettingsPageHeader(
                   icon: Icons.tune_rounded,
                   title: 'Player Controls',
                   subtitle:

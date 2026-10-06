@@ -504,7 +504,7 @@ class _PikPakSettingsPageState extends State<PikPakSettingsPage> {
         child: ListView(
           padding: const EdgeInsets.all(16),
           children: [
-            const SettingsPageHeader(
+            SettingsPageHeader(
               icon: Icons.cloud_rounded,
               title: 'PikPak Integration',
               subtitle:

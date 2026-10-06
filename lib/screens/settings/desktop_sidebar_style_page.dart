@@ -99,7 +99,7 @@ class _DesktopSidebarStylePageState extends State<DesktopSidebarStylePage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const SettingsPageHeader(
+                SettingsPageHeader(
                   icon: Icons.view_sidebar_rounded,
                   title: 'Sidebar Style',
                   subtitle:

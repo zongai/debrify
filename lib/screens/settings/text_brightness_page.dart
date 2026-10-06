@@ -79,7 +79,7 @@ class _TextBrightnessPageState extends State<TextBrightnessPage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const SettingsPageHeader(
+                SettingsPageHeader(
                   icon: Icons.brightness_6_rounded,
                   title: 'Text Brightness',
                   subtitle: 'How bright text is across the app',

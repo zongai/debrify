@@ -1218,7 +1218,7 @@ class _ConnectionsSummaryState extends State<ConnectionsSummary> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const SettingsSectionLabel('Connections'),
+        SettingsSectionLabel('Connections'),
         LayoutBuilder(
           builder: (context, constraints) {
             final bool wide = constraints.maxWidth > 520;
@@ -1369,7 +1369,7 @@ class _ConnectionsSummaryState extends State<ConnectionsSummary> {
                     upNeighbor: _iptvFocusNode, downNeighbor: _trackingFocusNode),
                   const SizedBox(height: 22),
                 ],
-                const SettingsSectionLabel('Tracking'),
+                SettingsSectionLabel('Tracking'),
                 SizedBox(
                   width: constraints.maxWidth,
                   child: ConnectionCard(
@@ -1383,7 +1383,7 @@ class _ConnectionsSummaryState extends State<ConnectionsSummary> {
                   ),
                 ),
                 const SizedBox(height: 22),
-                const SettingsSectionLabel('Tracker services'),
+                SettingsSectionLabel('Tracker services'),
                 Wrap(
                   spacing: 10,
                   runSpacing: 10,

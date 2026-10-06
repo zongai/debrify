@@ -408,7 +408,7 @@ class _IptvCategoryOrderPageState extends State<IptvCategoryOrderPage> {
             subtitle: 'Arrange this source\'s category list.',
           ),
           const SizedBox(height: 20),
-          const SettingsInfoBanner(
+          SettingsInfoBanner(
             text:
                 'Open this source in IPTV once so its categories are stored, '
                 'then come back here to arrange them.',

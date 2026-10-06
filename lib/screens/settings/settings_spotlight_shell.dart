@@ -178,7 +178,7 @@ class _SettingsSpotlightShellState extends State<SettingsSpotlightShell> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const SettingsRootHeader(compact: true),
+                  SettingsRootHeader(compact: true),
                   const SizedBox(height: 22),
                   SettingsSpotlightSearchButton(
                     onTap: widget.onOpenSearch,
@@ -255,7 +255,7 @@ class _SettingsSpotlightShellState extends State<SettingsSpotlightShell> {
       key: const Key('settings-compact-root'),
       padding: const EdgeInsets.fromLTRB(18, 24, 18, 40),
       children: [
-        const SettingsRootHeader(),
+        SettingsRootHeader(),
         const SizedBox(height: 20),
         SettingsSpotlightSearchButton(onTap: widget.onOpenSearch),
         if (widget.compactSummary != null) ...[
@@ -263,7 +263,7 @@ class _SettingsSpotlightShellState extends State<SettingsSpotlightShell> {
           widget.compactSummary!,
         ],
         const SizedBox(height: 26),
-        const SettingsSectionLabel('Browse by category'),
+        SettingsSectionLabel('Browse by category'),
         LayoutBuilder(
           builder: (context, constraints) {
             final twoColumns = constraints.maxWidth >= 344;
@@ -447,7 +447,7 @@ class _SettingsCategoryHeading extends StatelessWidget {
 }
 
 class SettingsSpotlightSearchButton extends StatefulWidget {
-  const SettingsSpotlightSearchButton({
+  SettingsSpotlightSearchButton({
     super.key,
     required this.onTap,
     this.compact = false,

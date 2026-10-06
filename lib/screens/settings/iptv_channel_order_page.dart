@@ -117,7 +117,7 @@ class _IptvChannelOrderPageState extends State<IptvChannelOrderPage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const SettingsPageHeader(
+                  SettingsPageHeader(
                     icon: Icons.reorder_rounded,
                     title: 'Channel order',
                     subtitle:
@@ -125,7 +125,7 @@ class _IptvChannelOrderPageState extends State<IptvChannelOrderPage> {
                         'channels in the order you want.',
                   ),
                   const SizedBox(height: 24),
-                  const SettingsSectionLabel('Favorites and lists'),
+                  SettingsSectionLabel('Favorites and lists'),
                   SettingsSection(
                     title: '',
                     children: [

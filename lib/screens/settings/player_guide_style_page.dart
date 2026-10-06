@@ -139,7 +139,7 @@ class _PlayerGuideStylePageState extends State<PlayerGuideStylePage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const SettingsPageHeader(
+                SettingsPageHeader(
                   icon: Icons.smart_display_rounded,
                   title: 'Player Guide',
                   subtitle:

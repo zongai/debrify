@@ -141,7 +141,7 @@ class _TvSidebarStylePageState extends State<TvSidebarStylePage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const SettingsPageHeader(
+                SettingsPageHeader(
                   icon: Icons.view_sidebar_rounded,
                   title: 'Sidebar Style',
                   subtitle: 'How the navigation rail looks on this TV',

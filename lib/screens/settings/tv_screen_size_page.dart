@@ -103,7 +103,7 @@ class _TvScreenSizePageState extends State<TvScreenSizePage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const SettingsPageHeader(
+                SettingsPageHeader(
                   icon: Icons.fit_screen_rounded,
                   title: 'Screen Size',
                   subtitle: 'How large Debrify is drawn on this TV',

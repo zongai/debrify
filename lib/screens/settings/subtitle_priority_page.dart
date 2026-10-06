@@ -159,7 +159,7 @@ class _SubtitlePriorityPageState extends State<SubtitlePriorityPage> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const SettingsPageHeader(
+                        SettingsPageHeader(
                           icon: Icons.low_priority_rounded,
                           title: 'Subtitle priority',
                           subtitle:

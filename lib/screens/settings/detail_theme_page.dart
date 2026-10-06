@@ -115,7 +115,7 @@ class _DetailThemePageState extends State<DetailThemePage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const SettingsPageHeader(
+                SettingsPageHeader(
                   icon: Icons.palette_rounded,
                   title: 'Details Theme',
                   subtitle:

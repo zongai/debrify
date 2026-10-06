@@ -337,7 +337,7 @@ class _ProfilesSettingsPageState extends State<ProfilesSettingsPage> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const SettingsPageHeader(
+                      SettingsPageHeader(
                         icon: Icons.people_alt_rounded,
                         title: 'Profiles',
                         subtitle:

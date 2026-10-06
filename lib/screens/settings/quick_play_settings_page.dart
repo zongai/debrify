@@ -316,7 +316,7 @@ class _QuickPlaySettingsPageState extends State<QuickPlaySettingsPage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const SettingsPageHeader(
+                SettingsPageHeader(
                   icon: Icons.bolt_rounded,
                   title: 'Quick Play',
                   subtitle:
@@ -361,7 +361,7 @@ class _QuickPlaySettingsPageState extends State<QuickPlaySettingsPage> {
                 _switches(),
                 if (_pikPak && _series) ...[
                   const SizedBox(height: 12),
-                  const SettingsInfoBanner(
+                  SettingsInfoBanner(
                     text:
                         'PikPak skips season packs because each pack probe creates a real offline download on your account.',
                   ),

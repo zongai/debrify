@@ -2238,7 +2238,7 @@ class _IptvSettingsPageState extends State<IptvSettingsPage>
     return ListView(
       padding: EdgeInsets.all(16),
       children: [
-        const SettingsPageHeader(
+        SettingsPageHeader(
           icon: Icons.live_tv_rounded,
           title: 'IPTV Playlists',
           subtitle:
@@ -2362,7 +2362,7 @@ class _IptvSettingsPageState extends State<IptvSettingsPage>
         ),
         const SizedBox(height: 24),
         if (_defaultPlaylistId != null)
-          const SettingsInfoBanner(
+          SettingsInfoBanner(
             text:
                 'Your default playlist will load automatically when you select IPTV.',
           ),
@@ -2393,7 +2393,7 @@ class _IptvSettingsPageState extends State<IptvSettingsPage>
       padding: const EdgeInsets.all(16),
       children: [
         // Add Playlist section with Tabs
-        const SettingsSectionLabel('Add Playlist'),
+        SettingsSectionLabel('Add Playlist'),
         const SizedBox(height: 6),
 
         // Tab bar
@@ -2444,7 +2444,7 @@ class _IptvSettingsPageState extends State<IptvSettingsPage>
         const SizedBox(height: 24),
 
         // Playlists list
-        const SettingsSectionLabel('Your Playlists'),
+        SettingsSectionLabel('Your Playlists'),
         Text(
           'Tap the star to set a default playlist.',
           style: TextStyle(fontSize: 12, color: t.dim),
@@ -2476,7 +2476,7 @@ class _IptvSettingsPageState extends State<IptvSettingsPage>
           Card(child: Column(children: _buildPlaylistsList())),
         const SizedBox(height: 24),
         if (_defaultPlaylistId != null)
-          const SettingsInfoBanner(
+          SettingsInfoBanner(
             text:
                 'Your default playlist will load automatically when you select IPTV.',
           ),
@@ -2489,7 +2489,7 @@ class _IptvSettingsPageState extends State<IptvSettingsPage>
     return ListView(
       padding: const EdgeInsets.all(16),
       children: [
-        const SettingsSectionLabel('Your Lists'),
+        SettingsSectionLabel('Your Lists'),
         Text(
           'Hold OK (or long-press) any channel to add it to a list. '
           'Deleting a list never deletes its channels.',
@@ -2519,7 +2519,7 @@ class _IptvSettingsPageState extends State<IptvSettingsPage>
     return ListView(
       padding: const EdgeInsets.all(16),
       children: [
-        const SettingsSectionLabel('Category order'),
+        SettingsSectionLabel('Category order'),
         Text(
           'Choose a source, then arrange its category chips and guide '
           'sections. Channels inside each category keep provider order.',

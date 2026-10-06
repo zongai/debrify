@@ -86,7 +86,7 @@ class _RemoteRolePickerScreenState extends State<RemoteRolePickerScreen> {
     if (!mounted) return;
     await Navigator.of(
       context,
-    ).push(MaterialPageRoute(builder: (_) => const RemoteControlScreen()));
+    ).push(MaterialPageRoute(builder: (_) => RemoteControlScreen()));
   }
 
   Future<void> _openReceiver() async {

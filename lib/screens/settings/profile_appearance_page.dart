@@ -123,7 +123,7 @@ class _ProfileAppearancePageState extends State<ProfileAppearancePage> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const SettingsPageHeader(
+                      SettingsPageHeader(
                         icon: Icons.switch_account_rounded,
                         title: 'Profile picker',
                         subtitle:

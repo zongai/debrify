@@ -229,7 +229,7 @@ class _DetailPageStylePageState extends State<DetailPageStylePage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const SettingsPageHeader(
+                SettingsPageHeader(
                   icon: Icons.article_rounded,
                   title: 'Details Page',
                   subtitle:

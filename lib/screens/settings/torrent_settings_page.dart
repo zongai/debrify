@@ -48,7 +48,7 @@ class _TorrentSettingsPageState extends State<TorrentSettingsPage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const SettingsPageHeader(
+                SettingsPageHeader(
                   icon: Icons.search_rounded,
                   title: 'Search Engine Defaults',
                   subtitle:
@@ -88,7 +88,7 @@ class _TorrentSettingsPageState extends State<TorrentSettingsPage> {
                 const SizedBox(height: 16),
 
                 // Info message
-                const SettingsInfoBanner(
+                SettingsInfoBanner(
                   text:
                       'These settings only affect the default state. You can still toggle engines on/off in the search page.',
                 ),

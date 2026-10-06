@@ -124,7 +124,7 @@ class _DebrifyTvStylePageState extends State<DebrifyTvStylePage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const SettingsPageHeader(
+                SettingsPageHeader(
                   icon: Icons.live_tv_rounded,
                   title: 'Debrify TV',
                   subtitle: 'How the channels screen looks, on every device',

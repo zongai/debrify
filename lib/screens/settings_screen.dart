@@ -7881,12 +7881,12 @@ class _SettingsLayout extends StatelessWidget {
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const SettingsSectionLabel('Tracking'),
+            SettingsSectionLabel('Tracking'),
             _buildConnectionGrid(context, [
               connections.tracking,
             ], singleFullWidth: true),
             const SizedBox(height: 22),
-            const SettingsSectionLabel('Tracker services'),
+            SettingsSectionLabel('Tracker services'),
             _buildConnectionGrid(context, _trackerServices),
           ],
         );

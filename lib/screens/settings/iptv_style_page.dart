@@ -136,7 +136,7 @@ class _IptvStylePageState extends State<IptvStylePage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const SettingsPageHeader(
+                SettingsPageHeader(
                   icon: Icons.style_rounded,
                   title: 'IPTV Appearance',
                   subtitle: 'How the IPTV page looks on TV and desktop',

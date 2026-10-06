@@ -153,7 +153,7 @@ class _DiscoverLayoutPageState extends State<DiscoverLayoutPage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const SettingsPageHeader(
+                SettingsPageHeader(
                   icon: Icons.explore_rounded,
                   title: 'Discover Layout',
                   subtitle: 'How the Discover tab browses on this TV',

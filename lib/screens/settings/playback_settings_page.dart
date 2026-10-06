@@ -50,7 +50,7 @@ class _PlaybackSettingsPageState extends State<PlaybackSettingsPage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const SettingsPageHeader(
+              SettingsPageHeader(
                 icon: Icons.play_circle_outline_rounded,
                 title: 'Playback',
                 subtitle: 'Player, video, audio and subtitles',

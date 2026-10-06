@@ -64,7 +64,7 @@ class _ThemeLabPageState extends State<ThemeLabPage> {
       body: ListView(
         padding: EdgeInsets.fromLTRB(16, 8, 16, 40),
         children: [
-          const SettingsPageHeader(
+          SettingsPageHeader(
             icon: Icons.science_rounded,
             title: 'Theme Lab',
             subtitle: 'The looks, live, on real widgets',

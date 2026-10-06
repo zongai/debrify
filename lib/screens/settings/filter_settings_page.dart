@@ -317,7 +317,7 @@ class _FilterSettingsPageState extends State<FilterSettingsPage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const SettingsPageHeader(
+                  SettingsPageHeader(
                     icon: Icons.filter_list_rounded,
                     title: 'Default Filters',
                     subtitle: 'Set default filters for torrent search results',
@@ -358,7 +358,7 @@ class _FilterSettingsPageState extends State<FilterSettingsPage> {
                     children: _buildSizeChips(),
                   ),
                   const SizedBox(height: 20),
-                  const SettingsInfoBanner(
+                  SettingsInfoBanner(
                     text:
                         'These are the saved filters used by torrent search. Quick Play lets you enable them separately for Movies and Series.',
                   ),

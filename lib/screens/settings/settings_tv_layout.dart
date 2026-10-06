@@ -1347,7 +1347,7 @@ class _SettingsTvLayoutState extends State<SettingsTvLayout> {
           FocusNode nextNode() => _paneNodes[paneIdx++];
           return [
             if (widget.onOpenDownloadLocation != null) ...[
-              const SettingsSectionLabel('Downloads'),
+              SettingsSectionLabel('Downloads'),
               SettingsSection(
                 title: '',
                 children: [
@@ -1361,7 +1361,7 @@ class _SettingsTvLayoutState extends State<SettingsTvLayout> {
               ),
               const SizedBox(height: 18),
             ],
-            const SettingsSectionLabel('Maintenance'),
+            SettingsSectionLabel('Maintenance'),
             SettingsSection(
               title: '',
               children: [
@@ -1378,7 +1378,7 @@ class _SettingsTvLayoutState extends State<SettingsTvLayout> {
               ],
             ),
             const SizedBox(height: 18),
-            const SettingsSectionLabel('Backup & Restore'),
+            SettingsSectionLabel('Backup & Restore'),
             SettingsSection(
               title: '',
               children: [
@@ -1396,7 +1396,7 @@ class _SettingsTvLayoutState extends State<SettingsTvLayout> {
             ),
             if (widget.onExportDiagnosticLogs != null) ...[
               const SizedBox(height: 18),
-              const SettingsSectionLabel('Diagnostics'),
+              SettingsSectionLabel('Diagnostics'),
               SettingsSection(
                 title: '',
                 children: [
@@ -1416,7 +1416,7 @@ class _SettingsTvLayoutState extends State<SettingsTvLayout> {
           // running counter to keep Up/Down wiring contiguous.
           int p = 0;
           return [
-            const SettingsSectionLabel('Updates'),
+            SettingsSectionLabel('Updates'),
             SettingsSection(
               title: '',
               children: [
@@ -1454,7 +1454,7 @@ class _SettingsTvLayoutState extends State<SettingsTvLayout> {
               ],
             ),
             const SizedBox(height: 18),
-            const SettingsSectionLabel('Community & Support'),
+            SettingsSectionLabel('Community & Support'),
             SettingsSection(
               title: '',
               children: [
@@ -1544,7 +1544,7 @@ class _SettingsTvLayoutState extends State<SettingsTvLayout> {
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const SettingsSectionLabel('Tracking'),
+            SettingsSectionLabel('Tracking'),
             SizedBox(
               width: constraints.maxWidth,
               child: ConnectionCard(
@@ -1554,7 +1554,7 @@ class _SettingsTvLayoutState extends State<SettingsTvLayout> {
               ),
             ),
             const SizedBox(height: 22),
-            const SettingsSectionLabel('Tracker services'),
+            SettingsSectionLabel('Tracker services'),
             Wrap(
               spacing: 12,
               runSpacing: 12,

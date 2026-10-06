@@ -107,7 +107,7 @@ class _ParentsGuideStylePageState extends State<ParentsGuideStylePage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const SettingsPageHeader(
+                SettingsPageHeader(
                   icon: Icons.family_restroom_rounded,
                   title: 'Parents Guide',
                   subtitle:
