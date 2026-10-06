@@ -2,6 +2,8 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 
+import '../l10n/app_localizations.dart';
+
 import 'storage_service.dart';
 import 'debrid_service.dart';
 import 'torbox_service.dart';
@@ -173,13 +175,13 @@ class PlaylistPlayerService {
             } else {
               if (!context.mounted) return;
               ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(content: Text('Selected file is not a video')),
+                SnackBar(content: Text(AppLocalizations.of(context).t('Selected file is not a video'))),
               );
             }
           } else {
             if (!context.mounted) return;
             ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(content: Text('Failed to unrestrict link')),
+              SnackBar(content: Text(AppLocalizations.of(context).t('Failed to unrestrict link'))),
             );
           }
         } catch (e) {
@@ -254,7 +256,7 @@ class PlaylistPlayerService {
           if (context.mounted) {
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(
-                content: Text('No playable video files found in this torrent.'),
+                content: Text(AppLocalizations.of(context).t('No playable video files found in this torrent.')),
               ),
             );
           }
@@ -371,7 +373,7 @@ class PlaylistPlayerService {
           if (context.mounted) {
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(
-                content: Text('No playable video files found in this torrent.'),
+                content: Text(AppLocalizations.of(context).t('No playable video files found in this torrent.')),
               ),
             );
           }
@@ -460,7 +462,7 @@ class PlaylistPlayerService {
       if (!context.mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text('Add your AllDebrid API key in Settings first'),
+          content: Text(AppLocalizations.of(context).t('Add your AllDebrid API key in Settings first')),
         ),
       );
       return;
@@ -515,7 +517,7 @@ class PlaylistPlayerService {
     if (torrentHash == null || torrentHash.isEmpty) {
       if (!context.mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Failed to resolve AllDebrid link')),
+        SnackBar(content: Text(AppLocalizations.of(context).t('Failed to resolve AllDebrid link'))),
       );
       return;
     }
@@ -542,7 +544,7 @@ class PlaylistPlayerService {
       if (context.mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text('This torrent is no longer cached on AllDebrid.'),
+            content: Text(AppLocalizations.of(context).t('This torrent is no longer cached on AllDebrid.')),
           ),
         );
       }
@@ -569,7 +571,7 @@ class PlaylistPlayerService {
       if (context.mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text('No playable video files found in this torrent.'),
+            content: Text(AppLocalizations.of(context).t('No playable video files found in this torrent.')),
           ),
         );
       }
@@ -684,7 +686,7 @@ class PlaylistPlayerService {
     if (torrentId == null) {
       if (!context.mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Missing Torbox torrent information.')),
+        SnackBar(content: Text(AppLocalizations.of(context).t('Missing Torbox torrent information.'))),
       );
       return;
     }
@@ -696,7 +698,7 @@ class PlaylistPlayerService {
       if (fileId == null) {
         if (!context.mounted) return;
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Missing Torbox file information.')),
+          SnackBar(content: Text(AppLocalizations.of(context).t('Missing Torbox file information.'))),
         );
         return;
       }
@@ -781,7 +783,7 @@ class PlaylistPlayerService {
           if (context.mounted) {
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(
-                content: Text('Torbox torrent is no longer available.'),
+                content: Text(AppLocalizations.of(context).t('Torbox torrent is no longer available.')),
               ),
             );
           }
@@ -822,7 +824,7 @@ class PlaylistPlayerService {
         if (!context.mounted) return;
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text('No playable Torbox video files found.'),
+            content: Text(AppLocalizations.of(context).t('No playable Torbox video files found.')),
           ),
         );
         return;
@@ -958,7 +960,7 @@ class PlaylistPlayerService {
       if (pikpakFileId == null || pikpakFileId.isEmpty) {
         if (!context.mounted) return;
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Missing PikPak file information.')),
+          SnackBar(content: Text(AppLocalizations.of(context).t('Missing PikPak file information.'))),
         );
         return;
       }
@@ -976,7 +978,7 @@ class PlaylistPlayerService {
           if (!context.mounted) return;
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
-              content: Text('Failed to get PikPak streaming URL.'),
+              content: Text(AppLocalizations.of(context).t('Failed to get PikPak streaming URL.')),
             ),
           );
           return;
@@ -1056,7 +1058,7 @@ class PlaylistPlayerService {
         (pikpakFileIds == null || pikpakFileIds.isEmpty)) {
       if (!context.mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Missing PikPak files information.')),
+        SnackBar(content: Text(AppLocalizations.of(context).t('Missing PikPak files information.'))),
       );
       return;
     }
@@ -1118,7 +1120,7 @@ class PlaylistPlayerService {
         if (!context.mounted) return;
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text('No playable PikPak video files found.'),
+            content: Text(AppLocalizations.of(context).t('No playable PikPak video files found.')),
           ),
         );
         return;
@@ -1212,7 +1214,7 @@ class PlaylistPlayerService {
         }
         if (!context.mounted) return;
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Could not get PikPak streaming URL.')),
+          SnackBar(content: Text(AppLocalizations.of(context).t('Could not get PikPak streaming URL.'))),
         );
         return;
       }
@@ -1350,7 +1352,7 @@ class PlaylistPlayerService {
       if (!context.mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text('Missing Premiumize torrent information.'),
+          content: Text(AppLocalizations.of(context).t('Missing Premiumize torrent information.')),
         ),
       );
       return;
@@ -1387,7 +1389,7 @@ class PlaylistPlayerService {
         if (!context.mounted) return;
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text('No playable Premiumize video files found.'),
+            content: Text(AppLocalizations.of(context).t('No playable Premiumize video files found.')),
           ),
         );
         return;
@@ -1638,7 +1640,7 @@ class PlaylistPlayerService {
           if (!context.mounted) return;
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
-              content: Text('Missing Premiumize file information.'),
+              content: Text(AppLocalizations.of(context).t('Missing Premiumize file information.')),
             ),
           );
           return;
@@ -1652,7 +1654,7 @@ class PlaylistPlayerService {
           if (!context.mounted) return;
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
-              content: Text('This file is no longer in your Premiumize cloud.'),
+              content: Text(AppLocalizations.of(context).t('This file is no longer in your Premiumize cloud.')),
             ),
           );
           return;
@@ -1725,7 +1727,7 @@ class PlaylistPlayerService {
         if (!context.mounted) return;
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text('No playable Premiumize video files found.'),
+            content: Text(AppLocalizations.of(context).t('No playable Premiumize video files found.')),
           ),
         );
         return;
@@ -1749,7 +1751,7 @@ class PlaylistPlayerService {
         if (!context.mounted) return;
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text('No playable Premiumize video files found.'),
+            content: Text(AppLocalizations.of(context).t('No playable Premiumize video files found.')),
           ),
         );
         return;
@@ -1808,7 +1810,7 @@ class PlaylistPlayerService {
         if (!context.mounted) return;
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text('Could not get Premiumize streaming URL.'),
+            content: Text(AppLocalizations.of(context).t('Could not get Premiumize streaming URL.')),
           ),
         );
         return;
@@ -1890,7 +1892,7 @@ class PlaylistPlayerService {
     if (!context.mounted) return;
     if (config == null) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('WebDAV server is no longer configured.')),
+        SnackBar(content: Text(AppLocalizations.of(context).t('WebDAV server is no longer configured.'))),
       );
       return;
     }
@@ -1921,7 +1923,7 @@ class PlaylistPlayerService {
     if (path.isEmpty) {
       if (!context.mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Missing WebDAV file information.')),
+        SnackBar(content: Text(AppLocalizations.of(context).t('Missing WebDAV file information.'))),
       );
       return;
     }
@@ -1981,7 +1983,7 @@ class PlaylistPlayerService {
     if (rawFiles is! List || rawFiles.isEmpty) {
       if (!context.mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Missing WebDAV files information.')),
+        SnackBar(content: Text(AppLocalizations.of(context).t('Missing WebDAV files information.'))),
       );
       return;
     }
@@ -2006,7 +2008,7 @@ class PlaylistPlayerService {
     if (candidates.isEmpty) {
       if (!context.mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('No playable WebDAV video files found.')),
+        SnackBar(content: Text(AppLocalizations.of(context).t('No playable WebDAV video files found.'))),
       );
       return;
     }
@@ -2222,7 +2224,7 @@ class PlaylistPlayerService {
         apiKey.isEmpty) {
       if (!context.mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Content no longer available')),
+        SnackBar(content: Text(AppLocalizations.of(context).t('Content no longer available'))),
       );
       return;
     }
@@ -2258,7 +2260,7 @@ class PlaylistPlayerService {
         }
         if (!context.mounted) return;
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Content no longer available')),
+          SnackBar(content: Text(AppLocalizations.of(context).t('Content no longer available'))),
         );
       }
     } catch (e) {
@@ -2267,7 +2269,7 @@ class PlaylistPlayerService {
       }
       if (!context.mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Content no longer available')),
+        SnackBar(content: Text(AppLocalizations.of(context).t('Content no longer available'))),
       );
     }
   }
@@ -2305,7 +2307,7 @@ class PlaylistPlayerService {
       if (context.mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text('Cannot recover Torbox torrent – missing hash.'),
+            content: Text(AppLocalizations.of(context).t('Cannot recover Torbox torrent – missing hash.')),
           ),
         );
       }
@@ -2341,7 +2343,7 @@ class PlaylistPlayerService {
         if (context.mounted) {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
-              content: Text('Torbox recovery failed: missing torrent id.'),
+              content: Text(AppLocalizations.of(context).t('Torbox recovery failed: missing torrent id.')),
             ),
           );
         }
@@ -2359,7 +2361,7 @@ class PlaylistPlayerService {
         if (context.mounted) {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
-              content: Text('Torbox recovery pending – try again in a moment.'),
+              content: Text(AppLocalizations.of(context).t('Torbox recovery pending – try again in a moment.')),
             ),
           );
         }

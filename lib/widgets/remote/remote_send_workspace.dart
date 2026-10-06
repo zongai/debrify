@@ -172,7 +172,7 @@ class _RemoteSendWorkspaceState extends State<RemoteSendWorkspace> {
                     onPressed: needsPassword && password.text.isEmpty
                         ? null
                         : () => Navigator.pop(context, true),
-                    child: const Text('Send now'),
+                    child: Text(AppLocalizations.of(context).t('Send now')),
                   ),
                 ],
               ),

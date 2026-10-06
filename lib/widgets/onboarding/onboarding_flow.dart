@@ -395,7 +395,7 @@ class _InitialSetupFlowState extends State<InitialSetupFlow> {
           context: context,
           barrierDismissible: false,
           builder: (dialogContext) => AlertDialog(
-            title: Text('Use this synced setup?'),
+            title: Text(AppLocalizations.of(context).t('Use this synced setup?')),
             content: const Text(
               'Your profiles and connections on this device will be replaced '
               'with the setup from your other devices.',
@@ -407,7 +407,7 @@ class _InitialSetupFlowState extends State<InitialSetupFlow> {
               ),
               FilledButton(
                 onPressed: () => Navigator.of(dialogContext).pop(true),
-                child: const Text('Use synced setup'),
+                child: Text(AppLocalizations.of(context).t('Use synced setup')),
               ),
             ],
           ),
@@ -594,7 +594,7 @@ class _InitialSetupFlowState extends State<InitialSetupFlow> {
       context: context,
       barrierDismissible: false,
       builder: (context) => AlertDialog(
-        title: Text('Restrict PikPak to one folder?'),
+        title: Text(AppLocalizations.of(context).t('Restrict PikPak to one folder?')),
         content: const Text(
           'For extra privacy, Debrify can access one chosen folder instead of your whole PikPak drive. You can skip this now.',
         ),
@@ -605,7 +605,7 @@ class _InitialSetupFlowState extends State<InitialSetupFlow> {
           ),
           FilledButton(
             onPressed: () => Navigator.pop(context, true),
-            child: const Text('Choose folder'),
+            child: Text(AppLocalizations.of(context).t('Choose folder')),
           ),
         ],
       ),
@@ -1040,7 +1040,7 @@ class _InitialSetupFlowState extends State<InitialSetupFlow> {
                   children: [
                     CircularProgressIndicator(),
                     SizedBox(height: 14),
-                    Text('Connecting your setup…'),
+                    Text(AppLocalizations.of(context).t('Connecting your setup…')),
                   ],
                 ),
               )

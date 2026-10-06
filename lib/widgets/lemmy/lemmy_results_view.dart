@@ -244,7 +244,7 @@ class LemmyResultsViewState extends State<LemmyResultsView> {
 
       if (post == null) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('No random video found — try again')),
+          SnackBar(content: Text(AppLocalizations.of(context).t('No random video found — try again'))),
         );
         return;
       }
@@ -336,7 +336,7 @@ class LemmyResultsViewState extends State<LemmyResultsView> {
     if (playUrl == null) {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('No playable video found')),
+          SnackBar(content: Text(AppLocalizations.of(context).t('No playable video found'))),
         );
       }
       return;
@@ -371,7 +371,7 @@ class LemmyResultsViewState extends State<LemmyResultsView> {
                   child: CircularProgressIndicator(strokeWidth: 2),
                 ),
                 SizedBox(width: 12),
-                Text('Fetching video URL...'),
+                Text(AppLocalizations.of(context).t('Fetching video URL...')),
               ],
             ),
             duration: Duration(seconds: 2),
@@ -394,7 +394,7 @@ class LemmyResultsViewState extends State<LemmyResultsView> {
     if (downloadUrl == null) {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('No downloadable video found')),
+          SnackBar(content: Text(AppLocalizations.of(context).t('No downloadable video found'))),
         );
       }
       return;

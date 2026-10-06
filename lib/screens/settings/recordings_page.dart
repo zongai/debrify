@@ -280,7 +280,7 @@ class _RecordingsPageState extends State<RecordingsPage>
     await LiveRecordingService.stop(rec.taskId);
     if (!mounted) return;
     ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text('Stopping — saving recording…')),
+      SnackBar(content: Text(AppLocalizations.of(context).t('Stopping — saving recording…'))),
     );
     // The engine finalizes and publishes off-process; give it a beat, then
     // let the regular poll settle whatever this misses.
@@ -568,7 +568,7 @@ class _RecordingsPageState extends State<RecordingsPage>
     final choice = await showDialog<Object>(
       context: context,
       builder: (dialogContext) => SimpleDialog(
-        title: const Text('Record for how long?'),
+        title: Text(AppLocalizations.of(context).t('Record for how long?')),
         children: [
           // ListTile, not SimpleDialogOption: the latter can't autofocus, so on
           // TV the remote had no landing spot in this dialog at all.
@@ -591,7 +591,7 @@ class _RecordingsPageState extends State<RecordingsPage>
             leading: const Icon(Icons.schedule_outlined, size: 20),
             horizontalTitleGap: 10,
             minLeadingWidth: 0,
-            title: const Text('Pick end time…'),
+            title: Text(AppLocalizations.of(context).t('Pick end time…')),
             onTap: () => Navigator.of(dialogContext).pop(true),
           ),
         ],

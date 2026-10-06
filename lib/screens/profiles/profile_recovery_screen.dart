@@ -218,7 +218,7 @@ class _ProfileRecoveryScreenState extends State<ProfileRecoveryScreen> {
     final confirmed = await showDialog<bool>(
       context: context,
       builder: (dialogContext) => AlertDialog(
-        title: Text('Erase private app data?'),
+        title: Text(AppLocalizations.of(context).t('Erase private app data?')),
         content: const Text(
           'This removes profiles, credentials, settings, jobs, and private app data. Completed media files are retained. This cannot be undone.',
         ),
@@ -229,7 +229,7 @@ class _ProfileRecoveryScreenState extends State<ProfileRecoveryScreen> {
           ),
           FilledButton(
             onPressed: () => Navigator.pop(dialogContext, true),
-            child: const Text('Erase private data'),
+            child: Text(AppLocalizations.of(context).t('Erase private data')),
           ),
         ],
       ),
@@ -294,7 +294,7 @@ class _ProfileRecoveryScreenState extends State<ProfileRecoveryScreen> {
                     onPressed: _busy ? null : _restoreBackup,
                     autofocus: widget.forceTvSafeInput,
                     icon: const Icon(Icons.restore),
-                    label: const Text('Restore a backup'),
+                    label: Text(AppLocalizations.of(context).t('Restore a backup')),
                   ),
                 if (!_hasDeviceVaultFailure) ...[
                   const SizedBox(height: 10),
@@ -314,7 +314,7 @@ class _ProfileRecoveryScreenState extends State<ProfileRecoveryScreen> {
                     onPressed: _busy ? null : widget.onResetComplete,
                     autofocus: widget.forceTvSafeInput,
                     icon: const Icon(Icons.close),
-                    label: const Text('Close Debrify'),
+                    label: Text(AppLocalizations.of(context).t('Close Debrify')),
                   )
                 else ...[
                   const SizedBox(height: 10),

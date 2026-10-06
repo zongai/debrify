@@ -955,7 +955,7 @@ class _PikPakSettingsPageState extends State<PikPakSettingsPage> {
                               }
                             },
                             icon: Icon(Icons.refresh, size: 18),
-                            label: const Text('Reset Device ID'),
+                            label: Text(AppLocalizations.of(context).t('Reset Device ID')),
                           ),
                         ),
                       ] else ...[

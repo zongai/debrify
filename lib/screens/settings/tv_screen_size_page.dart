@@ -78,7 +78,7 @@ class _TvScreenSizePageState extends State<TvScreenSizePage> {
     if (!mounted) return;
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
-        content: Text('Screen size saved — restart Debrify to apply it.'),
+        content: Text(AppLocalizations.of(context).t('Screen size saved — restart Debrify to apply it.')),
       ),
     );
   }

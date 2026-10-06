@@ -521,7 +521,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
     final confirmed = await showDialog<bool>(
       context: context,
       builder: (context) => AlertDialog(
-        title: Text('Transfer connection ownership?'),
+        title: Text(AppLocalizations.of(context).t('Transfer connection ownership?')),
         content: Text(
           '${target.name} will become the owner of ${resource.label}. '
           'Existing profiles keep their current grants, and the previous '
@@ -556,12 +556,12 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
       await _loadResources();
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Connection ownership transferred')),
+        SnackBar(content: Text(AppLocalizations.of(context).t('Connection ownership transferred'))),
       );
     } catch (_) {
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Connection could not be transferred')),
+        SnackBar(content: Text(AppLocalizations.of(context).t('Connection could not be transferred'))),
       );
     }
   }
@@ -632,12 +632,12 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
     } on PlatformException {
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('The image picker is not available.')),
+        SnackBar(content: Text(AppLocalizations.of(context).t('The image picker is not available.'))),
       );
     } catch (_) {
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('That image could not be opened.')),
+        SnackBar(content: Text(AppLocalizations.of(context).t('That image could not be opened.'))),
       );
     } finally {
       await CacheScratchCleanup.releasePickerCopy(pickerCopy);
@@ -679,7 +679,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
       context: context,
       barrierDismissible: false,
       builder: (dialogContext) => AlertDialog(
-        title: const Text('Save this recovery code'),
+        title: Text(AppLocalizations.of(context).t('Save this recovery code')),
         content: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -706,7 +706,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
         actions: [
           FilledButton(
             onPressed: () => Navigator.of(dialogContext).pop(),
-            child: const Text('I saved it'),
+            child: Text(AppLocalizations.of(context).t('I saved it')),
           ),
         ],
       ),
@@ -725,7 +725,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
     }
     if (_pin.text.isNotEmpty && !RegExp(r'^\d{4,8}$').hasMatch(_pin.text)) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('PIN must contain 4–8 digits')),
+        SnackBar(content: Text(AppLocalizations.of(context).t('PIN must contain 4–8 digits'))),
       );
       return;
     }
@@ -979,7 +979,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
       setState(() => _saving = false);
       _restoreTvSaveFocus();
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Could not save this profile')),
+        SnackBar(content: Text(AppLocalizations.of(context).t('Could not save this profile'))),
       );
     }
   }
@@ -1218,7 +1218,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                 if (widget.profile == null)
                   SwitchListTile(
                     value: _copyDefaults,
-                    title: const Text('Copy appearance and playback defaults'),
+                    title: Text(AppLocalizations.of(context).t('Copy appearance and playback defaults')),
                     subtitle: const Text(
                       'Does not copy accounts, history, downloads, paths, or IDs.',
                     ),
@@ -1274,7 +1274,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                   ),
                 SwitchListTile(
                   value: _lockOnResume,
-                  title: const Text('Lock when the app resumes'),
+                  title: Text(AppLocalizations.of(context).t('Lock when the app resumes')),
                   onChanged: (value) => setState(() => _lockOnResume = value),
                 ),
                 DropdownButtonFormField<int>(
@@ -1282,16 +1282,16 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                   decoration: InputDecoration(labelText: 'Auto-lock'),
                   items: <DropdownMenuItem<int>>[
                     DropdownMenuItem(value: 0, child: Text(AppLocalizations.of(context).t('Never'))),
-                    DropdownMenuItem(value: 5, child: Text('After 5 minutes')),
+                    DropdownMenuItem(value: 5, child: Text(AppLocalizations.of(context).t('After 5 minutes'))),
                     DropdownMenuItem(
                       value: 15,
-                      child: Text('After 15 minutes'),
+                      child: Text(AppLocalizations.of(context).t('After 15 minutes')),
                     ),
                     DropdownMenuItem(
                       value: 30,
-                      child: Text('After 30 minutes'),
+                      child: Text(AppLocalizations.of(context).t('After 30 minutes')),
                     ),
-                    DropdownMenuItem(value: 60, child: Text('After 1 hour')),
+                    DropdownMenuItem(value: 60, child: Text(AppLocalizations.of(context).t('After 1 hour'))),
                   ],
                   onChanged: (value) =>
                       setState(() => _inactivityMinutes = value ?? 0),
@@ -1858,7 +1858,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                             ? null
                             : () => setState(() => _pendingAvatarBytes = null),
                         icon: const Icon(Icons.undo_rounded),
-                        label: const Text('Discard picked image'),
+                        label: Text(AppLocalizations.of(context).t('Discard picked image')),
                       ),
                     ),
                   const SizedBox(height: 16),
@@ -2145,8 +2145,8 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                     vertical: 8,
                   ),
                   value: _lockOnResume,
-                  title: const Text('Lock when the app resumes'),
-                  subtitle: const Text('Require the PIN after leaving Debrify'),
+                  title: Text(AppLocalizations.of(context).t('Lock when the app resumes')),
+                  subtitle: Text(AppLocalizations.of(context).t('Require the PIN after leaving Debrify')),
                   onChanged: (value) => setState(() => _lockOnResume = value),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(14),
@@ -2308,11 +2308,11 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
       if (!mounted) return;
       ScaffoldMessenger.of(
         context,
-      ).showSnackBar(SnackBar(content: Text('PIN protection removed')));
+      ).showSnackBar(SnackBar(content: Text(AppLocalizations.of(context).t('PIN protection removed'))));
     } catch (_) {
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('PIN protection was not changed')),
+        SnackBar(content: Text(AppLocalizations.of(context).t('PIN protection was not changed'))),
       );
     }
   }
@@ -2373,7 +2373,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                           ? null
                           : () => setState(() => _pendingAvatarBytes = null),
                       icon: const Icon(Icons.undo_rounded, size: 18),
-                      label: const Text('Discard picked image'),
+                      label: Text(AppLocalizations.of(context).t('Discard picked image')),
                     ),
                 ],
               ),
@@ -2554,7 +2554,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
         if (engines.isEmpty)
           ListTile(
             leading: Icon(Icons.travel_explore_rounded),
-            title: Text('No torrent engines installed'),
+            title: Text(AppLocalizations.of(context).t('No torrent engines installed')),
             subtitle: Text(
               'Install engines in the Admin profile before assigning them.',
             ),

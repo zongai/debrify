@@ -2,6 +2,8 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 
+import '../l10n/app_localizations.dart';
+
 import 'package:flutter/services.dart';
 
 import '../models/playlist_view_mode.dart';
@@ -1126,7 +1128,7 @@ class _PlaylistContentViewScreenState extends State<PlaylistContentViewScreen> {
             children: [
               CircularProgressIndicator(),
               SizedBox(width: 16),
-              Text('Preparing playlist…'),
+              Text(AppLocalizations.of(context).t('Preparing playlist…')),
             ],
           ),
         ),
@@ -1582,7 +1584,7 @@ class _PlaylistContentViewScreenState extends State<PlaylistContentViewScreen> {
               const SizedBox(height: 16),
               ElevatedButton(
                 onPressed: _loadContent,
-                child: Text('Retry'),
+                child: Text(AppLocalizations.of(context).t('Retry')),
               ),
             ],
           ),
@@ -1591,7 +1593,7 @@ class _PlaylistContentViewScreenState extends State<PlaylistContentViewScreen> {
     }
 
     if (_currentViewNodes == null || _currentViewNodes!.isEmpty) {
-      return Center(child: Text('No files found'));
+      return Center(child: Text(AppLocalizations.of(context).t('No files found')));
     }
 
     // For Series Arrange mode, show OTT-style view
@@ -3389,7 +3391,7 @@ class _PlaylistContentViewScreenState extends State<PlaylistContentViewScreen> {
             children: [
               CircularProgressIndicator(),
               SizedBox(width: 16),
-              Text('Preparing playlist…'),
+              Text(AppLocalizations.of(context).t('Preparing playlist…')),
             ],
           ),
         ),

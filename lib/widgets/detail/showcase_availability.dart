@@ -260,7 +260,7 @@ class _AvailabilityTileState extends State<_AvailabilityTile> {
     } catch (_) {}
     if (!opened && mounted) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Could not open the browser.')),
+        SnackBar(content: Text(AppLocalizations.of(context).t('Could not open the browser.'))),
       );
     }
   }

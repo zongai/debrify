@@ -187,13 +187,13 @@ class _KeyStepState extends State<KeyStep> {
       );
       if (!opened && mounted) {
         ScaffoldMessenger.maybeOf(context)?.showSnackBar(
-          SnackBar(content: Text('Could not open that page.')),
+          SnackBar(content: Text(AppLocalizations.of(context).t('Could not open that page.'))),
         );
       }
     } catch (_) {
       if (!mounted) return;
       ScaffoldMessenger.maybeOf(context)?.showSnackBar(
-        SnackBar(content: Text('Could not open that page.')),
+        SnackBar(content: Text(AppLocalizations.of(context).t('Could not open that page.'))),
       );
     }
   }

@@ -368,7 +368,7 @@ class _GateBusyDialogState extends State<_GateBusyDialog> {
               child: CircularProgressIndicator(strokeWidth: 2.5),
             ),
             SizedBox(width: 18),
-            Expanded(child: Text('Connecting securely…')),
+            Expanded(child: Text(AppLocalizations.of(context).t('Connecting securely…'))),
           ],
         ),
       ),
@@ -382,7 +382,7 @@ Future<void> showLegacyBlockedDialog(BuildContext context, String tvName) {
   return showDialog<void>(
     context: context,
     builder: (dialogContext) => AlertDialog(
-      title: const Text('Update Debrify on the TV'),
+      title: Text(AppLocalizations.of(context).t('Update Debrify on the TV')),
       content: Text(
         '"$tvName" is running a version older than $kFirstV2ReceiverVersion, '
         'which cannot receive your accounts and settings securely — so '
@@ -414,7 +414,7 @@ Future<bool?> showTvIdentityMismatchDialog(
   return showDialog<bool>(
     context: context,
     builder: (dialogContext) => AlertDialog(
-      title: Text('TV identity changed'),
+      title: Text(AppLocalizations.of(context).t('TV identity changed')),
       content: Text(
         '"$tvName" does not match the secure identity it had when you last '
         'paired. This happens after reinstalling Debrify on the TV, or if a '
@@ -431,7 +431,7 @@ Future<bool?> showTvIdentityMismatchDialog(
         ),
         TextButton(
           onPressed: () => Navigator.of(dialogContext).pop(true),
-          child: const Text('Re-pair with code'),
+          child: Text(AppLocalizations.of(context).t('Re-pair with code')),
         ),
       ],
     ),
@@ -444,7 +444,7 @@ Future<void> showTvIdentityChangedDialog(BuildContext context, String tvName) {
   return showDialog<void>(
     context: context,
     builder: (dialogContext) => AlertDialog(
-      title: Text('TV identity changed'),
+      title: Text(AppLocalizations.of(context).t('TV identity changed')),
       content: Text(
         '"$tvName" no longer matches the secure identity it had before. '
         'This can happen after reinstalling Debrify on the TV — or if '
@@ -625,7 +625,7 @@ Future<bool> ensureNavigationSession(
     if (device.supportsEncryption || sameNamePins.isNotEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text('Could not establish a secure connection to the TV'),
+          content: Text(AppLocalizations.of(context).t('Could not establish a secure connection to the TV')),
         ),
       );
       return false;
@@ -753,7 +753,7 @@ Future<bool> _runPairingFlow(
     } on TimeoutException {
       if (context.mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('The TV did not respond to pairing')),
+          SnackBar(content: Text(AppLocalizations.of(context).t('The TV did not respond to pairing'))),
         );
       }
       return false;
@@ -893,7 +893,7 @@ Future<bool> _runPairingFlow(
     if (ended.value != null && context.mounted) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text('Pairing ended. Start again to get a new code.'),
+          content: Text(AppLocalizations.of(context).t('Pairing ended. Start again to get a new code.')),
         ),
       );
     }
@@ -956,7 +956,7 @@ class _PairedDevicesDialogState extends State<_PairedDevicesDialog> {
   Widget build(BuildContext context) {
     final devices = _devices;
     return AlertDialog(
-      title: Text('Paired remote devices'),
+      title: Text(AppLocalizations.of(context).t('Paired remote devices')),
       content: SizedBox(
         width: 420,
         child: devices == null
@@ -987,7 +987,7 @@ class _PairedDevicesDialogState extends State<_PairedDevicesDialog> {
                       ),
                       trailing: TextButton(
                         onPressed: () => _forget(device),
-                        child: const Text('Forget'),
+                        child: Text(AppLocalizations.of(context).t('Forget')),
                       ),
                     ),
                 ],
@@ -995,7 +995,7 @@ class _PairedDevicesDialogState extends State<_PairedDevicesDialog> {
       ),
       actions: [
         if (devices != null && devices.isNotEmpty)
-          TextButton(onPressed: _forgetAll, child: const Text('Forget all')),
+          TextButton(onPressed: _forgetAll, child: Text(AppLocalizations.of(context).t('Forget all'))),
         FilledButton(
           autofocus: true,
           onPressed: () => Navigator.of(context).pop(),

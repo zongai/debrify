@@ -1125,7 +1125,7 @@ class _RemoteTransferAllState extends State<RemoteTransferAll> {
           context: context,
           barrierDismissible: false,
           builder: (dialogContext) => AlertDialog(
-            title: const Text('Continue without Debrify TV?'),
+            title: Text(AppLocalizations.of(context).t('Continue without Debrify TV?')),
             content: Text(
               'This profile transfer had to be compacted to fit on the TV. '
               'Debrify TV will not be included: ${omission.contentsLabel} '
@@ -1139,11 +1139,11 @@ class _RemoteTransferAllState extends State<RemoteTransferAll> {
             actions: <Widget>[
               TextButton(
                 onPressed: () => Navigator.of(dialogContext).pop(false),
-                child: const Text('Cancel and export ZIP'),
+                child: Text(AppLocalizations.of(context).t('Cancel and export ZIP')),
               ),
               FilledButton(
                 onPressed: () => Navigator.of(dialogContext).pop(true),
-                child: const Text('Continue without Debrify TV'),
+                child: Text(AppLocalizations.of(context).t('Continue without Debrify TV')),
               ),
             ],
           ),
@@ -1415,7 +1415,7 @@ class _RemoteTransferAllState extends State<RemoteTransferAll> {
               ),
               FilledButton(
                 onPressed: () => Navigator.pop(context, true),
-                child: const Text('Send now'),
+                child: Text(AppLocalizations.of(context).t('Send now')),
               ),
             ],
           ),
@@ -1478,7 +1478,7 @@ class _RemoteTransferAllState extends State<RemoteTransferAll> {
                   RadioListTile<bool>(
                     value: true,
                     enabled: !busy,
-                    title: const Text('All profiles & their data'),
+                    title: Text(AppLocalizations.of(context).t('All profiles & their data')),
                     subtitle: const Text(
                       'Profiles, PINs, photos, settings, accounts, addons, TV channels and IPTV data.',
                     ),
@@ -1486,7 +1486,7 @@ class _RemoteTransferAllState extends State<RemoteTransferAll> {
                 RadioListTile<bool>(
                   value: false,
                   enabled: !busy,
-                  title: const Text('Current profile’s setup only'),
+                  title: Text(AppLocalizations.of(context).t('Current profile’s setup only')),
                   subtitle: const Text(
                     'Accounts, addons, tracking preferences, search and supported IPTV setup.',
                   ),
@@ -1495,14 +1495,14 @@ class _RemoteTransferAllState extends State<RemoteTransferAll> {
             ),
           ),
           if (!_includeProfiles && _items.isEmpty && _inventoryError == null)
-            const Text('No setup items are available for this profile.'),
+            Text(AppLocalizations.of(context).t('No setup items are available for this profile.')),
           if (_canSendProfileGraph)
             CheckboxListTile(
               value: _includeSync,
               onChanged: busy || !_includeProfiles
                   ? null
                   : (value) => setState(() => _includeSync = value ?? true),
-              title: const Text('Include WebDAV sync'),
+              title: Text(AppLocalizations.of(context).t('Include WebDAV sync')),
               subtitle: const Text(
                 'Login and enabled or paused state. Requires all profiles.',
               ),

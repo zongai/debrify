@@ -2,6 +2,8 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 
+import '../l10n/app_localizations.dart';
+
 import 'package:flutter/services.dart';
 
 import '../models/metadata_preferences.dart';
@@ -218,7 +220,7 @@ class _MetadataExplorePageState extends State<MetadataExplorePage> {
   Widget build(BuildContext context) {
     if (_profileChanged) {
       return Scaffold(
-        appBar: AppBar(title: Text('Explore')),
+        appBar: AppBar(title: Text(AppLocalizations.of(context).t('Explore'))),
         body: const Center(child: Text(
           'Profile changed. Go back to browse your current profile.',
         )),
@@ -588,7 +590,7 @@ class _MetadataBrowsePageState extends State<MetadataBrowsePage> {
         Expanded(
           child: _profileChanged
               ? const Center(
-                  child: Text('Profile changed. Reopen Discover to continue.'),
+                  child: Text(AppLocalizations.of(context).t('Profile changed. Reopen Discover to continue.')),
                 )
               : _items.isEmpty
               ? Center(
@@ -596,7 +598,7 @@ class _MetadataBrowsePageState extends State<MetadataBrowsePage> {
                       ? const CircularProgressIndicator()
                       : _error != null
                       ? retry
-                      : const Text('No matching titles'),
+                      : Text(AppLocalizations.of(context).t('No matching titles')),
                 )
               : Stack(
                   children: [
@@ -662,11 +664,11 @@ class _MetadataBrowsePageState extends State<MetadataBrowsePage> {
                         items: [
                           DropdownMenuItem(
                             value: 'movie',
-                            child: Text('Movies'),
+                            child: Text(AppLocalizations.of(context).t('Movies')),
                           ),
                           DropdownMenuItem(
                             value: 'tv',
-                            child: Text('TV shows'),
+                            child: Text(AppLocalizations.of(context).t('TV shows')),
                           ),
                         ],
                         onChanged: (v) {
@@ -676,7 +678,7 @@ class _MetadataBrowsePageState extends State<MetadataBrowsePage> {
                         },
                       ),
                       FilterChip(
-                        label: const Text('Under two hours'),
+                        label: Text(AppLocalizations.of(context).t('Under two hours')),
                         selected: _short,
                         onSelected: (v) {
                           _short = v;
@@ -719,7 +721,7 @@ class _MetadataBrowsePageState extends State<MetadataBrowsePage> {
                       : _more
                       ? const SizedBox(height: 40)
                       : _items.isEmpty
-                      ? const Text('No matching titles')
+                      ? Text(AppLocalizations.of(context).t('No matching titles'))
                       : const SizedBox.shrink(),
                 ),
               ),
@@ -771,7 +773,7 @@ class _MetadataTitleTileState extends State<_MetadataTitleTile> {
       if (mounted && scope == ProfileRuntime.scope.value) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text('Could not open this title. Try again.'),
+            content: Text(AppLocalizations.of(context).t('Could not open this title. Try again.')),
           ),
         );
       }

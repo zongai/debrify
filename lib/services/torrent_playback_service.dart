@@ -15,6 +15,8 @@ import 'profiles/profile_runtime.dart';
 
 import 'package:android_intent_plus/android_intent.dart';
 import 'package:flutter/material.dart';
+
+import '../l10n/app_localizations.dart';
 import 'package:flutter/services.dart';
 import 'package:http/http.dart' as http;
 import 'package:url_launcher/url_launcher.dart';
@@ -6751,7 +6753,7 @@ class TorrentPlaybackService {
         context: context,
         builder: (context) => StatefulBuilder(
           builder: (context, setState) => AlertDialog(
-            title: const Text('DeoVR Format'),
+            title: Text(AppLocalizations.of(context).t('DeoVR Format')),
             content: Column(
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -6833,7 +6835,7 @@ class TorrentPlaybackService {
                   DialogTapGuard.markKeyAction();
                   Navigator.of(context).pop(false);
                 },
-                child: const Text('Cancel'),
+                child: Text(AppLocalizations.of(context).t('Cancel')),
               ),
               FilledButton.icon(
                 onPressed: () {
@@ -6841,7 +6843,7 @@ class TorrentPlaybackService {
                   Navigator.of(context).pop(true);
                 },
                 icon: const Icon(Icons.play_arrow),
-                label: const Text('Play'),
+                label: Text(AppLocalizations.of(context).t('Play')),
               ),
             ],
           ),
@@ -6902,7 +6904,7 @@ class TorrentPlaybackService {
       if (context.mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text('Launching DeoVR...'),
+            content: Text(AppLocalizations.of(context).t('Launching DeoVR...')),
             duration: Duration(seconds: 2),
           ),
         );
@@ -7342,7 +7344,7 @@ class TorrentPlaybackService {
             );
             final allOn = selected.length == entries.length;
             return AlertDialog(
-              title: const Text('Download files'),
+              title: Text(AppLocalizations.of(context).t('Download files')),
               content: SizedBox(
                 width: double.maxFinite,
                 child: Column(
@@ -7408,7 +7410,7 @@ class TorrentPlaybackService {
               actions: [
                 TextButton(
                   onPressed: () => Navigator.of(dialogCtx).pop(),
-                  child: const Text('Cancel'),
+                  child: Text(AppLocalizations.of(context).t('Cancel')),
                 ),
                 FilledButton(
                   onPressed: selected.isEmpty

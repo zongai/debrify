@@ -139,7 +139,7 @@ class _ManageProfilesScreenState extends State<ManageProfilesScreen> {
     } catch (_) {
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Profile editor session expired')),
+        SnackBar(content: Text(AppLocalizations.of(context).t('Profile editor session expired'))),
       );
     }
   }
@@ -243,7 +243,7 @@ class _ManageProfilesScreenState extends State<ManageProfilesScreen> {
       body: profiles == null
           ? Center(
               child: _initialLoadFailed
-                  ? const Text('Profile management authorization expired')
+                  ? Text(AppLocalizations.of(context).t('Profile management authorization expired'))
                   : const CircularProgressIndicator(),
             )
           : Column(

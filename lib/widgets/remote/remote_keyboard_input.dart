@@ -225,7 +225,7 @@ class _RemoteKeyboardInputState extends State<RemoteKeyboardInput> {
                 child: ElevatedButton.icon(
                   onPressed: _sendEnter,
                   icon: const Icon(Icons.keyboard_return, size: 18),
-                  label: const Text('Enter'),
+                  label: Text(AppLocalizations.of(context).t('Enter')),
                   style: ElevatedButton.styleFrom(
                     backgroundColor: AppThemeScope.of(context).core.tx,
                     foregroundColor: AppThemeScope.of(

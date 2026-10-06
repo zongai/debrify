@@ -277,7 +277,7 @@ class RemoteChannelExportState extends State<RemoteChannelExport> {
       if (mounted && !widget.headless) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text('Failed to send channels'),
+            content: Text(AppLocalizations.of(context).t('Failed to send channels')),
             backgroundColor: Color(0xFFEF4444),
             behavior: SnackBarBehavior.floating,
           ),

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../l10n/app_localizations.dart';
+
 import '../models/torrent.dart';
 import '../utils/dialog_tap_guard.dart';
 import '../widgets/bulk_add_progress_dialog.dart';
@@ -839,7 +841,7 @@ class TorrentBulkAddService {
                   DialogTapGuard.markKeyAction();
                   Navigator.of(dialogContext).pop(false);
                 },
-                child: const Text('Cancel'),
+                child: Text(AppLocalizations.of(context).t('Cancel')),
               ),
               const SizedBox(width: 8),
               ElevatedButton(
@@ -852,7 +854,7 @@ class TorrentBulkAddService {
                   backgroundColor: const Color(0xFFFB923C),
                   foregroundColor: Colors.white,
                 ),
-                child: const Text('Continue'),
+                child: Text(AppLocalizations.of(context).t('Continue')),
               ),
             ],
           ),

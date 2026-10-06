@@ -280,7 +280,7 @@ class _SelfProfileSettingsPageState extends State<SelfProfileSettingsPage> {
     final confirmed = await showDialog<bool>(
       context: context,
       builder: (dialogContext) => AlertDialog(
-        title: Text('Remove PIN protection?'),
+        title: Text(AppLocalizations.of(context).t('Remove PIN protection?')),
         content: const Text(
           'Anyone using this device will be able to open this profile.',
         ),
@@ -371,7 +371,7 @@ class _SelfProfileSettingsPageState extends State<SelfProfileSettingsPage> {
       context: context,
       barrierDismissible: false,
       builder: (dialogContext) => AlertDialog(
-        title: const Text('Save this recovery code'),
+        title: Text(AppLocalizations.of(context).t('Save this recovery code')),
         content: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -401,7 +401,7 @@ class _SelfProfileSettingsPageState extends State<SelfProfileSettingsPage> {
         actions: [
           FilledButton(
             onPressed: () => Navigator.pop(dialogContext),
-            child: const Text('I saved it'),
+            child: Text(AppLocalizations.of(context).t('I saved it')),
           ),
         ],
       ),
@@ -585,7 +585,7 @@ class _SelfProfileSettingsPageState extends State<SelfProfileSettingsPage> {
                             ? null
                             : () => setState(() => _pendingAvatarBytes = null),
                         icon: const Icon(Icons.undo_rounded, size: 18),
-                        label: const Text('Discard image'),
+                        label: Text(AppLocalizations.of(context).t('Discard image')),
                       ),
                   ],
                 ),

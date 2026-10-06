@@ -3,6 +3,8 @@ import 'dart:io';
 
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
+
+import '../l10n/app_localizations.dart';
 import 'package:flutter/services.dart';
 
 import '../utils/file_utils.dart';
@@ -283,7 +285,7 @@ class LocalBoundSourceService {
             children: [
               CircularProgressIndicator(),
               SizedBox(width: 20),
-              Expanded(child: Text('Reading local folder…')),
+              Expanded(child: Text(AppLocalizations.of(context).t('Reading local folder…'))),
             ],
           ),
         ),
@@ -327,7 +329,7 @@ class LocalBoundSourceService {
       final selected = await showDialog<LocalSourceDocument>(
         context: context,
         builder: (dialogContext) => AlertDialog(
-          title: const Text('Choose movie file'),
+          title: Text(AppLocalizations.of(context).t('Choose movie file')),
           content: SizedBox(
             width: 560,
             height: MediaQuery.sizeOf(dialogContext).height * 0.5,
@@ -344,7 +346,7 @@ class LocalBoundSourceService {
           actions: [
             TextButton(
               onPressed: () => Navigator.of(dialogContext).pop(),
-              child: const Text('Cancel'),
+              child: Text(AppLocalizations.of(context).t('Cancel')),
             ),
           ],
         ),
@@ -393,12 +395,12 @@ class LocalBoundSourceService {
           actions: [
             TextButton(
               onPressed: () => Navigator.of(dialogContext).pop(false),
-              child: const Text('Cancel'),
+              child: Text(AppLocalizations.of(context).t('Cancel')),
             ),
             TextButton(
               autofocus: true,
               onPressed: () => Navigator.of(dialogContext).pop(true),
-              child: const Text('Use folder'),
+              child: Text(AppLocalizations.of(context).t('Use folder')),
             ),
           ],
         ),

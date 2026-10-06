@@ -65,7 +65,7 @@ class EnginesStep extends StatelessWidget {
     }
     if (engines.isEmpty) {
       return const Center(
-        child: Text('No search engines are available right now.'),
+        child: Text(AppLocalizations.of(context).t('No search engines are available right now.')),
       );
     }
     return GridView.builder(

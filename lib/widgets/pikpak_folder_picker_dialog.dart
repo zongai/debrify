@@ -622,7 +622,7 @@ class _PikPakFolderPickerDialogState extends State<PikPakFolderPickerDialog> {
                             focusNode: _newFolderButtonFocusNode,
                             onPressed: _showNewFolderDialog,
                             icon: const Icon(Icons.create_new_folder, size: 18),
-                            label: const Text('New Folder'),
+                            label: Text(AppLocalizations.of(context).t('New Folder')),
                             style: FilledButton.styleFrom(
                               padding: const EdgeInsets.symmetric(
                                 horizontal: 16,

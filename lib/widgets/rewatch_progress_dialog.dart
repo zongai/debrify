@@ -27,7 +27,7 @@ Future<bool> resetProgressForRewatch(
         ),
         TextButton(
           onPressed: () => Navigator.pop(ctx, true),
-          child: const Text('Clear progress and rewatch'),
+          child: Text(AppLocalizations.of(context).t('Clear progress and rewatch')),
         ),
       ],
     ),

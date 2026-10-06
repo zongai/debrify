@@ -311,7 +311,7 @@ class _SyncAndMigratePageState extends State<SyncAndMigratePage>
         context: context,
         builder: (dialogContext) => TvHeldKeyGuard(
           child: AlertDialog(
-            title: Text('WebDAV Sync setup guide'),
+            title: Text(AppLocalizations.of(context).t('WebDAV Sync setup guide')),
             scrollable: true,
             content: SizedBox(
               width: 360,
@@ -437,7 +437,7 @@ class _SyncAndMigratePageState extends State<SyncAndMigratePage>
           context: context,
           barrierDismissible: false,
           builder: (dialogContext) => AlertDialog(
-            title: const Text('Use sync data from this account?'),
+            title: Text(AppLocalizations.of(context).t('Use sync data from this account?')),
             content: const Text(
               'Existing profiles and connections on this device will be '
               'replaced. Create a manual backup first if you want to keep '
@@ -451,7 +451,7 @@ class _SyncAndMigratePageState extends State<SyncAndMigratePage>
               ),
               FilledButton(
                 onPressed: () => Navigator.of(dialogContext).pop(true),
-                child: const Text('Use sync data'),
+                child: Text(AppLocalizations.of(context).t('Use sync data')),
               ),
             ],
           ),
@@ -470,7 +470,7 @@ class _SyncAndMigratePageState extends State<SyncAndMigratePage>
     final confirmed = await showSettingsDialog<bool>(
       context: context,
       builder: (dialogContext) => AlertDialog(
-        title: Text('Forget WebDAV connection?'),
+        title: Text(AppLocalizations.of(context).t('Forget WebDAV connection?')),
         content: const Text(
           'Remove the saved connection from this device without contacting WebDAV. '
           'Your profiles and data stay here. You can then connect again.\n\n'
@@ -484,7 +484,7 @@ class _SyncAndMigratePageState extends State<SyncAndMigratePage>
           ),
           FilledButton(
             onPressed: () => Navigator.of(dialogContext).pop(true),
-            child: const Text('Forget connection'),
+            child: Text(AppLocalizations.of(context).t('Forget connection')),
           ),
         ],
       ),
@@ -516,7 +516,7 @@ class _SyncAndMigratePageState extends State<SyncAndMigratePage>
       context: context,
       builder: (dialogContext) => AlertDialog(
         scrollable: true,
-        title: Text('Log out of WebDAV sync?'),
+        title: Text(AppLocalizations.of(context).t('Log out of WebDAV sync?')),
         content: const Text(
           'This device will stop syncing and leave the connected devices list. '
           'Its saved sync login will be removed.\n\n'
@@ -555,7 +555,7 @@ class _SyncAndMigratePageState extends State<SyncAndMigratePage>
       });
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text('Logged out. Your data is still on this device.'),
+          content: Text(AppLocalizations.of(context).t('Logged out. Your data is still on this device.')),
         ),
       );
     } catch (error) {
@@ -711,7 +711,7 @@ class _SyncAndMigratePageState extends State<SyncAndMigratePage>
         binding = await showSettingsDialog<WebDavSyncBinding>(
           context: context,
           builder: (dialogContext) => SimpleDialog(
-            title: const Text('Choose account to repair'),
+            title: Text(AppLocalizations.of(context).t('Choose account to repair')),
             children: [
               for (final item in bindings)
                 SimpleDialogOption(
@@ -771,7 +771,7 @@ class _SyncAndMigratePageState extends State<SyncAndMigratePage>
       if (!mounted) return;
       setState(() => _syncBinding = repaired);
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('WebDAV Sync credentials verified.')),
+        SnackBar(content: Text(AppLocalizations.of(context).t('WebDAV Sync credentials verified.'))),
       );
       reloadAfterResume = true;
     } catch (error) {
@@ -865,7 +865,7 @@ class _SyncAndMigratePageState extends State<SyncAndMigratePage>
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text('Device removed. It must sign in again to rejoin.'),
+          content: Text(AppLocalizations.of(context).t('Device removed. It must sign in again to rejoin.')),
         ),
       );
       await _loadActiveSyncState();
@@ -1200,7 +1200,7 @@ class _SyncAndMigratePageState extends State<SyncAndMigratePage>
         if (active && _runtimeStatus != null) ...[
           const SizedBox(height: 12),
           ExpansionTile(
-            title: const Text('Sync details'),
+            title: Text(AppLocalizations.of(context).t('Sync details')),
             childrenPadding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
             expandedCrossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -1328,7 +1328,7 @@ final class _DebrifyTvSyncProgressDialogState
     return PopScope(
       canPop: false,
       child: AlertDialog(
-        title: const Text('Syncing Debrify TV'),
+        title: Text(AppLocalizations.of(context).t('Syncing Debrify TV')),
         content: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
@@ -1428,7 +1428,7 @@ final class _SyncCredentialDialogState extends State<_SyncCredentialDialog> {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      title: Text('Verify sync credentials'),
+      title: Text(AppLocalizations.of(context).t('Verify sync credentials')),
       content: SizedBox(
         width: 420,
         child: Column(
@@ -1460,7 +1460,7 @@ final class _SyncCredentialDialogState extends State<_SyncCredentialDialog> {
         ),
         FilledButton(
           onPressed: _valid ? _submit : null,
-          child: const Text('Verify'),
+          child: Text(AppLocalizations.of(context).t('Verify')),
         ),
       ],
     );

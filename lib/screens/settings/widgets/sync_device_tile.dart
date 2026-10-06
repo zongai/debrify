@@ -35,7 +35,7 @@ class _SyncDeviceNameDialogState extends State<SyncDeviceNameDialog> {
   @override
   Widget build(BuildContext context) => AlertDialog(
     scrollable: true,
-    title: Text('Rename this device'),
+    title: Text(AppLocalizations.of(context).t('Rename this device')),
     content: SizedBox(
       width: 420,
       child: Column(
@@ -238,7 +238,7 @@ class _SyncDevicesDialogState extends State<SyncDevicesDialog> {
             ),
             const SizedBox(height: 20),
             if (widget.devices.isEmpty)
-              const Text('No devices to show yet. Run Sync now and try again.'),
+              Text(AppLocalizations.of(context).t('No devices to show yet. Run Sync now and try again.')),
             for (final device in widget.devices) ...[
               SyncDeviceTile(
                 name:

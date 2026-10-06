@@ -150,7 +150,7 @@ class _ForegroundSyncDialogState extends State<_ForegroundSyncDialog>
     actions: [
       TextButton(
         onPressed: () => Navigator.of(context).pop(),
-        child: const Text('Hide progress'),
+        child: Text(AppLocalizations.of(context).t('Hide progress')),
       ),
     ],
   );

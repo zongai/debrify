@@ -247,7 +247,7 @@ class _RemoteRolePickerScreenState extends State<RemoteRolePickerScreen> {
                             Icons.phonelink_lock_rounded,
                             size: 18,
                           ),
-                          label: const Text('Paired remote devices'),
+                          label: Text(AppLocalizations.of(context).t('Paired remote devices')),
                           style: TextButton.styleFrom(
                             foregroundColor: Colors.white.withValues(
                               alpha: 0.7,

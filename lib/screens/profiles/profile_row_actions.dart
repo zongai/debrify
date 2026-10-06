@@ -45,7 +45,7 @@ class ProfileRowActions {
     } catch (_) {
       if (!context.mounted) return false;
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Profile deletion is not authorized')),
+        SnackBar(content: Text(AppLocalizations.of(context).t('Profile deletion is not authorized'))),
       );
       return false;
     }
@@ -96,7 +96,7 @@ class ProfileRowActions {
                   CheckboxListTile(
                     contentPadding: EdgeInsets.zero,
                     value: deleteConnections,
-                    title: const Text('Delete unshared owned connections'),
+                    title: Text(AppLocalizations.of(context).t('Delete unshared owned connections')),
                     onChanged: dependencies.sharedResources > 0
                         ? null
                         : (value) => setDialogState(
@@ -107,7 +107,7 @@ class ProfileRowActions {
                   CheckboxListTile(
                     contentPadding: EdgeInsets.zero,
                     value: retainPublicFiles,
-                    title: const Text('Keep downloaded and recorded files'),
+                    title: Text(AppLocalizations.of(context).t('Keep downloaded and recorded files')),
                     subtitle: Text(
                       retainPublicFiles
                           ? 'Ownership is detached; files stay on this device.'
@@ -200,7 +200,7 @@ class ProfileRowActions {
       if (!context.mounted) return false;
       ScaffoldMessenger.of(
         context,
-      ).showSnackBar(SnackBar(content: Text('Profile deletion failed')));
+      ).showSnackBar(SnackBar(content: Text(AppLocalizations.of(context).t('Profile deletion failed'))));
       return false;
     }
   }
@@ -233,7 +233,7 @@ class ProfileRowActions {
     } catch (_) {
       if (!context.mounted) return false;
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Profile status could not be changed')),
+        SnackBar(content: Text(AppLocalizations.of(context).t('Profile status could not be changed'))),
       );
       return false;
     }

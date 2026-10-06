@@ -92,7 +92,7 @@ class _TvRenderQualityPageState extends State<TvRenderQualityPage> {
     if (!mounted) return;
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
-        content: Text('Rendering saved — restart Debrify to apply it.'),
+        content: Text(AppLocalizations.of(context).t('Rendering saved — restart Debrify to apply it.')),
       ),
     );
   }

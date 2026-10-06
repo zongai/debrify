@@ -76,7 +76,7 @@ class _RemoteControlScreenState extends State<RemoteControlScreen> {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text('Could not start receiving. Please try again.'),
+            content: Text(AppLocalizations.of(context).t('Could not start receiving. Please try again.')),
           ),
         );
       }
@@ -94,7 +94,7 @@ class _RemoteControlScreenState extends State<RemoteControlScreen> {
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text('Setup transfer is disabled for this profile.'),
+          content: Text(AppLocalizations.of(context).t('Setup transfer is disabled for this profile.')),
         ),
       );
       return;
@@ -149,7 +149,7 @@ class _RemoteControlScreenState extends State<RemoteControlScreen> {
                 actions: [
                   TextButton(
                     onPressed: busy ? null : _receiveInstead,
-                    child: const Text('Receive instead'),
+                    child: Text(AppLocalizations.of(context).t('Receive instead')),
                   ),
                 ],
                 leading: BackButton(
@@ -203,13 +203,13 @@ class _RemoteControlScreenState extends State<RemoteControlScreen> {
                                       onPressed: busy
                                           ? null
                                           : () => _openView('navigate'),
-                                      child: const Text('Control'),
+                                      child: Text(AppLocalizations.of(context).t('Control')),
                                     )
                                   : OutlinedButton(
                                       onPressed: busy
                                           ? null
                                           : () => _openView('navigate'),
-                                      child: const Text('Control'),
+                                      child: Text(AppLocalizations.of(context).t('Control')),
                                     ),
                             ),
                           ],
@@ -405,7 +405,7 @@ class _RemoteControlScreenState extends State<RemoteControlScreen> {
         _showManualIpDialog(state);
       },
       icon: Icon(Icons.lan_rounded, size: 18),
-      label: Text('Connect by IP (Tailscale / VPN)'),
+      label: Text(AppLocalizations.of(context).t('Connect by IP (Tailscale / VPN)')),
       style: OutlinedButton.styleFrom(
         foregroundColor: AppThemeScope.of(
           context,
@@ -738,12 +738,12 @@ class _RemoteControlScreenState extends State<RemoteControlScreen> {
     } on PlatformException {
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('The image picker is not available.')),
+        SnackBar(content: Text(AppLocalizations.of(context).t('The image picker is not available.'))),
       );
     } catch (_) {
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('That avatar could not be sent.')),
+        SnackBar(content: Text(AppLocalizations.of(context).t('That avatar could not be sent.'))),
       );
     } finally {
       if (mounted) setState(() => _sendingAvatar = false);

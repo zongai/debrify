@@ -672,7 +672,7 @@ class _MdblistSeeAllScreenState extends State<MdblistSeeAllScreen> {
       context: context,
       builder: (context) => StatefulBuilder(
         builder: (context, setDialogState) => AlertDialog(
-          title: Text('MDBList Catalog Filters'),
+          title: Text(AppLocalizations.of(context).t('MDBList Catalog Filters')),
           content: SizedBox(
             width: 520,
             child: SingleChildScrollView(
@@ -683,8 +683,8 @@ class _MdblistSeeAllScreenState extends State<MdblistSeeAllScreen> {
                     initialValue: draft.mediaType,
                     decoration: InputDecoration(labelText: 'Media type'),
                     items: [
-                      DropdownMenuItem(value: 'movie', child: Text('Movies')),
-                      DropdownMenuItem(value: 'show', child: Text('Series')),
+                      DropdownMenuItem(value: 'movie', child: Text(AppLocalizations.of(context).t('Movies'))),
+                      DropdownMenuItem(value: 'show', child: Text(AppLocalizations.of(context).t('Series'))),
                     ],
                     onChanged: (value) {
                       if (value != null) {
@@ -836,11 +836,11 @@ class _MdblistSeeAllScreenState extends State<MdblistSeeAllScreen> {
                   sortOrder: draft.sortOrder,
                 ),
               ),
-              child: Text('Reset'),
+              child: Text(AppLocalizations.of(context).t('Reset')),
             ),
             TextButton(
               onPressed: () => Navigator.pop(context),
-              child: Text('Cancel'),
+              child: Text(AppLocalizations.of(context).t('Cancel')),
             ),
             FilledButton(
               onPressed: () => Navigator.pop(
@@ -862,7 +862,7 @@ class _MdblistSeeAllScreenState extends State<MdblistSeeAllScreen> {
                   sortOrder: draft.sortOrder,
                 ),
               ),
-              child: const Text('Use Filters'),
+              child: Text(AppLocalizations.of(context).t('Use Filters')),
             ),
           ],
         ),
@@ -1254,7 +1254,7 @@ class _MdblistSeeAllScreenState extends State<MdblistSeeAllScreen> {
                   child: CircularProgressIndicator(strokeWidth: 2),
                 )
               : const Icon(Icons.expand_more_rounded, size: 16),
-          label: Text('More'),
+          label: Text(AppLocalizations.of(context).t('More')),
         ),
       if (_canLike)
         MdblistSaveButton(
@@ -1274,7 +1274,7 @@ class _MdblistSeeAllScreenState extends State<MdblistSeeAllScreen> {
                   child: CircularProgressIndicator(strokeWidth: 2),
                 )
               : const Icon(Icons.copy_rounded, size: 16),
-          label: const Text('Clone'),
+          label: Text(AppLocalizations.of(context).t('Clone')),
         ),
       if (_showRandom && _page.items.isNotEmpty)
         SeeAllRandomButton(

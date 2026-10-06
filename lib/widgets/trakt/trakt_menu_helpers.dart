@@ -119,7 +119,7 @@ Future<Map<String, dynamic>?> showTraktCustomListPickerDialog(
   if (lists.isEmpty) {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
-        content: Text('No custom lists found. Create one on Trakt first.'),
+        content: Text(AppLocalizations.of(context).t('No custom lists found. Create one on Trakt first.')),
         backgroundColor: Color(0xFFEF4444),
       ),
     );
@@ -287,7 +287,7 @@ Future<void> handleTraktMenuAction(
       final confirmed = await showDialog<bool>(
         context: context,
         builder: (ctx) => AlertDialog(
-          title: Text('Clear watch progress?'),
+          title: Text(AppLocalizations.of(context).t('Clear watch progress?')),
           content: Text(
             CustomSeriesIdentity.isCustom(imdbId)
             ? 'Clear watched history and resume progress for ${item.name} on this device?\n\nSaved sources are kept. This cannot be undone.'
@@ -302,7 +302,7 @@ Future<void> handleTraktMenuAction(
             ),
             TextButton(
               onPressed: () => Navigator.pop(ctx, true),
-              child: const Text('Clear progress'),
+              child: Text(AppLocalizations.of(context).t('Clear progress')),
             ),
           ],
         ),

@@ -273,23 +273,23 @@ class _StremioTvSettingsPageState extends State<StremioTvSettingsPage> {
                                     items: const [
                                       DropdownMenuItem(
                                         value: 30,
-                                        child: Text('30 min'),
+                                        child: Text(AppLocalizations.of(context).t('30 min')),
                                       ),
                                       DropdownMenuItem(
                                         value: 60,
-                                        child: Text('1 hour'),
+                                        child: Text(AppLocalizations.of(context).t('1 hour')),
                                       ),
                                       DropdownMenuItem(
                                         value: 90,
-                                        child: Text('1.5 hours'),
+                                        child: Text(AppLocalizations.of(context).t('1.5 hours')),
                                       ),
                                       DropdownMenuItem(
                                         value: 120,
-                                        child: Text('2 hours'),
+                                        child: Text(AppLocalizations.of(context).t('2 hours')),
                                       ),
                                       DropdownMenuItem(
                                         value: 180,
-                                        child: Text('3 hours'),
+                                        child: Text(AppLocalizations.of(context).t('3 hours')),
                                       ),
                                     ],
                                     onChanged: (value) {
@@ -317,23 +317,23 @@ class _StremioTvSettingsPageState extends State<StremioTvSettingsPage> {
                                     items: const [
                                       DropdownMenuItem(
                                         value: 15,
-                                        child: Text('15 min'),
+                                        child: Text(AppLocalizations.of(context).t('15 min')),
                                       ),
                                       DropdownMenuItem(
                                         value: 30,
-                                        child: Text('30 min'),
+                                        child: Text(AppLocalizations.of(context).t('30 min')),
                                       ),
                                       DropdownMenuItem(
                                         value: 45,
-                                        child: Text('45 min'),
+                                        child: Text(AppLocalizations.of(context).t('45 min')),
                                       ),
                                       DropdownMenuItem(
                                         value: 60,
-                                        child: Text('1 hour'),
+                                        child: Text(AppLocalizations.of(context).t('1 hour')),
                                       ),
                                       DropdownMenuItem(
                                         value: 90,
-                                        child: Text('1.5 hours'),
+                                        child: Text(AppLocalizations.of(context).t('1.5 hours')),
                                       ),
                                     ],
                                     onChanged: (value) {
@@ -368,7 +368,7 @@ class _StremioTvSettingsPageState extends State<StremioTvSettingsPage> {
                               const Divider(height: 32),
                               SwitchListTile(
                                 contentPadding: EdgeInsets.zero,
-                                title: const Text('Random Episodes'),
+                                title: Text(AppLocalizations.of(context).t('Random Episodes')),
                                 subtitle: const Text(
                                   'Pick a different episode every time instead of following the scheduled time slot',
                                 ),
@@ -396,15 +396,15 @@ class _StremioTvSettingsPageState extends State<StremioTvSettingsPage> {
                                       ),
                                       DropdownMenuItem(
                                         value: '720p',
-                                        child: Text('720p'),
+                                        child: Text(AppLocalizations.of(context).t('720p')),
                                       ),
                                       DropdownMenuItem(
                                         value: '1080p',
-                                        child: Text('1080p'),
+                                        child: Text(AppLocalizations.of(context).t('1080p')),
                                       ),
                                       DropdownMenuItem(
                                         value: '2160p',
-                                        child: Text('4K'),
+                                        child: Text(AppLocalizations.of(context).t('4K')),
                                       ),
                                     ],
                                     onChanged: (value) {
@@ -436,23 +436,23 @@ class _StremioTvSettingsPageState extends State<StremioTvSettingsPage> {
                                       ),
                                       DropdownMenuItem(
                                         value: 10,
-                                        child: Text('Max 10%'),
+                                        child: Text(AppLocalizations.of(context).t('Max 10%')),
                                       ),
                                       DropdownMenuItem(
                                         value: 20,
-                                        child: Text('Max 20%'),
+                                        child: Text(AppLocalizations.of(context).t('Max 20%')),
                                       ),
                                       DropdownMenuItem(
                                         value: 30,
-                                        child: Text('Max 30%'),
+                                        child: Text(AppLocalizations.of(context).t('Max 30%')),
                                       ),
                                       DropdownMenuItem(
                                         value: 50,
-                                        child: Text('Max 50%'),
+                                        child: Text(AppLocalizations.of(context).t('Max 50%')),
                                       ),
                                       DropdownMenuItem(
                                         value: -1,
-                                        child: Text('Slot progress'),
+                                        child: Text(AppLocalizations.of(context).t('Slot progress')),
                                       ),
                                     ],
                                     onChanged: (value) {
@@ -511,7 +511,7 @@ class _StremioTvSettingsPageState extends State<StremioTvSettingsPage> {
                         child: Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 16),
                           child: SwitchListTile(
-                            title: const Text('Try torrents first'),
+                            title: Text(AppLocalizations.of(context).t('Try torrents first')),
                             subtitle: const Text(
                               'Resolve torrents via debrid before trying direct streams',
                             ),

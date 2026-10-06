@@ -1410,7 +1410,7 @@ class DownloadService {
                                           ),
                                         ),
                                       ),
-                                      child: const Text('Not now'),
+                                      child: Text(AppLocalizations.of(context).t('Not now')),
                                     ),
                                   ),
                                   const SizedBox(width: 12),
@@ -1421,7 +1421,7 @@ class DownloadService {
                                         Navigator.of(ctx2).pop(true);
                                       },
                                       icon: const Icon(Icons.check_circle),
-                                      label: const Text('Allow'),
+                                      label: Text(AppLocalizations.of(context).t('Allow')),
                                       style: ElevatedButton.styleFrom(
                                         padding: const EdgeInsets.symmetric(
                                           vertical: 14,

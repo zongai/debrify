@@ -157,7 +157,7 @@ class _ProfilePinScreenState extends State<ProfilePinScreen> {
           }
 
           return AlertDialog(
-            title: Text('Recover profile'),
+            title: Text(AppLocalizations.of(context).t('Recover profile')),
             content: Column(
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -194,7 +194,7 @@ class _ProfilePinScreenState extends State<ProfilePinScreen> {
                         height: 18,
                         child: CircularProgressIndicator(strokeWidth: 2),
                       )
-                    : const Text('Recover'),
+                    : Text(AppLocalizations.of(context).t('Recover')),
               ),
             ],
           );

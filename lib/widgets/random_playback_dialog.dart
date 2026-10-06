@@ -27,7 +27,7 @@ class RandomPlaybackDialog extends StatelessWidget {
         SingleActivator(LogicalKeyboardKey.gameButtonA): ActivateIntent(),
       },
       child: AlertDialog(
-        title: const Text('Random playback'),
+        title: Text(AppLocalizations.of(context).t('Random playback')),
         scrollable: true,
         content: SizedBox(
           width: 440,

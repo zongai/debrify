@@ -204,13 +204,13 @@ Future<_ConflictChoice> _showConflictDialog(
             TextButton(
               onPressed: () =>
                   Navigator.of(dialogContext).pop(_ConflictChoice.manage),
-              child: const Text('Manage recordings'),
+              child: Text(AppLocalizations.of(context).t('Manage recordings')),
             ),
           TextButton(
             autofocus: true,
             onPressed: () =>
                 Navigator.of(dialogContext).pop(_ConflictChoice.raiseLimit),
-            child: const Text('Raise limit'),
+            child: Text(AppLocalizations.of(context).t('Raise limit')),
           ),
         ],
       );

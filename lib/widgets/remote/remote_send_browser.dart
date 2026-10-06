@@ -263,7 +263,7 @@ class _RemoteSendBrowserState extends State<RemoteSendBrowser> {
                 onPressed: (widget.busy || widget.loading)
                     ? null
                     : () => setState(() => _group = null),
-                child: const Text('Add items from another category'),
+                child: Text(AppLocalizations.of(context).t('Add items from another category')),
               ),
           ],
         );

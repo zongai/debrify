@@ -2,6 +2,8 @@ import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
 
+import '../l10n/app_localizations.dart';
+
 
 import '../models/media_server.dart';
 import '../models/media_server_library.dart';
@@ -488,7 +490,7 @@ class _MediaServerLibraryPanelState extends State<MediaServerLibraryPanel> {
                               _loadPage(reset: false);
                             }
                           : null,
-                      child: const Text('Previous page'),
+                      child: Text(AppLocalizations.of(context).t('Previous page')),
                     ),
                     Text(
                       'Page ${_offsets.length}',
@@ -501,7 +503,7 @@ class _MediaServerLibraryPanelState extends State<MediaServerLibraryPanel> {
                               _loadPage(reset: false);
                             }
                           : null,
-                      child: const Text('Next page'),
+                      child: Text(AppLocalizations.of(context).t('Next page')),
                     ),
                   ],
                 ),
@@ -525,11 +527,11 @@ class _MediaServerLibraryPanelState extends State<MediaServerLibraryPanel> {
                 style: TextStyle(color: AppThemeScope.of(context).core.tx),
               ),
               if (retry != null)
-                TextButton(onPressed: retry, child: Text('Retry')),
+                TextButton(onPressed: retry, child: Text(AppLocalizations.of(context).t('Retry'))),
               if (settings)
                 TextButton(
                   onPressed: _settings,
-                  child: const Text('Manage servers'),
+                  child: Text(AppLocalizations.of(context).t('Manage servers')),
                 ),
             ],
           ),
@@ -805,7 +807,7 @@ class _MediaServerItemScreenState extends State<_MediaServerItemScreen> {
                   Text(_error!, style: TextStyle(color: app.core.tx)),
                   TextButton(
                     onPressed: _busy ? null : _load,
-                    child: Text('Retry'),
+                    child: Text(AppLocalizations.of(context).t('Retry')),
                   ),
                 ],
                 if (_sources != null) ...[

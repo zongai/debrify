@@ -91,7 +91,7 @@ class _SubtitlePriorityPageState extends State<SubtitlePriorityPage> {
         setState(() => _saving = false);
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text('Could not save subtitle priority. Try again.'),
+            content: Text(AppLocalizations.of(context).t('Could not save subtitle priority. Try again.')),
           ),
         );
       }

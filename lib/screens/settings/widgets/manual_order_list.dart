@@ -319,18 +319,18 @@ class ManualOrderListState extends State<ManualOrderList> {
               ListTile(
                 autofocus: true,
                 leading: const Icon(Icons.vertical_align_top_rounded),
-                title: const Text('Move to top'),
+                title: Text(AppLocalizations.of(context).t('Move to top')),
                 onTap: () => Navigator.of(sheetContext).pop('top'),
               ),
               ListTile(
                 leading: const Icon(Icons.vertical_align_bottom_rounded),
-                title: const Text('Move to bottom'),
+                title: Text(AppLocalizations.of(context).t('Move to bottom')),
                 onTap: () => Navigator.of(sheetContext).pop('bottom'),
               ),
               if (!PlatformUtil.isTelevision)
                 ListTile(
                   leading: const Icon(Icons.pin_rounded),
-                  title: const Text('Move to position…'),
+                  title: Text(AppLocalizations.of(context).t('Move to position…')),
                   onTap: () => Navigator.of(sheetContext).pop('position'),
                 ),
             ],
@@ -355,7 +355,7 @@ class ManualOrderListState extends State<ManualOrderList> {
     final position = await showDialog<int>(
       context: context,
       builder: (dialogContext) => AlertDialog(
-        title: Text('Move to position'),
+        title: Text(AppLocalizations.of(context).t('Move to position')),
         content: TextField(
           controller: controller,
           autofocus: true,
@@ -553,7 +553,7 @@ class ManualOrderListState extends State<ManualOrderList> {
   Widget _buildSearchResults(int pickedIndex) {
     final matches = _filteredIndexes();
     if (matches.isEmpty) {
-      return const Center(child: Text('No matches.'));
+      return const Center(child: Text(AppLocalizations.of(context).t('No matches.')));
     }
     return ListView.builder(
       padding: const EdgeInsets.fromLTRB(16, 0, 16, 48),

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+
+import '../l10n/app_localizations.dart';
 import 'deep_link_service.dart';
 import 'debrid_service.dart';
 import 'torbox_service.dart';
@@ -135,12 +137,12 @@ class MagnetLinkHandler {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: const Text('Select Service'),
+        title: Text(AppLocalizations.of(context).t('Select Service')),
         content: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text('Which service would you like to use for this link?'),
+            Text(AppLocalizations.of(context).t('Which service would you like to use for this link?')),
             const SizedBox(height: 8),
             Text(
               displayName,
@@ -158,7 +160,7 @@ class MagnetLinkHandler {
                 _addUrlToRealDebrid(url, displayName);
               },
               icon: const Icon(Icons.cloud_download),
-              label: const Text('RealDebrid'),
+              label: Text(AppLocalizations.of(context).t('RealDebrid')),
             ),
           if (services.hasTorbox)
             TextButton.icon(
@@ -167,7 +169,7 @@ class MagnetLinkHandler {
                 _addUrlToTorbox(url, displayName);
               },
               icon: const Icon(Icons.flash_on),
-              label: const Text('Torbox'),
+              label: Text(AppLocalizations.of(context).t('Torbox')),
             ),
           if (services.hasPikPak)
             TextButton.icon(
@@ -176,7 +178,7 @@ class MagnetLinkHandler {
                 _addUrlToPikPak(url, displayName);
               },
               icon: const Icon(Icons.cloud_circle),
-              label: const Text('PikPak'),
+              label: Text(AppLocalizations.of(context).t('PikPak')),
             ),
           if (services.hasPremiumize)
             TextButton.icon(
@@ -185,7 +187,7 @@ class MagnetLinkHandler {
                 _addUrlToPremiumize(url, displayName);
               },
               icon: const Icon(Icons.workspace_premium_rounded),
-              label: const Text('Premiumize'),
+              label: Text(AppLocalizations.of(context).t('Premiumize')),
             ),
           if (services.hasAllDebrid)
             TextButton.icon(
@@ -194,11 +196,11 @@ class MagnetLinkHandler {
                 _addUrlToAllDebrid(url, displayName);
               },
               icon: const Icon(Icons.all_inclusive_rounded),
-              label: const Text('AllDebrid'),
+              label: Text(AppLocalizations.of(context).t('AllDebrid')),
             ),
           TextButton(
             onPressed: () => Navigator.of(context).pop(),
-            child: const Text('Cancel'),
+            child: Text(AppLocalizations.of(context).t('Cancel')),
           ),
         ],
       ),
@@ -393,7 +395,7 @@ class MagnetLinkHandler {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: const Text('Select Service'),
+        title: Text(AppLocalizations.of(context).t('Select Service')),
         content: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -418,7 +420,7 @@ class MagnetLinkHandler {
                 _addToRealDebrid(magnetUri, infohash, torrentName);
               },
               icon: const Icon(Icons.cloud_download),
-              label: const Text('RealDebrid'),
+              label: Text(AppLocalizations.of(context).t('RealDebrid')),
             ),
           if (services.hasTorbox)
             TextButton.icon(
@@ -427,7 +429,7 @@ class MagnetLinkHandler {
                 _addToTorbox(magnetUri, infohash, torrentName);
               },
               icon: const Icon(Icons.flash_on),
-              label: const Text('Torbox'),
+              label: Text(AppLocalizations.of(context).t('Torbox')),
             ),
           if (services.hasPikPak)
             TextButton.icon(
@@ -436,7 +438,7 @@ class MagnetLinkHandler {
                 _addToPikPak(magnetUri, infohash, torrentName);
               },
               icon: const Icon(Icons.cloud_circle),
-              label: const Text('PikPak'),
+              label: Text(AppLocalizations.of(context).t('PikPak')),
             ),
           if (services.hasPremiumize)
             TextButton.icon(
@@ -445,7 +447,7 @@ class MagnetLinkHandler {
                 _addToPremiumize(magnetUri, torrentName);
               },
               icon: const Icon(Icons.workspace_premium_rounded),
-              label: const Text('Premiumize'),
+              label: Text(AppLocalizations.of(context).t('Premiumize')),
             ),
           if (services.hasAllDebrid)
             TextButton.icon(
@@ -454,11 +456,11 @@ class MagnetLinkHandler {
                 _addToAllDebrid(magnetUri, torrentName);
               },
               icon: const Icon(Icons.all_inclusive_rounded),
-              label: const Text('AllDebrid'),
+              label: Text(AppLocalizations.of(context).t('AllDebrid')),
             ),
           TextButton(
             onPressed: () => Navigator.of(context).pop(),
-            child: const Text('Cancel'),
+            child: Text(AppLocalizations.of(context).t('Cancel')),
           ),
         ],
       ),

@@ -605,7 +605,7 @@ class _StremioTvLocalCatalogEditorDialogState
     final confirmed = await showDialog<bool>(
       context: context,
       builder: (ctx) => AlertDialog(
-        title: Text('Remove Item'),
+        title: Text(AppLocalizations.of(context).t('Remove Item')),
         content: Text('Remove "$itemName" from this local channel?'),
         actions: [
           TextButton(
@@ -632,7 +632,7 @@ class _StremioTvLocalCatalogEditorDialogState
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text('Channel removed because it no longer has any items'),
+          content: Text(AppLocalizations.of(context).t('Channel removed because it no longer has any items')),
           behavior: SnackBarBehavior.floating,
         ),
       );
@@ -649,7 +649,7 @@ class _StremioTvLocalCatalogEditorDialogState
     if (!saved) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: const Text('Local catalog could not be updated'),
+          content: Text(AppLocalizations.of(context).t('Local catalog could not be updated')),
           backgroundColor: Colors.red.shade700,
           behavior: SnackBarBehavior.floating,
         ),
@@ -1307,7 +1307,7 @@ class _StremioTvLocalCatalogsDialogState
     final confirmed = await showDialog<bool>(
       context: context,
       builder: (ctx) => AlertDialog(
-        title: Text('Delete Catalog'),
+        title: Text(AppLocalizations.of(context).t('Delete Catalog')),
         content: Text('Remove "$name" and all its items?'),
         actions: [
           TextButton(
@@ -1670,7 +1670,7 @@ class _ImportUrlDialogState extends State<_ImportUrlDialog> {
   Widget build(BuildContext context) {
     final app = AppThemeScope.of(context);
     return AlertDialog(
-      title: const Text('Import from URL'),
+      title: Text(AppLocalizations.of(context).t('Import from URL')),
       content: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
@@ -2368,7 +2368,7 @@ class _ImportTraktDialogState extends State<_ImportTraktDialog> {
     if (!_authenticated) {
       return AlertDialog(
         title: Text(AppLocalizations.of(context).t('Import from Trakt')),
-        content: const Text('Sign in to Trakt first in Settings.'),
+        content: Text(AppLocalizations.of(context).t('Sign in to Trakt first in Settings.')),
         actions: [
           TextButton(
             onPressed: () => Navigator.of(context).pop(),
@@ -2733,8 +2733,8 @@ class _ImportMdblistDialogState extends State<_ImportMdblistDialog> {
 
     if (!_connected) {
       return AlertDialog(
-        title: Text('Import from MDBList'),
-        content: const Text('Connect MDBList first in Settings.'),
+        title: Text(AppLocalizations.of(context).t('Import from MDBList')),
+        content: Text(AppLocalizations.of(context).t('Connect MDBList first in Settings.')),
         actions: [
           TextButton(
             onPressed: () => Navigator.of(context).pop(),
@@ -2745,7 +2745,7 @@ class _ImportMdblistDialogState extends State<_ImportMdblistDialog> {
     }
 
     return AlertDialog(
-      title: Text('Import from MDBList'),
+      title: Text(AppLocalizations.of(context).t('Import from MDBList')),
       content: SizedBox(
         width: 400,
         child: Column(

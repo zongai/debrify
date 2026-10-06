@@ -160,7 +160,7 @@ class _PikPakFilesScreenState extends State<PikPakFilesScreen> {
           Navigator.of(context).pop();
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
-              content: Text('Failed to open folder. Please try again.'),
+              content: Text(AppLocalizations.of(context).t('Failed to open folder. Please try again.')),
               backgroundColor: Color(0xFFEF4444),
             ),
           );
@@ -1165,7 +1165,7 @@ class _PikPakFilesScreenState extends State<PikPakFilesScreen> {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: Text('Delete File'),
+        title: Text(AppLocalizations.of(context).t('Delete File')),
         content: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -1189,7 +1189,7 @@ class _PikPakFilesScreenState extends State<PikPakFilesScreen> {
               Navigator.of(context).pop();
               _deleteFile(fileId, fileName, permanent: false);
             },
-            child: const Text('Move to Trash'),
+            child: Text(AppLocalizations.of(context).t('Move to Trash')),
           ),
           TextButton(
             onPressed: () {
@@ -1197,7 +1197,7 @@ class _PikPakFilesScreenState extends State<PikPakFilesScreen> {
               _deleteFile(fileId, fileName, permanent: true);
             },
             style: TextButton.styleFrom(foregroundColor: Colors.red),
-            child: const Text('Delete Permanently'),
+            child: Text(AppLocalizations.of(context).t('Delete Permanently')),
           ),
         ],
       ),
@@ -1322,12 +1322,12 @@ class _PikPakFilesScreenState extends State<PikPakFilesScreen> {
           ),
           TextButton(
             onPressed: () => Navigator.of(context).pop('trash'),
-            child: const Text('Move to Trash'),
+            child: Text(AppLocalizations.of(context).t('Move to Trash')),
           ),
           TextButton(
             onPressed: () => Navigator.of(context).pop('permanent'),
             style: TextButton.styleFrom(foregroundColor: Colors.red),
-            child: const Text('Delete Permanently'),
+            child: Text(AppLocalizations.of(context).t('Delete Permanently')),
           ),
         ],
       ),
@@ -2098,7 +2098,7 @@ class _PikPakFilesScreenState extends State<PikPakFilesScreen> {
             onPressed: () => Navigator.of(context).pop(),
             tooltip: 'Back',
           ),
-          title: const Text('Opening folder...'),
+          title: Text(AppLocalizations.of(context).t('Opening folder...')),
         ),
         body: const Center(
           child: Column(
@@ -2106,7 +2106,7 @@ class _PikPakFilesScreenState extends State<PikPakFilesScreen> {
             children: [
               CircularProgressIndicator(),
               SizedBox(height: 16),
-              Text('Loading folder contents...'),
+              Text(AppLocalizations.of(context).t('Loading folder contents...')),
             ],
           ),
         ),
@@ -2284,7 +2284,7 @@ class _PikPakFilesScreenState extends State<PikPakFilesScreen> {
   Widget _buildNotEnabled() {
     final app = AppThemeScope.of(context);
     return CloudScaffold(
-      appBar: AppBar(title: const Text('PikPak Files')),
+      appBar: AppBar(title: Text(AppLocalizations.of(context).t('PikPak Files'))),
       body: FocusTraversalGroup(
         policy: OrderedTraversalPolicy(),
         child: Center(
@@ -2338,7 +2338,7 @@ class _PikPakFilesScreenState extends State<PikPakFilesScreen> {
   Widget _buildError() {
     final app = AppThemeScope.of(context);
     return CloudScaffold(
-      appBar: AppBar(title: Text('PikPak Files')),
+      appBar: AppBar(title: Text(AppLocalizations.of(context).t('PikPak Files'))),
       body: FocusTraversalGroup(
         policy: OrderedTraversalPolicy(),
         child: Center(
@@ -3361,7 +3361,7 @@ class _PikPakFilesScreenState extends State<PikPakFilesScreen> {
           children: [
             const CircularProgressIndicator(color: Color(0xFFFFAA00)),
             const SizedBox(height: 16),
-            const Text('Adding to PikPak...'),
+            Text(AppLocalizations.of(context).t('Adding to PikPak...')),
             const SizedBox(height: 8),
             Text(
               link.length > 50 ? '${link.substring(0, 50)}...' : link,

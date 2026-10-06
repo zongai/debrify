@@ -2,6 +2,8 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 
+import '../l10n/app_localizations.dart';
+
 import 'package:flutter/services.dart';
 
 import '../services/analytics_service.dart';
@@ -285,7 +287,7 @@ class _PlaylistScreenState extends State<PlaylistScreen> {
               foregroundColor: app.playlist.ink2,
               padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 10),
             ),
-            child: Text('Keep'),
+            child: Text(AppLocalizations.of(context).t('Keep')),
           ),
           TextButton(
             onPressed: () => Navigator.of(context).pop(true),
@@ -295,7 +297,7 @@ class _PlaylistScreenState extends State<PlaylistScreen> {
               foregroundColor: Color(0xFFE50914),
               padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 10),
             ),
-            child: Text('Remove'),
+            child: Text(AppLocalizations.of(context).t('Remove')),
           ),
         ],
       ),
@@ -320,7 +322,7 @@ class _PlaylistScreenState extends State<PlaylistScreen> {
         if (!mounted) return;
         ScaffoldMessenger.of(
           context,
-        ).showSnackBar(SnackBar(content: Text('Removed from playlist')));
+        ).showSnackBar(SnackBar(content: Text(AppLocalizations.of(context).t('Removed from playlist'))));
 
         // Set focus restoration flags BEFORE refresh
         // Only restore focus if there will be items remaining after deletion
@@ -386,7 +388,7 @@ class _PlaylistScreenState extends State<PlaylistScreen> {
               foregroundColor: app.playlist.ink2,
               padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 10),
             ),
-            child: Text('Cancel'),
+            child: Text(AppLocalizations.of(context).t('Cancel')),
           ),
           TextButton(
             onPressed: () => Navigator.of(context).pop(true),
@@ -395,7 +397,7 @@ class _PlaylistScreenState extends State<PlaylistScreen> {
               foregroundColor: app.playlist.warning,
               padding: EdgeInsets.symmetric(horizontal: 18, vertical: 10),
             ),
-            child: Text('Clear Progress'),
+            child: Text(AppLocalizations.of(context).t('Clear Progress')),
           ),
         ],
       ),
@@ -407,7 +409,7 @@ class _PlaylistScreenState extends State<PlaylistScreen> {
       if (!mounted) return;
       ScaffoldMessenger.of(
         context,
-      ).showSnackBar(SnackBar(content: Text('Watch progress cleared')));
+      ).showSnackBar(SnackBar(content: Text(AppLocalizations.of(context).t('Watch progress cleared'))));
       await _refresh();
     }
   }

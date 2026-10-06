@@ -211,13 +211,13 @@ class _ProfilesSettingsPageState extends State<ProfilesSettingsPage> {
             autofocus: true,
             leading: Icon(Icons.edit_rounded),
             title: Text(AppLocalizations.of(context).t('Edit')),
-            subtitle: const Text('Name, avatar, PIN, access'),
+            subtitle: Text(AppLocalizations.of(context).t('Name, avatar, PIN, access')),
             onTap: () => Navigator.of(dialogContext).pop('edit'),
           ),
           if (profile.isEnabled)
             ListTile(
               leading: const Icon(Icons.swap_horiz_rounded),
-              title: const Text('Switch to this profile'),
+              title: Text(AppLocalizations.of(context).t('Switch to this profile')),
               onTap: () => Navigator.of(dialogContext).pop('switch'),
             ),
           ListTile(

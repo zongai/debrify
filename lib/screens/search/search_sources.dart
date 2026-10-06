@@ -1,3 +1,4 @@
+import '../../l10n/app_localizations.dart';
 part of '../search_screen.dart';
 
 /// Exercises the real source screen with controllable engine batches.
@@ -1277,7 +1278,7 @@ class _SourcesScreenState extends State<_SourcesScreen> {
           children: [
             ListTile(
               leading: Icon(Icons.play_arrow_rounded, color: app.core.tx),
-              title: Text('Play'),
+              title: Text(AppLocalizations.of(context).t('Play')),
               onTap: () {
                 DialogTapGuard.markKeyAction();
                 Navigator.of(sheetCtx).pop();
@@ -1312,7 +1313,7 @@ class _SourcesScreenState extends State<_SourcesScreen> {
                   Icons.copy_rounded,
                   color: Color(0xFFF59E0B),
                 ),
-                title: Text('Copy link'),
+                title: Text(AppLocalizations.of(context).t('Copy link')),
                 onTap: () {
                   DialogTapGuard.markKeyAction();
                   Navigator.of(sheetCtx).pop();
@@ -1385,7 +1386,7 @@ class _SourcesScreenState extends State<_SourcesScreen> {
               ),
             ListTile(
               leading: Icon(Icons.copy_rounded, color: Color(0xFFF59E0B)),
-              title: Text('Copy link'),
+              title: Text(AppLocalizations.of(context).t('Copy link')),
               onTap: () async {
                 DialogTapGuard.markKeyAction();
                 Navigator.of(sheetCtx).pop();
@@ -1399,7 +1400,7 @@ class _SourcesScreenState extends State<_SourcesScreen> {
                   Icons.download_rounded,
                   color: Color(0xFF60A5FA),
                 ),
-                title: Text('Download to device'),
+                title: Text(AppLocalizations.of(context).t('Download to device')),
                 subtitle: Text(
                   'Save this stream to your device',
                   style: TextStyle(color: app.fade(app.core.tx, 0.5)),
@@ -2201,7 +2202,7 @@ class _SourcesScreenState extends State<_SourcesScreen> {
                     unawaited(_runSearch());
                   },
                   itemBuilder: (_) => [
-                    PopupMenuItem(value: 0, child: Text('All Seasons')),
+                    PopupMenuItem(value: 0, child: Text(AppLocalizations.of(context).t('All Seasons'))),
                     for (final s in _seasonMenuNumbers())
                       PopupMenuItem(value: s, child: Text('Season $s')),
                   ],
@@ -2240,11 +2241,11 @@ class _SourcesScreenState extends State<_SourcesScreen> {
                   _rebuildVisible();
                 },
                 itemBuilder: (_) => [
-                  PopupMenuItem(value: 'source', child: Text('Addon order')),
-                  PopupMenuItem(value: 'name', child: Text('Name')),
-                  PopupMenuItem(value: 'size', child: Text('Size')),
-                  PopupMenuItem(value: 'seeders', child: Text('Seeders')),
-                  PopupMenuItem(value: 'date', child: Text('Date')),
+                  PopupMenuItem(value: 'source', child: Text(AppLocalizations.of(context).t('Addon order'))),
+                  PopupMenuItem(value: 'name', child: Text(AppLocalizations.of(context).t('Name'))),
+                  PopupMenuItem(value: 'size', child: Text(AppLocalizations.of(context).t('Size'))),
+                  PopupMenuItem(value: 'seeders', child: Text(AppLocalizations.of(context).t('Seeders'))),
+                  PopupMenuItem(value: 'date', child: Text(AppLocalizations.of(context).t('Date'))),
                 ],
                 child: _tbChip(
                   line,

@@ -3603,7 +3603,7 @@ class _SharedIptvSourceDeleteDialogState
       canRequestFocus: false,
       onKeyEvent: _onKeyEvent,
       child: AlertDialog(
-        title: Text('Remove shared source?'),
+        title: Text(AppLocalizations.of(context).t('Remove shared source?')),
         content: Text(
           '"${widget.playlistName}" is shared with $profiles. Removing it '
           'will also remove access to this source from those profiles.',
@@ -3905,7 +3905,7 @@ class _EditPlaylistDialogState extends State<_EditPlaylistDialog> {
     ];
 
     return AlertDialog(
-      title: Text('Edit Playlist'),
+      title: Text(AppLocalizations.of(context).t('Edit Playlist')),
       // No fixed width — let AlertDialog size to the screen (a hard width
       // overflows narrow phone dialogs). Scrollable so the taller Xtream form
       // (four fields + EPG) never overflows vertically on short screens.
@@ -4273,7 +4273,7 @@ class _PlaylistNameDialogState extends State<_PlaylistNameDialog> {
     final app = AppThemeScope.of(context);
     final t = app.settings;
     return AlertDialog(
-      title: const Text('Name Your Playlist'),
+      title: Text(AppLocalizations.of(context).t('Name Your Playlist')),
       content: Column(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,

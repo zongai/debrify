@@ -6608,7 +6608,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
         context: context,
         builder: (dialogContext) => StatefulBuilder(
           builder: (context, setDialogState) => AlertDialog(
-            title: const Text('Reset this Debrify installation?'),
+            title: Text(AppLocalizations.of(context).t('Reset this Debrify installation?')),
             content: Column(
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -6643,7 +6643,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 onPressed: typed.text == 'RESET'
                     ? () => Navigator.of(dialogContext).pop(true)
                     : null,
-                child: const Text('Reset device'),
+                child: Text(AppLocalizations.of(context).t('Reset device')),
               ),
             ],
           ),
@@ -6914,7 +6914,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                             _startAndroidUpdateDownload(release);
                           },
                           icon: const Icon(Icons.system_update_alt_rounded),
-                          label: const Text('Download & Install'),
+                          label: Text(AppLocalizations.of(context).t('Download & Install')),
                         ),
                       OutlinedButton.icon(
                         onPressed: () {
@@ -6922,7 +6922,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                           _openReleasesPage(release.htmlUrl);
                         },
                         icon: const Icon(Icons.open_in_new_rounded),
-                        label: const Text('Open Releases Page'),
+                        label: Text(AppLocalizations.of(context).t('Open Releases Page')),
                       ),
                     ],
                   ),

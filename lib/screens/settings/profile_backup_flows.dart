@@ -1154,7 +1154,7 @@ class ProfileBackupFlows {
     final result = await showSettingsDialog<String>(
       context: context,
       builder: (dialogContext) => AlertDialog(
-        title: Text('Unlock backup'),
+        title: Text(AppLocalizations.of(context).t('Unlock backup')),
         content: TvTextField(
           controller: controller,
           obscureText: true,
@@ -1191,7 +1191,7 @@ class ProfileBackupFlows {
     final pin = await showSettingsDialog<String>(
       context: context,
       builder: (dialogContext) => AlertDialog(
-        title: Text('Confirm Admin PIN'),
+        title: Text(AppLocalizations.of(context).t('Confirm Admin PIN')),
         content: TvTextField(
           controller: controller,
           autofocus: true,

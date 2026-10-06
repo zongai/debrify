@@ -3512,7 +3512,7 @@ class _DebrifyTVScreenState extends State<DebrifyTVScreen> {
                   ),
                 ),
               ] else ...[
-                const Text('No channels were imported.'),
+                Text(AppLocalizations.of(context).t('No channels were imported.')),
               ],
               if (failureRows.isNotEmpty) ...[
                 if (hasSuccess) const SizedBox(height: 12),
@@ -8326,7 +8326,7 @@ class _DebrifyTVScreenState extends State<DebrifyTVScreen> {
               onPressed: _isBusy || _channels.isEmpty
                   ? null
                   : () => _handleTopMenuAction(_DebrifyTvTopMenuAction.export),
-              child: const Text('Export Channels'),
+              child: Text(AppLocalizations.of(context).t('Export Channels')),
             ),
             MenuItemButton(
               style: itemStyle,
@@ -8997,7 +8997,7 @@ class _DebrifyTVScreenState extends State<DebrifyTVScreen> {
                         children: [
                           Icon(Icons.share_rounded, size: 18),
                           SizedBox(width: 12),
-                          Text('Share Channel'),
+                          Text(AppLocalizations.of(context).t('Share Channel')),
                         ],
                       ),
                     ),
@@ -9365,7 +9365,7 @@ class _DebrifyTVScreenState extends State<DebrifyTVScreen> {
 
                 ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(
-                    content: Text('Reset to defaults successful'),
+                    content: Text(AppLocalizations.of(context).t('Reset to defaults successful')),
                     backgroundColor: Colors.green,
                     duration: Duration(seconds: 2),
                   ),

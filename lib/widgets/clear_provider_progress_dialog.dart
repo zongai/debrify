@@ -33,7 +33,7 @@ Future<void> showClearProviderProgressDialog(
         ),
         TextButton(
           onPressed: () => Navigator.pop(ctx, true),
-          child: const Text('Clear progress'),
+          child: Text(AppLocalizations.of(context).t('Clear progress')),
         ),
       ],
     ),

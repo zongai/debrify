@@ -172,7 +172,7 @@ class _RemoteAddonExportState extends State<RemoteAddonExport> {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text('Failed to send addon'),
+            content: Text(AppLocalizations.of(context).t('Failed to send addon')),
             backgroundColor: Color(0xFFEF4444),
             behavior: SnackBarBehavior.floating,
           ),

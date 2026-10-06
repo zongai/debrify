@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 
 import '../../models/stremio_addon.dart';
 import '../../models/tracking_source.dart';
@@ -136,7 +138,7 @@ List<MdblistMenuOption> buildMdblistMenuOptions({
 Future<int?> showMdblistRatingDialog(BuildContext context) => showDialog<int>(
   context: context,
   builder: (dialogContext) => AlertDialog(
-    title: const Text('Rate on MDBList'),
+    title: Text(AppLocalizations.of(context).t('Rate on MDBList')),
     content: Wrap(
       spacing: 8,
       runSpacing: 8,
@@ -209,18 +211,18 @@ Future<void> handleMdblistMenuAction(
         final confirmed = await showDialog<bool>(
           context: context,
           builder: (ctx) => AlertDialog(
-            title: Text('Collect this show?'),
+            title: Text(AppLocalizations.of(context).t('Collect this show?')),
             content: const Text(
               'MDBList will add every aired episode to your collection.',
             ),
             actions: [
               TextButton(
                 onPressed: () => Navigator.pop(ctx, false),
-                child: Text('Cancel'),
+                child: Text(AppLocalizations.of(context).t('Cancel')),
               ),
               FilledButton(
                 onPressed: () => Navigator.pop(ctx, true),
-                child: const Text('Collect'),
+                child: Text(AppLocalizations.of(context).t('Collect')),
               ),
             ],
           ),

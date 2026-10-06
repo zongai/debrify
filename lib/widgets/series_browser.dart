@@ -561,7 +561,7 @@ class _SeriesBrowserState extends State<SeriesBrowser> {
     if (widget.playlistItem == null) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text('Fix Metadata is not available for this content'),
+          content: Text(AppLocalizations.of(context).t('Fix Metadata is not available for this content')),
           backgroundColor: Colors.red,
         ),
       );

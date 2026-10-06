@@ -17,6 +17,8 @@ import 'package:android_intent_plus/flag.dart';
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 
+import '../l10n/app_localizations.dart';
+
 import 'package:http/http.dart' as http;
 
 import '../models/iptv_playlist.dart';
@@ -793,7 +795,7 @@ class VideoPlayerLauncher {
           context: context,
           barrierDismissible: false,
           builder: (dialogContext) => AlertDialog(
-            title: Text('External player unavailable'),
+            title: Text(AppLocalizations.of(context).t('External player unavailable')),
             content: const Text(
               'This server requires authentication. Debrify cannot pass '
               'the required authorization headers to another app, so this video '
@@ -802,12 +804,12 @@ class VideoPlayerLauncher {
             actions: [
               TextButton(
                 onPressed: () => Navigator.of(dialogContext).pop(false),
-                child: Text('Cancel'),
+                child: Text(AppLocalizations.of(context).t('Cancel')),
               ),
               FilledButton(
                 autofocus: true,
                 onPressed: () => Navigator.of(dialogContext).pop(true),
-                child: const Text('Use Debrify player'),
+                child: Text(AppLocalizations.of(context).t('Use Debrify player')),
               ),
             ],
           ),
@@ -1522,7 +1524,7 @@ class VideoPlayerLauncher {
       if (context.mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text('External players are disabled for this profile.'),
+            content: Text(AppLocalizations.of(context).t('External players are disabled for this profile.')),
           ),
         );
       }
@@ -1902,7 +1904,7 @@ class VideoPlayerLauncher {
       if (context.mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text('Launching DeoVR...'),
+            content: Text(AppLocalizations.of(context).t('Launching DeoVR...')),
             duration: Duration(seconds: 2),
           ),
         );
@@ -1948,7 +1950,7 @@ class VideoPlayerLauncher {
     return await showDialog<bool>(
           context: context,
           builder: (dialogContext) => AlertDialog(
-            title: Text('Share stream with another app?'),
+            title: Text(AppLocalizations.of(context).t('Share stream with another app?')),
             content: const Text(
               'This stream address may contain a short-lived account token. '
               'The selected player will be able to read it.',
@@ -1956,11 +1958,11 @@ class VideoPlayerLauncher {
             actions: [
               TextButton(
                 onPressed: () => Navigator.of(dialogContext).pop(false),
-                child: const Text('Use Debrify player'),
+                child: Text(AppLocalizations.of(context).t('Use Debrify player')),
               ),
               FilledButton(
                 onPressed: () => Navigator.of(dialogContext).pop(true),
-                child: Text('Continue'),
+                child: Text(AppLocalizations.of(context).t('Continue')),
               ),
             ],
           ),
@@ -1983,7 +1985,7 @@ class VideoPlayerLauncher {
       context: context,
       builder: (context) => StatefulBuilder(
         builder: (context, setState) => AlertDialog(
-          title: const Text('DeoVR Format'),
+          title: Text(AppLocalizations.of(context).t('DeoVR Format')),
           content: Column(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -2054,12 +2056,12 @@ class VideoPlayerLauncher {
           actions: [
             TextButton(
               onPressed: () => Navigator.of(context).pop(false),
-              child: Text('Cancel'),
+              child: Text(AppLocalizations.of(context).t('Cancel')),
             ),
             FilledButton.icon(
               onPressed: () => Navigator.of(context).pop(true),
               icon: Icon(Icons.play_arrow),
-              label: Text('Play'),
+              label: Text(AppLocalizations.of(context).t('Play')),
             ),
           ],
         ),

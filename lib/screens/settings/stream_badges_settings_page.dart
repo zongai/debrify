@@ -454,7 +454,7 @@ class _StreamBadgesSettingsPageState extends State<StreamBadgesSettingsPage> {
                     await _service.clear();
                     await _load();
                   }),
-                  child: const Text('Reset presets'),
+                  child: Text(AppLocalizations.of(context).t('Reset presets')),
                 ),
               ],
             ),

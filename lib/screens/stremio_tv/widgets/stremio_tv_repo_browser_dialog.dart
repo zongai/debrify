@@ -462,7 +462,7 @@ class _StremioTvRepoBrowserDialogState
     final confirmed = await showDialog<bool>(
       context: context,
       builder: (ctx) => AlertDialog(
-        title: Text('Remove Repository'),
+        title: Text(AppLocalizations.of(context).t('Remove Repository')),
         content: Text('Remove "$label" from saved repos?'),
         actions: [
           TextButton(

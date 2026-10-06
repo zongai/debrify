@@ -1105,7 +1105,7 @@ class EpisodesPanelState extends State<EpisodesPanel> {
     } on StateError {
       if (mounted && generation == _episodeModeGeneration) {
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-          content: Text('Could not verify series episodes. Please retry.'),
+          content: Text(AppLocalizations.of(context).t('Could not verify series episodes. Please retry.')),
         ));
       }
       return;
@@ -2066,7 +2066,7 @@ class EpisodesPanelState extends State<EpisodesPanel> {
                     ),
                     onPressed: () => _fallbackToDirectSearch(show),
                     icon: const Icon(Icons.search_rounded),
-                    label: const Text('Search for sources'),
+                    label: Text(AppLocalizations.of(context).t('Search for sources')),
                   ),
               ],
             ),
@@ -2255,7 +2255,7 @@ class EpisodesPanelState extends State<EpisodesPanel> {
       }
       if (!mounted) return;
       if (season == null || season.episodes.isEmpty) {
-        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Could not load season episodes. Please retry.')));
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(AppLocalizations.of(context).t('Could not load season episodes. Please retry.'))));
         return;
       }
       final episodeNumbers = season.episodes.map((e) => e.number).toList();
@@ -2283,7 +2283,7 @@ class EpisodesPanelState extends State<EpisodesPanel> {
                 enabled: targets[i] != null,
                 title: Text(targets[i] == null ? 'Watch status unavailable ${names[i]}'
                   : '${retryTargets[i] != null ? 'Retry: mark' : 'Mark'} season as ${targets[i]! ? 'watched' : 'unwatched'} ${names[i]}'),
-                subtitle: targets[i] == null ? const Text('Close and reopen to retry.') : null,
+                subtitle: targets[i] == null ? Text(AppLocalizations.of(context).t('Close and reopen to retry.')) : null,
                 onTap: () => Navigator.pop(ctx, providers[i])),
           ])))));
       if (choice == null || !mounted) return;
@@ -2306,7 +2306,7 @@ class EpisodesPanelState extends State<EpisodesPanel> {
         : 'Could not mark $failures episodes $action $name. Reopen the season menu to retry.')));
     } catch (_) {
       if (mounted) ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-        content: Text('Could not update season watch status. Please retry.')));
+        content: Text(AppLocalizations.of(context).t('Could not update season watch status. Please retry.'))));
     } finally { _seasonActionBusy = false; }
   }
 

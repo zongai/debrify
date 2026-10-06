@@ -187,7 +187,7 @@ import '../../l10n/app_localizations.dart';
 //     final confirmed = await showDialog<bool>(
 //       context: context,
 //       builder: (context) => AlertDialog(
-//         title: const Text('Remove from Favorites?'),
+//         title: Text(AppLocalizations.of(context).t('Remove from Favorites?')),
 //         content: Text('Remove "$title" from your favorites?'),
 //         actions: [
 //           TextButton(

@@ -497,7 +497,7 @@ class _TorboxDownloadsScreenState extends State<TorboxDownloadsScreen> {
       if (!mounted) return;
       await Clipboard.setData(ClipboardData(text: link));
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Download link copied to clipboard.')),
+        SnackBar(content: Text(AppLocalizations.of(context).t('Download link copied to clipboard.'))),
       );
     } catch (e) {
       if (!mounted) return;
@@ -522,7 +522,7 @@ class _TorboxDownloadsScreenState extends State<TorboxDownloadsScreen> {
       await Clipboard.setData(ClipboardData(text: zipUrl));
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('ZIP download link copied to clipboard.')),
+        SnackBar(content: Text(AppLocalizations.of(context).t('ZIP download link copied to clipboard.'))),
       );
     } catch (e) {
       if (!mounted) return;
@@ -890,7 +890,7 @@ class _TorboxDownloadsScreenState extends State<TorboxDownloadsScreen> {
     final confirmed = await showDialog<bool>(
       context: context,
       builder: (context) => AlertDialog(
-        title: Text('Delete all torrents?'),
+        title: Text(AppLocalizations.of(context).t('Delete all torrents?')),
         content: Text(
           'Are you sure you want to delete all ${_torrents.length} cached torrents from Torbox? This action cannot be undone.',
         ),
@@ -928,7 +928,7 @@ class _TorboxDownloadsScreenState extends State<TorboxDownloadsScreen> {
       });
 
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('All Torbox torrents deleted.')),
+        SnackBar(content: Text(AppLocalizations.of(context).t('All Torbox torrents deleted.'))),
       );
     } catch (e) {
       if (!mounted) return;
@@ -995,7 +995,7 @@ class _TorboxDownloadsScreenState extends State<TorboxDownloadsScreen> {
     final confirmed = await showDialog<bool>(
       context: context,
       builder: (context) => AlertDialog(
-        title: Text('Delete torrent?'),
+        title: Text(AppLocalizations.of(context).t('Delete torrent?')),
         content: Text(
           'Are you sure you want to delete "${torrent.name}" from Torbox? This action cannot be undone.',
         ),
@@ -1030,7 +1030,7 @@ class _TorboxDownloadsScreenState extends State<TorboxDownloadsScreen> {
       });
 
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Torrent deleted from Torbox.')),
+        SnackBar(content: Text(AppLocalizations.of(context).t('Torrent deleted from Torbox.'))),
       );
     } catch (e) {
       if (!mounted) return;
@@ -1369,7 +1369,7 @@ class _TorboxDownloadsScreenState extends State<TorboxDownloadsScreen> {
       context: context,
       builder: (dialogContext) {
         return AlertDialog(
-          title: const Text('Select a file to play'),
+          title: Text(AppLocalizations.of(context).t('Select a file to play')),
           content: SizedBox(
             width: double.maxFinite,
             child: ListView.builder(
@@ -1867,7 +1867,7 @@ class _TorboxDownloadsScreenState extends State<TorboxDownloadsScreen> {
     final confirmed = await showDialog<bool>(
       context: context,
       builder: (context) => AlertDialog(
-        title: Text('Delete web download?'),
+        title: Text(AppLocalizations.of(context).t('Delete web download?')),
         content: Text(
           'Are you sure you want to delete "${webDownload.name}" from Torbox? This action cannot be undone.',
         ),
@@ -2155,7 +2155,7 @@ class _TorboxDownloadsScreenState extends State<TorboxDownloadsScreen> {
       context: context,
       builder: (dialogContext) {
         return AlertDialog(
-          title: const Text('Add Web Download'),
+          title: Text(AppLocalizations.of(context).t('Add Web Download')),
           content: SingleChildScrollView(
             child: Column(
               mainAxisSize: MainAxisSize.min,
@@ -2269,13 +2269,13 @@ class _TorboxDownloadsScreenState extends State<TorboxDownloadsScreen> {
       barrierDismissible: false,
       builder: (_) {
         return AlertDialog(
-          title: Text('Adding web download'),
+          title: Text(AppLocalizations.of(context).t('Adding web download')),
           content: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
               CircularProgressIndicator(),
               SizedBox(height: 16),
-              Text('This may take up to a minute...'),
+              Text(AppLocalizations.of(context).t('This may take up to a minute...')),
             ],
           ),
         );
@@ -2919,7 +2919,7 @@ class _TorboxDownloadsScreenState extends State<TorboxDownloadsScreen> {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text('No files selected for download.'),
+            content: Text(AppLocalizations.of(context).t('No files selected for download.')),
             backgroundColor: Color(0xFFEF4444),
           ),
         );
@@ -4117,14 +4117,14 @@ class _TorboxDownloadsScreenState extends State<TorboxDownloadsScreen> {
     final magnetLink = _magnetController.text.trim();
     if (magnetLink.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Please enter a magnet link.')),
+        SnackBar(content: Text(AppLocalizations.of(context).t('Please enter a magnet link.'))),
       );
       return;
     }
 
     if (!_isValidMagnetLink(magnetLink)) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Please enter a valid magnet link.')),
+        SnackBar(content: Text(AppLocalizations.of(context).t('Please enter a valid magnet link.'))),
       );
       return;
     }
@@ -4162,13 +4162,13 @@ class _TorboxDownloadsScreenState extends State<TorboxDownloadsScreen> {
       barrierDismissible: false,
       builder: (_) {
         return AlertDialog(
-          title: Text('Adding torrent'),
+          title: Text(AppLocalizations.of(context).t('Adding torrent')),
           content: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
               CircularProgressIndicator(),
               SizedBox(height: 16),
-              Text('Submitting magnet to Torbox…'),
+              Text(AppLocalizations.of(context).t('Submitting magnet to Torbox…')),
             ],
           ),
         );
@@ -4204,7 +4204,7 @@ class _TorboxDownloadsScreenState extends State<TorboxDownloadsScreen> {
       _magnetController.clear();
       ScaffoldMessenger.of(
         context,
-      ).showSnackBar(SnackBar(content: Text('Magnet added to Torbox.')));
+      ).showSnackBar(SnackBar(content: Text(AppLocalizations.of(context).t('Magnet added to Torbox.'))));
 
       await _refresh();
     } catch (e) {
@@ -4779,7 +4779,7 @@ class _TorboxDownloadsScreenState extends State<TorboxDownloadsScreen> {
     final confirmed = await showDialog<bool>(
       context: context,
       builder: (context) => AlertDialog(
-        title: Text('Download Files'),
+        title: Text(AppLocalizations.of(context).t('Download Files')),
         content: Text(
           'Download ${files.length} file${files.length == 1 ? '' : 's'} from "$folderName"?',
         ),
@@ -6148,7 +6148,7 @@ class _TorboxDownloadsScreenState extends State<TorboxDownloadsScreen> {
                       onPressed: () => Navigator.of(context).pop(),
                       tooltip: 'Back',
                     ),
-                    title: Text('Select Source from TorBox'),
+                    title: Text(AppLocalizations.of(context).t('Select Source from TorBox')),
                   )
                 : null)
           : AppBar(
@@ -6237,7 +6237,7 @@ class _TorboxDownloadsScreenState extends State<TorboxDownloadsScreen> {
           if (_apiKey == null || _apiKey!.isEmpty)
             FilledButton(
               onPressed: _openSettings,
-              child: const Text('Open Torbox Settings'),
+              child: Text(AppLocalizations.of(context).t('Open Torbox Settings')),
             ),
         ],
       );
@@ -6328,7 +6328,7 @@ class _TorboxDownloadsScreenState extends State<TorboxDownloadsScreen> {
           if (_apiKey == null || _apiKey!.isEmpty)
             FilledButton(
               onPressed: _openSettings,
-              child: const Text('Open Torbox Settings'),
+              child: Text(AppLocalizations.of(context).t('Open Torbox Settings')),
             ),
         ],
       );

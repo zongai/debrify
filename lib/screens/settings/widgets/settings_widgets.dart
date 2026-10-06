@@ -2807,7 +2807,7 @@ Future<void> showLegacyModeInfoDialog(BuildContext context) {
     context: context,
     builder: (dialogCtx) => AlertDialog(
       backgroundColor: app.sheetSurface,
-      title: const Text('Running in legacy mode'),
+      title: Text(AppLocalizations.of(context).t('Running in legacy mode')),
       content: ConstrainedBox(
         constraints: const BoxConstraints(maxWidth: 520),
         child: SingleChildScrollView(

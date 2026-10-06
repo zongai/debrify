@@ -5,6 +5,8 @@ import 'dart:isolate';
 import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
+
+import '../../l10n/app_localizations.dart';
 import 'package:collection/collection.dart';
 import 'package:flutter/services.dart';
 import 'package:path/path.dart' as p;
@@ -1793,7 +1795,7 @@ class RemoteCommandRouter {
             actions: <Widget>[
               TextButton(
                 onPressed: () => Navigator.pop(dialogContext, false),
-                child: const Text('Cancel'),
+                child: Text(AppLocalizations.of(context).t('Cancel')),
               ),
               FilledButton(
                 autofocus: true,
@@ -2948,7 +2950,7 @@ class RemoteCommandRouter {
           context: context,
           barrierDismissible: false,
           builder: (dialogContext) => AlertDialog(
-            title: const Text('Receive profile configuration?'),
+            title: Text(AppLocalizations.of(context).t('Receive profile configuration?')),
             content: Text(
               'Destination: ${profile.name}\n\n'
               '$itemCount configuration item(s) will be applied. '
@@ -2958,11 +2960,11 @@ class RemoteCommandRouter {
             actions: <Widget>[
               TextButton(
                 onPressed: () => Navigator.pop(dialogContext, false),
-                child: const Text('Cancel'),
+                child: Text(AppLocalizations.of(context).t('Cancel')),
               ),
               FilledButton(
                 onPressed: () => Navigator.pop(dialogContext, true),
-                child: const Text('Import'),
+                child: Text(AppLocalizations.of(context).t('Import')),
               ),
             ],
           ),
@@ -3251,7 +3253,7 @@ class RemoteCommandRouter {
         // after the buffer died must not grant anything.
         _legacyDialogContext = context;
         return AlertDialog(
-          title: const Text('Incoming settings'),
+          title: Text(AppLocalizations.of(context).t('Incoming settings')),
           content: Text(
             'The device at $peer wants to send settings and account '
             'credentials to this TV over an UNENCRYPTED connection (its app '
@@ -3262,11 +3264,11 @@ class RemoteCommandRouter {
             FilledButton(
               autofocus: true,
               onPressed: () => Navigator.of(context).pop(false),
-              child: const Text('Deny'),
+              child: Text(AppLocalizations.of(context).t('Deny')),
             ),
             TextButton(
               onPressed: () => Navigator.of(context).pop(true),
-              child: const Text('Allow'),
+              child: Text(AppLocalizations.of(context).t('Allow')),
             ),
           ],
         );

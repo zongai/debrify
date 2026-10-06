@@ -868,7 +868,7 @@ class DetailEpisodesStatus extends StatelessWidget {
                       ),
                       onPressed: onSearchForSources,
                       icon: const Icon(Icons.search_rounded, size: 18),
-                      label: const Text('Search for sources'),
+                      label: Text(AppLocalizations.of(context).t('Search for sources')),
                     ),
                 ],
               ),

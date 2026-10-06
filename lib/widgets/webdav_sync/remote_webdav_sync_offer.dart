@@ -37,7 +37,7 @@ Future<void> offerRemoteWebDavSync(
     final selected = await showDialog<WebDavConfig>(
       context: context,
       builder: (dialogContext) => AlertDialog(
-        title: const Text('Enable WebDAV Sync?'),
+        title: Text(AppLocalizations.of(context).t('Enable WebDAV Sync?')),
         content: SingleChildScrollView(
           child: Column(
             mainAxisSize: MainAxisSize.min,
@@ -87,7 +87,7 @@ Future<void> offerRemoteWebDavSync(
             context: context,
             barrierDismissible: false,
             builder: (dialogContext) => AlertDialog(
-              title: Text('Use sync data from this account?'),
+              title: Text(AppLocalizations.of(context).t('Use sync data from this account?')),
               content: const Text(
                 'Existing profiles and connections on this '
                 'device, including the configuration just imported, will be '
@@ -101,7 +101,7 @@ Future<void> offerRemoteWebDavSync(
                 ),
                 FilledButton(
                   onPressed: () => Navigator.of(dialogContext).pop(true),
-                  child: const Text('Use sync data'),
+                  child: Text(AppLocalizations.of(context).t('Use sync data')),
                 ),
               ],
             ),

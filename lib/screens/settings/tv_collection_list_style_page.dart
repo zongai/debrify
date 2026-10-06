@@ -81,7 +81,7 @@ class _TvCollectionListStylePageState extends State<TvCollectionListStylePage> {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text('Could not save this style. Please try again.'),
+            content: Text(AppLocalizations.of(context).t('Could not save this style. Please try again.')),
           ),
         );
       }

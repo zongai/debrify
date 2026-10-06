@@ -374,7 +374,7 @@ class _MetadataExploreSpotlightState extends State<MetadataExploreSpotlight> {
     } catch (_) {}
     if (!opened && mounted) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Could not open the browser.')),
+        SnackBar(content: Text(AppLocalizations.of(context).t('Could not open the browser.'))),
       );
     }
   }
@@ -490,7 +490,7 @@ class _MetadataExploreSpotlightState extends State<MetadataExploreSpotlight> {
           if (data.providerLink != null)
             TextButton(
               onPressed: () => _availabilityLink(data.providerLink!),
-              child: const Text('Check availability ↗'),
+              child: Text(AppLocalizations.of(context).t('Check availability ↗')),
             ),
         ],
       ),
@@ -589,18 +589,18 @@ class _MetadataExploreSpotlightState extends State<MetadataExploreSpotlight> {
                             if (cast.isNotEmpty)
                               OutlinedButton(
                                 onPressed: () => _jump(_castKey, 'cast'),
-                                child: const Text('Cast & crew'),
+                                child: Text(AppLocalizations.of(context).t('Cast & crew')),
                               ),
                             if (franchise)
                               OutlinedButton(
                                 onPressed: () =>
                                     _jump(_franchiseKey, 'franchise'),
-                                child: const Text('Franchise'),
+                                child: Text(AppLocalizations.of(context).t('Franchise')),
                               ),
                             if (companies.isNotEmpty || networks.isNotEmpty)
                               OutlinedButton(
                                 onPressed: () => _jump(_studioKey, 'studios'),
-                                child: const Text('Studios'),
+                                child: Text(AppLocalizations.of(context).t('Studios')),
                               ),
                             if (watch)
                               OutlinedButton(
@@ -613,7 +613,7 @@ class _MetadataExploreSpotlightState extends State<MetadataExploreSpotlight> {
                               OutlinedButton.icon(
                                 onPressed: widget.onDiscover,
                                 icon: const Icon(Icons.explore_outlined),
-                                label: const Text('Discover movies and shows'),
+                                label: Text(AppLocalizations.of(context).t('Discover movies and shows')),
                               ),
                           ],
                         ),
@@ -638,7 +638,7 @@ class _MetadataExploreSpotlightState extends State<MetadataExploreSpotlight> {
                             'Cast & crew',
                             trailing: TextButton(
                               onPressed: () => _allPeople(people),
-                              child: const Text('View all →'),
+                              child: Text(AppLocalizations.of(context).t('View all →')),
                             ),
                           ),
                           SizedBox(

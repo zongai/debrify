@@ -218,7 +218,7 @@ class _ProfileDataScreenState extends State<ProfileDataScreen> {
                   : (value) => setState(() => _comparing = value),
             ),
             const SizedBox(width: 8),
-            const Expanded(child: Text('Compare with')),
+            const Expanded(child: Text(AppLocalizations.of(context).t('Compare with'))),
             if (_comparing)
               DropdownButton<String>(
                 value: aliases.contains(_compareWith) ? _compareWith : null,
@@ -367,7 +367,7 @@ class _ProfileDataScreenState extends State<ProfileDataScreen> {
     );
     if (!mounted) return;
     ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text('Report copied — no values are included')),
+      SnackBar(content: Text(AppLocalizations.of(context).t('Report copied — no values are included'))),
     );
   }
 }

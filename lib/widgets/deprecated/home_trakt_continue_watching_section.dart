@@ -979,7 +979,7 @@ import '../../l10n/app_localizations.dart';
 //         if (!mounted) return;
 //         ScaffoldMessenger.of(context).showSnackBar(
 //           SnackBar(
-//             content: Text('No playable episodes found for this show on Trakt'),
+//             content: Text(AppLocalizations.of(context).t('No playable episodes found for this show on Trakt')),
 //             backgroundColor: Color(0xFFEF4444),
 //           ),
 //         );
@@ -1025,7 +1025,7 @@ import '../../l10n/app_localizations.dart';
 //       if (!mounted) return;
 //       ScaffoldMessenger.of(context).showSnackBar(
 //         SnackBar(
-//           content: Text('Failed to pick a random episode'),
+//           content: Text(AppLocalizations.of(context).t('Failed to pick a random episode')),
 //           backgroundColor: Color(0xFFEF4444),
 //         ),
 //       );

@@ -127,7 +127,7 @@ class _StremioAddonsPageContentState extends State<StremioAddonsPageContent> {
     final url = _urlController.text.trim();
     if (url.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Please enter an addon URL')),
+        SnackBar(content: Text(AppLocalizations.of(context).t('Please enter an addon URL'))),
       );
       return;
     }
@@ -220,7 +220,7 @@ class _StremioAddonsPageContentState extends State<StremioAddonsPageContent> {
     return showDialog<void>(
       context: context,
       builder: (context) => AlertDialog(
-        title: Text('Stremio import complete'),
+        title: Text(AppLocalizations.of(context).t('Stremio import complete')),
         content: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -439,7 +439,7 @@ class _StremioAddonsPageContentState extends State<StremioAddonsPageContent> {
     final confirmed = await showDialog<bool>(
       context: context,
       builder: (context) => AlertDialog(
-        title: Text('Remove Addon'),
+        title: Text(AppLocalizations.of(context).t('Remove Addon')),
         content: Text(
           isShared
               ? '"${addon.displayName}" is shared with $borrowerCount other '
@@ -1100,7 +1100,7 @@ class _StremioAddonsPageContentState extends State<StremioAddonsPageContent> {
               children: [
                 CircularProgressIndicator(),
                 SizedBox(height: 16),
-                Text('Loading addons...'),
+                Text(AppLocalizations.of(context).t('Loading addons...')),
               ],
             ),
           ),
@@ -1379,7 +1379,7 @@ class _StremioAddonsPageState extends State<StremioAddonsPage> {
     final url = _urlController.text.trim();
     if (url.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Please enter an addon URL')),
+        SnackBar(content: Text(AppLocalizations.of(context).t('Please enter an addon URL'))),
       );
       return;
     }
@@ -1501,7 +1501,7 @@ class _StremioAddonsPageState extends State<StremioAddonsPage> {
     final confirmed = await showDialog<bool>(
       context: context,
       builder: (context) => AlertDialog(
-        title: Text('Remove Addon'),
+        title: Text(AppLocalizations.of(context).t('Remove Addon')),
         content: Text(
           isShared
               ? '"${addon.displayName}" is shared with $borrowerCount other '
@@ -1768,7 +1768,7 @@ class _StremioAddonsPageState extends State<StremioAddonsPage> {
           children: [
             CircularProgressIndicator(),
             SizedBox(height: 16),
-            Text('Loading addons...'),
+            Text(AppLocalizations.of(context).t('Loading addons...')),
           ],
         ),
       );

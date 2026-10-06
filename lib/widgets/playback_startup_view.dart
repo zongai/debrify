@@ -193,7 +193,7 @@ class PlaybackStartupView extends StatelessWidget {
                             context: context,
                             builder: (context) => AlertDialog(
                               scrollable: true,
-                              title: const Text('Playback details'),
+                              title: Text(AppLocalizations.of(context).t('Playback details')),
                               content: Text(details),
                               actions: [
                                 TextButton(
@@ -203,7 +203,7 @@ class PlaybackStartupView extends StatelessWidget {
                               ],
                             ),
                           ),
-                          child: const Text('Playback details'),
+                          child: Text(AppLocalizations.of(context).t('Playback details')),
                         ),
                       ],
                     ),

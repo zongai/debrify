@@ -10,6 +10,8 @@
 // import 'package:cached_network_image/cached_network_image.dart';
 // import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 // import 'package:flutter/foundation.dart' show kDebugMode;
 // import 'dart:convert';
 // import 'package:flutter/services.dart';
@@ -723,7 +725,7 @@
 //                                         items: [
 //                                           const DropdownMenuItem<String>(
 //                                             value: 'none',
-//                                             child: Text('Let me choose'),
+//                                             child: Text(AppLocalizations.of(context).t('Let me choose')),
 //                                           ),
 //                                           ...providers.map((provider) {
 //                                             return DropdownMenuItem<String>(
@@ -1639,7 +1641,7 @@
 //     if (torrent.directUrl == null || torrent.directUrl!.isEmpty) {
 //       ScaffoldMessenger.of(
 //         context,
-//       ).showSnackBar(SnackBar(content: Text('No stream URL available')));
+//       ).showSnackBar(SnackBar(content: Text(AppLocalizations.of(context).t('No stream URL available'))));
 //       return;
 //     }
 // 
@@ -1673,7 +1675,7 @@
 //   Future<void> _openExternalStream(Torrent torrent) async {
 //     if (torrent.directUrl == null || torrent.directUrl!.isEmpty) {
 //       ScaffoldMessenger.of(context).showSnackBar(
-//         SnackBar(content: Text('No external URL available')),
+//         SnackBar(content: Text(AppLocalizations.of(context).t('No external URL available'))),
 //       );
 //       return;
 //     }
@@ -1682,7 +1684,7 @@
 //     if (uri == null) {
 //       ScaffoldMessenger.of(
 //         context,
-//       ).showSnackBar(SnackBar(content: Text('Invalid URL')));
+//       ).showSnackBar(SnackBar(content: Text(AppLocalizations.of(context).t('Invalid URL'))));
 //       return;
 //     }
 // 
@@ -1763,7 +1765,7 @@
 //     if (torrent.directUrl == null || torrent.directUrl!.isEmpty) {
 //       ScaffoldMessenger.of(
 //         context,
-//       ).showSnackBar(SnackBar(content: Text('No stream URL available')));
+//       ).showSnackBar(SnackBar(content: Text(AppLocalizations.of(context).t('No stream URL available'))));
 //       return;
 //     }
 // 
@@ -1906,7 +1908,7 @@
 //                               );
 //                               ScaffoldMessenger.of(context).showSnackBar(
 //                                 SnackBar(
-//                                   content: Text('URL copied to clipboard'),
+//                                   content: Text(AppLocalizations.of(context).t('URL copied to clipboard')),
 //                                   duration: Duration(seconds: 2),
 //                                 ),
 //                               );
@@ -1937,7 +1939,7 @@
 //                                         ),
 //                                       ),
 //                                       SizedBox(width: 12),
-//                                       Text('Resolving download URL...'),
+//                                       Text(AppLocalizations.of(context).t('Resolving download URL...')),
 //                                     ],
 //                                   ),
 //                                   duration: Duration(seconds: 10),
@@ -4140,7 +4142,7 @@
 //     } else {
 //       ScaffoldMessenger.of(context).showSnackBar(
 //         SnackBar(
-//           content: Text('Please configure a debrid provider in Settings'),
+//           content: Text(AppLocalizations.of(context).t('Please configure a debrid provider in Settings')),
 //         ),
 //       );
 //       return;
@@ -4515,7 +4517,7 @@
 //         if (mounted) {
 //           ScaffoldMessenger.of(context).showSnackBar(
 //             SnackBar(
-//               content: Text('Could not get file ID from PikPak'),
+//               content: Text(AppLocalizations.of(context).t('Could not get file ID from PikPak')),
 //               backgroundColor: Color(0xFFEF4444),
 //               duration: Duration(seconds: 3),
 //             ),
@@ -4939,7 +4941,7 @@
 //       if (chosen == null) {
 //         ScaffoldMessenger.of(context).showSnackBar(
 //           SnackBar(
-//             content: Text('No playable episodes found for this series'),
+//             content: Text(AppLocalizations.of(context).t('No playable episodes found for this series')),
 //             backgroundColor: Color(0xFFEF4444),
 //           ),
 //         );
@@ -4969,7 +4971,7 @@
 //       );
 //       ScaffoldMessenger.of(context).showSnackBar(
 //         SnackBar(
-//           content: Text('Failed to pick a random episode'),
+//           content: Text(AppLocalizations.of(context).t('Failed to pick a random episode')),
 //           backgroundColor: Color(0xFFEF4444),
 //         ),
 //       );
@@ -5051,7 +5053,7 @@
 //       if (chosen == null) {
 //         ScaffoldMessenger.of(context).showSnackBar(
 //           SnackBar(
-//             content: Text('No playable episodes found for this series'),
+//             content: Text(AppLocalizations.of(context).t('No playable episodes found for this series')),
 //             backgroundColor: Color(0xFFEF4444),
 //           ),
 //         );
@@ -5081,7 +5083,7 @@
 //       );
 //       ScaffoldMessenger.of(context).showSnackBar(
 //         SnackBar(
-//           content: Text('Failed to pick a random episode'),
+//           content: Text(AppLocalizations.of(context).t('Failed to pick a random episode')),
 //           backgroundColor: Color(0xFFEF4444),
 //         ),
 //       );
@@ -6136,7 +6138,7 @@
 //       if (mounted) {
 //         ScaffoldMessenger.of(context).showSnackBar(
 //           SnackBar(
-//             content: Text('No sources found for Quick Play'),
+//             content: Text(AppLocalizations.of(context).t('No sources found for Quick Play')),
 //             duration: Duration(seconds: 2),
 //           ),
 //         );
@@ -6473,7 +6475,7 @@
 //       context: context,
 //       builder: (BuildContext context) {
 //         return SimpleDialog(
-//           title: const Text('Select Season'),
+//           title: Text(AppLocalizations.of(context).t('Select Season')),
 //           backgroundColor: const Color(0xFF1E293B),
 //           children: [
 //             // "All Seasons" option
@@ -9170,7 +9172,7 @@
 //               _DpadSafeButton(
 //                 onPressed: () => Navigator.of(dialogContext).pop(false),
 //                 semanticLabel: 'Cancel',
-//                 child: Text('Cancel'),
+//                 child: Text(AppLocalizations.of(context).t('Cancel')),
 //               ),
 //               SizedBox(width: 8),
 //               _DpadSafeButton(
@@ -9179,7 +9181,7 @@
 //                 autofocus: true,
 //                 color: const Color(0xFFFB923C),
 //                 semanticLabel: 'Continue',
-//                 child: Text('Continue'),
+//                 child: Text(AppLocalizations.of(context).t('Continue')),
 //               ),
 //             ],
 //           ),
@@ -9633,7 +9635,7 @@
 //                       cancelled = true;
 //                       Navigator.of(dialogContext).pop();
 //                     },
-//                     child: Text('Cancel'),
+//                     child: Text(AppLocalizations.of(context).t('Cancel')),
 //                   ),
 //                 ],
 //               );
@@ -10050,7 +10052,7 @@
 //                       cancelled = true;
 //                       Navigator.of(dialogContext).pop();
 //                     },
-//                     child: Text('Cancel'),
+//                     child: Text(AppLocalizations.of(context).t('Cancel')),
 //                   ),
 //                 ],
 //               );
@@ -10450,7 +10452,7 @@
 //                       cancelled = true;
 //                       Navigator.of(dialogContext).pop();
 //                     },
-//                     child: Text('Cancel'),
+//                     child: Text(AppLocalizations.of(context).t('Cancel')),
 //                   ),
 //                 ],
 //               );
@@ -10879,7 +10881,7 @@
 //                       cancelled = true;
 //                       Navigator.of(dialogContext).pop();
 //                     },
-//                     child: Text('Cancel'),
+//                     child: Text(AppLocalizations.of(context).t('Cancel')),
 //                   ),
 //                 ],
 //               );
@@ -11729,7 +11731,7 @@
 //   void _showPikPakNoVideosSnack() {
 //     ScaffoldMessenger.of(context).showSnackBar(
 //       SnackBar(
-//         content: const Text('No video files found in this torrent'),
+//         content: Text(AppLocalizations.of(context).t('No video files found in this torrent')),
 //         backgroundColor: Colors.orange,
 //         behavior: SnackBarBehavior.floating,
 //         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
@@ -12480,7 +12482,7 @@
 //           actions: [
 //             TextButton(
 //               onPressed: () => Navigator.of(context).pop(),
-//               child: Text('Close'),
+//               child: Text(AppLocalizations.of(context).t('Close')),
 //             ),
 //           ],
 //         );
@@ -13751,7 +13753,7 @@
 //     if (!mounted) return;
 //     ScaffoldMessenger.of(context).showSnackBar(
 //       SnackBar(
-//         content: Text('Please add your Premiumize API key in Settings first!'),
+//         content: Text(AppLocalizations.of(context).t('Please add your Premiumize API key in Settings first!')),
 //         backgroundColor: Color(0xFF1E293B),
 //         behavior: SnackBarBehavior.floating,
 //         duration: Duration(seconds: 3),
@@ -14635,7 +14637,7 @@
 //     if (!mounted) return;
 //     ScaffoldMessenger.of(context).showSnackBar(
 //       SnackBar(
-//         content: Text('Please add your AllDebrid API key in Settings first!'),
+//         content: Text(AppLocalizations.of(context).t('Please add your AllDebrid API key in Settings first!')),
 //         backgroundColor: Color(0xFF1E293B),
 //         behavior: SnackBarBehavior.floating,
 //         duration: Duration(seconds: 3),
@@ -15920,7 +15922,7 @@
 //                       cancelled = true;
 //                       Navigator.of(dialogContext).pop();
 //                     },
-//                     child: Text('Cancel'),
+//                     child: Text(AppLocalizations.of(context).t('Cancel')),
 //                   ),
 //                 ],
 //               );
@@ -16716,7 +16718,7 @@
 //         await showDialog<bool>(
 //           context: context,
 //           builder: (context) => AlertDialog(
-//             title: Text('Download Files'),
+//             title: Text(AppLocalizations.of(context).t('Download Files')),
 //             content: Column(
 //               mainAxisSize: MainAxisSize.min,
 //               crossAxisAlignment: CrossAxisAlignment.start,
@@ -16734,7 +16736,7 @@
 //             actions: [
 //               _DpadSafeButton(
 //                 onPressed: () => Navigator.of(context).pop(false),
-//                 child: Text('Cancel'),
+//                 child: Text(AppLocalizations.of(context).t('Cancel')),
 //               ),
 //               _DpadSafeButton(
 //                 onPressed: () => Navigator.of(context).pop(true),
@@ -16745,7 +16747,7 @@
 //                   children: [
 //                     Icon(Icons.download),
 //                     SizedBox(width: 6),
-//                     Text('Download'),
+//                     Text(AppLocalizations.of(context).t('Download')),
 //                   ],
 //                 ),
 //               ),
@@ -18124,7 +18126,7 @@
 //         context: context,
 //         builder: (context) => StatefulBuilder(
 //           builder: (context, setState) => AlertDialog(
-//             title: const Text('DeoVR Format'),
+//             title: Text(AppLocalizations.of(context).t('DeoVR Format')),
 //             content: Column(
 //               mainAxisSize: MainAxisSize.min,
 //               crossAxisAlignment: CrossAxisAlignment.start,
@@ -18204,7 +18206,7 @@
 //                   DialogTapGuard.markKeyAction();
 //                   Navigator.of(context).pop(false);
 //                 },
-//                 child: Text('Cancel'),
+//                 child: Text(AppLocalizations.of(context).t('Cancel')),
 //               ),
 //               FilledButton.icon(
 //                 onPressed: () {
@@ -18212,7 +18214,7 @@
 //                   Navigator.of(context).pop(true);
 //                 },
 //                 icon: Icon(Icons.play_arrow),
-//                 label: Text('Play'),
+//                 label: Text(AppLocalizations.of(context).t('Play')),
 //               ),
 //             ],
 //           ),
@@ -18281,7 +18283,7 @@
 //       if (mounted) {
 //         ScaffoldMessenger.of(context).showSnackBar(
 //           SnackBar(
-//             content: Text('Launching DeoVR...'),
+//             content: Text(AppLocalizations.of(context).t('Launching DeoVR...')),
 //             duration: Duration(seconds: 2),
 //           ),
 //         );
@@ -19808,7 +19810,7 @@
 //                         DialogTapGuard.markKeyAction();
 //                         Navigator.of(context).pop();
 //                       },
-//                       child: Text('Cancel'),
+//                       child: Text(AppLocalizations.of(context).t('Cancel')),
 //                     ),
 //                   ),
 //                 ],
@@ -19923,7 +19925,7 @@
 //     if (torrentId == null || torrentId.isEmpty) {
 //       ScaffoldMessenger.of(context).showSnackBar(
 //         SnackBar(
-//           content: Text('Torrent ID not available'),
+//           content: Text(AppLocalizations.of(context).t('Torrent ID not available')),
 //           backgroundColor: Color(0xFFEF4444),
 //         ),
 //       );
@@ -19965,7 +19967,7 @@
 //       if (files.isEmpty) {
 //         ScaffoldMessenger.of(context).showSnackBar(
 //           SnackBar(
-//             content: Text('No files found in torrent'),
+//             content: Text(AppLocalizations.of(context).t('No files found in torrent')),
 //             backgroundColor: Color(0xFFEF4444),
 //           ),
 //         );
@@ -20043,7 +20045,7 @@
 //         await showDialog<bool>(
 //           context: context,
 //           builder: (context) => AlertDialog(
-//             title: Text('Download Files'),
+//             title: Text(AppLocalizations.of(context).t('Download Files')),
 //             content: Column(
 //               mainAxisSize: MainAxisSize.min,
 //               crossAxisAlignment: CrossAxisAlignment.start,
@@ -20061,7 +20063,7 @@
 //             actions: [
 //               _DpadSafeButton(
 //                 onPressed: () => Navigator.of(context).pop(false),
-//                 child: Text('Cancel'),
+//                 child: Text(AppLocalizations.of(context).t('Cancel')),
 //               ),
 //               _DpadSafeButton(
 //                 onPressed: () => Navigator.of(context).pop(true),
@@ -20072,7 +20074,7 @@
 //                   children: [
 //                     Icon(Icons.download),
 //                     SizedBox(width: 6),
-//                     Text('Download'),
+//                     Text(AppLocalizations.of(context).t('Download')),
 //                   ],
 //                 ),
 //               ),
@@ -20173,7 +20175,7 @@
 //     } else {
 //       ScaffoldMessenger.of(context).showSnackBar(
 //         SnackBar(
-//           content: Text('Failed to queue any files for download'),
+//           content: Text(AppLocalizations.of(context).t('Failed to queue any files for download')),
 //           backgroundColor: Color(0xFFEF4444),
 //         ),
 //       );
@@ -21239,7 +21241,7 @@
 //                                             icon: const Icon(
 //                                               Icons.refresh_rounded,
 //                                             ),
-//                                             label: const Text('Try Again'),
+//                                             label: Text(AppLocalizations.of(context).t('Try Again')),
 //                                             style: ElevatedButton.styleFrom(
 //                                               backgroundColor: Colors.white,
 //                                               foregroundColor: const Color(
@@ -23756,7 +23758,7 @@
 //                       Clipboard.setData(ClipboardData(text: url));
 //                       ScaffoldMessenger.of(context).showSnackBar(
 //                         SnackBar(
-//                           content: Text('URL copied to clipboard'),
+//                           content: Text(AppLocalizations.of(context).t('URL copied to clipboard')),
 //                           duration: Duration(seconds: 2),
 //                         ),
 //                       );

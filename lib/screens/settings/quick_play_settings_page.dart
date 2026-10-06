@@ -289,7 +289,7 @@ class _QuickPlaySettingsPageState extends State<QuickPlaySettingsPage> {
       _pickedKey = null;
     });
     ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text('Restored default Quick Play behavior')),
+      SnackBar(content: Text(AppLocalizations.of(context).t('Restored default Quick Play behavior'))),
     );
   }
 

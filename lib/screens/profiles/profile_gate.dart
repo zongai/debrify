@@ -330,7 +330,7 @@ class _ProfileGateState extends State<ProfileGate> with WidgetsBindingObserver {
     await _openPicker();
     if (!mounted) return false;
     ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text('Profile no longer available')),
+      SnackBar(content: Text(AppLocalizations.of(context).t('Profile no longer available'))),
     );
     return false;
   }
@@ -420,13 +420,13 @@ class _ProfileGateState extends State<ProfileGate> with WidgetsBindingObserver {
       debugPrint('Profile activation was revoked (${error.runtimeType})');
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Could not switch profile. Try again.')),
+        SnackBar(content: Text(AppLocalizations.of(context).t('Could not switch profile. Try again.'))),
       );
     } on StateError catch (error) {
       debugPrint('Profile activation failed (${error.runtimeType})');
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Could not switch profile. Try again.')),
+        SnackBar(content: Text(AppLocalizations.of(context).t('Could not switch profile. Try again.'))),
       );
     }
   }
@@ -588,7 +588,7 @@ class _ProfileGateState extends State<ProfileGate> with WidgetsBindingObserver {
       ProfileLockController.instance.lock();
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Profile management is not authorized')),
+        SnackBar(content: Text(AppLocalizations.of(context).t('Profile management is not authorized'))),
       );
     }
   }

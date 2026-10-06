@@ -1111,7 +1111,7 @@ class _PremiumizeFilesScreenState extends State<PremiumizeFilesScreen> {
     final confirmed = await showDialog<bool>(
       context: context,
       builder: (context) => AlertDialog(
-        title: Text('Delete Transfer'),
+        title: Text(AppLocalizations.of(context).t('Delete Transfer')),
         content: Text('Remove "${transfer.name}" from your transfers?'),
         actions: [
           TextButton(
@@ -1501,7 +1501,7 @@ class _PremiumizeFilesScreenState extends State<PremiumizeFilesScreen> {
             icon: const Icon(Icons.arrow_back),
             onPressed: () => Navigator.of(context).pop(),
           ),
-          title: const Text('Opening folder...'),
+          title: Text(AppLocalizations.of(context).t('Opening folder...')),
         ),
         body: const Center(child: CircularProgressIndicator()),
       );

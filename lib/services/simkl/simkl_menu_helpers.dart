@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localizations.dart';
+
 import '../../models/stremio_addon.dart';
 import '../../models/tracking_source.dart';
 import 'simkl_service.dart';
@@ -117,7 +119,7 @@ Future<bool> confirmSimklTitleRemoval(
   final confirmed = await showDialog<bool>(
     context: context,
     builder: (dialogContext) => AlertDialog(
-      title: Text('Remove from Simkl?'),
+      title: Text(AppLocalizations.of(context).t('Remove from Simkl?')),
       content: Text(
         'Removing "$title" from Simkl permanently clears its list status, '
         'watched history, rating, and saved playback progress.',
@@ -125,12 +127,12 @@ Future<bool> confirmSimklTitleRemoval(
       actions: [
         TextButton(
           onPressed: () => Navigator.of(dialogContext).pop(false),
-          child: Text('Cancel'),
+          child: Text(AppLocalizations.of(context).t('Cancel')),
         ),
         TextButton(
           onPressed: () => Navigator.of(dialogContext).pop(true),
           style: TextButton.styleFrom(foregroundColor: Color(0xFFFF8B8B)),
-          child: Text('Remove'),
+          child: Text(AppLocalizations.of(context).t('Remove')),
         ),
       ],
     ),
