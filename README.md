@@ -10,16 +10,16 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/varunsalian/debrify/releases"><img src="https://img.shields.io/github/v/release/varunsalian/debrify?style=flat-square&color=6366f1" alt="Release"></a>
-  <a href="https://github.com/varunsalian/debrify/stargazers"><img src="https://img.shields.io/github/stars/varunsalian/debrify?style=flat-square&color=f59e0b" alt="Stars"></a>
-  <a href="https://github.com/varunsalian/debrify/releases"><img src="https://img.shields.io/github/downloads/varunsalian/debrify/total?style=flat-square&color=22c55e" alt="Downloads"></a>
-  <img src="https://img.shields.io/badge/Flutter-3.8+-02569B?style=flat-square&logo=flutter&logoColor=white" alt="Flutter">
+  <a href="https://github.com/zongai/debrify/releases"><img src="https://img.shields.io/github/v/release/zongai/debrify?style=flat-square&color=6366f1" alt="Release"></a>
+  <a href="https://github.com/zongai/debrify/stargazers"><img src="https://img.shields.io/github/stars/zongai/debrify?style=flat-square&color=f59e0b" alt="Stars"></a>
+  <a href="https://github.com/zongai/debrify/releases"><img src="https://img.shields.io/github/downloads/zongai/debrify/total?style=flat-square&color=22c55e" alt="Downloads"></a>
+  <img src="https://img.shields.io/badge/Flutter-3.44+-02569B?style=flat-square&logo=flutter&logoColor=white" alt="Flutter">
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-AGPL--3.0-blue?style=flat-square" alt="GNU AGPL v3"></a>
 </p>
 
 <p align="center">
   <a href="https://debrify.tv/"><strong>Website</strong></a> &bull;
-  <a href="https://github.com/varunsalian/debrify/releases"><strong>Download</strong></a> &bull;
+  <a href="https://github.com/zongai/debrify/releases"><strong>Download</strong></a> &bull;
   <a href="#-features">Features</a> &bull;
   <a href="#-supported-platforms">Platforms</a> &bull;
   <a href="https://www.reddit.com/r/debrify/">Reddit</a> &bull;
@@ -30,9 +30,11 @@
 
 ## What is Debrify?
 
-Debrify is an open-source, cross-platform **media hub**. It brings the services you already use — cloud storage accounts, personal WebDAV servers, IPTV playlists, Stremio addon catalogs, YouTube — into one place, with a **built-in player** tuned for movies and TV, a **download manager**, **Trakt/Simkl/MDBList tracking**, and a **cinematic UI** that works just as well on a phone, a desktop, or a TV with a remote.
+Debrify is an open-source, cross-platform **media hub**. It brings the services you already use — **Plex**, cloud storage (Real-Debrid, TorBox, Premiumize, PikPak, …), personal WebDAV servers, IPTV playlists, Stremio addon catalogs, YouTube — into one place, with a **built-in player** tuned for movies and TV, a **download manager**, **Trakt/Simkl/MDBList tracking**, and a **cinematic UI** that works on phone, desktop, or TV with a remote.
 
 You connect your own accounts and sources. Debrify gives them one library, one player, and one interface everywhere.
+
+This repository ([zongai/debrify](https://github.com/zongai/debrify)) is a fork of the upstream project with additional work on **Plex link login**, **IPTV multi-source playback**, and **Chinese / Japanese UI localization**. Upstream project: [varunsalian/debrify](https://github.com/varunsalian/debrify).
 
 ## Responsible Use
 
@@ -62,9 +64,10 @@ Connect the storage and streaming-cache accounts you already pay for — Real-De
 - Playlists and episode tracking across every provider
 
 ### 🏠 Personal Servers
-- **WebDAV** — browse your own server, stream with credentials handled by the app, build playlists, download locally
-- **Remote Setup** — securely send your full configuration between your own devices
-- **Backup & Restore** — export everything to a single file, restore anywhere
+
+- **Plex** — sign in with [plex.tv/link](https://www.plex.tv/link/) (4-digit PIN); browse libraries from Discover / media server views
+- WebDAV and other self-hosted endpoints you configure
+- Watch-progress sync from media servers when available
 
 ### 🔎 Discovery & Catalogs
 - **Stremio addons** — install addon catalogs, search across them, and play through your connected accounts
@@ -73,9 +76,10 @@ Connect the storage and streaming-cache accounts you already pay for — Real-De
 - **Optional search plugins** — bring your own sources, including self-hosted Jackett and Prowlarr indexers
 
 ### 📡 Live & Lean-Back TV
-- **IPTV** — M3U and Xtream playlists with an EPG guide, catchup, DVR recording, favorites, categories, and playlists that scale to tens of thousands of channels
-- **Stremio TV** — browse catalogs as live channels with a cinematic tuner
-- **Debrify TV** — build your own always-on channels from keyword recipes and your connected accounts
+
+- IPTV playlists (M3U / Xtream-style sources you configure)
+- **Multi-source channels** — channels can list several stream URLs; pick a source manually in the player, or let Debrify **auto-failover** if a stream is too slow to start (about 3s, then 6s after a full cycle)
+- Stremio TV–style lean-back catalogs and local TV channels
 
 ### 📈 Tracking
 - **Trakt** — in-player scrobbling, a live Now Playing card, continue-watching rails, and an upcoming-episodes calendar
@@ -92,6 +96,11 @@ Connect the storage and streaming-cache accounts you already pay for — Real-De
 
 ### 🔌 External Players
 - Hand any stream to your preferred player app, including DeoVR for VR playback
+
+### 🌐 Languages
+- UI language: **English**, **中文 (Chinese)**, **日本語 (Japanese)** (Settings → Language / 语言)
+- Phrase-based localization for settings, player, IPTV, downloads, and common dialogs
+- Subtitle / audio track language preferences remain available in the player and related settings
 
 ---
 
@@ -113,20 +122,20 @@ One codebase, full feature support across all platforms.
 
 | Platform | Download | Notes |
 |:---------|:---------|:------|
-| **Android** | [APK](https://github.com/varunsalian/debrify/releases) | Phones and tablets |
-| **Android TV** | [APK](https://github.com/varunsalian/debrify/releases) | Full D-pad navigation and remote support |
-| **Windows** | [Installer](https://github.com/varunsalian/debrify/releases) | Windows 10/11 |
-| **macOS** | [DMG](https://github.com/varunsalian/debrify/releases) | Intel and Apple Silicon |
-| **Linux** | [AppImage](https://github.com/varunsalian/debrify/releases) | x86_64 and ARM64. Requires dependencies ([see install notes](#linux)) |
-| **iOS** | [IPA](https://github.com/varunsalian/debrify/releases) | Unsigned — requires sideloading ([guide](docs/iOS-Installation.md)) |
-| **Apple TV** | [IPA](https://github.com/varunsalian/debrify/releases) | Unsigned tvOS build — requires sideloading; ships with alpha releases |
+| **Android** | [APK](https://github.com/zongai/debrify/releases) | Phones and tablets |
+| **Android TV** | [APK](https://github.com/zongai/debrify/releases) | Full D-pad navigation and remote support |
+| **Windows** | [Installer](https://github.com/zongai/debrify/releases) | Windows 10/11 |
+| **macOS** | [DMG](https://github.com/zongai/debrify/releases) | Intel and Apple Silicon |
+| **Linux** | [AppImage](https://github.com/zongai/debrify/releases) | x86_64 and ARM64. Requires dependencies ([see install notes](#linux)) |
+| **iOS** | [IPA](https://github.com/zongai/debrify/releases) | Unsigned — requires sideloading ([guide](docs/iOS-Installation.md)) |
+| **Apple TV** | [IPA](https://github.com/zongai/debrify/releases) | Unsigned tvOS build — requires sideloading; ships with alpha releases |
 
 ---
 
 ## 🚀 Installation
 
 ### Android / Android TV
-Download the APK from [Releases](https://github.com/varunsalian/debrify/releases) and install. On TV, use a file manager app like Downloader or install via ADB.
+Download the APK from [Releases](https://github.com/zongai/debrify/releases)(https://github.com/zongai/debrify/releases) and install. On TV, use a file manager app like Downloader or install via ADB.
 
 ### Windows
 Download the installer, run it, and launch from the Start Menu. First run may trigger SmartScreen — click "More info" → "Run anyway".
@@ -184,8 +193,10 @@ The application works and solves difficult problems, but maintaining it can be p
 ## 🛠️ Building from Source
 
 ```bash
-git clone https://github.com/varunsalian/debrify.git
+git clone https://github.com/zongai/debrify.git
 cd debrify
+# Active development for this fork often lives on feature/plex-integration
+git checkout feature/plex-integration
 flutter pub get
 flutter run
 ```
@@ -198,6 +209,15 @@ flutter build windows --release          # Windows
 flutter build macos --release            # macOS
 flutter build linux --release            # Linux
 ```
+
+### CI / Releases
+
+GitHub Actions workflow **Build Release Artifacts** (`.github/workflows/build.yml`) can build Android, Windows, iOS, macOS, tvOS, and Linux.
+
+- Manual runs: **Actions → Build Release Artifacts → Run workflow**
+- Publishing a GitHub Release triggers a full multi-platform build and attaches artifacts to the release
+- **Android release signing** needs repository secrets: `KEYSTORE_BASE64`, `KEYSTORE_PASSWORD`, `KEY_PASSWORD`, `KEY_ALIAS`.  
+  If `KEYSTORE_BASE64` is empty, manual (`workflow_dispatch`) builds fall back to **debug signing**; published **release** events still require a valid keystore.
 
 ---
 
@@ -215,7 +235,7 @@ flutter build linux --release            # Linux
 
 - **Reddit** — [r/debrify](https://www.reddit.com/r/debrify/) for discussion and tips
 - **Discord** — [Join the server](https://discord.gg/xuAc4Q2c9G) for help and updates
-- **Issues** — [Report bugs](https://github.com/varunsalian/debrify/issues) or request features
+- **Issues** — [Report bugs](https://github.com/zongai/debrify/issues) or request features
 
 ---
 
