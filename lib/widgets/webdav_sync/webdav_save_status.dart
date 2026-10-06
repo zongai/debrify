@@ -137,7 +137,7 @@ class _SyncDotState extends State<_SyncDot>
 
   @override
   Widget build(BuildContext context) => Semantics(
-    label: 'Syncing to WebDAV',
+    label: AppLocalizations.of(context).t('Syncing to WebDAV'),
     child: FadeTransition(
       opacity: _opacity,
       child: const SizedBox(

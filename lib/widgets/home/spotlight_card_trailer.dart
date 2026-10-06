@@ -167,7 +167,7 @@ class _TrailerLoadingDotState extends State<_TrailerLoadingDot> with SingleTicke
   @override
   void dispose() { _pulse.dispose(); super.dispose(); }
   @override
-  Widget build(BuildContext context) => Semantics(label: 'Loading trailer', child: FadeTransition(
+  Widget build(BuildContext context) => Semantics(label: AppLocalizations.of(context).t('Loading trailer'), child: FadeTransition(
     opacity: _pulse,
     child: Container(width: 7, height: 7, decoration: const BoxDecoration(
       color: Colors.white, shape: BoxShape.circle,

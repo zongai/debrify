@@ -1,3 +1,4 @@
+import '../../l10n/app_localizations.dart';
 import 'dart:convert';
 import 'dart:io';
 
@@ -389,7 +390,7 @@ class ProfilePackageService {
       profiles,
       localId: (profile) => profile.id,
       projection: profileIdProjection,
-      label: 'profile',
+      label: AppLocalizations.of(context).t('profile'),
       requiredProjection: requireIdentityProjection,
     );
     final profileBackupIds = <String, String>{};
@@ -505,7 +506,7 @@ class ProfilePackageService {
       allResources,
       localId: (resource) => resource.id,
       projection: resourceIdProjection,
-      label: 'resource',
+      label: AppLocalizations.of(context).t('resource'),
       requiredProjection: requireIdentityProjection,
     );
     for (var index = 0; index < allResources.length; index++) {

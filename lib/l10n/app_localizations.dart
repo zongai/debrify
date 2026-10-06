@@ -9726,4 +9726,45 @@ Use the menu to import catalogs.': '尚无本地目录。
     'Nothing to export': '没有可导出的内容',
     'This action cannot be undone.': '此操作无法撤销。',
     'Discard changes?': '放弃更改？',
+    'Network shares aren\'t supported yet — map the share to a drive letter or pick a local folder.': '暂不支持网络共享 — 请将共享映射为盘符或选择本地文件夹。',
+    'Some items couldn\'t load — open them to retry or sign in.': '部分项目无法加载 — 请打开后重试或重新登录。',
+    'Couldn\'t update My Watchlist': '无法更新我的待看列表',
+    'Couldn\'t load trailer': '无法加载预告片',
+    'Couldn\'t load addons': '无法加载插件',
+    'Couldn\'t load engines': '无法加载引擎',
+    'Couldn\'t save category order. Try again.': '无法保存分类顺序，请重试。',
+    'Couldn\'t save — try again': '无法保存 — 请重试',
+    'Couldn\'t load the TV guide — check the EPG URL.': '无法加载电视指南 — 请检查 EPG 地址。',
+    'Don\'t show again': '不再显示',
+    'This channel can\'t be recorded on desktop (HLS stream)': '此频道无法在桌面录制（HLS 流）',
+    'Plays the next best if a video doesn\'t have this quality': '若视频没有该画质，则播放次优画质',
+    'Ask who\'s watching at startup': '启动时询问谁在观看',
+    'People, access and this device\'s sign-in behavior': '成员、权限与本机登录行为',
+    'Arrange this source\'s category list.': '排列此源的分类列表。',
+    'Enter the receiver\'s IP. For Tailscale, this is the 100.x.y.z address shown on the receiving device.': '输入接收端 IP。若使用 Tailscale，请填写接收设备上显示的 100.x.y.z 地址。',
+    'Use {url} for the video URL': '使用 {url} 作为视频地址',
+    'Use {url} for video URL, {title} for title': '使用 {url} 作为视频地址，{title} 作为标题',
+    'Higher limits = More results but slower\\nLower limits = Faster but fewer results': '更高上限 = 结果更多但更慢\\n更低下限 = 更快但结果更少',
+    'Higher limits = More results but slower
+Lower limits = Faster but fewer results': '更高上限 = 结果更多但更慢
+更低下限 = 更快但结果更少',
+    'Each enabled engine will make API calls per keyword. Consider disabling engines you don\'t need for better performance.': '每个启用的引擎会对每个关键词发起 API 请求。可关闭不需要的引擎以提升性能。',
+    'No local catalogs yet.\\nUse the menu to import catalogs.': '尚无本地目录。\\n请使用菜单导入目录。',
+    'Move to Trash: Files can be recovered later\\nDelete Permanently: Cannot be undone': '移到回收站：文件稍后可恢复\\n永久删除：无法撤销',
+    'Move to Trash: Files can be recovered later
+Delete Permanently: Cannot be undone': '移到回收站：文件稍后可恢复
+永久删除：无法撤销',
+    'Bottom tabs \\u2014 Home, three slots you pick, More ': '底部标签 — 主页、三个自选位、更多 ',
+    'Bottom tabs — Home, three slots you pick, More ': '底部标签 — 主页、三个自选位、更多 ',
+    '\\nFinish or cancel active jobs before deletion.': '\\n删除前请先完成或取消进行中的任务。',
+    '
+Finish or cancel active jobs before deletion.': '
+删除前请先完成或取消进行中的任务。',
+    '\\nPrivate settings, history, and databases are deleted.': '\\n将删除私人设置、历史与数据库。',
+    '
+Private settings, history, and databases are deleted.': '
+将删除私人设置、历史与数据库。',
+    'Animation unavailable: $_error': '动画不可用：$_error',
+    'Search Engines': '搜索引擎',
+    'Jackett/Prowlarr': 'Jackett/Prowlarr',
 

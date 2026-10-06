@@ -1,3 +1,4 @@
+import '../../l10n/app_localizations.dart';
 import '../../models/profiles/connection_resource.dart';
 import '../../models/profiles/profile_policy.dart';
 import 'connection_resource_service.dart';
@@ -364,7 +365,7 @@ class ProfileCredentialFacade {
       await service.create(
         context: context,
         type: ConnectionResourceType.trakt,
-        label: 'Trakt',
+        label: AppLocalizations.of(context).t('Trakt'),
         publicConfig: const {'accountLabel': 'Trakt'},
         secretConfig: tokens,
         bindingSlot: 'tracker.trakt',

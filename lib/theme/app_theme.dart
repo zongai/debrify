@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../l10n/app_localizations.dart';
+
 import '../widgets/detail/theme/detail_theme.dart';
 import '../widgets/detail/theme/detail_themes.dart';
 import 'app_ambience.dart';
@@ -1866,7 +1868,7 @@ abstract final class AppThemes {
   /// worth the reading cost.
   static final AppTheme legacy = AppTheme._(
     id: legacyId,
-    label: 'Debrify Classic',
+    label: AppLocalizations.of(context).t('Debrify Classic'),
     isLegacy: true,
     core: DetailThemes.signal,
     brightness: Brightness.dark,
