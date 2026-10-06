@@ -796,7 +796,7 @@ class _ExternalPlayerSettingsPageState
     } catch (e) {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Failed to select application: $e')),
+          SnackBar(content: Text(AppLocalizations.of(context).t('Failed to select application: \$e').replaceAll('\$e', e.toString()))),
         );
       }
     }
@@ -821,7 +821,7 @@ class _ExternalPlayerSettingsPageState
     } catch (e) {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Failed to clear custom app: $e')),
+          SnackBar(content: Text(AppLocalizations.of(context).t('Failed to clear custom app: \$e').replaceAll('\$e', e.toString()))),
         );
       }
     }
@@ -857,7 +857,7 @@ class _ExternalPlayerSettingsPageState
       if (mounted) {
         ScaffoldMessenger.of(
           context,
-        ).showSnackBar(SnackBar(content: Text('Failed to save command: $e')));
+        ).showSnackBar(SnackBar(content: Text(AppLocalizations.of(context).t('Failed to save command: \$e').replaceAll('\$e', e.toString()))));
       }
     }
   }
@@ -882,7 +882,7 @@ class _ExternalPlayerSettingsPageState
       if (mounted) {
         ScaffoldMessenger.of(
           context,
-        ).showSnackBar(SnackBar(content: Text('Failed to clear command: $e')));
+        ).showSnackBar(SnackBar(content: Text(AppLocalizations.of(context).t('Failed to clear command: \$e').replaceAll('\$e', e.toString()))));
       }
     }
   }
@@ -932,7 +932,7 @@ class _ExternalPlayerSettingsPageState
     } catch (e) {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Failed to save URL scheme: $e')),
+          SnackBar(content: Text(AppLocalizations.of(context).t('Failed to save URL scheme: \$e').replaceAll('\$e', e.toString()))),
         );
       }
     }
@@ -957,7 +957,7 @@ class _ExternalPlayerSettingsPageState
     } catch (e) {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Failed to clear URL scheme: $e')),
+          SnackBar(content: Text(AppLocalizations.of(context).t('Failed to clear URL scheme: \$e').replaceAll('\$e', e.toString()))),
         );
       }
     }
@@ -1009,7 +1009,7 @@ class _ExternalPlayerSettingsPageState
       if (mounted) {
         ScaffoldMessenger.of(
           context,
-        ).showSnackBar(SnackBar(content: Text('Failed to save command: $e')));
+        ).showSnackBar(SnackBar(content: Text(AppLocalizations.of(context).t('Failed to save command: \$e').replaceAll('\$e', e.toString()))));
       }
     }
   }
@@ -1034,7 +1034,7 @@ class _ExternalPlayerSettingsPageState
       if (mounted) {
         ScaffoldMessenger.of(
           context,
-        ).showSnackBar(SnackBar(content: Text('Failed to clear command: $e')));
+        ).showSnackBar(SnackBar(content: Text(AppLocalizations.of(context).t('Failed to clear command: \$e').replaceAll('\$e', e.toString()))));
       }
     }
   }
@@ -1085,7 +1085,7 @@ class _ExternalPlayerSettingsPageState
       if (mounted) {
         ScaffoldMessenger.of(
           context,
-        ).showSnackBar(SnackBar(content: Text('Failed to save command: $e')));
+        ).showSnackBar(SnackBar(content: Text(AppLocalizations.of(context).t('Failed to save command: \$e').replaceAll('\$e', e.toString()))));
       }
     }
   }
@@ -1112,7 +1112,7 @@ class _ExternalPlayerSettingsPageState
       if (mounted) {
         ScaffoldMessenger.of(
           context,
-        ).showSnackBar(SnackBar(content: Text('Failed to clear command: $e')));
+        ).showSnackBar(SnackBar(content: Text(AppLocalizations.of(context).t('Failed to clear command: \$e').replaceAll('\$e', e.toString()))));
       }
     }
   }
@@ -1365,7 +1365,7 @@ class _ExternalPlayerSettingsPageState
         if (mounted) {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
-              content: Text('Font "${newFont.label}" imported successfully'),
+              content: Text(AppLocalizations.of(context).t('Font "\$label" imported successfully').replaceAll('\$label', newFont.label)),
             ),
           );
         }
@@ -1380,7 +1380,7 @@ class _ExternalPlayerSettingsPageState
       if (mounted) {
         ScaffoldMessenger.of(
           context,
-        ).showSnackBar(SnackBar(content: Text('Error importing font: $e')));
+        ).showSnackBar(SnackBar(content: Text(AppLocalizations.of(context).t('Error importing font: \$e').replaceAll('\$e', e.toString()))));
       }
     }
   }
@@ -1391,7 +1391,7 @@ class _ExternalPlayerSettingsPageState
     if (mounted) {
       ScaffoldMessenger.of(
         context,
-      ).showSnackBar(SnackBar(content: Text('Font "${font.label}" removed')));
+      ).showSnackBar(SnackBar(content: Text(AppLocalizations.of(context).t('Font "\$label" removed').replaceAll('\$label', font.label))));
     }
   }
 

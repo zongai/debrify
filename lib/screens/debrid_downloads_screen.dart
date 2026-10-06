@@ -862,7 +862,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
       if (!mounted) return;
       ScaffoldMessenger.of(
         context,
-      ).showSnackBar(SnackBar(content: Text('Failed to start download: $e')));
+      ).showSnackBar(SnackBar(content: Text(AppLocalizations.of(context).t('Failed to start download: \$e').replaceAll('\$e', e.toString()))));
     }
   }
 

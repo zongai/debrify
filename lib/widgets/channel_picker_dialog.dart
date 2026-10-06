@@ -191,7 +191,7 @@ class _ChannelPickerDialogState extends State<ChannelPickerDialog> {
         });
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text('Failed to create channel: $e'),
+            content: Text(AppLocalizations.of(context).t('Failed to create channel: \$e').replaceAll('\$e', e.toString())),
             backgroundColor: Colors.red,
           ),
         );

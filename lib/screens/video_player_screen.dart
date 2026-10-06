@@ -7460,7 +7460,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen>
     final messenger = ScaffoldMessenger.of(context);
     messenger.showSnackBar(
       SnackBar(
-        content: Text('Preparing replay of "${programme.title}"…'),
+        content: Text(AppLocalizations.of(context).t('Preparing replay of "\$title"…').replaceAll('\$title', programme.title)),
         duration: const Duration(seconds: 30),
       ),
     );
@@ -14601,7 +14601,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen>
     final label = 'S${_pad2(season)}E${_pad2(episode)}';
     messenger.showSnackBar(
       SnackBar(
-        content: Text('Fetching $label…'),
+        content: Text(AppLocalizations.of(context).t('Fetching \$label…').replaceAll('\$label', label)),
         duration: const Duration(seconds: 2),
       ),
     );
@@ -14764,7 +14764,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen>
           setState(() => _isTransitioning = false);
         }
         messenger.showSnackBar(
-          SnackBar(content: Text('No playable source found for $label')),
+          SnackBar(content: Text(AppLocalizations.of(context).t('No playable source found for \$label').replaceAll('\$label', label))),
         );
       }
       return EpisodePlaybackOutcome.unavailable;

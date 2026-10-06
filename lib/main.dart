@@ -2200,7 +2200,7 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
           if (mounted) {
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(
-                content: Text('Added to Torbox: $name'),
+                content: Text(AppLocalizations.of(context).t('Added to Torbox: \$name').replaceAll('\$name', name)),
                 backgroundColor: Colors.green,
                 duration: const Duration(seconds: 4),
               ),
@@ -2311,7 +2311,7 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
         // Show success message
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text('Addon installed: ${addon.name}'),
+            content: Text(AppLocalizations.of(context).t('Addon installed: \$name').replaceAll('\$name', addon.name)),
             backgroundColor: Colors.green,
             duration: const Duration(seconds: 4),
           ),
@@ -2323,7 +2323,7 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
         // Show error message
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text('Failed to install addon: $e'),
+            content: Text(AppLocalizations.of(context).t('Failed to install addon: \$e').replaceAll('\$e', e.toString())),
             backgroundColor: Colors.red,
             duration: const Duration(seconds: 5),
           ),

@@ -168,7 +168,7 @@ class _HomePageSettingsPageState extends State<HomePageSettingsPage> {
         } catch (e) {
           if (context.mounted) {
             ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(content: Text('Failed to save setting: $e')),
+              SnackBar(content: Text(AppLocalizations.of(context).t('Failed to save setting: \$e').replaceAll('\$e', e.toString()))),
             );
           }
         }
@@ -320,7 +320,7 @@ class _HomePageSettingsPageState extends State<HomePageSettingsPage> {
       if (mounted) {
         ScaffoldMessenger.of(
           context,
-        ).showSnackBar(SnackBar(content: Text('Failed to load settings: $e')));
+        ).showSnackBar(SnackBar(content: Text(AppLocalizations.of(context).t('Failed to load settings: \$e').replaceAll('\$e', e.toString()))));
       }
     }
   }
@@ -336,7 +336,7 @@ class _HomePageSettingsPageState extends State<HomePageSettingsPage> {
       if (mounted) {
         ScaffoldMessenger.of(
           context,
-        ).showSnackBar(SnackBar(content: Text('Failed to save setting: $e')));
+        ).showSnackBar(SnackBar(content: Text(AppLocalizations.of(context).t('Failed to save setting: \$e').replaceAll('\$e', e.toString()))));
       }
     }
   }
@@ -353,7 +353,7 @@ class _HomePageSettingsPageState extends State<HomePageSettingsPage> {
       if (mounted) {
         ScaffoldMessenger.of(
           context,
-        ).showSnackBar(SnackBar(content: Text('Failed to save setting: $e')));
+        ).showSnackBar(SnackBar(content: Text(AppLocalizations.of(context).t('Failed to save setting: \$e').replaceAll('\$e', e.toString()))));
       }
     }
   }
@@ -371,7 +371,7 @@ class _HomePageSettingsPageState extends State<HomePageSettingsPage> {
       if (!mounted) return;
       ScaffoldMessenger.of(
         context,
-      ).showSnackBar(SnackBar(content: Text('Failed to save setting: $e')));
+      ).showSnackBar(SnackBar(content: Text(AppLocalizations.of(context).t('Failed to save setting: \$e').replaceAll('\$e', e.toString()))));
     }
   }
 
@@ -385,7 +385,7 @@ class _HomePageSettingsPageState extends State<HomePageSettingsPage> {
       if (!mounted) return;
       ScaffoldMessenger.of(
         context,
-      ).showSnackBar(SnackBar(content: Text('Failed to save setting: $e')));
+      ).showSnackBar(SnackBar(content: Text(AppLocalizations.of(context).t('Failed to save setting: \$e').replaceAll('\$e', e.toString()))));
     }
   }
 
@@ -402,7 +402,7 @@ class _HomePageSettingsPageState extends State<HomePageSettingsPage> {
     } catch (e) {
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Failed to save setting: $e')),
+        SnackBar(content: Text(AppLocalizations.of(context).t('Failed to save setting: \$e').replaceAll('\$e', e.toString()))),
       );
     }
   }
@@ -416,7 +416,7 @@ class _HomePageSettingsPageState extends State<HomePageSettingsPage> {
     } catch (e) {
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Failed to save setting: $e')),
+        SnackBar(content: Text(AppLocalizations.of(context).t('Failed to save setting: \$e').replaceAll('\$e', e.toString()))),
       );
     }
   }
@@ -431,7 +431,7 @@ class _HomePageSettingsPageState extends State<HomePageSettingsPage> {
       if (!mounted) return;
       ScaffoldMessenger.of(
         context,
-      ).showSnackBar(SnackBar(content: Text('Failed to save setting: $e')));
+      ).showSnackBar(SnackBar(content: Text(AppLocalizations.of(context).t('Failed to save setting: \$e').replaceAll('\$e', e.toString()))));
     }
   }
 
@@ -767,7 +767,7 @@ class _HomePageSettingsPageState extends State<HomePageSettingsPage> {
                           if (context.mounted) {
                             ScaffoldMessenger.of(context).showSnackBar(
                               SnackBar(
-                                content: Text('Failed to save setting: $e'),
+                                content: Text(AppLocalizations.of(context).t('Failed to save setting: \$e').replaceAll('\$e', e.toString())),
                               ),
                             );
                           }
@@ -791,7 +791,7 @@ class _HomePageSettingsPageState extends State<HomePageSettingsPage> {
                           if (context.mounted) {
                             ScaffoldMessenger.of(context).showSnackBar(
                               SnackBar(
-                                content: Text('Failed to save setting: $e'),
+                                content: Text(AppLocalizations.of(context).t('Failed to save setting: \$e').replaceAll('\$e', e.toString())),
                               ),
                             );
                           }
@@ -884,7 +884,7 @@ class _HomePageSettingsPageState extends State<HomePageSettingsPage> {
                           if (context.mounted) {
                             ScaffoldMessenger.of(context).showSnackBar(
                               SnackBar(
-                                content: Text('Failed to save setting: $e'),
+                                content: Text(AppLocalizations.of(context).t('Failed to save setting: \$e').replaceAll('\$e', e.toString())),
                               ),
                             );
                           }
@@ -911,7 +911,7 @@ class _HomePageSettingsPageState extends State<HomePageSettingsPage> {
                           if (context.mounted) {
                             ScaffoldMessenger.of(context).showSnackBar(
                               SnackBar(
-                                content: Text('Failed to save setting: $e'),
+                                content: Text(AppLocalizations.of(context).t('Failed to save setting: \$e').replaceAll('\$e', e.toString())),
                               ),
                             );
                           }
@@ -939,7 +939,7 @@ class _HomePageSettingsPageState extends State<HomePageSettingsPage> {
                             if (context.mounted) {
                               ScaffoldMessenger.of(context).showSnackBar(
                                 SnackBar(
-                                  content: Text('Failed to save setting: $e'),
+                                  content: Text(AppLocalizations.of(context).t('Failed to save setting: \$e').replaceAll('\$e', e.toString())),
                                 ),
                               );
                             }
@@ -1009,7 +1009,7 @@ class _HomePageSettingsPageState extends State<HomePageSettingsPage> {
                             if (context.mounted) {
                               ScaffoldMessenger.of(context).showSnackBar(
                                 SnackBar(
-                                  content: Text('Failed to save setting: $e'),
+                                  content: Text(AppLocalizations.of(context).t('Failed to save setting: \$e').replaceAll('\$e', e.toString())),
                                 ),
                               );
                             }

@@ -126,7 +126,7 @@ class _EngineImportPageContentState extends State<EngineImportPageContent> {
           children: [
             const CircularProgressIndicator(),
             const SizedBox(width: 16),
-            Text('Importing ${engine.displayName}...'),
+            Text(AppLocalizations.of(context).t('Importing \$name...').replaceAll('\$name', engine.displayName)),
           ],
         ),
       ),
@@ -157,7 +157,7 @@ class _EngineImportPageContentState extends State<EngineImportPageContent> {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text('${engine.displayName} imported successfully'),
+            content: Text(AppLocalizations.of(context).t('\$name imported successfully').replaceAll('\$name', engine.displayName)),
           ),
         );
       }
@@ -166,7 +166,7 @@ class _EngineImportPageContentState extends State<EngineImportPageContent> {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text('Failed to import: $e'),
+            content: Text(AppLocalizations.of(context).t('Failed to import: \$e').replaceAll('\$e', e.toString())),
             backgroundColor: Colors.red,
           ),
         );
@@ -179,7 +179,7 @@ class _EngineImportPageContentState extends State<EngineImportPageContent> {
       context: context,
       builder: (context) => AlertDialog(
         title: Text(AppLocalizations.of(context).t('Delete Engine')),
-        content: Text('Are you sure you want to delete ${engine.displayName}?'),
+        content: Text(AppLocalizations.of(context).t('Are you sure you want to delete \$name?').replaceAll('\$name', engine.displayName)),
         actions: [
           TextButton(
             onPressed: () => Navigator.of(context).pop(false),
@@ -204,14 +204,14 @@ class _EngineImportPageContentState extends State<EngineImportPageContent> {
 
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('${engine.displayName} deleted')),
+          SnackBar(content: Text(AppLocalizations.of(context).t('\$name deleted').replaceAll('\$name', engine.displayName))),
         );
       }
     } catch (e) {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text('Failed to delete: $e'),
+            content: Text(AppLocalizations.of(context).t('Failed to delete: \$e').replaceAll('\$e', e.toString())),
             backgroundColor: Colors.red,
           ),
         );
@@ -303,7 +303,7 @@ class _EngineImportPageContentState extends State<EngineImportPageContent> {
               children: [
                 const CircularProgressIndicator(),
                 const SizedBox(width: 16),
-                Text('Importing $displayName...'),
+                Text(AppLocalizations.of(context).t('Importing \$name...').replaceAll('\$name', displayName)),
               ],
             ),
           ),
@@ -327,7 +327,7 @@ class _EngineImportPageContentState extends State<EngineImportPageContent> {
 
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('$displayName imported successfully')),
+          SnackBar(content: Text(AppLocalizations.of(context).t('\$name imported successfully').replaceAll('\$name', displayName))),
         );
       }
     } catch (e) {
@@ -338,7 +338,7 @@ class _EngineImportPageContentState extends State<EngineImportPageContent> {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text('Failed to import: $e'),
+            content: Text(AppLocalizations.of(context).t('Failed to import: \$e').replaceAll('\$e', e.toString())),
             backgroundColor: Colors.red,
           ),
         );
@@ -987,7 +987,7 @@ class _EngineImportPageState extends State<EngineImportPage> {
           children: [
             const CircularProgressIndicator(),
             const SizedBox(width: 16),
-            Text('Importing ${engine.displayName}...'),
+            Text(AppLocalizations.of(context).t('Importing \$name...').replaceAll('\$name', engine.displayName)),
           ],
         ),
       ),
@@ -1026,7 +1026,7 @@ class _EngineImportPageState extends State<EngineImportPage> {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text('${engine.displayName} imported successfully'),
+            content: Text(AppLocalizations.of(context).t('\$name imported successfully').replaceAll('\$name', engine.displayName)),
           ),
         );
       }
@@ -1038,7 +1038,7 @@ class _EngineImportPageState extends State<EngineImportPage> {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text('Failed to import: $e'),
+            content: Text(AppLocalizations.of(context).t('Failed to import: \$e').replaceAll('\$e', e.toString())),
             backgroundColor: Colors.red,
           ),
         );
@@ -1052,7 +1052,7 @@ class _EngineImportPageState extends State<EngineImportPage> {
       context: context,
       builder: (context) => AlertDialog(
         title: Text(AppLocalizations.of(context).t('Delete Engine')),
-        content: Text('Are you sure you want to delete ${engine.displayName}?'),
+        content: Text(AppLocalizations.of(context).t('Are you sure you want to delete \$name?').replaceAll('\$name', engine.displayName)),
         actions: [
           TextButton(
             onPressed: () => Navigator.of(context).pop(false),
@@ -1081,14 +1081,14 @@ class _EngineImportPageState extends State<EngineImportPage> {
 
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('${engine.displayName} deleted')),
+          SnackBar(content: Text(AppLocalizations.of(context).t('\$name deleted').replaceAll('\$name', engine.displayName))),
         );
       }
     } catch (e) {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text('Failed to delete: $e'),
+            content: Text(AppLocalizations.of(context).t('Failed to delete: \$e').replaceAll('\$e', e.toString())),
             backgroundColor: Colors.red,
           ),
         );
@@ -1187,7 +1187,7 @@ class _EngineImportPageState extends State<EngineImportPage> {
               children: [
                 const CircularProgressIndicator(),
                 const SizedBox(width: 16),
-                Text('Importing $displayName...'),
+                Text(AppLocalizations.of(context).t('Importing \$name...').replaceAll('\$name', displayName)),
               ],
             ),
           ),
@@ -1216,7 +1216,7 @@ class _EngineImportPageState extends State<EngineImportPage> {
       // Show success message
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('$displayName imported successfully')),
+          SnackBar(content: Text(AppLocalizations.of(context).t('\$name imported successfully').replaceAll('\$name', displayName))),
         );
       }
     } catch (e) {
@@ -1229,7 +1229,7 @@ class _EngineImportPageState extends State<EngineImportPage> {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text('Failed to import: $e'),
+            content: Text(AppLocalizations.of(context).t('Failed to import: \$e').replaceAll('\$e', e.toString())),
             backgroundColor: Colors.red,
           ),
         );

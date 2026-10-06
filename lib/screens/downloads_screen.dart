@@ -126,7 +126,7 @@ class _DownloadsScreenState extends State<DownloadsScreen>
     } catch (e) {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Action failed: $e')),
+          SnackBar(content: Text(AppLocalizations.of(context).t('Action failed: \$e').replaceAll('\$e', e.toString()))),
         );
       }
     } finally {
@@ -780,7 +780,7 @@ class _DownloadsScreenState extends State<DownloadsScreen>
                       final fileName = uri?.path.split('/').last ?? 'file';
                       ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(
-                          content: Text('Found download link in clipboard: $fileName'),
+                          content: Text(AppLocalizations.of(context).t('Found download link in clipboard: \$name').replaceAll('\$name', fileName)),
                           duration: const Duration(seconds: 2),
                         ),
                       );
@@ -2633,7 +2633,7 @@ class _TorrentDownloadDetailScreenState extends State<TorrentDownloadDetailScree
     } catch (e) {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Action failed: $e')),
+          SnackBar(content: Text(AppLocalizations.of(context).t('Action failed: \$e').replaceAll('\$e', e.toString()))),
         );
       }
     } finally {

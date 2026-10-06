@@ -4958,7 +4958,7 @@ class _SearchScreenState extends State<SearchScreen>
       if (!mounted) return;
       ScaffoldMessenger.of(
         context,
-      ).showSnackBar(SnackBar(content: Text('Failed to play: $e')));
+      ).showSnackBar(SnackBar(content: Text(AppLocalizations.of(context).t('Failed to play: \$e').replaceAll('\$e', e.toString()))));
     } finally {
       if (mounted) _playlistLaunching = false;
     }
@@ -4970,7 +4970,7 @@ class _SearchScreenState extends State<SearchScreen>
       context: context,
       builder: (dialogContext) => AlertDialog(
         title: Text(AppLocalizations.of(context).t('Delete?')),
-        content: Text('Remove "$title" from your playlist?'),
+        content: Text(AppLocalizations.of(context).t('Remove "\$title" from your playlist?').replaceAll('\$title', title)),
         actions: [
           TextButton(
             onPressed: () => Navigator.of(dialogContext).pop(false),

@@ -260,7 +260,7 @@ class _PikPakFolderPickerDialogState extends State<PikPakFolderPickerDialog> {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text('Failed to load subfolders: ${e.toString()}'),
+            content: Text(AppLocalizations.of(context).t('Failed to load subfolders: \$e').replaceAll('\$e', e.toString())),
             backgroundColor: Colors.red,
           ),
         );
@@ -385,7 +385,7 @@ class _PikPakFolderPickerDialogState extends State<PikPakFolderPickerDialog> {
         ScaffoldMessenger.of(context).hideCurrentSnackBar();
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text('Failed to create folder: ${e.toString()}'),
+            content: Text(AppLocalizations.of(context).t('Failed to create folder: \$e').replaceAll('\$e', e.toString())),
             backgroundColor: Colors.red,
             duration: const Duration(seconds: 4),
           ),

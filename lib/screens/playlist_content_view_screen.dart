@@ -1200,7 +1200,7 @@ class _PlaylistContentViewScreenState extends State<PlaylistContentViewScreen> {
       if (mounted) {
         ScaffoldMessenger.of(
           context,
-        ).showSnackBar(SnackBar(content: Text('Failed to play file: $e')));
+        ).showSnackBar(SnackBar(content: Text(AppLocalizations.of(context).t('Failed to play file: \$e').replaceAll('\$e', e.toString()))));
       }
     }
   }
