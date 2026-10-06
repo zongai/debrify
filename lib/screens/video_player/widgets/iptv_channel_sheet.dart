@@ -654,6 +654,20 @@ class IptvChannelSheetState extends State<IptvChannelSheet>
     if (raw['tvArchiveDuration'] != null) {
       attributes['tv_archive_duration'] = raw['tvArchiveDuration'].toString();
     }
+    // Multi-source mirrors travel in the browse payload (toJson sources).
+    // Dropping them here used to clear hasMultipleSources after ring re-anchor,
+    // so the live dock never showed Streams even when the list said "N sources".
+    List<IptvSource>? sources;
+    final rawSources = raw['sources'];
+    if (rawSources is List && rawSources.isNotEmpty) {
+      sources = [
+        for (final row in rawSources)
+          if (row is Map)
+            IptvSource.fromJson(Map<String, dynamic>.from(row)),
+      ];
+      if (sources.isEmpty) sources = null;
+    }
+
     return IptvChannel(
       channelNumber: (raw['channelNumber'] as num?)?.toInt(),
       name: raw['name'] as String? ?? 'Unknown channel',
@@ -664,6 +678,7 @@ class IptvChannelSheetState extends State<IptvChannelSheet>
       contentType: raw['contentType'] as String?,
       attributes: attributes,
       httpHeaders: headers,
+      sources: sources,
     );
   }
 
