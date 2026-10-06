@@ -99,17 +99,59 @@ jobs:
         distribution: 'zulu'
         java-version: '21'
 
-    - name: Decode keystore
-      run: echo "${{ secrets.KEYSTORE_BASE64 }}" | base64 -d > android/app/release.keystore
-
-    - name: Create key.properties
+    - name: Configure Android signing
+      id: android_signing
+      env:
+        KEYSTORE_BASE64: ${{ secrets.KEYSTORE_BASE64 }}
+        KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
+        KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
+        KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
       run: |
-        cat > android/key.properties << EOF
-        storePassword=${{ secrets.KEYSTORE_PASSWORD }}
-        keyPassword=${{ secrets.KEY_PASSWORD }}
-        keyAlias=${{ secrets.KEY_ALIAS }}
+        set -euo pipefail
+        ks="android/app/release.keystore"
+        props="android/key.properties"
+        rm -f "$ks" "$props"
+
+        if [ -z "${KEYSTORE_BASE64// }" ]; then
+          echo "KEYSTORE_BASE64 secret is empty."
+          if [ "${{ github.event_name }}" = "release" ]; then
+            echo "::error::Release builds require a valid KEYSTORE_BASE64 secret."
+            exit 1
+          fi
+          echo "Falling back to debug signing for workflow_dispatch / non-release."
+          echo "use_release_signing=false" >> "$GITHUB_OUTPUT"
+          exit 0
+        fi
+
+        # Decode without echo (echo can mangle binary / add newlines)
+        printf '%s' "$KEYSTORE_BASE64" | base64 -d > "$ks"
+        size=$(wc -c < "$ks" | tr -d ' ')
+        echo "Decoded keystore size: ${size} bytes"
+        if [ "$size" -lt 64 ]; then
+          echo "::error::Decoded keystore is too small (${size} bytes). Secret is likely corrupt or not base64."
+          exit 1
+        fi
+
+        # Optional format check with keytool when alias/password present
+        if [ -n "${KEY_ALIAS:-}" ] && [ -n "${KEYSTORE_PASSWORD:-}" ]; then
+          if ! keytool -list -keystore "$ks" -storepass "$KEYSTORE_PASSWORD" -alias "$KEY_ALIAS" >/dev/null 2>&1; then
+            echo "::error::keytool cannot open keystore with provided KEYSTORE_PASSWORD / KEY_ALIAS (Tag number over 30 often means corrupt PKCS#12)."
+            keytool -list -keystore "$ks" -storepass "$KEYSTORE_PASSWORD" 2>&1 | head -20 || true
+            exit 1
+          fi
+        fi
+
+        # No leading whitespace on property lines (breaks Java Properties)
+        cat > "$props" <<EOF
+        storePassword=${KEYSTORE_PASSWORD}
+        keyPassword=${KEY_PASSWORD}
+        keyAlias=${KEY_ALIAS}
         storeFile=release.keystore
         EOF
+        # Strip accidental leading spaces from heredoc indentation above
+        sed -i 's/^[[:space:]]*//' "$props"
+        echo "use_release_signing=true" >> "$GITHUB_OUTPUT"
+        echo "Release signing configured."
 
     - name: Build APK
       env:
@@ -117,6 +159,7 @@ jobs:
       run: flutter build apk --release --dart-define=DEBRIFY_LOCAL_VALIDATION=false --dart-define-from-file="${{ runner.temp }}/debrify-build-config.json"
 
     - name: Reject debuggable release APK
+      if: steps.android_signing.outputs.use_release_signing == 'true'
       shell: bash
       run: |
         debuggable=$("$ANDROID_HOME/cmdline-tools/latest/bin/apkanalyzer" manifest debuggable build/app/outputs/flutter-apk/app-release.apk)
