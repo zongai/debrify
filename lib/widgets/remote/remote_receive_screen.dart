@@ -339,7 +339,7 @@ class _StopButtonState extends State<_StopButton> {
                   ]
                 : null,
           ),
-          child: const Row(
+          child: Row(
             mainAxisSize: MainAxisSize.min,
             children: [
               Icon(Icons.stop_rounded, size: 18, color: accent),

@@ -278,7 +278,7 @@ class _ChannelGuideState extends State<ChannelGuide>
           ),
           const SizedBox(width: 14),
           // Title
-          const Expanded(
+          Expanded(
             child: Text(AppLocalizations.of(context).t('CHANNEL GUIDE'),
               style: TextStyle(
                 color: Colors.white,

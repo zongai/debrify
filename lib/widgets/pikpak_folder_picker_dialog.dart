@@ -1020,7 +1020,7 @@ class _NewFolderDialogState extends State<_NewFolderDialog> {
                 children: [
                   const Icon(Icons.create_new_folder, size: 24),
                   const SizedBox(width: 12),
-                  const Expanded(
+                  Expanded(
                     child: Text(AppLocalizations.of(context).t('Create New Folder'),
                       style: TextStyle(
                         fontSize: 18,

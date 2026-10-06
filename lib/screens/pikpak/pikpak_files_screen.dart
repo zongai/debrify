@@ -1965,16 +1965,14 @@ class _PikPakFilesScreenState extends State<PikPakFilesScreen> {
   /// Build search results list
   Widget _buildSearchResults() {
     if (_searchController.text.isEmpty) {
-      return const Center(
-        child: Text(AppLocalizations.of(context).t('Type to search files'),
+      return Center(child: Text(AppLocalizations.of(context).t('Type to search files'),
           style: TextStyle(color: Colors.grey),
         ),
       );
     }
 
     if (_searchResults.isEmpty) {
-      return const Center(
-        child: Text(AppLocalizations.of(context).t('No files found'), style: TextStyle(color: Colors.grey)),
+      return Center(child: Text(AppLocalizations.of(context).t('No files found'), style: TextStyle(color: Colors.grey)),
       );
     }
 

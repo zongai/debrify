@@ -48,7 +48,7 @@ Future<int?> showTraktRatingDialog(BuildContext context) {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              const Row(
+              Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Icon(
@@ -137,7 +137,7 @@ Future<Map<String, dynamic>?> showTraktCustomListPickerDialog(
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                const Row(
+                Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Icon(
@@ -385,7 +385,7 @@ class TraktMenuOption {
   /// True for actions that sync to Trakt — the row shows a TRAKT badge.
   final bool isTrakt;
 
-  const TraktMenuOption({
+  TraktMenuOption({
     required this.action,
     required this.icon,
     required this.color,
@@ -430,7 +430,7 @@ List<TraktMenuOption> buildTraktAddOnlyMenuOptions({
         caption: hasBoundSource ? 'Edit Source' : 'Select Source',
       ),
     if (isSeries || isMovie)
-      const TraktMenuOption(
+      TraktMenuOption(
         action: TraktItemMenuAction.addToStremioTv,
         icon: Icons.live_tv_rounded,
         color: Color(0xFF22C55E),
@@ -438,7 +438,7 @@ List<TraktMenuOption> buildTraktAddOnlyMenuOptions({
         caption: 'Stremio TV',
       ),
     if (isSeries)
-      const TraktMenuOption(
+      TraktMenuOption(
         action: TraktItemMenuAction.playRandomEpisode,
         icon: Icons.shuffle_rounded,
         color: Color(0xFFF59E0B),
@@ -446,7 +446,7 @@ List<TraktMenuOption> buildTraktAddOnlyMenuOptions({
         caption: 'Random',
       ),
     if (isSeries)
-      const TraktMenuOption(
+      TraktMenuOption(
         action: TraktItemMenuAction.searchPacks,
         icon: Icons.inventory_2_rounded,
         color: Color(0xFFFBBF24),
@@ -455,7 +455,7 @@ List<TraktMenuOption> buildTraktAddOnlyMenuOptions({
       ),
     // Trakt-syncing actions — badged TRAKT in the UI. When [status] is known
     if (isSeries || isMovie)
-      const TraktMenuOption(
+      TraktMenuOption(
         action: TraktItemMenuAction.clearWatchProgress,
         icon: Icons.restart_alt_rounded,
         color: Color(0xFFEF4444),
@@ -464,11 +464,11 @@ List<TraktMenuOption> buildTraktAddOnlyMenuOptions({
       ),
     // these flip between Add and Remove to mirror the user's real library.
     if (isTraktAuthenticated) ...[
-      const TraktMenuOption(action: TraktItemMenuAction.clearTraktProgress,
+      TraktMenuOption(action: TraktItemMenuAction.clearTraktProgress,
         icon: Icons.restart_alt_rounded, color: Color(0xFFEF4444),
         label: AppLocalizations.of(context).t('Clear watch progress on Trakt'), caption: 'Clear progress', isTrakt: true),
       if (inWatchlist)
-        const TraktMenuOption(
+        TraktMenuOption(
           action: TraktItemMenuAction.removeFromWatchlist,
           icon: Icons.bookmark_remove_rounded,
           color: Color(0xFFFBBF24),
@@ -477,7 +477,7 @@ List<TraktMenuOption> buildTraktAddOnlyMenuOptions({
           isTrakt: true,
         )
       else
-        const TraktMenuOption(
+        TraktMenuOption(
           action: TraktItemMenuAction.addToWatchlist,
           icon: Icons.bookmark_add_rounded,
           color: Color(0xFFFBBF24),
@@ -486,7 +486,7 @@ List<TraktMenuOption> buildTraktAddOnlyMenuOptions({
           isTrakt: true,
         ),
       if (inCollection)
-        const TraktMenuOption(
+        TraktMenuOption(
           action: TraktItemMenuAction.removeFromCollection,
           icon: Icons.video_library_rounded,
           color: Color(0xFF60A5FA),
@@ -495,7 +495,7 @@ List<TraktMenuOption> buildTraktAddOnlyMenuOptions({
           isTrakt: true,
         )
       else
-        const TraktMenuOption(
+        TraktMenuOption(
           action: TraktItemMenuAction.addToCollection,
           icon: Icons.video_library_outlined,
           color: Color(0xFF60A5FA),
@@ -508,7 +508,7 @@ List<TraktMenuOption> buildTraktAddOnlyMenuOptions({
       // whose whole-title completion is fuzzy) offer BOTH so an already-watched
       // title can always be un-marked instead of only re-marked.
       if (effectiveWatched != true)
-        const TraktMenuOption(
+        TraktMenuOption(
           action: TraktItemMenuAction.markWatched,
           icon: Icons.check_circle_rounded,
           color: Color(0xFF34D399),
@@ -517,7 +517,7 @@ List<TraktMenuOption> buildTraktAddOnlyMenuOptions({
           isTrakt: true,
         ),
       if (effectiveWatched != false)
-        const TraktMenuOption(
+        TraktMenuOption(
           action: TraktItemMenuAction.markUnwatched,
           icon: Icons.visibility_off_rounded,
           color: Color(0xFF34D399),
@@ -538,7 +538,7 @@ List<TraktMenuOption> buildTraktAddOnlyMenuOptions({
         isTrakt: true,
       ),
       if (currentRating != null)
-        const TraktMenuOption(
+        TraktMenuOption(
           action: TraktItemMenuAction.removeRating,
           icon: Icons.star_outline_rounded,
           color: Color(0xFFFBBF24),
@@ -546,7 +546,7 @@ List<TraktMenuOption> buildTraktAddOnlyMenuOptions({
           caption: 'Unrate',
           isTrakt: true,
         ),
-      const TraktMenuOption(
+      TraktMenuOption(
         action: TraktItemMenuAction.addToList,
         icon: Icons.playlist_add_rounded,
         color: Color(0xFFEC4899),

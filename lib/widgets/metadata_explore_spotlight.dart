@@ -222,7 +222,7 @@ class _MetadataExploreSpotlightState extends State<MetadataExploreSpotlight> {
                 padding: const EdgeInsets.all(20),
                 child: Row(
                   children: [
-                    const Expanded(
+                    Expanded(
                       child: Text(AppLocalizations.of(context).t('Cast & crew'),
                         style: TextStyle(fontSize: 24, color: Colors.white),
                       ),

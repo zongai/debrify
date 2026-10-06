@@ -115,7 +115,7 @@ class _RemoteKeyboardInputState extends State<RemoteKeyboardInput> {
                 ),
               ),
               const SizedBox(width: 12),
-              const Expanded(
+              Expanded(
                 child: Text(AppLocalizations.of(context).t('TV Keyboard'),
                   style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
                 ),

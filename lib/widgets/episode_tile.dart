@@ -351,7 +351,7 @@ class _EpisodeTileState extends State<EpisodeTile> {
         ),
 
         if (widget.isNext)
-          const Positioned(
+          Positioned(
             top: 8,
             left: 8,
             child: _Chip(
@@ -361,7 +361,7 @@ class _EpisodeTileState extends State<EpisodeTile> {
             ),
           )
         else if (watched)
-          const Positioned(
+          Positioned(
             top: 8,
             left: 8,
             child: _Chip(label: AppLocalizations.of(context).t('WATCHED'), color: Color(0xFF34D399)),

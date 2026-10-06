@@ -52,7 +52,7 @@ Future<void> showAddSourcePickerDialog(
               children: [
                 // Header (pinned)
                 Row(
-                  children: const [
+                  children: [
                     Icon(
                       Icons.add_link_rounded,
                       color: Color(0xFF60A5FA),
@@ -78,7 +78,7 @@ Future<void> showAddSourcePickerDialog(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         // SEARCH section
-                        const _SectionHeader(
+                        _SectionHeader(
                           title: AppLocalizations.of(context).t('SEARCH'),
                           subtitle: AppLocalizations.of(context).t('Find new torrents from scrapers'),
                         ),
@@ -111,7 +111,7 @@ Future<void> showAddSourcePickerDialog(
                         if (onLocal != null ||
                             localDisabledReason != null) ...[
                           const SizedBox(height: 16),
-                          const _SectionHeader(
+                          _SectionHeader(
                             title: AppLocalizations.of(context).t('LOCAL'),
                             subtitle: AppLocalizations.of(context).t('Use files on this device'),
                           ),
@@ -137,7 +137,7 @@ Future<void> showAddSourcePickerDialog(
                             onAllDebrid != null ||
                             onPikPak != null) ...[
                           const SizedBox(height: 16),
-                          const _SectionHeader(
+                          _SectionHeader(
                             title: AppLocalizations.of(context).t('CLOUD'),
                             subtitle: AppLocalizations.of(context).t('Pick an already downloaded source from your cloud'),
                           ),

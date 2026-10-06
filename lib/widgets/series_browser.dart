@@ -1124,8 +1124,7 @@ class _SeriesBrowserState extends State<SeriesBrowser> {
                   _buildMetadataWarning(hPad),
                   Expanded(
                     child: episodes.isEmpty
-                        ? const Center(
-                            child: Text(AppLocalizations.of(context).t('No episodes found'),
+                        ? Center(child: Text(AppLocalizations.of(context).t('No episodes found'),
                               style: TextStyle(
                                 color: _BrowserColors.inkDim,
                                 fontSize: 16,
@@ -1780,7 +1779,7 @@ class _SeriesBrowserState extends State<SeriesBrowser> {
 
     if (!available) {
       tags.add(
-        const Row(
+        Row(
           mainAxisSize: MainAxisSize.min,
           children: [
             Icon(
@@ -1803,7 +1802,7 @@ class _SeriesBrowserState extends State<SeriesBrowser> {
 
     if (isCurrent) {
       tags.add(
-        const Row(
+        Row(
           mainAxisSize: MainAxisSize.min,
           children: [
             Icon(
@@ -1824,7 +1823,7 @@ class _SeriesBrowserState extends State<SeriesBrowser> {
       );
     } else if (isFinished) {
       tags.add(
-        const Row(
+        Row(
           mainAxisSize: MainAxisSize.min,
           children: [
             Icon(Icons.check_rounded, color: _BrowserColors.done, size: 14),
@@ -1866,7 +1865,7 @@ class _SeriesBrowserState extends State<SeriesBrowser> {
 
     if (isLastPlayed && !isCurrent) {
       tags.add(
-        const Row(
+        Row(
           mainAxisSize: MainAxisSize.min,
           children: [
             Icon(

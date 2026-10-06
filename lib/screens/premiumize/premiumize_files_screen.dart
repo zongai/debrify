@@ -1879,8 +1879,7 @@ class _PremiumizeFilesScreenState extends State<PremiumizeFilesScreen> {
       return const Center(child: CircularProgressIndicator());
     }
     if (_searchResults.isEmpty) {
-      return const Center(
-        child: Text(AppLocalizations.of(context).t('No results found'), style: TextStyle(color: Colors.grey)),
+      return Center(child: Text(AppLocalizations.of(context).t('No results found'), style: TextStyle(color: Colors.grey)),
       );
     }
     // Reuse the full file card so search results get the same Open / Play /

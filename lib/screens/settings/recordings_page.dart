@@ -1642,8 +1642,7 @@ class _EmptyDvr extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 22),
-        const Center(
-          child: Text(AppLocalizations.of(context).t('Your DVR is empty'),
+        Center(child: Text(AppLocalizations.of(context).t('Your DVR is empty'),
             style: TextStyle(
               color: Colors.white,
               fontSize: 18,

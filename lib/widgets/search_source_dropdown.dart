@@ -36,49 +36,49 @@ class SearchSourceOption {
   /// Create "All" option
   factory SearchSourceOption.all() => const SearchSourceOption(
     type: SearchSourceType.all,
-    label: AppLocalizations.of(context).t('All'),
+    label: 'All',
     icon: Icons.apps,
   );
 
   /// Create "Keyword" option
   factory SearchSourceOption.keyword() => const SearchSourceOption(
     type: SearchSourceType.keyword,
-    label: AppLocalizations.of(context).t('Keyword'),
+    label: 'Keyword',
     icon: Icons.search,
   );
 
   /// Create "Trakt" option
   factory SearchSourceOption.trakt() => const SearchSourceOption(
     type: SearchSourceType.trakt,
-    label: AppLocalizations.of(context).t('Trakt'),
+    label: 'Trakt',
     icon: Icons.movie_filter_rounded,
   );
 
   /// Create "Reddit" option
   factory SearchSourceOption.reddit() => const SearchSourceOption(
     type: SearchSourceType.reddit,
-    label: AppLocalizations.of(context).t('Reddit'),
+    label: 'Reddit',
     icon: Icons.play_circle_outline,
   );
 
   /// Create "Lemmy" option
   factory SearchSourceOption.lemmy() => const SearchSourceOption(
     type: SearchSourceType.lemmy,
-    label: AppLocalizations.of(context).t('Lemmy'),
+    label: 'Lemmy',
     icon: Icons.hub_outlined,
   );
 
   /// Create "YouTube" option
   factory SearchSourceOption.youtube() => const SearchSourceOption(
     type: SearchSourceType.youtube,
-    label: AppLocalizations.of(context).t('YouTube'),
+    label: 'YouTube',
     icon: Icons.smart_display_outlined,
   );
 
   /// Create "IPTV" option
   factory SearchSourceOption.iptv() => const SearchSourceOption(
     type: SearchSourceType.iptv,
-    label: AppLocalizations.of(context).t('IPTV'),
+    label: 'IPTV',
     icon: Icons.live_tv,
   );
 
@@ -349,7 +349,7 @@ class _SearchSourceDropdownState extends State<SearchSourceDropdown> {
                 const SizedBox(width: 8),
                 Flexible(
                   child: Text(
-                    widget.selectedOption.label,
+                    AppLocalizations.of(context).t(widget.selectedOption.label),
                     style: TextStyle(
                       fontSize: 14,
                       fontWeight: FontWeight.w600,
@@ -630,7 +630,7 @@ class _DropdownMenuState extends State<_DropdownMenu> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  option.label,
+                                  AppLocalizations.of(context).t(option.label),
                                   style: TextStyle(
                                     color: isSelected
                                         ? Colors.white

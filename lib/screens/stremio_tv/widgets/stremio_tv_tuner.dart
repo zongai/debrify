@@ -2276,7 +2276,7 @@ class _DialCardState extends State<_DialCard> {
                   // width varies with the channel number) and the favourite
                   // star. Never on touch.
                   if (widget.isTelevision && _focused)
-                    const Positioned(
+                    Positioned(
                       top: 34,
                       right: 9,
                       child: _DialHintChip(
@@ -2285,7 +2285,7 @@ class _DialCardState extends State<_DialCard> {
                       ),
                     )
                   else if (!widget.isTelevision && _hovered)
-                    const Positioned(
+                    Positioned(
                       top: 34,
                       right: 9,
                       child: _DialHintChip(

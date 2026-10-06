@@ -14339,7 +14339,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen>
                 borderRadius: BorderRadius.circular(8),
                 border: Border.all(color: Colors.white.withValues(alpha: 0.10)),
               ),
-              child: const Row(
+              child: Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   SizedBox(

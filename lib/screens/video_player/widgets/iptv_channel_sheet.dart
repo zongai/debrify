@@ -1490,7 +1490,7 @@ class IptvChannelSheetState extends State<IptvChannelSheet>
                   ),
                 ),
                 const SizedBox(width: 8),
-                const _LivePill(label: AppLocalizations.of(context).t('NOW')),
+                _LivePill(label: AppLocalizations.of(context).t('NOW')),
                 if (compact) ...[
                   const SizedBox(width: 6),
                   Icon(

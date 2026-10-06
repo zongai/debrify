@@ -768,7 +768,7 @@ class TorrentBulkAddService {
                       color: Color(0xFFFB923C), size: 22),
                 ),
                 const SizedBox(width: 14),
-                const Expanded(
+                Expanded(
                   child: Text(AppLocalizations.of(context).t('Premiumize Fair Use'),
                     style: TextStyle(
                       fontWeight: FontWeight.w700,

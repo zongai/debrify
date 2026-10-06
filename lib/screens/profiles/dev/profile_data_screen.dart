@@ -289,7 +289,7 @@ class _ProfileDataScreenState extends State<ProfileDataScreen> {
       ],
     );
     if (rows.isEmpty) {
-      return <Widget>[header, const _Empty(message: AppLocalizations.of(context).t('No keys match.'))];
+      return <Widget>[header, _Empty(message: AppLocalizations.of(context).t('No keys match.'))];
     }
     return <Widget>[
       header,

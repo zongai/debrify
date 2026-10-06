@@ -1290,7 +1290,7 @@ class _DebrifyAppState extends State<DebrifyApp> {
       ),
       locale: AppLocaleController.instance.locale,
       supportedLocales: AppLocalizations.supportedLocales,
-      localizationsDelegates: const [
+      localizationsDelegates: [
         AppLocalizations.delegate,
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,

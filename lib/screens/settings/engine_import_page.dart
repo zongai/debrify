@@ -827,7 +827,7 @@ class _EngineImportPageContentState extends State<EngineImportPageContent> {
                     ),
                   ],
                 ),
-                child: const Row(
+                child: Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Icon(Icons.download_rounded, color: Colors.white, size: 14),

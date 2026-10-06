@@ -603,7 +603,7 @@ class _SourceRowState extends State<SourceRow> {
       color: _accent,
       borderRadius: BorderRadius.circular(999),
     ),
-    child: const Row(
+    child: Row(
       mainAxisSize: MainAxisSize.min,
       children: [
         Icon(Icons.play_arrow_rounded, size: 16, color: Colors.white),

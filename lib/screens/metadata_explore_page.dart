@@ -221,7 +221,7 @@ class _MetadataExplorePageState extends State<MetadataExplorePage> {
     if (_profileChanged) {
       return Scaffold(
         appBar: AppBar(title: Text(AppLocalizations.of(context).t('Explore'))),
-        body: const Center(child: Text(AppLocalizations.of(context).t('Profile changed. Go back to browse your current profile.'),
+        body: Center(child: Text(AppLocalizations.of(context).t('Profile changed. Go back to browse your current profile.'),
         )),
       );
     }

@@ -1478,7 +1478,7 @@ class _TorboxDownloadsScreenState extends State<TorboxDownloadsScreen> {
                           size: 24,
                         ),
                         const SizedBox(width: 12),
-                        const Expanded(
+                        Expanded(
                           child: Text(AppLocalizations.of(context).t('Download Options'),
                             style: TextStyle(
                               fontSize: 18,
@@ -3204,7 +3204,7 @@ class _TorboxDownloadsScreenState extends State<TorboxDownloadsScreen> {
                           size: 24,
                         ),
                         const SizedBox(width: 12),
-                        const Expanded(
+                        Expanded(
                           child: Text(AppLocalizations.of(context).t('Download Options'),
                             style: TextStyle(
                               fontSize: 18,
@@ -5974,16 +5974,14 @@ class _TorboxDownloadsScreenState extends State<TorboxDownloadsScreen> {
   /// Build search results list
   Widget _buildSearchResults() {
     if (_searchController.text.isEmpty) {
-      return const Center(
-        child: Text(AppLocalizations.of(context).t('Type to search all files'),
+      return Center(child: Text(AppLocalizations.of(context).t('Type to search all files'),
           style: TextStyle(color: Colors.grey),
         ),
       );
     }
 
     if (_searchResults.isEmpty) {
-      return const Center(
-        child: Text(AppLocalizations.of(context).t('No files found'), style: TextStyle(color: Colors.grey)),
+      return Center(child: Text(AppLocalizations.of(context).t('No files found'), style: TextStyle(color: Colors.grey)),
       );
     }
 

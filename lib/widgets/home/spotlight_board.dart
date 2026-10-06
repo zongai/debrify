@@ -2911,7 +2911,7 @@ class _HeroOpenPill extends StatelessWidget {
           color: Colors.white,
           borderRadius: BorderRadius.circular(21),
         ),
-        child: const Row(
+        child: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
             Icon(Icons.play_arrow_rounded, size: 20, color: Colors.black),

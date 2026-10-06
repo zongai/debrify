@@ -306,7 +306,7 @@ class TracksSheet {
                           size: 22,
                         ),
                         const SizedBox(width: 10),
-                        const Expanded(
+                        Expanded(
                           child: Text(AppLocalizations.of(context).t('Audio & Subtitles'),
                             style: TextStyle(
                               color: Colors.white,
@@ -1934,7 +1934,7 @@ class _RetryCard extends StatelessWidget {
                 ),
                 borderRadius: BorderRadius.circular(9),
               ),
-              child: const Row(
+              child: Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Icon(Icons.refresh_rounded, size: 16, color: Colors.white),

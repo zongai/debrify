@@ -1190,7 +1190,7 @@ class RemoteConfigExportState extends State<RemoteConfigExport> {
                         valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
                       ),
                     )
-                  : const Row(
+                  : Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Icon(Icons.send, size: 18),

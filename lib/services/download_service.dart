@@ -1306,7 +1306,7 @@ class DownloadService {
                                   borderRadius: BorderRadius.circular(16),
                                 ),
                                 child: Row(
-                                  children: const [
+                                  children: [
                                     Icon(
                                       Icons.battery_saver,
                                       color: Colors.white,

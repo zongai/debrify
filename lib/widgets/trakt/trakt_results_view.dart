@@ -742,7 +742,7 @@ class TraktResultsViewState extends State<TraktResultsView> {
               : 'Select Source',
           caption: hasBoundSource ? 'Edit Source' : 'Select Source',
         ),
-      const TraktMenuOption(
+      TraktMenuOption(
         action: TraktItemMenuAction.addToStremioTv,
         icon: Icons.live_tv_rounded,
         color: Color(0xFF22C55E),
@@ -761,7 +761,7 @@ class TraktResultsViewState extends State<TraktResultsView> {
       // ── Trakt-syncing (badged TRAKT) ──
       if (_isAuthenticated) ...[
         if (lt == TraktListType.watchlist)
-          const TraktMenuOption(
+          TraktMenuOption(
             action: TraktItemMenuAction.removeFromWatchlist,
             icon: Icons.bookmark_remove_rounded,
             color: Color(0xFFFBBF24),
@@ -770,7 +770,7 @@ class TraktResultsViewState extends State<TraktResultsView> {
             isTrakt: true,
           )
         else
-          const TraktMenuOption(
+          TraktMenuOption(
             action: TraktItemMenuAction.addToWatchlist,
             icon: Icons.bookmark_add_rounded,
             color: Color(0xFFFBBF24),
@@ -779,7 +779,7 @@ class TraktResultsViewState extends State<TraktResultsView> {
             isTrakt: true,
           ),
         if (lt == TraktListType.collection)
-          const TraktMenuOption(
+          TraktMenuOption(
             action: TraktItemMenuAction.removeFromCollection,
             icon: Icons.library_add_check_rounded,
             color: Color(0xFF60A5FA),
@@ -788,7 +788,7 @@ class TraktResultsViewState extends State<TraktResultsView> {
             isTrakt: true,
           )
         else
-          const TraktMenuOption(
+          TraktMenuOption(
             action: TraktItemMenuAction.addToCollection,
             icon: Icons.video_library_rounded,
             color: Color(0xFF60A5FA),
@@ -797,7 +797,7 @@ class TraktResultsViewState extends State<TraktResultsView> {
             isTrakt: true,
           ),
         if (isWatched)
-          const TraktMenuOption(
+          TraktMenuOption(
             action: TraktItemMenuAction.markUnwatched,
             icon: Icons.visibility_off_rounded,
             color: Color(0xFF34D399),
@@ -806,7 +806,7 @@ class TraktResultsViewState extends State<TraktResultsView> {
             isTrakt: true,
           )
         else
-          const TraktMenuOption(
+          TraktMenuOption(
             action: TraktItemMenuAction.markWatched,
             icon: Icons.check_circle_rounded,
             color: Color(0xFF34D399),
@@ -815,7 +815,7 @@ class TraktResultsViewState extends State<TraktResultsView> {
             isTrakt: true,
           ),
         if (lt == TraktListType.ratings)
-          const TraktMenuOption(
+          TraktMenuOption(
             action: TraktItemMenuAction.removeRating,
             icon: Icons.star_border_rounded,
             color: Color(0xFFFBBF24),
@@ -824,7 +824,7 @@ class TraktResultsViewState extends State<TraktResultsView> {
             isTrakt: true,
           )
         else
-          const TraktMenuOption(
+          TraktMenuOption(
             action: TraktItemMenuAction.rate,
             icon: Icons.star_rounded,
             color: Color(0xFFFBBF24),
@@ -833,7 +833,7 @@ class TraktResultsViewState extends State<TraktResultsView> {
             isTrakt: true,
           ),
         if (lt == TraktListType.customList)
-          const TraktMenuOption(
+          TraktMenuOption(
             action: TraktItemMenuAction.removeFromList,
             icon: Icons.playlist_remove_rounded,
             color: Color(0xFFEC4899),
@@ -842,7 +842,7 @@ class TraktResultsViewState extends State<TraktResultsView> {
             isTrakt: true,
           )
         else
-          const TraktMenuOption(
+          TraktMenuOption(
             action: TraktItemMenuAction.addToList,
             icon: Icons.playlist_add_rounded,
             color: Color(0xFFEC4899),
@@ -851,7 +851,7 @@ class TraktResultsViewState extends State<TraktResultsView> {
             isTrakt: true,
           ),
         if (lt == TraktListType.progress)
-          const TraktMenuOption(
+          TraktMenuOption(
             action: TraktItemMenuAction.removeFromPlayback,
             icon: Icons.delete_outline_rounded,
             color: Color(0xFFEF4444),

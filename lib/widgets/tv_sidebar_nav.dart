@@ -1130,7 +1130,7 @@ class TvSidebarNavState extends State<TvSidebarNav>
               ),
             ),
             const SizedBox(width: 9),
-            const Expanded(
+            Expanded(
               child: Text(AppLocalizations.of(context).t('Debrify'),
                 maxLines: 1,
                 softWrap: false,
