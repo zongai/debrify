@@ -4451,7 +4451,7 @@ class _QuickActionsMenu extends StatelessWidget {
                 shrinkWrap: true,
                 padding: const EdgeInsets.only(bottom: 8),
                 itemCount: options.length,
-                itemBuilder: (context, i) => _item(options[i], i),
+                itemBuilder: (context, i) => _item(context, options[i], i),
               ),
             ),
           ],
@@ -4460,7 +4460,7 @@ class _QuickActionsMenu extends StatelessWidget {
     );
   }
 
-  Widget _item(TraktMenuOption o, int index) {
+  Widget _item(BuildContext context, TraktMenuOption o, int index) {
     return Material(
       color: Colors.transparent,
       child: InkWell(
