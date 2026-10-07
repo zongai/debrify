@@ -455,12 +455,14 @@ class _StartupFailureApp extends StatelessWidget {
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                Text(AppLocalizations.of(context).t('Debrify could not start safely. Close the app and try again. If this continues, restart the device before changing any data.'),
+                const Text(
+                  'Debrify could not start safely. Close the app and try again. If this continues, restart the device before changing any data.',
                   textAlign: TextAlign.center,
                 ),
                 if (detail != null) ...[
                   const SizedBox(height: 20),
-                  Text(AppLocalizations.of(context).t('Please share this with support:'),
+                  const Text(
+                    'Please share this with support:',
                     textAlign: TextAlign.center,
                     style: TextStyle(fontSize: 12, color: Colors.white54),
                   ),
@@ -504,45 +506,59 @@ class _MigrationUpdateScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        backgroundColor: const Color(0xFF05070E),
-        body: Center(
-          child: ConstrainedBox(
-            constraints: const BoxConstraints(maxWidth: 620),
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 32),
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  const SizedBox(
-                    width: 34,
-                    height: 34,
-                    child: CircularProgressIndicator(
-                      strokeWidth: 3,
-                      valueColor: AlwaysStoppedAnimation<Color>(
-                        Color(0xFF6366F1),
+      locale: AppLocaleController.instance.locale,
+      supportedLocales: AppLocalizations.supportedLocales,
+      localizationsDelegates: const [
+        AppLocalizations.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      home: Builder(
+        builder: (context) => Scaffold(
+          backgroundColor: const Color(0xFF05070E),
+          body: Center(
+            child: ConstrainedBox(
+              constraints: const BoxConstraints(maxWidth: 620),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 32),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    const SizedBox(
+                      width: 34,
+                      height: 34,
+                      child: CircularProgressIndicator(
+                        strokeWidth: 3,
+                        valueColor: AlwaysStoppedAnimation<Color>(
+                          Color(0xFF6366F1),
+                        ),
                       ),
                     ),
-                  ),
-                  const SizedBox(height: 30),
-                  Text(AppLocalizations.of(context).t('Finishing the update…'),
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 26,
-                      fontWeight: FontWeight.w700,
+                    const SizedBox(height: 30),
+                    Text(
+                      AppLocalizations.of(context).t('Finishing the update…'),
+                      textAlign: TextAlign.center,
+                      style: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 26,
+                        fontWeight: FontWeight.w700,
+                      ),
                     ),
-                  ),
-                  const SizedBox(height: 14),
-                  Text(AppLocalizations.of(context).t('Debrify is upgrading your library for this new version. This launch can take up to 5 minutes on large setups — please don’t close the app or turn off the device. This only happens once.'),
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      color: Colors.white.withValues(alpha: 0.72),
-                      fontSize: 16,
-                      height: 1.55,
+                    const SizedBox(height: 14),
+                    Text(
+                      AppLocalizations.of(context).t(
+                        'Debrify is upgrading your library for this new version. This launch can take up to 5 minutes on large setups — please don’t close the app or turn off the device. This only happens once.',
+                      ),
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: Colors.white.withValues(alpha: 0.72),
+                        fontSize: 16,
+                        height: 1.55,
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
           ),
@@ -1130,7 +1146,7 @@ class _DebrifyAppState extends State<DebrifyApp> {
       navigatorKey: _navigatorKey,
       scaffoldMessengerKey: _scaffoldMessengerKey,
       navigatorObservers: [appRouteObserver, AppSurfaceRouteObserver()],
-      title: AppLocalizations.of(context).t('Debrify'),
+      title: 'Debrify',
       debugShowCheckedModeBanner: false,
       // Performance optimizations for TV with TV-aware text scaling
       builder: (context, child) {
