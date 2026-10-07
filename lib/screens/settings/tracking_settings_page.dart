@@ -92,20 +92,26 @@ class _TrackingSettingsPageState extends State<TrackingSettingsPage> {
         WatchProgressSource.mdblist => TrackingSource.mdblist,
       };
 
-  String _label(TrackingSource source) => switch (source) {
-    TrackingSource.local => 'This device',
-    TrackingSource.trakt => 'Trakt',
-    TrackingSource.simkl => 'Simkl',
-    TrackingSource.mdblist => 'MDBList',
-  };
+  String _label(TrackingSource source) {
+    final l10n = AppLocalizations.of(context);
+    return switch (source) {
+      TrackingSource.local => l10n.t('This device'),
+      TrackingSource.trakt => l10n.t('Trakt'),
+      TrackingSource.simkl => l10n.t('Simkl'),
+      TrackingSource.mdblist => l10n.t('MDBList'),
+    };
+  }
 
-  String _progressLabel(WatchProgressSource source) => switch (source) {
-    WatchProgressSource.smart => 'Smart',
-    WatchProgressSource.local => 'This device',
-    WatchProgressSource.trakt => 'Trakt',
-    WatchProgressSource.simkl => 'Simkl',
-    WatchProgressSource.mdblist => 'MDBList',
-  };
+  String _progressLabel(WatchProgressSource source) {
+    final l10n = AppLocalizations.of(context);
+    return switch (source) {
+      WatchProgressSource.smart => l10n.t('Smart'),
+      WatchProgressSource.local => l10n.t('This device'),
+      WatchProgressSource.trakt => l10n.t('Trakt'),
+      WatchProgressSource.simkl => l10n.t('Simkl'),
+      WatchProgressSource.mdblist => l10n.t('MDBList'),
+    };
+  }
 
   bool _available(TrackingSource source) =>
       source == TrackingSource.local || _connected.contains(source);
@@ -144,8 +150,9 @@ class _TrackingSettingsPageState extends State<TrackingSettingsPage> {
 
   Widget _scrobbleSection() => SettingsSection(
     title: AppLocalizations.of(context).t('Scrobble'),
-    blurb:
+    blurb: AppLocalizations.of(context).t(
         'Which services record what you watch. Debrify always keeps its own progress.',
+    ),
     children: [
       for (final source in TrackingSource.values)
         CheckboxListTile(
@@ -156,14 +163,14 @@ class _TrackingSettingsPageState extends State<TrackingSettingsPage> {
           title: Text(_label(source)),
           subtitle: Text(
             source == TrackingSource.local
-                ? 'Always on — Debrify keeps its own watch history (resume '
-                      'positions, episode progress, watched marks). On Home, '
-                      'a title\'s Continue Watching card lives under the one '
-                      'service that tracks it, so it isn\'t listed twice.'
+                ? AppLocalizations.of(context).t(
+                      'Always on — Debrify keeps its own watch history (resume positions, episode progress, watched marks). On Home, a title\'s Continue Watching card lives under the one service that tracks it, so it isn\'t listed twice.',
+                    )
                 : !_available(source)
-                ? 'Connect this tracker to enable it'
-                : 'Send playback progress and watched marks to '
-                      '${_label(source)}',
+                ? AppLocalizations.of(context).t('Connect this tracker to enable it')
+                : AppLocalizations.of(context)
+                      .t('Send playback progress and watched marks to \$name')
+                      .replaceAll('\$name', _label(source)),
           ),
           secondary: const Icon(Icons.sync_alt_rounded),
         ),
@@ -172,17 +179,16 @@ class _TrackingSettingsPageState extends State<TrackingSettingsPage> {
 
   Widget _progressSection() => SettingsSection(
     title: AppLocalizations.of(context).t('Progress source'),
-    blurb:
-        'Controls resume, Continue Watching progress, and the bars and ✓ ticks '
-        'in episode lists. Which rows appear on Home stays yours to choose in '
-        'Home layout.',
+    blurb: AppLocalizations.of(context).t(
+        'Controls resume, Continue Watching progress, and the bars and ✓ ticks in episode lists. Which rows appear on Home stays yours to choose in Home layout.',
+    ),
     children: [
       Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
         child: DropdownButtonFormField<WatchProgressSource>(
           initialValue: _progress,
           decoration: InputDecoration(
-            labelText: 'Progress source',
+            labelText: AppLocalizations.of(context).t('Progress source'),
             border: OutlineInputBorder(),
           ),
           items: [
@@ -199,27 +205,26 @@ class _TrackingSettingsPageState extends State<TrackingSettingsPage> {
       ),
       ListTile(
         title: Text(switch (_progress) {
-          WatchProgressSource.smart =>
-            'Everything combined — this device and your connected trackers. '
-                'The most recent activity wins.',
-          WatchProgressSource.local =>
-            'Only what you watch in Debrify counts: resume, episode lists '
-                'and Continue Watching use this device and your watched-at '
-                'setting.',
-          _ =>
-            '${_progressLabel(_progress)} owns resume, episode lists and '
-                'Continue Watching. Shows leave Continue Watching by '
-                '${_progressLabel(_progress)}\'s rules.',
+          WatchProgressSource.smart => AppLocalizations.of(context).t(
+            'Everything combined — this device and your connected trackers. The most recent activity wins.',
+          ),
+          WatchProgressSource.local => AppLocalizations.of(context).t(
+            'Only what you watch in Debrify counts: resume, episode lists and Continue Watching use this device and your watched-at setting.',
+          ),
+          _ => AppLocalizations.of(context)
+              .t("\$name owns resume, episode lists and Continue Watching. Shows leave Continue Watching by \$name's rules.")
+              .replaceAll('\$name', _progressLabel(_progress)),
         }),
         subtitle: Text(switch (_progress) {
-          WatchProgressSource.smart =>
+          WatchProgressSource.smart => AppLocalizations.of(context).t(
             'Every Continue Watching row stays available on Home.',
-          WatchProgressSource.local =>
-            'Scrobbling still sends your history to ticked services, but '
-                "progress won't follow you to other devices.",
-          _ =>
-            'Every Continue Watching row stays available on Home — hide the '
-                'ones you don\'t want in Home layout.',
+          ),
+          WatchProgressSource.local => AppLocalizations.of(context).t(
+            "Scrobbling still sends your history to ticked services, but progress won't follow you to other devices.",
+          ),
+          _ => AppLocalizations.of(context).t(
+            'Every Continue Watching row stays available on Home — hide the ones you don\'t want in Home layout.',
+          ),
         }),
       ),
     ],
@@ -227,9 +232,9 @@ class _TrackingSettingsPageState extends State<TrackingSettingsPage> {
 
   Widget _ticksSection() => SettingsSection(
     title: AppLocalizations.of(context).t('Watched ticks'),
-    blurb:
-        'Which histories draw the ✓ on posters — Home, Search, Discover and '
-        'detail pages. Episode lists follow your Progress source instead.',
+    blurb: AppLocalizations.of(context).t(
+        'Which histories draw the ✓ on posters — Home, Search, Discover and detail pages. Episode lists follow your Progress source instead.',
+    ),
     children: [
       for (final source in TrackingSource.values)
         CheckboxListTile(
@@ -240,10 +245,12 @@ class _TrackingSettingsPageState extends State<TrackingSettingsPage> {
           title: Text(_label(source)),
           subtitle: Text(
             !_available(source)
-                ? 'Tracker is not connected'
+                ? AppLocalizations.of(context).t('Tracker is not connected')
                 : source == TrackingSource.local
-                ? '✓ for titles finished in Debrify'
-                : '✓ for titles watched on your ${_label(source)} account',
+                ? AppLocalizations.of(context).t('✓ for titles finished in Debrify')
+                : AppLocalizations.of(context)
+                      .t('✓ for titles watched on your \$name account')
+                      .replaceAll('\$name', _label(source)),
           ),
           secondary: const Icon(Icons.check_circle_outline),
         ),
@@ -252,17 +259,16 @@ class _TrackingSettingsPageState extends State<TrackingSettingsPage> {
 
   Widget _hideWatchedSection() => SettingsSection(
     title: AppLocalizations.of(context).t('Hide watched'),
-    blurb:
-        'Remove finished movies and shows from Home rows, Search, Discover '
-        'and See All. Uses the same histories as the ✓ ticks above. Continue '
-        'Watching and your own lists are never hidden.',
+    blurb: AppLocalizations.of(context).t(
+        'Remove finished movies and shows from Home rows, Search, Discover and See All. Uses the same histories as the ✓ ticks above. Continue Watching and your own lists are never hidden.',
+    ),
     children: [
       SettingsToggleTile(
         icon: Icons.visibility_off_rounded,
-        title: 'Hide watched titles',
+        title: AppLocalizations.of(context).t('Hide watched titles'),
         subtitle: _hideWatched
-            ? 'Watched movies and finished shows are hidden from catalogs'
-            : 'Watched titles stay visible with a ✓',
+            ? AppLocalizations.of(context).t('Watched movies and finished shows are hidden from catalogs')
+            : AppLocalizations.of(context).t('Watched titles stay visible with a ✓'),
         value: _hideWatched,
         onChanged: _setHideWatched,
       ),

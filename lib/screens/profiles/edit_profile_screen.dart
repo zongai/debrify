@@ -1163,7 +1163,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
   Widget _sectionLabel(String text) => Padding(
     padding: const EdgeInsets.only(top: 26, bottom: 10),
     child: Text(
-      text.toUpperCase(),
+      AppLocalizations.of(context).t(text).toUpperCase(),
       style: Theme.of(context).textTheme.labelSmall?.copyWith(
         letterSpacing: 1.8,
         color: Theme.of(context).colorScheme.primary,
@@ -1185,7 +1185,9 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
       child: Scaffold(
         appBar: AppBar(
           title: Text(
-            widget.profile == null ? 'Create profile' : 'Edit profile',
+            widget.profile == null
+                ? AppLocalizations.of(context).t('Create profile')
+                : AppLocalizations.of(context).t('Edit profile'),
           ),
           actions: [
             TextButton(
@@ -1212,7 +1214,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                   inputFormatters: <TextInputFormatter>[
                     LengthLimitingTextInputFormatter(40),
                   ],
-                  decoration: InputDecoration(labelText: 'Name'),
+                  decoration: InputDecoration(labelText: AppLocalizations.of(context).t('Name')),
                 ),
                 if (widget.profile == null)
                   SwitchListTile(
@@ -1256,8 +1258,8 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                   ],
                   decoration: InputDecoration(
                     labelText: widget.profile?.hasPin == true
-                        ? 'New PIN (leave blank to keep current)'
-                        : 'PIN (optional)',
+                        ? AppLocalizations.of(context).t('New PIN (leave blank to keep current)')
+                        : AppLocalizations.of(context).t('PIN (optional)'),
                   ),
                 ),
                 if (widget.profile?.hasPin == true ||
@@ -1361,7 +1363,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                 )
               : null,
           title: Text(
-            widget.profile == null ? 'Create profile' : 'Edit profile',
+            (widget.profile == null ? AppLocalizations.of(context).t('Create profile') : AppLocalizations.of(context).t('Edit profile')),
             style: Theme.of(
               context,
             ).textTheme.headlineSmall?.copyWith(fontWeight: FontWeight.w700),
@@ -1440,12 +1442,13 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
   }
 
   Widget _buildTvSectionRail(ColorScheme colors) {
-    const tabs = <(_TvProfileSection, IconData, String)>[
-      (_TvProfileSection.profile, Icons.person_rounded, 'PROFILE'),
-      (_TvProfileSection.pages, Icons.grid_view_rounded, 'PAGES'),
-      (_TvProfileSection.access, Icons.group_rounded, 'ACCESS'),
-      (_TvProfileSection.lock, Icons.lock_rounded, 'LOCK'),
-      (_TvProfileSection.data, Icons.shield_rounded, 'DATA'),
+    final l10n = AppLocalizations.of(context);
+    final tabs = <(_TvProfileSection, IconData, String)>[
+      (_TvProfileSection.profile, Icons.person_rounded, l10n.t('PROFILE')),
+      (_TvProfileSection.pages, Icons.grid_view_rounded, l10n.t('PAGES')),
+      (_TvProfileSection.access, Icons.group_rounded, l10n.t('ACCESS')),
+      (_TvProfileSection.lock, Icons.lock_rounded, l10n.t('LOCK')),
+      (_TvProfileSection.data, Icons.shield_rounded, l10n.t('DATA')),
     ];
     final saveIndex = tabs.length;
     Widget railItem({
@@ -2005,14 +2008,23 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
   }
 
   Widget _buildTvRoleCards() {
-    const descriptions = <UserProfileRole, (String, String, IconData)>{
+    final l10n = AppLocalizations.of(context);
+    final descriptions = <UserProfileRole, (String, String, IconData)>{
       UserProfileRole.admin: (
-        'Admin',
-        'Full control',
+        l10n.t('Admin'),
+        l10n.t('Full control'),
         Icons.admin_panel_settings,
       ),
-      UserProfileRole.member: ('Member', 'No profile management', Icons.group),
-      UserProfileRole.child: ('Kid', 'Limited content', Icons.child_care),
+      UserProfileRole.member: (
+        l10n.t('Member'),
+        l10n.t('No profile management'),
+        Icons.group,
+      ),
+      UserProfileRole.child: (
+        l10n.t('Kid'),
+        l10n.t('Limited content'),
+        Icons.child_care,
+      ),
     };
     Widget card(UserProfileRole role) => _TvActionSurface(
       key: ValueKey('tv-profile-role-${role.name}'),
@@ -2112,8 +2124,8 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                 ],
                 decoration: InputDecoration(
                   labelText: widget.profile?.hasPin == true
-                      ? 'New PIN (leave blank to keep current)'
-                      : 'PIN (optional)',
+                      ? AppLocalizations.of(context).t('New PIN (leave blank to keep current)')
+                      : AppLocalizations.of(context).t('PIN (optional)'),
                 ),
               ),
               if (widget.profile?.hasPin == true ||
@@ -2432,13 +2444,20 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
   }
 
   Widget _buildRoleCards() {
-    const descriptions = <UserProfileRole, (String, String)>{
+    final l10n = AppLocalizations.of(context);
+    final descriptions = <UserProfileRole, (String, String)>{
       UserProfileRole.admin: (
-        'Admin',
-        'Full control, including profiles and connections',
+        l10n.t('Admin'),
+        l10n.t('Full control, including profiles and connections'),
       ),
-      UserProfileRole.member: ('Member', 'Everything except managing profiles'),
-      UserProfileRole.child: ('Kid', 'Limited features, no adult content'),
+      UserProfileRole.member: (
+        l10n.t('Member'),
+        l10n.t('Everything except managing profiles'),
+      ),
+      UserProfileRole.child: (
+        l10n.t('Kid'),
+        l10n.t('Limited features, no adult content'),
+      ),
     };
     return LayoutBuilder(
       builder: (context, constraints) {
