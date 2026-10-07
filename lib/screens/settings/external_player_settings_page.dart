@@ -106,6 +106,7 @@ class _ExternalPlayerSettingsPageState
   // Debrify Player default settings
   bool _isAndroidTv = false;
   int _defaultAspectIndex = 2; // Fit Width (mobile) / Fill (TV)
+  double _defaultPlaybackSpeed = 1.0;
   int _nightModeIndex = 0; // Off
   bool _systemAudioEffects = false; // Android only, opt-in
   bool _tvosForceSoftwareDecode = false; // Apple TV only, opt-in
@@ -593,6 +594,9 @@ class _ExternalPlayerSettingsPageState
       final defaultAspectIndex = isAndroidTv
           ? await StorageService.getPlayerDefaultAspectIndexTv()
           : await StorageService.getPlayerDefaultAspectIndex();
+
+      final defaultPlaybackSpeed =
+          await StorageService.getPlayerDefaultPlaybackSpeed();
       final nightModeIndex = await StorageService.getPlayerNightModeIndex();
       final systemAudioEffects =
           await StorageService.getPlayerSystemAudioEffects();
@@ -677,6 +681,7 @@ class _ExternalPlayerSettingsPageState
         _vrShowDialog = vrShowDialog;
         _isAndroidTv = isAndroidTv;
         _defaultAspectIndex = defaultAspectIndex;
+        _defaultPlaybackSpeed = defaultPlaybackSpeed;
         _nightModeIndex = nightModeIndex;
         _systemAudioEffects = systemAudioEffects;
         _tvosForceSoftwareDecode = tvosForceSoftwareDecode;
@@ -1147,6 +1152,23 @@ class _ExternalPlayerSettingsPageState
     } else {
       await StorageService.setPlayerDefaultAspectIndex(index);
     }
+  }
+
+  String _speedLabel(double speed) {
+    if ((speed - speed.roundToDouble()).abs() < 0.001) {
+      return '${speed.round()}x';
+    }
+    var s = speed.toStringAsFixed(2);
+    while (s.contains('.') && (s.endsWith('0') || s.endsWith('.'))) {
+      s = s.substring(0, s.length - 1);
+    }
+    return '${s}x';
+  }
+
+  Future<void> _setDefaultPlaybackSpeed(double speed) async {
+    final normalized = StorageService.normalizePlayerPlaybackSpeed(speed);
+    setState(() => _defaultPlaybackSpeed = normalized);
+    await StorageService.setPlayerDefaultPlaybackSpeed(normalized);
   }
 
   Future<void> _setNightModeIndex(int index) async {
@@ -2540,6 +2562,27 @@ class _ExternalPlayerSettingsPageState
             onChanged: (index) => _setDefaultAspectIndex(index),
             focusNode: _aspectFocusNode,
             isFocused: _aspectFocused,
+          ),
+          SizedBox(height: 12),
+
+          // Default playback speed (VOD / start-over; live IPTV stays 1x)
+          _buildSettingDropdown(
+            context,
+            label: 'Default playback speed',
+            value: StorageService.playerPlaybackSpeeds
+                .indexOf(
+                  StorageService.normalizePlayerPlaybackSpeed(
+                    _defaultPlaybackSpeed,
+                  ),
+                )
+                .clamp(0, StorageService.playerPlaybackSpeeds.length - 1),
+            items: [
+              for (final s in StorageService.playerPlaybackSpeeds)
+                _speedLabel(s),
+            ],
+            onChanged: (index) => _setDefaultPlaybackSpeed(
+              StorageService.playerPlaybackSpeeds[index],
+            ),
           ),
           SizedBox(height: 12),
 

@@ -5090,9 +5090,12 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen>
       PlayerVisibility.playbackState(this, ready: false);
       if (request != null) {
         await request.commit(() => _player.open(media, play: play));
-        return;
+      } else {
+        await _player.open(media, play: play);
       }
-      return _player.open(media, play: play);
+      // Apply session default rate after open. Pure live IPTV stays at 1x;
+      // start-over / VOD use the configured default (resume may change later).
+      await _applySessionPlaybackSpeed(liveStream: liveStream);
     }
     // Startup direct fallbacks bypass URL resolvers. Recheck their captured
     // capability here so revoked/disabled/reconnected sources cannot open.
@@ -6617,6 +6620,9 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen>
     final aspectIndex = await StorageService.getPlayerDefaultAspectIndex();
     const aspects = AspectMode.values;
     _aspectMode = aspects[aspectIndex.clamp(0, aspects.length - 1)];
+
+    // Default playback rate for this session (resume may override later).
+    _playbackSpeed = await StorageService.getPlayerDefaultPlaybackSpeed();
 
     // In-player guide look. `_initializePlayer` awaits this before playback
     // setup, so every IPTV surface that can actually appear (first tune,
@@ -14175,10 +14181,23 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen>
     );
   }
 
+  Future<void> _applySessionPlaybackSpeed({required bool liveStream}) async {
+    final pureLive = liveStream && !_iptvStartOverActive;
+    final rate = pureLive ? 1.0 : _playbackSpeed;
+    try {
+      await _player.setRate(rate);
+      if (mounted && _playbackSpeed != rate) {
+        setState(() => _playbackSpeed = rate);
+      }
+    } catch (e) {
+      debugPrint('Player: setRate($rate) failed: $e');
+    }
+  }
+
   void _changeSpeed() {
-    const speeds = [0.5, 0.75, 1.0, 1.25, 1.5, 1.75, 2.0];
+    final speeds = StorageService.playerPlaybackSpeeds;
     final idx = speeds.indexOf(_playbackSpeed);
-    final next = speeds[(idx + 1) % speeds.length];
+    final next = speeds[(idx < 0 ? 0 : idx + 1) % speeds.length];
     _player.setRate(next);
     setState(() => _playbackSpeed = next);
     _scheduleAutoHide();

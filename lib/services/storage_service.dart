@@ -402,6 +402,8 @@ class StorageService {
   // Debrify Player default settings
   static const String _playerDefaultAspectIndexKey =
       'player_default_aspect_index';
+  static const String _playerDefaultPlaybackSpeedKey =
+      'player_default_playback_speed';
   static const String _playerDefaultAspectIndexTvKey =
       'player_default_aspect_index_tv';
   static const String _playerNightModeIndexKey = 'player_night_mode_index';
@@ -9247,6 +9249,48 @@ class StorageService {
   static Future<void> setPlayerDefaultAspectIndexTv(int index) async {
     final prefs = await ProfilePreferences.instance();
     await prefs.setInt(_playerDefaultAspectIndexTvKey, index);
+  }
+
+  /// Allowed playback rates for the in-player cycle and the default setting.
+  static const List<double> playerPlaybackSpeeds = [
+    0.5,
+    0.75,
+    1.0,
+    1.25,
+    1.5,
+    1.75,
+    2.0,
+  ];
+
+  static double normalizePlayerPlaybackSpeed(double value) {
+    var best = 1.0;
+    var bestDist = double.infinity;
+    for (final s in playerPlaybackSpeeds) {
+      final d = (s - value).abs();
+      if (d < bestDist) {
+        bestDist = d;
+        best = s;
+      }
+    }
+    return best;
+  }
+
+  /// Default rate applied when a title opens (VOD / start-over). Live IPTV
+  /// stays at 1.0. Per-title resume may still override when a non-1.0 speed
+  /// was last used on that item.
+  static Future<double> getPlayerDefaultPlaybackSpeed() async {
+    final prefs = await ProfilePreferences.instance();
+    final v = prefs.getDouble(_playerDefaultPlaybackSpeedKey);
+    if (v == null) return 1.0;
+    return normalizePlayerPlaybackSpeed(v);
+  }
+
+  static Future<void> setPlayerDefaultPlaybackSpeed(double speed) async {
+    final prefs = await ProfilePreferences.instance();
+    await prefs.setDouble(
+      _playerDefaultPlaybackSpeedKey,
+      normalizePlayerPlaybackSpeed(speed),
+    );
   }
 
   /// Get night mode index (Android TV only)
