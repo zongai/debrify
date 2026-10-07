@@ -396,6 +396,15 @@ Future<void> _mainUnchecked(List<String> launchArguments) async {
         debugShowCheckedModeBanner: false,
         themeMode: ThemeMode.dark,
         darkTheme: ThemeData.dark(useMaterial3: true),
+
+        locale: AppLocaleController.instance.locale,
+        supportedLocales: AppLocalizations.supportedLocales,
+        localizationsDelegates: const [
+          AppLocalizations.delegate,
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
+        ],
         home: ProfileRecoveryScreen(
           onRecovered: _resumeAfterProfileRecovery,
           onResetComplete: _terminateAfterDeviceReset,
@@ -826,6 +835,15 @@ class _LinuxVaultBootstrapHost extends StatelessWidget {
     debugShowCheckedModeBanner: false,
     themeMode: ThemeMode.dark,
     darkTheme: ThemeData.dark(useMaterial3: true),
+
+        locale: AppLocaleController.instance.locale,
+        supportedLocales: AppLocalizations.supportedLocales,
+        localizationsDelegates: const [
+          AppLocalizations.delegate,
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
+        ],
     home: LinuxVaultScreen(
       existingVault: existingVault,
       onSubmit: (passphrase, autoUnlock) async {
