@@ -302,7 +302,7 @@ class _DetailPageStylePageState extends State<DetailPageStylePage> {
                   ],
                 ),
                 const SizedBox(height: 14),
-                Text(AppLocalizations.of(context).t('Applies the next time you open a movie or series — on this ')'device and on Android TV.',
+                Text(AppLocalizations.of(context).t('Applies the next time you open a movie or series — on this device and on Android TV.'),
                   style: TextStyle(
                     fontSize: 12.5,
                     height: 1.45,

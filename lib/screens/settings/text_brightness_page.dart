@@ -100,9 +100,7 @@ class _TextBrightnessPageState extends State<TextBrightnessPage> {
                   ),
                 ),
                 const SizedBox(height: 14),
-                Text(AppLocalizations.of(context).t('Applies immediately, everywhere. Buttons and text on ')'colored surfaces keep their designed contrast, and a few '
-                  'screens with their own styling will follow in a later '
-                  'update.',
+                Text(AppLocalizations.of(context).t('Applies immediately, everywhere. Buttons and text on colored surfaces keep their designed contrast, and a few screens with their own styling will follow in a later update.'),
                   style: TextStyle(
                     fontSize: 12.5,
                     height: 1.45,

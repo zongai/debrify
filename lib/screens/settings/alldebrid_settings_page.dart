@@ -178,7 +178,7 @@ class _AllDebridSettingsPageState extends State<AllDebridSettingsPage> {
         context: context,
         builder: (ctx) => AlertDialog(
           title: Text(AppLocalizations.of(context).t('Hide AllDebrid from navigation?')),
-          content: Text(AppLocalizations.of(context).t('The AllDebrid tab will be removed from the navigation bar. To show ')'it again you will need to log out and log back in.',
+          content: Text(AppLocalizations.of(context).t('The AllDebrid tab will be removed from the navigation bar. To show it again you will need to log out and log back in.'),
           ),
           actions: [
             _FocusRing(

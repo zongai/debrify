@@ -372,7 +372,7 @@ class MobileClassicNav extends StatelessWidget {
                             label: titles[index],
                             onTap: () => toggle(index),
                           ),
-                        const _EditChip(
+                        _EditChip(
                           icon: Icons.grid_view_rounded,
                           label: AppLocalizations.of(context).t('More'),
                           fixed: true,
@@ -414,7 +414,7 @@ class MobileClassicNav extends StatelessWidget {
                   ),
                   const SizedBox(height: 10),
                   Center(
-                    child: Text(AppLocalizations.of(context).t('Tap to move · a tab that gets disabled later falls ')'back to the defaults',
+                    child: Text(AppLocalizations.of(context).t('Tap to move · a tab that gets disabled later falls back to the defaults'),
                       style: TextStyle(
                         fontSize: 10,
                         color: app.fade(app.core.tx, 0.3),

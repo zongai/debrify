@@ -178,7 +178,7 @@ class _TvSidebarStylePageState extends State<TvSidebarStylePage> {
                   ],
                 ),
                 const SizedBox(height: 14),
-                Text(AppLocalizations.of(context).t('Applies immediately. Every style opens the same way — ')'press LEFT at the edge of any screen.',
+                Text(AppLocalizations.of(context).t('Applies immediately. Every style opens the same way — press LEFT at the edge of any screen.'),
                   style: TextStyle(fontSize: 12.5, height: 1.45, color: t.dim),
                 ),
               ],

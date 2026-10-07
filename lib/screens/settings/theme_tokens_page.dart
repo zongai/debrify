@@ -319,8 +319,7 @@ class _ThemeTokensPageState extends State<ThemeTokensPage> {
                   const SizedBox(height: 14),
                 ],
 
-                Text(AppLocalizations.of(context).t('Anything you do not touch follows the Look, including after ')'the Look itself is updated. Picking a Look again clears '
-                  'these.',
+                Text(AppLocalizations.of(context).t('Anything you do not touch follows the Look, including after the Look itself is updated. Picking a Look again clears these.'),
                   style: TextStyle(
                     fontSize: 12.5,
                     height: 1.45,

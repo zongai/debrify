@@ -28,10 +28,7 @@ Future<int?> showRecordingLimitPicker(BuildContext context) async {
       children: [
         Padding(
           padding: const EdgeInsets.fromLTRB(24, 0, 24, 10),
-          child: Text(AppLocalizations.of(context).t('Every recording is an extra connection to your provider, on ')'top of what you\'re watching. Many IPTV accounts allow only '
-            '1–3 connections — set more than yours allows and the provider '
-            'may block streams; parallel recordings also strain the '
-            'network and the box.',
+          child: Text(AppLocalizations.of(context).t('Every recording is an extra connection to your provider, on top of what you\'re watching. Many IPTV accounts allow only 1–3 connections — set more than yours allows and the provider may block streams; parallel recordings also strain the network and the box.'),
             style: TextStyle(
               fontSize: 12.5,
               height: 1.4,

@@ -632,7 +632,7 @@ class _PremiumizeSettingsPageState extends State<PremiumizeSettingsPage> {
                                       horizontal: 16,
                                       vertical: 4,
                                     ),
-                                    child: Text(AppLocalizations.of(context).t('Cache checks are free (no fair-use cost). If a check ')'fails, results stay usable.',
+                                    child: Text(AppLocalizations.of(context).t('Cache checks are free (no fair-use cost). If a check fails, results stay usable.'),
                                       style: Theme.of(context)
                                           .textTheme
                                           .bodySmall

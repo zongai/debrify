@@ -591,8 +591,7 @@ class _CollectionsSettingsPageState extends State<CollectionsSettingsPage> {
                 SettingsPageHeader(
                   icon: Icons.collections_bookmark_rounded,
                   title: AppLocalizations.of(context).t('Collections'),
-                  subtitle: AppLocalizations.of(context).t('Import Nuvio-style collection files — groups of ')
-                      'folders that bundle addon catalogs into Home rows',
+                  subtitle: AppLocalizations.of(context).t('Import Nuvio-style collection files — groups of folders that bundle addon catalogs into Home rows'),
                 ),
                 SizedBox(height: 24),
                 if (_syncDeferred)

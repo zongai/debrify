@@ -318,7 +318,7 @@ class _SyncAndMigratePageState extends State<SyncAndMigratePage>
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Text(AppLocalizations.of(context).t('Scan with your phone or open the link below for ')'Koofr setup, app passwords and connecting your devices.',
+                  Text(AppLocalizations.of(context).t('Scan with your phone or open the link below for Koofr setup, app passwords and connecting your devices.'),
                   ),
                   SizedBox(height: 20),
                   Image.asset(
@@ -436,9 +436,7 @@ class _SyncAndMigratePageState extends State<SyncAndMigratePage>
           barrierDismissible: false,
           builder: (dialogContext) => AlertDialog(
             title: Text(AppLocalizations.of(context).t('Use sync data from this account?')),
-            content: Text(AppLocalizations.of(context).t('Existing profiles and connections on this device will be ')'replaced. Create a manual backup first if you want to keep '
-              'a copy of your current data. IPTV channel and '
-              'guide caches rebuild; Debrify TV channels are not included.',
+            content: Text(AppLocalizations.of(context).t('Existing profiles and connections on this device will be replaced. Create a manual backup first if you want to keep a copy of your current data. IPTV channel and guide caches rebuild; Debrify TV channels are not included.'),
             ),
             actions: [
               TextButton(
@@ -467,9 +465,7 @@ class _SyncAndMigratePageState extends State<SyncAndMigratePage>
       context: context,
       builder: (dialogContext) => AlertDialog(
         title: Text(AppLocalizations.of(context).t('Forget WebDAV connection?')),
-        content: Text(AppLocalizations.of(context).t('Remove the saved connection from this device without contacting WebDAV. ')'Your profiles and data stay here. You can then connect again.\n\n'
-          'The old account may still list this device as connected. '
-          'Data on WebDAV and your other devices will not be changed.',
+        content: Text(AppLocalizations.of(context).t('Remove the saved connection from this device without contacting WebDAV. Your profiles and data stay here. You can then connect again.\n\n The old account may still list this device as connected. Data on WebDAV and your other devices will not be changed.'),
         ),
         actions: [
           TextButton(
@@ -511,11 +507,7 @@ class _SyncAndMigratePageState extends State<SyncAndMigratePage>
       builder: (dialogContext) => AlertDialog(
         scrollable: true,
         title: Text(AppLocalizations.of(context).t('Log out of WebDAV sync?')),
-        content: Text(AppLocalizations.of(context).t('This device will stop syncing and leave the connected devices list. ')'Its saved sync login will be removed.\n\n'
-          'Your profiles and data stay on this device. Already synced data stays '
-          'on WebDAV so you and your other devices can use it later. Changes '
-          'that have not synced stay only on this device.\n\n'
-          'If WebDAV is unavailable, you can forget the connection on this device after trying logout.',
+        content: Text(AppLocalizations.of(context).t('This device will stop syncing and leave the connected devices list. Its saved sync login will be removed.\n\n Your profiles and data stay on this device. Already synced data stays on WebDAV so you and your other devices can use it later. Changes that have not synced stay only on this device.\n\n If WebDAV is unavailable, you can forget the connection on this device after trying logout.'),
         ),
         actions: [
           TextButton(
@@ -829,9 +821,7 @@ class _SyncAndMigratePageState extends State<SyncAndMigratePage>
         builder: (dialogContext) => AlertDialog(
           scrollable: true,
           title: Text(AppLocalizations.of(context).t('Remove this device?')),
-          content: Text(AppLocalizations.of(context).t('Delete this device’s sync files and remove its registration. ')'Its local data stays intact. When the device next connects, it '
-            'will be signed out and must sign in again to rejoin. '
-            'Update all devices first: older app versions cannot enforce remote removal.',
+          content: Text(AppLocalizations.of(context).t('Delete this device’s sync files and remove its registration. Its local data stays intact. When the device next connects, it will be signed out and must sign in again to rejoin. Update all devices first: older app versions cannot enforce remote removal.'),
           ),
           actions: [
             TextButton(

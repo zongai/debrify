@@ -160,8 +160,7 @@ class _DebrifyTvPlayerStylePageState extends State<DebrifyTvPlayerStylePage> {
                   ),
                 ),
                 const SizedBox(height: 14),
-                Text(AppLocalizations.of(context).t('Applies to the next playback session. Every style shows ')'the fetched show or movie name instead of the release '
-                  'filename.',
+                Text(AppLocalizations.of(context).t('Applies to the next playback session. Every style shows the fetched show or movie name instead of the release filename.'),
                   style: TextStyle(
                     fontSize: 12.5,
                     height: 1.45,

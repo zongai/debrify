@@ -157,7 +157,7 @@ class _IptvStylePageState extends State<IptvStylePage> {
                   ),
                 ),
                 const SizedBox(height: 14),
-                Text(AppLocalizations.of(context).t('Applies the next time the IPTV page opens. Phones keep ')'the classic list either way.',
+                Text(AppLocalizations.of(context).t('Applies the next time the IPTV page opens. Phones keep the classic list either way.'),
                   style: TextStyle(fontSize: 12.5, height: 1.45, color: t.dim),
                 ),
               ],

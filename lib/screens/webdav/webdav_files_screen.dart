@@ -751,7 +751,7 @@ class _WebDavFilesScreenState extends State<WebDavFilesScreen> {
                     color: Colors.orange.withValues(alpha: 0.45),
                   ),
                 ),
-                child: Text(AppLocalizations.of(context).t('Insecure HTTP: your WebDAV username, password, and backup ')'travel without transport encryption.',
+                child: Text(AppLocalizations.of(context).t('Insecure HTTP: your WebDAV username, password, and backup travel without transport encryption.'),
                 ),
               ),
             Expanded(child: _buildContent()),

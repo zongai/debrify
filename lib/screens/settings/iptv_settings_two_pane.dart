@@ -31,7 +31,7 @@ class IptvAutoRefreshDialog extends StatelessWidget {
     children: [
       Padding(
         padding: EdgeInsets.fromLTRB(24, 0, 24, 16),
-        child: Text(AppLocalizations.of(context).t('Applies to all sources in this profile. ')'$iptvAutoRefreshExplanation',
+        child: Text(AppLocalizations.of(context).t('Applies to all sources in this profile. $iptvAutoRefreshExplanation'),
         ),
       ),
       for (final hours in const [0, 6, 12, 24, 48])
@@ -1058,7 +1058,7 @@ class IptvSettingsTwoPaneState extends State<IptvSettingsTwoPane> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const _PaneHeader(
+        _PaneHeader(
           icon: Icons.add_rounded,
           title: AppLocalizations.of(context).t('Add a source'),
           meta: 'Pick how you want to connect, then fill in the details.',
@@ -1299,8 +1299,7 @@ class IptvSettingsTwoPaneState extends State<IptvSettingsTwoPane> {
               title: AppLocalizations.of(context).t('Track movies and series'),
               // Says what stays behind, because "off" reading as "my resume
               // positions are gone" is the obvious wrong guess here.
-              subtitle: AppLocalizations.of(context).t('Off hides the shelf and stops adding to it. Nothing ')
-                  'is deleted, and playback still resumes where you left off',
+              subtitle: AppLocalizations.of(context).t('Off hides the shelf and stops adding to it. Nothing is deleted, and playback still resumes where you left off'),
               trailing: Switch(
                 value: widget.trackContinueWatching,
                 onChanged: widget.onToggleTrackContinueWatching,
@@ -1336,8 +1335,7 @@ class IptvSettingsTwoPaneState extends State<IptvSettingsTwoPane> {
               focusNode: _paneNode(0),
               icon: Icons.play_circle_outline_rounded,
               title: AppLocalizations.of(context).t('Play channel previews'),
-              subtitle: AppLocalizations.of(context).t('Uses a provider stream while browsing. Turn it off to ')
-                  'save a connection; fullscreen playback still works',
+              subtitle: AppLocalizations.of(context).t('Uses a provider stream while browsing. Turn it off to save a connection; fullscreen playback still works'),
               trailing: Switch(
                 value: widget.channelPreviewEnabled,
                 onChanged: widget.onToggleChannelPreview,
@@ -1506,8 +1504,7 @@ class IptvSettingsTwoPaneState extends State<IptvSettingsTwoPane> {
                 focusNode: _paneNode(row++),
                 icon: Icons.settings_backup_restore_rounded,
                 title: AppLocalizations.of(context).t('Background recording engine'),
-                subtitle: AppLocalizations.of(context).t('Off returns to player-tied recording. Uses an ')
-                    'extra connection to your provider.',
+                subtitle: AppLocalizations.of(context).t('Off returns to player-tied recording. Uses an extra connection to your provider.'),
                 trailing: Switch(
                   value: widget.recordingEngineEnabled,
                   onChanged: widget.onToggleRecordingEngine,

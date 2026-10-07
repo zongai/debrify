@@ -145,8 +145,7 @@ class _DebrifyTvStylePageState extends State<DebrifyTvStylePage> {
                   ),
                 ),
                 const SizedBox(height: 14),
-                Text(AppLocalizations.of(context).t('Applies the next time Debrify TV opens. Playback is ')'identical either way — this changes what the page draws, '
-                  'never what it plays.',
+                Text(AppLocalizations.of(context).t('Applies the next time Debrify TV opens. Playback is identical either way — this changes what the page draws, never what it plays.'),
                   style: TextStyle(
                     fontSize: 12.5,
                     height: 1.45,

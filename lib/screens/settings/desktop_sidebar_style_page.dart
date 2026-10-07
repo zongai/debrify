@@ -104,8 +104,7 @@ class _DesktopSidebarStylePageState extends State<DesktopSidebarStylePage> {
                 SettingsPageHeader(
                   icon: Icons.view_sidebar_rounded,
                   title: AppLocalizations.of(context).t('Sidebar Style'),
-                  subtitle: AppLocalizations.of(context).t('How navigation is drawn in wide windows — desktop ')
-                      'and tablets',
+                  subtitle: AppLocalizations.of(context).t('How navigation is drawn in wide windows — desktop and tablets'),
                 ),
                 SizedBox(height: 24),
                 SettingsSection(
@@ -132,8 +131,7 @@ class _DesktopSidebarStylePageState extends State<DesktopSidebarStylePage> {
                   ],
                 ),
                 const SizedBox(height: 14),
-                Text(AppLocalizations.of(context).t('Applies immediately. Phones keep their bottom ')'navigation; the TV rail has its own style in TV '
-                  'settings.',
+                Text(AppLocalizations.of(context).t('Applies immediately. Phones keep their bottom navigation; the TV rail has its own style in TV settings.'),
                   style: TextStyle(fontSize: 12.5, height: 1.45, color: t.dim),
                 ),
               ],

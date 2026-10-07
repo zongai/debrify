@@ -191,7 +191,7 @@ class _SidebarCustomizationPageState extends State<SidebarCustomizationPage> {
       context: context,
       builder: (dialogContext) => AlertDialog(
         title: Text(AppLocalizations.of(context).t('Reset sidebar?')),
-        content: Text(AppLocalizations.of(context).t('This restores the original order and every default name on both ')'TV and desktop.',
+        content: Text(AppLocalizations.of(context).t('This restores the original order and every default name on both TV and desktop.'),
         ),
         actions: [
           TextButton(
@@ -331,9 +331,7 @@ class _SidebarCustomizationPageState extends State<SidebarCustomizationPage> {
                   child: SettingsPageHeader(
                     icon: Icons.low_priority_rounded,
                     title: AppLocalizations.of(context).t('Make the sidebar yours'),
-                    subtitle: AppLocalizations.of(context).t('Order and names are shared by TV and desktop for ')
-                        'this profile. Availability still follows connections '
-                        'and profile access.',
+                    subtitle: AppLocalizations.of(context).t('Order and names are shared by TV and desktop for this profile. Availability still follows connections and profile access.'),
                   ),
                 ),
                 Padding(

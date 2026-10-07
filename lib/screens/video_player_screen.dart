@@ -8010,14 +8010,14 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen>
           setState(() => _engineTaskId = result.id);
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
-              content: Text(AppLocalizations.of(context).t('Recording in background — keeps going if you zap or leave. ')'Stop from here or the notification.',
+              content: Text(AppLocalizations.of(context).t('Recording in background — keeps going if you zap or leave. Stop from here or the notification.'),
               ),
             ),
           );
         } else if (result.errorCode == 'recording_limit_reached') {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
-              content: Text(AppLocalizations.of(context).t('Recording limit reached — free a slot or raise the limit ')'in IPTV settings',
+              content: Text(AppLocalizations.of(context).t('Recording limit reached — free a slot or raise the limit in IPTV settings'),
               ),
             ),
           );
@@ -8096,7 +8096,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen>
       setState(() {});
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text(AppLocalizations.of(context).t('Recording in background — keeps going if you zap or leave. ')'Stop from here or Settings → Recordings.',
+          content: Text(AppLocalizations.of(context).t('Recording in background — keeps going if you zap or leave. Stop from here or Settings → Recordings.'),
           ),
         ),
       );

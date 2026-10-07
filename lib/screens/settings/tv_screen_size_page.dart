@@ -122,9 +122,7 @@ class _TvScreenSizePageState extends State<TvScreenSizePage> {
                   ),
                 ),
                 const SizedBox(height: 14),
-                Text(AppLocalizations.of(context).t('TVs report a high pixel density, so the app is drawn large ')'by default. A smaller size fits more on screen without '
-                  'changing any layout. Takes effect the next time Debrify '
-                  'starts.',
+                Text(AppLocalizations.of(context).t('TVs report a high pixel density, so the app is drawn large by default. A smaller size fits more on screen without changing any layout. Takes effect the next time Debrify starts.'),
                   style: TextStyle(
                     fontSize: 12.5,
                     height: 1.45,

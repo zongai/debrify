@@ -1752,7 +1752,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                   ),
                 ),
                 const SizedBox(height: 6),
-                Text(AppLocalizations.of(context).t('Choose what this profile sees and can do. Playback always ')'keeps working through its granted sources.',
+                Text(AppLocalizations.of(context).t('Choose what this profile sees and can do. Playback always keeps working through its granted sources.'),
                   style: Theme.of(context).textTheme.bodyLarge,
                 ),
                 group('SEARCH'),

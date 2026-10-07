@@ -193,8 +193,7 @@ class _MdblistSettingsPageState extends State<MdblistSettingsPage> {
                 SettingsPageHeader(
                   icon: Icons.playlist_add_check_circle_outlined,
                   title: AppLocalizations.of(context).t('MDBList Integration'),
-                  subtitle: AppLocalizations.of(context).t('Connect your MDBList account to browse your lists inside ')
-                      'Discover and Stremio TV.',
+                  subtitle: AppLocalizations.of(context).t('Connect your MDBList account to browse your lists inside Discover and Stremio TV.'),
                 ),
                 const SizedBox(height: 24),
                 _buildApiKeyCard(context),

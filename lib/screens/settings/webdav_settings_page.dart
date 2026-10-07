@@ -350,8 +350,7 @@ class _WebDavSettingsPageState extends State<WebDavSettingsPage> {
                             ),
                             const SizedBox(width: 8),
                             Expanded(
-                              child: Text(AppLocalizations.of(context).t('Insecure HTTP — your WebDAV username, ')'password, and files travel without transport '
-                                'encryption.',
+                              child: Text(AppLocalizations.of(context).t('Insecure HTTP — your WebDAV username, password, and files travel without transport encryption.'),
                                 style: TextStyle(
                                   color: t.warning,
                                   fontSize: 12.5,

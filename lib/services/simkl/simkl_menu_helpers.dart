@@ -349,7 +349,7 @@ List<SimklMenuOption> buildSimklMenuOptions({
         const Color(0xFFEF4444),
       ),
     if (current != null)
-      const SimklMenuOption(
+      SimklMenuOption(
         action: SimklItemMenuAction.removeFromList,
         icon: Icons.remove_circle_outline_rounded,
         color: Color(0xFFF87171),
@@ -360,7 +360,7 @@ List<SimklMenuOption> buildSimklMenuOptions({
     // playback session) — clears that session so it leaves the CW row without
     // changing its watchlist status.
     if (inContinueWatching)
-      const SimklMenuOption(
+      SimklMenuOption(
         action: SimklItemMenuAction.removeFromContinueWatching,
         icon: Icons.playlist_remove_rounded,
         color: Color(0xFFF87171),
@@ -377,7 +377,7 @@ List<SimklMenuOption> buildSimklMenuOptions({
       caption: currentRating != null ? 'Rated $currentRating' : 'Rate',
     ),
     if (currentRating != null)
-      const SimklMenuOption(
+      SimklMenuOption(
         action: SimklItemMenuAction.removeRating,
         icon: Icons.star_outline_rounded,
         color: Color(0xFF22D3EE),

@@ -795,7 +795,7 @@ class AggregatedSearchResultsState extends State<AggregatedSearchResults> {
                       ),
                       if (!isMovie) ...[
                         const SizedBox(height: 4),
-                        const Align(
+                        Align(
                           alignment: Alignment.centerLeft,
                           child: Text(AppLocalizations.of(context).t('First match wins — reorder by priority'),
                             style: TextStyle(

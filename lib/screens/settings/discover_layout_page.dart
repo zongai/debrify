@@ -174,9 +174,7 @@ class _DiscoverLayoutPageState extends State<DiscoverLayoutPage> {
                   ),
                 ),
                 const SizedBox(height: 14),
-                Text(AppLocalizations.of(context).t('Applies immediately — press Back and switch to the Discover ')'tab to see it. Both layouts keep the same filter line, and '
-                  'Stage shows the focused title on the whole screen instead '
-                  'of in a side rail.',
+                Text(AppLocalizations.of(context).t('Applies immediately — press Back and switch to the Discover tab to see it. Both layouts keep the same filter line, and Stage shows the focused title on the whole screen instead of in a side rail.'),
                   style: TextStyle(fontSize: 12.5, height: 1.45, color: t.dim),
                 ),
               ],

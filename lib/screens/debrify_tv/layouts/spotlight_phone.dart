@@ -200,7 +200,7 @@ class _SpotlightPhoneArmState extends State<SpotlightPhoneArm> {
                 if (allChannels.isEmpty)
                   Padding(
                     padding: const EdgeInsets.only(top: 40),
-                    child: Text(AppLocalizations.of(context).t('Make a channel out of anything you can name — ')'Add or Import above.',
+                    child: Text(AppLocalizations.of(context).t('Make a channel out of anything you can name — Add or Import above.'),
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         fontSize: 18,

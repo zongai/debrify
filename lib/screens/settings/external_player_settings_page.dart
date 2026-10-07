@@ -2349,8 +2349,7 @@ class _ExternalPlayerSettingsPageState
                   ),
                 ),
                 const SizedBox(height: 4),
-                Text(AppLocalizations.of(context).t('For stream sources that stall or time out — ')'Plex-backed addons, remote servers. Standard '
-                  'leaves playback exactly as before.',
+                Text(AppLocalizations.of(context).t('For stream sources that stall or time out — Plex-backed addons, remote servers. Standard leaves playback exactly as before.'),
                   style: theme.textTheme.bodySmall?.copyWith(color: t.dim),
                 ),
                 const SizedBox(height: 16),
@@ -2374,10 +2373,7 @@ class _ExternalPlayerSettingsPageState
                   isFocused: _netBufferFocused,
                 ),
                 const SizedBox(height: 10),
-                Text(AppLocalizations.of(context).t('Patience raises connection timeouts and adds ')'automatic retries where the player supports '
-                  'them. Bigger buffers ride over origin stalls '
-                  'but use more memory. Live TV keeps its own '
-                  'tuned pipeline. Restart playback to apply.',
+                Text(AppLocalizations.of(context).t('Patience raises connection timeouts and adds automatic retries where the player supports them. Bigger buffers ride over origin stalls but use more memory. Live TV keeps its own tuned pipeline. Restart playback to apply.'),
                   style: theme.textTheme.bodySmall?.copyWith(color: t.dim2),
                 ),
               ],
@@ -2530,10 +2526,7 @@ class _ExternalPlayerSettingsPageState
             _buildCheckboxTile(
               context,
               title: AppLocalizations.of(context).t('Force software video decoding'),
-              subtitle: AppLocalizations.of(context).t('Compatibility option if a video plays with ')
-                  'wrong colors or a blank picture. Slower — '
-                  '4K may stutter. Applies from the next '
-                  'playback.',
+              subtitle: AppLocalizations.of(context).t('Compatibility option if a video plays with wrong colors or a blank picture. Slower — 4K may stutter. Applies from the next playback.'),
               value: _tvosForceSoftwareDecode,
               onChanged: _setTvosForceSoftwareDecode,
               focusNode: _tvosForceSwDecodeFocusNode,
@@ -2573,8 +2566,7 @@ class _ExternalPlayerSettingsPageState
             _buildCheckboxTile(
               context,
               title: AppLocalizations.of(context).t('Allow system audio effects'),
-              subtitle: AppLocalizations.of(context).t('Let equalizer apps (Wavelet, Dolby, etc.) process playback. ')
-                  'Changes the audio output — restart playback to apply.',
+              subtitle: AppLocalizations.of(context).t('Let equalizer apps (Wavelet, Dolby, etc.) process playback. Changes the audio output — restart playback to apply.'),
               value: _systemAudioEffects,
               onChanged: _setSystemAudioEffects,
               focusNode: _systemAudioEffectsFocusNode,
@@ -2587,10 +2579,7 @@ class _ExternalPlayerSettingsPageState
             _buildCheckboxTile(
               context,
               title: AppLocalizations.of(context).t('Audio passthrough (AC3 · EAC3 · DTS core)'),
-              subtitle: AppLocalizations.of(context).t('Send the original bitstream to your receiver ')
-                  'instead of decoding. Requires an HDMI chain '
-                  'that supports it — if you hear silence, turn '
-                  'this off. Restart playback to apply.',
+              subtitle: AppLocalizations.of(context).t('Send the original bitstream to your receiver instead of decoding. Requires an HDMI chain that supports it — if you hear silence, turn this off. Restart playback to apply.'),
               value: _audioPassthrough,
               onChanged: _setAudioPassthrough,
               focusNode: _audioPassthroughFocusNode,
@@ -2605,9 +2594,7 @@ class _ExternalPlayerSettingsPageState
             _buildCheckboxTile(
               context,
               title: AppLocalizations.of(context).t('Multichannel audio (LPCM over HDMI)'),
-              subtitle: AppLocalizations.of(context).t('Output surround tracks as 5.1/7.1 PCM when ')
-                  'the connected receiver supports it, instead '
-                  'of stereo. Restart playback to apply.',
+              subtitle: AppLocalizations.of(context).t('Output surround tracks as 5.1/7.1 PCM when the connected receiver supports it, instead of stereo. Restart playback to apply.'),
               value: _appleMultichannel,
               onChanged: _setAppleMultichannel,
               focusNode: _appleMultichannelFocusNode,
@@ -2624,10 +2611,7 @@ class _ExternalPlayerSettingsPageState
             _buildCheckboxTile(
               context,
               title: AppLocalizations.of(context).t('Force stereo audio'),
-              subtitle: AppLocalizations.of(context).t('Always downmix to 2 channels, whatever the ')
-                  'TV or receiver reports. Try this if '
-                  'surround sound is noisy or distorted. '
-                  'Restart playback to apply.',
+              subtitle: AppLocalizations.of(context).t('Always downmix to 2 channels, whatever the TV or receiver reports. Try this if surround sound is noisy or distorted. Restart playback to apply.'),
               value: _tvosForceStereo,
               onChanged: _setTvosForceStereo,
               focusNode: _tvosForceStereoFocusNode,
@@ -2637,11 +2621,7 @@ class _ExternalPlayerSettingsPageState
             _buildCheckboxTile(
               context,
               title: AppLocalizations.of(context).t('Use the previous audio engine'),
-              subtitle: AppLocalizations.of(context).t('Go back to the audio output used before ')
-                  'August 2026. It has no sound at all when '
-                  'Dolby Atmos is enabled, so only use it if '
-                  'the current one misbehaves. Restart '
-                  'playback to apply.',
+              subtitle: AppLocalizations.of(context).t('Go back to the audio output used before August 2026. It has no sound at all when Dolby Atmos is enabled, so only use it if the current one misbehaves. Restart playback to apply.'),
               value: _tvosLegacyAudioOutput,
               onChanged: _setTvosLegacyAudioOutput,
               focusNode: _tvosLegacyAudioFocusNode,
@@ -2838,9 +2818,7 @@ class _ExternalPlayerSettingsPageState
           _buildCheckboxTile(
             context,
             title: AppLocalizations.of(context).t('Subtitles when audio differs'),
-            subtitle: AppLocalizations.of(context).t('Choose a Default Audio language in Playback → Audio. ')
-                'Subtitles stay off for matching or unknown audio; '
-                'manual subtitle choices take priority.',
+            subtitle: AppLocalizations.of(context).t('Choose a Default Audio language in Playback → Audio. Subtitles stay off for matching or unknown audio; manual subtitle choices take priority.'),
             value: _subtitleOnlyForeignAudio,
             onChanged: _setSubtitleOnlyForeignAudio,
             focusNode: _subtitleOnlyForeignAudioFocusNode,
@@ -2851,9 +2829,7 @@ class _ExternalPlayerSettingsPageState
           _buildCheckboxTile(
             context,
             title: AppLocalizations.of(context).t('Forced subtitles only'),
-            subtitle: AppLocalizations.of(context).t('Automatically use embedded tracks marked forced in your Default Subtitle language ')
-                '(English if unset). No match means off; Default Subtitle Off disables it. '
-                'Overrides Subtitles when audio differs; manual choices take priority.',
+            subtitle: AppLocalizations.of(context).t('Automatically use embedded tracks marked forced in your Default Subtitle language (English if unset). No match means off; Default Subtitle Off disables it. Overrides Subtitles when audio differs; manual choices take priority.'),
             value: _subtitleForcedOnly,
             onChanged: _setSubtitleForcedOnly,
             focusNode: _subtitleForcedOnlyFocusNode,
@@ -2868,9 +2844,7 @@ class _ExternalPlayerSettingsPageState
             _buildCheckboxTile(
               context,
               title: AppLocalizations.of(context).t('Auto-sync addon subtitles (experimental)'),
-              subtitle: AppLocalizations.of(context).t('Quietly align downloaded subtitles to the audio ')
-                  'as you watch. Applies only on a confident match; '
-                  'manual timing always wins.',
+              subtitle: AppLocalizations.of(context).t('Quietly align downloaded subtitles to the audio as you watch. Applies only on a confident match; manual timing always wins.'),
               value: _subtitleAutoSync,
               onChanged: _setSubtitleAutoSync,
               focusNode: _subtitleAutoSyncFocusNode,

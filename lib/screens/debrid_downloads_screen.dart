@@ -1882,8 +1882,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
                   ),
                 ],
               ),
-              content: Text(AppLocalizations.of(context).t('This is a RAR archive that Real-Debrid has not extracted yet. ')'The folder structure shown represents the archive contents, but only the RAR file itself can be downloaded.\n\n'
-                'You can download the RAR archive to extract it locally.',
+              content: Text(AppLocalizations.of(context).t('This is a RAR archive that Real-Debrid has not extracted yet. The folder structure shown represents the archive contents, but only the RAR file itself can be downloaded.\n\n You can download the RAR archive to extract it locally.'),
                 style: TextStyle(color: Colors.grey),
               ),
               actions: [
@@ -3268,7 +3267,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
         ),
       );
     } else if (_torrents.isEmpty) {
-      body = const Center(
+      body = Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -3442,7 +3441,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
   Widget _buildTorrentSearchResults() {
     final app = AppThemeScope.of(context);
     if (_isLoadingSearch) {
-      return const Center(
+      return Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -3548,7 +3547,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
         ),
       );
     } else if (_downloads.isEmpty) {
-      body = const Center(
+      body = Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -3699,7 +3698,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
       showDialog(
         context: context,
         barrierDismissible: false,
-        builder: (context) => const Center(
+        builder: (context) => Center(
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
@@ -6016,7 +6015,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
       showDialog(
         context: context,
         barrierDismissible: false,
-        builder: (context) => const Center(
+        builder: (context) => Center(
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
@@ -6092,7 +6091,7 @@ class _DebridDownloadsScreenState extends State<DebridDownloadsScreen> {
       showDialog(
         context: context,
         barrierDismissible: false,
-        builder: (context) => const Center(
+        builder: (context) => Center(
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [

@@ -82,7 +82,7 @@ class SleepTimerSheet {
               ),
               Padding(
                 padding: const EdgeInsets.fromLTRB(24, 0, 24, 12),
-                child: Text(AppLocalizations.of(context).t('Playback pauses and the screen is released so the device ')'can sleep. Your position is saved.',
+                child: Text(AppLocalizations.of(context).t('Playback pauses and the screen is released so the device can sleep. Your position is saved.'),
                   style: TextStyle(
                     color: Colors.white.withValues(alpha: 0.55),
                     fontSize: 13,

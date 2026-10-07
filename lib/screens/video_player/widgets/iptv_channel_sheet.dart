@@ -3337,9 +3337,9 @@ class _ChannelTile extends StatelessWidget {
                 onTap: onSchedule,
               ),
               if (isCurrent)
-                _buildNowBadge()
+                _buildNowBadge(context)
               else if (channel.isLive)
-                _buildLiveBadge(),
+                _buildLiveBadge(context),
             ],
           ),
         ),
@@ -3434,7 +3434,7 @@ class _ChannelTile extends StatelessWidget {
     );
   }
 
-  Widget _buildLiveBadge() {
+  Widget _buildLiveBadge(BuildContext context) {
     final t = tokens;
     if (t != null) {
       if (_console) {
@@ -3513,7 +3513,7 @@ class _ChannelTile extends StatelessWidget {
     );
   }
 
-  Widget _buildNowBadge() {
+  Widget _buildNowBadge(BuildContext context) {
     final t = tokens;
     if (t != null) {
       // Static tag — the styled looks don't pulse (nothing animates unless

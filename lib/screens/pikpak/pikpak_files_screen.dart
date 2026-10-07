@@ -196,7 +196,7 @@ class _PikPakFilesScreenState extends State<PikPakFilesScreen> {
     showDialog<void>(
       context: context,
       barrierDismissible: false,
-      builder: (_) => const Center(
+      builder: (_) => Center(
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
@@ -878,7 +878,7 @@ class _PikPakFilesScreenState extends State<PikPakFilesScreen> {
       showDialog(
         context: context,
         barrierDismissible: false,
-        builder: (dialogContext) => const Center(
+        builder: (dialogContext) => Center(
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
@@ -962,7 +962,7 @@ class _PikPakFilesScreenState extends State<PikPakFilesScreen> {
     showDialog(
       context: context,
       barrierDismissible: false,
-      builder: (dialogContext) => const Center(
+      builder: (dialogContext) => Center(
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
@@ -2685,7 +2685,7 @@ class _PikPakFilesScreenState extends State<PikPakFilesScreen> {
     showDialog(
       context: context,
       barrierDismissible: false,
-      builder: (dialogContext) => const Center(
+      builder: (dialogContext) => Center(
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
@@ -2974,7 +2974,7 @@ class _PikPakFilesScreenState extends State<PikPakFilesScreen> {
     showDialog(
       context: context,
       barrierDismissible: false,
-      builder: (dialogContext) => const Center(
+      builder: (dialogContext) => Center(
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [

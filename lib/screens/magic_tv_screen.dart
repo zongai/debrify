@@ -1864,7 +1864,7 @@ class _DebrifyTVScreenState extends State<DebrifyTVScreen> {
           ).textTheme.titleSmall?.copyWith(fontWeight: FontWeight.w600),
         ),
         const SizedBox(height: 2),
-        Text(AppLocalizations.of(context).t('Applies to channels and quick play. If nothing matches, Debrify TV ')'plays what it can rather than showing an empty channel.',
+        Text(AppLocalizations.of(context).t('Applies to channels and quick play. If nothing matches, Debrify TV plays what it can rather than showing an empty channel.'),
           style: labelStyle,
         ),
         const SizedBox(height: 10),
@@ -2429,9 +2429,7 @@ class _DebrifyTVScreenState extends State<DebrifyTVScreen> {
         child: DebrifyTvSpotlightDialog(
           eyebrow: 'Channel export · Apple TV',
           title: AppLocalizations.of(context).t('Export from another device'),
-          subtitle: AppLocalizations.of(context).t('Apple TV does not expose a location where Debrify can save a ')
-              'portable ZIP. Export the channels from Debrify on a phone or '
-              'computer, or send them through Remote.',
+          subtitle: AppLocalizations.of(context).t('Apple TV does not expose a location where Debrify can save a portable ZIP. Export the channels from Debrify on a phone or computer, or send them through Remote.'),
           icon: Icons.tv_rounded,
           maxWidth: 580,
           actions: <Widget>[

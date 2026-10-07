@@ -204,8 +204,7 @@ class _PlayerDockPageState extends State<PlayerDockPage> {
                 SettingsPageHeader(
                   icon: Icons.tune_rounded,
                   title: AppLocalizations.of(context).t('Player Controls'),
-                  subtitle: AppLocalizations.of(context).t('The on-screen controls during playback — their layout, ')
-                      'accent colour and size',
+                  subtitle: AppLocalizations.of(context).t('The on-screen controls during playback — their layout, accent colour and size'),
                 ),
                 SizedBox(height: 24),
                 Focus(

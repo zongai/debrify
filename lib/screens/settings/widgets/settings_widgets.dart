@@ -2815,9 +2815,7 @@ Future<void> showLegacyModeInfoDialog(BuildContext context) {
                 ),
               ),
               SizedBox(height: 14),
-              Text(AppLocalizations.of(context).t('Your data is untouched — migration copies, never moves — and ')'it retries automatically on every launch.\n\n'
-                'If this keeps appearing, photograph this dialog and share it '
-                'in the Discord: the text above identifies the cause.',
+              Text(AppLocalizations.of(context).t('Your data is untouched — migration copies, never moves — and it retries automatically on every launch.\n\n If this keeps appearing, photograph this dialog and share it in the Discord: the text above identifies the cause.'),
                 style: TextStyle(
                   fontSize: 12.5,
                   height: 1.45,

@@ -396,7 +396,7 @@ class _InitialSetupFlowState extends State<InitialSetupFlow> {
           barrierDismissible: false,
           builder: (dialogContext) => AlertDialog(
             title: Text(AppLocalizations.of(context).t('Use this synced setup?')),
-            content: Text(AppLocalizations.of(context).t('Your profiles and connections on this device will be replaced ')'with the setup from your other devices.',
+            content: Text(AppLocalizations.of(context).t('Your profiles and connections on this device will be replaced with the setup from your other devices.'),
             ),
             actions: [
               TextButton(

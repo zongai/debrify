@@ -828,7 +828,7 @@ class _StremioTvLocalCatalogEditor {
     if (existing.any(
       (catalog) => (catalog['name'] as String?) == trimmedName,
     )) {
-      return const StremioTvCatalogPickerResult(
+      return StremioTvCatalogPickerResult(
         message: AppLocalizations.of(context).t('A channel with that name already exists'),
         duplicate: true,
       );

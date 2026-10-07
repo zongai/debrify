@@ -509,7 +509,7 @@ class _ProfileGateState extends State<ProfileGate> with WidgetsBindingObserver {
     if (result == ProfileRecoveryResult.cleared && mounted) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text(AppLocalizations.of(context).t('PIN removed. Set a new one (and a new recovery code) in ')'Manage Profiles.',
+          content: Text(AppLocalizations.of(context).t('PIN removed. Set a new one (and a new recovery code) in Manage Profiles.'),
           ),
           duration: Duration(seconds: 6),
         ),

@@ -438,7 +438,7 @@ class _TraktCalendarScreenState extends State<TraktCalendarScreen> {
     if (!_isAuth) {
       // Only reachable when neither tracker is connected (the default source is
       // whichever IS connected), so phrase it for both.
-      return const Center(
+      return Center(
         child: Padding(
           padding: EdgeInsets.all(32),
           child: Text(AppLocalizations.of(context).t('Connect Trakt, Simkl, or MDBList to see your calendar.'),

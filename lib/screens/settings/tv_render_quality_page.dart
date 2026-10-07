@@ -151,13 +151,7 @@ class _TvRenderQualityPageState extends State<TvRenderQualityPage> {
                   ),
                 ),
                 SizedBox(height: 14),
-                Text(AppLocalizations.of(context).t('TVs have far weaker graphics than phones, and drawing the ')'whole interface at 4K or 1080p is what makes some of them '
-                  'feel heavy. Drawing at 720p and letting the TV scale the '
-                  'picture up costs a lot less per frame, so menus and rows '
-                  'move more smoothly — at the price of softer text and art. '
-                  'Debrify normally picks for you; change this if scrolling '
-                  'stutters, or if the picture looks softer than it should. '
-                  'Takes effect the next time Debrify starts.',
+                Text(AppLocalizations.of(context).t('TVs have far weaker graphics than phones, and drawing the whole interface at 4K or 1080p is what makes some of them feel heavy. Drawing at 720p and letting the TV scale the picture up costs a lot less per frame, so menus and rows move more smoothly — at the price of softer text and art. Debrify normally picks for you; change this if scrolling stutters, or if the picture looks softer than it should. Takes effect the next time Debrify starts.'),
                   style: TextStyle(
                     fontSize: 12.5,
                     height: 1.45,

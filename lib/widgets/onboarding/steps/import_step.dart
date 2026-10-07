@@ -100,7 +100,7 @@ class _ImportChecklist extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
+    return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         _ChecklistRow(

@@ -305,7 +305,7 @@ class _PreviewState extends State<_Preview> {
                 ),
                 if (tv) ...[
                   const SizedBox(height: 12),
-                  Text(AppLocalizations.of(context).t('On this device the TV policies apply: no blur, no grain, ')'no grading, and static skeletons.',
+                  Text(AppLocalizations.of(context).t('On this device the TV policies apply: no blur, no grain, no grading, and static skeletons.'),
                     style: TextStyle(fontSize: 11, color: app.core.tx3),
                   ),
                 ],

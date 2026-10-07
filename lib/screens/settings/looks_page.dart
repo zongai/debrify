@@ -160,10 +160,7 @@ class _LooksPageState extends State<LooksPage> {
                   ],
                 ),
                 const SizedBox(height: 14),
-                Text(AppLocalizations.of(context).t('A Look sets the app theme, the details page, the launch ')'ident and the TV layouts together, so they agree with each '
-                  'other. It only touches what it names — anything else you '
-                  'have set is left alone, and every individual picker is '
-                  'still below.',
+                Text(AppLocalizations.of(context).t('A Look sets the app theme, the details page, the launch ident and the TV layouts together, so they agree with each other. It only touches what it names — anything else you have set is left alone, and every individual picker is still below.'),
                   style: TextStyle(
                     fontSize: 12.5,
                     height: 1.45,

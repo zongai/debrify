@@ -43,9 +43,7 @@ Future<void> offerRemoteWebDavSync(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(AppLocalizations.of(context).t('Your server credentials are saved. Choose an account ')'to register this device and start sync. This can replace your '
-                'current sync connection. Existing remote profiles require '
-                'another confirmation before replacing local data.',
+              Text(AppLocalizations.of(context).t('Your server credentials are saved. Choose an account to register this device and start sync. This can replace your current sync connection. Existing remote profiles require another confirmation before replacing local data.'),
               ),
               SizedBox(height: 16),
               for (final server in servers)
@@ -86,9 +84,7 @@ Future<void> offerRemoteWebDavSync(
             barrierDismissible: false,
             builder: (dialogContext) => AlertDialog(
               title: Text(AppLocalizations.of(context).t('Use sync data from this account?')),
-              content: Text(AppLocalizations.of(context).t('Existing profiles and connections on this ')'device, including the configuration just imported, will be '
-                'replaced by this account’s sync data. Create a manual backup '
-                'first if you want to keep them.',
+              content: Text(AppLocalizations.of(context).t('Existing profiles and connections on this device, including the configuration just imported, will be replaced by this account’s sync data. Create a manual backup first if you want to keep them.'),
               ),
               actions: [
                 TextButton(

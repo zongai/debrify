@@ -182,7 +182,7 @@ final class _WebDavSyncLoginScreenState extends State<WebDavSyncLoginScreen> {
                     ),
                   ),
                   SizedBox(height: 8),
-                  Text(AppLocalizations.of(context).t('Sync folder: ')'${widget.repairBinding!.location.folderPath}',
+                  Text(AppLocalizations.of(context).t('Sync folder: ${widget.repairBinding!.location.folderPath}'),
                   ),
                   SizedBox(height: 16),
                 ] else ...[
@@ -214,8 +214,7 @@ final class _WebDavSyncLoginScreenState extends State<WebDavSyncLoginScreen> {
                 ],
                 if (!_isRepair &&
                     _provider == WebDavSyncProviderPreset.koofr) ...[
-                  Text(AppLocalizations.of(context).t('Koofr needs an app password — Koofr → Settings → ')'Password → App passwords. Your username is your Koofr '
-                    'email.',
+                  Text(AppLocalizations.of(context).t('Koofr needs an app password — Koofr → Settings → Password → App passwords. Your username is your Koofr email.'),
                   ),
                   const SizedBox(height: 16),
                 ] else if (!_isRepair) ...[

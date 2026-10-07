@@ -4363,7 +4363,7 @@ class IptvResultsViewState extends State<IptvResultsView>
       if (url == null) {
         messenger.showSnackBar(
           SnackBar(
-            content: Text(AppLocalizations.of(context).t('Replay not available — the panel did not answer for ')'"${programme.title}"',
+            content: Text(AppLocalizations.of(context).t('Replay not available — the panel did not answer for "${programme.title}"'),
             ),
           ),
         );
@@ -8365,7 +8365,7 @@ class _SpotlightCategoryPickerDialogState
                 Divider(height: 1, color: t.hairline),
                 Padding(
                   padding: const EdgeInsets.fromLTRB(24, 8, 24, 10),
-                  child: Text(AppLocalizations.of(context).t('Select a category, then use ••• to set it as the default ')'or hide it.',
+                  child: Text(AppLocalizations.of(context).t('Select a category, then use ••• to set it as the default or hide it.'),
                     style: TextStyle(color: t.fgFaint, fontSize: 11),
                   ),
                 ),

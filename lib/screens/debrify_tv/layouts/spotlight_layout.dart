@@ -691,7 +691,7 @@ class _SpotlightTvArmState extends State<_SpotlightTvArm> {
                         if (ordered.isEmpty && _query.isNotEmpty)
                           Padding(
                             padding: const EdgeInsets.only(top: 18),
-                            child: Text(AppLocalizations.of(context).t('No channels match ')'“${_search.text.trim()}”',
+                            child: Text(AppLocalizations.of(context).t('No channels match “${_search.text.trim()}”'),
                               style: TextStyle(
                                 fontSize: 11.5,
                                 color: tv.textFaint,

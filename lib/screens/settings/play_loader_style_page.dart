@@ -102,8 +102,7 @@ class _PlayLoaderStylePageState extends State<PlayLoaderStylePage> {
                 SettingsPageHeader(
                   icon: Icons.play_circle_outline_rounded,
                   title: AppLocalizations.of(context).t('Play Loader'),
-                  subtitle: AppLocalizations.of(context).t('What you see between pressing Play and the picture ')
-                      'starting',
+                  subtitle: AppLocalizations.of(context).t('What you see between pressing Play and the picture starting'),
                 ),
                 const SizedBox(height: 24),
                 Focus(
@@ -119,8 +118,7 @@ class _PlayLoaderStylePageState extends State<PlayLoaderStylePage> {
                   ),
                 ),
                 const SizedBox(height: 14),
-                Text(AppLocalizations.of(context).t('Marquee uses the backdrop and logo art the details page ')'already loaded. Titles without that artwork fall back to '
-                  'the poster, exactly like Classic.',
+                Text(AppLocalizations.of(context).t('Marquee uses the backdrop and logo art the details page already loaded. Titles without that artwork fall back to the poster, exactly like Classic.'),
                   style: TextStyle(fontSize: 12.5, height: 1.45, color: t.dim),
                 ),
               ],

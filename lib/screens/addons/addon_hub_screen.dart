@@ -618,7 +618,7 @@ class _AddonHubScreenState extends State<AddonHubScreen> {
       if (!mounted) return;
       messenger.showSnackBar(
         SnackBar(
-          content: Text(AppLocalizations.of(context).t('Configure link copied — open it in a browser, then ')'paste the configured URL into "Add addon".',
+          content: Text(AppLocalizations.of(context).t('Configure link copied — open it in a browser, then paste the configured URL into "Add addon".'),
           ),
           duration: Duration(seconds: 5),
         ),

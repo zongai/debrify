@@ -120,8 +120,7 @@ class _IptvChannelOrderPageState extends State<IptvChannelOrderPage> {
                   SettingsPageHeader(
                     icon: Icons.reorder_rounded,
                     title: AppLocalizations.of(context).t('Channel order'),
-                    subtitle: AppLocalizations.of(context).t('Choose Favorites or a saved list, then put its ')
-                        'channels in the order you want.',
+                    subtitle: AppLocalizations.of(context).t('Choose Favorites or a saved list, then put its channels in the order you want.'),
                   ),
                   const SizedBox(height: 24),
                   SettingsSectionLabel('Favorites and lists'),

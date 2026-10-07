@@ -75,11 +75,9 @@ class ProfileRowActions {
                   CheckboxListTile(
                     contentPadding: EdgeInsets.zero,
                     value: revokeShares,
-                    title: Text(AppLocalizations.of(context).t('Revoke shared access ')'(${dependencies.sharedResources} connection'
-                      '${dependencies.sharedResources == 1 ? '' : 's'})',
+                    title: Text(AppLocalizations.of(context).t('Revoke shared access (${dependencies.sharedResources} connection ${dependencies.sharedResources == 1 ?  : ')s'})',
                     ),
-                    subtitle: Text(AppLocalizations.of(context).t('Other profiles lose access to the connections this ')'profile shares; connections they own themselves are '
-                      'untouched.',
+                    subtitle: Text(AppLocalizations.of(context).t('Other profiles lose access to the connections this profile shares; connections they own themselves are untouched.'),
                     ),
                     onChanged: (value) => setDialogState(() {
                       revokeShares = value == true;

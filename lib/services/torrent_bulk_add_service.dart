@@ -785,9 +785,7 @@ class TorrentBulkAddService {
                   mainAxisSize: MainAxisSize.min,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(AppLocalizations.of(context).t('Premiumize works on a fair-use points system — about ')'1000 points max, topping up ~30/day. Adding a cached '
-                      'torrent and later streaming it both spend points '
-                      '(roughly 1 point per GB).',
+                    Text(AppLocalizations.of(context).t('Premiumize works on a fair-use points system — about 1000 points max, topping up ~30/day. Adding a cached torrent and later streaming it both spend points (roughly 1 point per GB).'),
                       style: theme.textTheme.bodyMedium?.copyWith(
                         color: Colors.white.withValues(alpha: 0.85),
                         height: 1.45,
@@ -814,8 +812,7 @@ class TorrentBulkAddService {
                           ),
                           SizedBox(width: 10),
                           Expanded(
-                            child: Text(AppLocalizations.of(context).t('Only cached torrents are added, but each one ')'still uses points. Select carefully to avoid '
-                              'running out of your daily quota.',
+                            child: Text(AppLocalizations.of(context).t('Only cached torrents are added, but each one still uses points. Select carefully to avoid running out of your daily quota.'),
                               style: theme.textTheme.bodySmall?.copyWith(
                                 color: Colors.white.withValues(alpha: 0.8),
                                 height: 1.4,

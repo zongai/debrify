@@ -432,8 +432,7 @@ class _IptvCategoryOrderPageState extends State<IptvCategoryOrderPage> {
                 SettingsPageHeader(
                   icon: Icons.swap_vert_rounded,
                   title: widget.playlist.name,
-                  subtitle: AppLocalizations.of(context).t('Arrange category chips and guide sections. Channel ')
-                      'order inside each category stays unchanged.',
+                  subtitle: AppLocalizations.of(context).t('Arrange category chips and guide sections. Channel order inside each category stays unchanged.'),
                 ),
                 if (_tabs.length > 1) ...[
                   const SizedBox(height: 16),

@@ -835,8 +835,7 @@ class _RealDebridSettingsPageState extends State<RealDebridSettingsPage> {
                                     ],
                                   ),
                                   const SizedBox(height: 8),
-                                  Text(AppLocalizations.of(context).t('Real-Debrid blocks torrents with certain filename patterns (WEB-DL, WEBRip, BDRip, HDRip, etc.). ')'When enabled, Quick Play will skip torrents likely to be blocked, '
-                                    'trying only ones that should work.',
+                                  Text(AppLocalizations.of(context).t('Real-Debrid blocks torrents with certain filename patterns (WEB-DL, WEBRip, BDRip, HDRip, etc.). When enabled, Quick Play will skip torrents likely to be blocked, trying only ones that should work.'),
                                     style: Theme.of(context).textTheme.bodySmall
                                         ?.copyWith(color: t.dim),
                                   ),

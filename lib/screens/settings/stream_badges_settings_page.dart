@@ -475,8 +475,7 @@ class _StreamBadgesSettingsPageState extends State<StreamBadgesSettingsPage> {
                 SettingsPageHeader(
                   icon: Icons.sell_rounded,
                   title: AppLocalizations.of(context).t('Stream badges'),
-                  subtitle: AppLocalizations.of(context).t('Label sources with chips from a Nuvio-style badges.json ')
-                      '— provider, format, resolution, HDR, audio, language',
+                  subtitle: AppLocalizations.of(context).t('Label sources with chips from a Nuvio-style badges.json — provider, format, resolution, HDR, audio, language'),
                 ),
                 SizedBox(height: 24),
                 ValueListenableBuilder<StreamBadgeMatcher>(

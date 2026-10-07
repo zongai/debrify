@@ -150,8 +150,7 @@ class ProfileBackupFlows {
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(AppLocalizations.of(context).t('Backs up all profiles and shared connections in an encrypted file. Downloads, recordings, ')'active jobs, device paths, and remote pairings are not '
-                'included.',
+              Text(AppLocalizations.of(context).t('Backs up all profiles and shared connections in an encrypted file. Downloads, recordings, active jobs, device paths, and remote pairings are not included.'),
               ),
               SizedBox(height: 12),
               TvTextField(
@@ -246,8 +245,7 @@ class ProfileBackupFlows {
         if (!context.mounted) return;
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text(AppLocalizations.of(context).t('All-profile backup uploaded to ')'${webDavTarget.config.name}/${uploaded.remotePath}'
-              '${archive.cachesPruned ? '. Provider channel lists and TV guides will refresh after a restore.' : '.'}',
+            content: Text(AppLocalizations.of(context).t('All-profile backup uploaded to ${webDavTarget.config.name}/${uploaded.remotePath} ${archive.cachesPruned ? '). Provider channel lists and TV guides will refresh after a restore.' : '.'}',
             ),
           ),
         );
@@ -369,7 +367,7 @@ class ProfileBackupFlows {
         if (!context.mounted) return;
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text(AppLocalizations.of(context).t('All-profile backup saved')'${result.cachesPruned ? '. Provider channel lists and TV guides will refresh after a restore.' : '.'}',
+            content: Text(AppLocalizations.of(context).t('All-profile backup saved ${result.cachesPruned ? '). Provider channel lists and TV guides will refresh after a restore.' : '.'}',
             ),
             duration: Duration(seconds: result.cachesPruned ? 7 : 4),
           ),

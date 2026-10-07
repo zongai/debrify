@@ -51,7 +51,7 @@ List<MdblistMenuOption> buildMdblistMenuOptions({
 }) {
   if (!authenticated) return const [];
   return [
-    const MdblistMenuOption(action: MdblistItemMenuAction.clearWatchProgress,
+    MdblistMenuOption(action: MdblistItemMenuAction.clearWatchProgress,
       icon: Icons.restart_alt_rounded, color: Color(0xFFEF4444),
       label: AppLocalizations.of(context).t('Clear watch progress on MDBList'), caption: 'Clear progress'),
     MdblistMenuOption(

@@ -14049,7 +14049,7 @@ class _SearchScreenState extends State<SearchScreen>
                       ),
                       if (!isMovie) ...[
                         const SizedBox(height: 4),
-                        const Align(
+                        Align(
                           alignment: Alignment.centerLeft,
                           child: Text(AppLocalizations.of(context).t('First match wins — reorder by priority'),
                             style: TextStyle(
@@ -16907,7 +16907,7 @@ class _SearchScreenState extends State<SearchScreen>
             const SizedBox(height: 8),
             // Only reached in Catalog mode — _buildBody routes Keyword mode to
             // _buildKeyword (which has its own empty state) before it gets here.
-            Text(AppLocalizations.of(context).t('Type a title to search your catalogs, or switch to Keyword to ')'search torrents directly.',
+            Text(AppLocalizations.of(context).t('Type a title to search your catalogs, or switch to Keyword to search torrents directly.'),
               textAlign: TextAlign.center,
               style: TextStyle(
                 color: app.fade(app.core.tx, 0.5),

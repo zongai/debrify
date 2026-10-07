@@ -166,7 +166,7 @@ class _TvPlayerControlsStylePageState extends State<TvPlayerControlsStylePage> {
                   ),
                 ),
                 const SizedBox(height: 14),
-                Text(AppLocalizations.of(context).t('Applies to the next playback session. Live TV keeps the ')'Legacy controls for now.',
+                Text(AppLocalizations.of(context).t('Applies to the next playback session. Live TV keeps the Legacy controls for now.'),
                   style: TextStyle(
                     fontSize: 12.5,
                     height: 1.45,

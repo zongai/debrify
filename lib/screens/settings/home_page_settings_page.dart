@@ -612,9 +612,7 @@ class _HomePageSettingsPageState extends State<HomePageSettingsPage> {
                       SettingsToggleTile(
                         icon: Icons.ac_unit_rounded,
                         title: AppLocalizations.of(context).t('Enable animations'),
-                        subtitle: AppLocalizations.of(context).t('Animate Home and Spotlight collection backgrounds. ')
-                            'Keep this off on low-end TVs or devices with limited memory, '
-                            'as animations may slow down Home.',
+                        subtitle: AppLocalizations.of(context).t('Animate Home and Spotlight collection backgrounds. Keep this off on low-end TVs or devices with limited memory, as animations may slow down Home.'),
                         subtitleMaxLines: 6,
                         value: _homeAnimationsEnabled,
                         onChanged: (value) => _setHomeAnimation(enabled: value),
@@ -773,8 +771,7 @@ class _HomePageSettingsPageState extends State<HomePageSettingsPage> {
                     SettingsToggleTile(
                       icon: Icons.touch_app_rounded,
                       title: AppLocalizations.of(context).t('Hold to Quick Play'),
-                      subtitle: AppLocalizations.of(context).t('Play immediately when holding a Continue Watching ')
-                          'card instead of showing the action menu',
+                      subtitle: AppLocalizations.of(context).t('Play immediately when holding a Continue Watching card instead of showing the action menu'),
                       subtitleMaxLines: 2,
                       value: _holdToQuickPlay,
                       onChanged: (value) async {
@@ -799,8 +796,7 @@ class _HomePageSettingsPageState extends State<HomePageSettingsPage> {
                     if (_continueWatchingEnabled)
                       _mergeCwTile(
                         title: AppLocalizations.of(context).t('One Continue Watching Row'),
-                        subtitle: AppLocalizations.of(context).t('Combine the Movies and Series rows into a ')
-                            'single row, newest first',
+                        subtitle: AppLocalizations.of(context).t('Combine the Movies and Series rows into a single row, newest first'),
                         provider: 'local',
                         value: _cwMergeLocal,
                         apply: (v) => _cwMergeLocal = v,
@@ -808,8 +804,7 @@ class _HomePageSettingsPageState extends State<HomePageSettingsPage> {
                     if (_traktConnected)
                       _mergeCwTile(
                         title: AppLocalizations.of(context).t('One Trakt Row'),
-                        subtitle: AppLocalizations.of(context).t('Combine Trakt Continue Watching Movies and ')
-                            'Shows into a single row',
+                        subtitle: AppLocalizations.of(context).t('Combine Trakt Continue Watching Movies and Shows into a single row'),
                         provider: 'trakt',
                         value: _cwMergeTrakt,
                         apply: (v) => _cwMergeTrakt = v,
@@ -817,8 +812,7 @@ class _HomePageSettingsPageState extends State<HomePageSettingsPage> {
                     if (_simklConnected)
                       _mergeCwTile(
                         title: AppLocalizations.of(context).t('One Simkl Row'),
-                        subtitle: AppLocalizations.of(context).t('Combine Simkl Continue Watching Movies and ')
-                            'Shows into a single row',
+                        subtitle: AppLocalizations.of(context).t('Combine Simkl Continue Watching Movies and Shows into a single row'),
                         provider: 'simkl',
                         value: _cwMergeSimkl,
                         apply: (v) => _cwMergeSimkl = v,
@@ -826,8 +820,7 @@ class _HomePageSettingsPageState extends State<HomePageSettingsPage> {
                     if (_mdblistConnected)
                       _mergeCwTile(
                         title: AppLocalizations.of(context).t('One MDBList Row'),
-                        subtitle: AppLocalizations.of(context).t('Combine MDBList Continue Watching Movies and ')
-                            'Shows into a single row',
+                        subtitle: AppLocalizations.of(context).t('Combine MDBList Continue Watching Movies and Shows into a single row'),
                         provider: 'mdblist',
                         value: _cwMergeMdblist,
                         apply: (v) => _cwMergeMdblist = v,
@@ -885,9 +878,7 @@ class _HomePageSettingsPageState extends State<HomePageSettingsPage> {
                     SettingsToggleTile(
                       icon: Icons.movie_filter_rounded,
                       title: AppLocalizations.of(context).t('Trailer on Detail Page'),
-                      subtitle: AppLocalizations.of(context).t('Play a trailer behind the movie/series detail ')
-                          'page. Falls back to the poster when off or '
-                          'unavailable.',
+                      subtitle: AppLocalizations.of(context).t('Play a trailer behind the movie/series detail page. Falls back to the poster when off or unavailable.'),
                       subtitleMaxLines: 2,
                       value: _trailerAutoplayEnabled,
                       onChanged: (value) async {
@@ -982,9 +973,7 @@ class _HomePageSettingsPageState extends State<HomePageSettingsPage> {
                       SettingsToggleTile(
                         icon: Icons.layers_rounded,
                         title: AppLocalizations.of(context).t('Native Trailer Surface'),
-                        subtitle: AppLocalizations.of(context).t('Render trailers on a hardware surface for smoother ')
-                            'playback. Turn off if trailers glitch. Takes '
-                            'effect after restarting the app.',
+                        subtitle: AppLocalizations.of(context).t('Render trailers on a hardware surface for smoother playback. Turn off if trailers glitch. Takes effect after restarting the app.'),
                         subtitleMaxLines: 3,
                         value: _tvTrailerUnderlayEnabled,
                         onChanged: (value) async {

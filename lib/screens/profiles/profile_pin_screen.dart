@@ -162,7 +162,7 @@ class _ProfilePinScreenState extends State<ProfilePinScreen> {
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(AppLocalizations.of(context).t('Enter the recovery code shown when this PIN was set. ')'It removes the PIN so you can set a new one.',
+                Text(AppLocalizations.of(context).t('Enter the recovery code shown when this PIN was set. It removes the PIN so you can set a new one.'),
                 ),
                 SizedBox(height: 12),
                 TvTextField(

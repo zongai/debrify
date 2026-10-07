@@ -313,7 +313,7 @@ class _CloudScreenState extends State<CloudScreen> {
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
             ),
             const SizedBox(height: 8),
-            Text(AppLocalizations.of(context).t('Connect Real Debrid, Torbox, Premiumize, AllDebrid, PikPak, or ')'WebDAV in Settings to manage your cloud files here.',
+            Text(AppLocalizations.of(context).t('Connect Real Debrid, Torbox, Premiumize, AllDebrid, PikPak, or WebDAV in Settings to manage your cloud files here.'),
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 14,

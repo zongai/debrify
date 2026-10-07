@@ -2239,8 +2239,7 @@ class _IptvSettingsPageState extends State<IptvSettingsPage>
         SettingsPageHeader(
           icon: Icons.live_tv_rounded,
           title: 'IPTV Playlists',
-          subtitle: AppLocalizations.of(context).t('Sources, lists, startup and looks — everything IPTV in one ')
-              'place.',
+          subtitle: AppLocalizations.of(context).t('Sources, lists, startup and looks — everything IPTV in one place.'),
         ),
         SizedBox(height: 24),
         SettingsSection(
@@ -2484,7 +2483,7 @@ class _IptvSettingsPageState extends State<IptvSettingsPage>
       padding: const EdgeInsets.all(16),
       children: [
         SettingsSectionLabel('Your Lists'),
-        Text(AppLocalizations.of(context).t('Hold OK (or long-press) any channel to add it to a list. ')'Deleting a list never deletes its channels.',
+        Text(AppLocalizations.of(context).t('Hold OK (or long-press) any channel to add it to a list. Deleting a list never deletes its channels.'),
           style: TextStyle(fontSize: 12, color: t.dim),
         ),
         const SizedBox(height: 16),
@@ -2512,7 +2511,7 @@ class _IptvSettingsPageState extends State<IptvSettingsPage>
       padding: const EdgeInsets.all(16),
       children: [
         SettingsSectionLabel('Category order'),
-        Text(AppLocalizations.of(context).t('Choose a source, then arrange its category chips and guide ')'sections. Channels inside each category keep provider order.',
+        Text(AppLocalizations.of(context).t('Choose a source, then arrange its category chips and guide sections. Channels inside each category keep provider order.'),
           style: TextStyle(fontSize: 12, color: t.dim),
         ),
         const SizedBox(height: 16),
@@ -2578,7 +2577,7 @@ class _IptvSettingsPageState extends State<IptvSettingsPage>
             children: [
               SwitchListTile(
                 title: Text(AppLocalizations.of(context).t('Start on a channel')),
-                subtitle: Text(AppLocalizations.of(context).t('Open straight into a live channel when the app starts. ')'Press BACK while it is tuning to stop.',
+                subtitle: Text(AppLocalizations.of(context).t('Open straight into a live channel when the app starts. Press BACK while it is tuning to stop.'),
                 ),
                 value: _startupEnabled,
                 onChanged: _setStartupEnabled,
@@ -2633,9 +2632,7 @@ class _IptvSettingsPageState extends State<IptvSettingsPage>
         Card(
           child: SwitchListTile(
             title: Text(AppLocalizations.of(context).t('Track movies and series')),
-            subtitle: Text(AppLocalizations.of(context).t('Keeps a Continue watching shelf of the on-demand items you ')'start, on Home and in IPTV. Off hides it and stops adding to '
-              'it — nothing is deleted, and playback still resumes where '
-              'you left off.',
+            subtitle: Text(AppLocalizations.of(context).t('Keeps a Continue watching shelf of the on-demand items you start, on Home and in IPTV. Off hides it and stops adding to it — nothing is deleted, and playback still resumes where you left off.'),
             ),
             value: _trackContinueWatching,
             onChanged: _setTrackContinueWatching,
@@ -2654,8 +2651,7 @@ class _IptvSettingsPageState extends State<IptvSettingsPage>
         Card(
           child: SwitchListTile(
             title: Text(AppLocalizations.of(context).t('Play channel previews')),
-            subtitle: Text(AppLocalizations.of(context).t('Plays the focused channel in the side panel while you browse. ')'This opens a provider stream and may count toward your '
-              'connection limit. Fullscreen playback still works when off.',
+            subtitle: Text(AppLocalizations.of(context).t('Plays the focused channel in the side panel while you browse. This opens a provider stream and may count toward your connection limit. Fullscreen playback still works when off.'),
             ),
             value: _channelPreviewEnabled,
             onChanged: _setChannelPreviewEnabled,
@@ -2683,9 +2679,7 @@ class _IptvSettingsPageState extends State<IptvSettingsPage>
               if (_engineToggleVisible)
                 SwitchListTile(
                   title: Text(AppLocalizations.of(context).t('Background recording engine')),
-                  subtitle: Text(AppLocalizations.of(context).t('Recordings keep running when you zap or leave the ')'app, and programmes can be scheduled from the TV '
-                    'guide. Off returns to player-tied recording. Uses an '
-                    'extra connection to your provider.',
+                  subtitle: Text(AppLocalizations.of(context).t('Recordings keep running when you zap or leave the app, and programmes can be scheduled from the TV guide. Off returns to player-tied recording. Uses an extra connection to your provider.'),
                   ),
                   value: _recordingEngineOn,
                   onChanged: (enabled) async {

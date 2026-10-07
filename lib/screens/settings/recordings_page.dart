@@ -1722,8 +1722,7 @@ class _BatteryBanner extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 2),
-                  Text(AppLocalizations.of(context).t('The phone likely put Debrify to sleep mid-capture. Tap ')'to exclude Debrify from battery optimization so long '
-                    'recordings run to the end.',
+                  Text(AppLocalizations.of(context).t('The phone likely put Debrify to sleep mid-capture. Tap to exclude Debrify from battery optimization so long recordings run to the end.'),
                     style: TextStyle(
                       color: Colors.white.withValues(alpha: 0.55),
                       fontSize: 11.5,

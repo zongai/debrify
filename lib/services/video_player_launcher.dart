@@ -796,8 +796,7 @@ class VideoPlayerLauncher {
           barrierDismissible: false,
           builder: (dialogContext) => AlertDialog(
             title: Text(AppLocalizations.of(context).t('External player unavailable')),
-            content: Text(AppLocalizations.of(context).t('This server requires authentication. Debrify cannot pass ')'the required authorization headers to another app, so this video '
-              'will open in the Debrify player.',
+            content: Text(AppLocalizations.of(context).t('This server requires authentication. Debrify cannot pass the required authorization headers to another app, so this video will open in the Debrify player.'),
             ),
             actions: [
               TextButton(
@@ -1949,7 +1948,7 @@ class VideoPlayerLauncher {
           context: context,
           builder: (dialogContext) => AlertDialog(
             title: Text(AppLocalizations.of(context).t('Share stream with another app?')),
-            content: Text(AppLocalizations.of(context).t('This stream address may contain a short-lived account token. ')'The selected player will be able to read it.',
+            content: Text(AppLocalizations.of(context).t('This stream address may contain a short-lived account token. The selected player will be able to read it.'),
             ),
             actions: [
               TextButton(

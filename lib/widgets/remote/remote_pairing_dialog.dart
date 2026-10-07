@@ -294,7 +294,7 @@ class _PairingCodeEntryDialogState extends State<_PairingCodeEntryDialog> {
                     .requestFocus(),
           ),
           SizedBox(height: 8),
-          Text(AppLocalizations.of(context).t('This confirms you are sending to the right TV — if the codes ')'don\'t match, someone may be interfering with your network.',
+          Text(AppLocalizations.of(context).t('This confirms you are sending to the right TV — if the codes don\'t match, someone may be interfering with your network.'),
             style: TextStyle(fontSize: 12, color: Theme.of(context).hintColor),
           ),
         ],
@@ -586,7 +586,7 @@ Future<RemoteSession?> ensureAuthorizedSession(
     // network, a manual IP, or a restarted receiver can all time out here.
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
-        content: Text(AppLocalizations.of(context).t('Could not connect to the receiving device. Keep Debrify open in ')'Receive mode, check the address and network, then retry.',
+        content: Text(AppLocalizations.of(context).t('Could not connect to the receiving device. Keep Debrify open in Receive mode, check the address and network, then retry.'),
         ),
       ),
     );
@@ -762,7 +762,7 @@ Future<bool> _runPairingFlow(
         if (context.mounted) {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
-              content: Text(AppLocalizations.of(context).t('This TV skipped code verification but its identity ')'changed — transfer refused',
+              content: Text(AppLocalizations.of(context).t('This TV skipped code verification but its identity changed — transfer refused'),
               ),
             ),
           );
@@ -959,8 +959,7 @@ class _PairedDevicesDialogState extends State<_PairedDevicesDialog> {
             : devices.isEmpty
             ? Padding(
                 padding: EdgeInsets.symmetric(vertical: 16),
-                child: Text(AppLocalizations.of(context).t('No devices have paired with this one yet. A device is ')'remembered after you enter its code once, so later '
-                  'transfers skip the code.',
+                child: Text(AppLocalizations.of(context).t('No devices have paired with this one yet. A device is remembered after you enter its code once, so later transfers skip the code.'),
                 ),
               )
             : Column(

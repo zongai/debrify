@@ -144,8 +144,7 @@ class _PlayerGuideStylePageState extends State<PlayerGuideStylePage> {
                 SettingsPageHeader(
                   icon: Icons.smart_display_rounded,
                   title: AppLocalizations.of(context).t('Player Guide'),
-                  subtitle: AppLocalizations.of(context).t('How the channel banner and in-player guide look ')
-                      'during live TV',
+                  subtitle: AppLocalizations.of(context).t('How the channel banner and in-player guide look during live TV'),
                 ),
                 const SizedBox(height: 24),
                 Focus(
@@ -162,7 +161,7 @@ class _PlayerGuideStylePageState extends State<PlayerGuideStylePage> {
                   ),
                 ),
                 const SizedBox(height: 14),
-                Text(AppLocalizations.of(context).t('Applies to the next playback session — on this device ')'and on Android TV.',
+                Text(AppLocalizations.of(context).t('Applies to the next playback session — on this device and on Android TV.'),
                   style: TextStyle(
                     fontSize: 12.5,
                     height: 1.45,

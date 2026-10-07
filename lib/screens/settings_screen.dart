@@ -5534,9 +5534,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     contentPadding: EdgeInsets.zero,
                     dense: true,
                     title: Text(AppLocalizations.of(context).t('Include credentials')),
-                    subtitle: Text(AppLocalizations.of(context).t('Off: share your setup without your accounts. Skips ')'anything that embeds them: addons, Xtream providers, '
-                      'indexers, starred channels and lists. M3U URLs are '
-                      'kept — use a passphrase to protect those.',
+                    subtitle: Text(AppLocalizations.of(context).t('Off: share your setup without your accounts. Skips anything that embeds them: addons, Xtream providers, indexers, starred channels and lists. M3U URLs are kept — use a passphrase to protect those.'),
                       style: TextStyle(fontSize: 12),
                     ),
                     value: includeCredentials,
@@ -5582,14 +5580,14 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   ],
                   SizedBox(height: 12),
                   if (usePassphrase)
-                    Text(AppLocalizations.of(context).t('Encrypted with your passphrase — if you forget it, ')'this backup cannot be opened.',
+                    Text(AppLocalizations.of(context).t('Encrypted with your passphrase — if you forget it, this backup cannot be opened.'),
                       style: TextStyle(
                         fontSize: 12,
                         color: app.fade(app.core.tx, 0x99 / 0xFF),
                       ),
                     )
                   else if (includeCredentials)
-                    Text(AppLocalizations.of(context).t('Credentials are stored in plain text. Keep this file ')'private and treat it like a password.',
+                    Text(AppLocalizations.of(context).t('Credentials are stored in plain text. Keep this file private and treat it like a password.'),
                       style: TextStyle(fontSize: 12, color: Color(0xFFEF4444)),
                     ),
                 ],
@@ -5634,7 +5632,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text(AppLocalizations.of(context).t('Nothing left to back up without credentials — everything on ')'this device is account data.',
+          content: Text(AppLocalizations.of(context).t('Nothing left to back up without credentials — everything on this device is account data.'),
           ),
         ),
       );
@@ -6006,16 +6004,13 @@ class _SettingsScreenState extends State<SettingsScreen> {
             SizedBox(height: 8),
             ..._backupSummaryLines(summary).map((line) => Text('• $line')),
             SizedBox(height: 12),
-            Text(AppLocalizations.of(context).t('Saved credentials (Real-Debrid, Torbox, Premiumize, AllDebrid, PikPak, Trakt, Simkl) will ')'be overwritten. Addons, search engines, WebDAV servers, '
-              'indexer managers, and IPTV providers you already have are kept '
-              'as-is. IPTV favorites and lists merge into what\'s here — '
-              'nothing is removed.',
+            Text(AppLocalizations.of(context).t('Saved credentials (Real-Debrid, Torbox, Premiumize, AllDebrid, PikPak, Trakt, Simkl) will be overwritten. Addons, search engines, WebDAV servers, indexer managers, and IPTV providers you already have are kept as-is. IPTV favorites and lists merge into what\'s here — nothing is removed.'),
               style: TextStyle(fontSize: 12),
             ),
             if (summary.addonCount > 0 || summary.searchEngineCount > 0)
               Padding(
                 padding: const EdgeInsets.only(top: 8),
-                child: Text(AppLocalizations.of(context).t('Restoring addons and search engines needs a network ')'connection.',
+                child: Text(AppLocalizations.of(context).t('Restoring addons and search engines needs a network connection.'),
                   style: TextStyle(
                     fontSize: 12,
                     color: app.fade(app.core.tx, 0x99 / 0xFF),
@@ -6026,7 +6021,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 summary.indexerManagerCount > 0)
               Padding(
                 padding: const EdgeInsets.only(top: 8),
-                child: Text(AppLocalizations.of(context).t('WebDAV and Jackett/Prowlarr URLs may be local-network ')'only — they won\'t work on a different network.',
+                child: Text(AppLocalizations.of(context).t('WebDAV and Jackett/Prowlarr URLs may be local-network only — they won\'t work on a different network.'),
                   style: TextStyle(
                     fontSize: 12,
                     color: app.fade(app.core.tx, 0x99 / 0xFF),

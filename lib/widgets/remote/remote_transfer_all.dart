@@ -1126,13 +1126,7 @@ class _RemoteTransferAllState extends State<RemoteTransferAll> {
           barrierDismissible: false,
           builder: (dialogContext) => AlertDialog(
             title: Text(AppLocalizations.of(context).t('Continue without Debrify TV?')),
-            content: Text(AppLocalizations.of(context).t('This profile transfer had to be compacted to fit on the TV. ')'Debrify TV will not be included: ${omission.contentsLabel} '
-              'will be left out. No empty channels will be created.\n\n'
-              'You can cancel and open Debrify TV → Export first to save a '
-              'ZIP containing the channels and their playable pools. After '
-              'the profile transfer, import that ZIP from storage or use '
-              'Remote → Debrify TV Channels.'
-              '${omission.profilesAffected > 1 ? ' Repeat the channel transfer for each affected profile.' : ''}',
+            content: Text(AppLocalizations.of(context).t('This profile transfer had to be compacted to fit on the TV. Debrify TV will not be included: ${omission.contentsLabel} will be left out. No empty channels will be created.\n\n You can cancel and open Debrify TV → Export first to save a ZIP containing the channels and their playable pools. After the profile transfer, import that ZIP from storage or use Remote → Debrify TV Channels. ${omission.profilesAffected > 1 ? ') Repeat the channel transfer for each affected profile.' : ''}',
             ),
             actions: <Widget>[
               TextButton(

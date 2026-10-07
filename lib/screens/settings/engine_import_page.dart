@@ -424,7 +424,7 @@ class _EngineImportPageContentState extends State<EngineImportPageContent> {
 
   Widget _buildBody() {
     if (_isLoading) {
-      return const Center(
+      return Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           mainAxisSize: MainAxisSize.min,

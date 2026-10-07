@@ -812,7 +812,7 @@ class _PassthroughToggle extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 2),
-                Text(AppLocalizations.of(context).t('Bitstream to your receiver. If you hear silence, ')'turn this off.',
+                Text(AppLocalizations.of(context).t('Bitstream to your receiver. If you hear silence, turn this off.'),
                   style: TextStyle(
                     color: Colors.white.withValues(alpha: 0.5),
                     fontSize: 11.5,

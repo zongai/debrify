@@ -455,7 +455,7 @@ class _StartupFailureApp extends StatelessWidget {
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                Text(AppLocalizations.of(context).t('Debrify could not start safely. Close the app and try again. ')'If this continues, restart the device before changing any data.',
+                Text(AppLocalizations.of(context).t('Debrify could not start safely. Close the app and try again. If this continues, restart the device before changing any data.'),
                   textAlign: TextAlign.center,
                 ),
                 if (detail != null) ...[
@@ -534,9 +534,7 @@ class _MigrationUpdateScreen extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 14),
-                  Text(AppLocalizations.of(context).t('Debrify is upgrading your library for this new version. ')'This launch can take up to 5 minutes on large setups — '
-                    'please don’t close the app or turn off the device. '
-                    'This only happens once.',
+                  Text(AppLocalizations.of(context).t('Debrify is upgrading your library for this new version. This launch can take up to 5 minutes on large setups — please don’t close the app or turn off the device. This only happens once.'),
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       color: Colors.white.withValues(alpha: 0.72),

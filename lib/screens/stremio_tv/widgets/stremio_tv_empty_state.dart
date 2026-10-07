@@ -46,7 +46,7 @@ class StremioTvEmptyState extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 10),
-            Text(AppLocalizations.of(context).t('Install Stremio catalog addons (like Cinemeta) to discover ')'channels. Each catalog becomes a TV channel with rotating content.',
+            Text(AppLocalizations.of(context).t('Install Stremio catalog addons (like Cinemeta) to discover channels. Each catalog becomes a TV channel with rotating content.'),
               textAlign: TextAlign.center,
               style: TextStyle(
                 color: app.core.tx.withValues(alpha: 0.55),

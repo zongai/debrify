@@ -65,7 +65,7 @@ class LocalBoundSourceService {
                     ),
                   ),
                   const SizedBox(height: 14),
-                  const Align(
+                  Align(
                     alignment: Alignment.centerLeft,
                     child: Text(AppLocalizations.of(context).t('Local Movie Source'),
                       style: TextStyle(
@@ -75,7 +75,7 @@ class LocalBoundSourceService {
                     ),
                   ),
                   const SizedBox(height: 4),
-                  const Align(
+                  Align(
                     alignment: Alignment.centerLeft,
                     child: Text(AppLocalizations.of(context).t('Choose a video file or browse a folder.'),
                       style: TextStyle(color: Colors.white54, fontSize: 12),
