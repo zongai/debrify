@@ -1868,7 +1868,7 @@ abstract final class AppThemes {
   /// worth the reading cost.
   static final AppTheme legacy = AppTheme._(
     id: legacyId,
-    label: AppLocalizations.of(context).t('Debrify Classic'),
+    label: 'Debrify Classic',
     isLegacy: true,
     core: DetailThemes.signal,
     brightness: Brightness.dark,

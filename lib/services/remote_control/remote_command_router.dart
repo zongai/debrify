@@ -6,7 +6,6 @@ import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
 
-import '../../l10n/app_localizations.dart';
 import 'package:collection/collection.dart';
 import 'package:flutter/services.dart';
 import 'package:path/path.dart' as p;
@@ -624,7 +623,7 @@ class RemoteCommandRouter {
             context,
             requestId: profileGraphRequestId,
             ok: false,
-            message: AppLocalizations.of(context).t('TV profile authorization is required'),
+            message: 'TV profile authorization is required',
           ),
         );
       } else if (action == RemoteAction.config && completeRequestId != null) {
@@ -633,7 +632,7 @@ class RemoteCommandRouter {
             context,
             data,
             ok: false,
-            message: AppLocalizations.of(context).t('TV profile authorization is required'),
+            message: 'TV profile authorization is required',
           ),
         );
       } else if (action == RemoteAction.config && channelRequestId != null) {
@@ -642,7 +641,7 @@ class RemoteCommandRouter {
             context,
             requestId: channelRequestId,
             ok: false,
-            message: AppLocalizations.of(context).t('TV profile authorization is required'),
+            message: 'TV profile authorization is required',
           ),
         );
       } else if (action == RemoteAction.config && startRequestId != null) {
@@ -651,7 +650,7 @@ class RemoteCommandRouter {
             context,
             requestId: startRequestId,
             ok: false,
-            message: AppLocalizations.of(context).t('TV profile authorization is required'),
+            message: 'TV profile authorization is required',
           ),
         );
       } else {
@@ -970,7 +969,7 @@ class RemoteCommandRouter {
           context,
           requestId: requestId,
           ok: false,
-          message: AppLocalizations.of(context).t('The TV could not start the configuration transfer'),
+          message: 'The TV could not start the configuration transfer',
         );
       }
       return;
@@ -1028,7 +1027,7 @@ class RemoteCommandRouter {
             context,
             data,
             ok: false,
-            message: AppLocalizations.of(context).t('The TV rejected the transfer completion'),
+            message: 'The TV rejected the transfer completion',
           );
           return;
         }
@@ -1055,7 +1054,7 @@ class RemoteCommandRouter {
             context,
             requestId: transferRequest.requestId,
             ok: false,
-            message: AppLocalizations.of(context).t('Some configuration packets did not reach the TV'),
+            message: 'Some configuration packets did not reach the TV',
           );
           _showSnackBar(
             'Configuration transfer was incomplete — send it again',
@@ -1071,7 +1070,7 @@ class RemoteCommandRouter {
               context,
               requestId: transferRequest.requestId,
               ok: false,
-              message: AppLocalizations.of(context).t('Some configuration packets did not reach the TV'),
+              message: 'Some configuration packets did not reach the TV',
             );
             _showSnackBar(
               'Configuration transfer was incomplete — send it again',
@@ -1538,7 +1537,7 @@ class RemoteCommandRouter {
         remoteContext,
         requestId: requestId,
         ok: false,
-        message: AppLocalizations.of(context).t('The TV is already importing profiles — wait for it'),
+        message: 'The TV is already importing profiles — wait for it',
       );
       return;
     }
@@ -1575,7 +1574,7 @@ class RemoteCommandRouter {
         remoteContext,
         requestId: requestId,
         ok: false,
-        message: AppLocalizations.of(context).t('The receiving device could not read the profile package. Retry the transfer.'),
+        message: 'The receiving device could not read the profile package. Retry the transfer.',
       );
       rethrow;
     } finally {
@@ -1613,7 +1612,7 @@ class RemoteCommandRouter {
         remoteContext,
         requestId: requestId,
         ok: false,
-        message: AppLocalizations.of(context).t('Finish setting up the TV, then resend'),
+        message: 'Finish setting up the TV, then resend',
       );
       return;
     }
@@ -1694,7 +1693,7 @@ class RemoteCommandRouter {
         remoteContext,
         requestId: requestId,
         ok: false,
-        message: AppLocalizations.of(context).t('TV profile authorization expired — resend'),
+        message: 'TV profile authorization expired — resend',
       );
       return;
     }
@@ -1713,7 +1712,7 @@ class RemoteCommandRouter {
         remoteContext,
         requestId: requestId,
         ok: false,
-        message: AppLocalizations.of(context).t('Open an Admin profile on the TV, then resend'),
+        message: 'Open an Admin profile on the TV, then resend',
       );
       return;
     }
@@ -1735,7 +1734,7 @@ class RemoteCommandRouter {
         remoteContext,
         requestId: requestId,
         ok: false,
-        message: AppLocalizations.of(context).t('Open the Debrify screen on the TV, then resend'),
+        message: 'Open the Debrify screen on the TV, then resend',
       );
       return;
     }
@@ -1794,7 +1793,7 @@ class RemoteCommandRouter {
             actions: <Widget>[
               TextButton(
                 onPressed: () => Navigator.pop(dialogContext, false),
-                child: Text(AppLocalizations.of(context).t('Cancel')),
+                child: Text('Cancel'),
               ),
               FilledButton(
                 autofocus: true,
@@ -1819,7 +1818,7 @@ class RemoteCommandRouter {
         remoteContext,
         requestId: requestId,
         ok: false,
-        message: AppLocalizations.of(context).t('Declined on the TV'),
+        message: 'Declined on the TV',
       );
       return;
     }
@@ -1836,7 +1835,7 @@ class RemoteCommandRouter {
           context: context,
           barrierDismissible: false,
           builder: (_) =>
-              _RouterBusyDialog(message: AppLocalizations.of(context).t('Importing profiles…'), done: done),
+              _RouterBusyDialog(message: 'Importing profiles…', done: done),
         ),
       );
     }
@@ -1908,7 +1907,7 @@ class RemoteCommandRouter {
             remoteContext,
             requestId: requestId,
             ok: false,
-            message: AppLocalizations.of(context).t('Import failed on the TV; nothing was changed there'),
+            message: 'Import failed on the TV; nothing was changed there',
           );
           return;
         }
@@ -2949,7 +2948,7 @@ class RemoteCommandRouter {
           context: context,
           barrierDismissible: false,
           builder: (dialogContext) => AlertDialog(
-            title: Text(AppLocalizations.of(context).t('Receive profile configuration?')),
+            title: Text('Receive profile configuration?'),
             content: Text(
               'Destination: ${profile.name}\n\n'
               '$itemCount configuration item(s) will be applied. '
@@ -2959,11 +2958,11 @@ class RemoteCommandRouter {
             actions: <Widget>[
               TextButton(
                 onPressed: () => Navigator.pop(dialogContext, false),
-                child: Text(AppLocalizations.of(context).t('Cancel')),
+                child: Text('Cancel'),
               ),
               FilledButton(
                 onPressed: () => Navigator.pop(dialogContext, true),
-                child: Text(AppLocalizations.of(context).t('Import')),
+                child: Text('Import'),
               ),
             ],
           ),
@@ -3252,7 +3251,7 @@ class RemoteCommandRouter {
         // after the buffer died must not grant anything.
         _legacyDialogContext = context;
         return AlertDialog(
-          title: Text(AppLocalizations.of(context).t('Incoming settings')),
+          title: Text('Incoming settings'),
           content: Text(
             'The device at $peer wants to send settings and account '
             'credentials to this TV over an UNENCRYPTED connection (its app '
@@ -3263,11 +3262,11 @@ class RemoteCommandRouter {
             FilledButton(
               autofocus: true,
               onPressed: () => Navigator.of(context).pop(false),
-              child: Text(AppLocalizations.of(context).t('Deny')),
+              child: Text('Deny'),
             ),
             TextButton(
               onPressed: () => Navigator.of(context).pop(true),
-              child: Text(AppLocalizations.of(context).t('Allow')),
+              child: Text('Allow'),
             ),
           ],
         );
@@ -4334,7 +4333,7 @@ class RemoteCommandRouter {
           context,
           requestId: requestId,
           ok: true,
-          message: AppLocalizations.of(context).t('Channel imported on TV'),
+          message: 'Channel imported on TV',
         );
         return;
       }
@@ -4404,7 +4403,7 @@ class RemoteCommandRouter {
         context,
         requestId: requestId,
         ok: true,
-        message: AppLocalizations.of(context).t('Channel imported on TV'),
+        message: 'Channel imported on TV',
       );
     } catch (_) {
       debugPrint('RemoteCommandRouter: channel import failed');
@@ -4413,7 +4412,7 @@ class RemoteCommandRouter {
         context,
         requestId: requestId,
         ok: false,
-        message: AppLocalizations.of(context).t('The TV could not import the channel'),
+        message: 'The TV could not import the channel',
       );
     }
   }

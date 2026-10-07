@@ -16,7 +16,6 @@ import 'android_native_downloader.dart';
 import 'android_download_history.dart';
 import 'package:flutter/material.dart';
 
-import '../l10n/app_localizations.dart';
 import 'package:http/http.dart' as http;
 import 'package:connectivity_plus/connectivity_plus.dart';
 import '../models/profiles/profile_policy.dart';
@@ -1313,7 +1312,7 @@ class DownloadService {
                                     ),
                                     SizedBox(width: 10),
                                     Expanded(
-                                      child: Text(AppLocalizations.of(context).t('Allow background downloads'),
+                                      child: Text('Allow background downloads',
                                         style: TextStyle(
                                           fontSize: 18,
                                           fontWeight: FontWeight.bold,
@@ -1324,7 +1323,7 @@ class DownloadService {
                                 ),
                               ),
                               const SizedBox(height: 16),
-                              Text(AppLocalizations.of(context).t('To keep downloads running reliably in the background, allow the app to ignore battery optimizations.'),
+                              Text('To keep downloads running reliably in the background, allow the app to ignore battery optimizations.',
                                 style: TextStyle(
                                   color: Colors.white.withValues(alpha: 0.85),
                                 ),
@@ -1340,7 +1339,7 @@ class DownloadService {
                                     ).withValues(alpha: 0.9),
                                   ),
                                   const SizedBox(width: 8),
-                                  Text(AppLocalizations.of(context).t('Keeps long downloads alive'),
+                                  Text('Keeps long downloads alive',
                                     style: TextStyle(
                                       color: Colors.white.withValues(
                                         alpha: 0.8,
@@ -1360,7 +1359,7 @@ class DownloadService {
                                     ).withValues(alpha: 0.9),
                                   ),
                                   SizedBox(width: 8),
-                                  Text(AppLocalizations.of(context).t('You can change this later in system settings'),
+                                  Text('You can change this later in system settings',
                                     style: TextStyle(
                                       color: Colors.white.withValues(
                                         alpha: 0.8,
@@ -1406,7 +1405,7 @@ class DownloadService {
                                           ),
                                         ),
                                       ),
-                                      child: Text(AppLocalizations.of(context).t('Not now')),
+                                      child: Text('Not now'),
                                     ),
                                   ),
                                   SizedBox(width: 12),
@@ -1417,7 +1416,7 @@ class DownloadService {
                                         Navigator.of(ctx2).pop(true);
                                       },
                                       icon: Icon(Icons.check_circle),
-                                      label: Text(AppLocalizations.of(context).t('Allow')),
+                                      label: Text('Allow'),
                                       style: ElevatedButton.styleFrom(
                                         padding: const EdgeInsets.symmetric(
                                           vertical: 14,
@@ -1464,7 +1463,7 @@ class DownloadService {
         if (context != null) {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
-              content: Text(AppLocalizations.of(context).t('You can enable background downloads later in Settings.'),
+              content: Text('You can enable background downloads later in Settings.',
               ),
             ),
           );

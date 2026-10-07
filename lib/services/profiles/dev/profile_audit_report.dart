@@ -1,4 +1,3 @@
-import '../../../l10n/app_localizations.dart';
 import 'dart:convert';
 import 'dart:io';
 import 'dart:math';
@@ -42,12 +41,12 @@ abstract final class ProfileAuditReport {
   /// Keys whose NAME carries user data. Collapsed to the pattern plus a count,
   /// with one hash over the whole collection.
   static final List<({RegExp pattern, String label})> _idBearingKeys = [
-    (pattern: RegExp(r'^series_source_.+$'), label: AppLocalizations.of(context).t('series_source_<imdbId>')),
+    (pattern: RegExp(r'^series_source_.+$'), label: 'series_source_<imdbId>'),
     (
       pattern: RegExp(r'^iptv_hidden_categories_.+$'),
-      label: AppLocalizations.of(context).t('iptv_hidden_categories_<catalog>'),
+      label: 'iptv_hidden_categories_<catalog>',
     ),
-    (pattern: RegExp(r'^engine_.+_.+$'), label: AppLocalizations.of(context).t('engine_<id>_<setting>')),
+    (pattern: RegExp(r'^engine_.+_.+$'), label: 'engine_<id>_<setting>'),
   ];
 
   /// Required non-null keys per resource type, taken from each model's

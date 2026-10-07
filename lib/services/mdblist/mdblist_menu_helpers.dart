@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../l10n/app_localizations.dart';
-
-
 import '../../models/stremio_addon.dart';
 import '../../models/tracking_source.dart';
 import '../watched_status_service.dart';
@@ -53,7 +50,7 @@ List<MdblistMenuOption> buildMdblistMenuOptions({
   return [
     MdblistMenuOption(action: MdblistItemMenuAction.clearWatchProgress,
       icon: Icons.restart_alt_rounded, color: Color(0xFFEF4444),
-      label: AppLocalizations.of(context).t('Clear watch progress on MDBList'), caption: 'Clear progress'),
+      label: 'Clear watch progress on MDBList', caption: 'Clear progress'),
     MdblistMenuOption(
       action: status?.inWatchlist == true
           ? MdblistItemMenuAction.removeFromWatchlist
@@ -129,7 +126,7 @@ List<MdblistMenuOption> buildMdblistMenuOptions({
         action: MdblistItemMenuAction.removeFromContinueWatching,
         icon: Icons.remove_circle_outline_rounded,
         color: Color(0xFFF87171),
-        label: AppLocalizations.of(context).t('Remove from MDBList Continue Watching'),
+        label: 'Remove from MDBList Continue Watching',
         caption: 'Remove',
       ),
   ];
@@ -138,7 +135,7 @@ List<MdblistMenuOption> buildMdblistMenuOptions({
 Future<int?> showMdblistRatingDialog(BuildContext context) => showDialog<int>(
   context: context,
   builder: (dialogContext) => AlertDialog(
-    title: Text(AppLocalizations.of(context).t('Rate on MDBList')),
+    title: Text('Rate on MDBList'),
     content: Wrap(
       spacing: 8,
       runSpacing: 8,
@@ -211,17 +208,17 @@ Future<void> handleMdblistMenuAction(
         final confirmed = await showDialog<bool>(
           context: context,
           builder: (ctx) => AlertDialog(
-            title: Text(AppLocalizations.of(context).t('Collect this show?')),
-            content: Text(AppLocalizations.of(context).t('MDBList will add every aired episode to your collection.'),
+            title: Text('Collect this show?'),
+            content: Text('MDBList will add every aired episode to your collection.',
             ),
             actions: [
               TextButton(
                 onPressed: () => Navigator.pop(ctx, false),
-                child: Text(AppLocalizations.of(context).t('Cancel')),
+                child: Text('Cancel'),
               ),
               FilledButton(
                 onPressed: () => Navigator.pop(ctx, true),
-                child: Text(AppLocalizations.of(context).t('Collect')),
+                child: Text('Collect'),
               ),
             ],
           ),

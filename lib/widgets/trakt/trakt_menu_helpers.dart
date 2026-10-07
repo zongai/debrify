@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../l10n/app_localizations.dart';
-
 import '../../models/custom_series_identity.dart';
 import '../../models/stremio_addon.dart';
 import '../../models/tracking_source.dart';
@@ -57,7 +55,7 @@ Future<int?> showTraktRatingDialog(BuildContext context) {
                     size: 24,
                   ),
                   SizedBox(width: 8),
-                  Text(AppLocalizations.of(context).t('Rate this item'),
+                  Text('Rate this item',
                     style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
                   ),
                 ],
@@ -96,7 +94,7 @@ Future<int?> showTraktRatingDialog(BuildContext context) {
               SizedBox(height: 12),
               TextButton(
                 onPressed: () => Navigator.of(dialogContext).pop(),
-                child: Text(AppLocalizations.of(context).t('Cancel'),
+                child: Text('Cancel',
                   style: TextStyle(color: Colors.white54),
                 ),
               ),
@@ -117,7 +115,7 @@ Future<Map<String, dynamic>?> showTraktCustomListPickerDialog(
   if (lists.isEmpty) {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
-        content: Text(AppLocalizations.of(context).t('No custom lists found. Create one on Trakt first.')),
+        content: Text('No custom lists found. Create one on Trakt first.'),
         backgroundColor: Color(0xFFEF4444),
       ),
     );
@@ -146,7 +144,7 @@ Future<Map<String, dynamic>?> showTraktCustomListPickerDialog(
                       size: 24,
                     ),
                     SizedBox(width: 8),
-                    Text(AppLocalizations.of(context).t('Add to List'),
+                    Text('Add to List',
                       style: TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.w600,
@@ -184,7 +182,7 @@ Future<Map<String, dynamic>?> showTraktCustomListPickerDialog(
                 const SizedBox(height: 8),
                 TextButton(
                   onPressed: () => Navigator.of(dialogContext).pop(),
-                  child: Text(AppLocalizations.of(context).t('Cancel'),
+                  child: Text('Cancel',
                     style: TextStyle(color: Colors.white54),
                   ),
                 ),
@@ -283,7 +281,7 @@ Future<void> handleTraktMenuAction(
       final confirmed = await showDialog<bool>(
         context: context,
         builder: (ctx) => AlertDialog(
-          title: Text(AppLocalizations.of(context).t('Clear watch progress?')),
+          title: Text('Clear watch progress?'),
           content: Text(
             CustomSeriesIdentity.isCustom(imdbId)
             ? 'Clear watched history and resume progress for ${item.name} on this device?\n\nSaved sources are kept. This cannot be undone.'
@@ -294,11 +292,11 @@ Future<void> handleTraktMenuAction(
           actions: [
             TextButton(
               onPressed: () => Navigator.pop(ctx, false),
-              child: Text(AppLocalizations.of(context).t('Cancel')),
+              child: Text('Cancel'),
             ),
             TextButton(
               onPressed: () => Navigator.pop(ctx, true),
-              child: Text(AppLocalizations.of(context).t('Clear progress')),
+              child: Text('Clear progress'),
             ),
           ],
         ),
@@ -315,7 +313,7 @@ Future<void> handleTraktMenuAction(
               children: [
                 CircularProgressIndicator(),
                 SizedBox(width: 20),
-                Expanded(child: Text(AppLocalizations.of(context).t('Clearing watch progress…'))),
+                Expanded(child: Text('Clearing watch progress…')),
               ],
             ),
           ),
@@ -434,7 +432,7 @@ List<TraktMenuOption> buildTraktAddOnlyMenuOptions({
         action: TraktItemMenuAction.addToStremioTv,
         icon: Icons.live_tv_rounded,
         color: Color(0xFF22C55E),
-        label: AppLocalizations.of(context).t('Add to Stremio TV'),
+        label: 'Add to Stremio TV',
         caption: 'Stremio TV',
       ),
     if (isSeries)
@@ -442,7 +440,7 @@ List<TraktMenuOption> buildTraktAddOnlyMenuOptions({
         action: TraktItemMenuAction.playRandomEpisode,
         icon: Icons.shuffle_rounded,
         color: Color(0xFFF59E0B),
-        label: AppLocalizations.of(context).t('Play Random Episode'),
+        label: 'Play Random Episode',
         caption: 'Random',
       ),
     if (isSeries)
@@ -450,7 +448,7 @@ List<TraktMenuOption> buildTraktAddOnlyMenuOptions({
         action: TraktItemMenuAction.searchPacks,
         icon: Icons.inventory_2_rounded,
         color: Color(0xFFFBBF24),
-        label: AppLocalizations.of(context).t('Search Season Packs'),
+        label: 'Search Season Packs',
         caption: 'Packs',
       ),
     // Trakt-syncing actions — badged TRAKT in the UI. When [status] is known
@@ -459,20 +457,20 @@ List<TraktMenuOption> buildTraktAddOnlyMenuOptions({
         action: TraktItemMenuAction.clearWatchProgress,
         icon: Icons.restart_alt_rounded,
         color: Color(0xFFEF4444),
-        label: AppLocalizations.of(context).t('Clear watch progress'),
+        label: 'Clear watch progress',
         caption: 'Clear progress',
       ),
     // these flip between Add and Remove to mirror the user's real library.
     if (isTraktAuthenticated) ...[
       TraktMenuOption(action: TraktItemMenuAction.clearTraktProgress,
         icon: Icons.restart_alt_rounded, color: Color(0xFFEF4444),
-        label: AppLocalizations.of(context).t('Clear watch progress on Trakt'), caption: 'Clear progress', isTrakt: true),
+        label: 'Clear watch progress on Trakt', caption: 'Clear progress', isTrakt: true),
       if (inWatchlist)
         TraktMenuOption(
           action: TraktItemMenuAction.removeFromWatchlist,
           icon: Icons.bookmark_remove_rounded,
           color: Color(0xFFFBBF24),
-          label: AppLocalizations.of(context).t('Remove from Trakt Watchlist'),
+          label: 'Remove from Trakt Watchlist',
           caption: 'In Watchlist',
           isTrakt: true,
         )
@@ -481,7 +479,7 @@ List<TraktMenuOption> buildTraktAddOnlyMenuOptions({
           action: TraktItemMenuAction.addToWatchlist,
           icon: Icons.bookmark_add_rounded,
           color: Color(0xFFFBBF24),
-          label: AppLocalizations.of(context).t('Add to Trakt Watchlist'),
+          label: 'Add to Trakt Watchlist',
           caption: 'Watchlist',
           isTrakt: true,
         ),
@@ -490,7 +488,7 @@ List<TraktMenuOption> buildTraktAddOnlyMenuOptions({
           action: TraktItemMenuAction.removeFromCollection,
           icon: Icons.video_library_rounded,
           color: Color(0xFF60A5FA),
-          label: AppLocalizations.of(context).t('Remove from Trakt Collection'),
+          label: 'Remove from Trakt Collection',
           caption: 'In Collection',
           isTrakt: true,
         )
@@ -499,7 +497,7 @@ List<TraktMenuOption> buildTraktAddOnlyMenuOptions({
           action: TraktItemMenuAction.addToCollection,
           icon: Icons.video_library_outlined,
           color: Color(0xFF60A5FA),
-          label: AppLocalizations.of(context).t('Add to Trakt Collection'),
+          label: 'Add to Trakt Collection',
           caption: 'Collection',
           isTrakt: true,
         ),
@@ -512,7 +510,7 @@ List<TraktMenuOption> buildTraktAddOnlyMenuOptions({
           action: TraktItemMenuAction.markWatched,
           icon: Icons.check_circle_rounded,
           color: Color(0xFF34D399),
-          label: AppLocalizations.of(context).t('Mark as Watched on Trakt'),
+          label: 'Mark as Watched on Trakt',
           caption: 'Watched',
           isTrakt: true,
         ),
@@ -521,7 +519,7 @@ List<TraktMenuOption> buildTraktAddOnlyMenuOptions({
           action: TraktItemMenuAction.markUnwatched,
           icon: Icons.visibility_off_rounded,
           color: Color(0xFF34D399),
-          label: AppLocalizations.of(context).t('Mark as Unwatched on Trakt'),
+          label: 'Mark as Unwatched on Trakt',
           caption: 'Unwatch',
           isTrakt: true,
         ),
@@ -542,7 +540,7 @@ List<TraktMenuOption> buildTraktAddOnlyMenuOptions({
           action: TraktItemMenuAction.removeRating,
           icon: Icons.star_outline_rounded,
           color: Color(0xFFFBBF24),
-          label: AppLocalizations.of(context).t('Remove Trakt Rating'),
+          label: 'Remove Trakt Rating',
           caption: 'Unrate',
           isTrakt: true,
         ),
@@ -550,7 +548,7 @@ List<TraktMenuOption> buildTraktAddOnlyMenuOptions({
         action: TraktItemMenuAction.addToList,
         icon: Icons.playlist_add_rounded,
         color: Color(0xFFEC4899),
-        label: AppLocalizations.of(context).t('Add to Trakt List…'),
+        label: 'Add to Trakt List…',
         caption: 'Add to List',
         isTrakt: true,
       ),

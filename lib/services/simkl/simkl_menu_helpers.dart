@@ -54,7 +54,7 @@ Future<int?> showSimklRatingDialog(BuildContext context) {
                     size: 24,
                   ),
                   SizedBox(width: 8),
-                  Text(AppLocalizations.of(context).t('Rate this item'),
+                  Text('Rate this item',
                     style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
                   ),
                 ],
@@ -93,7 +93,7 @@ Future<int?> showSimklRatingDialog(BuildContext context) {
               SizedBox(height: 12),
               TextButton(
                 onPressed: () => Navigator.of(dialogContext).pop(),
-                child: Text(AppLocalizations.of(context).t('Cancel'),
+                child: Text('Cancel',
                   style: TextStyle(color: Colors.white54),
                 ),
               ),
@@ -117,7 +117,7 @@ Future<bool> confirmSimklTitleRemoval(
   final confirmed = await showDialog<bool>(
     context: context,
     builder: (dialogContext) => AlertDialog(
-      title: Text(AppLocalizations.of(context).t('Remove from Simkl?')),
+      title: Text('Remove from Simkl?'),
       content: Text(
         AppLocalizations.of(context)
             .t(
@@ -128,12 +128,12 @@ Future<bool> confirmSimklTitleRemoval(
       actions: [
         TextButton(
           onPressed: () => Navigator.of(dialogContext).pop(false),
-          child: Text(AppLocalizations.of(context).t('Cancel')),
+          child: Text('Cancel'),
         ),
         TextButton(
           onPressed: () => Navigator.of(dialogContext).pop(true),
           style: TextButton.styleFrom(foregroundColor: Color(0xFFFF8B8B)),
-          child: Text(AppLocalizations.of(context).t('Remove')),
+          child: Text('Remove'),
         ),
       ],
     ),
@@ -312,7 +312,7 @@ List<SimklMenuOption> buildSimklMenuOptions({
   return [
     SimklMenuOption(action: SimklItemMenuAction.clearWatchProgress,
       icon: Icons.restart_alt_rounded, color: Color(0xFFEF4444),
-      label: AppLocalizations.of(context).t('Clear watch progress on Simkl'), caption: 'Clear progress'),
+      label: 'Clear watch progress on Simkl', caption: 'Clear progress'),
     if (current != 'plantowatch')
       moveOption(
         'plantowatch',
@@ -353,7 +353,7 @@ List<SimklMenuOption> buildSimklMenuOptions({
         action: SimklItemMenuAction.removeFromList,
         icon: Icons.remove_circle_outline_rounded,
         color: Color(0xFFF87171),
-        label: AppLocalizations.of(context).t('Remove from Simkl'),
+        label: 'Remove from Simkl',
         caption: 'Remove',
       ),
     // Only when the title is actually in Continue Watching (has a paused
@@ -364,7 +364,7 @@ List<SimklMenuOption> buildSimklMenuOptions({
         action: SimklItemMenuAction.removeFromContinueWatching,
         icon: Icons.playlist_remove_rounded,
         color: Color(0xFFF87171),
-        label: AppLocalizations.of(context).t('Remove from Continue Watching'),
+        label: 'Remove from Continue Watching',
         caption: 'Remove',
       ),
     SimklMenuOption(
@@ -381,7 +381,7 @@ List<SimklMenuOption> buildSimklMenuOptions({
         action: SimklItemMenuAction.removeRating,
         icon: Icons.star_outline_rounded,
         color: Color(0xFF22D3EE),
-        label: AppLocalizations.of(context).t('Remove Simkl Rating'),
+        label: 'Remove Simkl Rating',
         caption: 'Unrate',
       ),
   ];

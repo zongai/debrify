@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../../l10n/app_localizations.dart';
-
 import 'package:flutter/services.dart';
 
 import '../../../utils/tv_keys.dart';
@@ -138,7 +136,7 @@ class _StremioTvCatalogPickerDialogState
     if (result == null) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text(AppLocalizations.of(context).t('Failed to update channel')),
+          content: Text('Failed to update channel'),
           backgroundColor: Colors.red.shade700,
         ),
       );
@@ -185,7 +183,7 @@ class _StremioTvCatalogPickerDialogState
     final name = _nameController.text.trim();
     if (name.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(AppLocalizations.of(context).t('Channel name cannot be empty')),
+        SnackBar(content: Text('Channel name cannot be empty'),
           backgroundColor: Colors.orange,
         ),
       );
@@ -206,7 +204,7 @@ class _StremioTvCatalogPickerDialogState
     if (result == null) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text(AppLocalizations.of(context).t('Failed to create channel')),
+          content: Text('Failed to create channel'),
           backgroundColor: Colors.red.shade700,
         ),
       );
@@ -368,7 +366,7 @@ class _StremioTvCatalogPickerDialogState
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Text(AppLocalizations.of(context).t('Add to Stremio TV'),
+          Text('Add to Stremio TV',
             style: theme.textTheme.titleLarge?.copyWith(
               fontWeight: FontWeight.w700,
             ),
@@ -403,15 +401,15 @@ class _StremioTvCatalogPickerDialogState
                 theme,
                 focusNode: _newChannelFocusNode,
                 icon: Icons.add_circle_outline_rounded,
-                title: AppLocalizations.of(context).t('New Channel'),
-                subtitle: AppLocalizations.of(context).t('Create a new local channel from this item'),
+                title: 'New Channel',
+                subtitle: 'Create a new local channel from this item',
                 enabled: !_saving,
                 onTap: _openCreateView,
               ),
             ),
             const SizedBox(height: 12),
             if (_catalogs.isNotEmpty) ...[
-              Text(AppLocalizations.of(context).t('Add to Existing Channel'),
+              Text('Add to Existing Channel',
                 style: theme.textTheme.titleSmall?.copyWith(
                   fontWeight: FontWeight.w600,
                 ),
@@ -453,7 +451,7 @@ class _StremioTvCatalogPickerDialogState
                     },
                     decoration: InputDecoration(
                       labelText: 'Search channels',
-                      hintText: AppLocalizations.of(context).t('Filter by channel name'),
+                      hintText: 'Filter by channel name',
                       prefixIcon: const Icon(Icons.search_rounded),
                       border: const OutlineInputBorder(),
                       suffixIcon: _searchController.text.isEmpty
@@ -534,7 +532,7 @@ class _StremioTvCatalogPickerDialogState
               if (filteredIndices.isEmpty)
                 Padding(
                   padding: EdgeInsets.only(top: 12),
-                  child: Text(AppLocalizations.of(context).t('No matching channels found.'),
+                  child: Text('No matching channels found.',
                     style: theme.textTheme.bodyMedium?.copyWith(
                       color: theme.colorScheme.onSurfaceVariant,
                     ),
@@ -568,7 +566,7 @@ class _StremioTvCatalogPickerDialogState
                 alignment: Alignment.centerRight,
                 child: TextButton(
                   onPressed: _saving ? null : _dismissDialog,
-                  child: Text(AppLocalizations.of(context).t('Cancel')),
+                  child: Text('Cancel'),
                 ),
               ),
             ),
@@ -587,13 +585,13 @@ class _StremioTvCatalogPickerDialogState
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Text(AppLocalizations.of(context).t('New Channel'),
+          Text('New Channel',
             style: theme.textTheme.titleLarge?.copyWith(
               fontWeight: FontWeight.w700,
             ),
           ),
           SizedBox(height: 6),
-          Text(AppLocalizations.of(context).t('Create a local Stremio TV channel for "\$name"').replaceAll('\$name', widget.item.name),
+          Text('Create a local Stremio TV channel for "\$name"'.replaceAll('\$name', widget.item.name),
             style: theme.textTheme.bodyMedium?.copyWith(
               color: theme.colorScheme.onSurfaceVariant,
             ),
@@ -625,7 +623,7 @@ class _StremioTvCatalogPickerDialogState
                 },
                 decoration: InputDecoration(
                   labelText: 'Channel name',
-                  hintText: AppLocalizations.of(context).t('My Weekend Picks'),
+                  hintText: 'My Weekend Picks',
                   border: OutlineInputBorder(),
                 ),
               ),
@@ -663,7 +661,7 @@ class _StremioTvCatalogPickerDialogState
                     focusNode: _createCancelFocusNode,
                     child: OutlinedButton(
                       onPressed: _saving ? null : _closeCreateView,
-                      child: Text(AppLocalizations.of(context).t('Back')),
+                      child: Text('Back'),
                     ),
                   ),
                 ),
@@ -829,7 +827,7 @@ class _StremioTvLocalCatalogEditor {
       (catalog) => (catalog['name'] as String?) == trimmedName,
     )) {
       return StremioTvCatalogPickerResult(
-        message: AppLocalizations.of(context).t('A channel with that name already exists'),
+        message: 'A channel with that name already exists',
         duplicate: true,
       );
     }

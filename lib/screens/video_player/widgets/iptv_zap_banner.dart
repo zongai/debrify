@@ -146,7 +146,7 @@ class IptvZapBanner extends StatelessWidget {
                           children: [
                             _LogoTile(channel: channel, size: s(68)),
                             SizedBox(width: s(20)),
-                            Expanded(child: _buildIdentity(s)),
+                            Expanded(child: _buildIdentity(context, s)),
                           ],
                         ),
                         SizedBox(height: s(14)),
@@ -158,7 +158,7 @@ class IptvZapBanner extends StatelessWidget {
                       children: [
                         _LogoTile(channel: channel, size: s(68)),
                         SizedBox(width: s(20)),
-                        Expanded(child: _buildIdentity(s)),
+                        Expanded(child: _buildIdentity(context, s)),
                         SizedBox(width: s(24)),
                         ConstrainedBox(
                           constraints: BoxConstraints(maxWidth: s(380)),
@@ -177,7 +177,7 @@ class IptvZapBanner extends StatelessWidget {
   /// Number, name, and the category line. The number lives in its own accent
   /// slot, so the name is the RAW channel name — pairing it with a numbered
   /// display name is what makes the native banner read "7  CH 7  Sky Sports".
-  Widget _buildIdentity(double Function(double) s) {
+  Widget _buildIdentity(BuildContext context, double Function(double) s) {
     final number = channel.channelNumber;
     final group = channel.group?.trim();
 

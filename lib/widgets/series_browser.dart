@@ -1382,7 +1382,7 @@ class _SeriesBrowserState extends State<SeriesBrowser> {
           _showFixMetadataDialog();
         }
       },
-      itemBuilder: (context) => const [
+      itemBuilder: (context) => [
         PopupMenuItem<String>(
           value: 'fix_metadata',
           child: Row(

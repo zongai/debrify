@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../../l10n/app_localizations.dart';
-
 import 'package:flutter/services.dart';
 
 import '../../../utils/tv_keys.dart';
@@ -375,7 +373,7 @@ class SpotlightShell extends StatelessWidget {
         children: [
           Icon(Icons.play_circle_fill_rounded, color: t.accent, size: 18),
           const SizedBox(width: 7),
-          Text(AppLocalizations.of(context).t('Debrify'),
+          Text('Debrify',
             style: TextStyle(
               color: t.fg,
               fontSize: 14,
@@ -390,7 +388,7 @@ class SpotlightShell extends StatelessWidget {
             color: t.hairline2,
           ),
           Flexible(
-            child: Text(AppLocalizations.of(context).t('LIVE TV'),
+            child: Text('LIVE TV',
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
               style: TextStyle(
@@ -486,7 +484,7 @@ class _CompactSourceButtonState extends State<_CompactSourceButton> {
     return Semantics(
       button: true,
       excludeSemantics: true,
-      label: AppLocalizations.of(context).t('Open sources'),
+      label: 'Open sources',
       value: label,
       onTap: widget.onPressed,
       child: Focus(

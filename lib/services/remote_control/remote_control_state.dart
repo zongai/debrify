@@ -1,4 +1,3 @@
-import '../../l10n/app_localizations.dart';
 import 'dart:async';
 import 'dart:convert';
 import 'dart:math';
@@ -712,7 +711,7 @@ class RemoteControlState extends ChangeNotifier {
           ConfigCommand.profileAvatar,
           targetIp,
           payload,
-          label: AppLocalizations.of(context).t('profile_avatar'),
+          label: 'profile_avatar',
           chunkPace: const Duration(milliseconds: 15),
         );
         if (!delivered) continue;

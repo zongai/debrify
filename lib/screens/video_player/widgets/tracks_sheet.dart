@@ -964,7 +964,7 @@ class _SubtitlesTab extends StatelessWidget {
                     color: Colors.white.withValues(alpha: 0.06),
                   ),
                   const SizedBox(width: 16),
-                  Expanded(child: _buildProviderContent(selected)),
+                  Expanded(child: _buildProviderContent(context, selected)),
                 ],
               ),
             ),
@@ -1007,12 +1007,12 @@ class _SubtitlesTab extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 10),
-        Expanded(child: _buildProviderContent(selected)),
+        Expanded(child: _buildProviderContent(context, selected)),
       ],
     );
   }
 
-  Widget _buildProviderContent(_ProviderEntry provider) {
+  Widget _buildProviderContent(BuildContext context, _ProviderEntry provider) {
     final padding = isWide
         ? EdgeInsets.zero
         : const EdgeInsets.fromLTRB(20, 0, 20, 20);

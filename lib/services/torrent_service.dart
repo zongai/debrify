@@ -1,4 +1,3 @@
-import '../l10n/app_localizations.dart';
 import 'package:flutter/foundation.dart';
 
 import '../models/engine_config/engine_config.dart';
@@ -951,12 +950,12 @@ class TorrentService {
           settings: {
             'enabled': SettingConfig(
               type: 'toggle',
-              label: AppLocalizations.of(context).t('Enabled'),
+              label: 'Enabled',
               defaultValue: config.enabled,
             ),
             'max_results': SettingConfig(
               type: 'dropdown',
-              label: AppLocalizations.of(context).t('Max Results'),
+              label: 'Max Results',
               defaultValue: config.maxResults,
               options: [25, 50, 100, 200],
             ),

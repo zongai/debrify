@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../l10n/app_localizations.dart';
-
 import '../utils/platform_util.dart';
 import 'package:flutter/services.dart';
 
@@ -118,7 +116,7 @@ List<TvKey> _actionRow(int page, String submitLabel, bool voice) => [
     flex: voice ? 4 : 5,
   ),
   TvKey.action(TvKeyAction.paste, icon: Icons.content_paste_rounded, flex: 3),
-  TvKey.action(TvKeyAction.clear, label: AppLocalizations.of(context).t('Clear'), flex: 3),
+  TvKey.action(TvKeyAction.clear, label: 'Clear', flex: 3),
   TvKey.action(TvKeyAction.submit, label: submitLabel, flex: 4),
 ];
 
@@ -650,7 +648,7 @@ class _ListeningView extends StatelessWidget {
             style: TextStyle(fontSize: 12, color: ink.withValues(alpha: 0.55)),
           ),
           const SizedBox(height: 12),
-          Text(AppLocalizations.of(context).t('OK to finish  ·  BACK to cancel'),
+          Text('OK to finish  ·  BACK to cancel',
             style: TextStyle(
               fontSize: 11,
               letterSpacing: 0.4,

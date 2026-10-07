@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../l10n/app_localizations.dart';
-
 import '../models/torrent.dart';
 import '../utils/dialog_tap_guard.dart';
 import '../widgets/bulk_add_progress_dialog.dart';
@@ -151,7 +149,7 @@ class TorrentBulkAddService {
               _optionTile(
                 icon: Icons.flash_on_rounded,
                 color: const Color(0xFF7C3AED),
-                title: AppLocalizations.of(context).t('TorBox'),
+                title: 'TorBox',
                 subtitle: torboxEnabled
                     ? 'Limit: 60 adds per hour'
                     : 'Not configured',
@@ -163,7 +161,7 @@ class TorrentBulkAddService {
               _optionTile(
                 icon: Icons.cloud_rounded,
                 color: const Color(0xFFE50914),
-                title: AppLocalizations.of(context).t('Real-Debrid'),
+                title: 'Real-Debrid',
                 subtitle: rdEnabled
                     ? 'Uncached torrents auto-removed'
                     : 'Not configured',
@@ -175,7 +173,7 @@ class TorrentBulkAddService {
               _optionTile(
                 icon: Icons.folder_rounded,
                 color: const Color(0xFF0088CC),
-                title: AppLocalizations.of(context).t('PikPak'),
+                title: 'PikPak',
                 subtitle: pikpakEnabled ? null : 'Not configured',
                 enabled: pikpakEnabled,
                 autofocus: autoFocused == 'pikpak',
@@ -185,7 +183,7 @@ class TorrentBulkAddService {
               _optionTile(
                 icon: Icons.workspace_premium_rounded,
                 color: const Color(0xFFFB923C),
-                title: AppLocalizations.of(context).t('Premiumize'),
+                title: 'Premiumize',
                 subtitle: premiumizeEnabled
                     ? 'Only cached torrents are added'
                     : 'Not configured',
@@ -197,7 +195,7 @@ class TorrentBulkAddService {
               _optionTile(
                 icon: Icons.all_inclusive_rounded,
                 color: const Color(0xFF26A69A),
-                title: AppLocalizations.of(context).t('AllDebrid'),
+                title: 'AllDebrid',
                 subtitle: allDebridEnabled
                     ? 'Only cached torrents are added'
                     : 'Not configured',
@@ -210,8 +208,8 @@ class TorrentBulkAddService {
               _optionTile(
                 icon: Icons.live_tv_rounded,
                 color: const Color(0xFF14B8A6),
-                title: AppLocalizations.of(context).t('Debrify TV Channel'),
-                subtitle: AppLocalizations.of(context).t('Save as a local channel'),
+                title: 'Debrify TV Channel',
+                subtitle: 'Save as a local channel',
                 autofocus: autoFocused == 'create_channel',
                 onTap: () => Navigator.of(context).pop('create_channel'),
               ),
@@ -262,7 +260,7 @@ class TorrentBulkAddService {
       context,
       accent: const Color(0xFFFFAA00),
       titleIcon: Icons.cloud_upload,
-      title: AppLocalizations.of(context).t('Adding to PikPak'),
+      title: 'Adding to PikPak',
       torrents: torrentsToAdd,
       total: torrentsToAdd.length,
     );
@@ -388,7 +386,7 @@ class TorrentBulkAddService {
       accent: const Color(0xFF7C3AED),
       notCachedColor: const Color(0xFFEF4444),
       titleIcon: Icons.cloud_upload,
-      title: AppLocalizations.of(context).t('Adding to TorBox'),
+      title: 'Adding to TorBox',
       torrents: torrentsToAdd,
       total: cachedTorrents.length,
       showSkipped: true,
@@ -481,7 +479,7 @@ class TorrentBulkAddService {
       context,
       accent: const Color(0xFFE50914),
       titleIcon: Icons.cloud_upload,
-      title: AppLocalizations.of(context).t('Adding to Real-Debrid'),
+      title: 'Adding to Real-Debrid',
       torrents: torrentsToAdd,
       total: torrentsToAdd.length,
       showSkipped: true,
@@ -566,7 +564,7 @@ class TorrentBulkAddService {
       context,
       accent: const Color(0xFFFB923C),
       titleIcon: Icons.workspace_premium_rounded,
-      title: AppLocalizations.of(context).t('Adding to Premiumize'),
+      title: 'Adding to Premiumize',
       torrents: torrentsToAdd,
       total: torrentsToAdd.length,
       showSkipped: true,
@@ -636,7 +634,7 @@ class TorrentBulkAddService {
       context,
       accent: const Color(0xFF26A69A),
       titleIcon: Icons.all_inclusive_rounded,
-      title: AppLocalizations.of(context).t('Adding to AllDebrid'),
+      title: 'Adding to AllDebrid',
       torrents: torrentsToAdd,
       total: torrentsToAdd.length,
       showSkipped: true,
@@ -769,7 +767,7 @@ class TorrentBulkAddService {
                 ),
                 const SizedBox(width: 14),
                 Expanded(
-                  child: Text(AppLocalizations.of(context).t('Premiumize Fair Use'),
+                  child: Text('Premiumize Fair Use',
                     style: TextStyle(
                       fontWeight: FontWeight.w700,
                       fontSize: 18,
@@ -785,7 +783,7 @@ class TorrentBulkAddService {
                   mainAxisSize: MainAxisSize.min,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(AppLocalizations.of(context).t('Premiumize works on a fair-use points system — about 1000 points max, topping up ~30/day. Adding a cached torrent and later streaming it both spend points (roughly 1 point per GB).'),
+                    Text('Premiumize works on a fair-use points system — about 1000 points max, topping up ~30/day. Adding a cached torrent and later streaming it both spend points (roughly 1 point per GB).',
                       style: theme.textTheme.bodyMedium?.copyWith(
                         color: Colors.white.withValues(alpha: 0.85),
                         height: 1.45,
@@ -812,7 +810,7 @@ class TorrentBulkAddService {
                           ),
                           SizedBox(width: 10),
                           Expanded(
-                            child: Text(AppLocalizations.of(context).t('Only cached torrents are added, but each one still uses points. Select carefully to avoid running out of your daily quota.'),
+                            child: Text('Only cached torrents are added, but each one still uses points. Select carefully to avoid running out of your daily quota.',
                               style: theme.textTheme.bodySmall?.copyWith(
                                 color: Colors.white.withValues(alpha: 0.8),
                                 height: 1.4,
@@ -833,7 +831,7 @@ class TorrentBulkAddService {
                   DialogTapGuard.markKeyAction();
                   Navigator.of(dialogContext).pop(false);
                 },
-                child: Text(AppLocalizations.of(context).t('Cancel')),
+                child: Text('Cancel'),
               ),
               SizedBox(width: 8),
               ElevatedButton(
@@ -846,7 +844,7 @@ class TorrentBulkAddService {
                   backgroundColor: Color(0xFFFB923C),
                   foregroundColor: Colors.white,
                 ),
-                child: Text(AppLocalizations.of(context).t('Continue')),
+                child: Text('Continue'),
               ),
             ],
           ),

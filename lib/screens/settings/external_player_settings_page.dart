@@ -1874,7 +1874,8 @@ class _ExternalPlayerSettingsPageState
                                     color: t.accent.withValues(alpha: 0.16),
                                     borderRadius: BorderRadius.circular(4),
                                   ),
-                                  child: Text(AppLocalizations.of(context).t('Default'),
+                                  child: Text(
+                                    'Default',
                                     style: theme.textTheme.labelSmall?.copyWith(
                                       color: t.accent,
                                       fontWeight: FontWeight.w600,
@@ -2224,7 +2225,7 @@ class _ExternalPlayerSettingsPageState
   }
 
   Widget _playerAppearance() => SettingsSection(
-    title: AppLocalizations.of(context).t('Appearance'),
+    title: 'Appearance',
     blurb: 'The same player styles available in Appearance settings.',
     children: [
       // Match Appearance: Apple TV uses TV controls, not the player dock.
@@ -2244,21 +2245,21 @@ class _ExternalPlayerSettingsPageState
       if (_isAndroidTv)
         SettingsTile.spec(
           SettingsRows.debrifyTvPlayer,
-          subtitle: AppLocalizations.of(context).t('Debrify TV playback-screen style'),
+          subtitle: 'Debrify TV playback-screen style',
           onTap: () async {
             await pushSettingsPage(context, const DebrifyTvPlayerStylePage());
           },
         ),
       SettingsTile.spec(
         SettingsRows.playerGuideStyle,
-        subtitle: AppLocalizations.of(context).t('In-player IPTV guide style'),
+        subtitle: 'In-player IPTV guide style',
         onTap: () async {
           await pushSettingsPage(context, const PlayerGuideStylePage());
         },
       ),
       SettingsTile.spec(
         SettingsRows.playLoaderStyle,
-        subtitle: AppLocalizations.of(context).t('Playback loading-screen style'),
+        subtitle: 'Playback loading-screen style',
         onTap: () async {
           await pushSettingsPage(context, const PlayLoaderStylePage());
         },
@@ -2276,21 +2277,23 @@ class _ExternalPlayerSettingsPageState
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(AppLocalizations.of(context).t('Default Player'),
+              Text(
+                'Default Player',
                 style: theme.textTheme.titleMedium?.copyWith(
                   fontWeight: FontWeight.w600,
                 ),
               ),
               const SizedBox(height: 4),
-              Text(AppLocalizations.of(context).t('Choose which player to use when playing videos'),
+              Text(
+                'Choose which player to use when playing videos',
                 style: theme.textTheme.bodySmall?.copyWith(color: t.dim),
               ),
               const SizedBox(height: 16),
               _buildPlayerModeOption(
                 context,
                 value: 'debrify',
-                title: AppLocalizations.of(context).t('Debrify Player'),
-                subtitle: AppLocalizations.of(context).t('Use the built-in video player'),
+                title: 'Debrify Player',
+                subtitle: 'Use the built-in video player',
                 icon: Icons.play_circle_filled_rounded,
                 recommended: true,
                 focusNode: _firstModeFocusNode,
@@ -2298,17 +2301,17 @@ class _ExternalPlayerSettingsPageState
               _buildPlayerModeOption(
                 context,
                 value: 'external',
-                title: AppLocalizations.of(context).t('External Player'),
+                title: 'External Player',
                 subtitle: Platform.isMacOS
-                    ? AppLocalizations.of(context).t('Open videos in your preferred external player')
-                    : AppLocalizations.of(context).t('Choose which app to use when opening videos'),
+                    ? 'Open videos in your preferred external player'
+                    : 'Choose which app to use when opening videos',
                 icon: Icons.open_in_new_rounded,
               ),
               _buildPlayerModeOption(
                 context,
                 value: 'deovr',
-                title: AppLocalizations.of(context).t('DeoVR'),
-                subtitle: AppLocalizations.of(context).t('Use this only on VR devices'),
+                title: 'DeoVR',
+                subtitle: 'Use this only on VR devices',
                 icon: Icons.vrpano,
                 disabled: !Platform.isAndroid,
               ),
@@ -2321,8 +2324,8 @@ class _ExternalPlayerSettingsPageState
         SizedBox(height: 16),
         if (PlatformUtil.isPhone) ...[
           _defaultsCard(
-            AppLocalizations.of(context).t('When playback starts'),
-            AppLocalizations.of(context).t('Choose the starting orientation'),
+            'When playback starts',
+            'Choose the starting orientation',
             [
               // Start orientation (phones only — a TV has no
               // portrait, and a desktop window ignores the
@@ -2334,8 +2337,131 @@ class _ExternalPlayerSettingsPageState
                 const SizedBox(height: 4),
                 _buildCheckboxTile(
                   context,
-                  title: AppLocalizations.of(context).t('Open the player in portrait'),
-                  subtitle: AppLocalizations.of(context).t('Start videos upright instead of turning the phone landscape. The player\'s rotate button switches to landscape whenever you want it.'), the native Android TV player
+                  title: 'Open the player in portrait',
+                  subtitle:
+                      'Start videos upright instead of turning the '
+                      'phone landscape. The player\'s rotate button '
+                      'switches to landscape whenever you want it.',
+                  value: _startPortrait,
+                  onChanged: _setStartPortrait,
+                  focusNode: _startPortraitFocusNode,
+                  isFocused: _startPortraitFocused,
+                ),
+              ],
+            ],
+          ),
+          SizedBox(height: 16),
+        ],
+        // Local completion is deliberately independent from tracker
+        // scrobbling: Trakt and Simkl keep their own watched rules.
+        Card(
+          child: Padding(
+            padding: const EdgeInsets.all(16),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'Watch History',
+                  style: theme.textTheme.titleMedium?.copyWith(
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+                const SizedBox(height: 4),
+                Text(
+                  'Mark locally tracked videos watched after this much playback. Trakt and Simkl keep their own rules.',
+                  style: theme.textTheme.bodySmall?.copyWith(color: t.dim),
+                ),
+                const SizedBox(height: 16),
+                _buildSettingDropdown(
+                  context,
+                  label: 'Mark movies watched at',
+                  value: _completionThresholdIndex(_movieCompletionThreshold),
+                  items: _completionThresholdOptions
+                      .map((value) => '$value%')
+                      .toList(),
+                  onChanged: _setMovieCompletionThresholdIndex,
+                  focusNode: _movieCompletionThresholdFocusNode,
+                  isFocused: _movieCompletionThresholdFocused,
+                ),
+                SizedBox(height: 12),
+                _buildSettingDropdown(
+                  context,
+                  label: 'Mark episodes watched at',
+                  value: _completionThresholdIndex(_episodeCompletionThreshold),
+                  items: _completionThresholdOptions
+                      .map((value) => '$value%')
+                      .toList(),
+                  onChanged: _setEpisodeCompletionThresholdIndex,
+                  focusNode: _episodeCompletionThresholdFocusNode,
+                  isFocused: _episodeCompletionThresholdFocused,
+                ),
+              ],
+            ),
+          ),
+        ),
+
+        SizedBox(height: 16),
+
+        // Community intro/outro timestamps. This belongs to the
+        // built-in player because external players own their own UI
+        // and cannot display Debrify's manual skip button.
+        Card(
+          child: Padding(
+            padding: const EdgeInsets.all(16),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'Skip Segments',
+                  style: theme.textTheme.titleMedium?.copyWith(
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+                const SizedBox(height: 4),
+                Text(
+                  'Show manual skip buttons when community timestamps are available',
+                  style: theme.textTheme.bodySmall?.copyWith(color: t.dim),
+                ),
+                const SizedBox(height: 8),
+                _buildCheckboxTile(
+                  context,
+                  title: 'Skip intros & credits',
+                  subtitle:
+                      'Show a button during supported intros and outros. Playback is never skipped automatically.',
+                  value: _skipSegmentsEnabled,
+                  onChanged: _setSkipSegmentsEnabled,
+                  focusNode: _skipSegmentsEnabledFocusNode,
+                  isFocused: _skipSegmentsEnabledFocused,
+                ),
+                SizedBox(height: 12),
+                _buildDropdownSetting(
+                  context,
+                  label: 'Timestamp provider',
+                  value: _skipSegmentProvider,
+                  items: SkipSegmentProviders.availableLabels,
+                  onChanged: _setSkipSegmentProvider,
+                  focusNode: _skipSegmentProviderFocusNode,
+                  isFocused: _skipSegmentProviderFocused,
+                  enabled: _skipSegmentsEnabled,
+                ),
+                const SizedBox(height: 10),
+                Text(
+                  _skipSegmentProvider == SkipSegmentProviders.auto
+                      ? 'Checks every available source and prefers SkipDB, then TheIntroDB, then IntroDB.'
+                      : 'Coverage varies by series, episode, and video release.',
+                  style: theme.textTheme.bodySmall?.copyWith(color: t.dim2),
+                ),
+              ],
+            ),
+          ),
+        ),
+
+        const SizedBox(height: 16),
+
+        // Network & Buffering: the escape hatch for slow stream
+        // origins (Plex-backed addons, remote seedboxes). Standard
+        // leaves both players untouched — the Debrify (mpv) player
+        // reads the presets directly; the native Android TV player
         // gets them via the launch payload.
         Card(
           child: Padding(
@@ -2343,19 +2469,23 @@ class _ExternalPlayerSettingsPageState
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(AppLocalizations.of(context).t('Network & Buffering'),
+                Text(
+                  'Network & Buffering',
                   style: theme.textTheme.titleMedium?.copyWith(
                     fontWeight: FontWeight.w600,
                   ),
                 ),
                 const SizedBox(height: 4),
-                Text(AppLocalizations.of(context).t('For stream sources that stall or time out — Plex-backed addons, remote servers. Standard leaves playback exactly as before.'),
+                Text(
+                  'For stream sources that stall or time out — '
+                  'Plex-backed addons, remote servers. Standard '
+                  'leaves playback exactly as before.',
                   style: theme.textTheme.bodySmall?.copyWith(color: t.dim),
                 ),
                 const SizedBox(height: 16),
                 _buildDropdownSetting(
                   context,
-                  label: AppLocalizations.of(context).t('Connection patience'),
+                  label: 'Connection patience',
                   value: _netPatience,
                   items: NetworkTuning.patienceOptions,
                   onChanged: _setNetPatience,
@@ -2365,7 +2495,7 @@ class _ExternalPlayerSettingsPageState
                 SizedBox(height: 12),
                 _buildDropdownSetting(
                   context,
-                  label: AppLocalizations.of(context).t('Stream buffer'),
+                  label: 'Stream buffer',
                   value: _netBuffer,
                   items: NetworkTuning.bufferOptions,
                   onChanged: _setNetBuffer,
@@ -2373,7 +2503,12 @@ class _ExternalPlayerSettingsPageState
                   isFocused: _netBufferFocused,
                 ),
                 const SizedBox(height: 10),
-                Text(AppLocalizations.of(context).t('Patience raises connection timeouts and adds automatic retries where the player supports them. Bigger buffers ride over origin stalls but use more memory. Live TV keeps its own tuned pipeline. Restart playback to apply.'),
+                Text(
+                  'Patience raises connection timeouts and adds '
+                  'automatic retries where the player supports '
+                  'them. Bigger buffers ride over origin stalls '
+                  'but use more memory. Live TV keeps its own '
+                  'tuned pipeline. Restart playback to apply.',
                   style: theme.textTheme.bodySmall?.copyWith(color: t.dim2),
                 ),
               ],
@@ -2393,13 +2528,13 @@ class _ExternalPlayerSettingsPageState
     final t = AppThemeScope.of(context).settings;
     return [
       _defaultsCard(
-            AppLocalizations.of(context).t('Picture & decoding'),
-            AppLocalizations.of(context).t('Default picture fit and device compatibility'),
+        'Picture & decoding',
+        'Default picture fit and device compatibility',
         [
           // Default Aspect
           _buildSettingDropdown(
             context,
-            label: AppLocalizations.of(context).t('Default Aspect'),
+            label: 'Default Aspect',
             value: _defaultAspectIndex,
             items: _aspectLabels,
             onChanged: (index) => _setDefaultAspectIndex(index),
@@ -2411,7 +2546,7 @@ class _ExternalPlayerSettingsPageState
           if (_isAndroidTv || PlatformUtil.isTvOS) ...[
             _buildDropdownSetting(
               context,
-              label: AppLocalizations.of(context).t('Match content display'),
+              label: 'Match content display',
               value: _contentDisplayMatchMode.storageKey,
               items: {
                 for (final mode in ContentDisplayMatchMode.values)
@@ -2457,7 +2592,7 @@ class _ExternalPlayerSettingsPageState
             const SizedBox(height: 12),
             _buildDropdownSetting(
               context,
-              label: AppLocalizations.of(context).t('IPTV decoder'),
+              label: 'IPTV decoder',
               value: _iptvDecoderMode,
               items: const {
                 'auto': 'Automatic',
@@ -2490,7 +2625,7 @@ class _ExternalPlayerSettingsPageState
             SizedBox(height: 12),
             _buildDropdownSetting(
               context,
-              label: AppLocalizations.of(context).t('Video renderer'),
+              label: 'Video renderer',
               value: _androidVideoRendererMode.storageKey,
               items: {
                 for (final mode in AndroidVideoRendererMode.values)
@@ -2525,8 +2660,12 @@ class _ExternalPlayerSettingsPageState
             SizedBox(height: 4),
             _buildCheckboxTile(
               context,
-              title: AppLocalizations.of(context).t('Force software video decoding'),
-              subtitle: AppLocalizations.of(context).t('Compatibility option if a video plays with wrong colors or a blank picture. Slower — 4K may stutter. Applies from the next playback.'),
+              title: 'Force software video decoding',
+              subtitle:
+                  'Compatibility option if a video plays with '
+                  'wrong colors or a blank picture. Slower — '
+                  '4K may stutter. Applies from the next '
+                  'playback.',
               value: _tvosForceSoftwareDecode,
               onChanged: _setTvosForceSoftwareDecode,
               focusNode: _tvosForceSwDecodeFocusNode,
@@ -2541,13 +2680,13 @@ class _ExternalPlayerSettingsPageState
   List<Widget> _audioSettings() {
     return [
       _defaultsCard(
-            AppLocalizations.of(context).t('Audio defaults'),
-            AppLocalizations.of(context).t('Language and sound output for the built-in player'),
+        'Audio defaults',
+        'Language and sound output for the built-in player',
         [
           // Default Audio Language
           _buildSettingDropdown(
             context,
-            label: AppLocalizations.of(context).t('Default Audio'),
+            label: 'Default Audio',
             value: _audioLanguageIndex,
             items: _audioLanguageOptions.map((opt) => opt.$2).toList(),
             onChanged: (index) =>
@@ -2565,8 +2704,10 @@ class _ExternalPlayerSettingsPageState
             const SizedBox(height: 4),
             _buildCheckboxTile(
               context,
-              title: AppLocalizations.of(context).t('Allow system audio effects'),
-              subtitle: AppLocalizations.of(context).t('Let equalizer apps (Wavelet, Dolby, etc.) process playback. Changes the audio output — restart playback to apply.'),
+              title: 'Allow system audio effects',
+              subtitle:
+                  'Let equalizer apps (Wavelet, Dolby, etc.) process playback. '
+                  'Changes the audio output — restart playback to apply.',
               value: _systemAudioEffects,
               onChanged: _setSystemAudioEffects,
               focusNode: _systemAudioEffectsFocusNode,
@@ -2578,8 +2719,12 @@ class _ExternalPlayerSettingsPageState
             SizedBox(height: 4),
             _buildCheckboxTile(
               context,
-              title: AppLocalizations.of(context).t('Audio passthrough (AC3 · EAC3 · DTS core)'),
-              subtitle: AppLocalizations.of(context).t('Send the original bitstream to your receiver instead of decoding. Requires an HDMI chain that supports it — if you hear silence, turn this off. Restart playback to apply.'),
+              title: 'Audio passthrough (AC3 · EAC3 · DTS core)',
+              subtitle:
+                  'Send the original bitstream to your receiver '
+                  'instead of decoding. Requires an HDMI chain '
+                  'that supports it — if you hear silence, turn '
+                  'this off. Restart playback to apply.',
               value: _audioPassthrough,
               onChanged: _setAudioPassthrough,
               focusNode: _audioPassthroughFocusNode,
@@ -2593,8 +2738,11 @@ class _ExternalPlayerSettingsPageState
             SizedBox(height: 4),
             _buildCheckboxTile(
               context,
-              title: AppLocalizations.of(context).t('Multichannel audio (LPCM over HDMI)'),
-              subtitle: AppLocalizations.of(context).t('Output surround tracks as 5.1/7.1 PCM when the connected receiver supports it, instead of stereo. Restart playback to apply.'),
+              title: 'Multichannel audio (LPCM over HDMI)',
+              subtitle:
+                  'Output surround tracks as 5.1/7.1 PCM when '
+                  'the connected receiver supports it, instead '
+                  'of stereo. Restart playback to apply.',
               value: _appleMultichannel,
               onChanged: _setAppleMultichannel,
               focusNode: _appleMultichannelFocusNode,
@@ -2610,8 +2758,12 @@ class _ExternalPlayerSettingsPageState
             SizedBox(height: 4),
             _buildCheckboxTile(
               context,
-              title: AppLocalizations.of(context).t('Force stereo audio'),
-              subtitle: AppLocalizations.of(context).t('Always downmix to 2 channels, whatever the TV or receiver reports. Try this if surround sound is noisy or distorted. Restart playback to apply.'),
+              title: 'Force stereo audio',
+              subtitle:
+                  'Always downmix to 2 channels, whatever the '
+                  'TV or receiver reports. Try this if '
+                  'surround sound is noisy or distorted. '
+                  'Restart playback to apply.',
               value: _tvosForceStereo,
               onChanged: _setTvosForceStereo,
               focusNode: _tvosForceStereoFocusNode,
@@ -2620,8 +2772,13 @@ class _ExternalPlayerSettingsPageState
             SizedBox(height: 4),
             _buildCheckboxTile(
               context,
-              title: AppLocalizations.of(context).t('Use the previous audio engine'),
-              subtitle: AppLocalizations.of(context).t('Go back to the audio output used before August 2026. It has no sound at all when Dolby Atmos is enabled, so only use it if the current one misbehaves. Restart playback to apply.'),
+              title: 'Use the previous audio engine',
+              subtitle:
+                  'Go back to the audio output used before '
+                  'August 2026. It has no sound at all when '
+                  'Dolby Atmos is enabled, so only use it if '
+                  'the current one misbehaves. Restart '
+                  'playback to apply.',
               value: _tvosLegacyAudioOutput,
               onChanged: _setTvosLegacyAudioOutput,
               focusNode: _tvosLegacyAudioFocusNode,
@@ -2651,7 +2808,8 @@ class _ExternalPlayerSettingsPageState
                   children: [
                     Icon(Icons.nightlight_round, color: t.accent, size: 24),
                     const SizedBox(width: 8),
-                    Text(AppLocalizations.of(context).t('Night Mode'),
+                    Text(
+                      'Night Mode',
                       style: theme.textTheme.titleMedium?.copyWith(
                         fontWeight: FontWeight.w600,
                       ),
@@ -2659,7 +2817,8 @@ class _ExternalPlayerSettingsPageState
                   ],
                 ),
                 const SizedBox(height: 4),
-                Text(AppLocalizations.of(context).t('Boosts quiet sounds for late-night viewing without disturbing others'),
+                Text(
+                  'Boosts quiet sounds for late-night viewing without disturbing others',
                   style: theme.textTheme.bodySmall?.copyWith(color: t.dim),
                 ),
                 const SizedBox(height: 16),
@@ -2754,7 +2913,8 @@ class _ExternalPlayerSettingsPageState
                                         color: t.accent.withValues(alpha: 0.16),
                                         borderRadius: BorderRadius.circular(4),
                                       ),
-                                      child: Text(AppLocalizations.of(context).t('Recommended'),
+                                      child: Text(
+                                        'Recommended',
                                         style: theme.textTheme.labelSmall
                                             ?.copyWith(
                                               color: t.accent,
@@ -2789,8 +2949,9 @@ class _ExternalPlayerSettingsPageState
         children: [
           SettingsTile(
             icon: Icons.low_priority_rounded,
-            title: AppLocalizations.of(context).t('Subtitle priority'),
-            subtitle: AppLocalizations.of(context).t('Choose the order of embedded subtitles and subtitle addons'),
+            title: 'Subtitle priority',
+            subtitle:
+                'Choose the order of embedded subtitles and subtitle addons',
             onTap: () async {
               await pushSettingsPage(context, const SubtitlePriorityPage());
             },
@@ -2799,13 +2960,13 @@ class _ExternalPlayerSettingsPageState
       ),
       SizedBox(height: 16),
       _defaultsCard(
-            AppLocalizations.of(context).t('Subtitle defaults'),
-            AppLocalizations.of(context).t('Preferred language and timing for the built-in player'),
+        'Subtitle defaults',
+        'Preferred language and timing for the built-in player',
         [
           // Default Subtitle Language
           _buildSettingDropdown(
             context,
-            label: AppLocalizations.of(context).t('Default Subtitle'),
+            label: 'Default Subtitle',
             value: _subtitleLanguageIndex,
             items: _subtitleLanguageOptions.map((opt) => opt.$2).toList(),
             onChanged: (index) =>
@@ -2817,8 +2978,11 @@ class _ExternalPlayerSettingsPageState
           const SizedBox(height: 4),
           _buildCheckboxTile(
             context,
-            title: AppLocalizations.of(context).t('Subtitles when audio differs'),
-            subtitle: AppLocalizations.of(context).t('Choose a Default Audio language in Playback → Audio. Subtitles stay off for matching or unknown audio; manual subtitle choices take priority.'),
+            title: 'Subtitles when audio differs',
+            subtitle:
+                'Choose a Default Audio language in Playback → Audio. '
+                'Subtitles stay off for matching or unknown audio; '
+                'manual subtitle choices take priority.',
             value: _subtitleOnlyForeignAudio,
             onChanged: _setSubtitleOnlyForeignAudio,
             focusNode: _subtitleOnlyForeignAudioFocusNode,
@@ -2828,8 +2992,11 @@ class _ExternalPlayerSettingsPageState
           const SizedBox(height: 4),
           _buildCheckboxTile(
             context,
-            title: AppLocalizations.of(context).t('Forced subtitles only'),
-            subtitle: AppLocalizations.of(context).t('Automatically use embedded tracks marked forced in your Default Subtitle language (English if unset). No match means off; Default Subtitle Off disables it. Overrides Subtitles when audio differs; manual choices take priority.'),
+            title: 'Forced subtitles only',
+            subtitle:
+                'Automatically use embedded tracks marked forced in your Default Subtitle language '
+                '(English if unset). No match means off; Default Subtitle Off disables it. '
+                'Overrides Subtitles when audio differs; manual choices take priority.',
             value: _subtitleForcedOnly,
             onChanged: _setSubtitleForcedOnly,
             focusNode: _subtitleForcedOnlyFocusNode,
@@ -2843,8 +3010,11 @@ class _ExternalPlayerSettingsPageState
             const SizedBox(height: 4),
             _buildCheckboxTile(
               context,
-              title: AppLocalizations.of(context).t('Auto-sync addon subtitles (experimental)'),
-              subtitle: AppLocalizations.of(context).t('Quietly align downloaded subtitles to the audio as you watch. Applies only on a confident match; manual timing always wins.'),
+              title: 'Auto-sync addon subtitles (experimental)',
+              subtitle:
+                  'Quietly align downloaded subtitles to the audio '
+                  'as you watch. Applies only on a confident match; '
+                  'manual timing always wins.',
               value: _subtitleAutoSync,
               onChanged: _setSubtitleAutoSync,
               focusNode: _subtitleAutoSyncFocusNode,
@@ -2861,13 +3031,15 @@ class _ExternalPlayerSettingsPageState
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(AppLocalizations.of(context).t('Subtitle Appearance'),
+              Text(
+                'Subtitle Appearance',
                 style: theme.textTheme.titleMedium?.copyWith(
                   fontWeight: FontWeight.w600,
                 ),
               ),
               const SizedBox(height: 4),
-              Text(AppLocalizations.of(context).t('Customize how subtitles look'),
+              Text(
+                'Customize how subtitles look',
                 style: theme.textTheme.bodySmall?.copyWith(color: t.dim),
               ),
               const SizedBox(height: 16),
@@ -2875,7 +3047,7 @@ class _ExternalPlayerSettingsPageState
               // Size
               _buildSettingDropdown(
                 context,
-                label: AppLocalizations.of(context).t('Size'),
+                label: 'Size',
                 value: _subtitleSizeIndex,
                 items: SubtitleSize.options.map((o) => o.label).toList(),
                 onChanged: (index) => _setSubtitleSizeIndex(index),
@@ -2887,7 +3059,7 @@ class _ExternalPlayerSettingsPageState
               // Style
               _buildSettingDropdown(
                 context,
-                label: AppLocalizations.of(context).t('Style'),
+                label: 'Style',
                 value: _subtitleStyleIndex,
                 items: SubtitleStyle.options.map((o) => o.label).toList(),
                 onChanged: (index) => _setSubtitleStyleIndex(index),
@@ -2899,7 +3071,7 @@ class _ExternalPlayerSettingsPageState
               // Color
               _buildSettingDropdown(
                 context,
-                label: AppLocalizations.of(context).t('Color'),
+                label: 'Color',
                 value: _subtitleColorIndex,
                 items: SubtitleColor.options.map((o) => o.label).toList(),
                 onChanged: (index) => _setSubtitleColorIndex(index),
@@ -2911,7 +3083,7 @@ class _ExternalPlayerSettingsPageState
               // Background
               _buildSettingDropdown(
                 context,
-                label: AppLocalizations.of(context).t('Background'),
+                label: 'Background',
                 value: _subtitleBgIndex,
                 items: SubtitleBackground.options.map((o) => o.label).toList(),
                 onChanged: (index) => _setSubtitleBgIndex(index),
@@ -2923,7 +3095,7 @@ class _ExternalPlayerSettingsPageState
               // Font
               _buildSettingDropdown(
                 context,
-                label: AppLocalizations.of(context).t('Font'),
+                label: 'Font',
                 value: _subtitleFontIndex,
                 items: _allFonts
                     .map((f) => f.isCustom ? '${f.label} (Custom)' : f.label)
@@ -2937,7 +3109,7 @@ class _ExternalPlayerSettingsPageState
               // Bold
               _buildSettingDropdown(
                 context,
-                label: AppLocalizations.of(context).t('Bold'),
+                label: 'Bold',
                 value: _subtitleBold ? 1 : 0,
                 items: ['Off', 'On'],
                 onChanged: (index) => _setSubtitleBold(index == 1),
@@ -2971,7 +3143,8 @@ class _ExternalPlayerSettingsPageState
               // List of custom fonts with delete buttons
               if (_allFonts.any((f) => f.isCustom)) ...[
                 const SizedBox(height: 12),
-                Text(AppLocalizations.of(context).t('Custom Fonts'),
+                Text(
+                  'Custom Fonts',
                   style: theme.textTheme.bodySmall?.copyWith(
                     color: t.dim,
                     fontWeight: FontWeight.w500,
@@ -3061,7 +3234,8 @@ class _ExternalPlayerSettingsPageState
                             ? _allFonts[_subtitleFontIndex].fontFamily
                             : null,
                       );
-                      return Text(AppLocalizations.of(context).t('Sample Subtitle'),
+                      return Text(
+                        'Sample Subtitle',
                         // Built by the same code the player uses,
                         // at the preview's size — a preview that
                         // styles text its own way is a preview
@@ -3103,7 +3277,8 @@ class _ExternalPlayerSettingsPageState
             children: [
               Padding(
                 padding: const EdgeInsets.fromLTRB(16, 16, 16, 8),
-                child: Text(AppLocalizations.of(context).t('Preferred Player'),
+                child: Text(
+                  'Preferred Player',
                   style: theme.textTheme.titleMedium?.copyWith(
                     fontWeight: FontWeight.w600,
                   ),
@@ -3111,7 +3286,8 @@ class _ExternalPlayerSettingsPageState
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16),
-                child: Text(AppLocalizations.of(context).t('Select the app to open videos with. Make sure the app is installed from the App Store.'),
+                child: Text(
+                  'Select the app to open videos with. Make sure the app is installed from the App Store.',
                   style: theme.textTheme.bodySmall?.copyWith(color: t.dim),
                 ),
               ),
@@ -3148,7 +3324,8 @@ class _ExternalPlayerSettingsPageState
                   children: [
                     Icon(Icons.code_rounded, color: t.accent),
                     const SizedBox(width: 8),
-                    Text(AppLocalizations.of(context).t('Custom URL Scheme'),
+                    Text(
+                      'Custom URL Scheme',
                       style: theme.textTheme.titleMedium?.copyWith(
                         fontWeight: FontWeight.w600,
                       ),
@@ -3156,7 +3333,8 @@ class _ExternalPlayerSettingsPageState
                   ],
                 ),
                 SizedBox(height: 8),
-                Text(AppLocalizations.of(context).t('Define a custom URL scheme to launch videos'),
+                Text(
+                  'Define a custom URL scheme to launch videos',
                   style: theme.textTheme.bodyMedium?.copyWith(color: t.dim),
                 ),
                 SizedBox(height: 16),
@@ -3226,7 +3404,8 @@ class _ExternalPlayerSettingsPageState
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(AppLocalizations.of(context).t('Examples'),
+                      Text(
+                        'Examples',
                         style: theme.textTheme.labelMedium?.copyWith(
                           fontWeight: FontWeight.w600,
                         ),
@@ -3283,7 +3462,8 @@ class _ExternalPlayerSettingsPageState
             children: [
               Padding(
                 padding: const EdgeInsets.fromLTRB(16, 16, 16, 8),
-                child: Text(AppLocalizations.of(context).t('Preferred Player'),
+                child: Text(
+                  'Preferred Player',
                   style: theme.textTheme.titleMedium?.copyWith(
                     fontWeight: FontWeight.w600,
                   ),
@@ -3329,7 +3509,8 @@ class _ExternalPlayerSettingsPageState
                   children: [
                     Icon(Icons.terminal_rounded, color: t.accent),
                     const SizedBox(width: 8),
-                    Text(AppLocalizations.of(context).t('Custom Command'),
+                    Text(
+                      'Custom Command',
                       style: theme.textTheme.titleMedium?.copyWith(
                         fontWeight: FontWeight.w600,
                       ),
@@ -3337,7 +3518,8 @@ class _ExternalPlayerSettingsPageState
                   ],
                 ),
                 SizedBox(height: 8),
-                Text(AppLocalizations.of(context).t('Define a custom command to launch videos'),
+                Text(
+                  'Define a custom command to launch videos',
                   style: theme.textTheme.bodyMedium?.copyWith(color: t.dim),
                 ),
                 SizedBox(height: 16),
@@ -3407,7 +3589,8 @@ class _ExternalPlayerSettingsPageState
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(AppLocalizations.of(context).t('Examples'),
+                      Text(
+                        'Examples',
                         style: theme.textTheme.labelMedium?.copyWith(
                           fontWeight: FontWeight.w600,
                         ),
@@ -3463,7 +3646,8 @@ class _ExternalPlayerSettingsPageState
             children: [
               Padding(
                 padding: const EdgeInsets.fromLTRB(16, 16, 16, 8),
-                child: Text(AppLocalizations.of(context).t('Preferred Player'),
+                child: Text(
+                  'Preferred Player',
                   style: theme.textTheme.titleMedium?.copyWith(
                     fontWeight: FontWeight.w600,
                   ),
@@ -3471,7 +3655,8 @@ class _ExternalPlayerSettingsPageState
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16),
-                child: Text(AppLocalizations.of(context).t('Select the player to open videos with. Players marked as "Installed" were detected on your system.'),
+                child: Text(
+                  'Select the player to open videos with. Players marked as "Installed" were detected on your system.',
                   style: theme.textTheme.bodySmall?.copyWith(color: t.dim),
                 ),
               ),
@@ -3508,7 +3693,8 @@ class _ExternalPlayerSettingsPageState
                   children: [
                     Icon(Icons.terminal_rounded, color: t.accent),
                     const SizedBox(width: 8),
-                    Text(AppLocalizations.of(context).t('Custom Command'),
+                    Text(
+                      'Custom Command',
                       style: theme.textTheme.titleMedium?.copyWith(
                         fontWeight: FontWeight.w600,
                       ),
@@ -3516,7 +3702,8 @@ class _ExternalPlayerSettingsPageState
                   ],
                 ),
                 SizedBox(height: 8),
-                Text(AppLocalizations.of(context).t('Define a custom command to launch videos'),
+                Text(
+                  'Define a custom command to launch videos',
                   style: theme.textTheme.bodyMedium?.copyWith(color: t.dim),
                 ),
                 SizedBox(height: 16),
@@ -3586,7 +3773,8 @@ class _ExternalPlayerSettingsPageState
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(AppLocalizations.of(context).t('Examples'),
+                      Text(
+                        'Examples',
                         style: theme.textTheme.labelMedium?.copyWith(
                           fontWeight: FontWeight.w600,
                         ),
@@ -3642,7 +3830,8 @@ class _ExternalPlayerSettingsPageState
             children: [
               Padding(
                 padding: const EdgeInsets.fromLTRB(16, 16, 16, 8),
-                child: Text(AppLocalizations.of(context).t('Preferred Player'),
+                child: Text(
+                  'Preferred Player',
                   style: theme.textTheme.titleMedium?.copyWith(
                     fontWeight: FontWeight.w600,
                   ),
@@ -3684,7 +3873,8 @@ class _ExternalPlayerSettingsPageState
                   children: [
                     Icon(Icons.folder_open_rounded, color: t.accent),
                     const SizedBox(width: 8),
-                    Text(AppLocalizations.of(context).t('Custom App'),
+                    Text(
+                      'Custom App',
                       style: theme.textTheme.titleMedium?.copyWith(
                         fontWeight: FontWeight.w600,
                       ),
@@ -3692,7 +3882,8 @@ class _ExternalPlayerSettingsPageState
                   ],
                 ),
                 const SizedBox(height: 8),
-                Text(AppLocalizations.of(context).t('Select a .app to use as your video player'),
+                Text(
+                  'Select a .app to use as your video player',
                   style: theme.textTheme.bodyMedium?.copyWith(color: t.dim),
                 ),
                 const SizedBox(height: 16),
@@ -3774,7 +3965,8 @@ class _ExternalPlayerSettingsPageState
                   children: [
                     Icon(Icons.code_rounded, color: t.accent),
                     const SizedBox(width: 8),
-                    Text(AppLocalizations.of(context).t('Custom Command'),
+                    Text(
+                      'Custom Command',
                       style: theme.textTheme.titleMedium?.copyWith(
                         fontWeight: FontWeight.w600,
                       ),
@@ -3782,7 +3974,8 @@ class _ExternalPlayerSettingsPageState
                   ],
                 ),
                 const SizedBox(height: 8),
-                Text(AppLocalizations.of(context).t('Define a custom shell command to launch videos'),
+                Text(
+                  'Define a custom shell command to launch videos',
                   style: theme.textTheme.bodyMedium?.copyWith(color: t.dim),
                 ),
                 const SizedBox(height: 16),
@@ -3863,7 +4056,8 @@ class _ExternalPlayerSettingsPageState
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(AppLocalizations.of(context).t('Examples'),
+                      Text(
+                        'Examples',
                         style: theme.textTheme.labelMedium?.copyWith(
                           fontWeight: FontWeight.w600,
                         ),
@@ -3923,7 +4117,8 @@ class _ExternalPlayerSettingsPageState
                   children: [
                     Icon(Icons.vrpano, color: t.accent, size: 24),
                     const SizedBox(width: 12),
-                    Text(AppLocalizations.of(context).t('DeoVR Settings'),
+                    Text(
+                      'DeoVR Settings',
                       style: theme.textTheme.titleMedium?.copyWith(
                         fontWeight: FontWeight.bold,
                       ),
@@ -3939,13 +4134,15 @@ class _ExternalPlayerSettingsPageState
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(AppLocalizations.of(context).t('Default VR Format'),
+                    Text(
+                      'Default VR Format',
                       style: theme.textTheme.titleSmall?.copyWith(
                         fontWeight: FontWeight.w600,
                       ),
                     ),
                     const SizedBox(height: 4),
-                    Text(AppLocalizations.of(context).t('Used when format cannot be detected from filename'),
+                    Text(
+                      'Used when format cannot be detected from filename',
                       style: theme.textTheme.bodySmall?.copyWith(color: t.dim),
                     ),
                     const SizedBox(height: 16),
@@ -3953,7 +4150,7 @@ class _ExternalPlayerSettingsPageState
                     // Screen Type dropdown
                     _buildDropdownSetting(
                       context,
-                      label: AppLocalizations.of(context).t('Screen Type'),
+                      label: 'Screen Type',
                       value: _vrDefaultScreenType,
                       items: deovr.screenTypeLabels,
                       onChanged: _setVrDefaultScreenType,
@@ -3965,7 +4162,7 @@ class _ExternalPlayerSettingsPageState
                     // Stereo Mode dropdown
                     _buildDropdownSetting(
                       context,
-                      label: AppLocalizations.of(context).t('Stereo Mode'),
+                      label: 'Stereo Mode',
                       value: _vrDefaultStereoMode,
                       items: deovr.stereoModeLabels,
                       onChanged: _setVrDefaultStereoMode,
@@ -3979,8 +4176,8 @@ class _ExternalPlayerSettingsPageState
               // Checkboxes
               _buildCheckboxTile(
                 context,
-                title: AppLocalizations.of(context).t('Auto-detect format from filename'),
-                subtitle: AppLocalizations.of(context).t('Parse filename for VR markers (180, 360, SBS, etc.)'),
+                title: 'Auto-detect format from filename',
+                subtitle: 'Parse filename for VR markers (180, 360, SBS, etc.)',
                 value: _vrAutoDetectFormat,
                 onChanged: _setVrAutoDetectFormat,
                 focusNode: _autoDetectFocusNode,
@@ -3988,8 +4185,8 @@ class _ExternalPlayerSettingsPageState
               ),
               _buildCheckboxTile(
                 context,
-                title: AppLocalizations.of(context).t('Show format selection dialog'),
-                subtitle: AppLocalizations.of(context).t('Confirm VR format before launching DeoVR'),
+                title: 'Show format selection dialog',
+                subtitle: 'Confirm VR format before launching DeoVR',
                 value: _vrShowDialog,
                 onChanged: _setVrShowDialog,
                 focusNode: _showDialogFocusNode,
@@ -4064,8 +4261,8 @@ class _ExternalPlayerSettingsPageState
                       children: [
                         SettingsTile(
                           icon: Icons.play_circle_outline_rounded,
-                          title: AppLocalizations.of(context).t('Choose player'),
-                          subtitle: AppLocalizations.of(context).t('Open Player settings'),
+                          title: 'Choose player',
+                          subtitle: 'Open Player settings',
                           onTap: _openPlayerSettings,
                         ),
                       ],
