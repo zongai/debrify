@@ -316,7 +316,7 @@ const _tables = <String, Map<String, String>>{
 };
 
 /// English UI phrase → translation (settings, nav, common controls).
-const _phraseTables = <String, Map<String, String>>{
+final _phraseTables = <String, Map<String, String>>{
   'zh': {
     '  ● REC': '  ● 录制',
     '0.5x': '0.5x',
