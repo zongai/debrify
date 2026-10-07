@@ -18,7 +18,7 @@ class DebrifyImageCache {
   /// not visit the surfaces that used these stores in the previous session.
   static Future<void> maintainDiskCaches() async {
     await Future.wait(
-      [() => DefaultCacheManager(), () => manager, () => iptvLogos].map((
+      [() => DefaultCacheManager(), () => manager, () => iptvLogos, () => mediaServer].map((
         open,
       ) async {
         try {
@@ -53,6 +53,22 @@ class DebrifyImageCache {
       maxNrOfCacheObjects: 2000,
       maxCacheSizeBytes: 32 * 1024 * 1024,
       stalePeriod: const Duration(days: 30),
+    ),
+  );
+
+  /// Authenticated media-server posters (Plex / Jellyfin / Emby).
+  ///
+  /// These are not public URLs — bytes are fetched with session tokens and
+  /// stored under opaque keys. A dedicated store keeps a long scroll of
+  /// library thumbs from evicting Home/Discover network artwork.
+  static final CacheManager mediaServer = CacheManager(
+    Config(
+      'debrifyMediaServerImageCache',
+      maxNrOfCacheObjects: 800,
+      maxCacheSizeBytes: 128 * 1024 * 1024,
+      // Long enough that a Discover session (and the next day) does not
+      // re-hit the PMS for the same poster on every scroll recycle.
+      stalePeriod: const Duration(days: 14),
     ),
   );
 }

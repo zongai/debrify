@@ -15,6 +15,7 @@ import '../models/stremio_subtitle.dart';
 import '../screens/video_player/utils/language_mapping.dart';
 import '../utils/torrent_filter_matcher.dart';
 import 'media_server_client.dart';
+import 'media_server_image_cache.dart';
 import 'diagnostic_log.dart';
 import 'profiles/connection_resource_service.dart';
 import 'profiles/device_key_provider.dart';
@@ -845,9 +846,15 @@ class MediaServerLibrarySession implements MediaServerLibraryAccess {
   );
 
   @override
-  Future<Uint8List?> image(String id) => _withClient(
-    (client) => client.libraryImage(_account, id, authorize: authorize),
-  );
+  Future<Uint8List?> image(String id) {
+    return MediaServerImageCache.getOrLoad(
+      resourceId: resource.id,
+      imageId: id,
+      load: () => _withClient(
+        (client) => client.libraryImage(_account, id, authorize: authorize),
+      ),
+    );
+  }
 
   @override
   Future<List<Torrent>> sources(MediaServerLibraryItem item) => _withClient((

@@ -575,9 +575,13 @@ class _LibraryCardState extends State<_LibraryCard> {
 
   void _loadImage() {
     final id = widget.item.imageId;
-    _image = id == null
-        ? Future.value(null)
-        : widget.session.image(id).catchError((_) => null);
+    if (id == null) {
+      _image = Future.value(null);
+      return;
+    }
+    // Coalesce with the service-layer memory/disk cache so recycled grid
+    // cells do not re-download the same poster on every scroll.
+    _image = widget.session.image(id).catchError((_) => null);
   }
 
   @override
@@ -634,6 +638,9 @@ class _LibraryCardState extends State<_LibraryCard> {
                                 snapshot.data!,
                                 fit: BoxFit.cover,
                                 cacheWidth: 360,
+                                // Avoid a blank flash when the same bytes
+                                // reattach after a scroll recycle.
+                                gaplessPlayback: true,
                                 errorBuilder: (_, _, _) => placeholder,
                               ),
                       ),
