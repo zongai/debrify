@@ -570,6 +570,21 @@ class MediaServerClient {
     Future<void> Function()? authorize,
   }) async {
     if (account.kind == MediaServerKind.plex) {
+      // Home-style hubs used by Discover mode dropdown + Home rails.
+      if (mode == 'resume') {
+        return _plex.continueWatching(
+          account,
+          offset: offset,
+          authorize: authorize,
+        );
+      }
+      if (mode == 'recent') {
+        return _plex.recentlyAdded(
+          account,
+          offset: offset,
+          authorize: authorize,
+        );
+      }
       // Plex sections use their own key path; when drilling into a section the
       // panel passes the section id / metadata ratingKey as parentId.
       String? plexParent = parentId;

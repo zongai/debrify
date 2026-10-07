@@ -8,6 +8,7 @@ import '../models/metadata_card_artwork.dart';
 import '../models/hero_metadata_presentation.dart';
 import '../services/profiles/profile_runtime.dart';
 import '../services/iptv_source_search.dart';
+import '../models/media_server_library.dart';
 import '../services/media_server_service.dart';
 import 'metadata_explore_page.dart';
 import '../widgets/metadata_presentation_mixin.dart';
@@ -1176,6 +1177,19 @@ class _SearchScreenState extends State<SearchScreen>
   /// re-runs the load) reserves the slot again.
   bool _traktCwLoading = false;
 
+  // Plex Continue Watching + Recently Added (Home rails).
+  List<StremioMeta> _plexCwItems = [];
+  List<StremioMeta> _plexRecentItems = [];
+  final List<FocusNode> _plexCwNodes = [];
+  final List<FocusNode> _plexRecentNodes = [];
+  final Map<String, double> _plexProgress = {};
+  final Map<String, String> _plexEpisode = {};
+  /// meta.id → (resourceId, library item) for open/play.
+  final Map<String, (String resourceId, MediaServerLibraryItem item)> _plexHomeByMeta = {};
+  int _plexHomeToken = 0;
+  bool _plexHomeLoading = false;
+
+
   /// TV auto-focus "settle to the top" state. On arrival the board focuses the
   /// best card available immediately (an addon row if the Trakt rows above it
   /// are still loading), remembering that node in [_autoFocusedNode]. As higher
@@ -1276,6 +1290,11 @@ class _SearchScreenState extends State<SearchScreen>
       _CwKind.iptv => (
         progress: _iptvCwProgress,
         episode: _iptvCwEpisode,
+        remaining: null,
+      ),
+      _CwKind.plex => (
+        progress: _plexProgress,
+        episode: _plexEpisode,
         remaining: null,
       ),
     };
@@ -1503,7 +1522,42 @@ class _SearchScreenState extends State<SearchScreen>
         onQuickPlay: _openIptvCwItem,
         onRemove: _removeIptvCwItem,
       ),
-  ];
+  
+    if (_plexCwItems.isNotEmpty && !_homeDisabled.contains('plex:cw'))
+      _CwRow(
+        rowId: 'plex:cw',
+        title: AppLocalizations.of(context).t('Plex Continue Watching'),
+        tag: null,
+        kind: _CwKind.plex,
+        items: _plexCwItems,
+        nodes: _plexCwNodes,
+        progressOf: (m) => _cwCardProgress(_CwKind.plex, m),
+        episodeOf: (m) => _cwCardEpisode(_CwKind.plex, m),
+        remainingMinutesOf: (_) => null,
+        episodeArtworkOf: (_) => null,
+        onOpen: (m) { unawaited(_openPlexHomeItem(m)); },
+        onQuickPlay: (m) { unawaited(_playPlexHomeItem(m)); },
+        onRemove: (_) async {},
+        onSeeAll: null,
+      ),
+    if (_plexRecentItems.isNotEmpty && !_homeDisabled.contains('plex:recent'))
+      _CwRow(
+        rowId: 'plex:recent',
+        title: AppLocalizations.of(context).t('Plex Recently Added'),
+        tag: null,
+        kind: _CwKind.plex,
+        items: _plexRecentItems,
+        nodes: _plexRecentNodes,
+        progressOf: (_) => null,
+        episodeOf: (_) => null,
+        remainingMinutesOf: (_) => null,
+        episodeArtworkOf: (_) => null,
+        onOpen: (m) { unawaited(_openPlexHomeItem(m)); },
+        onQuickPlay: (m) { unawaited(_playPlexHomeItem(m)); },
+        onRemove: (_) async {},
+        onSeeAll: null,
+      ),
+];
 
   /// Whether any Continue Watching row is currently on-screen (drives focus
   /// wiring between it and the first catalog row). Uses allocation-free field
@@ -2262,6 +2316,7 @@ class _SearchScreenState extends State<SearchScreen>
     // Search tab, so don't refetch them there.
     if (!widget.searchMode) {
       _loadTraktContinueWatching();
+      _loadPlexHomeHubs();
       _loadSimklContinueWatching();
       _loadMdblistContinueWatching();
     }
@@ -2683,6 +2738,8 @@ class _SearchScreenState extends State<SearchScreen>
       ..._simklSeriesNodes,
       ..._mdblistMovieNodes,
       ..._mdblistSeriesNodes,
+      ..._plexCwNodes,
+      ..._plexRecentNodes,
       ..._tvFavNodes,
       ..._stvFavNodes,
       ..._iptvFavNodes,
@@ -2703,6 +2760,8 @@ class _SearchScreenState extends State<SearchScreen>
     _simklSeriesNodes.clear();
     _mdblistMovieNodes.clear();
     _mdblistSeriesNodes.clear();
+    _plexCwNodes.clear();
+    _plexRecentNodes.clear();
     _tvFavNodes.clear();
     _stvFavNodes.clear();
     _iptvFavNodes.clear();
@@ -5166,6 +5225,120 @@ class _SearchScreenState extends State<SearchScreen>
   /// Token-guarded against overlap; hides the rows when Trakt isn't connected.
   /// [refreshBound] runs a bound-source refresh at the end; pass false when the
   /// caller already refreshes bound sources itself (avoids a double pass).
+
+  Future<void> _loadPlexHomeHubs() async {
+    final token = ++_plexHomeToken;
+    _plexHomeLoading = true;
+    try {
+      final bundles = await MediaServerService.plexHomeHubs();
+      if (!mounted || token != _plexHomeToken) return;
+      final cwMetas = <StremioMeta>[];
+      final recentMetas = <StremioMeta>[];
+      final progress = <String, double>{};
+      final episode = <String, String>{};
+      final byMeta = <String, (String, MediaServerLibraryItem)>{};
+
+      StremioMeta toMeta(MediaServerLibraryItem item, String resourceId, MediaServerAccount? account) {
+        final imdb = (item.data['ProviderIds'] as Map?)?['imdb']?.toString();
+        final type = item.type == 'Movie' || item.type == 'Episode' && item.seriesId == null
+            ? 'movie'
+            : (item.type == 'Episode' || item.type == 'Series' ? 'series' : 'movie');
+        final id = 'plex:$resourceId:${item.id}';
+        String? poster;
+        // Prefer absolute thumb when we have account context from session path.
+        final thumb = item.data['_plexThumb'] as String?;
+        if (thumb != null && thumb.isNotEmpty) {
+          // Token-bearing URL is built when opening session; keep relative id for now.
+          poster = null;
+        }
+        if (item.type == 'Episode' && item.season != null && item.episode != null) {
+          episode[id] = 'S${item.season} · E${item.episode}';
+        }
+        if (item.progress > 0 && item.progress < 1) {
+          progress[id] = item.progress;
+        }
+        byMeta[id] = (resourceId, item);
+        return StremioMeta(
+          id: id,
+          imdbId: imdb,
+          type: type,
+          name: item.type == 'Episode' ? item.seriesName : item.name,
+          poster: poster,
+          year: item.year?.toString(),
+          description: item.overview.isEmpty ? null : item.overview,
+        );
+      }
+
+      for (final bundle in bundles) {
+        // Open session once to resolve poster URLs via account.
+        MediaServerLibrarySession? session;
+        try {
+          session = await MediaServerService.openLibrary(bundle.resourceId);
+        } catch (_) {}
+        final account = session == null
+            ? null
+            : null; // account is private on session — posters filled async below
+        for (final item in bundle.continueWatching) {
+          cwMetas.add(toMeta(item, bundle.resourceId, null));
+        }
+        for (final item in bundle.recentlyAdded) {
+          recentMetas.add(toMeta(item, bundle.resourceId, null));
+        }
+      }
+
+      // Resolve posters through session.image is bytes-only; use PlexClient.posterUrl
+      // by re-opening account via browse path is heavy. Skip posters if unavailable —
+      // card falls back to letter tile.
+      _syncCwNodes(_plexCwNodes, cwMetas.length, 'plexcw');
+      _syncCwNodes(_plexRecentNodes, recentMetas.length, 'plexra');
+      setState(() {
+        _plexHomeLoading = false;
+        _plexCwItems = cwMetas;
+        _plexRecentItems = recentMetas;
+        _plexProgress
+          ..clear()
+          ..addAll(progress);
+        _plexEpisode
+          ..clear()
+          ..addAll(episode);
+        _plexHomeByMeta
+          ..clear()
+          ..addAll(byMeta);
+      });
+    } catch (e) {
+      debugPrint('SearchScreen: Plex home hubs failed: $e');
+      if (mounted && token == _plexHomeToken) {
+        setState(() => _plexHomeLoading = false);
+      }
+    }
+  }
+
+  Future<void> _openPlexHomeItem(StremioMeta meta) async {
+    final binding = _plexHomeByMeta[meta.id];
+    if (binding == null) return;
+    final (resourceId, item) = binding;
+    try {
+      final session = await MediaServerService.openLibrary(resourceId);
+      if (!mounted) return;
+      await Navigator.of(context).push(
+        MaterialPageRoute<void>(
+          builder: (_) => MediaServerItemScreen(session: session, initial: item),
+        ),
+      );
+      if (mounted) unawaited(_loadPlexHomeHubs());
+    } catch (e) {
+      if (!mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(AppLocalizations.of(context).t('Could not open this Plex title'))),
+      );
+    }
+  }
+
+  Future<void> _playPlexHomeItem(StremioMeta meta) async {
+    // Same entry as open — the item screen loads sources and plays.
+    await _openPlexHomeItem(meta);
+  }
+
   Future<void> _loadTraktContinueWatching({bool refreshBound = true}) async {
     _lastTraktCwRefreshAttemptAt = DateTime.now();
     final token = ++_traktCwToken;
@@ -5667,6 +5840,12 @@ class _SearchScreenState extends State<SearchScreen>
                   'history.'
             : 'Clears this item from your IPTV watch history and forgets its '
                   'position.';
+      case _CwKind.plex:
+        playDescription = isSeries
+            ? 'Open this title from your Plex library.'
+            : 'Play this title from your Plex library.';
+        removeDescription =
+            'Plex Continue Watching is managed on the Plex server.';
     }
 
     final episode = row.episodeOf(item);

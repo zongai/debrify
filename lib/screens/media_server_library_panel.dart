@@ -265,7 +265,7 @@ class _MediaServerLibraryPanelState extends State<MediaServerLibraryPanel> {
       await Navigator.of(context).push(
         MaterialPageRoute<void>(
           builder: (_) =>
-              _MediaServerItemScreen(session: session, initial: item),
+              MediaServerItemScreen(session: session, initial: item),
         ),
       );
       if (mounted) _loadPage(reset: false);
@@ -684,15 +684,15 @@ class _LibraryCardState extends State<_LibraryCard> {
   }
 }
 
-class _MediaServerItemScreen extends StatefulWidget {
-  const _MediaServerItemScreen({required this.session, required this.initial});
+class MediaServerItemScreen extends StatefulWidget {
+  const MediaServerItemScreen({required this.session, required this.initial});
   final MediaServerLibraryAccess session;
   final MediaServerLibraryItem initial;
   @override
-  State<_MediaServerItemScreen> createState() => _MediaServerItemScreenState();
+  State<MediaServerItemScreen> createState() => MediaServerItemScreenState();
 }
 
-class _MediaServerItemScreenState extends State<_MediaServerItemScreen> {
+class MediaServerItemScreenState extends State<MediaServerItemScreen> {
   MediaServerLibraryItem? _item;
   List<Torrent>? _sources;
   String? _error;

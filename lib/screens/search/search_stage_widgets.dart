@@ -1,7 +1,7 @@
 import '../../l10n/app_localizations.dart';
 part of '../search_screen.dart';
 
-enum _CwKind { local, trakt, simkl, mdblist, iptv }
+enum _CwKind { local, trakt, simkl, mdblist, iptv, plex }
 
 /// A leading "Continue Watching" board row (local or Trakt). Carries its own
 /// header, focus nodes, per-item progress lookup, and open / quick-play

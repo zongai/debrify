@@ -214,6 +214,41 @@ class MediaServerService {
     });
   }
 
+
+  /// Plex Continue Watching + Recently Added for Home rails.
+  ///
+  /// Returns one entry per connected Plex server that has at least one hub
+  /// item. Callers map items into board cards and open them via
+  /// [openLibrary] + [MediaServerItemScreen].
+  static Future<List<PlexHomeHubBundle>> plexHomeHubs() async {
+    final connections = await libraryConnections(MediaServerKind.plex);
+    final bundles = <PlexHomeHubBundle>[];
+    for (final resource in connections) {
+      try {
+        final session = await openLibrary(resource.id);
+        final resume = await session.browse(mode: 'resume', offset: 0);
+        final recent = await session.browse(mode: 'recent', offset: 0);
+        if (resume.items.isEmpty && recent.items.isEmpty) continue;
+        bundles.add(
+          PlexHomeHubBundle(
+            resourceId: resource.id,
+            label: resource.label,
+            continueWatching: resume.items,
+            recentlyAdded: recent.items,
+          ),
+        );
+      } catch (e) {
+        // One bad server must not blank the whole Home rail.
+        assert(() {
+          // ignore: avoid_print
+          print('Plex home hubs failed for ${resource.label}: $e');
+          return true;
+        }());
+      }
+    }
+    return bundles;
+  }
+
   static Future<MediaServerLibrarySession> openLibrary(
     String resourceId,
   ) async {
@@ -889,4 +924,18 @@ class MediaServerWatchTarget {
   final String title;
   /// Sidecar / external subtitle files from the media server (e.g. Plex SRT).
   final List<StremioSubtitle> subtitles;
+}
+
+/// One connected Plex server's home hubs for the Home board.
+class PlexHomeHubBundle {
+  const PlexHomeHubBundle({
+    required this.resourceId,
+    required this.label,
+    required this.continueWatching,
+    required this.recentlyAdded,
+  });
+  final String resourceId;
+  final String label;
+  final List<MediaServerLibraryItem> continueWatching;
+  final List<MediaServerLibraryItem> recentlyAdded;
 }

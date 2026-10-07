@@ -5742,6 +5742,9 @@ const _phraseTables = <String, Map<String, String>>{
     'ACCESS': '权限',
     'LOCK': '锁定',
     'DATA': '数据',
+    'Plex Continue Watching': 'Plex 继续观看',
+    'Plex Recently Added': 'Plex 最近添加',
+    'Could not open this Plex title': '无法打开该 Plex 内容',
   },
   'ja': {
     '  ● REC': '  ● REC',
@@ -11167,6 +11170,9 @@ const _phraseTables = <String, Map<String, String>>{
     'ACCESS': 'アクセス',
     'LOCK': 'ロック',
     'DATA': 'データ',
+    'Plex Continue Watching': 'Plex 続きを見る',
+    'Plex Recently Added': 'Plex 最近追加',
+    'Could not open this Plex title': 'この Plex タイトルを開けませんでした',
 
   },
 

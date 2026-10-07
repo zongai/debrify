@@ -721,6 +721,175 @@ class PlexClient {
     return load('library/metadata/${_segment(parentId)}/children');
   }
 
+
+  /// In-progress titles for the signed-in user (Plex Continue Watching).
+  ///
+  /// Prefers `/hubs/continueWatching` (modern PMS), falls back to
+  /// `/library/onDeck`.
+  Future<MediaServerLibraryPage> continueWatching(
+    MediaServerAccount account, {
+    int offset = 0,
+    int limit = 50,
+    Future<void> Function()? authorize,
+  }) async {
+    Future<MediaServerLibraryPage> fromPath(String path) async {
+      final data = await _getJson(
+        account.baseUrl,
+        path,
+        deviceId: account.deviceId,
+        token: account.token,
+        query: {
+          'X-Plex-Container-Start': '$offset',
+          'X-Plex-Container-Size': '$limit',
+          'includeGuids': '1',
+        },
+        authorize: authorize,
+      );
+      // Hubs wrap Metadata under Hub[]; onDeck is a flat Metadata list.
+      final hubs = _containerChildren(data, key: 'Hub');
+      final rows = <Map<String, dynamic>>[];
+      if (hubs.isNotEmpty) {
+        for (final hub in hubs) {
+          final meta = hub['Metadata'] ?? hub['Directory'];
+          if (meta is List) {
+            for (final row in meta) {
+              if (row is Map) rows.add(Map<String, dynamic>.from(row));
+            }
+          }
+        }
+      }
+      if (rows.isEmpty) {
+        rows.addAll(_containerChildren(data));
+      }
+      final items = rows
+          .map(mapMetadata)
+          .map(MediaServerLibraryItem.fromJson)
+          .where((item) => item.playable || item.type == 'Series')
+          .toList();
+      final total = _containerAttr(data, 'totalSize') ??
+          _containerAttr(data, 'size') ??
+          items.length;
+      return MediaServerLibraryPage(
+        items,
+        items.isNotEmpty && offset + items.length < total
+            ? offset + items.length
+            : null,
+      );
+    }
+
+    try {
+      final page = await fromPath('hubs/continueWatching');
+      if (page.items.isNotEmpty || offset > 0) return page;
+    } on MediaServerException {
+      // Fall through to classic onDeck.
+    }
+    return fromPath('library/onDeck');
+  }
+
+  /// Newest library items across sections (Plex Recently Added).
+  Future<MediaServerLibraryPage> recentlyAdded(
+    MediaServerAccount account, {
+    int offset = 0,
+    int limit = 50,
+    Future<void> Function()? authorize,
+  }) async {
+    Future<MediaServerLibraryPage> fromPath(String path) async {
+      final data = await _getJson(
+        account.baseUrl,
+        path,
+        deviceId: account.deviceId,
+        token: account.token,
+        query: {
+          'X-Plex-Container-Start': '$offset',
+          'X-Plex-Container-Size': '$limit',
+          'includeGuids': '1',
+        },
+        authorize: authorize,
+      );
+      final hubs = _containerChildren(data, key: 'Hub');
+      final rows = <Map<String, dynamic>>[];
+      if (hubs.isNotEmpty) {
+        for (final hub in hubs) {
+          final meta = hub['Metadata'] ?? hub['Directory'];
+          if (meta is List) {
+            for (final row in meta) {
+              if (row is Map) rows.add(Map<String, dynamic>.from(row));
+            }
+          }
+        }
+      }
+      if (rows.isEmpty) {
+        rows.addAll(_containerChildren(data));
+      }
+      final items = rows
+          .map(mapMetadata)
+          .map(MediaServerLibraryItem.fromJson)
+          .where((item) => item.playable || item.type == 'Series' || item.type == 'Movie')
+          .toList();
+      final total = _containerAttr(data, 'totalSize') ??
+          _containerAttr(data, 'size') ??
+          items.length;
+      return MediaServerLibraryPage(
+        items,
+        items.isNotEmpty && offset + items.length < total
+            ? offset + items.length
+            : null,
+      );
+    }
+
+    try {
+      final page = await fromPath('hubs/home/recentlyAdded');
+      if (page.items.isNotEmpty || offset > 0) return page;
+    } on MediaServerException {
+      // Fall through.
+    }
+    try {
+      final page = await fromPath('library/recentlyAdded');
+      if (page.items.isNotEmpty || offset > 0) return page;
+    } on MediaServerException {
+      // Fall through to section-aggregated recent.
+    }
+    // Last resort: first movie/show section sorted by addedAt.
+    final sections = await _getJson(
+      account.baseUrl,
+      'library/sections',
+      deviceId: account.deviceId,
+      token: account.token,
+      authorize: authorize,
+    );
+    final items = <MediaServerLibraryItem>[];
+    for (final section in _containerChildren(sections, key: 'Directory')) {
+      final type = (section['type']?.toString() ?? '').toLowerCase();
+      if (type != 'movie' && type != 'show') continue;
+      final key = section['key']?.toString() ?? section['ratingKey']?.toString();
+      if (key == null || key.isEmpty) continue;
+      final path = key.startsWith('/') ? key.substring(1) : key;
+      try {
+        final data = await _getJson(
+          account.baseUrl,
+          '$path/all',
+          deviceId: account.deviceId,
+          token: account.token,
+          query: {
+            'X-Plex-Container-Start': '0',
+            'X-Plex-Container-Size': '${limit.clamp(1, 30)}',
+            'sort': 'addedAt:desc',
+            'includeGuids': '1',
+          },
+          authorize: authorize,
+        );
+        for (final row in _containerChildren(data)) {
+          items.add(MediaServerLibraryItem.fromJson(mapMetadata(row)));
+        }
+      } catch (_) {
+        continue;
+      }
+      if (items.length >= limit) break;
+    }
+    final sliced = items.take(limit).toList();
+    return MediaServerLibraryPage(sliced, null);
+  }
+
   Future<MediaServerLibraryItem> libraryItem(
     MediaServerAccount account,
     String itemId, {
@@ -1110,6 +1279,34 @@ class PlexClient {
       '_plexKey': row['key']?.toString(),
       '_plexType': plexType,
     };
+  }
+
+
+  /// Absolute poster URL for a mapped library item (token query included).
+  static String? posterUrl(
+    MediaServerAccount account,
+    MediaServerLibraryItem item, {
+    int width = 400,
+    int height = 600,
+  }) {
+    final thumb = item.data['_plexThumb'] as String?;
+    if (thumb == null || thumb.isEmpty) {
+      if (item.id.isEmpty) return null;
+      final path = 'library/metadata/${item.id}/thumb';
+      return endpoint(account.baseUrl, path, {
+        'X-Plex-Token': account.token,
+        'width': '$width',
+        'height': '$height',
+        'minSize': '1',
+      }).toString();
+    }
+    final path = thumb.startsWith('/') ? thumb.substring(1) : thumb;
+    return endpoint(account.baseUrl, path, {
+      'X-Plex-Token': account.token,
+      'width': '$width',
+      'height': '$height',
+      'minSize': '1',
+    }).toString();
   }
 
   static Map<String, dynamic> mapMetadata(Map row) {
