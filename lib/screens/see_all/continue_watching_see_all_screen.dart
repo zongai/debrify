@@ -407,8 +407,8 @@ class _ContinueWatchingSeeAllScreenState
               focusNode: _catNode,
               options: [
                 StremioDropdownOption('all', AppLocalizations.of(context).t('All')),
-                StremioDropdownOption('movie', 'Movies'),
-                StremioDropdownOption('series', 'Series'),
+                StremioDropdownOption('movie', AppLocalizations.of(context).t('Movies')),
+                StremioDropdownOption('series', AppLocalizations.of(context).t('Series')),
               ],
               onSelected: (v) => _setFilter(() => _category = v),
             ),
@@ -420,8 +420,8 @@ class _ContinueWatchingSeeAllScreenState
               focusNode: _sortNode,
               options: [
                 StremioDropdownOption(_CwSort.lastWatched, AppLocalizations.of(context).t('Last Watched')),
-                StremioDropdownOption(_CwSort.az, 'A–Z'),
-                StremioDropdownOption(_CwSort.za, 'Z–A'),
+                StremioDropdownOption(_CwSort.az, AppLocalizations.of(context).t('A–Z')),
+                StremioDropdownOption(_CwSort.za, AppLocalizations.of(context).t('Z–A')),
               ],
               onSelected: _setSort,
             ),
@@ -433,8 +433,8 @@ class _ContinueWatchingSeeAllScreenState
               focusNode: _watchNode,
               options: [
                 StremioDropdownOption('all', AppLocalizations.of(context).t('All')),
-                StremioDropdownOption('watched', 'Watched'),
-                StremioDropdownOption('unwatched', 'Unwatched'),
+                StremioDropdownOption('watched', AppLocalizations.of(context).t('Watched')),
+                StremioDropdownOption('unwatched', AppLocalizations.of(context).t('Unwatched')),
               ],
               onSelected: (v) => _setFilter(() => _watch = v),
             ),

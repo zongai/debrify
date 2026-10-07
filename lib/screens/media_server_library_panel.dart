@@ -339,9 +339,9 @@ class _MediaServerLibraryPanelState extends State<MediaServerLibraryPanel> {
                       value: _mode,
                       isTelevision: widget.isTelevision,
                       options: [
-                        StremioDropdownOption('browse', 'Library'),
-                        StremioDropdownOption('recent', 'Recently added'),
-                        StremioDropdownOption('resume', 'Continue watching'),
+                        StremioDropdownOption('browse', AppLocalizations.of(context).t('Library')),
+                        StremioDropdownOption('recent', AppLocalizations.of(context).t('Recently added')),
+                        StremioDropdownOption('resume', AppLocalizations.of(context).t('Continue watching')),
                       ],
                       onSelected: (value) {
                         setState(() {

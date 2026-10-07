@@ -1168,12 +1168,12 @@ class _AddonHubScreenState extends State<AddonHubScreen> {
         side: BorderSide(color: app.seeAll.line),
       ),
       items: [
-        _menuItem('import', Icons.file_upload_outlined, 'Import from JSON'),
-        _menuItem('update', Icons.sync_rounded, 'Update all'),
+        _menuItem('import', Icons.file_upload_outlined, AppLocalizations.of(context).t('Import from JSON')),
+        _menuItem('update', Icons.sync_rounded, AppLocalizations.of(context).t('Update all')),
         _menuItem(
           'delete',
           Icons.delete_outline_rounded,
-          'Delete all',
+          AppLocalizations.of(context).t('Delete all'),
           danger: true,
         ),
       ],
@@ -1342,40 +1342,40 @@ class _AddonHubScreenState extends State<AddonHubScreen> {
         final manageDd = StremioDropdown<_HubKind>(
           // Stremio addons and torrent engines are separate features — the
           // first dropdown picks which one is being managed.
-          label: narrow ? null : 'Manage',
+          label: narrow ? null : AppLocalizations.of(context).t('Manage'),
           value: _kind,
           focusNode: _kindFocus,
           isTelevision: _isTv,
           options: [
-            StremioDropdownOption(_HubKind.addons, 'Stremio Addons'),
-            StremioDropdownOption(_HubKind.engines, 'Torrent Engines'),
+            StremioDropdownOption(_HubKind.addons, AppLocalizations.of(context).t('Stremio Addons')),
+            StremioDropdownOption(_HubKind.engines, AppLocalizations.of(context).t('Torrent Engines')),
           ],
           onSelected: _selectKind,
         );
         final sourceDd = StremioDropdown<_AddonSource>(
-          label: narrow ? null : 'Source',
+          label: narrow ? null : AppLocalizations.of(context).t('Source'),
           value: _source,
           focusNode: _sourceFocus,
           isTelevision: _isTv,
           options: [
-            StremioDropdownOption(_AddonSource.installed, 'Installed'),
-            StremioDropdownOption(_AddonSource.official, 'Official'),
-            StremioDropdownOption(_AddonSource.community, 'Community'),
+            StremioDropdownOption(_AddonSource.installed, AppLocalizations.of(context).t('Installed')),
+            StremioDropdownOption(_AddonSource.official, AppLocalizations.of(context).t('Official')),
+            StremioDropdownOption(_AddonSource.community, AppLocalizations.of(context).t('Community')),
           ],
           onSelected: _selectSource,
         );
         final typeDd = StremioDropdown<String>(
-          label: narrow ? null : 'Type',
+          label: narrow ? null : AppLocalizations.of(context).t('Type'),
           value: _typeFilter,
           focusNode: _typeFocus,
           isTelevision: _isTv,
           options: [
-            StremioDropdownOption('', 'All'),
-            StremioDropdownOption('movie', 'Movies'),
-            StremioDropdownOption('series', 'Series'),
-            StremioDropdownOption('channel', 'Channels'),
-            StremioDropdownOption('tv', 'TV'),
-            StremioDropdownOption('anime', 'Anime'),
+            StremioDropdownOption('', AppLocalizations.of(context).t('All')),
+            StremioDropdownOption('movie', AppLocalizations.of(context).t('Movies')),
+            StremioDropdownOption('series', AppLocalizations.of(context).t('Series')),
+            StremioDropdownOption('channel', AppLocalizations.of(context).t('Channels')),
+            StremioDropdownOption('tv', AppLocalizations.of(context).t('TV')),
+            StremioDropdownOption('anime', AppLocalizations.of(context).t('Anime')),
           ],
           onSelected: (v) => setState(() => _typeFilter = v),
         );

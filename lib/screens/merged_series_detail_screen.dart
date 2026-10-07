@@ -4485,15 +4485,17 @@ class _QuickActionsMenu extends StatelessWidget {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Text(
-                      o.label,
-                      style: TextStyle(
+                      AppLocalizations.of(context).t(o.label),
+                      style: const TextStyle(
                         fontSize: 15.5,
                         fontWeight: FontWeight.w600,
                       ),
                     ),
                     const SizedBox(height: 3),
                     Text(
-                      _MergedDetailScreenState._descriptionFor(o.action),
+                      AppLocalizations.of(context).t(
+                        _MergedDetailScreenState._descriptionFor(o.action),
+                      ),
                       style: TextStyle(
                         color: Colors.white.withValues(alpha: 0.5),
                         fontSize: 13,
@@ -4758,7 +4760,7 @@ class _SheetActionRow extends StatelessWidget {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Text(
-                      label,
+                      AppLocalizations.of(context).t(label),
                       style: TextStyle(
                         color: tint,
                         fontSize: 15.5,
@@ -4767,7 +4769,7 @@ class _SheetActionRow extends StatelessWidget {
                     ),
                     const SizedBox(height: 3),
                     Text(
-                      description,
+                      AppLocalizations.of(context).t(description),
                       style: TextStyle(
                         color: Colors.white.withValues(alpha: 0.45),
                         fontSize: 12.5,

@@ -584,7 +584,7 @@ class _CatalogSeeAllScreenState extends State<CatalogSeeAllScreen> {
                 quiet: _quiet,
                 focusNode: _genreNode,
                 options: [
-                  const StremioDropdownOption<String>('', 'All'),
+                  StremioDropdownOption<String>('', AppLocalizations.of(context).t('All')),
                   for (final g in _catalog.genreOptions)
                     StremioDropdownOption<String>(g, g),
                 ],
