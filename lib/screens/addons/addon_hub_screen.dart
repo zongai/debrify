@@ -2504,7 +2504,7 @@ class _MarketRow extends StatelessWidget {
                     const SizedBox(height: 16),
                     Align(
                       alignment: Alignment.centerLeft,
-                      child: _buildActions(),
+                      child: _buildActions(context),
                     ),
                   ],
                 )
@@ -2523,7 +2523,7 @@ class _MarketRow extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(width: 16),
-                    _buildActions(),
+                    _buildActions(context),
                   ],
                 ),
         );
@@ -2531,7 +2531,7 @@ class _MarketRow extends StatelessWidget {
     );
   }
 
-  Widget _buildActions() {
+  Widget _buildActions(BuildContext context) {
     if (installed) {
       return Row(
         mainAxisSize: MainAxisSize.min,

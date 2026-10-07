@@ -34,26 +34,26 @@ class ProfileGateStyle {
   static const List<({String id, String label, String blurb})> options = [
     (
       id: stageCards,
-      label: AppLocalizations.of(context).t('Stage Cards'),
+      label: 'Stage Cards',
       blurb: 'Glass portrait cards that light the room',
     ),
     (
       id: marquee,
-      label: AppLocalizations.of(context).t('Lighthouse'),
+      label: 'Lighthouse',
       blurb: 'A cinematic welcome for the whole household',
     ),
     (
       id: theater,
-      label: AppLocalizations.of(context).t('Theater'),
+      label: 'Theater',
       blurb: 'The chosen profile lights the whole room',
     ),
-    (id: row, label: AppLocalizations.of(context).t('Row'), blurb: 'A simple row of portraits'),
+    (id: row, label: 'Row', blurb: 'A simple row of portraits'),
     (
       id: wall,
-      label: AppLocalizations.of(context).t('Portrait Wall'),
+      label: 'Portrait Wall',
       blurb: 'Tall posters, colour-washed room',
     ),
-    (id: classic, label: AppLocalizations.of(context).t('Classic'), blurb: 'The original card grid'),
+    (id: classic, label: 'Classic', blurb: 'The original card grid'),
   ];
 
   static String labelFor(String id) => options

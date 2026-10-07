@@ -97,33 +97,33 @@ class SettingsRowContent {
 abstract final class SettingsRows {
   static const metadata = SettingsRowContent(
     icon: Icons.info_outline_rounded,
-    title: AppLocalizations.of(context).t('Metadata'),
-    subtitle: AppLocalizations.of(context).t('Providers, artwork, languages & discovery'),
+    title: 'Metadata',
+    subtitle: 'Providers, artwork, languages & discovery',
   );
   static const homePage = SettingsRowContent(
     icon: Icons.home_rounded,
-    title: AppLocalizations.of(context).t('Home Screen'),
-    subtitle: AppLocalizations.of(context).t('Layout, rows, trailer & continue watching'),
+    title: 'Home Screen',
+    subtitle: 'Layout, rows, trailer & continue watching',
   );
   static const collections = SettingsRowContent(
     icon: Icons.collections_bookmark_rounded,
-    title: AppLocalizations.of(context).t('Collections'),
-    subtitle: AppLocalizations.of(context).t('Import Nuvio-style folder collections as Home rows'),
+    title: 'Collections',
+    subtitle: 'Import Nuvio-style folder collections as Home rows',
   );
   static const badges = SettingsRowContent(
     icon: Icons.sell_rounded,
-    title: AppLocalizations.of(context).t('Badges'),
-    subtitle: AppLocalizations.of(context).t('Import and manage stream badge rules'),
+    title: 'Badges',
+    subtitle: 'Import and manage stream badge rules',
   );
   static const player = SettingsRowContent(
     icon: Icons.play_circle_outline_rounded,
-    title: AppLocalizations.of(context).t('Playback'),
-    subtitle: AppLocalizations.of(context).t('Player, video, audio & subtitles'),
+    title: 'Playback',
+    subtitle: 'Player, video, audio & subtitles',
   );
   static const remote = SettingsRowContent(
     icon: Icons.phonelink_rounded,
-    title: AppLocalizations.of(context).t('Remote'),
-    subtitle: AppLocalizations.of(context).t('Control another device, send or receive setup'),
+    title: 'Remote',
+    subtitle: 'Control another device, send or receive setup',
   );
   // The Profiles hub replaced the bare switch action: switching lives on the
   // hub beside the roster, so this row is now the one front door. It heads
@@ -131,199 +131,199 @@ abstract final class SettingsRows {
   // two most-wanted actions surfaced beside it as rows of their own.
   static const switchProfile = SettingsRowContent(
     icon: Icons.switch_account_rounded,
-    title: AppLocalizations.of(context).t('Profiles'),
-    subtitle: AppLocalizations.of(context).t('Who can use this device'),
+    title: 'Profiles',
+    subtitle: 'Who can use this device',
   );
   static const addProfile = SettingsRowContent(
     icon: Icons.person_add_alt_rounded,
-    title: AppLocalizations.of(context).t('Add a profile'),
-    subtitle: AppLocalizations.of(context).t('Admin, Member or Kid'),
+    title: 'Add a profile',
+    subtitle: 'Admin, Member or Kid',
   );
   static const editProfile = SettingsRowContent(
     icon: Icons.edit_rounded,
-    title: AppLocalizations.of(context).t('Edit this profile'),
-    subtitle: AppLocalizations.of(context).t('Name, avatar, PIN & access'),
+    title: 'Edit this profile',
+    subtitle: 'Name, avatar, PIN & access',
   );
   static const navigationStyle = SettingsRowContent(
     icon: Icons.call_to_action_rounded,
-    title: AppLocalizations.of(context).t('Navigation'),
-    subtitle: AppLocalizations.of(context).t('Classic bottom bar or floating button'),
+    title: 'Navigation',
+    subtitle: 'Classic bottom bar or floating button',
   );
 
   static const language = SettingsRowContent(
     icon: Icons.language_rounded,
-    title: AppLocalizations.of(context).t('Language'),
-    subtitle: AppLocalizations.of(context).t('App interface language'),
+    title: 'Language',
+    subtitle: 'App interface language',
   );
   static const searchSettings = SettingsRowContent(
     icon: Icons.search_rounded,
-    title: AppLocalizations.of(context).t('Engines'),
-    subtitle: AppLocalizations.of(context).t('Search engine defaults and indexers'),
+    title: 'Engines',
+    subtitle: 'Search engine defaults and indexers',
   );
   static const filterSettings = SettingsRowContent(
     icon: Icons.filter_list_rounded,
-    title: AppLocalizations.of(context).t('Filters'),
-    subtitle: AppLocalizations.of(context).t('Default quality, source, and language filters'),
+    title: 'Filters',
+    subtitle: 'Default quality, source, and language filters',
   );
   static const providerSettings = SettingsRowContent(
     icon: Icons.cloud_sync_rounded,
-    title: AppLocalizations.of(context).t('Default Provider'),
-    subtitle: AppLocalizations.of(context).t('Where added torrents go'),
+    title: 'Default Provider',
+    subtitle: 'Where added torrents go',
   );
   static const quickPlay = SettingsRowContent(
     icon: Icons.bolt_rounded,
-    title: AppLocalizations.of(context).t('Quick Play'),
-    subtitle: AppLocalizations.of(context).t('Timeouts, series packs, and cache fallback'),
+    title: 'Quick Play',
+    subtitle: 'Timeouts, series packs, and cache fallback',
   );
   static const discoverDefault = SettingsRowContent(
     icon: Icons.explore_rounded,
-    title: AppLocalizations.of(context).t('Default View'),
-    subtitle: AppLocalizations.of(context).t('Default source and poster details'),
+    title: 'Default View',
+    subtitle: 'Default source and poster details',
   );
   static const debrifyTv = SettingsRowContent(
     icon: Icons.live_tv_rounded,
-    title: AppLocalizations.of(context).t('Debrify TV'),
-    subtitle: AppLocalizations.of(context).t('Limits, channels, and playback configuration'),
+    title: 'Debrify TV',
+    subtitle: 'Limits, channels, and playback configuration',
   );
   static const recordings = SettingsRowContent(
     icon: Icons.fiber_dvr_rounded,
-    title: AppLocalizations.of(context).t('Recordings'),
-    subtitle: AppLocalizations.of(context).t('Live recordings, schedules, and library'),
+    title: 'Recordings',
+    subtitle: 'Live recordings, schedules, and library',
   );
   static const iptvPlaylists = SettingsRowContent(
     icon: Icons.playlist_play_rounded,
-    title: AppLocalizations.of(context).t('IPTV Playlists'),
-    subtitle: AppLocalizations.of(context).t('Playlists, lists, and startup channel'),
+    title: 'IPTV Playlists',
+    subtitle: 'Playlists, lists, and startup channel',
   );
   static const tvKeyboard = SettingsRowContent(
     icon: Icons.keyboard_rounded,
-    title: AppLocalizations.of(context).t('Debrify Keyboard'),
-    subtitle: AppLocalizations.of(context).t('Remote-friendly on-screen keyboard for text fields'),
+    title: 'Debrify Keyboard',
+    subtitle: 'Remote-friendly on-screen keyboard for text fields',
   );
   // Subtitle is dynamic (the chosen size) — passed per call site.
   static const tvScreenSize = SettingsRowContent(
     icon: Icons.fit_screen_rounded,
-    title: AppLocalizations.of(context).t('Screen Size'),
+    title: 'Screen Size',
     subtitle: '',
   );
   // Subtitle is dynamic (the chosen mode) — passed per call site.
   static const tvRenderQuality = SettingsRowContent(
     icon: Icons.hd_rounded,
-    title: AppLocalizations.of(context).t('Rendering'),
+    title: 'Rendering',
     subtitle: '',
   );
   static const tvHeroArtworkQuality = SettingsRowContent(
     icon: Icons.photo_size_select_large_rounded,
-    title: AppLocalizations.of(context).t('Hero Artwork Quality'),
+    title: 'Hero Artwork Quality',
     subtitle: '',
   );
   // Subtitle is dynamic (the chosen layout) — passed per call site.
   static const tvHomeStyle = SettingsRowContent(
     icon: Icons.view_quilt_rounded,
-    title: AppLocalizations.of(context).t('Home Layout'),
+    title: 'Home Layout',
     subtitle: '',
   );
   // Subtitle is dynamic (the chosen layout) — passed per call site.
   static const collectionListStyle = SettingsRowContent(
     icon: Icons.view_carousel_outlined,
-    title: AppLocalizations.of(context).t('Collection list style'),
+    title: 'Collection list style',
     subtitle: '',
   );
 
   static const discoverLayout = SettingsRowContent(
     icon: Icons.explore_rounded,
-    title: AppLocalizations.of(context).t('Discover Layout'),
+    title: 'Discover Layout',
     subtitle: '',
   );
   // Subtitle is dynamic (the chosen style) — passed per call site.
   static const tvSidebarStyle = SettingsRowContent(
     icon: Icons.view_sidebar_rounded,
-    title: AppLocalizations.of(context).t('Sidebar Style'),
+    title: 'Sidebar Style',
     subtitle: '',
   );
   // The desktop/tablet counterpart — never shown beside the TV row (each is
   // platform-gated), so the shared title is unambiguous wherever it appears.
   static const desktopSidebarStyle = SettingsRowContent(
     icon: Icons.view_sidebar_rounded,
-    title: AppLocalizations.of(context).t('Sidebar Style'),
+    title: 'Sidebar Style',
     subtitle: '',
   );
   static const profileAppearance = SettingsRowContent(
     icon: Icons.switch_account_rounded,
-    title: AppLocalizations.of(context).t('Profile Picker'),
+    title: 'Profile Picker',
     subtitle: '',
   );
   // Subtitle is dynamic (the chosen brightness) — passed per call site.
   static const textBrightness = SettingsRowContent(
     icon: Icons.brightness_6_rounded,
-    title: AppLocalizations.of(context).t('Text Brightness'),
+    title: 'Text Brightness',
     subtitle: '',
   );
   // Subtitle is dynamic (the chosen ident) — passed per call site.
   static const launchAnimation = SettingsRowContent(
     icon: Icons.rocket_launch_rounded,
-    title: AppLocalizations.of(context).t('Launch Animation'),
+    title: 'Launch Animation',
     subtitle: '',
   );
   // Subtitle is dynamic (the chosen style) — passed per call site.
   static const iptvAppearance = SettingsRowContent(
     icon: Icons.style_rounded,
-    title: AppLocalizations.of(context).t('IPTV Appearance'),
+    title: 'IPTV Appearance',
     subtitle: '',
   );
   // Subtitle is dynamic (the chosen style) — passed per call site.
   static const debrifyTvAppearance = SettingsRowContent(
     icon: Icons.connected_tv_rounded,
-    title: AppLocalizations.of(context).t('Debrify TV'),
+    title: 'Debrify TV',
     subtitle: '',
   );
   // Subtitle is dynamic (style + palette) — passed per call site.
   static const playerDock = SettingsRowContent(
     icon: Icons.tune_rounded,
-    title: AppLocalizations.of(context).t('Player Controls'),
+    title: 'Player Controls',
     subtitle: '',
   );
   // Subtitle is dynamic (the chosen skin) — passed per call site. Android
   // TV only: the native player's control skin (OTT dock vs Legacy).
   static const tvPlayerControls = SettingsRowContent(
     icon: Icons.tune_rounded,
-    title: AppLocalizations.of(context).t('Player Controls'),
+    title: 'Player Controls',
     subtitle: '',
   );
   // Subtitle is dynamic (the chosen style) — passed per call site. Android
   // TV only: the Debrify TV playback screen (native TorboxTvPlayerActivity).
   static const debrifyTvPlayer = SettingsRowContent(
     icon: Icons.live_tv_rounded,
-    title: AppLocalizations.of(context).t('Debrify TV Player'),
+    title: 'Debrify TV Player',
     subtitle: '',
   );
   // Subtitle is dynamic (the chosen look) — passed per call site.
   static const playLoaderStyle = SettingsRowContent(
     icon: Icons.play_circle_outline_rounded,
-    title: AppLocalizations.of(context).t('Play Loader'),
+    title: 'Play Loader',
     subtitle: '',
   );
   // Subtitle is dynamic (the chosen style) — passed per call site.
   static const playerGuideStyle = SettingsRowContent(
     icon: Icons.smart_display_rounded,
-    title: AppLocalizations.of(context).t('Player Guide'),
+    title: 'Player Guide',
     subtitle: '',
   );
   // Subtitle is dynamic (the chosen layout) — passed per call site.
   static const detailPageStyle = SettingsRowContent(
     icon: Icons.article_rounded,
-    title: AppLocalizations.of(context).t('Details Page'),
+    title: 'Details Page',
     subtitle: '',
   );
   static const themeLab = SettingsRowContent(
     icon: Icons.science_rounded,
-    title: AppLocalizations.of(context).t('Theme Lab'),
-    subtitle: AppLocalizations.of(context).t('Preview the looks on real widgets'),
+    title: 'Theme Lab',
+    subtitle: 'Preview the looks on real widgets',
   );
   // Subtitle is dynamic (the active Look, or "Custom") — passed per call site.
   static const looks = SettingsRowContent(
     icon: Icons.auto_awesome_rounded,
-    title: AppLocalizations.of(context).t('Looks'),
+    title: 'Looks',
     subtitle: '',
   );
 
@@ -332,7 +332,7 @@ abstract final class SettingsRows {
   /// behind a row that gave no hint it was there.
   static const themeTokens = SettingsRowContent(
     icon: Icons.tune_rounded,
-    title: AppLocalizations.of(context).t('Advanced'),
+    title: 'Advanced',
     subtitle: '',
   );
   static const appTheme = SettingsRowContent(
@@ -340,118 +340,118 @@ abstract final class SettingsRows {
     // Just 'Theme': the section header above it already says THEME, and
     // 'App Theme' only ever needed the qualifier to tell itself apart from
     // the Details Theme row that no longer exists.
-    title: AppLocalizations.of(context).t('Theme'),
+    title: 'Theme',
     subtitle: '',
   );
   static const detailTheme = SettingsRowContent(
     icon: Icons.palette_rounded,
-    title: AppLocalizations.of(context).t('Details Theme'),
+    title: 'Details Theme',
     subtitle: '',
   );
   // Subtitle is dynamic (the chosen presentation) — passed per call site.
   static const parentsGuideStyle = SettingsRowContent(
     icon: Icons.family_restroom_rounded,
-    title: AppLocalizations.of(context).t('Parents Guide'),
+    title: 'Parents Guide',
     subtitle: '',
   );
   // Subtitle is dynamic (current folder) — passed per call site.
   static const downloadLocation = SettingsRowContent(
     icon: Icons.folder_rounded,
-    title: AppLocalizations.of(context).t('Download Location'),
+    title: 'Download Location',
     subtitle: '',
   );
   static const clearDownloads = SettingsRowContent(
     icon: Icons.download_rounded,
-    title: AppLocalizations.of(context).t('Clear Download Data'),
-    subtitle: AppLocalizations.of(context).t('Remove queue history and in-progress entries'),
+    title: 'Clear Download Data',
+    subtitle: 'Remove queue history and in-progress entries',
   );
   static const clearPlayback = SettingsRowContent(
     icon: Icons.play_circle_rounded,
-    title: AppLocalizations.of(context).t('Clear Playback Data'),
-    subtitle: AppLocalizations.of(context).t('Reset resume points and playback sessions'),
+    title: 'Clear Playback Data',
+    subtitle: 'Reset resume points and playback sessions',
   );
   static const createBackup = SettingsRowContent(
     icon: Icons.save_alt_rounded,
-    title: AppLocalizations.of(context).t('Create Backup'),
-    subtitle: AppLocalizations.of(context).t('Back up all profiles and shared connections (Admin)'),
+    title: 'Create Backup',
+    subtitle: 'Back up all profiles and shared connections (Admin)',
   );
   static const restoreBackup = SettingsRowContent(
     icon: Icons.restore_rounded,
-    title: AppLocalizations.of(context).t('Restore from Backup'),
-    subtitle: AppLocalizations.of(context).t('Import services and addons from a backup file'),
+    title: 'Restore from Backup',
+    subtitle: 'Import services and addons from a backup file',
   );
   static const syncAndMigrate = SettingsRowContent(
     icon: Icons.sync_alt_rounded,
-    title: AppLocalizations.of(context).t('Sync and Migrate'),
-    subtitle: AppLocalizations.of(context).t('Sync across devices with WebDAV'),
+    title: 'Sync and Migrate',
+    subtitle: 'Sync across devices with WebDAV',
   );
   static const enableWebDavSync = SettingsRowContent(
     icon: Icons.sync_rounded,
-    title: AppLocalizations.of(context).t('Enable WebDAV Sync'),
-    subtitle: AppLocalizations.of(context).t('Keep supported profile state in one WebDAV account'),
+    title: 'Enable WebDAV Sync',
+    subtitle: 'Keep supported profile state in one WebDAV account',
   );
   static const createWebDavBackup = SettingsRowContent(
     icon: Icons.cloud_upload_outlined,
-    title: AppLocalizations.of(context).t('Save backup to WebDAV'),
-    subtitle: AppLocalizations.of(context).t('Save an encrypted backup of all profiles (Admin)'),
+    title: 'Save backup to WebDAV',
+    subtitle: 'Save an encrypted backup of all profiles (Admin)',
   );
   static const restoreWebDavBackup = SettingsRowContent(
     icon: Icons.cloud_download_outlined,
-    title: AppLocalizations.of(context).t('Restore backup from WebDAV'),
-    subtitle: AppLocalizations.of(context).t('Choose an encrypted profile package on your server'),
+    title: 'Restore backup from WebDAV',
+    subtitle: 'Choose an encrypted profile package on your server',
   );
   static const exportDiagnosticLogs = SettingsRowContent(
     icon: Icons.bug_report_outlined,
-    title: AppLocalizations.of(context).t('Export Diagnostic Logs'),
-    subtitle: AppLocalizations.of(context).t('Save recent logs (2h) and critical events (24h)'),
+    title: 'Export Diagnostic Logs',
+    subtitle: 'Save recent logs (2h) and critical events (24h)',
   );
   static const resetDebrify = SettingsRowContent(
     icon: Icons.warning_rounded,
-    title: AppLocalizations.of(context).t('Reset Debrify'),
-    subtitle: AppLocalizations.of(context).t('Remove connections, preferences, and caches'),
+    title: 'Reset Debrify',
+    subtitle: 'Remove connections, preferences, and caches',
   );
   static const autoUpdate = SettingsRowContent(
     icon: Icons.notifications_active_rounded,
-    title: AppLocalizations.of(context).t('Auto Check for Updates'),
-    subtitle: AppLocalizations.of(context).t('Notify about new releases on startup'),
+    title: 'Auto Check for Updates',
+    subtitle: 'Notify about new releases on startup',
   );
   static const includeAlphaUpdates = SettingsRowContent(
     icon: Icons.science_outlined,
-    title: AppLocalizations.of(context).t('Include Alpha Builds'),
-    subtitle: AppLocalizations.of(context).t('Receive alpha and beta updates; alpha may be unstable'),
+    title: 'Include Alpha Builds',
+    subtitle: 'Receive alpha and beta updates; alpha may be unstable',
   );
   // Subtitle is dynamic (update status) — passed per call site.
   static const checkUpdates = SettingsRowContent(
     icon: Icons.system_update_rounded,
-    title: AppLocalizations.of(context).t('Check for Updates'),
+    title: 'Check for Updates',
     subtitle: '',
   );
   static const supportDebrify = SettingsRowContent(
     icon: Icons.favorite_rounded,
-    title: AppLocalizations.of(context).t('Support Debrify'),
+    title: 'Support Debrify',
     subtitle: '',
   );
   static const reddit = SettingsRowContent(
     icon: Icons.forum_rounded,
-    title: AppLocalizations.of(context).t('Reddit Community'),
-    subtitle: AppLocalizations.of(context).t('r/debrify - Questions, tips, and discussion'),
+    title: 'Reddit Community',
+    subtitle: 'r/debrify - Questions, tips, and discussion',
     url: 'https://www.reddit.com/r/debrify/',
   );
   static const discord = SettingsRowContent(
     icon: Icons.chat_rounded,
-    title: AppLocalizations.of(context).t('Discord'),
-    subtitle: AppLocalizations.of(context).t('Join for help, updates, and discussion'),
+    title: 'Discord',
+    subtitle: 'Join for help, updates, and discussion',
     url: 'https://discord.gg/xuAc4Q2c9G',
   );
   static const github = SettingsRowContent(
     icon: Icons.code_rounded,
-    title: AppLocalizations.of(context).t('GitHub'),
-    subtitle: AppLocalizations.of(context).t('Source code and contributions'),
+    title: 'GitHub',
+    subtitle: 'Source code and contributions',
     url: 'https://github.com/varunsalian/debrify',
   );
   static const version = SettingsRowContent(
     icon: Icons.info_outline_rounded,
-    title: AppLocalizations.of(context).t('Version'),
+    title: 'Version',
     subtitle: '',
   );
 }
