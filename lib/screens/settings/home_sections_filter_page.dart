@@ -277,6 +277,10 @@ class _HomeSectionsFilterPageState extends State<HomeSectionsFilterPage> {
         _Item('iptv:movies', 'Movies', on('iptv:movies')),
         _Item('iptv:series', 'Series', on('iptv:series')),
       ]),
+      _Group('Plex', [
+        _Item('plex:cw', 'Continue Watching', on('plex:cw')),
+        _Item('plex:recent', 'Recently Added', on('plex:recent')),
+      ]),
       if (widget.iptvLists.any((m) => !m.isFavorites))
         _Group('IPTV Lists', [
           for (final m in widget.iptvLists)
@@ -1150,7 +1154,7 @@ class _HomeSectionsFilterPageState extends State<HomeSectionsFilterPage> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    entry.item.label,
+                                    AppLocalizations.of(context).t(entry.item.label),
                                     maxLines: 1,
                                     overflow: TextOverflow.ellipsis,
                                     style: const TextStyle(
@@ -1239,7 +1243,7 @@ class _HomeSectionsFilterPageState extends State<HomeSectionsFilterPage> {
             const SizedBox(width: 2),
             Flexible(
               child: Text(
-                g.name,
+                AppLocalizations.of(context).t(g.name),
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
                 style: TextStyle(
@@ -1317,7 +1321,7 @@ class _HomeSectionsFilterPageState extends State<HomeSectionsFilterPage> {
                       const SizedBox(width: 10),
                       Expanded(
                         child: Text(
-                          g.name,
+                          AppLocalizations.of(context).t(g.name),
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
                           style: TextStyle(

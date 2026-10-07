@@ -784,6 +784,7 @@ class MediaServerLibrarySession implements MediaServerLibraryAccess {
   final ProfileAsyncAuthorization _capability;
   @override
   MediaServerKind get kind => _account.kind;
+  MediaServerAccount get account => _account;
 
   @override
   Future<void> authorize() => _capability.runIfCurrent(() async {

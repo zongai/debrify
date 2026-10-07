@@ -5776,6 +5776,7 @@ final _phraseTables = <String, Map<String, String>>{
     'War': '战争',
     'Western': '西部',
     'When more than one profile exists. A single profile still opens directly.': '仅在有多个个人资料时显示。只有一个资料时仍会直接进入。',
+    'Recently Added': '最近添加',
   },
   'ja': {
     '  ● REC': '  ● REC',
@@ -11235,6 +11236,7 @@ final _phraseTables = <String, Map<String, String>>{
     'War': '戦争',
     'Western': '西部劇',
     'When more than one profile exists. A single profile still opens directly.': 'プロフィールが複数ある場合のみ表示。1件のときはそのまま起動します。',
+    'Recently Added': '最近追加',
 
   },
 

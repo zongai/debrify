@@ -10,6 +10,7 @@ import '../services/profiles/profile_runtime.dart';
 import '../services/iptv_source_search.dart';
 import '../models/media_server_library.dart';
 import '../services/media_server_service.dart';
+import '../services/plex_client.dart';
 import 'metadata_explore_page.dart';
 import '../widgets/metadata_presentation_mixin.dart';
 import '../models/metadata_preferences.dart';
@@ -2168,6 +2169,7 @@ class _SearchScreenState extends State<SearchScreen>
           _load(),
         _loadContinueWatching(),
         _loadTraktContinueWatching(),
+        _loadPlexHomeHubs(),
         // refreshBound:false — _load()'s bound-source scan (which now covers the
         // Simkl rows) runs after this on cold start, so a 2nd concurrent scan
         // here would be pure duplicate startup work on weak TV hardware.
@@ -5245,11 +5247,8 @@ class _SearchScreenState extends State<SearchScreen>
             : (item.type == 'Episode' || item.type == 'Series' ? 'series' : 'movie');
         final id = 'plex:$resourceId:${item.id}';
         String? poster;
-        // Prefer absolute thumb when we have account context from session path.
-        final thumb = item.data['_plexThumb'] as String?;
-        if (thumb != null && thumb.isNotEmpty) {
-          // Token-bearing URL is built when opening session; keep relative id for now.
-          poster = null;
+        if (account != null) {
+          poster = PlexClient.posterUrl(account, item);
         }
         if (item.type == 'Episode' && item.season != null && item.episode != null) {
           episode[id] = 'S${item.season} · E${item.episode}';
@@ -5270,25 +5269,19 @@ class _SearchScreenState extends State<SearchScreen>
       }
 
       for (final bundle in bundles) {
-        // Open session once to resolve poster URLs via account.
-        MediaServerLibrarySession? session;
+        MediaServerAccount? account;
         try {
-          session = await MediaServerService.openLibrary(bundle.resourceId);
+          final session = await MediaServerService.openLibrary(bundle.resourceId);
+          account = session.account;
         } catch (_) {}
-        final account = session == null
-            ? null
-            : null; // account is private on session — posters filled async below
         for (final item in bundle.continueWatching) {
-          cwMetas.add(toMeta(item, bundle.resourceId, null));
+          cwMetas.add(toMeta(item, bundle.resourceId, account));
         }
         for (final item in bundle.recentlyAdded) {
-          recentMetas.add(toMeta(item, bundle.resourceId, null));
+          recentMetas.add(toMeta(item, bundle.resourceId, account));
         }
       }
 
-      // Resolve posters through session.image is bytes-only; use PlexClient.posterUrl
-      // by re-opening account via browse path is heavy. Skip posters if unavailable —
-      // card falls back to letter tile.
       _syncCwNodes(_plexCwNodes, cwMetas.length, 'plexcw');
       _syncCwNodes(_plexRecentNodes, recentMetas.length, 'plexra');
       setState(() {
@@ -20206,6 +20199,7 @@ class _SearchScreenState extends State<SearchScreen>
       return;
     }
     unawaited(_loadTraktContinueWatching());
+    unawaited(_loadPlexHomeHubs());
   }
 
   /// Refresh state that a See-All screen may have changed (Continue Watching
