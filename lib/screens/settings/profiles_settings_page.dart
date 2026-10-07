@@ -476,8 +476,8 @@ class _ProfilesSettingsPageState extends State<ProfilesSettingsPage> {
       SettingsToggleTile(
         key: const ValueKey('profiles-always-ask'),
         icon: Icons.login_rounded,
-        title: 'Ask who\'s watching at startup',
-        subtitle: AppLocalizations.of(context).t('Show the profile picker when Debrify opens'),
+        title: AppLocalizations.of(context).t('Ask who\'s watching at startup'),
+        subtitle: AppLocalizations.of(context).t('When more than one profile exists. A single profile still opens directly.'),
         value: ProfileGateAlwaysAsk.cached,
         onChanged: (value) async {
           await ProfileGateAlwaysAsk.set(value);

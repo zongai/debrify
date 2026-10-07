@@ -242,12 +242,13 @@ class _ProfileGateState extends State<ProfileGate> with WidgetsBindingObserver {
           playbackReturn ||
           shouldAutoEnterSoleProfile(
             profiles,
-            // The sole-profile launch convenience is opt-IN now: the gate always
-            // asks unless the hub's startup toggle re-enables auto-enter. The
-            // caller's argument still outranks everything — an explicit Switch
-            // or a lock must land on the picker regardless of the toggle.
-            allowSingleProfileAutoEnter:
-                allowSingleProfileAutoEnter && !ProfileGateAlwaysAsk.cached,
+            // Sole profile: always enter directly (no "who's watching" step)
+            // unless a PIN is required — see shouldAutoEnterSoleProfile.
+            // Multiple profiles: honor the "Ask who's watching at startup"
+            // toggle. Explicit Switch / lock still pass
+            // allowSingleProfileAutoEnter: false and land on the picker.
+            allowSingleProfileAutoEnter: allowSingleProfileAutoEnter &&
+                (profiles.length == 1 || !ProfileGateAlwaysAsk.cached),
           );
     });
     DiagnosticLog.instance.recordEvent(

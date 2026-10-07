@@ -5775,6 +5775,7 @@ final _phraseTables = <String, Map<String, String>>{
     'Thriller': '惊悚',
     'War': '战争',
     'Western': '西部',
+    'When more than one profile exists. A single profile still opens directly.': '仅在有多个个人资料时显示。只有一个资料时仍会直接进入。',
   },
   'ja': {
     '  ● REC': '  ● REC',
@@ -6111,7 +6112,7 @@ final _phraseTables = <String, Map<String, String>>{
     'Artwork on top, everything else in a tabbed deck below': 'Artwork on top, everything else in a tabbed deck below',
     'Ask': 'Ask',
     'Ask every time': '毎回確認',
-    'Ask who\'s watching at startup': 'Ask who\'s watching at startup',
+    'Ask who\'s watching at startup': '起動時に視聴者を確認する',
     'ASPECT': 'アスペクト',
     'Aspect': 'アスペクト',
     'AT A GLANCE': 'AT A GLANCE',
@@ -11233,6 +11234,7 @@ final _phraseTables = <String, Map<String, String>>{
     'Thriller': 'スリラー',
     'War': '戦争',
     'Western': '西部劇',
+    'When more than one profile exists. A single profile still opens directly.': 'プロフィールが複数ある場合のみ表示。1件のときはそのまま起動します。',
 
   },
 

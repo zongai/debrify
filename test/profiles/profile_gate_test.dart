@@ -57,8 +57,8 @@ void main() {
     );
   });
 
-  // The gate composes the two: startup passes `allowSingleProfileAutoEnter:
-  // true` but ANDs it with `!ProfileGateAlwaysAsk.cached`, so the fresh-
+  // The gate composes the two: startup auto-enters a sole profile even when AlwaysAsk is on; multi-profile
+  // still ANDs with `!ProfileGateAlwaysAsk.cached`. The fresh-
   // install default (ask) wins until the hub's startup toggle opts out.
   test('always-ask defaults on and the opt-out persists', () async {
     SharedPreferences.setMockInitialValues(<String, Object>{});
