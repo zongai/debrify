@@ -1,0 +1,139 @@
+--- a/lib/screens/search_screen.dart
++++ b/lib/screens/search_screen.dart
+@@ -23,6 +23,11 @@
+ import '../services/home_load_progress.dart';
+ import '../widgets/home/home_row_focus.dart';
+ import '../widgets/home/home_continuation_focus.dart';
++import '../services/home_focus_memory.dart';
++import '../widgets/home/home_focus_restore.dart';
++import '../widgets/home/home_focus_board_bridge.dart';
++import '../widgets/home/rail_locked_traversal.dart';
++
+ import '../widgets/home/catalog_continuation_button.dart';
+ import '../services/home_row_refresh.dart';
+ import '../services/profiles/connection_resource_service.dart';
+@@ -749,10 +754,14 @@
+     if (_homeReturnListenersInstalled) return;
+     _homeReturnListenersInstalled = true;
+     MetadataPreferencesService.revision.addListener(HomeReturnCache.invalidate);
++    MetadataPreferencesService.revision.addListener(HomeFocusStore.instance.clear);
+     // With filtering enabled, watched changes also change catalog membership.
+     // These process-lifetime listeners retain no screen, player or focus node.
+     WatchedStatusService.instance.addListener(() {
+-      if (HideWatchedPrefs.enabled) HomeReturnCache.invalidate();
++      if (HideWatchedPrefs.enabled) {
++        HomeReturnCache.invalidate();
++        HomeFocusStore.instance.clear();
++      }
+     });
+   }
+ 
+@@ -793,6 +802,8 @@
+   List<CatalogSection> _homeSections = [];
+   List<CatalogSection> _sections = [];
+   final List<List<FocusNode>> _rowNodes = [];
++  final _homeFocusBridge = HomeFocusBoardBridge();
++
+   // Per-row remembered focus column (leanback-style). DPAD up/down into a row
+   // returns to where you left THAT row — the cell it points at is guaranteed
+   // mounted, so requestFocus never no-ops on a scrolled-away lazy cell.
+@@ -6210,6 +6221,9 @@
+             _sectionRowId(_sections[i]): _rowCol[i],
+       };
+       _rowNodes..clear()..addAll(nextNodes);
++      _homeFocusBridge.afterAsyncCommit(
++        focusDefaultEntryIfAllowed: () {},
++      );
+       _rowCol
+         ..clear()
+         ..addAll({
+@@ -6483,6 +6497,7 @@
+         // (Guarded by boardFocused so our own just-applied requestFocus, or a
+         // transient null primaryFocus between loads, can't false-trigger this.)
+         _autoFocusSettled = true;
++        _homeFocusBridge.markUserMoved();
+         return;
+       }
+ 
+@@ -11783,11 +11798,35 @@
+     // and no focus event re-fires it on the way back — re-run the dead check
+     // now that the board is the top route again.
+     _onGlobalFocusChange();
++    WidgetsBinding.instance.addPostFrameCallback((_) {
++      if (!mounted) return;
++      _restoreHomeFocusFromMemory();
++    });
+     if (!_heroTrailerActive || !_heroTrailerEnabled) return;
+     final item = _heroItem.value;
+     if (item != null) _scheduleHeroTrailer(item);
+   }
+ 
++  void _restoreHomeFocusFromMemory() {
++    final rowIds = <String>[
++      for (final section in _sections) _sectionRowId(section),
++    ];
++    final itemIds = <List<String>>[
++      for (final section in _sections)
++        [
++          for (final item in section.items)
++            HomeFocusBoardBridge.itemFocusId(type: item.type, id: item.id),
++        ],
++    ];
++    _homeFocusBridge.restore(
++      sessionOwnerKey: _homeFocusSessionKey,
++      rowIds: rowIds,
++      itemIds: itemIds,
++      rowNodes: _rowNodes,
++      focusDefaultEntry: () {},
++    );
++  }
++
+   /// Content playback launched (see the listener registration in
+   /// [initState]): kill the trailer NOW (native activity launches never push
+   /// a Flutter route, so RouteAware alone can't catch them all) and keep it
+@@ -13445,6 +13484,31 @@
+     return _stremio.addonForCustomProgress(item.imdbId!);
+   }
+ 
++
++  String get _homeFocusSessionKey {
++    try {
++      final o = ProfileSessionMemory.captureOwner();
++      final id = o.scope?.profileId ?? o.runtimeMode?.name ?? 'legacy';
++      return HomeFocusBoardBridge.sessionKey(
++        profileId: id,
++        lifecycleRevision: o.lifecycleRevision,
++      );
++    } catch (_) {
++      return 'legacy:0';
++    }
++  }
++
++  String _rowIdForOpenItem(StremioMeta item) {
++    for (final section in _sections) {
++      for (final it in section.items) {
++        if (it.id == item.id && it.type == item.type) {
++          return _sectionRowId(section);
++        }
++      }
++    }
++    return 'unknown';
++  }
++
+   void _openItem(
+     StremioMeta item,
+     StremioAddon addon, {
+@@ -13461,6 +13525,13 @@
+     // cross-tab opener (the Calendar) return the user to where they came from.
+     int? returnToTabOnClose,
+   }) async {
++    // TV focus memory (S1b): persist board identity before leaving Home.
++    _homeFocusBridge.saveBeforeLeave(
++      sessionOwnerKey: _homeFocusSessionKey,
++      rowId: _rowIdForOpenItem(item),
++      itemType: item.type,
++      itemId: item.id,
++    );
+     try {
+       if (MediaIdentity.isNative(item.id) && item.imdbId == null &&
+           (item.sourceAddon == null || item.sourceAddon!.baseUrl.isEmpty)) {

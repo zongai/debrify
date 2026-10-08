@@ -1,7 +1,6 @@
-import '../../l10n/app_localizations.dart';
 part of '../search_screen.dart';
 
-enum _CwKind { local, trakt, simkl, mdblist, iptv, plex }
+enum _CwKind { local, trakt, simkl, mdblist, iptv }
 
 /// A leading "Continue Watching" board row (local or Trakt). Carries its own
 /// header, focus nodes, per-item progress lookup, and open / quick-play
@@ -1590,7 +1589,8 @@ class _CanvasIdentity extends StatelessWidget {
                               : MainAxisAlignment.start,
                           children: [
                             if (rating != null) ...[
-                              Text(AppLocalizations.of(context).t('IMDb'),
+                              const Text(
+                                'IMDb',
                                 style: TextStyle(
                                   color: Color(0xFFF5C518),
                                   fontSize: 12,

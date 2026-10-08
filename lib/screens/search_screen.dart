@@ -8,9 +8,7 @@ import '../models/metadata_card_artwork.dart';
 import '../models/hero_metadata_presentation.dart';
 import '../services/profiles/profile_runtime.dart';
 import '../services/iptv_source_search.dart';
-import '../models/media_server_library.dart';
 import '../services/media_server_service.dart';
-import '../services/plex_client.dart';
 import 'metadata_explore_page.dart';
 import '../widgets/metadata_presentation_mixin.dart';
 import '../models/metadata_preferences.dart';
@@ -25,6 +23,11 @@ import '../services/home_load_deadline.dart';
 import '../services/home_load_progress.dart';
 import '../widgets/home/home_row_focus.dart';
 import '../widgets/home/home_continuation_focus.dart';
+import '../services/home_focus_memory.dart';
+import '../widgets/home/home_focus_restore.dart';
+import '../widgets/home/home_focus_board_bridge.dart';
+import '../widgets/home/rail_locked_traversal.dart';
+
 import '../widgets/home/catalog_continuation_button.dart';
 import '../services/home_row_refresh.dart';
 import '../services/profiles/connection_resource_service.dart';
@@ -42,9 +45,6 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/foundation.dart'
     show ValueListenable, listEquals, visibleForTesting;
 import 'package:flutter/material.dart';
-
-import '../l10n/app_localizations.dart';
-
 import '../models/custom_series_identity.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -329,7 +329,6 @@ const String _discSimkl = 'simkl';
 const String _discTmdb = 'tmdb';
 const String _discJellyfin = 'jellyfin';
 const String _discEmby = 'emby';
-const String _discPlex = 'plex';
 const String _discMdblist = 'mdblist';
 const String _discAddonPrefix = 'a:';
 
@@ -755,10 +754,14 @@ class _SearchScreenState extends State<SearchScreen>
     if (_homeReturnListenersInstalled) return;
     _homeReturnListenersInstalled = true;
     MetadataPreferencesService.revision.addListener(HomeReturnCache.invalidate);
+    MetadataPreferencesService.revision.addListener(HomeFocusStore.instance.clear);
     // With filtering enabled, watched changes also change catalog membership.
     // These process-lifetime listeners retain no screen, player or focus node.
     WatchedStatusService.instance.addListener(() {
-      if (HideWatchedPrefs.enabled) HomeReturnCache.invalidate();
+      if (HideWatchedPrefs.enabled) {
+        HomeReturnCache.invalidate();
+        HomeFocusStore.instance.clear();
+      }
     });
   }
 
@@ -799,6 +802,8 @@ class _SearchScreenState extends State<SearchScreen>
   List<CatalogSection> _homeSections = [];
   List<CatalogSection> _sections = [];
   final List<List<FocusNode>> _rowNodes = [];
+  final _homeFocusBridge = HomeFocusBoardBridge();
+
   // Per-row remembered focus column (leanback-style). DPAD up/down into a row
   // returns to where you left THAT row — the cell it points at is guaranteed
   // mounted, so requestFocus never no-ops on a scrolled-away lazy cell.
@@ -1178,19 +1183,6 @@ class _SearchScreenState extends State<SearchScreen>
   /// re-runs the load) reserves the slot again.
   bool _traktCwLoading = false;
 
-  // Plex Continue Watching + Recently Added (Home rails).
-  List<StremioMeta> _plexCwItems = [];
-  List<StremioMeta> _plexRecentItems = [];
-  final List<FocusNode> _plexCwNodes = [];
-  final List<FocusNode> _plexRecentNodes = [];
-  final Map<String, double> _plexProgress = {};
-  final Map<String, String> _plexEpisode = {};
-  /// meta.id → (resourceId, library item) for open/play.
-  final Map<String, (String resourceId, MediaServerLibraryItem item)> _plexHomeByMeta = {};
-  int _plexHomeToken = 0;
-  bool _plexHomeLoading = false;
-
-
   /// TV auto-focus "settle to the top" state. On arrival the board focuses the
   /// best card available immediately (an addon row if the Trakt rows above it
   /// are still loading), remembering that node in [_autoFocusedNode]. As higher
@@ -1293,11 +1285,6 @@ class _SearchScreenState extends State<SearchScreen>
         episode: _iptvCwEpisode,
         remaining: null,
       ),
-      _CwKind.plex => (
-        progress: _plexProgress,
-        episode: _plexEpisode,
-        remaining: null,
-      ),
     };
   }
 
@@ -1319,7 +1306,7 @@ class _SearchScreenState extends State<SearchScreen>
         !_homeDisabled.contains('cw:movies'))
       _CwRow(
         rowId: 'cw:movies',
-        title: AppLocalizations.of(context).t('Continue Watching'),
+        title: 'Continue Watching',
         tag: _cwMergeLocal ? null : 'Movies',
         kind: _CwKind.local,
         items: _cwMergeLocal ? _cwAll : _cwMovies,
@@ -1344,7 +1331,7 @@ class _SearchScreenState extends State<SearchScreen>
         !_homeDisabled.contains('cw:series'))
       _CwRow(
         rowId: 'cw:series',
-        title: AppLocalizations.of(context).t('Continue Watching'),
+        title: 'Continue Watching',
         tag: 'Series',
         kind: _CwKind.local,
         items: _cwSeries,
@@ -1362,7 +1349,7 @@ class _SearchScreenState extends State<SearchScreen>
         !_homeDisabled.contains('trakt:movies'))
       _CwRow(
         rowId: 'trakt:movies',
-        title: AppLocalizations.of(context).t('Trakt Continue Watching'),
+        title: 'Trakt Continue Watching',
         tag: _cwMergeTrakt ? null : 'Movies',
         kind: _CwKind.trakt,
         items: _cwMergeTrakt ? _traktAll : _traktMovies,
@@ -1385,7 +1372,7 @@ class _SearchScreenState extends State<SearchScreen>
         !_homeDisabled.contains('trakt:shows'))
       _CwRow(
         rowId: 'trakt:shows',
-        title: AppLocalizations.of(context).t('Trakt Continue Watching'),
+        title: 'Trakt Continue Watching',
         tag: 'Shows',
         kind: _CwKind.trakt,
         items: _traktSeries,
@@ -1409,7 +1396,7 @@ class _SearchScreenState extends State<SearchScreen>
         !_homeDisabled.contains('simkl:movies'))
       _CwRow(
         rowId: 'simkl:movies',
-        title: AppLocalizations.of(context).t('Simkl Continue Watching'),
+        title: 'Simkl Continue Watching',
         tag: _cwMergeSimkl ? null : 'Movies',
         kind: _CwKind.simkl,
         items: _cwMergeSimkl ? _simklAll : _simklMovies,
@@ -1432,7 +1419,7 @@ class _SearchScreenState extends State<SearchScreen>
         !_homeDisabled.contains('simkl:shows'))
       _CwRow(
         rowId: 'simkl:shows',
-        title: AppLocalizations.of(context).t('Simkl Continue Watching'),
+        title: 'Simkl Continue Watching',
         tag: 'Shows',
         kind: _CwKind.simkl,
         items: _simklSeries,
@@ -1450,7 +1437,7 @@ class _SearchScreenState extends State<SearchScreen>
         !_homeDisabled.contains('mdblist:movies'))
       _CwRow(
         rowId: 'mdblist:movies',
-        title: AppLocalizations.of(context).t('MDBList Continue Watching'),
+        title: 'MDBList Continue Watching',
         tag: _cwMergeMdblist ? null : 'Movies',
         kind: _CwKind.mdblist,
         items: _cwMergeMdblist ? _mdblistAll : _mdblistMovies,
@@ -1472,7 +1459,7 @@ class _SearchScreenState extends State<SearchScreen>
         !_homeDisabled.contains('mdblist:shows'))
       _CwRow(
         rowId: 'mdblist:shows',
-        title: AppLocalizations.of(context).t('MDBList Continue Watching'),
+        title: 'MDBList Continue Watching',
         tag: 'Shows',
         kind: _CwKind.mdblist,
         items: _mdblistSeries,
@@ -1494,7 +1481,7 @@ class _SearchScreenState extends State<SearchScreen>
     if (_iptvCwMovies.isNotEmpty && !_homeDisabled.contains('iptv:movies'))
       _CwRow(
         rowId: 'iptv:movies',
-        title: AppLocalizations.of(context).t('IPTV Continue Watching'),
+        title: 'IPTV Continue Watching',
         tag: 'Movies',
         kind: _CwKind.iptv,
         items: _iptvCwMovies,
@@ -1510,7 +1497,7 @@ class _SearchScreenState extends State<SearchScreen>
     if (_iptvCwSeries.isNotEmpty && !_homeDisabled.contains('iptv:series'))
       _CwRow(
         rowId: 'iptv:series',
-        title: AppLocalizations.of(context).t('IPTV Continue Watching'),
+        title: 'IPTV Continue Watching',
         tag: 'Series',
         kind: _CwKind.iptv,
         items: _iptvCwSeries,
@@ -1523,42 +1510,7 @@ class _SearchScreenState extends State<SearchScreen>
         onQuickPlay: _openIptvCwItem,
         onRemove: _removeIptvCwItem,
       ),
-  
-    if (_plexCwItems.isNotEmpty && !_homeDisabled.contains('plex:cw'))
-      _CwRow(
-        rowId: 'plex:cw',
-        title: AppLocalizations.of(context).t('Plex Continue Watching'),
-        tag: null,
-        kind: _CwKind.plex,
-        items: _plexCwItems,
-        nodes: _plexCwNodes,
-        progressOf: (m) => _cwCardProgress(_CwKind.plex, m),
-        episodeOf: (m) => _cwCardEpisode(_CwKind.plex, m),
-        remainingMinutesOf: (_) => null,
-        episodeArtworkOf: (_) => null,
-        onOpen: (m) { unawaited(_openPlexHomeItem(m)); },
-        onQuickPlay: (m) { unawaited(_playPlexHomeItem(m)); },
-        onRemove: (_) async {},
-        onSeeAll: null,
-      ),
-    if (_plexRecentItems.isNotEmpty && !_homeDisabled.contains('plex:recent'))
-      _CwRow(
-        rowId: 'plex:recent',
-        title: AppLocalizations.of(context).t('Plex Recently Added'),
-        tag: null,
-        kind: _CwKind.plex,
-        items: _plexRecentItems,
-        nodes: _plexRecentNodes,
-        progressOf: (_) => null,
-        episodeOf: (_) => null,
-        remainingMinutesOf: (_) => null,
-        episodeArtworkOf: (_) => null,
-        onOpen: (m) { unawaited(_openPlexHomeItem(m)); },
-        onQuickPlay: (m) { unawaited(_playPlexHomeItem(m)); },
-        onRemove: (_) async {},
-        onSeeAll: null,
-      ),
-];
+  ];
 
   /// Whether any Continue Watching row is currently on-screen (drives focus
   /// wiring between it and the first catalog row). Uses allocation-free field
@@ -2169,7 +2121,6 @@ class _SearchScreenState extends State<SearchScreen>
           _load(),
         _loadContinueWatching(),
         _loadTraktContinueWatching(),
-        _loadPlexHomeHubs(),
         // refreshBound:false — _load()'s bound-source scan (which now covers the
         // Simkl rows) runs after this on cold start, so a 2nd concurrent scan
         // here would be pure duplicate startup work on weak TV hardware.
@@ -2318,7 +2269,6 @@ class _SearchScreenState extends State<SearchScreen>
     // Search tab, so don't refetch them there.
     if (!widget.searchMode) {
       _loadTraktContinueWatching();
-      _loadPlexHomeHubs();
       _loadSimklContinueWatching();
       _loadMdblistContinueWatching();
     }
@@ -2740,8 +2690,6 @@ class _SearchScreenState extends State<SearchScreen>
       ..._simklSeriesNodes,
       ..._mdblistMovieNodes,
       ..._mdblistSeriesNodes,
-      ..._plexCwNodes,
-      ..._plexRecentNodes,
       ..._tvFavNodes,
       ..._stvFavNodes,
       ..._iptvFavNodes,
@@ -2762,8 +2710,6 @@ class _SearchScreenState extends State<SearchScreen>
     _simklSeriesNodes.clear();
     _mdblistMovieNodes.clear();
     _mdblistSeriesNodes.clear();
-    _plexCwNodes.clear();
-    _plexRecentNodes.clear();
     _tvFavNodes.clear();
     _stvFavNodes.clear();
     _iptvFavNodes.clear();
@@ -3274,9 +3220,9 @@ class _SearchScreenState extends State<SearchScreen>
       if (expired && keepRows) {
         ScaffoldMessenger.maybeOf(context)?.showSnackBar(
           SnackBar(
-            content: Text(AppLocalizations.of(context).t("Couldn't refresh Home. Showing previous rows.")),
+            content: const Text("Couldn't refresh Home. Showing previous rows."),
             action: SnackBarAction(
-              label: AppLocalizations.of(context).t('Retry'),
+              label: 'Retry',
               onPressed: () {
                 if (mounted) unawaited(_load(preserveVisibleRows: true));
               },
@@ -4526,7 +4472,8 @@ class _SearchScreenState extends State<SearchScreen>
     } on ResourceAuthorizationException {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text(AppLocalizations.of(context).t('IPTV is unavailable. Please retry or sign in.')),
+          const SnackBar(
+            content: Text('IPTV is unavailable. Please retry or sign in.'),
           ),
         );
       }
@@ -4554,8 +4501,8 @@ class _SearchScreenState extends State<SearchScreen>
     }
     if (origin == null) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text(AppLocalizations.of(context).t("This series' provider is no longer available")),
+        const SnackBar(
+          content: Text("This series' provider is no longer available"),
         ),
       );
       return;
@@ -4707,16 +4654,16 @@ class _SearchScreenState extends State<SearchScreen>
     final remove = await showDialog<bool>(
       context: context,
       builder: (dialogContext) => AlertDialog(
-        title: Text(AppLocalizations.of(context).t('Series unavailable')),
+        title: const Text('Series unavailable'),
         content: Text('$message\n\nRemove it from My Watchlist?'),
         actions: [
           TextButton(
             onPressed: () => Navigator.of(dialogContext).pop(false),
-            child: Text(AppLocalizations.of(context).t('Keep')),
+            child: const Text('Keep'),
           ),
           FilledButton(
             onPressed: () => Navigator.of(dialogContext).pop(true),
-            child: Text(AppLocalizations.of(context).t('Remove')),
+            child: const Text('Remove'),
           ),
         ],
       ),
@@ -4732,12 +4679,12 @@ class _SearchScreenState extends State<SearchScreen>
       ScaffoldMessenger.of(context)
         ..hideCurrentSnackBar()
         ..showSnackBar(
-          SnackBar(content: Text(AppLocalizations.of(context).t('Removed from My Watchlist'))),
+          const SnackBar(content: Text('Removed from My Watchlist')),
         );
     } catch (_) {
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(AppLocalizations.of(context).t("Couldn't update My Watchlist"))),
+        const SnackBar(content: Text("Couldn't update My Watchlist")),
       );
     }
   }
@@ -4748,7 +4695,7 @@ class _SearchScreenState extends State<SearchScreen>
       if (xtream == null) {
         await _offerRemoveUnavailableWatchlistItem(
           item,
-          message: AppLocalizations.of(context).t("This series' saved source is invalid."),
+          message: "This series' saved source is invalid.",
         );
         return;
       }
@@ -4765,7 +4712,7 @@ class _SearchScreenState extends State<SearchScreen>
       if (playlist == null) {
         await _offerRemoveUnavailableWatchlistItem(
           item,
-          message: AppLocalizations.of(context).t("This series' provider is no longer available."),
+          message: "This series' provider is no longer available.",
         );
         return;
       }
@@ -4909,31 +4856,31 @@ class _SearchScreenState extends State<SearchScreen>
       actions: [
         DebridActionItem(
           icon: Icons.play_circle_fill_rounded,
-          color: Color(0xFF10B981),
-          title: AppLocalizations.of(context).t('Play'),
-          subtitle: AppLocalizations.of(context).t('Start playback'),
+          color: const Color(0xFF10B981),
+          title: 'Play',
+          subtitle: 'Start playback',
           onTap: () => run('play'),
         ),
         if (isCollection)
           DebridActionItem(
             icon: Icons.shuffle_rounded,
-            color: Color(0xFFA78BFA),
-            title: AppLocalizations.of(context).t('Play Random'),
-            subtitle: AppLocalizations.of(context).t('Start a random file from this collection'),
+            color: const Color(0xFFA78BFA),
+            title: 'Play Random',
+            subtitle: 'Start a random file from this collection',
             pillLabel: 'Random',
             onTap: () => run('play_random'),
           ),
         DebridActionItem(
           icon: Icons.folder_open_rounded,
-          color: Color(0xFF818CF8),
-          title: AppLocalizations.of(context).t('View Files'),
-          subtitle: AppLocalizations.of(context).t('Browse folder contents'),
+          color: const Color(0xFF818CF8),
+          title: 'View Files',
+          subtitle: 'Browse folder contents',
           pillLabel: 'Files',
           onTap: () => run('view_files'),
         ),
         DebridActionItem(
           icon: isFavorited ? Icons.star_rounded : Icons.star_border_rounded,
-          color: Color(0xFFFFD700),
+          color: const Color(0xFFFFD700),
           title: isFavorited ? 'Remove from Favorites' : 'Add to Favorites',
           subtitle: isFavorited
               ? 'Remove from your favorites list'
@@ -4945,15 +4892,15 @@ class _SearchScreenState extends State<SearchScreen>
           DebridActionItem(
             icon: Icons.replay_rounded,
             color: const Color(0xFF60A5FA),
-            title: AppLocalizations.of(context).t('Clear Progress'),
-            subtitle: AppLocalizations.of(context).t('Reset playback progress'),
+            title: 'Clear Progress',
+            subtitle: 'Reset playback progress',
             onTap: () => run('clear_progress'),
           ),
         DebridActionItem(
           icon: Icons.delete_outline_rounded,
           color: app.home.danger,
-          title: AppLocalizations.of(context).t('Delete'),
-          subtitle: AppLocalizations.of(context).t('Remove from playlist'),
+          title: 'Delete',
+          subtitle: 'Remove from playlist',
           onTap: () => run('delete'),
         ),
       ],
@@ -5019,7 +4966,7 @@ class _SearchScreenState extends State<SearchScreen>
       if (!mounted) return;
       ScaffoldMessenger.of(
         context,
-      ).showSnackBar(SnackBar(content: Text(AppLocalizations.of(context).t('Failed to play: \$e').replaceAll('\$e', e.toString()))));
+      ).showSnackBar(SnackBar(content: Text('Failed to play: $e')));
     } finally {
       if (mounted) _playlistLaunching = false;
     }
@@ -5030,19 +4977,19 @@ class _SearchScreenState extends State<SearchScreen>
     final confirmed = await showDialog<bool>(
       context: context,
       builder: (dialogContext) => AlertDialog(
-        title: Text(AppLocalizations.of(context).t('Delete?')),
-        content: Text(AppLocalizations.of(context).t('Remove "\$title" from your playlist?').replaceAll('\$title', title)),
+        title: const Text('Delete?'),
+        content: Text('Remove "$title" from your playlist?'),
         actions: [
           TextButton(
             onPressed: () => Navigator.of(dialogContext).pop(false),
-            child: Text(AppLocalizations.of(context).t('Cancel')),
+            child: const Text('Cancel'),
           ),
           FilledButton(
             style: FilledButton.styleFrom(
               backgroundColor: AppThemeScope.of(dialogContext).home.danger,
             ),
             onPressed: () => Navigator.of(dialogContext).pop(true),
-            child: Text(AppLocalizations.of(context).t('Delete')),
+            child: const Text('Delete'),
           ),
         ],
       ),
@@ -5227,111 +5174,6 @@ class _SearchScreenState extends State<SearchScreen>
   /// Token-guarded against overlap; hides the rows when Trakt isn't connected.
   /// [refreshBound] runs a bound-source refresh at the end; pass false when the
   /// caller already refreshes bound sources itself (avoids a double pass).
-
-  Future<void> _loadPlexHomeHubs() async {
-    final token = ++_plexHomeToken;
-    _plexHomeLoading = true;
-    try {
-      final bundles = await MediaServerService.plexHomeHubs();
-      if (!mounted || token != _plexHomeToken) return;
-      final cwMetas = <StremioMeta>[];
-      final recentMetas = <StremioMeta>[];
-      final progress = <String, double>{};
-      final episode = <String, String>{};
-      final byMeta = <String, (String, MediaServerLibraryItem)>{};
-
-      StremioMeta toMeta(MediaServerLibraryItem item, String resourceId, MediaServerAccount? account) {
-        final imdb = (item.data['ProviderIds'] as Map?)?['imdb']?.toString();
-        final type = item.type == 'Movie' || item.type == 'Episode' && item.seriesId == null
-            ? 'movie'
-            : (item.type == 'Episode' || item.type == 'Series' ? 'series' : 'movie');
-        final id = 'plex:$resourceId:${item.id}';
-        String? poster;
-        if (account != null) {
-          poster = PlexClient.posterUrl(account, item);
-        }
-        if (item.type == 'Episode' && item.season != null && item.episode != null) {
-          episode[id] = 'S${item.season} · E${item.episode}';
-        }
-        if (item.progress > 0 && item.progress < 1) {
-          progress[id] = item.progress;
-        }
-        byMeta[id] = (resourceId, item);
-        return StremioMeta(
-          id: id,
-          imdbId: imdb,
-          type: type,
-          name: item.type == 'Episode' ? item.seriesName : item.name,
-          poster: poster,
-          year: item.year?.toString(),
-          description: item.overview.isEmpty ? null : item.overview,
-        );
-      }
-
-      for (final bundle in bundles) {
-        MediaServerAccount? account;
-        try {
-          final session = await MediaServerService.openLibrary(bundle.resourceId);
-          account = session.account;
-        } catch (_) {}
-        for (final item in bundle.continueWatching) {
-          cwMetas.add(toMeta(item, bundle.resourceId, account));
-        }
-        for (final item in bundle.recentlyAdded) {
-          recentMetas.add(toMeta(item, bundle.resourceId, account));
-        }
-      }
-
-      _syncCwNodes(_plexCwNodes, cwMetas.length, 'plexcw');
-      _syncCwNodes(_plexRecentNodes, recentMetas.length, 'plexra');
-      setState(() {
-        _plexHomeLoading = false;
-        _plexCwItems = cwMetas;
-        _plexRecentItems = recentMetas;
-        _plexProgress
-          ..clear()
-          ..addAll(progress);
-        _plexEpisode
-          ..clear()
-          ..addAll(episode);
-        _plexHomeByMeta
-          ..clear()
-          ..addAll(byMeta);
-      });
-    } catch (e) {
-      debugPrint('SearchScreen: Plex home hubs failed: $e');
-      if (mounted && token == _plexHomeToken) {
-        setState(() => _plexHomeLoading = false);
-      }
-    }
-  }
-
-  Future<void> _openPlexHomeItem(StremioMeta meta) async {
-    final binding = _plexHomeByMeta[meta.id];
-    if (binding == null) return;
-    final (resourceId, item) = binding;
-    try {
-      final session = await MediaServerService.openLibrary(resourceId);
-      if (!mounted) return;
-      await Navigator.of(context).push(
-        MaterialPageRoute<void>(
-          builder: (_) => MediaServerItemScreen(session: session, initial: item),
-        ),
-      );
-      if (mounted) unawaited(_loadPlexHomeHubs());
-    } catch (e) {
-      if (!mounted) return;
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(AppLocalizations.of(context).t('Could not open this Plex title'))),
-      );
-    }
-  }
-
-  Future<void> _playPlexHomeItem(StremioMeta meta) async {
-    // Same entry as open — the item screen loads sources and plays.
-    await _openPlexHomeItem(meta);
-  }
-
   Future<void> _loadTraktContinueWatching({bool refreshBound = true}) async {
     _lastTraktCwRefreshAttemptAt = DateTime.now();
     final token = ++_traktCwToken;
@@ -5488,7 +5330,7 @@ class _SearchScreenState extends State<SearchScreen>
   /// the rest of the board. Local Continue Watching renders above them; Simkl,
   /// IPTV, favourites and catalog rows below.
   void _maybeAnnounceTraktRows() => _maybeAnnounceCwRows(
-    label: AppLocalizations.of(context).t('Trakt'),
+    label: 'Trakt',
     // Same merge-aware gates as _cwRows / _cwVisible, so a notice fires
     // exactly when a row actually rendered.
     visible:
@@ -5513,7 +5355,7 @@ class _SearchScreenState extends State<SearchScreen>
   /// reserved skeleton slot, so they push the board when they arrive). Local
   /// Continue Watching and the Trakt rows render above them, IPTV below.
   void _maybeAnnounceSimklRows() => _maybeAnnounceCwRows(
-    label: AppLocalizations.of(context).t('Simkl'),
+    label: 'Simkl',
     visible:
         ((_cwMergeSimkl ? _simklAll : _simklMovies).isNotEmpty &&
             !_homeDisabled.contains('simkl:movies')) ||
@@ -5536,7 +5378,7 @@ class _SearchScreenState extends State<SearchScreen>
   );
 
   void _maybeAnnounceMdblistRows() => _maybeAnnounceCwRows(
-    label: AppLocalizations.of(context).t('MDBList'),
+    label: 'MDBList',
     visible:
         ((_cwMergeMdblist ? _mdblistAll : _mdblistMovies).isNotEmpty &&
             !_homeDisabled.contains('mdblist:movies')) ||
@@ -5833,12 +5675,6 @@ class _SearchScreenState extends State<SearchScreen>
                   'history.'
             : 'Clears this item from your IPTV watch history and forgets its '
                   'position.';
-      case _CwKind.plex:
-        playDescription = isSeries
-            ? 'Open this title from your Plex library.'
-            : 'Play this title from your Plex library.';
-        removeDescription =
-            'Plex Continue Watching is managed on the Plex server.';
     }
 
     final episode = row.episodeOf(item);
@@ -6088,7 +5924,7 @@ class _SearchScreenState extends State<SearchScreen>
   /// Continue Watching grid, seeded with the paused-order list + progress.
   void _openSimklCwSeeAll([String initialCategory = 'all']) {
     _pushCwSeeAll(
-      title: AppLocalizations.of(context).t('Simkl Continue Watching'),
+      title: 'Simkl Continue Watching',
       initialCategory: initialCategory,
       items: _simklAll,
       progressOf: (m) => _cwCardProgress(_CwKind.simkl, m),
@@ -6289,7 +6125,7 @@ class _SearchScreenState extends State<SearchScreen>
 
   void _openMdblistCwSeeAll([String initialCategory = 'all']) {
     _pushCwSeeAll(
-      title: AppLocalizations.of(context).t('MDBList Continue Watching'),
+      title: 'MDBList Continue Watching',
       initialCategory: initialCategory,
       items: _mdblistAll,
       progressOf: (m) => _cwCardProgress(_CwKind.mdblist, m),
@@ -6385,6 +6221,9 @@ class _SearchScreenState extends State<SearchScreen>
             _sectionRowId(_sections[i]): _rowCol[i],
       };
       _rowNodes..clear()..addAll(nextNodes);
+      _homeFocusBridge.afterAsyncCommit(
+        focusDefaultEntryIfAllowed: () {},
+      );
       _rowCol
         ..clear()
         ..addAll({
@@ -6658,6 +6497,7 @@ class _SearchScreenState extends State<SearchScreen>
         // (Guarded by boardFocused so our own just-applied requestFocus, or a
         // transient null primaryFocus between loads, can't false-trigger this.)
         _autoFocusSettled = true;
+        _homeFocusBridge.markUserMoved();
         return;
       }
 
@@ -7561,7 +7401,7 @@ class _SearchScreenState extends State<SearchScreen>
                 art: channel.logoUrl,
                 fit: BoxFit.contain,
                 title: channel.name,
-                subtitle: AppLocalizations.of(context).t('IPTV · FAVORITES'),
+                subtitle: 'IPTV · FAVORITES',
               ),
               liveChannel: channel,
             ),
@@ -7667,7 +7507,7 @@ class _SearchScreenState extends State<SearchScreen>
               _CanvasFavFocus(
                 art: posterUrl,
                 title: title,
-                subtitle: AppLocalizations.of(context).t('PLAYLIST · SAVED'),
+                subtitle: 'PLAYLIST · SAVED',
               ),
             ),
           ),
@@ -8080,7 +7920,7 @@ class _SearchScreenState extends State<SearchScreen>
             SpotlightCard(
               image: ch.logoUrl,
               title: ch.name,
-              subtitle: AppLocalizations.of(context).t('LIVE'),
+              subtitle: 'LIVE',
               shape: _homeLandscapeCards
                   ? SpotlightCardShape.wideChannel
                   : SpotlightCardShape.channel,
@@ -8130,7 +7970,7 @@ class _SearchScreenState extends State<SearchScreen>
       case _FavKind.playlist:
         return SpotlightShelf(
           id: id,
-          title: AppLocalizations.of(context).t('Playlists'),
+          title: 'Playlists',
           nodes: nodes,
           items: [
             for (final item in _playlistItems)
@@ -8145,14 +7985,14 @@ class _SearchScreenState extends State<SearchScreen>
       case _FavKind.iptv:
         return SpotlightShelf(
           id: id,
-          title: AppLocalizations.of(context).t('IPTV Favourites'),
+          title: 'IPTV Favourites',
           nodes: nodes,
           items: [
             for (final ch in _iptvFavChannels)
               SpotlightCard(
                 image: ch.logoUrl,
                 title: ch.name,
-                subtitle: AppLocalizations.of(context).t('LIVE'),
+                subtitle: 'LIVE',
                 shape: _homeLandscapeCards
                     ? SpotlightCardShape.wideChannel
                     : SpotlightCardShape.channel,
@@ -8169,7 +8009,7 @@ class _SearchScreenState extends State<SearchScreen>
       case _FavKind.debrify:
         return SpotlightShelf(
           id: id,
-          title: AppLocalizations.of(context).t('Debrify TV'),
+          title: 'Debrify TV',
           nodes: nodes,
           items: [
             for (final ch in _tvFavChannels)
@@ -8186,7 +8026,7 @@ class _SearchScreenState extends State<SearchScreen>
       case _FavKind.stremio:
         return SpotlightShelf(
           id: id,
-          title: AppLocalizations.of(context).t('Stremio TV'),
+          title: 'Stremio TV',
           nodes: nodes,
           items: [
             for (final ch in _stvFavChannels)
@@ -8196,7 +8036,7 @@ class _SearchScreenState extends State<SearchScreen>
                     ? _stvNowPlaying(ch)?.item.poster
                     : null,
                 title: ch.displayName,
-                subtitle: AppLocalizations.of(context).t('STREMIO TV'),
+                subtitle: 'STREMIO TV',
                 // The now-playing TITLE's rating — the card wears title art,
                 // so the rating follows the title, not the channel.
                 rating: _stvNowPlaying(ch)?.item.imdbRating,
@@ -10106,7 +9946,8 @@ class _SearchScreenState extends State<SearchScreen>
                                   // line" is not a way out of it. The hold
                                   // gesture is the way out, and a gesture
                                   // nothing announces may as well not exist.
-                                  Text(AppLocalizations.of(context).t('HOLD ▲▼ TO CHANGE ROW'),
+                                  Text(
+                                    'HOLD ▲▼ TO CHANGE ROW',
                                     maxLines: 1,
                                     overflow: TextOverflow.ellipsis,
                                     style: TextStyle(
@@ -11078,7 +10919,8 @@ class _SearchScreenState extends State<SearchScreen>
           crossAxisAlignment: CrossAxisAlignment.baseline,
           textBaseline: TextBaseline.alphabetic,
           children: [
-            Text(AppLocalizations.of(context).t('Tonight'),
+            Text(
+              'Tonight',
               style: TextStyle(
                 color: app.core.tx,
                 fontSize: _kTonightTitleSize,
@@ -11956,9 +11798,33 @@ class _SearchScreenState extends State<SearchScreen>
     // and no focus event re-fires it on the way back — re-run the dead check
     // now that the board is the top route again.
     _onGlobalFocusChange();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (!mounted) return;
+      _restoreHomeFocusFromMemory();
+    });
     if (!_heroTrailerActive || !_heroTrailerEnabled) return;
     final item = _heroItem.value;
     if (item != null) _scheduleHeroTrailer(item);
+  }
+
+  void _restoreHomeFocusFromMemory() {
+    final rowIds = <String>[
+      for (final section in _sections) _sectionRowId(section),
+    ];
+    final itemIds = <List<String>>[
+      for (final section in _sections)
+        [
+          for (final item in section.items)
+            HomeFocusBoardBridge.itemFocusId(type: item.type, id: item.id),
+        ],
+    ];
+    _homeFocusBridge.restore(
+      sessionOwnerKey: _homeFocusSessionKey,
+      rowIds: rowIds,
+      itemIds: itemIds,
+      rowNodes: _rowNodes,
+      focusDefaultEntry: () {},
+    );
   }
 
   /// Content playback launched (see the listener registration in
@@ -12204,7 +12070,7 @@ class _SearchScreenState extends State<SearchScreen>
         TextFieldSuggestion(
           id: 'search-query',
           title: 'Search for “$query”',
-          subtitle: AppLocalizations.of(context).t('Search catalogs'),
+          subtitle: 'Search catalogs',
           onSelected: () => _onQuerySubmitted(query),
         ),
     ];
@@ -12980,8 +12846,8 @@ class _SearchScreenState extends State<SearchScreen>
               },
             ),
             ListTile(
-              leading: Icon(Icons.copy_rounded, color: Color(0xFFF59E0B)),
-              title: Text(AppLocalizations.of(context).t('Copy link')),
+              leading: const Icon(Icons.copy_rounded, color: Color(0xFFF59E0B)),
+              title: const Text('Copy link'),
               onTap: () async {
                 DialogTapGuard.markKeyAction();
                 Navigator.of(sheetCtx).pop();
@@ -12991,11 +12857,11 @@ class _SearchScreenState extends State<SearchScreen>
             if (ProfilePolicyGuard.allowsSync(ProfileFeature.downloads) &&
                 TorrentPlaybackService.supportsDirectStreamDownload(t))
               ListTile(
-                leading: Icon(
+                leading: const Icon(
                   Icons.download_rounded,
                   color: Color(0xFF60A5FA),
                 ),
-                title: Text(AppLocalizations.of(context).t('Download to device')),
+                title: const Text('Download to device'),
                 onTap: () {
                   DialogTapGuard.markKeyAction();
                   Navigator.of(sheetCtx).pop();
@@ -13292,25 +13158,25 @@ class _SearchScreenState extends State<SearchScreen>
       margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
-        color: Color(0xFF1E3A8A).withValues(alpha: 0.2),
+        color: const Color(0xFF1E3A8A).withValues(alpha: 0.2),
         borderRadius: app.shape.br(8),
         border: Border.all(
-          color: Color(0xFF38BDF8).withValues(alpha: 0.3),
+          color: const Color(0xFF38BDF8).withValues(alpha: 0.3),
         ),
       ),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Icon(
+          const Icon(
             Icons.info_outline_rounded,
             color: Color(0xFF38BDF8),
             size: 18,
           ),
-          SizedBox(width: 8),
+          const SizedBox(width: 8),
           Expanded(
-            child: Text(AppLocalizations.of(context).t(
-                'Showing Torbox cached results only. Disable "Check Torbox cache during searches" in Torbox settings to see every result.',
-              ),
+            child: Text(
+              'Showing Torbox cached results only. Disable "Check Torbox cache '
+              'during searches" in Torbox settings to see every result.',
               style: TextStyle(
                 fontSize: 12,
                 color: app.fade(app.core.tx, 0.85),
@@ -13385,7 +13251,7 @@ class _SearchScreenState extends State<SearchScreen>
                             color: scheme.onSurface,
                           ),
                         ),
-                        Spacer(),
+                        const Spacer(),
                         TextButton(
                           onPressed: () => apply(() {
                             if (allOn) {
@@ -13432,7 +13298,7 @@ class _SearchScreenState extends State<SearchScreen>
             }
 
             return AlertDialog(
-              title: Text(AppLocalizations.of(context).t('Filter by source')),
+              title: const Text('Filter by source'),
               content: SizedBox(
                 width: double.maxFinite,
                 child: SingleChildScrollView(
@@ -13448,7 +13314,7 @@ class _SearchScreenState extends State<SearchScreen>
               actions: [
                 TextButton(
                   onPressed: () => Navigator.of(dialogCtx).pop(),
-                  child: Text(AppLocalizations.of(context).t('Done')),
+                  child: const Text('Done'),
                 ),
               ],
             );
@@ -13495,7 +13361,7 @@ class _SearchScreenState extends State<SearchScreen>
             final dirEnabled = _kwSort != 'relevance';
             return AlertDialog(
               backgroundColor: scheme.surfaceContainerHigh,
-              title: Text(AppLocalizations.of(context).t('Sort by')),
+              title: const Text('Sort by'),
               content: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
@@ -13504,7 +13370,7 @@ class _SearchScreenState extends State<SearchScreen>
                   tile('size', 'Size'),
                   tile('date', 'Date added'),
                   tile('name', 'Name'),
-                  Divider(height: 12),
+                  const Divider(height: 12),
                   // Direction toggle — disabled for 'relevance' (engine order).
                   Opacity(
                     opacity: dirEnabled ? 1 : 0.4,
@@ -13512,18 +13378,18 @@ class _SearchScreenState extends State<SearchScreen>
                       padding: const EdgeInsets.symmetric(horizontal: 16),
                       child: Row(
                         children: [
-                          Expanded(child: Text(AppLocalizations.of(context).t('Direction'))),
+                          const Expanded(child: Text('Direction')),
                           ToggleButtons(
                             isSelected: [!_kwSortAsc, _kwSortAsc],
                             onPressed: dirEnabled
                                 ? (i) => applyDir(i == 1)
                                 : null,
                             borderRadius: BorderRadius.circular(8),
-                            constraints: BoxConstraints(
+                            constraints: const BoxConstraints(
                               minHeight: 34,
                               minWidth: 46,
                             ),
-                            children: [
+                            children: const [
                               Icon(Icons.arrow_downward_rounded, size: 18),
                               Icon(Icons.arrow_upward_rounded, size: 18),
                             ],
@@ -13537,7 +13403,7 @@ class _SearchScreenState extends State<SearchScreen>
               actions: [
                 TextButton(
                   onPressed: () => Navigator.of(dialogCtx).pop(),
-                  child: Text(AppLocalizations.of(context).t('Done')),
+                  child: const Text('Done'),
                 ),
               ],
             );
@@ -13618,6 +13484,31 @@ class _SearchScreenState extends State<SearchScreen>
     return _stremio.addonForCustomProgress(item.imdbId!);
   }
 
+
+  String get _homeFocusSessionKey {
+    try {
+      final o = ProfileSessionMemory.captureOwner();
+      final id = o.scope?.profileId ?? o.runtimeMode?.name ?? 'legacy';
+      return HomeFocusBoardBridge.sessionKey(
+        profileId: id,
+        lifecycleRevision: o.lifecycleRevision,
+      );
+    } catch (_) {
+      return 'legacy:0';
+    }
+  }
+
+  String _rowIdForOpenItem(StremioMeta item) {
+    for (final section in _sections) {
+      for (final it in section.items) {
+        if (it.id == item.id && it.type == item.type) {
+          return _sectionRowId(section);
+        }
+      }
+    }
+    return 'unknown';
+  }
+
   void _openItem(
     StremioMeta item,
     StremioAddon addon, {
@@ -13634,6 +13525,13 @@ class _SearchScreenState extends State<SearchScreen>
     // cross-tab opener (the Calendar) return the user to where they came from.
     int? returnToTabOnClose,
   }) async {
+    // TV focus memory (S1b): persist board identity before leaving Home.
+    _homeFocusBridge.saveBeforeLeave(
+      sessionOwnerKey: _homeFocusSessionKey,
+      rowId: _rowIdForOpenItem(item),
+      itemType: item.type,
+      itemId: item.id,
+    );
     try {
       if (MediaIdentity.isNative(item.id) && item.imdbId == null &&
           (item.sourceAddon == null || item.sourceAddon!.baseUrl.isEmpty)) {
@@ -13652,11 +13550,11 @@ class _SearchScreenState extends State<SearchScreen>
         context: context,
         builder: (dialogContext) => AlertDialog(
           title: Text(item.name),
-          content: Text(AppLocalizations.of(context).t('The addon configuration for this series is unavailable. Your local history is still saved.')),
+          content: const Text('The addon configuration for this series is unavailable. Your local history is still saved.'),
           actions: [
-            TextButton(onPressed: () => Navigator.pop(dialogContext, false), child: Text(AppLocalizations.of(context).t('Close'))),
+            TextButton(onPressed: () => Navigator.pop(dialogContext, false), child: const Text('Close')),
             if (_cwIds.contains(item.imdbId))
-              TextButton(onPressed: () => Navigator.pop(dialogContext, true), child: Text(AppLocalizations.of(context).t('Remove from Continue Watching'))),
+              TextButton(onPressed: () => Navigator.pop(dialogContext, true), child: const Text('Remove from Continue Watching')),
           ],
         ),
       );
@@ -13708,7 +13606,7 @@ class _SearchScreenState extends State<SearchScreen>
           action: TraktItemMenuAction.removeFromPlayback,
           icon: Icons.delete_sweep_rounded,
           color: app.home.danger,
-          label: AppLocalizations.of(context).t('Remove from Continue Watching'),
+          label: 'Remove from Continue Watching',
           caption: 'Remove',
         ),
       if (inTraktCw)
@@ -13716,7 +13614,7 @@ class _SearchScreenState extends State<SearchScreen>
           action: TraktItemMenuAction.removeFromTraktPlayback,
           icon: Icons.remove_circle_outline_rounded,
           color: app.home.danger,
-          label: AppLocalizations.of(context).t('Remove from Trakt Continue Watching'),
+          label: 'Remove from Trakt Continue Watching',
           caption: 'Remove',
           isTrakt: true,
         ),
@@ -14221,9 +14119,10 @@ class _SearchScreenState extends State<SearchScreen>
                       ),
                       if (!isMovie) ...[
                         const SizedBox(height: 4),
-                        Align(
+                        const Align(
                           alignment: Alignment.centerLeft,
-                          child: Text(AppLocalizations.of(context).t('First match wins — reorder by priority'),
+                          child: Text(
+                            'First match wins — reorder by priority',
                             style: TextStyle(
                               color: Colors.white38,
                               fontSize: 11,
@@ -14340,7 +14239,8 @@ class _SearchScreenState extends State<SearchScreen>
                       const SizedBox(height: 8),
                       TextButton(
                         onPressed: () => Navigator.of(dialogContext).pop(),
-                        child: Text(AppLocalizations.of(context).t('Close'),
+                        child: const Text(
+                          'Close',
                           style: TextStyle(color: Colors.white54),
                         ),
                       ),
@@ -14544,7 +14444,7 @@ class _SearchScreenState extends State<SearchScreen>
 
     return Container(
       key: key,
-      margin: EdgeInsets.only(bottom: 6),
+      margin: const EdgeInsets.only(bottom: 6),
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
       decoration: BoxDecoration(
         color: app.fade(app.core.tx, 0.05),
@@ -16478,7 +16378,7 @@ class _SearchScreenState extends State<SearchScreen>
               Align(
                 alignment: Alignment.centerRight,
                 child: Padding(
-                  padding: EdgeInsets.only(right: 8, top: 4),
+                  padding: const EdgeInsets.only(right: 8, top: 4),
                   child: IconButton(
                     icon: const Icon(Icons.close_rounded),
                     tooltip: 'Hide search',
@@ -16911,7 +16811,8 @@ class _SearchScreenState extends State<SearchScreen>
                 color: app.fade(app.core.tx, 0.22),
               ),
               const SizedBox(height: 16),
-              Text(AppLocalizations.of(context).t('Search MDBList lists'),
+              Text(
+                'Search MDBList lists',
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   color: app.fade(app.core.tx, 0.8),
@@ -16920,7 +16821,8 @@ class _SearchScreenState extends State<SearchScreen>
                 ),
               ),
               const SizedBox(height: 8),
-              Text(AppLocalizations.of(context).t('Find public lists by name, then open or save them in MDBList.'),
+              Text(
+                'Find public lists by name, then open or save them in MDBList.',
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   color: app.fade(app.core.tx, 0.5),
@@ -16960,7 +16862,7 @@ class _SearchScreenState extends State<SearchScreen>
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         _railHeader(
-          title: AppLocalizations.of(context).t('MDBList Lists'),
+          title: 'MDBList Lists',
           tag: 'LISTS',
           // Mobile/laptop get a "See All" link (auto-hidden on TV, where the
           // rail is DPAD-scrollable) → full grid of every matched list.
@@ -17068,7 +16970,8 @@ class _SearchScreenState extends State<SearchScreen>
               color: app.fade(app.core.tx, 0.22),
             ),
             const SizedBox(height: 16),
-            Text(AppLocalizations.of(context).t('Search movies & shows'),
+            Text(
+              'Search movies & shows',
               textAlign: TextAlign.center,
               style: TextStyle(
                 color: app.fade(app.core.tx, 0.8),
@@ -17079,7 +16982,9 @@ class _SearchScreenState extends State<SearchScreen>
             const SizedBox(height: 8),
             // Only reached in Catalog mode — _buildBody routes Keyword mode to
             // _buildKeyword (which has its own empty state) before it gets here.
-            Text(AppLocalizations.of(context).t('Type a title to search your catalogs, or switch to Keyword to search torrents directly.'),
+            Text(
+              'Type a title to search your catalogs, or switch to Keyword to '
+              'search torrents directly.',
               textAlign: TextAlign.center,
               style: TextStyle(
                 color: app.fade(app.core.tx, 0.5),
@@ -17158,7 +17063,8 @@ class _SearchScreenState extends State<SearchScreen>
                       color: scheme.onSurfaceVariant,
                     ),
                     const SizedBox(width: 8),
-                    Text(AppLocalizations.of(context).t('Sources'),
+                    Text(
+                      'Sources',
                       style: TextStyle(
                         fontSize: 13,
                         fontWeight: FontWeight.w600,
@@ -17433,7 +17339,7 @@ class _SearchScreenState extends State<SearchScreen>
         providers: [
           CinemaSourceProvider(
             id: null,
-            label: AppLocalizations.of(context).t('All sources'),
+            label: 'All sources',
             count: _kwFullSet.length,
           ),
           for (final source in _kwSourceList)
@@ -17551,7 +17457,8 @@ class _SearchScreenState extends State<SearchScreen>
                       color: scheme.onSurfaceVariant,
                     ),
                     const SizedBox(width: 8),
-                    Text(AppLocalizations.of(context).t('Sources'),
+                    Text(
+                      'Sources',
                       style: TextStyle(
                         fontSize: 13,
                         fontWeight: FontWeight.w600,
@@ -17813,7 +17720,8 @@ class _SearchScreenState extends State<SearchScreen>
             child: CircularProgressIndicator(strokeWidth: 1.6),
           ),
           const SizedBox(width: 8),
-          Text(AppLocalizations.of(context).t('Still searching sources…'),
+          Text(
+            'Still searching sources…',
             style: TextStyle(
               fontSize: 11.5,
               color: app.fade(app.core.tx, 0.55),
@@ -18289,7 +18197,8 @@ class _SearchScreenState extends State<SearchScreen>
                     size: 16,
                   ),
                   const SizedBox(width: 4),
-                  Text(AppLocalizations.of(context).t('Add'),
+                  Text(
+                    'Add',
                     style: TextStyle(
                       color: count > 0
                           ? app.inkOn(app.home.chromeAccent)
@@ -18411,7 +18320,6 @@ class _SearchScreenState extends State<SearchScreen>
         landing == _discTmdb ||
         landing == _discJellyfin ||
         landing == _discEmby ||
-        landing == _discPlex ||
         (kMdblistEnabled && landing == _discMdblist);
 
     // Search→MDBList handoff is a stronger, explicit navigation intent. For
@@ -18491,8 +18399,7 @@ class _SearchScreenState extends State<SearchScreen>
     // two-pane layout.
     if (!widget.isTelevision ||
         _discSource == _discJellyfin ||
-        _discSource == _discEmby ||
-        _discSource == _discPlex) {
+        _discSource == _discEmby) {
       return panel;
     }
     return LayoutBuilder(
@@ -18901,7 +18808,7 @@ class _SearchScreenState extends State<SearchScreen>
     }
     _discFocused.value = null;
     _discShown.value = null;
-    if (source == _discJellyfin || source == _discEmby || source == _discPlex) {
+    if (source == _discJellyfin || source == _discEmby) {
       _discTrailerStreams.value = null;
       _discTrailerMeta.value = null;
       _discTrailerLoading.value = false;
@@ -18925,7 +18832,7 @@ class _SearchScreenState extends State<SearchScreen>
 
   Widget _buildDiscoverPanel() {
     final source = StremioDropdown<String>(
-      label: AppLocalizations.of(context).t('Source'),
+      label: 'Source',
       value: _discSource,
       isTelevision: widget.isTelevision,
       // TV: a quiet violet segment leading the filter line — the row's identity
@@ -18939,7 +18846,6 @@ class _SearchScreenState extends State<SearchScreen>
         const StremioDropdownOption(_discSimkl, 'Simkl'),
         const StremioDropdownOption(_discJellyfin, 'Jellyfin'),
         const StremioDropdownOption(_discEmby, 'Emby'),
-        const StremioDropdownOption(_discPlex, 'Plex'),
         if (_metadataFeaturePolicy?.features.contains(MetadataFeature.discovery) ==
             true)
           const StremioDropdownOption(_discTmdb, 'TMDB'),
@@ -18958,20 +18864,12 @@ class _SearchScreenState extends State<SearchScreen>
       onSelected: _selectDiscoverSource,
     );
 
-    if (_discSource == _discJellyfin ||
-        _discSource == _discEmby ||
-        _discSource == _discPlex) {
-      final MediaServerKind kind;
-      if (_discSource == _discJellyfin) {
-        kind = MediaServerKind.jellyfin;
-      } else if (_discSource == _discEmby) {
-        kind = MediaServerKind.emby;
-      } else {
-        kind = MediaServerKind.plex;
-      }
+    if (_discSource == _discJellyfin || _discSource == _discEmby) {
       return MediaServerLibraryPanel(
         key: ValueKey(_discSource),
-        kind: kind,
+        kind: _discSource == _discJellyfin
+            ? MediaServerKind.jellyfin
+            : MediaServerKind.emby,
         leading: source,
         isTelevision: widget.isTelevision,
       );
@@ -18980,7 +18878,7 @@ class _SearchScreenState extends State<SearchScreen>
     if (_discSource == _discTmdb && _metadataFeaturePolicy != null) {
       return MetadataBrowsePage(
         key: const ValueKey('disc_tmdb'),
-        title: AppLocalizations.of(context).t('TMDB'),
+        title: 'TMDB',
         kind: 'discover',
         preferences: _metadataFeaturePolicy!,
         onOpen: (item) => _openItem(
@@ -19089,8 +18987,8 @@ class _SearchScreenState extends State<SearchScreen>
 
     // Default: Continue Watching.
     return ContinueWatchingSeeAllScreen(
-      key: ValueKey('disc_cw'),
-      title: AppLocalizations.of(context).t('Continue Watching'),
+      key: const ValueKey('disc_cw'),
+      title: 'Continue Watching',
       items: _cwAll,
       progressOf: (m) => _cwCardProgress(_CwKind.local, m),
       onOpen: _openContinueItem,
@@ -19234,7 +19132,7 @@ class _SearchScreenState extends State<SearchScreen>
                       focusNode: _catalogContinueNode,
                       autofocus: _sections.every((s) => s.items.isEmpty),
                       busy: busy,
-                      label: AppLocalizations.of(context).t('Continue paused rows'),
+                      label: 'Continue paused rows',
                       onPressed: () =>
                           _continueHomeCatalogs(moreCatalogs: false),
                     ),
@@ -19245,7 +19143,7 @@ class _SearchScreenState extends State<SearchScreen>
                           pending.isEmpty &&
                           _sections.every((s) => s.items.isEmpty),
                       busy: busy,
-                      label: AppLocalizations.of(context).t('Load more catalogs'),
+                      label: 'Load more catalogs',
                       onPressed: () =>
                           _continueHomeCatalogs(moreCatalogs: true),
                     ),
@@ -19762,7 +19660,8 @@ class _SearchScreenState extends State<SearchScreen>
               );
             }
 
-            final kicker = Text(AppLocalizations.of(context).t('NOW PLAYING  ·  OFFICIAL TRAILER'),
+            final kicker = Text(
+              'NOW PLAYING  ·  OFFICIAL TRAILER',
               style: const TextStyle(
                 fontSize: 11.5,
                 fontWeight: FontWeight.w800,
@@ -20199,7 +20098,6 @@ class _SearchScreenState extends State<SearchScreen>
       return;
     }
     unawaited(_loadTraktContinueWatching());
-    unawaited(_loadPlexHomeHubs());
   }
 
   /// Refresh state that a See-All screen may have changed (Continue Watching
@@ -20248,7 +20146,7 @@ class _SearchScreenState extends State<SearchScreen>
   /// titles drop out and progress stays fresh.
   void _openContinueWatchingSeeAll([String initialCategory = 'all']) {
     _pushCwSeeAll(
-      title: AppLocalizations.of(context).t('Continue Watching'),
+      title: 'Continue Watching',
       initialCategory: initialCategory,
       items: _cwAll,
       progressOf: (m) => _cwCardProgress(_CwKind.local, m),
@@ -20554,7 +20452,7 @@ class _SearchScreenState extends State<SearchScreen>
 
   /// Bottom-of-board loading indicator shown while more catalog rows stream in.
   Widget _buildBoardFooter() {
-    return Padding(
+    return const Padding(
       padding: EdgeInsets.symmetric(vertical: 28),
       child: Center(
         child: SizedBox(
@@ -20657,7 +20555,7 @@ class _SearchScreenState extends State<SearchScreen>
     final rowH = cellH + 14;
     return _TraktSkeletonRow(
       header: _railHeader(
-        title: AppLocalizations.of(context).t('Trakt Continue Watching'),
+        title: 'Trakt Continue Watching',
         tag: idx == 0 ? (_cwMergeTrakt ? null : 'Movies') : 'Shows',
       ),
       posterW: posterW,
@@ -20796,7 +20694,7 @@ class _SearchScreenState extends State<SearchScreen>
   Widget _buildTvFavRow(String homeRowId) {
     final tv = widget.isTelevision;
     return _buildFavRowShell(
-      title: AppLocalizations.of(context).t('Debrify TV'),
+      title: 'Debrify TV',
       tags: const [
         _CategoryTag('Channels'),
         // Make it explicit this row is the user's STARRED channels, not every
@@ -20838,7 +20736,7 @@ class _SearchScreenState extends State<SearchScreen>
   Widget _buildStremioTvFavRow(String homeRowId) {
     final tv = widget.isTelevision;
     return _buildFavRowShell(
-      title: AppLocalizations.of(context).t('Stremio TV'),
+      title: 'Stremio TV',
       tags: const [
         _CategoryTag('Channels'),
         _CategoryTag('Favorites', icon: Icons.star_rounded),
@@ -20877,7 +20775,7 @@ class _SearchScreenState extends State<SearchScreen>
   Widget _buildIptvFavRow(String homeRowId) {
     final tv = widget.isTelevision;
     return _buildFavRowShell(
-      title: AppLocalizations.of(context).t('IPTV'),
+      title: 'IPTV',
       tags: const [
         _CategoryTag('Live'),
         _CategoryTag('Favorites', icon: Icons.star_rounded),
@@ -20959,7 +20857,7 @@ class _SearchScreenState extends State<SearchScreen>
   Widget _buildPlaylistFavRow(String homeRowId) {
     final tv = widget.isTelevision;
     return _buildFavRowShell(
-      title: AppLocalizations.of(context).t('Playlist'),
+      title: 'Playlist',
       tags: const [_CategoryTag('Saved')],
       itemCount: _playlistItems.length,
       cellBuilder: (col, posterW, cellH) {
@@ -20996,12 +20894,12 @@ class _SearchScreenState extends State<SearchScreen>
     final scheme = Theme.of(context).colorScheme;
     return Center(
       child: Padding(
-        padding: EdgeInsets.all(32),
+        padding: const EdgeInsets.all(32),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
             Icon(icon, size: 48, color: scheme.onSurfaceVariant),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             Text(
               title,
               style: TextStyle(
@@ -21010,19 +20908,19 @@ class _SearchScreenState extends State<SearchScreen>
                 color: scheme.onSurface,
               ),
             ),
-            SizedBox(height: 8),
+            const SizedBox(height: 8),
             Text(
               body,
               textAlign: TextAlign.center,
               style: TextStyle(fontSize: 13.5, color: scheme.onSurfaceVariant),
             ),
             if (onRetry != null) ...[
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               FilledButton.icon(
                 autofocus: widget.isTelevision,
                 onPressed: onRetry,
-                icon: Icon(Icons.refresh),
-                label: Text(AppLocalizations.of(context).t('Try again')),
+                icon: const Icon(Icons.refresh),
+                label: const Text('Try again'),
               ),
             ],
           ],

@@ -1,0 +1,168 @@
+// S1a skeleton — copy into lib/services/home_focus_memory.dart
+// (and optionally split restore helpers to lib/widgets/home/home_focus_restore.dart)
+// Align sessionOwnerKey/Object with HomeReturnCache / ProfileSessionOwner in the real tree.
+
+import 'package:flutter/foundation.dart';
+import 'package:flutter/widgets.dart';
+
+@immutable
+class HomeFocusMemory {
+  const HomeFocusMemory({
+    required this.sessionOwnerKey,
+    required this.rowId,
+    required this.itemId,
+    this.scrollOffset,
+  });
+
+  final String sessionOwnerKey;
+  final String rowId;
+  final String itemId;
+  final double? scrollOffset;
+
+  @override
+  bool operator ==(Object other) =>
+      other is HomeFocusMemory &&
+      other.sessionOwnerKey == sessionOwnerKey &&
+      other.rowId == rowId &&
+      other.itemId == itemId &&
+      other.scrollOffset == scrollOffset;
+
+  @override
+  int get hashCode => Object.hash(sessionOwnerKey, rowId, itemId, scrollOffset);
+}
+
+class HomeFocusStore {
+  HomeFocusStore._();
+  static final HomeFocusStore instance = HomeFocusStore._();
+
+  HomeFocusMemory? _memory;
+
+  @visibleForTesting
+  static HomeFocusStore createForTest() => HomeFocusStore._();
+
+  void save(HomeFocusMemory memory) => _memory = memory;
+
+  HomeFocusMemory? take(String sessionOwnerKey) {
+    final m = _memory;
+    if (m == null || m.sessionOwnerKey != sessionOwnerKey) return null;
+    _memory = null;
+    return m;
+  }
+
+  HomeFocusMemory? peek() => _memory;
+
+  void clear() => _memory = null;
+
+  void clearIfOwner(String sessionOwnerKey) {
+    if (_memory?.sessionOwnerKey == sessionOwnerKey) clear();
+  }
+}
+
+class HomeFocusGate {
+  bool userMoved = false;
+  bool didInitialFocus = false;
+
+  void markUserMoved() => userMoved = true;
+
+  void resetForFreshBoard() {
+    userMoved = false;
+    didInitialFocus = false;
+  }
+
+  bool get canApplyDefaultFocus => !userMoved && !didInitialFocus;
+
+  void markInitialFocusApplied() => didInitialFocus = true;
+}
+
+class HomeCardFocusHandle {
+  const HomeCardFocusHandle({required this.itemId, required this.node});
+  final String itemId;
+  final FocusNode node;
+  bool get isMounted => node.context != null;
+}
+
+typedef HomeFocusRowMap = Map<String, List<HomeCardFocusHandle>>;
+
+void saveHomeFocusBeforeLeave({
+  required String sessionOwnerKey,
+  required String rowId,
+  required String itemId,
+  double? scrollOffset,
+  HomeFocusStore? store,
+}) {
+  (store ?? HomeFocusStore.instance).save(
+    HomeFocusMemory(
+      sessionOwnerKey: sessionOwnerKey,
+      rowId: rowId,
+      itemId: itemId,
+      scrollOffset: scrollOffset,
+    ),
+  );
+}
+
+void restoreHomeFocus({
+  required String sessionOwnerKey,
+  required HomeFocusRowMap rows,
+  required HomeFocusGate gate,
+  required VoidCallback focusDefaultEntry,
+  HomeFocusStore? store,
+}) {
+  final memory = (store ?? HomeFocusStore.instance).take(sessionOwnerKey);
+  if (memory == null) {
+    if (gate.canApplyDefaultFocus) {
+      focusDefaultEntry();
+      gate.markInitialFocusApplied();
+    }
+    return;
+  }
+
+  final rail = rows[memory.rowId];
+  if (rail == null || rail.isEmpty) {
+    if (gate.canApplyDefaultFocus) {
+      focusDefaultEntry();
+      gate.markInitialFocusApplied();
+    }
+    return;
+  }
+
+  HomeCardFocusHandle? match;
+  for (final c in rail) {
+    if (c.itemId == memory.itemId) {
+      match = c;
+      break;
+    }
+  }
+
+  HomeCardFocusHandle? target;
+  if (match != null && match.isMounted) {
+    target = match;
+  } else {
+    for (final c in rail) {
+      if (c.isMounted) {
+        target = c;
+        break;
+      }
+    }
+  }
+
+  if (target != null) {
+    target.node.requestFocus();
+    gate.markInitialFocusApplied();
+    return;
+  }
+
+  if (gate.canApplyDefaultFocus) {
+    focusDefaultEntry();
+    gate.markInitialFocusApplied();
+  }
+}
+
+void afterAsyncRowsCommitted({
+  required HomeFocusGate gate,
+  required VoidCallback focusDefaultEntryIfAllowed,
+}) {
+  if (gate.canApplyDefaultFocus) {
+    focusDefaultEntryIfAllowed();
+    gate.markInitialFocusApplied();
+  }
+}
