@@ -67,7 +67,7 @@ class LocalBoundSourceService {
                   const SizedBox(height: 14),
                   Align(
                     alignment: Alignment.centerLeft,
-                    child: Text('Local Movie Source',
+                    child: Text(AppLocalizations.of(context).t('Local Movie Source'),
                       style: TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.w700,
@@ -77,7 +77,7 @@ class LocalBoundSourceService {
                   const SizedBox(height: 4),
                   Align(
                     alignment: Alignment.centerLeft,
-                    child: Text('Choose a video file or browse a folder.',
+                    child: Text(AppLocalizations.of(context).t('Choose a video file or browse a folder.'),
                       style: TextStyle(color: Colors.white54, fontSize: 12),
                     ),
                   ),
@@ -327,7 +327,7 @@ class LocalBoundSourceService {
       final selected = await showDialog<LocalSourceDocument>(
         context: context,
         builder: (dialogContext) => AlertDialog(
-          title: Text('Choose movie file'),
+          title: Text(AppLocalizations.of(context).t('Choose movie file')),
           content: SizedBox(
             width: 560,
             height: MediaQuery.sizeOf(dialogContext).height * 0.5,
@@ -344,7 +344,7 @@ class LocalBoundSourceService {
           actions: [
             TextButton(
               onPressed: () => Navigator.of(dialogContext).pop(),
-              child: Text('Cancel'),
+              child: Text(AppLocalizations.of(context).t('Cancel')),
             ),
           ],
         ),
@@ -393,12 +393,12 @@ class LocalBoundSourceService {
           actions: [
             TextButton(
               onPressed: () => Navigator.of(dialogContext).pop(false),
-              child: Text('Cancel'),
+              child: Text(AppLocalizations.of(context).t('Cancel')),
             ),
             TextButton(
               autofocus: true,
               onPressed: () => Navigator.of(dialogContext).pop(true),
-              child: Text('Use folder'),
+              child: Text(AppLocalizations.of(context).t('Use folder')),
             ),
           ],
         ),
@@ -537,7 +537,7 @@ class LocalBoundSourceService {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(16),
           ),
-          title: Text('Choose the Show Folder',
+          title: Text(AppLocalizations.of(context).t('Choose the Show Folder'),
             style: TextStyle(fontWeight: FontWeight.w700),
           ),
           content: Column(
@@ -563,7 +563,7 @@ class LocalBoundSourceService {
                 color: Color(0xFFF87171),
               ),
               const SizedBox(height: 12),
-              Text('Episode files inside can still be named S01E01.mkv, S01E02.mkv, and so on.',
+              Text(AppLocalizations.of(context).t('Episode files inside can still be named S01E01.mkv, S01E02.mkv, and so on.'),
                 style: TextStyle(color: Colors.white54, fontSize: 12),
               ),
             ],
@@ -637,7 +637,7 @@ class LocalBoundSourceService {
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text('Choose Series Folder',
+                  Text(AppLocalizations.of(context).t('Choose Series Folder'),
                     style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
                   ),
                   SizedBox(height: 4),
@@ -684,7 +684,7 @@ class LocalBoundSourceService {
                     alignment: Alignment.centerRight,
                     child: TextButton(
                       onPressed: () => Navigator.of(dialogContext).pop(),
-                      child: Text('Cancel',
+                      child: Text(AppLocalizations.of(context).t('Cancel'),
                         style: TextStyle(color: Colors.white54),
                       ),
                     ),
@@ -719,11 +719,11 @@ class LocalBoundSourceService {
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text('Choose Local File',
+                  Text(AppLocalizations.of(context).t('Choose Local File'),
                     style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
                   ),
                   const SizedBox(height: 4),
-                  Text('No confident filename match was found.',
+                  Text(AppLocalizations.of(context).t('No confident filename match was found.'),
                     style: TextStyle(color: Colors.white54, fontSize: 12),
                   ),
                   const SizedBox(height: 12),
@@ -764,7 +764,7 @@ class LocalBoundSourceService {
                     alignment: Alignment.centerRight,
                     child: TextButton(
                       onPressed: () => Navigator.of(dialogContext).pop(),
-                      child: Text('Cancel',
+                      child: Text(AppLocalizations.of(context).t('Cancel'),
                         style: TextStyle(color: Colors.white54),
                       ),
                     ),

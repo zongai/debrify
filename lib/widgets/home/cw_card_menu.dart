@@ -342,7 +342,7 @@ class _MenuRowState extends State<_MenuRow> {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       Text(
-                        widget.label,
+                        AppLocalizations.of(context).t(widget.label),
                         style: const TextStyle(
                           fontSize: 15,
                           fontWeight: FontWeight.w600,
@@ -350,7 +350,7 @@ class _MenuRowState extends State<_MenuRow> {
                       ),
                       const SizedBox(height: 3),
                       Text(
-                        widget.description,
+                        AppLocalizations.of(context).t(widget.description),
                         style: TextStyle(
                           color: app.fade(app.core.tx, 0.5),
                           fontSize: 12.5,

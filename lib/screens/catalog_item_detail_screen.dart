@@ -2925,7 +2925,7 @@ class _QuickActionState extends State<_QuickAction> {
                   ),
                   const SizedBox(height: 9),
                   Text(
-                    o.caption,
+                    AppLocalizations.of(context).t(o.caption),
                     maxLines: 2,
                     textAlign: TextAlign.center,
                     overflow: TextOverflow.ellipsis,
@@ -2974,8 +2974,8 @@ class _MdblistQuickActions extends StatelessWidget {
           for (final option in options)
             ActionChip(
               avatar: Icon(option.icon, size: 18, color: option.color),
-              label: Text(option.caption),
-              tooltip: option.label,
+              label: Text(AppLocalizations.of(context).t(option.caption)),
+              tooltip: AppLocalizations.of(context).t(option.label),
               onPressed: () => onSelected(option.action),
             ),
         ],
@@ -3191,7 +3191,7 @@ class _SimklQuickActionState extends State<_SimklQuickAction> {
                   ),
                   const SizedBox(height: 9),
                   Text(
-                    o.caption,
+                    AppLocalizations.of(context).t(o.caption),
                     maxLines: 2,
                     textAlign: TextAlign.center,
                     overflow: TextOverflow.ellipsis,

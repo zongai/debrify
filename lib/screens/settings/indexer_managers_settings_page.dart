@@ -259,7 +259,7 @@ class _IndexerManagersSettingsPageState
           style: _focusableIconStyle,
           onPressed: _loading ? null : () => _openEditor(),
           icon: const Icon(Icons.add_rounded),
-          tooltip: 'Add engine',
+          tooltip: AppLocalizations.of(context).t('Add engine'),
         ),
       ],
       body: _loading
@@ -317,7 +317,7 @@ class _IndexerManagersSettingsPageState
   Widget _buildHeader(BuildContext context) {
     return SettingsPageHeader(
       icon: Icons.manage_search_rounded,
-      title: 'Indexer Managers',
+      title: AppLocalizations.of(context).t('Indexer Managers'),
       subtitle: AppLocalizations.of(context).t('Connect public or private indexers through Jackett and Prowlarr. Enabled engines appear in the torrent search source picker.'),
     );
   }

@@ -681,7 +681,7 @@ class _MdblistSeeAllScreenState extends State<MdblistSeeAllScreen> {
                 children: [
                   DropdownButtonFormField<String>(
                     initialValue: draft.mediaType,
-                    decoration: InputDecoration(labelText: 'Media type'),
+                    decoration: InputDecoration(labelText: AppLocalizations.of(context).t('Media type')),
                     items: [
                       DropdownMenuItem(value: 'movie', child: Text(AppLocalizations.of(context).t('Movies'))),
                       DropdownMenuItem(value: 'show', child: Text(AppLocalizations.of(context).t('Series'))),
@@ -698,7 +698,7 @@ class _MdblistSeeAllScreenState extends State<MdblistSeeAllScreen> {
                   TextField(
                     controller: genre,
                     decoration: InputDecoration(
-                      labelText: 'Genre',
+                      labelText: AppLocalizations.of(context).t('Genre'),
                       hintText: AppLocalizations.of(context).t('e.g. Horror'),
                     ),
                   ),
@@ -1242,7 +1242,7 @@ class _MdblistSeeAllScreenState extends State<MdblistSeeAllScreen> {
                   child: CircularProgressIndicator(strokeWidth: 2),
                 )
               : Icon(Icons.search_rounded, size: 16),
-          label: Text(_catalogApplied ? 'Reapply' : 'Apply'),
+          label: Text(AppLocalizations.of(context).t(_catalogApplied ? 'Reapply' : 'Apply')),
         ),
       if (_isCatalog && !_page.exhausted)
         OutlinedButton.icon(
