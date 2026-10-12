@@ -2157,7 +2157,7 @@ class _DebrifyTVScreenState extends State<DebrifyTVScreen> {
                       keyboardInk: app.core.tx,
                       keyboardInkOnAccent: app.inkOn(app.settings.accent),
                       decoration: InputDecoration(
-                        labelText: 'Channel name',
+                        labelText: AppLocalizations.of(context).t('Channel name'),
                         prefixIcon: Icon(Icons.label_rounded),
                       ),
                       onDownArrow: () => channelKeywordFocus?.requestFocus(),
@@ -3247,7 +3247,7 @@ class _DebrifyTVScreenState extends State<DebrifyTVScreen> {
                     keyboardInk: app.core.tx,
                     keyboardInkOnAccent: app.inkOn(app.settings.accent),
                     decoration: InputDecoration(
-                      labelText: 'Debrify link or file URL',
+                      labelText: AppLocalizations.of(context).t('Debrify link or file URL'),
                       hintText: 'debrify://channel?... or https://...',
                       errorText: errorText,
                     ),

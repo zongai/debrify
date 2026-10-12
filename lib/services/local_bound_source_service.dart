@@ -86,8 +86,8 @@ class LocalBoundSourceService {
                     autofocus: true,
                     icon: Icons.movie_creation_outlined,
                     color: const Color(0xFF34D399),
-                    title: 'Pick Video File',
-                    subtitle: 'Bind one local movie file',
+                    title: AppLocalizations.of(context).t('Pick Video File'),
+                    subtitle: AppLocalizations.of(context).t('Bind one local movie file'),
                     onTap: () =>
                         Navigator.of(sheetContext).pop(_LocalPickMode.file),
                   ),
@@ -95,7 +95,7 @@ class LocalBoundSourceService {
                   _LocalPickTile(
                     icon: Icons.folder_open_rounded,
                     color: const Color(0xFF60A5FA),
-                    title: 'Pick Folder',
+                    title: AppLocalizations.of(context).t('Pick Folder'),
                     subtitle: Platform.isAndroid
                         ? 'Choose a movie file inside a folder'
                         : 'Match by filename, then use the largest match',

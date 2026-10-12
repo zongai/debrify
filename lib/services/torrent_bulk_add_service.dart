@@ -387,12 +387,12 @@ class TorrentBulkAddService {
       accent: const Color(0xFF7C3AED),
       notCachedColor: const Color(0xFFEF4444),
       titleIcon: Icons.cloud_upload,
-      title: 'Adding to TorBox',
+      title: AppLocalizations.of(context).t('Adding to TorBox'),
       torrents: torrentsToAdd,
       total: cachedTorrents.length,
       showSkipped: true,
       skippedChipLabel: 'Skipped',
-      notCachedSubtitle: 'Not cached',
+      notCachedSubtitle: AppLocalizations.of(context).t('Not cached'),
       initialStatus: {
         for (final t in uncachedTorrents) t.infohash: 'not_cached',
       },
@@ -480,11 +480,11 @@ class TorrentBulkAddService {
       context,
       accent: const Color(0xFFE50914),
       titleIcon: Icons.cloud_upload,
-      title: 'Adding to Real-Debrid',
+      title: AppLocalizations.of(context).t('Adding to Real-Debrid'),
       torrents: torrentsToAdd,
       total: torrentsToAdd.length,
       showSkipped: true,
-      skippedChipLabel: 'Not cached',
+      skippedChipLabel: AppLocalizations.of(context).t('Not cached'),
       notCachedSubtitle: 'Not cached — removed',
     );
 
@@ -570,7 +570,7 @@ class TorrentBulkAddService {
       total: torrentsToAdd.length,
       showSkipped: true,
       successChipLabel: 'Added',
-      skippedChipLabel: 'Not cached',
+      skippedChipLabel: AppLocalizations.of(context).t('Not cached'),
       notCachedSubtitle: 'Not cached — skipped',
     );
 
@@ -639,7 +639,7 @@ class TorrentBulkAddService {
       torrents: torrentsToAdd,
       total: torrentsToAdd.length,
       showSkipped: true,
-      skippedChipLabel: 'Not cached',
+      skippedChipLabel: AppLocalizations.of(context).t('Not cached'),
       notCachedSubtitle: 'Not cached — removed',
     );
 

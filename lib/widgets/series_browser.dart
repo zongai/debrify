@@ -1196,7 +1196,7 @@ class _SeriesBrowserState extends State<SeriesBrowser> {
               SizedBox(width: 8),
               _buildIconButton(
                 icon: Icons.close,
-                tooltip: 'Close',
+                tooltip: AppLocalizations.of(context).t('Close'),
                 onTap: () => Navigator.of(context).pop(),
               ),
             ],
@@ -1270,7 +1270,7 @@ class _SeriesBrowserState extends State<SeriesBrowser> {
     }
 
     return PopupMenuButton<int>(
-      tooltip: 'Choose season',
+      tooltip: AppLocalizations.of(context).t('Choose season'),
       color: _BrowserColors.menuBg,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(12),
@@ -1324,7 +1324,7 @@ class _SeriesBrowserState extends State<SeriesBrowser> {
         children: [
           _buildSegmentButton(
             icon: Icons.view_agenda_outlined,
-            tooltip: 'Comfortable list',
+            tooltip: AppLocalizations.of(context).t('Comfortable list'),
             active: !_denseView,
             onTap: () => _setDenseView(false),
           ),

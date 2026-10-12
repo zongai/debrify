@@ -2748,12 +2748,12 @@ class _MergedDetailScreenState extends State<MergedDetailScreen>
         // season packs, local Continue Watching) — no tracker involved, so a
         // neutral button rather than a branded one.
         if (_metadataExploreAction != null)
-          _RoundIconButton(icon: Icons.explore_outlined, tooltip: 'Explore',
+          _RoundIconButton(icon: Icons.explore_outlined, tooltip: AppLocalizations.of(context).t('Explore'),
             onTap: _metadataExploreAction!),
         if (_appMenuOptions.isNotEmpty && widget.onTraktAction != null)
           _RoundIconButton(
             icon: Icons.more_horiz_rounded,
-            tooltip: 'More',
+            tooltip: AppLocalizations.of(context).t('More'),
             onTap: _showAppActionsMenu,
           ),
         // Trakt — a branded pill that *carries* the live status (the status
@@ -2767,7 +2767,7 @@ class _MergedDetailScreenState extends State<MergedDetailScreen>
             rating: _traktStatus?.rating,
             accent: kTraktRed,
             tracked: _traktTracked,
-            tooltip: 'Trakt options',
+            tooltip: AppLocalizations.of(context).t('Trakt options'),
             onTap: _showQuickActionsMenu,
           ),
         // Simkl's own pill — a separate button/sheet, not merged with Trakt's,

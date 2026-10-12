@@ -2279,7 +2279,7 @@ class TraktResultsViewState extends State<TraktResultsView> {
                     )
                     .toList(),
                 onChanged: _onListTypeChanged,
-                hint: 'List Type',
+                hint: AppLocalizations.of(context).t('List Type'),
                 onUpArrow: widget.onUpArrowFromFilters,
                 onDownArrow: _focusFirstCard,
                 onRightFocus: _contentTypeFocusNode,
@@ -2341,7 +2341,7 @@ class TraktResultsViewState extends State<TraktResultsView> {
                     );
                     _onCustomListChanged(list);
                   },
-                  hint: 'Select List',
+                  hint: AppLocalizations.of(context).t('Select List'),
                   onUpArrow: widget.onUpArrowFromFilters,
                   onDownArrow: _focusFirstCard,
                   onLeftFocus: _contentTypeFocusNode,
@@ -2388,7 +2388,7 @@ class TraktResultsViewState extends State<TraktResultsView> {
                     }, orElse: () => _likedLists.first);
                     _onLikedListChanged(list);
                   },
-                  hint: 'Select List',
+                  hint: AppLocalizations.of(context).t('Select List'),
                   onUpArrow: widget.onUpArrowFromFilters,
                   onDownArrow: _focusFirstCard,
                   onLeftFocus: _contentTypeFocusNode,

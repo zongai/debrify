@@ -302,7 +302,7 @@ class _SourceEditorState extends State<_SourceEditor> {
           children: [
             DropdownButtonFormField<String>(
               initialValue: _provider,
-              decoration: InputDecoration(labelText: 'Source'),
+              decoration: InputDecoration(labelText: AppLocalizations.of(context).t('Source')),
               items: [
                 for (final e in providerChoices.entries)
                   DropdownMenuItem(value: e.key, child: Text(e.value)),
@@ -327,7 +327,7 @@ class _SourceEditorState extends State<_SourceEditor> {
                   initialValue: addon?.manifestId ?? addon?.id,
                   isExpanded: true,
                   decoration: InputDecoration(
-                    labelText: 'Installed addon',
+                    labelText: AppLocalizations.of(context).t('Installed addon'),
                   ),
                   items: [
                     for (final id
@@ -357,7 +357,7 @@ class _SourceEditorState extends State<_SourceEditor> {
                 DropdownButtonFormField<String>(
                   isExpanded: true,
                   decoration: InputDecoration(
-                    labelText: 'Choose configured catalog',
+                    labelText: AppLocalizations.of(context).t('Choose configured catalog'),
                   ),
                   items: [
                     for (final c in addon.catalogs.where((c) => c.isBrowsable))

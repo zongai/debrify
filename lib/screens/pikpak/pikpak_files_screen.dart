@@ -1779,7 +1779,7 @@ class _PikPakFilesScreenState extends State<PikPakFilesScreen> {
           isExpanded: true,
           value: mode,
           decoration: InputDecoration(
-            labelText: 'View Mode',
+            labelText: AppLocalizations.of(context).t('View Mode'),
             prefixIcon: Icon(
               mode == _FolderViewMode.raw
                   ? Icons.view_list
@@ -2088,7 +2088,7 @@ class _PikPakFilesScreenState extends State<PikPakFilesScreen> {
           leading: IconButton(
             icon: Icon(Icons.arrow_back),
             onPressed: () => Navigator.of(context).pop(),
-            tooltip: 'Back',
+            tooltip: AppLocalizations.of(context).t('Back'),
           ),
           title: Text(AppLocalizations.of(context).t('Opening folder...')),
         ),
@@ -2158,7 +2158,7 @@ class _PikPakFilesScreenState extends State<PikPakFilesScreen> {
                   focusNode: _backButtonFocusNode,
                   icon: Icon(Icons.arrow_back),
                   onPressed: () => _handleBackNavigation(),
-                  tooltip: 'Back',
+                  tooltip: AppLocalizations.of(context).t('Back'),
                 ),
               )
             // At the browse root (opened from the Cloud hub with no folder
@@ -2166,7 +2166,7 @@ class _PikPakFilesScreenState extends State<PikPakFilesScreen> {
             : (_isBrowsePush
                   ? IconButton(
                       icon: Icon(Icons.arrow_back),
-                      tooltip: 'Back',
+                      tooltip: AppLocalizations.of(context).t('Back'),
                       onPressed: () => Navigator.of(context).maybePop(),
                     )
                   : null),

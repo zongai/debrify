@@ -451,8 +451,8 @@ class _StremioTvCatalogPickerDialogState
                       }
                     },
                     decoration: InputDecoration(
-                      labelText: 'Search channels',
-                      hintText: 'Filter by channel name',
+                      labelText: AppLocalizations.of(context).t('Search channels'),
+                      hintText: AppLocalizations.of(context).t('Filter by channel name'),
                       prefixIcon: const Icon(Icons.search_rounded),
                       border: const OutlineInputBorder(),
                       suffixIcon: _searchController.text.isEmpty
@@ -467,7 +467,7 @@ class _StremioTvCatalogPickerDialogState
                                       _searchFocusNode.requestFocus();
                                     },
                               icon: Icon(Icons.close_rounded),
-                              tooltip: 'Clear search',
+                              tooltip: AppLocalizations.of(context).t('Clear search'),
                             ),
                     ),
                   ),
