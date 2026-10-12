@@ -2330,7 +2330,7 @@ class _IptvSettingsPageState extends State<IptvSettingsPage>
               SettingsTile(
                 icon: Icons.style_rounded,
                 title: 'Appearance',
-                subtitle: iptvStyleLabel(_iptvStyle),
+                subtitle: iptvStyleLabel(_iptvStyle, context),
                 onTap: () async => unawaited(_openIptvStylePicker()),
               ),
             SettingsTile(

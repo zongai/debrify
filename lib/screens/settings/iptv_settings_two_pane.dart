@@ -710,7 +710,7 @@ class IptvSettingsTwoPaneState extends State<IptvSettingsTwoPane> {
                   focusNode: _railNodes[_appearanceIndex],
                   icon: Icons.style_rounded,
                   title: AppLocalizations.of(context).t('Appearance'),
-                  subtitle: iptvStyleLabel(widget.iptvStyle),
+                  subtitle: iptvStyleLabel(widget.iptvStyle, context),
                   selected: selected == _appearanceIndex,
                   chevron: true,
                   onFocused: () => _dest.value = _AppearanceDest(),

@@ -292,7 +292,7 @@ class _DetailPremiumState extends State<DetailPremium> {
         ? _m.backdrop
         : (episode?.thumbnailUrl ?? view?.showImageUrl ?? _m.backdrop);
     final title = _m.isMovie ? _m.name : (episode?.title ?? _m.name);
-    final eyebrow = _m.isMovie ? 'CONTINUE WATCHING' : 'NEXT EPISODE';
+    final eyebrow = _m.isMovie ? AppLocalizations.of(context).t('CONTINUE WATCHING') : AppLocalizations.of(context).t('NEXT EPISODE');
     final detail = _m.isMovie
         ? [_m.year, _m.runtime].whereType<String>().join(' · ')
         : (episode == null
@@ -489,7 +489,7 @@ class _DetailPremiumState extends State<DetailPremium> {
                 child: vertical
                     ? _verticalCollection(
                         size,
-                        title: _m.isMovie ? 'MORE LIKE THIS' : 'EPISODES',
+                        title: _m.isMovie ? AppLocalizations.of(context).t('MORE LIKE THIS') : AppLocalizations.of(context).t('EPISODES'),
                       )
                     : _horizontalCollection(size, 0),
               ),
@@ -529,7 +529,7 @@ class _DetailPremiumState extends State<DetailPremium> {
       padding: EdgeInsets.fromLTRB(gutter * .65, 58, gutter * .65, 12),
       child: _verticalCollection(
         size,
-        title: _m.isMovie ? 'MORE LIKE THIS' : 'EPISODES',
+        title: _m.isMovie ? AppLocalizations.of(context).t('MORE LIKE THIS') : AppLocalizations.of(context).t('EPISODES'),
       ),
     );
     final planes = stacked
@@ -998,7 +998,7 @@ class _DetailPremiumState extends State<DetailPremium> {
         else
           Padding(
             padding: EdgeInsets.only(left: gutter, bottom: 7),
-            child: DetailSlab('EPISODES'),
+            child: DetailSlab(AppLocalizations.of(context).t('EPISODES')),
           ),
         Expanded(
           child: HorizontalMouseWheel(
@@ -1192,7 +1192,7 @@ class _DetailPremiumState extends State<DetailPremium> {
       children: [
         Padding(
           padding: EdgeInsets.only(left: gutter, bottom: 7),
-          child: DetailSlab('MORE LIKE THIS'),
+          child: DetailSlab(AppLocalizations.of(context).t('MORE LIKE THIS')),
         ),
         Expanded(
           child: HorizontalMouseWheel(

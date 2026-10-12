@@ -634,7 +634,7 @@ class ShowcaseIdentity extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.end,
         mainAxisSize: MainAxisSize.min,
         children: [
-          _Chip(label: m.isMovie ? 'Film' : 'Series'),
+          _Chip(label: AppLocalizations.of(context).t(m.isMovie ? 'Film' : 'Series')),
           const SizedBox(height: 9),
           _LogoOrTitle(url: m.logo, name: m.name, centered: true),
           const SizedBox(height: 10),
@@ -690,7 +690,7 @@ class ShowcaseIdentity extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.end,
         mainAxisSize: MainAxisSize.max,
         children: [
-          _Chip(label: m.isMovie ? 'Film' : 'Series'),
+          _Chip(label: AppLocalizations.of(context).t(m.isMovie ? 'Film' : 'Series')),
           const SizedBox(height: 9),
           _LogoOrTitle(url: m.logo, name: m.name),
           const SizedBox(height: 10),
@@ -887,7 +887,7 @@ class _MetaLine extends StatelessWidget {
     final scale = ShowcaseMetrics.of(context).k;
     final bits = <String>[
       if (m.isMovie) 'Film' else 'Series',
-      ...m.genres.take(2),
+      ...m.genres.take(2).map(AppLocalizations.of(context).t),
     ];
     return Row(
       mainAxisSize: MainAxisSize.min,
@@ -1371,7 +1371,7 @@ class ShowcaseSeasons extends StatelessWidget {
           final active = s.number == view.selectedSeasonNumber;
           return _SeasonPill(
             node: nodes[i],
-            label: 'Season ${s.number}',
+            label: '${AppLocalizations.of(context).t('Season')} ${s.number}',
             active: active,
             onTap: () => view.selectSeason(s.number),
             onOptions: view.seasonOptions == null ? null : () => view.seasonOptions!(s.number),
@@ -1695,9 +1695,9 @@ class ShowcaseEpisodeCell extends StatelessWidget {
                 // EpisodesPanel._enrichEpisodeRatings — and 0 means unrated.
                 Text(
                   (episode.rating ?? 0) > 0
-                      ? 'EPISODE ${episode.number} · ★ '
+                      ? '${AppLocalizations.of(context).t('EPISODE')} ${episode.number} · ★ '
                             '${episode.rating!.toStringAsFixed(1)}'
-                      : 'EPISODE ${episode.number}',
+                      : '${AppLocalizations.of(context).t('EPISODE')} ${episode.number}',
                   style: _t(9.5 * m.k, a: 0.55).copyWith(letterSpacing: 0.4),
                 ),
                 const SizedBox(height: 2),
@@ -1851,7 +1851,7 @@ class ShowcaseEpisodeCardCompact extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'EPISODE ${episode.number}',
+                      '${AppLocalizations.of(context).t('EPISODE')} ${episode.number}',
                       style: _t(10, a: 0.5).copyWith(letterSpacing: 0.9),
                     ),
                     const SizedBox(height: 3),

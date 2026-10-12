@@ -42,13 +42,22 @@ const List<IptvStyleChoice> kIptvStyleChoices = [
 ];
 
 /// Row caption for the current choice (Appearance row subtitle).
-String iptvStyleLabel(String style) {
+String iptvStyleLabel(String style, [BuildContext? context]) {
+  String label;
   for (final c in kIptvStyleChoices) {
-    if (c.value == style) return c.label;
+    if (c.value == style) {
+      label = c.label;
+      break;
+    }
+  } else {
+    label = kIptvStyleChoices
+        .firstWhere((choice) => choice.value == StorageService.kIptvStyleDefault)
+        .label;
   }
-  return kIptvStyleChoices
-      .firstWhere((choice) => choice.value == StorageService.kIptvStyleDefault)
-      .label;
+  if (context != null) {
+    return AppLocalizations.of(context).t(label);
+  }
+  return label;
 }
 
 /// IPTV page appearance picker (`iptv_style`).
@@ -177,8 +186,8 @@ class _IptvStylePageState extends State<IptvStylePage> {
       icon: active
           ? Icons.radio_button_checked_rounded
           : Icons.radio_button_unchecked_rounded,
-      title: choice.label,
-      subtitle: choice.subtitle,
+      title: AppLocalizations.of(context).t(choice.label),
+      subtitle: AppLocalizations.of(context).t(choice.subtitle),
       trailing: active
           ? Icon(Icons.check_rounded, size: 20, color: t.accent2)
           : const SizedBox.shrink(),
