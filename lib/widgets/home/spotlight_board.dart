@@ -3281,7 +3281,15 @@ class _CardState extends State<_Card> with MetadataPresentationMixin<_Card> {
         : c;
     final pending = !artwork.episodeArtwork && metadataArtworkPending(
       artwork.shape == SpotlightCardShape.wide ? MetadataCategory.backgrounds : MetadataCategory.posters);
-    final url = pending ? null : artwork.imageForPresentation(meta, metadataPreferences);
+    // Do not blank the plate while policy/provider art resolves — hover/expand
+    // used to switch the pending category (poster → background) and null the
+    // URL, so the image vanished under the pointer until the new art arrived.
+    final presentedUrl =
+        pending ? null : artwork.imageForPresentation(meta, metadataPreferences);
+    final url = presentedUrl ??
+        artwork.fallbackImage ??
+        artwork.image ??
+        c.image;
     final displayedTitle = changed ? meta.name : c.title;
     final fallbackUrl = artwork.imageErrorFallback(meta, metadataPreferences);
     Widget artPlaceholder() => Center(child: Padding(

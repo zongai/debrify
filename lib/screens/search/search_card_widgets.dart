@@ -141,7 +141,8 @@ class _StremioCardState extends State<_StremioCard>
       collection: folder != null,
     );
     final poster = metadataArtworkPending(wide ? MetadataCategory.backgrounds : MetadataCategory.posters)
-        ? null : artwork.primary;
+        ? (originalMetadata?.poster ?? artwork.primary)
+        : artwork.primary;
     final fallbackPoster = artwork.fallback;
     final isMovie = item.type.toLowerCase() == 'movie';
     final supportsWatched = isMovie || item.type.toLowerCase() == 'series';

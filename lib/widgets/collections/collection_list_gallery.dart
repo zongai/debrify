@@ -414,7 +414,7 @@ class _CollectionPreviewArtState extends State<CollectionPreviewArt>
         ? item.poster
         : null;
     final url = metadataArtworkPending(category)
-        ? null
+        ? (originalMetadata?.poster ?? fallback)
         : widget.wide
         ? item.background ?? fallback
         : item.poster;

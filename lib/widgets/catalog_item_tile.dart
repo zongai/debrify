@@ -132,7 +132,11 @@ class _CatalogItemTileState extends State<CatalogItemTile>
   Widget build(BuildContext context) {
     final app = AppThemeScope.of(context);
     final item = presentedMetadata!;
-    final poster = metadataArtworkPending(MetadataCategory.posters) ? null : item.poster;
+    // Keep the source poster visible while provider art resolves — nulling it
+    // on rebuild (hover/focus) made tiles flash empty under the pointer.
+    final poster = metadataArtworkPending(MetadataCategory.posters)
+        ? (originalMetadata?.poster ?? item.poster)
+        : item.poster;
     final rating = item.imdbRating;
     final typeLabel = item.type == 'series' ? 'SERIES' : 'MOVIE';
     final isMovie = item.type.toLowerCase() == 'movie';
