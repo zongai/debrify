@@ -154,6 +154,9 @@ class _StremioCardState extends State<_StremioCard>
         RecoverableNetworkImage(
           imageUrl: poster,
           fit: BoxFit.cover,
+          cacheManager: _isMediaServerPosterUrl(poster)
+              ? DebrifyImageCache.mediaServer
+              : DebrifyImageCache.manager,
           // Decode board posters at a capped width — tiles are small,
           // full-res posters are the main memory churn while scrolling.
           // A wide cell is ~2.7x the width of a poster at the same height,
@@ -161,11 +164,12 @@ class _StremioCardState extends State<_StremioCard>
           memCacheWidth: widget.isTelevision
               ? (wide ? 640 : 320)
               : (wide ? 860 : 480),
-          // Short fade on TV (see HomeTheme.imageFadeIn): posters arriving
-          // as hard-snapping rectangles was the last cheap tell at the card
-          // level; memory-cached loads still land settled with no fade.
-          fadeInDuration: HomeTheme.imageFadeIn(widget.isTelevision),
-          fadeOutDuration: HomeTheme.imageFadeOut(widget.isTelevision),
+          // Media-server posters: no fade so scroll-recycle does not flash
+          // blank for ~1s while the disk cache resolves.
+          fadeInDuration: _isMediaServerPosterUrl(poster)
+              ? Duration.zero
+              : HomeTheme.imageFadeIn(widget.isTelevision),
+          fadeOutDuration: Duration.zero,
           placeholder: (_, __) => _placeholder(item.name),
           // A derived wide still (MetaHub) can 404 where the poster exists —
           // cover-crop the poster into the wide cell before giving up on art.
@@ -811,11 +815,20 @@ class _ArtPosterState extends State<_ArtPoster> {
             child: CachedNetworkImage(
               imageUrl: url,
               fit: widget.imageFit,
+              // Plex/Jellyfin/Emby thumbs are authenticated and churn hard on
+              // Home rails — keep them in the dedicated media-server store so
+              // a scroll recycle does not fall back to DefaultCacheManager's
+              // 200-slot LRU and re-hit the PMS (~1s blank).
+              cacheManager: _isMediaServerPosterUrl(url)
+                  ? DebrifyImageCache.mediaServer
+                  : DebrifyImageCache.manager,
               memCacheWidth: widget.isTelevision ? 320 : 480,
-              // Short fade on TV (see HomeTheme.imageFadeIn) — cached loads
-              // land settled with no fade.
-              fadeInDuration: HomeTheme.imageFadeIn(widget.isTelevision),
-              fadeOutDuration: HomeTheme.imageFadeOut(widget.isTelevision),
+              // Media-server hits should appear without a fade flash; other
+              // posters keep the short HomeTheme reveal.
+              fadeInDuration: _isMediaServerPosterUrl(url)
+                  ? Duration.zero
+                  : HomeTheme.imageFadeIn(widget.isTelevision),
+              fadeOutDuration: Duration.zero,
               placeholder: (_, __) => _glyph(),
               errorWidget: (_, __, ___) => _glyph(),
             ),
@@ -1228,3 +1241,14 @@ class _ModeToggle extends StatelessWidget {
 /// torrent sources (own loading), renders them as [TorrentResultRow]s, and on
 /// tap plays via the isolated service with the FULL source list + content
 /// metadata (so the in-player Sources switcher + Continue Watching both work).
+
+
+/// True for authenticated media-server poster URLs (Plex token in query, or
+/// Jellyfin/Emby Primary image paths). Used to pick [DebrifyImageCache.mediaServer]
+/// and skip fade-in so Home rail recycles do not flash blank.
+bool _isMediaServerPosterUrl(String? url) {
+  if (url == null || url.isEmpty) return false;
+  return url.contains('X-Plex-Token=') ||
+      (url.contains('/Items/') && url.contains('/Images/')) ||
+      (url.contains('/library/metadata/') && url.contains('/thumb'));
+}

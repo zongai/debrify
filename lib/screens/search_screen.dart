@@ -11,6 +11,7 @@ import '../services/iptv_source_search.dart';
 import '../models/media_server_library.dart';
 import '../services/media_server_service.dart';
 import '../services/plex_client.dart';
+import '../services/debrify_image_cache.dart';
 import 'metadata_explore_page.dart';
 import '../widgets/metadata_presentation_mixin.dart';
 import '../models/metadata_preferences.dart';
@@ -5284,6 +5285,17 @@ class _SearchScreenState extends State<SearchScreen>
 
       _syncCwNodes(_plexCwNodes, cwMetas.length, 'plexcw');
       _syncCwNodes(_plexRecentNodes, recentMetas.length, 'plexra');
+      // Warm media-server disk cache so the first Home scroll does not
+      // re-download every Plex thumb (which shows as ~1s blank cards).
+      for (final meta in [...cwMetas, ...recentMetas]) {
+        final poster = meta.poster;
+        if (poster == null || poster.isEmpty) continue;
+        unawaited(() async {
+          try {
+            await DebrifyImageCache.mediaServer.downloadFile(poster);
+          } catch (_) {}
+        }());
+      }
       setState(() {
         _plexHomeLoading = false;
         _plexCwItems = cwMetas;
