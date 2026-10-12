@@ -70,7 +70,7 @@ class ProfileRowActions {
                   'Public media records: ${dependencies.publicArtifacts}',
                 ),
                 if (dependencies.activeJobs > 0)
-                  Text('\nFinish or cancel active jobs before deletion.'),
+                  Text(AppLocalizations.of(context).t('\nFinish or cancel active jobs before deletion.')),
                 if (dependencies.sharedResources > 0)
                   CheckboxListTile(
                     contentPadding: EdgeInsets.zero,

@@ -216,7 +216,7 @@ class _IptvHiddenCategoriesPageState extends State<IptvHiddenCategoriesPage> {
   // the row on screen — that would show a rule that doesn't exist.
   void _showWriteFailure() {
     ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text('Couldn\'t save — try again')),
+      SnackBar(content: Text(AppLocalizations.of(context).t(AppLocalizations.of(context).t("Couldn't save — try again")))),
     );
   }
 

@@ -216,7 +216,7 @@ class _ChannelOrderEditorState extends State<_ChannelOrderEditor> {
       setState(() => _saving = false);
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text('Couldn\'t save channel order. Try again.'),
+          content: Text(AppLocalizations.of(context).t(AppLocalizations.of(context).t("Couldn't save channel order. Try again."))),
         ),
       );
     }
@@ -265,7 +265,7 @@ class _ChannelOrderEditorState extends State<_ChannelOrderEditor> {
                 onMove: _move,
                 enabled: !_saving,
                 description: widget.description,
-                emptyText: 'No channels in this list.',
+                emptyText: AppLocalizations.of(context).t('No channels in this list.'),
                 focusLabelPrefix: 'iptv-channel-order-',
                 onFocusAboveList: _doneNode.requestFocus,
                 autofocusFirstRow: PlatformUtil.isTelevision,

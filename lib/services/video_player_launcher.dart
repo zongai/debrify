@@ -56,6 +56,7 @@ import '../services/mdblist/mdblist_service.dart';
 import '../models/profiles/profile_policy.dart';
 import 'profiles/profile_policy_guard.dart';
 import 'tracking_source_policy.dart';
+import '../l10n/app_localizations.dart';
 
 /// Trakt scrobble dedup guard for Android TV player (mirrors _traktLastScrobbleAction in VideoPlayerScreen)
 String? _traktLastScrobbleAction;
@@ -793,18 +794,18 @@ class VideoPlayerLauncher {
           context: context,
           barrierDismissible: false,
           builder: (dialogContext) => AlertDialog(
-            title: Text('External player unavailable'),
-            content: Text('This server requires authentication. Debrify cannot pass the required authorization headers to another app, so this video will open in the Debrify player.',
+            title: Text(AppLocalizations.of(context).t('External player unavailable')),
+            content: Text(AppLocalizations.of(context).t('This server requires authentication. Debrify cannot pass the required authorization headers to another app, so this video will open in the Debrify player.'),
             ),
             actions: [
               TextButton(
                 onPressed: () => Navigator.of(dialogContext).pop(false),
-                child: Text('Cancel'),
+                child: Text(AppLocalizations.of(context).t('Cancel')),
               ),
               FilledButton(
                 autofocus: true,
                 onPressed: () => Navigator.of(dialogContext).pop(true),
-                child: Text('Use Debrify player'),
+                child: Text(AppLocalizations.of(context).t('Use Debrify player')),
               ),
             ],
           ),
@@ -1519,7 +1520,7 @@ class VideoPlayerLauncher {
       if (context.mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text('External players are disabled for this profile.'),
+            content: Text(AppLocalizations.of(context).t('External players are disabled for this profile.')),
           ),
         );
       }
@@ -1899,7 +1900,7 @@ class VideoPlayerLauncher {
       if (context.mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text('Launching DeoVR...'),
+            content: Text(AppLocalizations.of(context).t('Launching DeoVR...')),
             duration: Duration(seconds: 2),
           ),
         );
@@ -1945,17 +1946,17 @@ class VideoPlayerLauncher {
     return await showDialog<bool>(
           context: context,
           builder: (dialogContext) => AlertDialog(
-            title: Text('Share stream with another app?'),
-            content: Text('This stream address may contain a short-lived account token. The selected player will be able to read it.',
+            title: Text(AppLocalizations.of(context).t('Share stream with another app?')),
+            content: Text(AppLocalizations.of(context).t('This stream address may contain a short-lived account token. The selected player will be able to read it.'),
             ),
             actions: [
               TextButton(
                 onPressed: () => Navigator.of(dialogContext).pop(false),
-                child: Text('Use Debrify player'),
+                child: Text(AppLocalizations.of(context).t('Use Debrify player')),
               ),
               FilledButton(
                 onPressed: () => Navigator.of(dialogContext).pop(true),
-                child: Text('Continue'),
+                child: Text(AppLocalizations.of(context).t('Continue')),
               ),
             ],
           ),
@@ -1978,7 +1979,7 @@ class VideoPlayerLauncher {
       context: context,
       builder: (context) => StatefulBuilder(
         builder: (context, setState) => AlertDialog(
-          title: Text('DeoVR Format'),
+          title: Text(AppLocalizations.of(context).t('DeoVR Format')),
           content: Column(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -1993,7 +1994,7 @@ class VideoPlayerLauncher {
                 overflow: TextOverflow.ellipsis,
               ),
               const SizedBox(height: 16),
-              Text('Screen Type',
+              Text(AppLocalizations.of(context).t('Screen Type'),
                 style: TextStyle(fontWeight: FontWeight.w500),
               ),
               const SizedBox(height: 8),
@@ -2018,7 +2019,7 @@ class VideoPlayerLauncher {
                 },
               ),
               SizedBox(height: 16),
-              Text('Stereo Mode',
+              Text(AppLocalizations.of(context).t('Stereo Mode'),
                 style: TextStyle(fontWeight: FontWeight.w500),
               ),
               SizedBox(height: 8),
@@ -2047,12 +2048,12 @@ class VideoPlayerLauncher {
           actions: [
             TextButton(
               onPressed: () => Navigator.of(context).pop(false),
-              child: Text('Cancel'),
+              child: Text(AppLocalizations.of(context).t('Cancel')),
             ),
             FilledButton.icon(
               onPressed: () => Navigator.of(context).pop(true),
               icon: Icon(Icons.play_arrow),
-              label: Text('Play'),
+              label: Text(AppLocalizations.of(context).t('Play')),
             ),
           ],
         ),

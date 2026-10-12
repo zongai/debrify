@@ -365,7 +365,7 @@ class _IptvCategoryOrderPageState extends State<IptvCategoryOrderPage> {
       setState(() => _saving = false);
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text('Couldn\'t save category order. Try again.'),
+          content: Text(AppLocalizations.of(context).t(AppLocalizations.of(context).t("Couldn't save category order. Try again."))),
         ),
       );
     }
@@ -405,7 +405,7 @@ class _IptvCategoryOrderPageState extends State<IptvCategoryOrderPage> {
           SettingsPageHeader(
             icon: Icons.swap_vert_rounded,
             title: widget.playlist.name,
-            subtitle: 'Arrange this source\'s category list.',
+            subtitle: AppLocalizations.of(context).t("Arrange this source's category list."),
           ),
           const SizedBox(height: 20),
           SettingsInfoBanner(
@@ -479,7 +479,7 @@ class _IptvCategoryOrderPageState extends State<IptvCategoryOrderPage> {
                 onMove: _move,
                 enabled: !_saving,
                 description: '',
-                emptyText: 'No categories in this catalog.',
+                emptyText: AppLocalizations.of(context).t('No categories in this catalog.'),
                 focusLabelPrefix: 'iptv-category-order-',
                 onFocusAboveList: _resetNode.requestFocus,
                 autofocusFirstRow: PlatformUtil.isTelevision,

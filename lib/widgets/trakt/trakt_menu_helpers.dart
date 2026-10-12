@@ -7,6 +7,7 @@ import '../../services/trakt/trakt_service.dart';
 import '../../services/watched_action_coordinator.dart';
 import '../../services/series_progress_reset_service.dart';
 import '../clear_provider_progress_dialog.dart';
+import '../../l10n/app_localizations.dart';
 
 /// Actions available in the Trakt episode overflow menu.
 enum TraktEpisodeMenuAction { markWatched, markUnwatched, rate }
@@ -55,7 +56,7 @@ Future<int?> showTraktRatingDialog(BuildContext context) {
                     size: 24,
                   ),
                   SizedBox(width: 8),
-                  Text('Rate this item',
+                  Text(AppLocalizations.of(context).t('Rate this item'),
                     style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
                   ),
                 ],
@@ -94,7 +95,7 @@ Future<int?> showTraktRatingDialog(BuildContext context) {
               SizedBox(height: 12),
               TextButton(
                 onPressed: () => Navigator.of(dialogContext).pop(),
-                child: Text('Cancel',
+                child: Text(AppLocalizations.of(context).t('Cancel'),
                   style: TextStyle(color: Colors.white54),
                 ),
               ),
@@ -115,7 +116,7 @@ Future<Map<String, dynamic>?> showTraktCustomListPickerDialog(
   if (lists.isEmpty) {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
-        content: Text('No custom lists found. Create one on Trakt first.'),
+        content: Text(AppLocalizations.of(context).t('No custom lists found. Create one on Trakt first.')),
         backgroundColor: Color(0xFFEF4444),
       ),
     );
@@ -144,7 +145,7 @@ Future<Map<String, dynamic>?> showTraktCustomListPickerDialog(
                       size: 24,
                     ),
                     SizedBox(width: 8),
-                    Text('Add to List',
+                    Text(AppLocalizations.of(context).t('Add to List'),
                       style: TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.w600,
@@ -182,7 +183,7 @@ Future<Map<String, dynamic>?> showTraktCustomListPickerDialog(
                 const SizedBox(height: 8),
                 TextButton(
                   onPressed: () => Navigator.of(dialogContext).pop(),
-                  child: Text('Cancel',
+                  child: Text(AppLocalizations.of(context).t('Cancel'),
                     style: TextStyle(color: Colors.white54),
                   ),
                 ),
@@ -281,7 +282,7 @@ Future<void> handleTraktMenuAction(
       final confirmed = await showDialog<bool>(
         context: context,
         builder: (ctx) => AlertDialog(
-          title: Text('Clear watch progress?'),
+          title: Text(AppLocalizations.of(context).t('Clear watch progress?')),
           content: Text(
             CustomSeriesIdentity.isCustom(imdbId)
             ? 'Clear watched history and resume progress for ${item.name} on this device?\n\nSaved sources are kept. This cannot be undone.'
@@ -292,11 +293,11 @@ Future<void> handleTraktMenuAction(
           actions: [
             TextButton(
               onPressed: () => Navigator.pop(ctx, false),
-              child: Text('Cancel'),
+              child: Text(AppLocalizations.of(context).t('Cancel')),
             ),
             TextButton(
               onPressed: () => Navigator.pop(ctx, true),
-              child: Text('Clear progress'),
+              child: Text(AppLocalizations.of(context).t('Clear progress')),
             ),
           ],
         ),
@@ -313,7 +314,7 @@ Future<void> handleTraktMenuAction(
               children: [
                 CircularProgressIndicator(),
                 SizedBox(width: 20),
-                Expanded(child: Text('Clearing watch progress…')),
+                Expanded(child: Text(AppLocalizations.of(context).t('Clearing watch progress…'))),
               ],
             ),
           ),

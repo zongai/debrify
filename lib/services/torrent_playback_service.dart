@@ -75,6 +75,7 @@ import 'torbox_service.dart';
 import 'torrent_file_service.dart';
 import 'torrent_service.dart';
 import 'video_player_launcher.dart';
+import '../l10n/app_localizations.dart';
 
 /// Content identity for a playback, so the player can record Continue Watching,
 /// fetch subtitles, and drive the Episodes button (matching Home).
@@ -6752,7 +6753,7 @@ class TorrentPlaybackService {
         context: context,
         builder: (context) => StatefulBuilder(
           builder: (context, setState) => AlertDialog(
-            title: Text('DeoVR Format'),
+            title: Text(AppLocalizations.of(context).t('DeoVR Format')),
             content: Column(
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -6767,7 +6768,7 @@ class TorrentPlaybackService {
                   overflow: TextOverflow.ellipsis,
                 ),
                 const SizedBox(height: 16),
-                Text('Screen Type',
+                Text(AppLocalizations.of(context).t('Screen Type'),
                   style: TextStyle(fontWeight: FontWeight.w500),
                 ),
                 const SizedBox(height: 8),
@@ -6796,7 +6797,7 @@ class TorrentPlaybackService {
                   },
                 ),
                 SizedBox(height: 16),
-                Text('Stereo Mode',
+                Text(AppLocalizations.of(context).t('Stereo Mode'),
                   style: TextStyle(fontWeight: FontWeight.w500),
                 ),
                 SizedBox(height: 8),
@@ -6832,7 +6833,7 @@ class TorrentPlaybackService {
                   DialogTapGuard.markKeyAction();
                   Navigator.of(context).pop(false);
                 },
-                child: Text('Cancel'),
+                child: Text(AppLocalizations.of(context).t('Cancel')),
               ),
               FilledButton.icon(
                 onPressed: () {
@@ -6840,7 +6841,7 @@ class TorrentPlaybackService {
                   Navigator.of(context).pop(true);
                 },
                 icon: Icon(Icons.play_arrow),
-                label: Text('Play'),
+                label: Text(AppLocalizations.of(context).t('Play')),
               ),
             ],
           ),
@@ -6901,7 +6902,7 @@ class TorrentPlaybackService {
       if (context.mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text('Launching DeoVR...'),
+            content: Text(AppLocalizations.of(context).t('Launching DeoVR...')),
             duration: Duration(seconds: 2),
           ),
         );
@@ -7341,7 +7342,7 @@ class TorrentPlaybackService {
             );
             final allOn = selected.length == entries.length;
             return AlertDialog(
-              title: Text('Download files'),
+              title: Text(AppLocalizations.of(context).t('Download files')),
               content: SizedBox(
                 width: double.maxFinite,
                 child: Column(
@@ -7407,7 +7408,7 @@ class TorrentPlaybackService {
               actions: [
                 TextButton(
                   onPressed: () => Navigator.of(dialogCtx).pop(),
-                  child: Text('Cancel'),
+                  child: Text(AppLocalizations.of(context).t('Cancel')),
                 ),
                 FilledButton(
                   onPressed: selected.isEmpty

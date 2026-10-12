@@ -5418,7 +5418,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
     }
     if (!allowed && mounted) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('This feature is disabled for this profile.'),
+        SnackBar(content: Text(AppLocalizations.of(context).t('This feature is disabled for this profile.')),
         ),
       );
     }
@@ -5443,7 +5443,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text('Sync and Migrate becomes available after Profiles setup.',
+            content: Text(AppLocalizations.of(context).t('Sync and Migrate becomes available after Profiles setup.'),
             ),
           ),
         );
@@ -5468,7 +5468,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
     } catch (_) {
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Failed to build the backup')),
+        SnackBar(content: Text(AppLocalizations.of(context).t('Failed to build the backup'))),
       );
       return;
     }
@@ -5478,7 +5478,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text('Nothing to back up — no services are configured.'),
+          content: Text(AppLocalizations.of(context).t('Nothing to back up — no services are configured.')),
         ),
       );
       return;
@@ -5534,7 +5534,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     contentPadding: EdgeInsets.zero,
                     dense: true,
                     title: Text(AppLocalizations.of(context).t('Include credentials')),
-                    subtitle: Text('Off: share your setup without your accounts. Skips anything that embeds them: addons, Xtream providers, indexers, starred channels and lists. M3U URLs are kept — use a passphrase to protect those.',
+                    subtitle: Text(AppLocalizations.of(context).t('Off: share your setup without your accounts. Skips anything that embeds them: addons, Xtream providers, indexers, starred channels and lists. M3U URLs are kept — use a passphrase to protect those.'),
                       style: TextStyle(fontSize: 12),
                     ),
                     value: includeCredentials,
@@ -5580,14 +5580,14 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   ],
                   SizedBox(height: 12),
                   if (usePassphrase)
-                    Text('Encrypted with your passphrase — if you forget it, this backup cannot be opened.',
+                    Text(AppLocalizations.of(context).t('Encrypted with your passphrase — if you forget it, this backup cannot be opened.'),
                       style: TextStyle(
                         fontSize: 12,
                         color: app.fade(app.core.tx, 0x99 / 0xFF),
                       ),
                     )
                   else if (includeCredentials)
-                    Text('Credentials are stored in plain text. Keep this file private and treat it like a password.',
+                    Text(AppLocalizations.of(context).t('Credentials are stored in plain text. Keep this file private and treat it like a password.'),
                       style: TextStyle(fontSize: 12, color: Color(0xFFEF4444)),
                     ),
                 ],
@@ -5632,7 +5632,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text('Nothing left to back up without credentials — everything on this device is account data.',
+          content: Text(AppLocalizations.of(context).t('Nothing left to back up without credentials — everything on this device is account data.'),
           ),
         ),
       );
@@ -5660,7 +5660,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   child: CircularProgressIndicator(strokeWidth: 2),
                 ),
                 SizedBox(width: 16),
-                Expanded(child: Text('Encrypting backup…')),
+                Expanded(child: Text(AppLocalizations.of(context).t('Encrypting backup…'))),
               ],
             ),
           ),
@@ -5675,7 +5675,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
         rootNavigator.pop();
         if (!mounted) return;
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Failed to encrypt the backup')),
+          SnackBar(content: Text(AppLocalizations.of(context).t('Failed to encrypt the backup'))),
         );
         return;
       }
@@ -5706,7 +5706,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
     } catch (_) {
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Failed to save the backup')),
+        SnackBar(content: Text(AppLocalizations.of(context).t('Failed to save the backup'))),
       );
     }
   }
@@ -5718,7 +5718,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
       setState(() => _diagnosticExportVisible = false);
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text('Only an admin can export diagnostic logs.'),
+          content: Text(AppLocalizations.of(context).t('Only an admin can export diagnostic logs.')),
         ),
       );
       return;
@@ -5772,7 +5772,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
       );
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Failed to export diagnostic logs.')),
+        SnackBar(content: Text(AppLocalizations.of(context).t('Failed to export diagnostic logs.'))),
       );
     } finally {
       if (mounted) setState(() => _exportingDiagnostics = false);
@@ -5793,7 +5793,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
         context: context,
         builder: (context) => StatefulBuilder(
           builder: (context, setDialogState) => AlertDialog(
-            title: Text('Backup is encrypted'),
+            title: Text(AppLocalizations.of(context).t('Backup is encrypted')),
             content: Column(
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -5854,7 +5854,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   child: CircularProgressIndicator(strokeWidth: 2),
                 ),
                 SizedBox(width: 16),
-                Expanded(child: Text('Unlocking backup…')),
+                Expanded(child: Text(AppLocalizations.of(context).t('Unlocking backup…'))),
               ],
             ),
           ),
@@ -5876,7 +5876,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
         rootNavigator.pop();
         if (!mounted) return null;
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('The backup format is invalid')),
+          SnackBar(content: Text(AppLocalizations.of(context).t('The backup format is invalid'))),
         );
         return null;
       }
@@ -5904,7 +5904,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
     } catch (_) {
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Could not open the file picker')),
+        SnackBar(content: Text(AppLocalizations.of(context).t('Could not open the file picker'))),
       );
       return;
     }
@@ -5921,7 +5921,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text('That file is too large to be a Debrify backup.'),
+          content: Text(AppLocalizations.of(context).t('That file is too large to be a Debrify backup.')),
         ),
       );
       return;
@@ -5940,7 +5940,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
     } catch (_) {
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Failed to read the backup file')),
+        SnackBar(content: Text(AppLocalizations.of(context).t('Failed to read the backup file'))),
       );
       return;
     }
@@ -5975,7 +5975,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
     if (summary.isEmpty) {
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Backup contains no data to restore.')),
+        SnackBar(content: Text(AppLocalizations.of(context).t('Backup contains no data to restore.'))),
       );
       return;
     }
@@ -6000,17 +6000,17 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   ),
                 ),
               ),
-            Text('This backup contains:'),
+            Text(AppLocalizations.of(context).t('This backup contains:')),
             SizedBox(height: 8),
             ..._backupSummaryLines(summary).map((line) => Text('• $line')),
             SizedBox(height: 12),
-            Text('Saved credentials (Real-Debrid, Torbox, Premiumize, AllDebrid, PikPak, Trakt, Simkl) will be overwritten. Addons, search engines, WebDAV servers, indexer managers, and IPTV providers you already have are kept as-is. IPTV favorites and lists merge into what\'s here — nothing is removed.',
+            Text(AppLocalizations.of(context).t('Saved credentials (Real-Debrid, Torbox, Premiumize, AllDebrid, PikPak, Trakt, Simkl) will be overwritten. Addons, search engines, WebDAV servers, indexer managers, and IPTV providers you already have are kept as-is. IPTV favorites and lists merge into what\'s here — nothing is removed.'),
               style: TextStyle(fontSize: 12),
             ),
             if (summary.addonCount > 0 || summary.searchEngineCount > 0)
               Padding(
                 padding: const EdgeInsets.only(top: 8),
-                child: Text('Restoring addons and search engines needs a network connection.',
+                child: Text(AppLocalizations.of(context).t('Restoring addons and search engines needs a network connection.'),
                   style: TextStyle(
                     fontSize: 12,
                     color: app.fade(app.core.tx, 0x99 / 0xFF),
@@ -6021,7 +6021,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 summary.indexerManagerCount > 0)
               Padding(
                 padding: const EdgeInsets.only(top: 8),
-                child: Text('WebDAV and Jackett/Prowlarr URLs may be local-network only — they won\'t work on a different network.',
+                child: Text(AppLocalizations.of(context).t('WebDAV and Jackett/Prowlarr URLs may be local-network only — they won\'t work on a different network.'),
                   style: TextStyle(
                     fontSize: 12,
                     color: app.fade(app.core.tx, 0x99 / 0xFF),
@@ -6062,7 +6062,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 child: CircularProgressIndicator(strokeWidth: 2),
               ),
               SizedBox(width: 16),
-              Expanded(child: Text('Restoring backup…')),
+              Expanded(child: Text(AppLocalizations.of(context).t('Restoring backup…'))),
             ],
           ),
         ),
@@ -6077,7 +6077,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
       Navigator.of(context, rootNavigator: true).pop();
       ScaffoldMessenger.of(
         context,
-      ).showSnackBar(SnackBar(content: Text('Restore failed')));
+      ).showSnackBar(SnackBar(content: Text(AppLocalizations.of(context).t('Restore failed'))));
       return;
     }
 
@@ -6318,14 +6318,14 @@ class _SettingsScreenState extends State<SettingsScreen> {
               SizedBox(height: 8),
               ListTile(
                 leading: Icon(Icons.folder_rounded),
-                title: Text('Download location'),
+                title: Text(AppLocalizations.of(context).t('Download location')),
                 subtitle: Text(_downloadLocationSubtitle),
               ),
               Divider(height: 1),
               ListTile(
                 autofocus: true,
                 leading: Icon(Icons.drive_folder_upload_rounded),
-                title: Text('Choose folder…'),
+                title: Text(AppLocalizations.of(context).t('Choose folder…')),
                 subtitle: Text(
                   _downloadLocationUsesSaf
                       ? 'Pick any folder, including an SD card. New downloads go there.'
@@ -6339,7 +6339,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
               if (currentTree != null)
                 ListTile(
                   leading: Icon(Icons.restart_alt_rounded),
-                  title: Text('Reset to default'),
+                  title: Text(AppLocalizations.of(context).t('Reset to default')),
                   subtitle: Text(
                     'Save to ${_defaultDownloadLocationLabel.replaceAll(' (default)', '')} again',
                   ),
@@ -6477,8 +6477,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
     final confirmed = await showSettingsDialog<bool>(
       context: context,
       builder: (context) => AlertDialog(
-        title: Text('Clear download data?'),
-        content: Text('This removes queued entries and download history. Files already saved to disk stay untouched.',
+        title: Text(AppLocalizations.of(context).t('Clear download data?')),
+        content: Text(AppLocalizations.of(context).t('This removes queued entries and download history. Files already saved to disk stay untouched.'),
         ),
         actions: [
           TextButton(
@@ -6498,7 +6498,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
       if (!mounted) return;
       ScaffoldMessenger.of(
         context,
-      ).showSnackBar(SnackBar(content: Text('Download data cleared')));
+      ).showSnackBar(SnackBar(content: Text(AppLocalizations.of(context).t('Download data cleared'))));
     }
   }
 
@@ -6506,8 +6506,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
     final confirmed = await showSettingsDialog<bool>(
       context: context,
       builder: (context) => AlertDialog(
-        title: Text('Clear playback data?'),
-        content: Text('This resets resume positions and cached playback preferences.',
+        title: Text(AppLocalizations.of(context).t('Clear playback data?')),
+        content: Text(AppLocalizations.of(context).t('This resets resume positions and cached playback preferences.'),
         ),
         actions: [
           TextButton(
@@ -6527,7 +6527,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
       if (!mounted) return;
       ScaffoldMessenger.of(
         context,
-      ).showSnackBar(SnackBar(content: Text('Playback data cleared')));
+      ).showSnackBar(SnackBar(content: Text(AppLocalizations.of(context).t('Playback data cleared'))));
     }
   }
 
@@ -6563,7 +6563,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
           if (mayResetDevice)
             TextButton(
               onPressed: () => Navigator.of(context).pop('device'),
-              child: Text('Reset device…'),
+              child: Text(AppLocalizations.of(context).t('Reset device…')),
             ),
           FilledButton(
             onPressed: () => Navigator.of(context).pop('profile'),
@@ -6586,7 +6586,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
         context: context,
         builder: (dialogContext) => StatefulBuilder(
           builder: (context, setDialogState) => AlertDialog(
-            title: Text('Reset this Debrify installation?'),
+            title: Text(AppLocalizations.of(context).t('Reset this Debrify installation?')),
             content: Column(
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -6621,7 +6621,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 onPressed: typed.text == 'RESET'
                     ? () => Navigator.of(dialogContext).pop(true)
                     : null,
-                child: Text('Reset device'),
+                child: Text(AppLocalizations.of(context).t('Reset device')),
               ),
             ],
           ),
@@ -6652,7 +6652,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text('Profile data reset. Connections and files were kept.'),
+          content: Text(AppLocalizations.of(context).t('Profile data reset. Connections and files were kept.')),
         ),
       );
       await _loadSummaries();
@@ -6701,7 +6701,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
-        content: Text('App data reset. You can reconnect services anytime.'),
+        content: Text(AppLocalizations.of(context).t('App data reset. You can reconnect services anytime.')),
       ),
     );
 
@@ -6854,7 +6854,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     ),
                   ],
                   SizedBox(height: 16),
-                  Text('Release notes',
+                  Text(AppLocalizations.of(context).t('Release notes'),
                     style: textTheme.titleMedium?.copyWith(
                       fontWeight: FontWeight.w600,
                     ),
@@ -6891,7 +6891,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                             _startAndroidUpdateDownload(release);
                           },
                           icon: Icon(Icons.system_update_alt_rounded),
-                          label: Text('Download & Install'),
+                          label: Text(AppLocalizations.of(context).t('Download & Install')),
                         ),
                       OutlinedButton.icon(
                         onPressed: () {
@@ -6899,7 +6899,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                           _openReleasesPage(release.htmlUrl);
                         },
                         icon: Icon(Icons.open_in_new_rounded),
-                        label: Text('Open Releases Page'),
+                        label: Text(AppLocalizations.of(context).t('Open Releases Page')),
                       ),
                     ],
                   ),
@@ -8732,7 +8732,7 @@ class _SettingsSearchBarState extends State<_SettingsSearchBar> {
                 color: lit ? t.accent2 : t.dim,
               ),
               const SizedBox(width: 12),
-              Text('Search settings',
+              Text(AppLocalizations.of(context).t('Search settings'),
                 style: TextStyle(fontSize: 13.5, color: t.dim),
               ),
             ],

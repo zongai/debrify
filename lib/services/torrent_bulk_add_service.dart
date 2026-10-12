@@ -12,6 +12,7 @@ import 'premiumize_service.dart';
 import 'storage_service.dart';
 import 'torbox_service.dart';
 import 'torrent_file_service.dart';
+import '../l10n/app_localizations.dart';
 
 /// Isolated bulk-add engine for the Search tab.
 ///
@@ -767,7 +768,7 @@ class TorrentBulkAddService {
                 ),
                 const SizedBox(width: 14),
                 Expanded(
-                  child: Text('Premiumize Fair Use',
+                  child: Text(AppLocalizations.of(context).t('Premiumize Fair Use'),
                     style: TextStyle(
                       fontWeight: FontWeight.w700,
                       fontSize: 18,
@@ -783,7 +784,7 @@ class TorrentBulkAddService {
                   mainAxisSize: MainAxisSize.min,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text('Premiumize works on a fair-use points system — about 1000 points max, topping up ~30/day. Adding a cached torrent and later streaming it both spend points (roughly 1 point per GB).',
+                    Text(AppLocalizations.of(context).t('Premiumize works on a fair-use points system — about 1000 points max, topping up ~30/day. Adding a cached torrent and later streaming it both spend points (roughly 1 point per GB).'),
                       style: theme.textTheme.bodyMedium?.copyWith(
                         color: Colors.white.withValues(alpha: 0.85),
                         height: 1.45,
@@ -810,7 +811,7 @@ class TorrentBulkAddService {
                           ),
                           SizedBox(width: 10),
                           Expanded(
-                            child: Text('Only cached torrents are added, but each one still uses points. Select carefully to avoid running out of your daily quota.',
+                            child: Text(AppLocalizations.of(context).t('Only cached torrents are added, but each one still uses points. Select carefully to avoid running out of your daily quota.'),
                               style: theme.textTheme.bodySmall?.copyWith(
                                 color: Colors.white.withValues(alpha: 0.8),
                                 height: 1.4,
@@ -831,7 +832,7 @@ class TorrentBulkAddService {
                   DialogTapGuard.markKeyAction();
                   Navigator.of(dialogContext).pop(false);
                 },
-                child: Text('Cancel'),
+                child: Text(AppLocalizations.of(context).t('Cancel')),
               ),
               SizedBox(width: 8),
               ElevatedButton(
@@ -844,7 +845,7 @@ class TorrentBulkAddService {
                   backgroundColor: Color(0xFFFB923C),
                   foregroundColor: Colors.white,
                 ),
-                child: Text('Continue'),
+                child: Text(AppLocalizations.of(context).t('Continue')),
               ),
             ],
           ),
