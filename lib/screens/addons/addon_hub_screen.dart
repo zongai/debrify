@@ -1867,7 +1867,7 @@ class _AddonHubScreenState extends State<AddonHubScreen> {
     if (_marketError != null) {
       return _emptyState(
         icon: Icons.cloud_off_rounded,
-        title: 'Couldn\'t load addons',
+        title: AppLocalizations.of(context).t("Couldn't load addons"),
         subtitle: _marketError!,
         action: _HubActionButton(
           icon: Icons.refresh_rounded,
@@ -1928,7 +1928,7 @@ class _AddonHubScreenState extends State<AddonHubScreen> {
     if (_enginesError != null) {
       return _emptyState(
         icon: Icons.cloud_off_rounded,
-        title: 'Couldn\'t load engines',
+        title: AppLocalizations.of(context).t("Couldn't load engines"),
         subtitle: _enginesError!,
         action: _HubActionButton(
           icon: Icons.refresh_rounded,

@@ -5120,7 +5120,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
         }
 
         return AlertDialog(
-          title: Text('Navigation'),
+          title: Text(AppLocalizations.of(context).t('Navigation')),
           contentPadding: const EdgeInsets.fromLTRB(0, 16, 0, 12),
           content: Column(
             mainAxisSize: MainAxisSize.min,
@@ -5504,13 +5504,13 @@ class _SettingsScreenState extends State<SettingsScreen> {
               (passphraseController.text.isNotEmpty &&
                   passphraseController.text == confirmController.text);
           return AlertDialog(
-            title: Text('Create backup'),
+            title: Text(AppLocalizations.of(context).t('Create backup')),
             content: SingleChildScrollView(
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text('The backup will include:'),
+                  Text(AppLocalizations.of(context).t('The backup will include:')),
                   SizedBox(height: 8),
                   ..._backupSummaryLines(
                     summary,
@@ -5533,7 +5533,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   SwitchListTile(
                     contentPadding: EdgeInsets.zero,
                     dense: true,
-                    title: Text('Include credentials'),
+                    title: Text(AppLocalizations.of(context).t('Include credentials')),
                     subtitle: Text('Off: share your setup without your accounts. Skips anything that embeds them: addons, Xtream providers, indexers, starred channels and lists. M3U URLs are kept — use a passphrase to protect those.',
                       style: TextStyle(fontSize: 12),
                     ),
@@ -5544,7 +5544,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   SwitchListTile(
                     contentPadding: EdgeInsets.zero,
                     dense: true,
-                    title: Text('Encrypt with a passphrase'),
+                    title: Text(AppLocalizations.of(context).t('Encrypt with a passphrase')),
                     value: usePassphrase,
                     onChanged: (v) => setDialogState(() => usePassphrase = v),
                   ),
@@ -5596,13 +5596,13 @@ class _SettingsScreenState extends State<SettingsScreen> {
             actions: [
               TextButton(
                 onPressed: () => Navigator.of(context).pop(false),
-                child: Text('Cancel'),
+                child: Text(AppLocalizations.of(context).t('Cancel')),
               ),
               FilledButton(
                 onPressed: passphraseOk
                     ? () => Navigator.of(context).pop(true)
                     : null,
-                child: Text('Save backup'),
+                child: Text(AppLocalizations.of(context).t('Save backup')),
               ),
             ],
           );
@@ -5823,11 +5823,11 @@ class _SettingsScreenState extends State<SettingsScreen> {
             actions: [
               TextButton(
                 onPressed: () => Navigator.of(context).pop(null),
-                child: Text('Cancel'),
+                child: Text(AppLocalizations.of(context).t('Cancel')),
               ),
               FilledButton(
                 onPressed: () => Navigator.of(context).pop(controller.text),
-                child: Text('Unlock'),
+                child: Text(AppLocalizations.of(context).t('Unlock')),
               ),
             ],
           ),
@@ -5984,7 +5984,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
     final confirmed = await showSettingsDialog<bool>(
       context: context,
       builder: (context) => AlertDialog(
-        title: Text('Restore backup'),
+        title: Text(AppLocalizations.of(context).t('Restore backup')),
         content: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -6033,11 +6033,11 @@ class _SettingsScreenState extends State<SettingsScreen> {
         actions: [
           TextButton(
             onPressed: () => Navigator.of(context).pop(false),
-            child: Text('Cancel'),
+            child: Text(AppLocalizations.of(context).t('Cancel')),
           ),
           FilledButton(
             onPressed: () => Navigator.of(context).pop(true),
-            child: Text('Restore'),
+            child: Text(AppLocalizations.of(context).t('Restore')),
           ),
         ],
       ),
@@ -6483,11 +6483,11 @@ class _SettingsScreenState extends State<SettingsScreen> {
         actions: [
           TextButton(
             onPressed: () => Navigator.of(context).pop(false),
-            child: Text('Cancel'),
+            child: Text(AppLocalizations.of(context).t('Cancel')),
           ),
           FilledButton(
             onPressed: () => Navigator.of(context).pop(true),
-            child: Text('Clear'),
+            child: Text(AppLocalizations.of(context).t('Clear')),
           ),
         ],
       ),
@@ -6512,11 +6512,11 @@ class _SettingsScreenState extends State<SettingsScreen> {
         actions: [
           TextButton(
             onPressed: () => Navigator.of(context).pop(false),
-            child: Text('Cancel'),
+            child: Text(AppLocalizations.of(context).t('Cancel')),
           ),
           FilledButton(
             onPressed: () => Navigator.of(context).pop(true),
-            child: Text('Clear'),
+            child: Text(AppLocalizations.of(context).t('Clear')),
           ),
         ],
       ),
@@ -6558,7 +6558,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
         actions: [
           TextButton(
             onPressed: () => Navigator.of(context).pop(),
-            child: Text('Cancel'),
+            child: Text(AppLocalizations.of(context).t('Cancel')),
           ),
           if (mayResetDevice)
             TextButton(
@@ -6615,7 +6615,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
             actions: [
               TextButton(
                 onPressed: () => Navigator.of(dialogContext).pop(false),
-                child: Text('Cancel'),
+                child: Text(AppLocalizations.of(context).t('Cancel')),
               ),
               FilledButton(
                 onPressed: typed.text == 'RESET'

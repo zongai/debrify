@@ -2272,7 +2272,7 @@ class TraktResultsViewState extends State<TraktResultsView> {
                       (t) => DropdownMenuItem(
                         value: t,
                         child: Text(
-                          t.label,
+                          AppLocalizations.of(context).t(t.label),
                           style: const TextStyle(fontSize: 13),
                         ),
                       ),
@@ -2297,7 +2297,7 @@ class TraktResultsViewState extends State<TraktResultsView> {
                       (t) => DropdownMenuItem(
                         value: t,
                         child: Text(
-                          t.label,
+                          AppLocalizations.of(context).t(t.label),
                           style: const TextStyle(fontSize: 13),
                         ),
                       ),

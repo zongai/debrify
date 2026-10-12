@@ -3811,10 +3811,12 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
                                   for (final index in tvIndices)
                                     TvNavItem(
                                       _icons[index],
+                                      AppLocalizations.of(context).t(
                                       _sidebarConfiguration.labelForTab(
                                         index,
-                                        AppLocalizations.of(context).t(_titles[index]),
+                                        _titles[index],
                                       ),
+                                    ),
                                       section: _navSectionForIndex(index),
                                     ),
                                 ],
@@ -4071,10 +4073,12 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
                               for (final index in nonTvIndices)
                                 DesktopNavEntry(
                                   _icons[index],
-                                  _sidebarConfiguration.labelForTab(
-                                    index,
-                                    AppLocalizations.of(context).t(_titles[index]),
-                                  ),
+                                  AppLocalizations.of(context).t(
+                                      _sidebarConfiguration.labelForTab(
+                                        index,
+                                        _titles[index],
+                                      ),
+                                    ),
                                   _navSectionForIndex(index),
                                 ),
                             ],
@@ -4102,10 +4106,12 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
                               for (final index in nonTvIndices)
                                 DesktopNavEntry(
                                   _icons[index],
-                                  _sidebarConfiguration.labelForTab(
-                                    index,
-                                    AppLocalizations.of(context).t(_titles[index]),
-                                  ),
+                                  AppLocalizations.of(context).t(
+                                      _sidebarConfiguration.labelForTab(
+                                        index,
+                                        _titles[index],
+                                      ),
+                                    ),
                                   _navSectionForIndex(index),
                                 ),
                             ],

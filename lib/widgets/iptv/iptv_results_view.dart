@@ -3242,13 +3242,18 @@ class IptvResultsViewState extends State<IptvResultsView>
                 color: app.core.tx,
               ),
               title: Text(
-                isDefault ? 'Clear default category' : 'Set as default',
+                AppLocalizations.of(context).t(
+                  isDefault ? 'Clear default category' : 'Set as default',
+                ),
                 style: TextStyle(color: app.core.tx),
               ),
               subtitle: Text(
                 isDefault
-                    ? 'This source goes back to opening on its first category'
-                    : 'Open this source on "$category"',
+                    ? AppLocalizations.of(context).t(
+                        'This source goes back to opening on its first category',
+                      )
+                    : AppLocalizations.of(context).t('Open this source on')
+                        + ' "$category"',
                 maxLines: 2,
                 overflow: TextOverflow.ellipsis,
                 style: TextStyle(color: app.core.tx.withAlpha(0xB3)),

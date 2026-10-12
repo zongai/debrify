@@ -1818,7 +1818,7 @@ class _IptvSettingsPageState extends State<IptvSettingsPage>
           child: TvTextField(
             controller: _nameController,
             focusNode: _nameInputFocusNode,
-            labelText: 'Playlist Name',
+            labelText: AppLocalizations.of(context).t('Playlist Name'),
             hintText: AppLocalizations.of(context).t('e.g., My IPTV'),
             prefixIcon: Icon(Icons.label_outline),
             textInputAction: TextInputAction.next,
@@ -1837,7 +1837,7 @@ class _IptvSettingsPageState extends State<IptvSettingsPage>
           child: TvTextField(
             controller: _urlController,
             focusNode: _urlInputFocusNode,
-            labelText: 'Playlist URL',
+            labelText: AppLocalizations.of(context).t('Playlist URL'),
             hintText: 'https://example.com/playlist.m3u',
             prefixIcon: const Icon(Icons.link),
             textInputAction: TextInputAction.next,
@@ -1855,7 +1855,7 @@ class _IptvSettingsPageState extends State<IptvSettingsPage>
           child: TvTextField(
             controller: _epgUrlController,
             focusNode: _epgUrlInputFocusNode,
-            labelText: 'EPG URL (XMLTV, optional)',
+            labelText: AppLocalizations.of(context).t('EPG URL (XMLTV, optional)'),
             hintText: 'https://example.com/guide.xml.gz',
             prefixIcon: const Icon(Icons.calendar_view_day_outlined),
             textInputAction: TextInputAction.done,
@@ -1880,7 +1880,7 @@ class _IptvSettingsPageState extends State<IptvSettingsPage>
             child: _TvFocusableButton(
               focusNode: _addButtonFocusNode,
               icon: _isAdding ? Icons.hourglass_empty : Icons.add,
-              label: _isAdding ? 'Adding...' : 'Add Playlist',
+              label: AppLocalizations.of(context).t(_isAdding ? 'Adding...' : 'Add Playlist'),
               onPressed: _isAdding ? () {} : _addPlaylist,
               onUpArrow: () => _focusAndReveal(_epgUrlInputFocusNode),
               onDownArrow:
@@ -1941,7 +1941,7 @@ class _IptvSettingsPageState extends State<IptvSettingsPage>
           child: TvTextField(
             controller: _xcNameController,
             focusNode: _xcNameFocusNode,
-            labelText: 'Playlist Name (optional)',
+            labelText: AppLocalizations.of(context).t('Playlist Name (optional)'),
             hintText: AppLocalizations.of(context).t('e.g., My Provider'),
             prefixIcon: const Icon(Icons.label_outline),
             textInputAction: TextInputAction.next,
@@ -2389,7 +2389,7 @@ class _IptvSettingsPageState extends State<IptvSettingsPage>
       padding: const EdgeInsets.all(16),
       children: [
         // Add Playlist section with Tabs
-        SettingsSectionLabel('Add Playlist'),
+        SettingsSectionLabel(AppLocalizations.of(context).t('Add Playlist')),
         const SizedBox(height: 6),
 
         // Tab bar
@@ -3794,7 +3794,7 @@ class _EditPlaylistDialogState extends State<_EditPlaylistDialog> {
       TvTextField(
         controller: _nameController,
         focusNode: _nameFocusNode,
-        labelText: 'Playlist Name',
+        labelText: AppLocalizations.of(context).t('Playlist Name'),
         hintText: AppLocalizations.of(context).t('Enter a name for this playlist'),
         errorText: _nameError,
         prefixIcon: Icon(Icons.label_outline),
@@ -3811,7 +3811,7 @@ class _EditPlaylistDialogState extends State<_EditPlaylistDialog> {
         TvTextField(
           controller: _urlController,
           focusNode: _urlFocusNode,
-          labelText: 'Playlist URL',
+          labelText: AppLocalizations.of(context).t('Playlist URL'),
           hintText: 'https://example.com/playlist.m3u',
           errorText: _urlError,
           prefixIcon: Icon(Icons.link),
@@ -3863,7 +3863,7 @@ class _EditPlaylistDialogState extends State<_EditPlaylistDialog> {
       TvTextField(
         controller: _epgController,
         focusNode: _epgFocusNode,
-        labelText: 'EPG URL (XMLTV, optional)',
+        labelText: AppLocalizations.of(context).t('EPG URL (XMLTV, optional)'),
         hintText: 'https://example.com/guide.xml.gz',
         prefixIcon: Icon(Icons.calendar_view_day_outlined),
         textInputAction: TextInputAction.done,
@@ -4272,7 +4272,7 @@ class _PlaylistNameDialogState extends State<_PlaylistNameDialog> {
           TvTextField(
             controller: _controller,
             focusNode: _fieldFocusNode,
-            labelText: 'Playlist Name',
+            labelText: AppLocalizations.of(context).t('Playlist Name'),
             hintText: AppLocalizations.of(context).t('Enter a name for this playlist'),
             errorText: _errorText,
             prefixIcon: Icon(Icons.label_outline),

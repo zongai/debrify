@@ -2147,7 +2147,7 @@ class _SectionHeader extends StatelessWidget {
           child: Align(
             alignment: Alignment.bottomLeft,
             child: Text(
-              text.toUpperCase(),
+              AppLocalizations.of(context).t(text).toUpperCase(),
               maxLines: 1,
               softWrap: false,
               overflow: TextOverflow.clip,

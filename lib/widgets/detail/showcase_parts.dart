@@ -2236,7 +2236,7 @@ class _SourceCardState extends State<_SourceCard> {
                 child: widget.add
                     ? Center(
                         child: Text(
-                          widget.addLabel,
+                          AppLocalizations.of(context).t(widget.addLabel),
                           style: _t(10.5 * mm.k, a: 0.66),
                         ),
                       )
@@ -2248,7 +2248,7 @@ class _SourceCardState extends State<_SourceCard> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Text(
-                                  'Pinned sources (${widget.sourceCount})',
+                                  AppLocalizations.of(context).t('Pinned sources') + ' (${widget.sourceCount})',
                                   maxLines: 1,
                                   overflow: TextOverflow.ellipsis,
                                   style: _t(10.5 * mm.k, w: FontWeight.w600),
@@ -2256,8 +2256,8 @@ class _SourceCardState extends State<_SourceCard> {
                                 const SizedBox(height: 4),
                                 Text(
                                   widget.sourceCount == 0
-                                      ? 'Pin a source to get started'
-                                      : 'View and manage sources',
+                                      ? AppLocalizations.of(context).t('Pin a source to get started')
+                                      : AppLocalizations.of(context).t('View and manage sources'),
                                   maxLines: 1,
                                   overflow: TextOverflow.ellipsis,
                                   style: _t(9.5 * mm.k, a: 0.58),
@@ -2424,7 +2424,7 @@ class _SeverityMark extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         Text(
-          severity.toUpperCase(),
+          AppLocalizations.of(context).t(severity.toUpperCase()),
           style: _t(
             compact ? 9.5 : 7.5 * m.k,
             w: FontWeight.w700,
@@ -2826,7 +2826,7 @@ class _GuideCardState extends State<_GuideCard> {
                   children: [
                     Expanded(
                       child: Text(
-                        cat.label,
+                        AppLocalizations.of(context).t(cat.label),
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
                         style: _t(10.5 * m.k, w: FontWeight.w600),

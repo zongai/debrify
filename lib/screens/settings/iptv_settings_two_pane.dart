@@ -1061,7 +1061,7 @@ class IptvSettingsTwoPaneState extends State<IptvSettingsTwoPane> {
         _PaneHeader(
           icon: Icons.add_rounded,
           title: AppLocalizations.of(context).t('Add a source'),
-          meta: 'Pick how you want to connect, then fill in the details.',
+          meta: AppLocalizations.of(context).t('Pick how you want to connect, then fill in the details.'),
           badges: [],
         ),
         const SizedBox(height: 20),
@@ -1072,7 +1072,7 @@ class IptvSettingsTwoPaneState extends State<IptvSettingsTwoPane> {
                 focusNode: widget.urlMethodFocusNode,
                 icon: Icons.link_rounded,
                 label: AppLocalizations.of(context).t('From URL'),
-                hint: 'An M3U or M3U8 link',
+                hint: AppLocalizations.of(context).t('An M3U or M3U8 link'),
                 selected: widget.addMethod == 0,
                 onTap: () => widget.onAddMethodChanged(0),
                 // Leftmost card: LEFT leaves the pane entirely.
@@ -1087,7 +1087,7 @@ class IptvSettingsTwoPaneState extends State<IptvSettingsTwoPane> {
                 focusNode: widget.fileMethodFocusNode,
                 icon: Icons.folder_open_rounded,
                 label: AppLocalizations.of(context).t('From file'),
-                hint: 'A file on this device',
+                hint: AppLocalizations.of(context).t('A file on this device'),
                 selected: widget.addMethod == 1,
                 onTap: () => widget.onAddMethodChanged(1),
                 onLeft: widget.urlMethodFocusNode.requestFocus,
@@ -1101,7 +1101,7 @@ class IptvSettingsTwoPaneState extends State<IptvSettingsTwoPane> {
                 focusNode: widget.xtreamMethodFocusNode,
                 icon: Icons.vpn_key_rounded,
                 label: AppLocalizations.of(context).t('Xtream login'),
-                hint: 'Server, user, password',
+                hint: AppLocalizations.of(context).t('Server, user, password'),
                 selected: widget.addMethod == 2,
                 onTap: () => widget.onAddMethodChanged(2),
                 onLeft: widget.fileMethodFocusNode.requestFocus,
@@ -1743,7 +1743,7 @@ class _RailEntryState extends State<_RailEntry> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        widget.title,
+                        AppLocalizations.of(context).t(widget.title),
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(
@@ -1754,7 +1754,7 @@ class _RailEntryState extends State<_RailEntry> {
                       ),
                       const SizedBox(height: 2),
                       Text(
-                        widget.subtitle,
+                        AppLocalizations.of(context).t(widget.subtitle),
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(fontSize: 12, color: t.dim),
@@ -1819,7 +1819,7 @@ class _PaneHeader extends StatelessWidget {
               ),
               const SizedBox(height: 5),
               Text(
-                meta,
+                AppLocalizations.of(context).t(meta),
                 maxLines: 2,
                 overflow: TextOverflow.ellipsis,
                 style: TextStyle(fontSize: 12.5, color: t.dim),
@@ -2199,7 +2199,7 @@ class _MethodCardState extends State<_MethodCard> {
                 Icon(widget.icon, size: 24, color: t.accent2),
                 const SizedBox(height: 9),
                 Text(
-                  widget.label,
+                  AppLocalizations.of(context).t(widget.label),
                   style: const TextStyle(
                     fontSize: 14,
                     fontWeight: FontWeight.w600,
@@ -2207,7 +2207,7 @@ class _MethodCardState extends State<_MethodCard> {
                 ),
                 const SizedBox(height: 3),
                 Text(
-                  widget.hint,
+                  AppLocalizations.of(context).t(widget.hint),
                   textAlign: TextAlign.center,
                   maxLines: 2,
                   style: TextStyle(fontSize: 11.5, color: t.dim),

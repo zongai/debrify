@@ -796,7 +796,7 @@ class _MergedDetailScreenState extends State<MergedDetailScreen>
       if (!mounted) return;
       setState(() => _inMyWatchlist = !next);
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Couldn\'t update My Watchlist')),
+        SnackBar(content: Text(AppLocalizations.of(context).t("Couldn't update My Watchlist"))),
       );
     }
   }
@@ -1397,7 +1397,7 @@ class _MergedDetailScreenState extends State<MergedDetailScreen>
     if (playUrl == null || playUrl.isEmpty) {
       ScaffoldMessenger.of(
         context,
-      ).showSnackBar(SnackBar(content: Text('Couldn\'t load trailer')));
+      ).showSnackBar(SnackBar(content: Text(AppLocalizations.of(context).t("Couldn't load trailer"))));
       return;
     }
 

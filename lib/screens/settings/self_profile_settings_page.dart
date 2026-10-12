@@ -166,7 +166,7 @@ class _SelfProfileSettingsPageState extends State<SelfProfileSettingsPage> {
   Future<void> _saveIdentityLocally() async {
     final name = _name.text.trim();
     if (_busy || name.isEmpty) {
-      if (name.isEmpty) _message('Enter a profile name');
+      if (name.isEmpty) _message(AppLocalizations.of(context).t('Enter a profile name'));
       return;
     }
     setState(() => _savingIdentity = true);
@@ -216,7 +216,7 @@ class _SelfProfileSettingsPageState extends State<SelfProfileSettingsPage> {
       _message(error.message);
     } catch (_) {
       if (mounted) setState(() => _savingIdentity = false);
-      _message('Profile could not be updated');
+      _message(AppLocalizations.of(context).t('Profile could not be updated'));
     }
   }
 
@@ -232,11 +232,11 @@ class _SelfProfileSettingsPageState extends State<SelfProfileSettingsPage> {
       return;
     }
     if (next != _confirmPin.text) {
-      _message('New PINs do not match');
+      _message(AppLocalizations.of(context).t('New PINs do not match'));
       return;
     }
     if (_profile.hasPin && _currentPin.text.isEmpty) {
-      _message('Enter your current PIN');
+      _message(AppLocalizations.of(context).t('Enter your current PIN'));
       return;
     }
     setState(() => _savingPin = true);
@@ -256,14 +256,14 @@ class _SelfProfileSettingsPageState extends State<SelfProfileSettingsPage> {
       if (recovery != null) {
         await _showRecoveryCode(recovery, durabilityWarning: true);
       } else {
-        _message('PIN changed locally but could not be saved safely');
+        _message(AppLocalizations.of(context).t('PIN changed locally but could not be saved safely'));
       }
     } on ProfileCurrentPinException catch (error) {
       if (mounted) setState(() => _savingPin = false);
       _message(_pinError(error.verification));
     } catch (_) {
       if (mounted) setState(() => _savingPin = false);
-      _message('PIN could not be changed');
+      _message(AppLocalizations.of(context).t('PIN could not be changed'));
     }
   }
 
@@ -274,7 +274,7 @@ class _SelfProfileSettingsPageState extends State<SelfProfileSettingsPage> {
   Future<void> _removePinLocally() async {
     if (_busy || !_profile.hasPin) return;
     if (_currentPin.text.isEmpty) {
-      _message('Enter your current PIN');
+      _message(AppLocalizations.of(context).t('Enter your current PIN'));
       return;
     }
     final confirmed = await showDialog<bool>(
@@ -307,7 +307,7 @@ class _SelfProfileSettingsPageState extends State<SelfProfileSettingsPage> {
     } on ProfilePinDurabilityException {
       final sessionCurrent = await _refreshAfterPinChange();
       if (sessionCurrent) {
-        _message('PIN removal could not be saved safely and may revert');
+        _message(AppLocalizations.of(context).t('PIN removal could not be saved safely and may revert'));
       }
     } on ProfileCurrentPinException catch (error) {
       if (mounted) setState(() => _savingPin = false);

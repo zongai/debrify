@@ -1063,7 +1063,7 @@ class CatalogBrowserState extends State<CatalogBrowser> {
                   return DropdownMenuItem(
                     value: genre,
                     child: Text(
-                      genre,
+                      AppLocalizations.of(context).t(genre),
                       // onSurface follows Appearance → Text Brightness.
                       style: TextStyle(
                         color: Theme.of(context).colorScheme.onSurface,
