@@ -451,7 +451,7 @@ class _NeonPill extends StatelessWidget {
                   ),
                   const SizedBox(height: 7),
                   Text(
-                    item.pillLabel ?? item.title,
+                    AppLocalizations.of(context).t(item.pillLabel ?? item.title),
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                     style: const TextStyle(
@@ -519,7 +519,7 @@ class _NeonListRow extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      item.title,
+                      AppLocalizations.of(context).t(item.title),
                       style: TextStyle(
                         color: Colors.white.withValues(alpha: 0.92),
                         fontSize: 13,
@@ -528,7 +528,7 @@ class _NeonListRow extends StatelessWidget {
                     ),
                     const SizedBox(height: 1),
                     Text(
-                      item.subtitle,
+                      AppLocalizations.of(context).t(item.subtitle),
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
                       style: TextStyle(

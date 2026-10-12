@@ -1960,7 +1960,7 @@ class _IptvSettingsPageState extends State<IptvSettingsPage>
           child: TvTextField(
             controller: _xcServerController,
             focusNode: _xcServerFocusNode,
-            labelText: 'Server URL',
+            labelText: AppLocalizations.of(context).t('Server URL'),
             hintText: 'http://example.com:8080',
             prefixIcon: Icon(Icons.dns),
             textInputAction: TextInputAction.next,
@@ -1977,7 +1977,7 @@ class _IptvSettingsPageState extends State<IptvSettingsPage>
           child: TvTextField(
             controller: _xcUsernameController,
             focusNode: _xcUsernameFocusNode,
-            labelText: 'Username',
+            labelText: AppLocalizations.of(context).t('Username'),
             hintText: AppLocalizations.of(context).t('your username'),
             prefixIcon: Icon(Icons.person),
             textInputAction: TextInputAction.next,
@@ -1994,7 +1994,7 @@ class _IptvSettingsPageState extends State<IptvSettingsPage>
           child: TvTextField(
             controller: _xcPasswordController,
             focusNode: _xcPasswordFocusNode,
-            labelText: 'Password',
+            labelText: AppLocalizations.of(context).t('Password'),
             hintText: AppLocalizations.of(context).t('your password'),
             prefixIcon: const Icon(Icons.lock),
             textInputAction: TextInputAction.done,
@@ -3825,7 +3825,7 @@ class _EditPlaylistDialogState extends State<_EditPlaylistDialog> {
         TvTextField(
           controller: _serverController,
           focusNode: _serverFocusNode,
-          labelText: 'Server URL',
+          labelText: AppLocalizations.of(context).t('Server URL'),
           hintText: 'http://example.com:8080',
           errorText: _serverError,
           prefixIcon: Icon(Icons.dns),
@@ -3837,7 +3837,7 @@ class _EditPlaylistDialogState extends State<_EditPlaylistDialog> {
         TvTextField(
           controller: _usernameController,
           focusNode: _usernameFocusNode,
-          labelText: 'Username',
+          labelText: AppLocalizations.of(context).t('Username'),
           hintText: AppLocalizations.of(context).t('your username'),
           errorText: _usernameError,
           prefixIcon: Icon(Icons.person),
@@ -3849,7 +3849,7 @@ class _EditPlaylistDialogState extends State<_EditPlaylistDialog> {
         TvTextField(
           controller: _passwordController,
           focusNode: _passwordFocusNode,
-          labelText: 'Password',
+          labelText: AppLocalizations.of(context).t('Password'),
           hintText: AppLocalizations.of(context).t('your password'),
           errorText: _passwordError,
           prefixIcon: Icon(Icons.lock),

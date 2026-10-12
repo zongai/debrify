@@ -405,7 +405,7 @@ class _IndexerManagersSettingsPageState
               ? null
               : () => _testConfig(config),
           icon: Icon(Icons.network_check_rounded),
-          tooltip: 'Test connection',
+          tooltip: AppLocalizations.of(context).t('Test connection'),
         ),
         IconButton(
           visualDensity: VisualDensity.compact,
@@ -414,7 +414,7 @@ class _IndexerManagersSettingsPageState
               ? null
               : () => _openEditor(config),
           icon: Icon(Icons.edit_rounded),
-          tooltip: 'Edit',
+          tooltip: AppLocalizations.of(context).t('Edit'),
         ),
         IconButton(
           visualDensity: VisualDensity.compact,
@@ -423,7 +423,7 @@ class _IndexerManagersSettingsPageState
               ? null
               : () => _deleteConfig(config),
           icon: Icon(Icons.delete_outline_rounded),
-          tooltip: 'Delete',
+          tooltip: AppLocalizations.of(context).t('Delete'),
         ),
       ],
     );

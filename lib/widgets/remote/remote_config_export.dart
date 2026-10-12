@@ -1457,7 +1457,7 @@ class RemoteConfigExportState extends State<RemoteConfigExport> {
                   controller: _pikpakPasswordController,
                   obscureText: !_showPikpakPassword,
                   decoration: InputDecoration(
-                    labelText: 'Password',
+                    labelText: AppLocalizations.of(context).t('Password'),
                     labelStyle: TextStyle(
                       color: Colors.white.withValues(alpha: 0.5),
                     ),

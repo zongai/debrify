@@ -886,7 +886,7 @@ class _PikPakSettingsPageState extends State<PikPakSettingsPage> {
                         TvTextField(
                           controller: _passwordController,
                           focusNode: _passwordFocusNode,
-                          labelText: 'Password',
+                          labelText: AppLocalizations.of(context).t('Password'),
                           hintText: AppLocalizations.of(context).t('Your PikPak password'),
                           prefixIcon: Icon(Icons.lock),
                           obscureText: true,
