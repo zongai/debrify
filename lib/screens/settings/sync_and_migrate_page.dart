@@ -326,7 +326,7 @@ class _SyncAndMigratePageState extends State<SyncAndMigratePage>
                     width: 200,
                     height: 200,
                     filterQuality: FilterQuality.none,
-                    semanticLabel: 'QR code for the WebDAV Sync setup guide',
+                    semanticLabel: AppLocalizations.of(context).t('QR code for the WebDAV Sync setup guide'),
                   ),
                   SizedBox(height: 16),
                   if (PlatformUtil.isTelevision)
@@ -1050,7 +1050,7 @@ class _SyncAndMigratePageState extends State<SyncAndMigratePage>
             if (credentialRepairAvailable)
               SettingsTile(
                 icon: Icons.key_rounded,
-                title: 'Update password',
+                title: AppLocalizations.of(context).t('Update password'),
                 subtitle: AppLocalizations.of(context).t('Restore access to your WebDAV account'),
                 enabled: !_syncBusy,
                 onTap: _repairCredentials,

@@ -343,7 +343,7 @@ class _DetailDossierState extends State<DetailDossier> {
                   focusNode: _seasonNode,
                   onUpEdge: () => m.focus.backNode.requestFocus(),
                   onDownEdge: _focusFirstCell,
-                  hint: 'OK play · ▶ options',
+                  hint: AppLocalizations.of(context).t('OK play · ▶ options'),
                 ),
               ],
             ),

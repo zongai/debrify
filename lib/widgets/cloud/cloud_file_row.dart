@@ -630,7 +630,7 @@ class _CloudFileRowState extends State<CloudFileRow> {
           _stripIcon(
             slot: strip.length,
             icon: Icons.more_vert,
-            tooltip: 'More options',
+            tooltip: AppLocalizations.of(context).t('More options'),
             onTap: () => _openMenu(),
             engaged: engaged,
             compact: compact,

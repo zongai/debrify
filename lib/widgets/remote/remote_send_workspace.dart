@@ -155,7 +155,7 @@ class _RemoteSendWorkspaceState extends State<RemoteSendWorkspace> {
                           autocorrect: false,
                           enableSuggestions: false,
                           decoration: InputDecoration(
-                            labelText: 'PikPak password',
+                            labelText: AppLocalizations.of(context).t('PikPak password'),
                           ),
                           onChanged: (_) => update(() {}),
                         ),

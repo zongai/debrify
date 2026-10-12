@@ -709,7 +709,7 @@ class _MdblistSeeAllScreenState extends State<MdblistSeeAllScreen> {
                         child: TextField(
                           controller: releasedFrom,
                           decoration: InputDecoration(
-                            labelText: 'Released from',
+                            labelText: AppLocalizations.of(context).t('Released from'),
                             hintText: AppLocalizations.of(context).t('YYYY-MM-DD'),
                           ),
                         ),
@@ -719,7 +719,7 @@ class _MdblistSeeAllScreenState extends State<MdblistSeeAllScreen> {
                         child: TextField(
                           controller: releasedTo,
                           decoration: InputDecoration(
-                            labelText: 'Released to',
+                            labelText: AppLocalizations.of(context).t('Released to'),
                             hintText: AppLocalizations.of(context).t('YYYY-MM-DD'),
                           ),
                         ),

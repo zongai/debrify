@@ -54,7 +54,7 @@ Future<int?> showSimklRatingDialog(BuildContext context) {
                     size: 24,
                   ),
                   SizedBox(width: 8),
-                  Text('Rate this item',
+                  Text(AppLocalizations.of(context).t('Rate this item'),
                     style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
                   ),
                 ],
@@ -93,7 +93,7 @@ Future<int?> showSimklRatingDialog(BuildContext context) {
               SizedBox(height: 12),
               TextButton(
                 onPressed: () => Navigator.of(dialogContext).pop(),
-                child: Text('Cancel',
+                child: Text(AppLocalizations.of(context).t('Cancel'),
                   style: TextStyle(color: Colors.white54),
                 ),
               ),
@@ -117,7 +117,7 @@ Future<bool> confirmSimklTitleRemoval(
   final confirmed = await showDialog<bool>(
     context: context,
     builder: (dialogContext) => AlertDialog(
-      title: Text('Remove from Simkl?'),
+      title: Text(AppLocalizations.of(context).t('Remove from Simkl?')),
       content: Text(
         AppLocalizations.of(context)
             .t(
@@ -128,12 +128,12 @@ Future<bool> confirmSimklTitleRemoval(
       actions: [
         TextButton(
           onPressed: () => Navigator.of(dialogContext).pop(false),
-          child: Text('Cancel'),
+          child: Text(AppLocalizations.of(context).t('Cancel')),
         ),
         TextButton(
           onPressed: () => Navigator.of(dialogContext).pop(true),
           style: TextButton.styleFrom(foregroundColor: Color(0xFFFF8B8B)),
-          child: Text('Remove'),
+          child: Text(AppLocalizations.of(context).t('Remove')),
         ),
       ],
     ),

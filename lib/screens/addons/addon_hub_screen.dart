@@ -873,7 +873,7 @@ class _AddonHubScreenState extends State<AddonHubScreen> {
               initialValue: value,
               maxLength: 60,
               decoration: InputDecoration(
-                labelText: 'Display name',
+                labelText: AppLocalizations.of(context).t('Display name'),
                 hintText: AppLocalizations.of(context).t('For example, AIOStreams Main'),
               ),
               onChanged: (next) => value = next,

@@ -1799,7 +1799,7 @@ class _SpotlightLiveTimelineState extends State<SpotlightLiveTimeline> {
               key: ValueKey(('spotlight-error', entry.entryKey)),
               label: AppLocalizations.of(context).t('Guide unavailable  ·  Retry'),
               color: tokens.rec,
-              hint: 'Press OK to retry the guide',
+              hint: AppLocalizations.of(context).t('Press OK to retry the guide'),
               focused: retrySelected,
               focusFill: tokens.focusFill!,
               focusInk: tokens.focusInk!,

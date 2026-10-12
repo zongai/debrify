@@ -126,7 +126,7 @@ class CollectionBrowserHero extends StatelessWidget {
                       },
                       child: IconButton(
                         focusNode: backNode,
-                        tooltip: 'Back',
+                        tooltip: AppLocalizations.of(context).t('Back'),
                         onPressed: () => Navigator.maybePop(context),
                         icon: Icon(Icons.arrow_back, color: app.core.tx),
                       ),

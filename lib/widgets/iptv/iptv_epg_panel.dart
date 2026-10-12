@@ -783,7 +783,7 @@ class IptvSchedulePane extends StatelessWidget {
                     if (!isTelevision)
                       IconButton(
                         key: const ValueKey('iptv-schedule-back'),
-                        tooltip: 'Back to channels',
+                        tooltip: AppLocalizations.of(context).t('Back to channels'),
                         onPressed: onClose,
                         visualDensity: VisualDensity.compact,
                         icon: Icon(

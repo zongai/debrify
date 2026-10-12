@@ -26,6 +26,7 @@ import 'profiles/profile_bootstrap.dart';
 import 'profiles/profile_credential_facade.dart';
 import 'profiles/profile_runtime.dart';
 import 'package:synchronized/synchronized.dart';
+import '../l10n/app_localizations.dart';
 
 class DownloadEntry {
   final Task task;
@@ -1312,7 +1313,7 @@ class DownloadService {
                                     ),
                                     SizedBox(width: 10),
                                     Expanded(
-                                      child: Text('Allow background downloads',
+                                      child: Text(AppLocalizations.of(context).t('Allow background downloads'),
                                         style: TextStyle(
                                           fontSize: 18,
                                           fontWeight: FontWeight.bold,
@@ -1323,7 +1324,7 @@ class DownloadService {
                                 ),
                               ),
                               const SizedBox(height: 16),
-                              Text('To keep downloads running reliably in the background, allow the app to ignore battery optimizations.',
+                              Text(AppLocalizations.of(context).t('To keep downloads running reliably in the background, allow the app to ignore battery optimizations.'),
                                 style: TextStyle(
                                   color: Colors.white.withValues(alpha: 0.85),
                                 ),
@@ -1339,7 +1340,7 @@ class DownloadService {
                                     ).withValues(alpha: 0.9),
                                   ),
                                   const SizedBox(width: 8),
-                                  Text('Keeps long downloads alive',
+                                  Text(AppLocalizations.of(context).t('Keeps long downloads alive'),
                                     style: TextStyle(
                                       color: Colors.white.withValues(
                                         alpha: 0.8,
@@ -1359,7 +1360,7 @@ class DownloadService {
                                     ).withValues(alpha: 0.9),
                                   ),
                                   SizedBox(width: 8),
-                                  Text('You can change this later in system settings',
+                                  Text(AppLocalizations.of(context).t('You can change this later in system settings'),
                                     style: TextStyle(
                                       color: Colors.white.withValues(
                                         alpha: 0.8,
@@ -1405,7 +1406,7 @@ class DownloadService {
                                           ),
                                         ),
                                       ),
-                                      child: Text('Not now'),
+                                      child: Text(AppLocalizations.of(context).t('Not now')),
                                     ),
                                   ),
                                   SizedBox(width: 12),
@@ -1416,7 +1417,7 @@ class DownloadService {
                                         Navigator.of(ctx2).pop(true);
                                       },
                                       icon: Icon(Icons.check_circle),
-                                      label: Text('Allow'),
+                                      label: Text(AppLocalizations.of(context).t('Allow')),
                                       style: ElevatedButton.styleFrom(
                                         padding: const EdgeInsets.symmetric(
                                           vertical: 14,
@@ -1463,7 +1464,7 @@ class DownloadService {
         if (context != null) {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
-              content: Text('You can enable background downloads later in Settings.',
+              content: Text(AppLocalizations.of(context).t('You can enable background downloads later in Settings.'),
               ),
             ),
           );

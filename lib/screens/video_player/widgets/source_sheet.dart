@@ -1157,7 +1157,7 @@ class _SourceRow extends StatelessWidget {
         : current
         ? Icon(
             Icons.check_circle_rounded,
-            semanticLabel: 'Playing',
+            semanticLabel: AppLocalizations.of(context).t('Playing'),
             color: inverse ? const Color(0xFF16734C) : const Color(0xFF35C88A),
             size: 21,
           )

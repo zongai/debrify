@@ -257,7 +257,7 @@ class _DetailMarqueeState extends State<DetailMarquee> {
               focusNode: _seasonNode,
               onUpEdge: () => m.focus.focusEntry(),
               onDownEdge: _focusFirstCell,
-              hint: 'OK play · hold OK for options',
+              hint: AppLocalizations.of(context).t('OK play · hold OK for options'),
             ),
           ),
         SizedBox(

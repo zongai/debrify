@@ -501,7 +501,7 @@ class _DetailConsoleState extends State<DetailConsole> {
               focusNode: _seasonNode,
               onUpEdge: () => m.focus.focusEntry(),
               onDownEdge: _focusFirstCell,
-              hint: 'OK play · hold OK for options',
+              hint: AppLocalizations.of(context).t('OK play · hold OK for options'),
             ),
           ),
         // No painted fade here: the grid sits over the artwork, and a gradient

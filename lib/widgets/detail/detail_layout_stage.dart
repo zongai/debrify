@@ -344,7 +344,7 @@ class _DetailStageState extends State<DetailStage> {
               focusNode: _seasonNode,
               onUpEdge: _focusTabs,
               onDownEdge: _focusFirstCell,
-              hint: 'OK play · ▶ options',
+              hint: AppLocalizations.of(context).t('OK play · ▶ options'),
             ),
           ),
         Expanded(

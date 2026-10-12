@@ -771,7 +771,7 @@ class DetailActionRow extends StatelessWidget {
       if (model.onAppMenu != null)
         DetailRoundButton(
           icon: Icons.more_horiz_rounded,
-          tooltip: 'More',
+          tooltip: AppLocalizations.of(context).t('More'),
           onTap: model.onAppMenu!,
         ),
       if (model.hasTrakt && model.onTraktMenu != null)

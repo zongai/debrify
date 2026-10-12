@@ -614,7 +614,7 @@ class _IndexerManagerEditorDialogState
                         // TV: seed DPAD focus on the first control (not a
                         // text field — that would pop the soft keyboard).
                         autofocus: PlatformUtil.isTelevision,
-                        decoration: InputDecoration(labelText: 'Type'),
+                        decoration: InputDecoration(labelText: AppLocalizations.of(context).t('Type')),
                         isExpanded: true,
                         items: IndexerManagerType.values
                             .map(
@@ -635,7 +635,7 @@ class _IndexerManagerEditorDialogState
                         focusNode: _nameFocusNode,
                         decoration: _engineFieldDecoration(
                           context,
-                          InputDecoration(labelText: 'Name'),
+                          InputDecoration(labelText: AppLocalizations.of(context).t('Name')),
                         ),
                         textInputAction: TextInputAction.next,
                       ),

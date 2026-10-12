@@ -166,7 +166,7 @@ class _SettingsSearchPageState extends State<SettingsSearchPage> {
                   : ExcludeFocus(
                       child: IconButton(
                         icon: Icon(Icons.close_rounded),
-                        tooltip: 'Clear',
+                        tooltip: AppLocalizations.of(context).t('Clear'),
                         onPressed: () {
                           _controller.clear();
                           setState(() => _query = '');

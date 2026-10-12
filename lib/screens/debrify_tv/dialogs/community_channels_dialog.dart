@@ -628,7 +628,7 @@ class CommunityChannelsDialogState extends State<CommunityChannelsDialog> {
                   onDownArrow: () => _fetchButtonFocusNode.requestFocus(),
                   onRightArrow: () => _fetchButtonFocusNode.requestFocus(),
                   decoration: InputDecoration(
-                    labelText: 'Repository URL',
+                    labelText: AppLocalizations.of(context).t('Repository URL'),
                     errorText: _errorMessage,
                     prefixIcon: const Icon(Icons.link_rounded),
                   ),

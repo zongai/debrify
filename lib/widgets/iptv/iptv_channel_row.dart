@@ -762,7 +762,7 @@ class _IptvChannelRowState extends State<IptvChannelRow>
         visualDensity: VisualDensity.compact,
         padding: EdgeInsets.zero,
         constraints: const BoxConstraints(minWidth: 34, minHeight: 34),
-        tooltip: 'TV guide',
+        tooltip: AppLocalizations.of(context).t('TV guide'),
         icon: Icon(
           Icons.calendar_view_day_rounded,
           size: 18,

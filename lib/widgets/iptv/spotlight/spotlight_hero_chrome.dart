@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../styles/iptv_style.dart';
+import '../../../l10n/app_localizations.dart';
 
 const double kSpotlightHeroDenseBreakpoint = 280;
 
@@ -95,7 +96,7 @@ class SpotlightHeroChrome extends StatelessWidget {
       ),
       child: Semantics(
         container: true,
-        label: 'Selected channel',
+        label: AppLocalizations.of(context).t('Selected channel'),
         child: Padding(
           padding: dense
               ? const EdgeInsets.fromLTRB(11, 7, 10, 7)

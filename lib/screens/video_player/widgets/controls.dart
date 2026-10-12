@@ -463,7 +463,7 @@ class Controls extends StatelessWidget {
                         Icons.picture_in_picture_alt_rounded,
                         color: Colors.white,
                       ),
-                      tooltip: 'Picture in picture',
+                      tooltip: AppLocalizations.of(context).t('Picture in picture'),
                       onPressed: onPip,
                     )
                   else if (!hideBackButton)
@@ -584,7 +584,7 @@ class Controls extends StatelessWidget {
                                   icon: isPlaying
                                       ? Icons.pause_rounded
                                       : Icons.play_arrow_rounded,
-                                  label: isPlaying ? 'Pause' : 'Play',
+                                  label: AppLocalizations.of(context).t(isPlaying ? 'Pause' : 'Play'),
                                   onPressed: onPlayPause,
                                   isPrimary: true,
                                   isCompact: true,

@@ -51,7 +51,7 @@ class _SyncDeviceNameDialogState extends State<SyncDeviceNameDialog> {
             textInputAction: TextInputAction.done,
             keyboardSubmitLabel: 'Save',
             decoration: InputDecoration(
-              labelText: 'Device name',
+              labelText: AppLocalizations.of(context).t('Device name'),
               errorText: _error,
             ),
             onSubmitted: (_) => _submit(),

@@ -153,7 +153,7 @@ class _IptvListNameDialogState extends State<_IptvListNameDialog> {
                   keyboardInk: app.core.tx,
                   keyboardInkOnAccent: app.inkOn(app.settings.accent),
                   decoration: InputDecoration(
-                    labelText: 'List name',
+                    labelText: AppLocalizations.of(context).t('List name'),
                     // 0x99 / 0x61 are Colors.white60 / white38 exactly — the
                     // shorthands' alphas are 8-bit, so `withValues(0.6)` would
                     // be a different value, not the same colour.

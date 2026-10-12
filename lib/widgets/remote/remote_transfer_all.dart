@@ -1508,7 +1508,7 @@ class _RemoteTransferAllState extends State<RemoteTransferAll> {
               enabled: !busy,
               autocorrect: false,
               enableSuggestions: false,
-              decoration: InputDecoration(labelText: 'PikPak password'),
+              decoration: InputDecoration(labelText: AppLocalizations.of(context).t('PikPak password')),
               onChanged: (_) => setState(() {}),
             ),
           const SizedBox(height: 12),

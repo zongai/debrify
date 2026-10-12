@@ -1139,7 +1139,7 @@ class _DetailPremiumState extends State<DetailPremium> {
       focusNode: _seasonNode,
       onUpEdge: _m.focus.focusEntry,
       onDownEdge: () => _cells.firstMounted?.requestFocus(),
-      hint: 'OK play · hold OK for options',
+      hint: AppLocalizations.of(context).t('OK play · hold OK for options'),
     );
   }
 
