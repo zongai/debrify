@@ -209,8 +209,8 @@ class TorrentBulkAddService {
               _optionTile(
                 icon: Icons.live_tv_rounded,
                 color: const Color(0xFF14B8A6),
-                title: 'Debrify TV Channel',
-                subtitle: 'Save as a local channel',
+                title: AppLocalizations.of(context).t('Debrify TV Channel'),
+                subtitle: AppLocalizations.of(context).t('Save as a local channel'),
                 autofocus: autoFocused == 'create_channel',
                 onTap: () => Navigator.of(context).pop('create_channel'),
               ),
@@ -261,7 +261,7 @@ class TorrentBulkAddService {
       context,
       accent: const Color(0xFFFFAA00),
       titleIcon: Icons.cloud_upload,
-      title: 'Adding to PikPak',
+      title: AppLocalizations.of(context).t('Adding to PikPak'),
       torrents: torrentsToAdd,
       total: torrentsToAdd.length,
     );

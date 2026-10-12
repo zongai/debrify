@@ -1058,7 +1058,7 @@ class _SyncAndMigratePageState extends State<SyncAndMigratePage>
             if (active)
               SettingsTile(
                 icon: Icons.sync,
-                title: 'Sync now',
+                title: AppLocalizations.of(context).t('Sync now'),
                 subtitle: AppLocalizations.of(context).t('Send your changes and check for updates'),
                 enabled:
                     !_syncBusy && !_logoutPending && _syncActivation != null,
@@ -1066,7 +1066,7 @@ class _SyncAndMigratePageState extends State<SyncAndMigratePage>
               ),
             SettingsTile(
               icon: Icons.menu_book_rounded,
-              title: 'Setup guide',
+              title: AppLocalizations.of(context).t('Setup guide'),
               subtitle: AppLocalizations.of(context).t('Koofr setup, app passwords and connecting devices'),
               trailing: Icon(
                 PlatformUtil.isTelevision
@@ -1117,7 +1117,7 @@ class _SyncAndMigratePageState extends State<SyncAndMigratePage>
               if (active && _management != null)
                 SettingsTile(
                   icon: Icons.devices_other,
-                  title: 'Connected devices',
+                  title: AppLocalizations.of(context).t('Connected devices'),
                   subtitle: AppLocalizations.of(context).t('Manage devices using this sync account'),
                   enabled: !_syncBusy && !_logoutPending,
                   onTap: _manageDevices,

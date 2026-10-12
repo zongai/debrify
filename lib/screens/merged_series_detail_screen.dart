@@ -1725,7 +1725,7 @@ class _MergedDetailScreenState extends State<MergedDetailScreen>
                               child: _circleButton(
                                 Icons.arrow_back_rounded,
                                 () => Navigator.of(context).maybePop(),
-                                tooltip: 'Back',
+                                tooltip: AppLocalizations.of(context).t('Back'),
                                 focusNode: _backButtonFocusNode,
                                 // Square themes (Noir, Concrete, Phosphor,
                                 // Blueprint) cannot be forced into a circle.

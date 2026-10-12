@@ -646,7 +646,7 @@ class _IndexerManagerEditorDialogState
                         decoration: _engineFieldDecoration(
                           context,
                           InputDecoration(
-                            labelText: 'Base URL',
+                            labelText: AppLocalizations.of(context).t('Base URL'),
                             hintText: 'http://localhost:9117',
                           ),
                         ),
@@ -669,7 +669,7 @@ class _IndexerManagerEditorDialogState
                         focusNode: _apiKeyFocusNode,
                         decoration: _engineFieldDecoration(
                           context,
-                          InputDecoration(labelText: 'API key'),
+                          InputDecoration(labelText: AppLocalizations.of(context).t('API key')),
                         ),
                         obscureText: true,
                         textInputAction: TextInputAction.next,
@@ -688,7 +688,7 @@ class _IndexerManagerEditorDialogState
                           decoration: _engineFieldDecoration(
                             context,
                             InputDecoration(
-                              labelText: 'Jackett indexer ID',
+                              labelText: AppLocalizations.of(context).t('Jackett indexer ID'),
                               hintText: AppLocalizations.of(context).t('all'),
                             ),
                           ),

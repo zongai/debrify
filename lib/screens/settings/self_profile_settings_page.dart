@@ -123,9 +123,9 @@ class _SelfProfileSettingsPageState extends State<SelfProfileSettingsPage> {
     } on ProfileAvatarRejected catch (error) {
       _message(error.message);
     } on PlatformException {
-      _message('The image picker is not available.');
+      _message(AppLocalizations.of(context).t('The image picker is not available.'));
     } catch (_) {
-      _message('That image could not be opened.');
+      _message(AppLocalizations.of(context).t('That image could not be opened.'));
     } finally {
       await CacheScratchCleanup.releasePickerCopy(pickerCopy);
     }
@@ -210,7 +210,7 @@ class _SelfProfileSettingsPageState extends State<SelfProfileSettingsPage> {
         }
         _savingIdentity = false;
       });
-      if (sessionCurrent) _message('Profile updated');
+      if (sessionCurrent) _message(AppLocalizations.of(context).t('Profile updated'));
     } on ProfileAvatarRejected catch (error) {
       if (mounted) setState(() => _savingIdentity = false);
       _message(error.message);

@@ -1546,7 +1546,7 @@ class _PremiumizeFilesScreenState extends State<PremiumizeFilesScreen> {
                   focusNode: _backButtonFocusNode,
                   icon: Icon(Icons.arrow_back),
                   onPressed: _handleBackNavigation,
-                  tooltip: 'Back',
+                  tooltip: AppLocalizations.of(context).t('Back'),
                 ),
               )
             // At the browse root (pushed from the Cloud hub with no folder
@@ -1554,7 +1554,7 @@ class _PremiumizeFilesScreenState extends State<PremiumizeFilesScreen> {
             : (_isBrowsePush
                   ? IconButton(
                       icon: Icon(Icons.arrow_back),
-                      tooltip: 'Back',
+                      tooltip: AppLocalizations.of(context).t('Back'),
                       onPressed: () => Navigator.of(context).maybePop(),
                     )
                   : null),

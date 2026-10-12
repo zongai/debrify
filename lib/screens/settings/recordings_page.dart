@@ -446,13 +446,13 @@ class _RecordingsPageState extends State<RecordingsPage>
       initialDate: now,
       firstDate: now,
       lastDate: now.add(const Duration(days: 7)),
-      helpText: 'Recording date',
+      helpText: AppLocalizations.of(context).t('Recording date'),
     );
     if (date == null || !mounted) return;
 
     final time = await _pickTime(
       initialTime: TimeOfDay.fromDateTime(now.add(const Duration(minutes: 2))),
-      helpText: 'Start time',
+      helpText: AppLocalizations.of(context).t('Start time'),
     );
     if (time == null || !mounted) return;
 
@@ -601,7 +601,7 @@ class _RecordingsPageState extends State<RecordingsPage>
 
     final endTime = await _pickTime(
       initialTime: TimeOfDay.fromDateTime(start.add(Duration(hours: 1))),
-      helpText: 'End time',
+      helpText: AppLocalizations.of(context).t('End time'),
     );
     if (endTime == null || !mounted) return null;
 

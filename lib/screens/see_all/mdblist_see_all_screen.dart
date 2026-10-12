@@ -733,7 +733,7 @@ class _MdblistSeeAllScreenState extends State<MdblistSeeAllScreen> {
                         child: TextField(
                           controller: country,
                           decoration: InputDecoration(
-                            labelText: 'Country code',
+                            labelText: AppLocalizations.of(context).t('Country code'),
                             hintText: 'US',
                           ),
                         ),
@@ -743,7 +743,7 @@ class _MdblistSeeAllScreenState extends State<MdblistSeeAllScreen> {
                         child: TextField(
                           controller: language,
                           decoration: InputDecoration(
-                            labelText: 'Language code',
+                            labelText: AppLocalizations.of(context).t('Language code'),
                             hintText: 'en',
                           ),
                         ),
@@ -758,7 +758,7 @@ class _MdblistSeeAllScreenState extends State<MdblistSeeAllScreen> {
                           controller: yearMin,
                           keyboardType: TextInputType.number,
                           decoration: InputDecoration(
-                            labelText: 'Year from',
+                            labelText: AppLocalizations.of(context).t('Year from'),
                           ),
                         ),
                       ),
@@ -768,7 +768,7 @@ class _MdblistSeeAllScreenState extends State<MdblistSeeAllScreen> {
                           controller: yearMax,
                           keyboardType: TextInputType.number,
                           decoration: InputDecoration(
-                            labelText: 'Year to',
+                            labelText: AppLocalizations.of(context).t('Year to'),
                           ),
                         ),
                       ),

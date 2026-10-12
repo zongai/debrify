@@ -2173,7 +2173,7 @@ class _TorboxDownloadsScreenState extends State<TorboxDownloadsScreen> {
                     autofocus: true,
                     decoration: InputDecoration(
                       hintText: AppLocalizations.of(context).t('Paste URL here (YouTube, file hosts, etc.)'),
-                      labelText: 'URL *',
+                      labelText: AppLocalizations.of(context).t('URL *'),
                       border: OutlineInputBorder(),
                     ),
                   ),
@@ -2188,7 +2188,7 @@ class _TorboxDownloadsScreenState extends State<TorboxDownloadsScreen> {
                       FocusManager.instance.primaryFocus?.previousFocus(),
                   decoration: InputDecoration(
                     hintText: AppLocalizations.of(context).t('Custom name for the download'),
-                    labelText: 'Name (optional)',
+                    labelText: AppLocalizations.of(context).t('Name (optional)'),
                     border: OutlineInputBorder(),
                   ),
                 ),
@@ -2203,7 +2203,7 @@ class _TorboxDownloadsScreenState extends State<TorboxDownloadsScreen> {
                       FocusManager.instance.primaryFocus?.previousFocus(),
                   decoration: InputDecoration(
                     hintText: AppLocalizations.of(context).t('Password if required'),
-                    labelText: 'Password (optional)',
+                    labelText: AppLocalizations.of(context).t('Password (optional)'),
                     border: OutlineInputBorder(),
                   ),
                 ),

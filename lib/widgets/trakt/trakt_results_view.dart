@@ -1566,7 +1566,7 @@ class TraktResultsViewState extends State<TraktResultsView> {
               color: Color(0xFFEF4444),
             ),
             onPressed: onDelete,
-            tooltip: 'Remove source',
+            tooltip: AppLocalizations.of(context).t('Remove source'),
             padding: EdgeInsets.zero,
             constraints: const BoxConstraints(minWidth: 28, minHeight: 28),
           ),
