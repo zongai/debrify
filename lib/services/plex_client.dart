@@ -916,7 +916,8 @@ class PlexClient {
     Future<void> Function()? authorize,
   }) async {
     await authorize?.call();
-    // Prefer the primary thumb from metadata, then fall back to a synthetic path.
+    // Prefer metadata posters; only fall back to a generated video-frame thumb
+    // when no agent/parent artwork is available on the item.
     Map<String, dynamic>? meta;
     try {
       final data = await _getJson(
@@ -929,8 +930,7 @@ class PlexClient {
       final rows = _containerChildren(data);
       if (rows.isNotEmpty) meta = rows.first;
     } catch (_) {}
-    final thumb = meta?['thumb'] as String? ??
-        meta?['composite'] as String? ??
+    final thumb = _preferredPosterPath(meta) ??
         '/library/metadata/${_segment(itemId)}/thumb';
     final uri = endpoint(account.baseUrl, thumb.startsWith('/')
         ? thumb.substring(1)
@@ -1282,15 +1282,67 @@ class PlexClient {
   }
 
 
-  /// Absolute poster URL for a mapped library item (token query included).
+  /// Picks the best poster path from a Plex metadata row.
+  ///
+  /// Priority: series/season artwork over episode video frames, then the
+  /// item's own thumb/composite (agent poster). Callers may fall back to a
+  /// synthetic `/library/metadata/{id}/thumb` only when this returns null —
+  /// that endpoint may serve a generated video screenshot.
+  static String? _preferredPosterPath(Map? row) {
+    if (row == null) return null;
+    final type = (row['type']?.toString() ?? row['_plexType']?.toString() ?? '')
+        .toLowerCase();
+    String? pick(dynamic v) {
+      final s = v?.toString();
+      if (s == null || s.isEmpty) return null;
+      return s;
+    }
+
+    // Episodes: show poster first, then season, then episode frame.
+    if (type == 'episode') {
+      return pick(row['grandparentThumb']) ??
+          pick(row['parentThumb']) ??
+          pick(row['thumb']) ??
+          pick(row['composite']);
+    }
+    // Seasons: prefer season thumb, then show poster.
+    if (type == 'season') {
+      return pick(row['thumb']) ??
+          pick(row['parentThumb']) ??
+          pick(row['grandparentThumb']) ??
+          pick(row['composite']);
+    }
+    // Movies / shows / collections: agent thumb or composite art.
+    return pick(row['thumb']) ?? pick(row['composite']);
+  }
+
   static String? posterUrl(
     MediaServerAccount account,
     MediaServerLibraryItem item, {
     int width = 400,
     int height = 600,
   }) {
-    final thumb = item.data['_plexThumb'] as String?;
+    // Prefer stored poster path (already resolved with parent/series priority).
+    var thumb = item.data['_plexPoster'] as String? ??
+        item.data['_plexThumb'] as String?;
+    // For episodes that only stored a video-frame thumb, upgrade to series art.
+    final type = (item.data['_plexType'] as String?)?.toLowerCase() ?? '';
+    if (type == 'episode') {
+      thumb = (item.data['_plexGrandparentThumb'] as String?)?.isNotEmpty == true
+          ? item.data['_plexGrandparentThumb'] as String
+          : (item.data['_plexParentThumb'] as String?)?.isNotEmpty == true
+              ? item.data['_plexParentThumb'] as String
+              : thumb;
+    } else if (type == 'season') {
+      final own = item.data['_plexThumb'] as String?;
+      thumb = (own != null && own.isNotEmpty)
+          ? own
+          : (item.data['_plexParentThumb'] as String?)?.isNotEmpty == true
+              ? item.data['_plexParentThumb'] as String
+              : thumb;
+    }
     if (thumb == null || thumb.isEmpty) {
+      // Last resort: Plex may synthesize a video-frame thumb.
       if (item.id.isEmpty) return null;
       final path = 'library/metadata/${item.id}/thumb';
       return endpoint(account.baseUrl, path, {
@@ -1398,13 +1450,21 @@ class PlexClient {
           'LastPlayedDate': lastPlayed.toIso8601String(),
       },
       'ImageTags': {
-        if (row['thumb'] != null || row['composite'] != null) 'Primary': '1',
+        if (_preferredPosterPath(row) != null ||
+            row['thumb'] != null ||
+            row['composite'] != null ||
+            row['grandparentThumb'] != null ||
+            row['parentThumb'] != null)
+          'Primary': '1',
       },
       'ProviderIds': guids,
       'Media': row['Media'],
       '_plexKey': row['key']?.toString(),
       '_plexType': type,
       '_plexThumb': row['thumb']?.toString(),
+      '_plexParentThumb': row['parentThumb']?.toString(),
+      '_plexGrandparentThumb': row['grandparentThumb']?.toString(),
+      '_plexPoster': _preferredPosterPath(row),
     };
   }
 
