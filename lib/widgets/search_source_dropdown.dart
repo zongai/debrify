@@ -36,14 +36,14 @@ class SearchSourceOption {
   /// Create "All" option
   factory SearchSourceOption.all() => const SearchSourceOption(
     type: SearchSourceType.all,
-    label: 'All',
+    label: AppLocalizations.of(context).t('All'),
     icon: Icons.apps,
   );
 
   /// Create "Keyword" option
   factory SearchSourceOption.keyword() => const SearchSourceOption(
     type: SearchSourceType.keyword,
-    label: 'Keyword',
+    label: AppLocalizations.of(context).t('Keyword'),
     icon: Icons.search,
   );
 

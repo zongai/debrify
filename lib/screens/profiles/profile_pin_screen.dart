@@ -171,7 +171,7 @@ class _ProfilePinScreenState extends State<ProfilePinScreen> {
                   textInputAction: TextInputAction.done,
                   keyboardSubmitLabel: 'Recover',
                   decoration: InputDecoration(
-                    labelText: 'Recovery code',
+                    labelText: AppLocalizations.of(context).t('Recovery code'),
                     hintText: AppLocalizations.of(context).t('XXXXX-XXXXX'),
                     errorText: errorText,
                   ),
@@ -460,7 +460,7 @@ class _ProfilePinScreenState extends State<ProfilePinScreen> {
   Widget _backspaceKey({FocusNode? node, bool horizontal = false}) => _PinKey(
     key: const ValueKey('profile-pin-backspace'),
     icon: Icons.backspace_outlined,
-    semanticLabel: 'Backspace',
+    semanticLabel: AppLocalizations.of(context).t('Backspace'),
     wash: _wash,
     focusNode: node,
     horizontal: horizontal,
@@ -474,7 +474,7 @@ class _ProfilePinScreenState extends State<ProfilePinScreen> {
     _PinKey(
       key: ValueKey('profile-pin-submit'),
       icon: Icons.check_rounded,
-      semanticLabel: 'Unlock profile',
+      semanticLabel: AppLocalizations.of(context).t('Unlock profile'),
       wash: _wash,
       accent: true,
       enabled: _canSubmit,
@@ -974,7 +974,7 @@ class _UnlockBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) => _PinActivatable(
     enabled: enabled,
-    semanticLabel: 'Unlock profile',
+    semanticLabel: AppLocalizations.of(context).t('Unlock profile'),
     onPressed: onPressed,
     builder: (context, focused) => AnimatedOpacity(
       duration: const Duration(milliseconds: 140),

@@ -1448,7 +1448,7 @@ class _SourcesScreenState extends State<_SourcesScreen> {
                     if (_imdbId.isNotEmpty &&
                         TorrentPlaybackService.localBindingAvailable)
                       IconButton(
-                        tooltip: 'Pin an on-device file or folder',
+                        tooltip: AppLocalizations.of(context).t('Pin an on-device file or folder'),
                         icon: const Icon(Icons.folder_open_rounded),
                         onPressed: () => unawaited(_pinLocal()),
                       ),
@@ -1485,7 +1485,7 @@ class _SourcesScreenState extends State<_SourcesScreen> {
                         _imdbId.isNotEmpty &&
                             TorrentPlaybackService.localBindingAvailable
                         ? IconButton(
-                            tooltip: 'Pin an on-device file or folder',
+                            tooltip: AppLocalizations.of(context).t('Pin an on-device file or folder'),
                             icon: const Icon(Icons.folder_open_rounded),
                             onPressed: () => unawaited(_pinLocal()),
                           )

@@ -1187,7 +1187,7 @@ class IptvChannelSheetState extends State<IptvChannelSheet>
           ),
           if (compact && _compactPane == _CompactPane.schedule)
             IconButton(
-              tooltip: 'Back to channels',
+              tooltip: AppLocalizations.of(context).t('Back to channels'),
               onPressed: _leaveSchedulePane,
               icon: const Icon(Icons.arrow_back_rounded, color: Colors.white70),
             ),
@@ -1339,7 +1339,7 @@ class IptvChannelSheetState extends State<IptvChannelSheet>
           Expanded(child: identity),
           if (compact && _compactPane == _CompactPane.schedule)
             IconButton(
-              tooltip: 'Back to channels',
+              tooltip: AppLocalizations.of(context).t('Back to channels'),
               onPressed: _leaveSchedulePane,
               icon: Icon(Icons.arrow_back_rounded, color: t.fgMid),
             ),
@@ -1589,7 +1589,7 @@ class IptvChannelSheetState extends State<IptvChannelSheet>
                 children: [
                   if (hasQuery)
                     IconButton(
-                      tooltip: 'Clear search',
+                      tooltip: AppLocalizations.of(context).t('Clear search'),
                       icon: Icon(
                         Icons.clear_rounded,
                         color: t == null

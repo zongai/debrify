@@ -485,7 +485,7 @@ class TorrentBulkAddService {
       total: torrentsToAdd.length,
       showSkipped: true,
       skippedChipLabel: AppLocalizations.of(context).t('Not cached'),
-      notCachedSubtitle: 'Not cached — removed',
+      notCachedSubtitle: AppLocalizations.of(context).t('Not cached — removed'),
     );
 
     try {
@@ -565,13 +565,13 @@ class TorrentBulkAddService {
       context,
       accent: const Color(0xFFFB923C),
       titleIcon: Icons.workspace_premium_rounded,
-      title: 'Adding to Premiumize',
+      title: AppLocalizations.of(context).t('Adding to Premiumize'),
       torrents: torrentsToAdd,
       total: torrentsToAdd.length,
       showSkipped: true,
       successChipLabel: 'Added',
       skippedChipLabel: AppLocalizations.of(context).t('Not cached'),
-      notCachedSubtitle: 'Not cached — skipped',
+      notCachedSubtitle: AppLocalizations.of(context).t('Not cached — skipped'),
     );
 
     try {
@@ -640,7 +640,7 @@ class TorrentBulkAddService {
       total: torrentsToAdd.length,
       showSkipped: true,
       skippedChipLabel: AppLocalizations.of(context).t('Not cached'),
-      notCachedSubtitle: 'Not cached — removed',
+      notCachedSubtitle: AppLocalizations.of(context).t('Not cached — removed'),
     );
 
     try {
