@@ -60,7 +60,7 @@ class SpotlightHeroChrome extends StatelessWidget {
           children: [
             Expanded(
               flex: informationFlex,
-              child: _information(dense: dense, minimal: minimal),
+              child: _information(context, dense: dense, minimal: minimal),
             ),
             SizedBox(width: gap),
             // Do not add paint, clipping, opacity, or semantics merging here.
@@ -86,7 +86,7 @@ class SpotlightHeroChrome extends StatelessWidget {
     );
   }
 
-  Widget _information({required bool dense, required bool minimal}) {
+  Widget _information(BuildContext context, {required bool dense, required bool minimal}) {
     final t = IptvStyleTokens.spotlight;
     return DecoratedBox(
       decoration: BoxDecoration(

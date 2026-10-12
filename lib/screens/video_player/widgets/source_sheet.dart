@@ -1103,10 +1103,10 @@ class _SourceRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) => ValueListenableBuilder(
     valueListenable: StreamBadgesService.instance.matcher,
-    builder: (_, matcher, __) => _buildRow(!matcher.isEmpty),
+    builder: (_, matcher, __) => _buildRow(context, !matcher.isEmpty),
   );
 
-  Widget _buildRow(bool customBadgesConfigured) {
+  Widget _buildRow(BuildContext context, bool customBadgesConfigured) {
     final torrent = entry.torrent;
     final inverse = focused;
     final original = useAddonText ? torrent.addonPresentation : null;
