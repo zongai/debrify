@@ -31,20 +31,22 @@ class ProfileGateStyle {
   static const String defaultStyle = stageCards;
 
   /// Picker metadata, in display order.
+  // Labels are plain English keys (const list cannot call AppLocalizations).
+  // Call sites that show the picker may wrap via AppLocalizations.of(context).t.
   static const List<({String id, String label, String blurb})> options = [
     (
       id: stageCards,
-      label: AppLocalizations.of(context).t('Stage Cards'),
+      label: 'Stage Cards',
       blurb: 'Glass portrait cards that light the room',
     ),
     (
       id: marquee,
-      label: AppLocalizations.of(context).t('Lighthouse'),
+      label: 'Lighthouse',
       blurb: 'A cinematic welcome for the whole household',
     ),
     (
       id: theater,
-      label: AppLocalizations.of(context).t('Theater'),
+      label: 'Theater',
       blurb: 'The chosen profile lights the whole room',
     ),
     (id: row, label: 'Row', blurb: 'A simple row of portraits'),

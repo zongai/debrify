@@ -43,17 +43,14 @@ const List<IptvStyleChoice> kIptvStyleChoices = [
 
 /// Row caption for the current choice (Appearance row subtitle).
 String iptvStyleLabel(String style, [BuildContext? context]) {
-  String label;
-  for (final c in kIptvStyleChoices) {
-    if (c.value == style) {
-      label = c.label;
-      break;
-    }
-  } else {
-    label = kIptvStyleChoices
-        .firstWhere((choice) => choice.value == StorageService.kIptvStyleDefault)
-        .label;
-  }
+  final label = kIptvStyleChoices
+      .firstWhere(
+        (c) => c.value == style,
+        orElse: () => kIptvStyleChoices.firstWhere(
+          (choice) => choice.value == StorageService.kIptvStyleDefault,
+        ),
+      )
+      .label;
   if (context != null) {
     return AppLocalizations.of(context).t(label);
   }
