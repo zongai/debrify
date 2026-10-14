@@ -3268,6 +3268,15 @@ class _CardState extends State<_Card> with MetadataPresentationMixin<_Card> {
             ? (_resolvedDescription ?? '') : '';
     final showDescription = description.isNotEmpty;
     final changed = meta != null && !identical(meta, originalMetadata);
+    // When expanding a portrait card, prefer landscape background art but
+    // keep the resting poster as the primary URL if no background exists
+    // (Plex home hubs often ship poster-only). Switching to a null image
+    // forced a placeholder flash under the pointer on every hover.
+    final expandedBackground = c.episodeArtwork
+        ? c.image
+        : (c.metadata?.background?.trim().isNotEmpty == true
+            ? c.metadata!.background
+            : c.image);
     final artwork = expanded && c.shape != SpotlightCardShape.wide
         ? SpotlightCard(
             metadata: c.metadata,
@@ -3275,7 +3284,7 @@ class _CardState extends State<_Card> with MetadataPresentationMixin<_Card> {
             onOpen: c.onOpen,
             shape: SpotlightCardShape.wide,
             episodeArtwork: c.episodeArtwork,
-            image: c.episodeArtwork ? c.image : c.metadata?.background,
+            image: expandedBackground,
             fallbackImage: c.image,
           )
         : c;
@@ -3450,24 +3459,22 @@ class _CardState extends State<_Card> with MetadataPresentationMixin<_Card> {
                   child: RecoverableNetworkImage(
                     imageUrl: url,
                     fit: c.shape.fit,
-                    cacheManager: DebrifyImageCache.manager,
+                    // Plex/Jellyfin/Emby thumbs need the media-server store;
+                    // the shared manager misses them and every hover/expand
+                    // re-hit the PMS, blanking the plate under the pointer.
+                    cacheManager: _isMediaServerPosterUrl(url)
+                        ? DebrifyImageCache.mediaServer
+                        : DebrifyImageCache.manager,
                     memCacheWidth: decodeW,
-                    // Android TV used to POP (Duration.zero): a board mount
-                    // once landed 20-30 posters inside a few seconds, and
-                    // that many concurrent per-frame opacity composites was
-                    // the first-seconds jank a MiBox reports. The lazy board
-                    // ended that era — only the on-screen shelves' art lands
-                    // at once now — and the bare pop reads as art snapping
-                    // in. A short fade over the plate is the soft landing;
-                    // still well under the package's 500/1000 defaults,
-                    // whose long placeholder cross-fade is the part a weak
-                    // GPU actually pays for.
-                    fadeInDuration: PlatformUtil.isAndroidTvCached
-                        ? const Duration(milliseconds: 220)
-                        : const Duration(milliseconds: 180),
-                    fadeOutDuration: PlatformUtil.isAndroidTvCached
-                        ? const Duration(milliseconds: 180)
-                        : const Duration(milliseconds: 100),
+                    // Media-server hits: no fade so hover/expand does not
+                    // flash the title placeholder while the disk cache
+                    // resolves. Other posters keep the soft landing.
+                    fadeInDuration: _isMediaServerPosterUrl(url)
+                        ? Duration.zero
+                        : (PlatformUtil.isAndroidTvCached
+                            ? const Duration(milliseconds: 220)
+                            : const Duration(milliseconds: 180)),
+                    fadeOutDuration: Duration.zero,
                     placeholder: (_, __) => artPlaceholder(),
                     errorWidget: (_, __, ___) =>
                         fallbackUrl != null &&
@@ -3476,10 +3483,14 @@ class _CardState extends State<_Card> with MetadataPresentationMixin<_Card> {
                         ? RecoverableNetworkImage(
                             imageUrl: fallbackUrl,
                             fit: c.shape.fit,
-                            cacheManager: DebrifyImageCache.manager,
+                            cacheManager: _isMediaServerPosterUrl(fallbackUrl)
+                                ? DebrifyImageCache.mediaServer
+                                : DebrifyImageCache.manager,
                             memCacheWidth: decodeW,
-                            fadeInDuration:
-                                const Duration(milliseconds: 220),
+                            fadeInDuration: _isMediaServerPosterUrl(fallbackUrl)
+                                ? Duration.zero
+                                : const Duration(milliseconds: 220),
+                            fadeOutDuration: Duration.zero,
                             placeholder: (_, __) => artPlaceholder(),
                             errorWidget: (_, __, ___) =>
                                 artPlaceholder(),
@@ -3729,4 +3740,14 @@ class _CardState extends State<_Card> with MetadataPresentationMixin<_Card> {
       child: interactive,
     );
   }
+}
+
+
+/// Authenticated media-server poster URLs (Plex token query, Jellyfin/Emby
+/// Primary image paths). Used to pick [DebrifyImageCache.mediaServer].
+bool _isMediaServerPosterUrl(String? url) {
+  if (url == null || url.isEmpty) return false;
+  return url.contains('X-Plex-Token=') ||
+      (url.contains('/Items/') && url.contains('/Images/')) ||
+      (url.contains('/library/metadata/') && url.contains('/thumb'));
 }
