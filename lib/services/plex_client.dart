@@ -1384,7 +1384,6 @@ class PlexClient {
       }).toString();
     }
     final path = thumb.startsWith('/') ? thumb.substring(1) : thumb;
-    final path = thumb.startsWith('/') ? thumb.substring(1) : thumb;
     return endpoint(account.baseUrl, path, {
       'X-Plex-Token': account.token,
       'width': '$width',
