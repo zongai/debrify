@@ -1316,6 +1316,37 @@ class PlexClient {
     return pick(row['thumb']) ?? pick(row['composite']);
   }
 
+  /// Best fanart/background path from a Plex metadata row.
+  ///
+  /// Plex stores landscape art under `art` (and parent/grandparent for
+  /// seasons/episodes). Without this, home cards only carry a poster and
+  /// Spotlight expand has nothing to show for series until TMDB fills in.
+  static String? _preferredBackgroundPath(Map? row) {
+    if (row == null) return null;
+    final type = (row['type']?.toString() ?? row['_plexType']?.toString() ?? '')
+        .toLowerCase();
+    String? pick(dynamic v) {
+      final s = v?.toString();
+      if (s == null || s.isEmpty) return null;
+      return s;
+    }
+
+    // Episodes: series fanart first, then season, then episode art.
+    if (type == 'episode') {
+      return pick(row['grandparentArt']) ??
+          pick(row['parentArt']) ??
+          pick(row['art']);
+    }
+    // Seasons: season art, then show art.
+    if (type == 'season') {
+      return pick(row['art']) ??
+          pick(row['parentArt']) ??
+          pick(row['grandparentArt']);
+    }
+    // Movies / shows / collections.
+    return pick(row['art']);
+  }
+
   static String? posterUrl(
     MediaServerAccount account,
     MediaServerLibraryItem item, {
@@ -1353,6 +1384,52 @@ class PlexClient {
       }).toString();
     }
     final path = thumb.startsWith('/') ? thumb.substring(1) : thumb;
+    final path = thumb.startsWith('/') ? thumb.substring(1) : thumb;
+    return endpoint(account.baseUrl, path, {
+      'X-Plex-Token': account.token,
+      'width': '$width',
+      'height': '$height',
+      'minSize': '1',
+    }).toString();
+  }
+
+  /// Landscape / fanart URL for [item], preferring series art for episodes.
+  static String? backgroundUrl(
+    MediaServerAccount account,
+    MediaServerLibraryItem item, {
+    int width = 1280,
+    int height = 720,
+  }) {
+    // Prefer the resolved background path (series art for episodes).
+    var art = item.data['_plexBackground'] as String? ??
+        item.data['_plexArt'] as String?;
+    final type = (item.data['_plexType'] as String?)?.toLowerCase() ?? '';
+    if (type == 'episode') {
+      art = (item.data['_plexGrandparentArt'] as String?)?.isNotEmpty == true
+          ? item.data['_plexGrandparentArt'] as String
+          : (item.data['_plexParentArt'] as String?)?.isNotEmpty == true
+              ? item.data['_plexParentArt'] as String
+              : art;
+    } else if (type == 'season') {
+      final own = item.data['_plexArt'] as String?;
+      art = (own != null && own.isNotEmpty)
+          ? own
+          : (item.data['_plexParentArt'] as String?)?.isNotEmpty == true
+              ? item.data['_plexParentArt'] as String
+              : art;
+    }
+    if (art == null || art.isEmpty) {
+      // Synthetic art endpoint — PMS serves fanart when the agent has one.
+      if (item.id.isEmpty) return null;
+      final path = 'library/metadata/${item.id}/art';
+      return endpoint(account.baseUrl, path, {
+        'X-Plex-Token': account.token,
+        'width': '$width',
+        'height': '$height',
+        'minSize': '1',
+      }).toString();
+    }
+    final path = art.startsWith('/') ? art.substring(1) : art;
     return endpoint(account.baseUrl, path, {
       'X-Plex-Token': account.token,
       'width': '$width',
@@ -1465,6 +1542,10 @@ class PlexClient {
       '_plexParentThumb': row['parentThumb']?.toString(),
       '_plexGrandparentThumb': row['grandparentThumb']?.toString(),
       '_plexPoster': _preferredPosterPath(row),
+      '_plexArt': row['art']?.toString(),
+      '_plexParentArt': row['parentArt']?.toString(),
+      '_plexGrandparentArt': row['grandparentArt']?.toString(),
+      '_plexBackground': _preferredBackgroundPath(row),
     };
   }
 

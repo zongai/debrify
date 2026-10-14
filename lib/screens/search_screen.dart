@@ -5248,8 +5248,10 @@ class _SearchScreenState extends State<SearchScreen>
             : (item.type == 'Episode' || item.type == 'Series' ? 'series' : 'movie');
         final id = 'plex:$resourceId:${item.id}';
         String? poster;
+        String? background;
         if (account != null) {
           poster = PlexClient.posterUrl(account, item);
+          background = PlexClient.backgroundUrl(account, item);
         }
         if (item.type == 'Episode' && item.season != null && item.episode != null) {
           episode[id] = 'S${item.season} · E${item.episode}';
@@ -5264,6 +5266,7 @@ class _SearchScreenState extends State<SearchScreen>
           type: type,
           name: item.type == 'Episode' ? item.seriesName : item.name,
           poster: poster,
+          background: background,
           year: item.year?.toString(),
           description: item.overview.isEmpty ? null : item.overview,
         );
@@ -5288,13 +5291,14 @@ class _SearchScreenState extends State<SearchScreen>
       // Warm media-server disk cache so the first Home scroll does not
       // re-download every Plex thumb (which shows as ~1s blank cards).
       for (final meta in [...cwMetas, ...recentMetas]) {
-        final poster = meta.poster;
-        if (poster == null || poster.isEmpty) continue;
-        unawaited(() async {
-          try {
-            await DebrifyImageCache.mediaServer.downloadFile(poster);
-          } catch (_) {}
-        }());
+        for (final url in [meta.poster, meta.background]) {
+          if (url == null || url.isEmpty) continue;
+          unawaited(() async {
+            try {
+              await DebrifyImageCache.mediaServer.downloadFile(url);
+            } catch (_) {}
+          }());
+        }
       }
       setState(() {
         _plexHomeLoading = false;
