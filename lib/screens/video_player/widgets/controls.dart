@@ -741,12 +741,24 @@ class Controls extends StatelessWidget {
                                   ),
 
                                 // Orientation toggle button
-                                NetflixControlButton(
-                                  icon: Icons.screen_rotation_rounded,
-                                  label: isLandscape ? 'Portrait' : 'Landscape',
-                                  onPressed: onRotate,
-                                  isCompact: true,
-                                ),
+                                if (showRotate)
+                                  NetflixControlButton(
+                                    icon: Icons.screen_rotation_rounded,
+                                    label: isLandscape ? 'Portrait' : 'Landscape',
+                                    onPressed: onRotate,
+                                    isCompact: true,
+                                  ),
+
+                                // Windows/Linux: windowManager fullscreen toggle.
+                                // Auto-fullscreen on open leaves classic dock
+                                // without a way back unless this is present.
+                                if (showFullscreen && onFullscreen != null)
+                                  NetflixControlButton(
+                                    icon: Icons.fullscreen_rounded,
+                                    label: AppLocalizations.of(context).t('Fullscreen'),
+                                    onPressed: onFullscreen!,
+                                    isCompact: true,
+                                  ),
                               ],
                             ),
                           ),
