@@ -9,7 +9,7 @@
       "localizedDescription": "Debrify is an open-source, cross-platform media hub. Browse, stream, and organize media from Plex, debrid services, WebDAV, IPTV, and Stremio addons — with a built-in cinematic player.",
       "iconURL": "https://raw.githubusercontent.com/zongai/debrify/feature/plex-integration/assets/app_icon.png",
       "tintColor": "6366F1",
-      "version": "0.10.0-beta.2",
+      "version": "v0.10.0-beta.2",
       "versionDate": "2026-10-26",
       "versionDescription": "feature/plex-integration build (+57). Plex integration, IPTV, localization, and player fixes.",
       "minOSVersion": "14.0",
