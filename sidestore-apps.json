@@ -13,7 +13,8 @@
       "versionDate": "2026-10-26",
       "versionDescription": "feature/plex-integration build (+57). Plex integration, IPTV, localization, and player fixes.",
       "minOSVersion": "14.0",
-      "downloadURL": "https://github.com/zongai/debrify/releases/download/v0.10.0-beta.2/debrify-v0.10.0-beta.2-unsigned.ipa"
+      "downloadURL": "https://github.com/zongai/debrify/releases/download/v0.10.0-beta.2/debrify-v0.10.0-beta.2-unsigned.ipa",
+      "banner": "https://raw.githubusercontent.com/zongai/zoo/refs/heads/main/banner.png"
     }
   ]
 }
