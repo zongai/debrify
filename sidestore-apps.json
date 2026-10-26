@@ -1,7 +1,7 @@
 {
   "apps": [
     {
-      "file": "debrify-unsigned.ipa",
+      "file": "debrify-v0.10.0-beta.2-unsigned.ipa",
       "bundleIdentifier": "com.varunsalian.debrify",
       "name": "Debrify",
       "developerName": "zongai",
